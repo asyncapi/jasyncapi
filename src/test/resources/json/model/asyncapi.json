@@ -1,0 +1,50 @@
+{
+  "asyncapi": "2.0.0",
+  "id": "https://www.asyncapi.com",
+  "defaultContentType": "application/json",
+  "info": {
+    "title": "AsyncApi sample",
+    "version": "2.0",
+    "description": "short description",
+    "termsOfService": "https://www.asyncapi.com/about/",
+    "contact": {
+      "name": "AsyncApi",
+      "url": "https://www.asyncapi.com",
+      "email": "java@asyncapi.com"
+    },
+    "license": {
+      "name": "Apache License 2.0",
+      "url": "http://www.apache.org/licenses/"
+    }
+  },
+  "channels": {
+    "channelName": {
+      "description": "This channel is used to exchange messages about users signing up",
+      "subscribe": {
+        "summary": "A user signed up.",
+        "message": {
+          "description": "A longer description of the message",
+          "payload": {
+            "type": "object",
+            "properties": {
+              "user": {
+                "$ref": "#/components/schemas/user"
+              },
+              "signup": {
+                "$ref": "#/components/schemas/signup"
+              }
+            }
+          }
+        }
+      },
+      "bindings": {
+        "amqp": {
+          "is": "queue",
+          "queue": {
+            "exclusive": true
+          }
+        }
+      }
+    }
+  }
+}
