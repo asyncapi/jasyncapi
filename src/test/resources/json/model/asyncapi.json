@@ -17,6 +17,29 @@
       "url": "http://www.apache.org/licenses/"
     }
   },
+  "servers": {
+    "stage": {
+      "url": "{username}.gigantic-server.com:{port}/{basePath}",
+      "description": "The production API server",
+      "protocol": "secure-mqtt",
+      "variables": {
+        "username": {
+          "default": "demo",
+          "description": "This value is assigned by the service provider, in this example `gigantic-server.com`"
+        },
+        "port": {
+          "enum": [
+            "8883",
+            "8884"
+          ],
+          "default": "8883"
+        },
+        "basePath": {
+          "default": "v2"
+        }
+      }
+    }
+  },
   "channels": {
     "channelName": {
       "description": "This channel is used to exchange messages about users signing up",

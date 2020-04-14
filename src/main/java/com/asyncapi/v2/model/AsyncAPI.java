@@ -2,6 +2,7 @@ package com.asyncapi.v2.model;
 
 import com.asyncapi.v2.model.channel.ChannelItem;
 import com.asyncapi.v2.model.info.Info;
+import com.asyncapi.v2.model.server.Server;
 import lombok.*;
 
 import javax.annotation.CheckForNull;
@@ -70,7 +71,8 @@ public class AsyncAPI {
     /**
      * Provides connection details of servers.
      */
-//    private Map<String, Server> servers;
+    @CheckForNull
+    private Map<String, Server> servers;
 
     /**
      * Required.
