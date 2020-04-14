@@ -41,6 +41,22 @@ class AsyncAPITest {
         return mapOf(Pair("stage", server))
     }
 
+    private fun buildTags(): List<Tag> {
+        val tag = objectMapper.readValue(
+                ClasspathUtils.readAsString("/json/model/tag.json"),
+                Tag::class.java
+        )
+
+        return listOf(tag)
+    }
+
+    private fun buildExternalDocs(): ExternalDocumentation {
+        return objectMapper.readValue(
+                ClasspathUtils.readAsString("/json/model/externalDocumentation.json"),
+                ExternalDocumentation::class.java
+        )
+    }
+
     private fun buildAsyncAPI(): AsyncAPI {
         return AsyncAPI(
                 "2.0.0",
@@ -48,7 +64,9 @@ class AsyncAPITest {
                 "application/json",
                 buildInfo(),
                 buildServers(),
-                buildChannels()
+                buildChannels(),
+                buildTags(),
+                buildExternalDocs()
         )
     }
 
