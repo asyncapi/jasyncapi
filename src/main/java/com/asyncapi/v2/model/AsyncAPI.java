@@ -100,6 +100,6 @@ public class AsyncAPI {
     /**
      * Additional external documentation.
      */
-//    private ExternalDocumentation externalDocs;
+    private ExternalDocumentation externalDocs;
 
 }
