@@ -7,6 +7,7 @@ import lombok.*;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -95,7 +96,7 @@ public class AsyncAPI {
     /**
      * A list of tags used by the specification with additional metadata. Each tag name in the list MUST be unique.
      */
-//    private List<Tag> tags;
+    private List<Tag> tags;
 
     /**
      * Additional external documentation.
