@@ -2,6 +2,7 @@ package com.asyncapi.v2.model
 
 import com.asyncapi.v2.ClasspathUtils
 import com.asyncapi.v2.model.channel.ChannelItem
+import com.asyncapi.v2.model.component.Components
 import com.asyncapi.v2.model.info.Info
 import com.asyncapi.v2.model.server.Server
 import com.fasterxml.jackson.databind.ObjectMapper
@@ -57,6 +58,13 @@ class AsyncAPITest {
         )
     }
 
+    private fun buildComponents(): Components {
+        return objectMapper.readValue(
+                ClasspathUtils.readAsString("/json/model/components.json"),
+                Components::class.java
+        )
+    }
+
     private fun buildAsyncAPI(): AsyncAPI {
         return AsyncAPI(
                 "2.0.0",
@@ -65,6 +73,7 @@ class AsyncAPITest {
                 buildInfo(),
                 buildServers(),
                 buildChannels(),
+                buildComponents(),
                 buildTags(),
                 buildExternalDocs()
         )
