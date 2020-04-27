@@ -1,7 +1,9 @@
 package com.asyncapi.v2.binding.http;
 
+import com.asyncapi.v2.binding.ChannelBinding;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
@@ -14,5 +16,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class HTTPChannelBinding {
+@EqualsAndHashCode(callSuper = true)
+public class HTTPChannelBinding extends ChannelBinding {
 }

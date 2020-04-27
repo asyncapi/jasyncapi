@@ -1,16 +1,15 @@
 package com.asyncapi.v2.binding.amqp;
 
+import com.asyncapi.v2.binding.ChannelBinding;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nullable;
-import java.util.Map;
 
 /**
- * This class MUST NOT contain any properties. Its name is reserved for future use.
- *
  * This class defines how to describe AMQP 0-9-1 channel binding.
  *
  * @author Pavel Bodiachevskii
@@ -18,7 +17,8 @@ import java.util.Map;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AMQPChannelBinding {
+@EqualsAndHashCode(callSuper = true)
+public class AMQPChannelBinding extends ChannelBinding {
 
     /**
      * Defines what type of channel is it. Can be either queue or routingKey (default).
@@ -39,7 +39,7 @@ public class AMQPChannelBinding {
      */
     @Nullable
     @CheckForNull
-    private Map<String, Object> queue;
+    private QueueProperties queue;
 
     @Data
     @NoArgsConstructor

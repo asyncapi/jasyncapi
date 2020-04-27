@@ -1,7 +1,9 @@
 package com.asyncapi.v2.binding.mqtt;
 
+import com.asyncapi.v2.binding.OperationBinding;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.annotation.CheckForNull;
@@ -17,7 +19,8 @@ import javax.annotation.Nullable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MQTTOperationBinding {
+@EqualsAndHashCode(callSuper = true)
+public class MQTTOperationBinding extends OperationBinding {
 
     /**
      * Defines how hard the broker/client will try to ensure that a message is received.

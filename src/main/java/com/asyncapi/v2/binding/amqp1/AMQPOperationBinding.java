@@ -1,7 +1,9 @@
 package com.asyncapi.v2.binding.amqp1;
 
+import com.asyncapi.v2.binding.OperationBinding;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
@@ -14,5 +16,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AMQPOperationBinding {
+@EqualsAndHashCode(callSuper = true)
+public class AMQPOperationBinding extends OperationBinding {
 }

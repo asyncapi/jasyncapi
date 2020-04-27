@@ -1,12 +1,12 @@
 package com.asyncapi.v2.binding.http;
 
+import com.asyncapi.v2.binding.MessageBinding;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 /**
@@ -19,7 +19,8 @@ import javax.annotation.Nullable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class HTTPMessageBinding {
+@EqualsAndHashCode(callSuper = true)
+public class HTTPMessageBinding extends MessageBinding {
 
     /**
      * A Schema object containing the definitions for each query parameter. This schema MUST be of type object

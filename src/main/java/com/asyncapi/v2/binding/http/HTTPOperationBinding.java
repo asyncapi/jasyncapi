@@ -1,9 +1,7 @@
 package com.asyncapi.v2.binding.http;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
+import com.asyncapi.v2.binding.OperationBinding;
+import lombok.*;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
@@ -17,7 +15,8 @@ import javax.annotation.Nullable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class HTTPOperationBinding {
+@EqualsAndHashCode(callSuper = true)
+public class HTTPOperationBinding extends OperationBinding {
 
     /**
      * Required.

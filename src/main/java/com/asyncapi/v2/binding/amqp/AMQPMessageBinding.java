@@ -1,15 +1,15 @@
 package com.asyncapi.v2.binding.amqp;
 
+import com.asyncapi.v2.binding.MessageBinding;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nullable;
 
 /**
- * This class MUST NOT contain any properties. Its name is reserved for future use.
- *
  * This class defines how to describe AMQP 0-9-1 message binding.
  *
  * @author Pavel Bodiachevskii
@@ -17,7 +17,8 @@ import javax.annotation.Nullable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AMQPMessageBinding {
+@EqualsAndHashCode(callSuper = true)
+public class AMQPMessageBinding extends MessageBinding {
 
     /**
      * A MIME encoding for the message content.

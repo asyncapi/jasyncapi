@@ -1,7 +1,9 @@
 package com.asyncapi.v2.binding.ws;
 
+import com.asyncapi.v2.binding.ChannelBinding;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.annotation.CheckForNull;
@@ -10,14 +12,15 @@ import javax.annotation.Nullable;
 /**
  * This class MUST NOT contain any properties. Its name is reserved for future use.
  *
- * This class defines how to describe HTTP channel binding.
+ * This class defines how to describe WebSockets channel binding.
  *
  * @author Pavel Bodiachevskii
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class WebSocketsChannelBinding {
+@EqualsAndHashCode(callSuper = true)
+public class WebSocketsChannelBinding extends ChannelBinding {
 
     /**
      * The HTTP method to use when establishing the connection. Its value MUST be either GET or POST.

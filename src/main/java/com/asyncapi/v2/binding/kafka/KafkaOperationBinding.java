@@ -1,7 +1,9 @@
 package com.asyncapi.v2.binding.kafka;
 
+import com.asyncapi.v2.binding.OperationBinding;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.annotation.CheckForNull;
@@ -19,7 +21,8 @@ import javax.annotation.Nullable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class KafkaOperationBinding {
+@EqualsAndHashCode(callSuper = true)
+public class KafkaOperationBinding extends OperationBinding {
 
     /**
      * Id of the consumer group.

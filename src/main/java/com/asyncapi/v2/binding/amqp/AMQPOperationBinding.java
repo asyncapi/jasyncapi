@@ -1,7 +1,9 @@
 package com.asyncapi.v2.binding.amqp;
 
+import com.asyncapi.v2.binding.OperationBinding;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.annotation.CheckForNull;
@@ -9,8 +11,6 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 /**
- * This class MUST NOT contain any properties. Its name is reserved for future use.
- *
  * This class defines how to describe AMQP 0-9-1 operation binding.
  *
  * @author Pavel Bodiachevskii
@@ -18,7 +18,8 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AMQPOperationBinding {
+@EqualsAndHashCode(callSuper = true)
+public class AMQPOperationBinding extends OperationBinding {
 
     /**
      * TTL (Time-To-Live) for the message. It MUST be greater than or equal to zero.
