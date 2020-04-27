@@ -15,7 +15,6 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class WebSocketsMessageBinding extends MessageBinding {
 }

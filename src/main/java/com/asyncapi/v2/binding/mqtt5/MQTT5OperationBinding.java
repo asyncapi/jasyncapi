@@ -15,7 +15,6 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class MQTT5OperationBinding extends OperationBinding {
 }
