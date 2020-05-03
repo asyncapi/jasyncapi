@@ -16,5 +16,5 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class AMQPMessageBinding extends MessageBinding {
+public class AMQP1MessageBinding extends MessageBinding {
 }
