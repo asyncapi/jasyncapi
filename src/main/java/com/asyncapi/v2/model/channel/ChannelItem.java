@@ -1,6 +1,9 @@
 package com.asyncapi.v2.model.channel;
 
+import com.asyncapi.v2.binding.ChannelBinding;
+import com.asyncapi.v2.binding.ChannelBindingsDeserializer;
 import com.asyncapi.v2.model.channel.operation.Operation;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -59,10 +62,9 @@ public class ChannelItem {
 
     /**
      * A map where the keys describe the name of the protocol and the values describe protocol-specific definitions for the channel.
-     *
-     * TODO: https://www.asyncapi.com/docs/specifications/2.0.0/#channelBindingsObject
      */
     @CheckForNull
-    private Map<String, Map<String, Object>> bindings;
+    @JsonDeserialize(using = ChannelBindingsDeserializer.class)
+    private Map<String, ? extends ChannelBinding> bindings;
 
 }

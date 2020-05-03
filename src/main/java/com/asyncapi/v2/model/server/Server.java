@@ -1,5 +1,8 @@
 package com.asyncapi.v2.model.server;
 
+import com.asyncapi.v2.binding.ServerBinding;
+import com.asyncapi.v2.binding.ServerBindingsDeserializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.*;
 
 import javax.annotation.CheckForNull;
@@ -76,12 +79,11 @@ public class Server {
     private List<Object> security;
 
     /**
-     * TODO: Разобраться с связыванием
-     *  https://github.com/asyncapi/asyncapi/blob/master/versions/2.0.0/asyncapi.md#serverBindingsObject
      * A map where the keys describe the name of the protocol and the values describe protocol-specific definitions
      * for the server.
      */
     @CheckForNull
-    private Map<String, Object> bindings;
+    @JsonDeserialize(using = ServerBindingsDeserializer.class)
+    private Map<String, ? extends ServerBinding> bindings;
 
 }

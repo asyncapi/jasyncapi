@@ -1,7 +1,10 @@
 package com.asyncapi.v2.model.channel.message;
 
+import com.asyncapi.v2.binding.MessageBinding;
+import com.asyncapi.v2.binding.MessageBindingsDeserializer;
 import com.asyncapi.v2.model.ExternalDocumentation;
 import com.asyncapi.v2.model.Tag;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -94,12 +97,11 @@ public class MessageTrait {
     private ExternalDocumentation externalDocs;
 
     /**
-     * TODO: узнать что с этим делать
-     *  https://github.com/asyncapi/asyncapi/blob/master/versions/2.0.0/asyncapi.md#message-bindings-object
      * A map where the keys describe the name of the protocol and the values describe protocol-specific definitions for the message.
      */
     @CheckForNull
-    private Map<String, Object> bindings;
+    @JsonDeserialize(using = MessageBindingsDeserializer.class)
+    private Map<String, ? extends MessageBinding> bindings;
 
     /**
      * An array with examples of valid message objects.

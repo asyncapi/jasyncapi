@@ -1,7 +1,10 @@
 package com.asyncapi.v2.model.channel.operation;
 
+import com.asyncapi.v2.binding.OperationBinding;
+import com.asyncapi.v2.binding.OperationBindingsDeserializer;
 import com.asyncapi.v2.model.ExternalDocumentation;
 import com.asyncapi.v2.model.Tag;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.*;
 
 import javax.annotation.CheckForNull;
@@ -58,11 +61,10 @@ public class OperationTrait {
     private ExternalDocumentation externalDocs;
 
     /**
-     * TODO: разобраться со связыванием
-     *  https://github.com/asyncapi/asyncapi/blob/master/versions/2.0.0/asyncapi.md#operation-bindings-object
      * A map where the keys describe the name of the protocol and the values describe protocol-specific definitions for the operation.
      */
     @CheckForNull
-    private Map<String, Object> bindings;
+    @JsonDeserialize(using = OperationBindingsDeserializer.class)
+    private Map<String, ? extends OperationBinding> bindings;
 
 }

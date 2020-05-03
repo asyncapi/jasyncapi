@@ -1,8 +1,11 @@
 package com.asyncapi.v2.model.channel.operation
 
 import com.asyncapi.v2.ClasspathUtils
+import com.asyncapi.v2.binding.amqp.AMQPOperationBinding
 import com.asyncapi.v2.model.Tag
 import com.asyncapi.v2.model.channel.message.Message
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import com.google.gson.GsonBuilder
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName
@@ -13,7 +16,7 @@ import org.junit.jupiter.api.Test
  */
 class OperationTest {
 
-    private val gson = GsonBuilder().setPrettyPrinting().create()
+    private val objectMapper = ObjectMapper().registerKotlinModule()
 
     private fun buildOperation(): Operation {
         return Operation.builder()
@@ -48,10 +51,8 @@ class OperationTest {
                         ))
                         .build()
                 )
-                .bindings(mapOf(
-                        Pair("amqp", mapOf(
-                                Pair("ack", false)
-                        ))
+                .bindings(mutableMapOf(
+                        Pair("amqp", AMQPOperationBinding())
                 ))
                 .traits(listOf(mapOf(Pair("\$ref", "#/components/operationTraits/kafka"))))
                 .build()
@@ -63,7 +64,7 @@ class OperationTest {
         val model = ClasspathUtils.readAsString("/json/model/channel/operation/operation.json")
 
         Assertions.assertEquals(
-                gson.fromJson(model, Operation::class.java),
+                objectMapper.readValue(model, Operation::class.java),
                 buildOperation()
         )
     }
