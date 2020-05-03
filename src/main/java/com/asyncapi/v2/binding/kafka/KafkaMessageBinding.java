@@ -1,10 +1,7 @@
 package com.asyncapi.v2.binding.kafka;
 
 import com.asyncapi.v2.binding.MessageBinding;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nullable;
@@ -19,6 +16,7 @@ import javax.annotation.Nullable;
  * @author Pavel Bodiachevskii
  */
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)

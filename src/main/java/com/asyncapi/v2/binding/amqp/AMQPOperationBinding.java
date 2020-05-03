@@ -1,10 +1,7 @@
 package com.asyncapi.v2.binding.amqp;
 
 import com.asyncapi.v2.binding.OperationBinding;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nullable;
@@ -16,6 +13,7 @@ import java.util.List;
  * @author Pavel Bodiachevskii
  */
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)

@@ -13,6 +13,7 @@ import javax.annotation.Nullable;
  * @author Pavel Bodiachevskii
  */
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
