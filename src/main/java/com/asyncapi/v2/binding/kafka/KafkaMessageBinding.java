@@ -11,8 +11,6 @@ import javax.annotation.Nullable;
  *
  * This class defines how to describe Kafka message binding.
  *
- * TODO: wait https://github.com/asyncapi/bindings/issues/22
- *
  * @author Pavel Bodiachevskii
  */
 @Data
@@ -24,10 +22,12 @@ public class KafkaMessageBinding extends MessageBinding {
 
     /**
      * The message key.
+     *
+     * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#schemaObject">Schema object</a>
      */
     @Nullable
     @CheckForNull
-    private String key;
+    private Object key;
 
     /**
      * The version of this binding. If omitted, "latest" MUST be assumed.
