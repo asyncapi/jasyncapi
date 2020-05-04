@@ -1,8 +1,10 @@
 package com.asyncapi.v2.model.component;
 
+import com.asyncapi.v2.binding.*;
 import com.asyncapi.v2.model.channel.message.CorrelationId;
 import com.asyncapi.v2.model.channel.message.MessageTrait;
 import com.asyncapi.v2.model.channel.operation.OperationTrait;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -66,27 +68,27 @@ public class Components {
     private Map<String, MessageTrait> messageTraits;
 
     /**
-     * TODO: Map[string, Server Binding Object]
      * An object to hold reusable Server Binding Objects.
      */
-    private Map<String, Object> serverBindings;
+    @JsonDeserialize(using = ServerBindingsDeserializer.class)
+    private Map<String, ? extends ServerBindingsDeserializer> serverBindings;
 
     /**
-     * TODO: Map[string, Channel Binding Object]
      * An object to hold reusable Channel Binding Objects.
      */
-    private Map<String, Object> channelBindings;
+    @JsonDeserialize(using = ChannelBindingsDeserializer.class)
+    private Map<String, ? extends ChannelBinding> channelBindings;
 
     /**
-     * TODO: Map[string, Operation Binding Object]
      * An object to hold reusable Operation Binding Objects.
      */
-    private Map<String, Object> operationBindings;
+    @JsonDeserialize(using = OperationBindingsDeserializer.class)
+    private Map<String, ? extends OperationBinding> operationBindings;
 
     /**
-     * TODO: Map[string, Message Binding Object]
      * An object to hold reusable Message Binding Objects.
      */
-    private Map<String, Object> messageBindings;
+    @JsonDeserialize(using = MessageBindingsDeserializer.class)
+    private Map<String, ? extends MessageBinding> messageBindings;
 
 }
