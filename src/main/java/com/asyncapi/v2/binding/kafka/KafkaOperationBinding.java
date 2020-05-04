@@ -11,8 +11,6 @@ import javax.annotation.Nullable;
  *
  * This class defines how to describe Kafka operation binding.
  *
- * TODO: wait https://github.com/asyncapi/bindings/issues/21
- *
  * @author Pavel Bodiachevskii
  */
 @Data
@@ -24,17 +22,21 @@ public class KafkaOperationBinding extends OperationBinding {
 
     /**
      * Id of the consumer group.
+     *
+     * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#schemaObject">Schema object</a>
      */
     @Nullable
     @CheckForNull
-    private String groupId;
+    private Object groupId;
 
     /**
      * Id of the consumer inside a consumer group.
+     *
+     * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#schemaObject">Schema object</a>
      */
     @Nullable
     @CheckForNull
-    private String clientId;
+    private Object clientId;
 
     /**
      * The version of this binding. If omitted, "latest" MUST be assumed.
