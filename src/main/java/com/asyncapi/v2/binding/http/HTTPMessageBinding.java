@@ -9,8 +9,6 @@ import javax.annotation.Nullable;
 /**
  * This class defines how to describe HTTP message binding.
  *
- * TODO: https://github.com/asyncapi/bindings/issues/19
- *
  * @author Pavel Bodiachevskii
  */
 @Data
