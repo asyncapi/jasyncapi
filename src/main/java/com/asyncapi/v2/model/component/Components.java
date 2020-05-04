@@ -50,19 +50,16 @@ public class Components {
     private Map<String, Object> parameters;
 
     /**
-     * TODO: Map[string, Correlation ID Object]
      * An object to hold reusable Correlation ID Objects.
      */
     private Map<String, CorrelationId> correlationIds;
 
     /**
-     * TODO: Map[string, Operation Trait Object]
      * An object to hold reusable Operation Trait Objects.
      */
     private Map<String, OperationTrait> operationTraits;
 
     /**
-     * TODO: Map[string, Message Trait Object]
      * An object to hold reusable Message Trait Objects.
      */
     private Map<String, MessageTrait> messageTraits;
