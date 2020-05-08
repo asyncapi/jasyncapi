@@ -23,7 +23,7 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Components {
+public class Components<HeadersType, CorrelationIdType> {
 
     /**
      * TODO: Map[string, Schema Object | Reference Object]
@@ -62,7 +62,7 @@ public class Components {
     /**
      * An object to hold reusable Message Trait Objects.
      */
-    private Map<String, MessageTrait> messageTraits;
+    private Map<String, MessageTrait<HeadersType, CorrelationIdType>> messageTraits;
 
     /**
      * An object to hold reusable Server Binding Objects.

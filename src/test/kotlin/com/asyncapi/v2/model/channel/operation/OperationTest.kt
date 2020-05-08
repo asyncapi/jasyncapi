@@ -18,8 +18,8 @@ class OperationTest {
 
     private val objectMapper = ObjectMapper().registerKotlinModule()
 
-    private fun buildOperation(): Operation {
-        return Operation.builder()
+    private fun buildOperation(): Operation<Any, Any> {
+        return Operation.builder<Any, Any>()
                 .operationId("registerUser")
                 .summary("Action to sign a user up.")
                 .description("A longer description")
@@ -28,7 +28,7 @@ class OperationTest {
                         Tag("signup", null, null),
                         Tag("register", null, null)
                 ))
-                .message(Message.builder()
+                .message(Message.builder<Any, Any>()
                         .headers(mapOf(
                                 Pair("type", "object"),
                                 Pair("properties", mapOf(

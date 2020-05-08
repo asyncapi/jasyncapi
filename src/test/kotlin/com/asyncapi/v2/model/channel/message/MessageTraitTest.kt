@@ -14,8 +14,8 @@ class MessageTraitTest {
 
     private val gson = GsonBuilder().setPrettyPrinting().create()
 
-    private fun buildMessageTrait(): MessageTrait {
-        return MessageTrait.builder()
+    private fun buildMessageTrait(): MessageTrait<*, *> {
+        return MessageTrait.builder<Any, Any>()
                 .schemaFormat("application/vnd.apache.avro+json;version=1.9.0")
                 .contentType("application/json")
                 .build()

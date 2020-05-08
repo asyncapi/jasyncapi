@@ -26,7 +26,7 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-public class Operation {
+public class Operation<HeadersType, CorrelationIdType> {
 
     /**
      * Unique string used to identify the operation.
@@ -87,6 +87,6 @@ public class Operation {
      * specify multiple messages, however, a message MUST be valid only against one of the referenced message objects.
      */
     @CheckForNull
-    private Message message;
+    private Message<HeadersType, CorrelationIdType> message;
 
 }

@@ -5,6 +5,7 @@ import com.asyncapi.v2.model.channel.ChannelItem
 import com.asyncapi.v2.model.component.Components
 import com.asyncapi.v2.model.info.Info
 import com.asyncapi.v2.model.server.Server
+import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName
@@ -24,10 +25,10 @@ class AsyncAPITest {
         )
     }
 
-    private fun buildChannels(): Map<String, ChannelItem> {
+    private fun buildChannels(): Map<String, ChannelItem<Any, Any>> {
         val channelItem = objectMapper.readValue(
                 ClasspathUtils.readAsString("/json/model/channel/channel.json"),
-                ChannelItem::class.java
+                object: TypeReference<ChannelItem<Any, Any>>() {}
         )
 
         return mapOf(Pair("channelName", channelItem))
@@ -58,10 +59,10 @@ class AsyncAPITest {
         )
     }
 
-    private fun buildComponents(): Components {
+    private fun buildComponents(): Components<Any, Any> {
         return objectMapper.readValue(
                 ClasspathUtils.readAsString("/json/model/components.json"),
-                Components::class.java
+                object: TypeReference<Components<Any, Any>>() {}
         )
     }
 

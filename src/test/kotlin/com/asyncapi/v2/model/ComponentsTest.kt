@@ -16,8 +16,8 @@ class ComponentsTest {
 
     private val gson = GsonBuilder().setPrettyPrinting().create()
 
-    private fun buildComponents(): Components {
-        return Components.builder()
+    private fun buildComponents(): Components<Any, Any> {
+        return Components.builder<Any, Any>()
                 .schemas(mapOf(
                         Pair("Category", mapOf(
                                 Pair("type", "object"),
@@ -91,7 +91,7 @@ class ComponentsTest {
                         ))
                 ))
                 .messageTraits(mapOf(
-                        Pair("commonHeaders", MessageTrait.builder()
+                        Pair("commonHeaders", MessageTrait.builder<Any, Any>()
                                 .headers(mapOf(
                                         Pair("type", "object"),
                                         Pair("properties", mapOf(

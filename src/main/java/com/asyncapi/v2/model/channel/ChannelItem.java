@@ -21,7 +21,7 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ChannelItem {
+public class ChannelItem<HeadersType, CorrelationIdType> {
 
     /**
      * Allows for an external definition of this channel item.
@@ -41,13 +41,13 @@ public class ChannelItem {
      * A definition of the SUBSCRIBE operation.
      */
     @CheckForNull
-    private Operation subscribe;
+    private Operation<HeadersType, CorrelationIdType> subscribe;
 
     /**
      * A definition of the PUBLISH operation.
      */
     @CheckForNull
-    private Operation publish;
+    private Operation<HeadersType, CorrelationIdType> publish;
 
     /**
      * A map of the parameters included in the channel name.

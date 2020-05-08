@@ -2,7 +2,8 @@ package com.asyncapi.v2.model.channel.message
 
 import com.asyncapi.v2.ClasspathUtils
 import com.asyncapi.v2.model.Tag
-import com.google.gson.GsonBuilder
+import com.fasterxml.jackson.core.type.TypeReference
+import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
@@ -12,10 +13,10 @@ import org.junit.jupiter.api.Test
  */
 class MessageTest {
 
-    private val gson = GsonBuilder().setPrettyPrinting().create()
+    private val objectMapper = ObjectMapper()
 
-    private fun buildMessage(): Message {
-        return Message.builder()
+    private fun buildMessage(): Message<Any, CorrelationId> {
+        return Message.builder<Any, CorrelationId>()
                 .name("UserSignup")
                 .title("User signup")
                 .summary("Action to sign a user up.")
@@ -61,7 +62,7 @@ class MessageTest {
         val model = ClasspathUtils.readAsString("/json/model/channel/message/message.json")
 
         Assertions.assertEquals(
-                gson.fromJson(model, Message::class.java),
+                objectMapper.readValue(model, object: TypeReference<Message<Any, CorrelationId>>() {}),
                 buildMessage()
         )
     }

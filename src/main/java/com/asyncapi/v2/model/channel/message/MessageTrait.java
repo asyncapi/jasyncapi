@@ -25,22 +25,24 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MessageTrait {
+public class MessageTrait<HeadersType, CorrelationIdType> {
 
     /**
-     * TODO: Придумать как ограничить только: Schema Object | Reference Object
      * Schema definition of the application headers. Schema MUST be of type "object".
      * It MUST NOT define the protocol headers.
+     *
+     * MUST BE Schema Object | Reference Object
      */
     @CheckForNull
-    private Object headers;
+    private HeadersType headers;
 
     /**
-     * TODO: Придумать как ограничить только: Correlation ID Object | Reference Object
      * Definition of the correlation ID used for message tracing or matching.
+     *
+     * MUST BE Correlation ID Object | Reference Object
      */
     @CheckForNull
-    private Object correlationId;
+    private CorrelationIdType correlationId;
 
     /**
      * TODO: clarify
