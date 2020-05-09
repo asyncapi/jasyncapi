@@ -61,11 +61,14 @@
   },
   "parameters": {
     "userId": {
-      "name": "userId",
       "description": "Id of the user.",
       "schema": {
         "type": "string"
-      }
+      },
+      "location": "$message.payload#/user/id"
+    },
+    "userKey": {
+      "$ref": "$message.payload#/user/key"
     }
   },
   "correlationIds": {
