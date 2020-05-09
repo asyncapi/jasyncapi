@@ -107,6 +107,9 @@
             "type": "string"
           }
         }
+      },
+      "User": {
+        "$ref": "#/components/schemas/user"
       }
     },
     "messages": {

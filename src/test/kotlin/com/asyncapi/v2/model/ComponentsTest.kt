@@ -44,7 +44,8 @@ class ComponentsTest {
                                                 Pair("type", "string")
                                         ))
                                 ))
-                        ))
+                        )),
+                        Pair("User", Reference("#/components/schemas/user"))
                 ))
                 .messages(mapOf(
                         Pair("userSignUp", Message.builder<Any, Any>()

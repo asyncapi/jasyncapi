@@ -3,6 +3,7 @@ package com.asyncapi.v2.model.component;
 import com.asyncapi.v2.binding.*;
 import com.asyncapi.v2.jackson.ComponentsMessagesDeserializer;
 import com.asyncapi.v2.jackson.ComponentsParametersDeserializer;
+import com.asyncapi.v2.jackson.ComponentsSchemasDeserializer;
 import com.asyncapi.v2.jackson.ComponentsSecuritySchemesDeserializer;
 import com.asyncapi.v2.model.channel.message.CorrelationId;
 import com.asyncapi.v2.model.channel.message.MessageTrait;
@@ -30,10 +31,17 @@ import java.util.Map;
 public class Components<HeadersType, CorrelationIdType> {
 
     /**
-     * TODO: Map[string, Schema Object | Reference Object]
      * An object to hold reusable Schema Objects.
+     *
+     * TODO: Define Schema Object
+     * MUST BE:
+     * <ul>
+     *     <li><a href="https://www.asyncapi.com/docs/specifications/2.0.0/#a-name-schemaobject-a-schema-object"></a>Schema Object</li>
+     *     <li>{@link com.asyncapi.v2.model.Reference}</li>
+     * </ul>
      */
     @CheckForNull
+    @JsonDeserialize(using = ComponentsSchemasDeserializer.class)
     private Map<String, Object> schemas;
 
     /**
