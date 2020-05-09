@@ -21,7 +21,7 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AsyncAPI {
+public class AsyncAPI<HeadersType, CorrelationIdType> {
 
     /**
      * Required.
@@ -87,21 +87,24 @@ public class AsyncAPI {
      */
     @Nonnull
     @NonNull
-    private Map<String, ChannelItem> channels;
+    private Map<String, ChannelItem<HeadersType, CorrelationIdType>> channels;
 
     /**
      * An element to hold various schemas for the specification.
      */
-    private Components components;
+    @CheckForNull
+    private Components<HeadersType, CorrelationIdType> components;
 
     /**
      * A list of tags used by the specification with additional metadata. Each tag name in the list MUST be unique.
      */
+    @CheckForNull
     private List<Tag> tags;
 
     /**
      * Additional external documentation.
      */
+    @CheckForNull
     private ExternalDocumentation externalDocs;
 
 }
