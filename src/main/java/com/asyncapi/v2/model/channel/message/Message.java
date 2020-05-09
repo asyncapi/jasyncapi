@@ -2,6 +2,7 @@ package com.asyncapi.v2.model.channel.message;
 
 import com.asyncapi.v2.binding.MessageBinding;
 import com.asyncapi.v2.binding.MessageBindingsDeserializer;
+import com.asyncapi.v2.jackson.MessageTraitsDeserializer;
 import com.asyncapi.v2.model.ExternalDocumentation;
 import com.asyncapi.v2.model.Tag;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -122,10 +123,14 @@ public class Message <HeadersType, CorrelationIdType> {
      * A list of traits to apply to the message object. Traits MUST be merged into the message object using the JSON
      * Merge Patch algorithm in the same order they are defined here. The resulting object MUST be a valid Message
      *
-     * TODO: reference or MessageTrait
-     * Object.
+     * MUST BE:
+     * <ul>
+     *     <li>{@link com.asyncapi.v2.model.Reference}</li>
+     *     <li>{@link com.asyncapi.v2.model.channel.message.MessageTrait}</li>
+     * </ul>
      */
     @CheckForNull
+    @JsonDeserialize(using = MessageTraitsDeserializer.class)
     private List<Object> traits;
 
 }

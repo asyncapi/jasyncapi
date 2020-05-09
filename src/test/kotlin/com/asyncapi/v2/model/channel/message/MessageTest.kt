@@ -1,6 +1,7 @@
 package com.asyncapi.v2.model.channel.message
 
 import com.asyncapi.v2.ClasspathUtils
+import com.asyncapi.v2.model.Reference
 import com.asyncapi.v2.model.Tag
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
@@ -52,7 +53,13 @@ class MessageTest {
                         ))
                 ))
                 .correlationId(CorrelationId("Default Correlation ID", "\$message.header#/correlationId"))
-                .traits(listOf(mapOf(Pair("\$ref", "#/components/messageTraits/commonHeaders"))))
+                .traits(listOf(
+                        Reference("#/components/messageTraits/commonHeaders"),
+                        MessageTrait.builder<Any, CorrelationId>()
+                                .schemaFormat("application/vnd.apache.avro+json;version=1.9.0")
+                                .contentType("application/json")
+                                .build()
+                ))
                 .build()
     }
 

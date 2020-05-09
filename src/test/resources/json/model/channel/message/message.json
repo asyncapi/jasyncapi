@@ -38,6 +38,12 @@
     "location": "$message.header#/correlationId"
   },
   "traits": [
-    { "$ref": "#/components/messageTraits/commonHeaders" }
+    {
+      "$ref": "#/components/messageTraits/commonHeaders"
+    },
+    {
+      "schemaFormat": "application/vnd.apache.avro+json;version=1.9.0",
+      "contentType": "application/json"
+    }
   ]
 }
