@@ -2,6 +2,7 @@ package com.asyncapi.v2.model.channel;
 
 import com.asyncapi.v2.binding.ChannelBinding;
 import com.asyncapi.v2.binding.ChannelBindingsDeserializer;
+import com.asyncapi.v2.jackson.ChannelParametersDeserializer;
 import com.asyncapi.v2.model.channel.operation.Operation;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
@@ -55,10 +56,15 @@ public class ChannelItem<HeadersType, CorrelationIdType> {
      *
      * This map MUST contain all the parameters used in the parent channel name.
      *
-     * TODO: Parameter Object | Reference Object
+     * MUST BE:
+     * <ul>
+     *     <li>{@link com.asyncapi.v2.model.Reference}</li>
+     *     <li>{@link com.asyncapi.v2.model.channel.Parameter}</li>
+     * </ul>
      */
     @CheckForNull
-    private Map<String, Parameter> parameters;
+    @JsonDeserialize(using = ChannelParametersDeserializer.class)
+    private Map<String, Object> parameters;
 
     /**
      * A map where the keys describe the name of the protocol and the values describe protocol-specific definitions for the channel.

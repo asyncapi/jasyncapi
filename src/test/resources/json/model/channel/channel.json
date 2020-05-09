@@ -17,6 +17,18 @@
       }
     }
   },
+  "parameters": {
+    "param1": {
+      "$ref": "#/components/operationTraits/kafka"
+    },
+    "param2": {
+      "description": "Id of the user.",
+      "schema": {
+        "type": "string"
+      },
+      "location": "$message.payload#/user/id"
+    }
+  },
   "bindings": {
     "amqp": {
       "is": "queue",
