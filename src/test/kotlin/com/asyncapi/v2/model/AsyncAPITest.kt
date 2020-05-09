@@ -66,7 +66,7 @@ class AsyncAPITest {
         )
     }
 
-    private fun buildAsyncAPI(): AsyncAPI {
+    private fun buildAsyncAPI(): AsyncAPI<Any, Any> {
         return AsyncAPI(
                 "2.0.0",
                 "https://www.asyncapi.com",
