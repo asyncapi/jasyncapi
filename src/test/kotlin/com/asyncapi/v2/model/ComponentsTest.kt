@@ -3,6 +3,7 @@ package com.asyncapi.v2.model
 import com.asyncapi.v2.ClasspathUtils
 import com.asyncapi.v2.model.channel.Parameter
 import com.asyncapi.v2.model.channel.message.CorrelationId
+import com.asyncapi.v2.model.channel.message.Message
 import com.asyncapi.v2.model.channel.message.MessageTrait
 import com.asyncapi.v2.model.component.Components
 import com.fasterxml.jackson.databind.ObjectMapper
@@ -46,15 +47,15 @@ class ComponentsTest {
                         ))
                 ))
                 .messages(mapOf(
-                        Pair("userSignUp", mapOf(
-                                Pair("summary", "Action to sign a user up."),
-                                Pair("description", "Multiline description of what this action does.\n" +
-                                        "Here you have another line.\n"),
-                                Pair("tags", listOf(
-                                        mapOf(Pair("name", "user")),
-                                        mapOf(Pair("name", "signup"))
-                                )),
-                                Pair("headers", mapOf(
+                        Pair("userSignUp", Message.builder<Any, Any>()
+                                .summary("Action to sign a user up.")
+                                .description("Multiline description of what this action does.\n" +
+                                        "Here you have another line.\n")
+                                .tags(listOf(
+                                        Tag("user", null, null),
+                                        Tag("signup", null, null)
+                                ))
+                                .headers(mapOf(
                                         Pair("type", "object"),
                                         Pair("properties", mapOf(
                                                 Pair("applicationInstanceId", mapOf(
@@ -62,8 +63,8 @@ class ComponentsTest {
                                                         Pair("type", "string")
                                                 ))
                                         ))
-                                )),
-                                Pair("payload", mapOf(
+                                ))
+                                .payload(mapOf(
                                         Pair("type", "object"),
                                         Pair("properties", mapOf(
                                                 Pair("user", mapOf(
@@ -74,7 +75,8 @@ class ComponentsTest {
                                                 ))
                                         ))
                                 ))
-                        ))
+                                .build()),
+                        Pair("userSignOut", Reference("#/components/schemas/userSignOut"))
                 ))
                 .securitySchemes(mapOf(
                         Pair("1", mapOf(Pair("type", "userPassword"))),

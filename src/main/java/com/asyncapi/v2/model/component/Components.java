@@ -1,6 +1,7 @@
 package com.asyncapi.v2.model.component;
 
 import com.asyncapi.v2.binding.*;
+import com.asyncapi.v2.jackson.ComponentsMessagesDeserializer;
 import com.asyncapi.v2.jackson.ComponentsParametersDeserializer;
 import com.asyncapi.v2.jackson.ComponentsSecuritySchemesDeserializer;
 import com.asyncapi.v2.model.channel.message.CorrelationId;
@@ -36,10 +37,16 @@ public class Components<HeadersType, CorrelationIdType> {
     private Map<String, Object> schemas;
 
     /**
-     * TODO: Map[string, Message Object | Reference Object]
      * An object to hold reusable Message Objects.
+     *
+     * MUST BE:
+     * <ul>
+     *     <li>{@link com.asyncapi.v2.model.channel.message.Message}</li>
+     *     <li>{@link com.asyncapi.v2.model.Reference}</li>
+     * </ul>
      */
     @CheckForNull
+    @JsonDeserialize(using = ComponentsMessagesDeserializer.class)
     private Map<String, Object> messages;
 
     /**

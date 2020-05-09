@@ -57,6 +57,9 @@
           }
         }
       }
+    },
+    "userSignOut": {
+      "$ref": "#/components/schemas/userSignOut"
     }
   },
   "securitySchemes": {
