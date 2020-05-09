@@ -35,6 +35,15 @@
     }
   },
   "traits": [
-    { "$ref": "#/components/operationTraits/kafka" }
+    {
+      "$ref": "#/components/operationTraits/kafka"
+    },
+    {
+      "bindings": {
+        "amqp": {
+          "ack": false
+        }
+      }
+    }
   ]
 }

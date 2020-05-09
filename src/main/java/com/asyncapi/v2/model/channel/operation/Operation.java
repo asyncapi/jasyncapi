@@ -2,6 +2,7 @@ package com.asyncapi.v2.model.channel.operation;
 
 import com.asyncapi.v2.binding.OperationBindingsDeserializer;
 import com.asyncapi.v2.binding.OperationBinding;
+import com.asyncapi.v2.jackson.OperationTraitsDeserializer;
 import com.asyncapi.v2.model.ExternalDocumentation;
 import com.asyncapi.v2.model.Tag;
 import com.asyncapi.v2.model.channel.message.Message;
@@ -77,9 +78,14 @@ public class Operation<HeadersType, CorrelationIdType> {
      * A list of traits to apply to the operation object. Traits MUST be merged into the operation object using the
      * JSON Merge Patch algorithm in the same order they are defined here.
      *
-     * TODO: reference or MessageTrait
+     * MUST BE:
+     * <ul>
+     *     <li>{@link com.asyncapi.v2.model.Reference}</li>
+     *     <li>{@link com.asyncapi.v2.model.channel.operation.OperationTrait}</li>
+     * </ul>
      */
     @CheckForNull
+    @JsonDeserialize(using = OperationTraitsDeserializer.class)
     private List<Object> traits;
 
     /**

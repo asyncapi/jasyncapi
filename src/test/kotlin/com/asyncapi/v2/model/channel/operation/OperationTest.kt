@@ -2,6 +2,7 @@ package com.asyncapi.v2.model.channel.operation
 
 import com.asyncapi.v2.ClasspathUtils
 import com.asyncapi.v2.binding.amqp.AMQPOperationBinding
+import com.asyncapi.v2.model.Reference
 import com.asyncapi.v2.model.Tag
 import com.asyncapi.v2.model.channel.message.Message
 import com.fasterxml.jackson.databind.ObjectMapper
@@ -54,7 +55,14 @@ class OperationTest {
                 .bindings(mutableMapOf(
                         Pair("amqp", AMQPOperationBinding())
                 ))
-                .traits(listOf(mapOf(Pair("\$ref", "#/components/operationTraits/kafka"))))
+                .traits(listOf(
+                        Reference("#/components/operationTraits/kafka"),
+                        OperationTrait.builder()
+                                .bindings(mapOf(
+                                        Pair("amqp", AMQPOperationBinding.builder().ack(false).build())
+                                ))
+                                .build()
+                ))
                 .build()
     }
 
