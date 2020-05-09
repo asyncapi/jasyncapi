@@ -2,6 +2,7 @@ package com.asyncapi.v2.model.component;
 
 import com.asyncapi.v2.binding.*;
 import com.asyncapi.v2.jackson.ComponentsParametersDeserializer;
+import com.asyncapi.v2.jackson.ComponentsSecuritySchemesDeserializer;
 import com.asyncapi.v2.model.channel.message.CorrelationId;
 import com.asyncapi.v2.model.channel.message.MessageTrait;
 import com.asyncapi.v2.model.channel.operation.OperationTrait;
@@ -42,10 +43,17 @@ public class Components<HeadersType, CorrelationIdType> {
     private Map<String, Object> messages;
 
     /**
-     * TODO: Map[string, Security Scheme Object | Reference Object]
      * An object to hold reusable Security Scheme Objects.
+     *
+     * TODO: Define Security Scheme Object
+     * MUST BE:
+     * <ul>
+     *     <li><a href="https://www.asyncapi.com/docs/specifications/2.0.0/#a-name-securityschemeobject-a-security-scheme-object">Security Scheme Object</a></li>
+     *     <li>{@link com.asyncapi.v2.model.Reference}</li>
+     * </ul>
      */
     @CheckForNull
+    @JsonDeserialize(using = ComponentsSecuritySchemesDeserializer.class)
     private Map<String, Object> securitySchemes;
 
     /**

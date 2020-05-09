@@ -76,6 +76,10 @@ class ComponentsTest {
                                 ))
                         ))
                 ))
+                .securitySchemes(mapOf(
+                        Pair("1", mapOf(Pair("type", "userPassword"))),
+                        Pair("2", Reference("#/components/schemas/2"))
+                ))
                 .parameters(mapOf(
                         Pair("userId", Parameter.builder()
                                 .description("Id of the user.")
