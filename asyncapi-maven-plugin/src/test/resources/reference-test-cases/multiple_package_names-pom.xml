@@ -1,0 +1,15 @@
+<project>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.asyncapi</groupId>
+                <artifactId>asyncapi-maven-plugin</artifactId>
+                <configuration>
+                    <packageNames>com.asyncapi.plugin.maven.asyncapi.streetlights,com.asyncapi.plugin.maven.asyncapi.lamps</packageNames>
+                    <schemaFormat>json</schemaFormat>
+                    <schemaFilePath>target/generated-test-sources/Complete</schemaFilePath>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
