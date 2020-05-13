@@ -47,7 +47,7 @@ public class ComponentsParametersDeserializer extends JsonDeserializer<Map<Strin
     }
 
     private Object chooseKnownPojo(JsonNode parametersValue) throws IOException {
-        if (parametersValue.findValue("$ref") != null) {
+        if (parametersValue.get("$ref") != null) {
             return objectMapper.readValue(parametersValue.toString(), Reference.class);
         } else {
             return objectMapper.readValue(parametersValue.toString(), Parameter.class);

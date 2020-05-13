@@ -44,7 +44,7 @@ public class OperationTraitsDeserializer extends JsonDeserializer<List<Object>> 
     }
 
     private Object chooseKnownPojo(JsonNode traitsValue) throws IOException {
-        if (traitsValue.findValue("$ref") != null) {
+        if (traitsValue.get("$ref") != null) {
             return objectMapper.readValue(traitsValue.toString(), Reference.class);
         } else {
             return objectMapper.readValue(traitsValue.toString(), OperationTrait.class);

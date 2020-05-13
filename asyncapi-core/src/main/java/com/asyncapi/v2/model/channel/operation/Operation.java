@@ -89,6 +89,7 @@ public class Operation<HeadersType, CorrelationIdType> {
     private List<Object> traits;
 
     /**
+     * TODO: SHOULD ReferenceObject or MessageObject
      * A definition of the message that will be published or received on this channel. oneOf is allowed here to
      * specify multiple messages, however, a message MUST be valid only against one of the referenced message objects.
      */
