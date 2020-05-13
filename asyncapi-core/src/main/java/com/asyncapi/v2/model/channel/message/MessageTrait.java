@@ -2,6 +2,8 @@ package com.asyncapi.v2.model.channel.message;
 
 import com.asyncapi.v2.binding.MessageBinding;
 import com.asyncapi.v2.binding.MessageBindingsDeserializer;
+import com.asyncapi.v2.jackson.MessageTraitCorrelationIdDeserializer;
+import com.asyncapi.v2.jackson.MessageTraitHeadersDeserializer;
 import com.asyncapi.v2.model.ExternalDocumentation;
 import com.asyncapi.v2.model.Tag;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -25,24 +27,34 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MessageTrait<HeadersType, CorrelationIdType> {
+public class MessageTrait {
 
     /**
      * Schema definition of the application headers. Schema MUST be of type "object".
      * It MUST NOT define the protocol headers.
      *
-     * MUST BE Schema Object | Reference Object
+     * MUST BE:
+     * <ul>
+     *     <li>{@link com.asyncapi.v2.model.schema.Schema}</li>
+     *     <li>{@link com.asyncapi.v2.model.Reference}</li>
+     * </ul>
      */
     @CheckForNull
-    private HeadersType headers;
+    @JsonDeserialize(using = MessageTraitHeadersDeserializer.class)
+    private Object headers;
 
     /**
      * Definition of the correlation ID used for message tracing or matching.
      *
-     * MUST BE Correlation ID Object | Reference Object
+     * MUST BE:
+     * <ul>
+     *     <li>{@link com.asyncapi.v2.model.channel.message.CorrelationId}</li>
+     *     <li>{@link com.asyncapi.v2.model.Reference}</li>
+     * </ul>
      */
     @CheckForNull
-    private CorrelationIdType correlationId;
+    @JsonDeserialize(using = MessageTraitCorrelationIdDeserializer.class)
+    private Object correlationId;
 
     /**
      * TODO: clarify

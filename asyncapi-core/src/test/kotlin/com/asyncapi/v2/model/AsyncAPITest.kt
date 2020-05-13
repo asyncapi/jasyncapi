@@ -25,10 +25,10 @@ class AsyncAPITest {
         )
     }
 
-    private fun buildChannels(): Map<String, ChannelItem<Any, Any>> {
+    private fun buildChannels(): Map<String, ChannelItem> {
         val channelItem = objectMapper.readValue(
                 ClasspathUtils.readAsString("/json/model/channel/channel.json"),
-                object: TypeReference<ChannelItem<Any, Any>>() {}
+                object: TypeReference<ChannelItem>() {}
         )
 
         return mapOf(Pair("channelName", channelItem))
@@ -59,14 +59,14 @@ class AsyncAPITest {
         )
     }
 
-    private fun buildComponents(): Components<Any, Any> {
+    private fun buildComponents(): Components {
         return objectMapper.readValue(
                 ClasspathUtils.readAsString("/json/model/components.json"),
-                object: TypeReference<Components<Any, Any>>() {}
+                object: TypeReference<Components>() {}
         )
     }
 
-    private fun buildAsyncAPI(): AsyncAPI<Any, Any> {
+    private fun buildAsyncAPI(): AsyncAPI {
         return AsyncAPI(
                 "2.0.0",
                 "https://www.asyncapi.com",

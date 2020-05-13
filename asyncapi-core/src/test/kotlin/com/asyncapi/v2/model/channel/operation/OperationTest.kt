@@ -5,9 +5,10 @@ import com.asyncapi.v2.binding.amqp.AMQPOperationBinding
 import com.asyncapi.v2.model.Reference
 import com.asyncapi.v2.model.Tag
 import com.asyncapi.v2.model.channel.message.Message
+import com.asyncapi.v2.model.schema.Schema
+import com.asyncapi.v2.model.schema.Type
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
-import com.google.gson.GsonBuilder
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
@@ -19,8 +20,8 @@ class OperationTest {
 
     private val objectMapper = ObjectMapper().registerKotlinModule()
 
-    private fun buildOperation(): Operation<Any, Any> {
-        return Operation.builder<Any, Any>()
+    private fun buildOperation(): Operation {
+        return Operation.builder()
                 .operationId("registerUser")
                 .summary("Action to sign a user up.")
                 .description("A longer description")
@@ -29,27 +30,26 @@ class OperationTest {
                         Tag("signup", null, null),
                         Tag("register", null, null)
                 ))
-                .message(Message.builder<Any, Any>()
-                        .headers(mapOf(
-                                Pair("type", "object"),
-                                Pair("properties", mapOf(
-                                        Pair("applicationInstanceId", mapOf(
-                                                Pair("description", "Unique identifier for a given instance of the publishing application"),
-                                                Pair("type", "string")
-                                        ))
+                .message(Message.builder()
+                        .headers(Schema.builder()
+                                .type(Type.OBJECT)
+                                .properties(mapOf(
+                                        Pair("applicationInstanceId", Schema.builder()
+                                                .type(Type.STRING)
+                                                .description("Unique identifier for a given instance of the publishing application")
+                                                .build()
+                                        )
                                 ))
-                        ))
-                        .payload(mapOf(
-                                Pair("type", "object"),
-                                Pair("properties", mapOf(
-                                        Pair("user", mapOf(
-                                                Pair("\$ref", "#/components/schemas/userCreate")
-                                        )),
-                                        Pair("signup", mapOf(
-                                                Pair("\$ref", "#/components/schemas/signup")
-                                        ))
+                                .build()
+                        )
+                        .payload(Schema.builder()
+                                .type(Type.OBJECT)
+                                .properties(mapOf(
+                                        Pair("user", Schema.builder().ref("#/components/schemas/userCreate").build()),
+                                        Pair("signup", Schema.builder().ref("#/components/schemas/signup").build())
                                 ))
-                        ))
+                                .build()
+                        )
                         .build()
                 )
                 .bindings(mutableMapOf(

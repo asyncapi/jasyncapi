@@ -2,6 +2,9 @@ package com.asyncapi.v2.model.channel.message;
 
 import com.asyncapi.v2.binding.MessageBinding;
 import com.asyncapi.v2.binding.MessageBindingsDeserializer;
+import com.asyncapi.v2.jackson.MessageCorrelationIdDeserializer;
+import com.asyncapi.v2.jackson.MessageHeadersDeserializer;
+import com.asyncapi.v2.jackson.MessagePayloadDeserializer;
 import com.asyncapi.v2.jackson.MessageTraitsDeserializer;
 import com.asyncapi.v2.model.ExternalDocumentation;
 import com.asyncapi.v2.model.Tag;
@@ -24,31 +27,47 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Message <HeadersType, CorrelationIdType> {
+public class Message {
 
     /**
      * Schema definition of the application headers. Schema MUST be of type "object".
      * It MUST NOT define the protocol headers.
      *
-     * MUST BE Schema Object | Reference Object
+     * MUST BE:
+     * <ul>
+     *     <li>{@link com.asyncapi.v2.model.schema.Schema}</li>
+     *     <li>{@link com.asyncapi.v2.model.Reference}</li>
+     * </ul>
      */
     @CheckForNull
-    private HeadersType headers;
+    @JsonDeserialize(using = MessageHeadersDeserializer.class)
+    private Object headers;
 
     /**
-     * TODO: Убедиться что верный тип для любого содержимого
      * Definition of the message payload. It can be of any type but defaults to Schema object.
+     *
+     * WILL BE:
+     * <ul>
+     *     <li>{@link com.asyncapi.v2.model.schema.Schema}</li>
+     *     <li>{@link com.fasterxml.jackson.databind.JsonNode}</li>
+     * </ul>
      */
     @CheckForNull
+    @JsonDeserialize(using = MessagePayloadDeserializer.class)
     private Object payload;
 
     /**
      * Definition of the correlation ID used for message tracing or matching.
      *
-     * MUST BE Correlation ID Object | Reference Object
+     * MUST BE:
+     * <ul>
+     *     {@link com.asyncapi.v2.model.channel.message.CorrelationId}
+     *     {@link com.asyncapi.v2.model.Reference}
+     * </ul>
      */
     @CheckForNull
-    private CorrelationIdType correlationId;
+    @JsonDeserialize(using = MessageCorrelationIdDeserializer.class)
+    private Object correlationId;
 
     /**
      * TODO: clarify

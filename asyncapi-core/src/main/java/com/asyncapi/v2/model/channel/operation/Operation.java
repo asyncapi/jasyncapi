@@ -1,7 +1,8 @@
 package com.asyncapi.v2.model.channel.operation;
 
-import com.asyncapi.v2.binding.OperationBindingsDeserializer;
 import com.asyncapi.v2.binding.OperationBinding;
+import com.asyncapi.v2.binding.OperationBindingsDeserializer;
+import com.asyncapi.v2.jackson.OperationMessageDeserializer;
 import com.asyncapi.v2.jackson.OperationTraitsDeserializer;
 import com.asyncapi.v2.model.ExternalDocumentation;
 import com.asyncapi.v2.model.Tag;
@@ -27,7 +28,7 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-public class Operation<HeadersType, CorrelationIdType> {
+public class Operation {
 
     /**
      * Unique string used to identify the operation.
@@ -89,11 +90,17 @@ public class Operation<HeadersType, CorrelationIdType> {
     private List<Object> traits;
 
     /**
-     * TODO: SHOULD ReferenceObject or MessageObject
      * A definition of the message that will be published or received on this channel. oneOf is allowed here to
      * specify multiple messages, however, a message MUST be valid only against one of the referenced message objects.
+     *
+     * MUST BE:
+     * <ul>
+     *     <li>{@link com.asyncapi.v2.model.Reference}</li>
+     *     <li>{@link Message}</li>
+     * </ul>
      */
     @CheckForNull
-    private Message<HeadersType, CorrelationIdType> message;
+    @JsonDeserialize(using = OperationMessageDeserializer.class)
+    private Object message;
 
 }

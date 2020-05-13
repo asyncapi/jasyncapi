@@ -28,15 +28,14 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Components<HeadersType, CorrelationIdType> {
+public class Components {
 
     /**
      * An object to hold reusable Schema Objects.
      *
-     * TODO: Define Schema Object
      * MUST BE:
      * <ul>
-     *     <li><a href="https://www.asyncapi.com/docs/specifications/2.0.0/#a-name-schemaobject-a-schema-object"></a>Schema Object</li>
+     *     <li>{@link com.asyncapi.v2.model.schema.Schema}</li>
      *     <li>{@link com.asyncapi.v2.model.Reference}</li>
      * </ul>
      */
@@ -100,7 +99,7 @@ public class Components<HeadersType, CorrelationIdType> {
      * An object to hold reusable Message Trait Objects.
      */
     @CheckForNull
-    private Map<String, MessageTrait<HeadersType, CorrelationIdType>> messageTraits;
+    private Map<String, MessageTrait> messageTraits;
 
     /**
      * An object to hold reusable Server Binding Objects.

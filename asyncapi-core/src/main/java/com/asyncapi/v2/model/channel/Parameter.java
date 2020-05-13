@@ -1,9 +1,9 @@
 package com.asyncapi.v2.model.channel;
 
+import com.asyncapi.v2.model.schema.Schema;
 import lombok.*;
 
 import javax.annotation.Nonnull;
-import java.util.Map;
 
 /**
  * Describes a parameter included in a channel name.
@@ -25,12 +25,10 @@ public class Parameter {
 
     /**
      * Definition of the parameter.
-     *
-     * TODO: clarify SchemaObject
      */
     @Nonnull
     @NonNull
-    private Map<String, Object> schema;
+    private Schema schema;
 
     /**
      * A runtime expression that specifies the location of the parameter value.

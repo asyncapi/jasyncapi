@@ -6,6 +6,8 @@ import com.asyncapi.v2.model.channel.message.CorrelationId
 import com.asyncapi.v2.model.channel.message.Message
 import com.asyncapi.v2.model.channel.message.MessageTrait
 import com.asyncapi.v2.model.component.Components
+import com.asyncapi.v2.model.schema.Schema
+import com.asyncapi.v2.model.schema.Type
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName
@@ -18,37 +20,29 @@ class ComponentsTest {
 
     private val objectMapper = ObjectMapper()
 
-    private fun buildComponents(): Components<Any, Any> {
-        return Components.builder<Any, Any>()
+    private fun buildComponents(): Components {
+        return Components.builder()
                 .schemas(mapOf(
-                        Pair("Category", mapOf(
-                                Pair("type", "object"),
-                                Pair("properties", mapOf(
-                                        Pair("id", mapOf(
-                                                Pair("type", "integer"),
-                                                Pair("format", "int64")
-                                        )),
-                                        Pair("name", mapOf(
-                                                Pair("type", "string")
-                                        ))
+                        Pair("Category", Schema.builder()
+                                .type(Type.OBJECT)
+                                .properties(mapOf(
+                                        Pair("id", Schema.builder().type(Type.INTEGER).format("int64").build()),
+                                        Pair("name", Schema.builder().type(Type.STRING).build())
                                 ))
-                        )),
-                        Pair("Tag", mapOf(
-                                Pair("type", "object"),
-                                Pair("properties", mapOf(
-                                        Pair("id", mapOf(
-                                                Pair("type", "integer"),
-                                                Pair("format", "int64")
-                                        )),
-                                        Pair("name", mapOf(
-                                                Pair("type", "string")
-                                        ))
+                                .build()
+                        ),
+                        Pair("Tag", Schema.builder()
+                                .type(Type.OBJECT)
+                                .properties(mapOf(
+                                        Pair("id", Schema.builder().type(Type.INTEGER).format("int64").build()),
+                                        Pair("name", Schema.builder().type(Type.STRING).build())
                                 ))
-                        )),
+                                .build()
+                        ),
                         Pair("User", Reference("#/components/schemas/user"))
                 ))
                 .messages(mapOf(
-                        Pair("userSignUp", Message.builder<Any, Any>()
+                        Pair("userSignUp", Message.builder()
                                 .summary("Action to sign a user up.")
                                 .description("Multiline description of what this action does.\n" +
                                         "Here you have another line.\n")
@@ -56,26 +50,25 @@ class ComponentsTest {
                                         Tag("user", null, null),
                                         Tag("signup", null, null)
                                 ))
-                                .headers(mapOf(
-                                        Pair("type", "object"),
-                                        Pair("properties", mapOf(
-                                                Pair("applicationInstanceId", mapOf(
-                                                        Pair("description", "Unique identifier for a given instance of the publishing application"),
-                                                        Pair("type", "string")
-                                                ))
+                                .headers(Schema.builder()
+                                        .type(Type.OBJECT)
+                                        .properties(mapOf(
+                                                Pair("applicationInstanceId", Schema.builder()
+                                                        .type(Type.STRING)
+                                                        .description("Unique identifier for a given instance of the publishing application")
+                                                        .build()
+                                                )
                                         ))
-                                ))
-                                .payload(mapOf(
-                                        Pair("type", "object"),
-                                        Pair("properties", mapOf(
-                                                Pair("user", mapOf(
-                                                        Pair("\$ref", "#/components/schemas/userCreate")
-                                                )),
-                                                Pair("signup", mapOf(
-                                                        Pair("\$ref", "#/components/schemas/signup")
-                                                ))
+                                        .build()
+                                )
+                                .payload(Schema.builder()
+                                        .type(Type.OBJECT)
+                                        .properties(mapOf(
+                                                Pair("user", Schema.builder().ref("#/components/schemas/userCreate").build()),
+                                                Pair("signup", Schema.builder().ref("#/components/schemas/signup").build())
                                         ))
-                                ))
+                                        .build()
+                                )
                                 .build()),
                         Pair("userSignOut", Reference("#/components/schemas/userSignOut"))
                 ))
@@ -86,7 +79,7 @@ class ComponentsTest {
                 .parameters(mapOf(
                         Pair("userId", Parameter.builder()
                                 .description("Id of the user.")
-                                .schema(mapOf(Pair("type", "string")))
+                                .schema(Schema.builder().type(Type.STRING).build())
                                 .location("\$message.payload#/user/id")
                                 .build()
                         ),
@@ -99,17 +92,17 @@ class ComponentsTest {
                         ))
                 ))
                 .messageTraits(mapOf(
-                        Pair("commonHeaders", MessageTrait.builder<Any, Any>()
-                                .headers(mapOf(
-                                        Pair("type", "object"),
-                                        Pair("properties", mapOf(
-                                                Pair("my-app-header", mapOf(
-                                                        Pair("type", "integer"),
-                                                        Pair("minimum", 0),
-                                                        Pair("maximum", 100)
-                                                ))
-                                        ))
-                                ))
+                        Pair("commonHeaders", MessageTrait.builder()
+                                .headers(Schema.builder()
+                                        .type(Type.OBJECT)
+                                        .properties(mapOf(Pair("my-app-header", Schema.builder()
+                                                .type(Type.INTEGER)
+                                                .minimum(0)
+                                                .maximum(100)
+                                                .build()))
+                                        )
+                                        .build()
+                                )
                                 .build()
                         )
                 ))
