@@ -1,7 +1,7 @@
 package com.asyncapi.v2.jackson;
 
 import com.asyncapi.v2.model.Reference;
-import com.asyncapi.v2.model.channel.Parameter;
+import com.asyncapi.v2.model.security_scheme.SecurityScheme;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.ObjectCodec;
@@ -50,7 +50,7 @@ public class ComponentsSecuritySchemesDeserializer extends JsonDeserializer<Map<
         if (parametersValue.get("$ref") != null) {
             return objectMapper.readValue(parametersValue.toString(), Reference.class);
         } else {
-            return objectMapper.readValue(parametersValue.toString(), Object.class);
+            return objectMapper.readValue(parametersValue.toString(), SecurityScheme.class);
         }
     }
 

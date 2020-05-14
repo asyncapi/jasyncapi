@@ -8,6 +8,7 @@ import com.asyncapi.v2.model.channel.message.MessageTrait
 import com.asyncapi.v2.model.component.Components
 import com.asyncapi.v2.model.schema.Schema
 import com.asyncapi.v2.model.schema.Type
+import com.asyncapi.v2.model.security_scheme.SecurityScheme
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName
@@ -73,7 +74,7 @@ class ComponentsTest {
                         Pair("userSignOut", Reference("#/components/schemas/userSignOut"))
                 ))
                 .securitySchemes(mapOf(
-                        Pair("1", mapOf(Pair("type", "userPassword"))),
+                        Pair("1", SecurityScheme.builder().type(SecurityScheme.Type.USER_PASSWORD).build()),
                         Pair("2", Reference("#/components/schemas/2"))
                 ))
                 .parameters(mapOf(

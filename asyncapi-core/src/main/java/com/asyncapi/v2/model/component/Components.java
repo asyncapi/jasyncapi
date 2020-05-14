@@ -59,10 +59,9 @@ public class Components {
     /**
      * An object to hold reusable Security Scheme Objects.
      *
-     * TODO: Define Security Scheme Object
      * MUST BE:
      * <ul>
-     *     <li><a href="https://www.asyncapi.com/docs/specifications/2.0.0/#a-name-securityschemeobject-a-security-scheme-object">Security Scheme Object</a></li>
+     *     <li>{@link com.asyncapi.v2.model.security_scheme.SecurityScheme}</li>
      *     <li>{@link com.asyncapi.v2.model.Reference}</li>
      * </ul>
      */
