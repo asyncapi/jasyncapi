@@ -1,9 +1,12 @@
 package com.asyncapi.v2.model.channel;
 
 import com.asyncapi.v2.model.schema.Schema;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.annotation.Nonnull;
+import javax.annotation.CheckForNull;
 
 /**
  * Describes a parameter included in a channel name.
@@ -19,15 +22,13 @@ public class Parameter {
     /**
      * A verbose explanation of the parameter. CommonMark syntax can be used for rich text representation.
      */
-    @Nonnull
-    @NonNull
+    @CheckForNull
     private String description;
 
     /**
      * Definition of the parameter.
      */
-    @Nonnull
-    @NonNull
+    @CheckForNull
     private Schema schema;
 
     /**
@@ -36,8 +37,7 @@ public class Parameter {
      * Even when a definition for the target field exists, it MUST NOT be used to validate this parameter but,
      * instead, the schema property MUST be used.
      */
-    @Nonnull
-    @NonNull
+    @CheckForNull
     private String location;
 
 }

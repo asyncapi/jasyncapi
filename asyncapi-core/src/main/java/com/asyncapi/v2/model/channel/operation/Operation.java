@@ -11,7 +11,6 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.*;
 
 import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.Map;
 
@@ -37,8 +36,7 @@ public class Operation {
      * Tools and libraries MAY use the operationId to uniquely identify an operation, therefore, it is RECOMMENDED
      * to follow common programming naming conventions.
      */
-    @Nonnull
-    @NonNull
+    @CheckForNull
     private String operationId;
 
     /**
