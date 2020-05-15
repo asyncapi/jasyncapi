@@ -1,5 +1,7 @@
 package com.asyncapi.plugin.maven;
 
+import com.asyncapi.v2.model.AsyncAPI;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.maven.artifact.DependencyResolutionRequiredException;
@@ -141,7 +143,27 @@ public class SchemaGeneratorMojo extends AbstractMojo {
      */
     private void generateSchema(Class<?> schemaClass) throws MojoExecutionException {
         try {
-            String asyncapiSchema = getObjectMapper().writeValueAsString(schemaClass.newInstance());
+            AsyncAPI asyncAPI = (AsyncAPI) schemaClass.newInstance();
+
+            String asyncapiSchema = getObjectMapper()
+                    .setSerializationInclusion(JsonInclude.Include.NON_NULL) // TODO: Customize
+                    .writerWithDefaultPrettyPrinter() // TODO: Customize
+                    .writeValueAsString(
+                    AsyncAPI.builder()
+                            .asyncapi(asyncAPI.getAsyncapi())
+                            .id(asyncAPI.getId())
+                            .defaultContentType(asyncAPI.getDefaultContentType())
+                            .info(asyncAPI.getInfo())
+                            .servers(asyncAPI.getServers())
+                            .channels(asyncAPI.getChannels())
+                            .components(asyncAPI.getComponents())
+                            .tags(asyncAPI.getTags())
+                            .externalDocs(asyncAPI.getExternalDocs())
+                            .build()
+            );
+
+            this.getLog().info("Generated Schema: \n" + asyncapiSchema + "\n--------");
+
             File file = getSchemaFile(schemaClass);
             this.getLog().info("- Writing schema to file: " + file);
             this.writeToFile(asyncapiSchema, file);
@@ -160,7 +182,7 @@ public class SchemaGeneratorMojo extends AbstractMojo {
      */
     private void generateSchemaForPackage(String packageName) throws MojoExecutionException {
         Reflections reflections = new Reflections(packageName, new SubTypesScanner(false));
-        Set<Class<?>> subTypes = reflections.getSubTypesOf(Object.class);
+        Set<Class<? extends AsyncAPI>> subTypes = reflections.getSubTypesOf(AsyncAPI.class);
         for (Class<?> mainType : subTypes) {
             this.generateSchema(mainType);
         }
