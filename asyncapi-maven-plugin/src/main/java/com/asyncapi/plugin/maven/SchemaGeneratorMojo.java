@@ -4,6 +4,8 @@ import com.asyncapi.v2.model.AsyncAPI;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
 import org.apache.maven.artifact.DependencyResolutionRequiredException;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -25,13 +27,6 @@ import java.text.MessageFormat;
 import java.util.List;
 import java.util.Set;
 
-/*
-By convention, the AsyncAPI Specification (A2S) file is named asyncapi.json or asyncapi.yaml.
-    TODO: Tasks:
-        * Generate as json
-        * Generate as yaml
- */
-
 /**
  * Maven plugin for the java-asyncapi.
  */
@@ -42,23 +37,22 @@ By convention, the AsyncAPI Specification (A2S) file is named asyncapi.json or a
 public class SchemaGeneratorMojo extends AbstractMojo {
 
     /**
-     * Full name of the classes for which the AsyncAPI schema will be generated.
+     * From which classes generate AsyncAPI schema(s).
      */
     @Parameter(property = "classNames")
     private String[] classNames;
 
     /**
-     * Full name of the packages for which a AsyncAPI schema will be generated for each contained class.
+     * From which packages generate AsyncAPI schema(s).
      */
     @Parameter(property = "packageNames")
     private String[] packageNames;
 
     /**
-     * The directory path where the schema files are generated.
-     * <br>
-     * By default, this is: {@code src/main/resources}
+     * Where to store generated schema(s).
+     * Default value is: <b>src/main/resources</b>
      */
-    @Parameter(property = "schemaFilePath")
+    @Parameter(property = "schemaFilePath", defaultValue = "")
     private File schemaFilePath;
 
     /**
@@ -69,7 +63,7 @@ public class SchemaGeneratorMojo extends AbstractMojo {
      * </ul>
      * The default name is: <code>{0}-schema.json</code>
      */
-    @Parameter(property = "schemaFileName", defaultValue = "{0}-asyncapi.json")
+    @Parameter(property = "schemaFileName", defaultValue = "{0}-asyncapi")
     private String schemaFileName;
 
     /**
@@ -79,8 +73,24 @@ public class SchemaGeneratorMojo extends AbstractMojo {
      *     <li>yaml</li>
      * </ul>
      */
-    @Parameter(property = "schemaFormat", defaultValue = "json")
-    private String schemaFormat;
+    @Parameter(property = "schemaFileFormat", defaultValue = "json")
+    private String schemaFileFormat;
+
+    /**
+     * Pretty schema format or not.
+     * <br>
+     * Default value is: <b>true</b>
+     */
+    @Parameter(property = "prettyPrint", defaultValue = "true")
+    private Boolean prettyPrint;
+
+    /**
+     * Include null values or not.
+     * <br>
+     * Default value is: <b>false</b>
+     */
+    @Parameter(property = "includeNulls", defaultValue = "false")
+    private Boolean includeNulls;
 
     /**
      * The Maven project.
@@ -143,26 +153,28 @@ public class SchemaGeneratorMojo extends AbstractMojo {
      */
     private void generateSchema(Class<?> schemaClass) throws MojoExecutionException {
         try {
-            AsyncAPI asyncAPI = (AsyncAPI) schemaClass.newInstance();
+            AsyncAPI foundAsyncAPI = (AsyncAPI) schemaClass.newInstance();
+            AsyncAPI asyncAPI = AsyncAPI.builder()
+                    .asyncapi(foundAsyncAPI.getAsyncapi())
+                    .id(foundAsyncAPI.getId())
+                    .defaultContentType(foundAsyncAPI.getDefaultContentType())
+                    .info(foundAsyncAPI.getInfo())
+                    .servers(foundAsyncAPI.getServers())
+                    .channels(foundAsyncAPI.getChannels())
+                    .components(foundAsyncAPI.getComponents())
+                    .tags(foundAsyncAPI.getTags())
+                    .externalDocs(foundAsyncAPI.getExternalDocs())
+                    .build();
 
-            String asyncapiSchema = getObjectMapper()
-                    .setSerializationInclusion(JsonInclude.Include.NON_NULL) // TODO: Customize
-                    .writerWithDefaultPrettyPrinter() // TODO: Customize
-                    .writeValueAsString(
-                    AsyncAPI.builder()
-                            .asyncapi(asyncAPI.getAsyncapi())
-                            .id(asyncAPI.getId())
-                            .defaultContentType(asyncAPI.getDefaultContentType())
-                            .info(asyncAPI.getInfo())
-                            .servers(asyncAPI.getServers())
-                            .channels(asyncAPI.getChannels())
-                            .components(asyncAPI.getComponents())
-                            .tags(asyncAPI.getTags())
-                            .externalDocs(asyncAPI.getExternalDocs())
-                            .build()
-            );
+            String asyncapiSchema;
 
-            this.getLog().info("Generated Schema: \n" + asyncapiSchema + "\n--------");
+            if (prettyPrint) {
+                asyncapiSchema = getObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(asyncAPI);
+            } else {
+                asyncapiSchema = getObjectMapper().writeValueAsString(asyncAPI);
+            }
+
+            this.getLog().info("Generated Schema: \n" + asyncapiSchema);
 
             File file = getSchemaFile(schemaClass);
             this.getLog().info("- Writing schema to file: " + file);
@@ -207,6 +219,7 @@ public class SchemaGeneratorMojo extends AbstractMojo {
      * @return The full path name of the schema file
      */
     private File getSchemaFile(Class<?> mainType) {
+        // TODO: fix this shit
         // At first find the root location where the schema files are written
         File directory;
         if (this.schemaFilePath == null) {
@@ -216,13 +229,21 @@ public class SchemaGeneratorMojo extends AbstractMojo {
             directory = this.schemaFilePath;
         }
 
+        String fileExtension;
+
+        switch (schemaFileFormat.toLowerCase()) {
+            case "json": { fileExtension = ".json"; break; }
+            case "yaml": { fileExtension = ".yaml"; break; }
+            default: fileExtension = ".json";
+        }
+
         // Then build the full qualified file name.
         String fileName = MessageFormat.format(this.schemaFileName,
                 // placeholder {0}
                 mainType.getSimpleName(),
                 // placeholder {1}
                 mainType.getPackage().getName().replace('.', File.separatorChar));
-        File schemaFile = new File(directory, fileName);
+        File schemaFile = new File(directory, fileName + fileExtension);
 
         // Make sure the directory is available
         try {
@@ -248,7 +269,24 @@ public class SchemaGeneratorMojo extends AbstractMojo {
      */
     private ObjectMapper getObjectMapper() throws MojoExecutionException {
         if (objectMapper == null) {
-            objectMapper = new ObjectMapper();
+            switch (schemaFileFormat.toLowerCase()) {
+                case "json": {
+                    objectMapper = new ObjectMapper();
+                    break;
+                }
+                case "yaml": {
+                    objectMapper = new ObjectMapper(
+                            new YAMLFactory()
+                                    .disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER)
+                    );
+                    break;
+                }
+                default: throw new MojoExecutionException("schemaFileFormat=" + schemaFileFormat + " not recognized");
+            }
+
+            if (!includeNulls) {
+                objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+            }
         }
 
         return objectMapper;

@@ -5,8 +5,9 @@
                 <groupId>com.asyncapi</groupId>
                 <artifactId>asyncapi-maven-plugin</artifactId>
                 <configuration>
-                    <classNames>com.asyncapi.plugin.maven.UnknownTestClass</classNames>
-                    <schemaFileFormat>text</schemaFileFormat>
+                    <packageNames>com.asyncapi.plugin.maven.asyncapi.streetlights,com.asyncapi.plugin.maven.asyncapi.lamps</packageNames>
+                    <schemaFileFormat>yaml</schemaFileFormat>
+                    <schemaFilePath>target/generated-test-sources/Complete</schemaFilePath>
                 </configuration>
             </plugin>
         </plugins>

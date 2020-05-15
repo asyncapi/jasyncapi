@@ -1,0 +1,15 @@
+<project>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.asyncapi</groupId>
+                <artifactId>asyncapi-maven-plugin</artifactId>
+                <configuration>
+                    <classNames>com.asyncapi.plugin.maven.asyncapi.streetlights.StreetlightsAsyncAPI,com.asyncapi.plugin.maven.asyncapi.lamps.LampsAsyncAPI</classNames>
+                    <schemaFileFormat>yaml</schemaFileFormat>
+                    <schemaFilePath>target/generated-test-sources/Complete</schemaFilePath>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

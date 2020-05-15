@@ -6,7 +6,7 @@
                 <artifactId>asyncapi-maven-plugin</artifactId>
                 <configuration>
                     <packageNames>com.asyncapi.plugin.maven.asyncapi.streetlights,com.asyncapi.plugin.maven.asyncapi.lamps</packageNames>
-                    <schemaFormat>json</schemaFormat>
+                    <schemaFileFormat>json</schemaFileFormat>
                     <schemaFilePath>target/generated-test-sources/Complete</schemaFilePath>
                 </configuration>
             </plugin>
