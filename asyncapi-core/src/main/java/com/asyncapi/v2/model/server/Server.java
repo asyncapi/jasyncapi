@@ -76,7 +76,7 @@ public class Server {
      * Objects in the list needs to be satisfied to authorize the connection.
      */
     @CheckForNull
-    private List<Object> security;
+    private List<Map<String, List<String>>> security;
 
     /**
      * A map where the keys describe the name of the protocol and the values describe protocol-specific definitions
