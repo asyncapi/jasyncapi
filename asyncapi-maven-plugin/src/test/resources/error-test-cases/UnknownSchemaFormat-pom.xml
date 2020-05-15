@@ -1,0 +1,14 @@
+<project>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.asyncapi</groupId>
+                <artifactId>asyncapi-maven-plugin</artifactId>
+                <configuration>
+                    <classNames>com.asyncapi.plugin.maven.UnknownTestClass</classNames>
+                    <schemaFileFormat>text</schemaFileFormat>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
