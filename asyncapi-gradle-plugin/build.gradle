@@ -1,0 +1,66 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.3.61'
+    id 'java-gradle-plugin'
+    id 'net.researchgate.release' version '2.6.0'
+    // Publishing publicly
+    id 'com.gradle.plugin-publish' version '0.11.0'
+    // Publishing to maven
+    id 'maven-publish'
+}
+
+group 'com.asyncapi'
+version '1.0.0-SNAPSHOT'
+
+repositories {
+    jcenter()
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile gradleApi()
+
+    implementation "com.asyncapi:asyncapi-core:1.0.0-SNAPSHOT"
+    compile "org.reflections:reflections:0.9.12"
+    compile "com.fasterxml.jackson.core:jackson-databind:2.10.3"
+    compile "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.10.3"
+
+    testCompile "org.jetbrains.kotlin:kotlin-test:1.3.71"
+//    testCompile group: 'org.jetbrains.kotlin', name: 'kotlin-test-junit', version: '1.3.70'
+
+
+//    testCompile "org.junit.jupiter:junit-jupiter-engine:5.6.1"
+//    testCompile 'junit:junit:4+'
+
+    compile "org.junit.jupiter:junit-jupiter-engine:5.6.1"
+    compile "org.junit.jupiter:junit-jupiter-api:5.6.1"
+    compile "org.junit.jupiter:junit-jupiter-params:5.6.1"
+    test.useJUnitPlatform()
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+}
+
+project.description = 'Gradle Plugin for AsyncAPI'
+project.group = 'com.asyncapi'
+
+project.ext.name = 'asyncapi-gradle-plugin'
+project.ext.pluginId = 'com.asyncapi.asyncapi-gradle-plugin'
+project.ext.scm = 'https://github.com/Pakisan/java-asyncapi'
+project.ext.url = 'https://github.com/Pakisan/java-asyncapi/tree/develop/asyncapi-gradle-plugin'
+
+// Configuration for: java-gradle-plugin
+gradlePlugin {
+    plugins {
+        asyncapi {
+            id = project.pluginId
+            implementationClass = 'com.asyncapi.plugin.gradle.AsyncAPIPlugin'
+        }
+    }
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
