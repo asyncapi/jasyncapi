@@ -1,45 +1,45 @@
 package com.asyncapi.plugin.gradle.tasks
 
-import com.asyncapi.v2.model.AsyncAPI
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
 import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator
 import org.gradle.api.DefaultTask
 import org.gradle.api.GradleException
-import org.gradle.api.tasks.*
+import org.gradle.api.tasks.Classpath
+import org.gradle.api.tasks.Input
+import org.gradle.api.tasks.Optional
+import org.gradle.api.tasks.TaskAction
 import org.reflections.Reflections
 import org.reflections.scanners.SubTypesScanner
 import java.io.File
 import java.net.URLClassLoader
 import java.nio.file.Files
 import java.nio.file.Paths
+import java.util.stream.Collectors
 
 open class ResolveTask: DefaultTask() {
 
     @get:Input
-    @Optional
     var classNames: Array<String> = emptyArray()
     @get:Input
     var packageNames: Array<String> = emptyArray()
     @get:Input
-    var schemaFileName: String? = "asyncapi"
+    var schemaFileName: String = "asyncapi"
     @get:Input
-    var schemaFileFormat: String? = "json"
+    var schemaFileFormat: String = "json"
     @get:Input
-    var schemaFilePath: String? = "asyncapi-schemas"
+    var schemaFilePath: String = "generated/asyncapi"
     @get:Input
     var includeNulls: Boolean = false
     @get:Input
-    var prettyPrint: Boolean = false
+    var prettyPrint: Boolean = true
 
     @Optional
     @get:Classpath
     var buildClasspath: Iterable<File> = emptySet()
     @get:Classpath
     var classPath: Iterable<File> = emptySet()
-    @get:CompileClasspath
-    var compileClasspath: Iterable<File> = emptySet()
 
     private val objectMapper: ObjectMapper by lazy {
         val instance = when(schemaFileFormat ?: "json") {
@@ -68,17 +68,16 @@ open class ResolveTask: DefaultTask() {
         val buildClasspathUrls = buildClasspath.map {
             try { it.toURI().toURL() } catch (exception: Exception) { throw GradleException("Can't create classpath for task: $name", exception) }
         }.toSet()
-        val compileClasspathUrls = compileClasspath.map {
-            try { it.toURI().toURL() } catch (exception: Exception) { throw GradleException("Can't create classpath for task: $name", exception) }
-        }.toSet()
 
         classPathUrls.plus(buildClasspathUrls)
-        classPathUrls.plus(compileClasspathUrls)
         val classLoader = URLClassLoader(classPathUrls.toTypedArray())
 
         logger.info("Resolving AsyncAPI specification..")
 
-        classNames ?: logger.info("classNames is empty or null")
+        if (classNames.isEmpty() && packageNames.isEmpty()) {
+            throw GradleException("classNames or packageNames are required")
+        }
+
         classNames.let {
             logger.info("Handling class names")
 
@@ -87,12 +86,11 @@ open class ResolveTask: DefaultTask() {
             }
         }
 
-        packageNames ?: logger.info("packageNames is empty or null")
         packageNames.let {
             logger.info("Handling package names")
 
             it.forEach {packageName ->
-                val classes = loadClasses(packageName)
+                val classes = loadClasses(packageName, classLoader)
                 classes.forEach(this::generateSchema)
             }
         }
@@ -101,13 +99,13 @@ open class ResolveTask: DefaultTask() {
 
     @Throws(GradleException::class)
     private fun writeSchema(schema: String, schemaName: String) {
-        val fileName = when(schemaFileFormat ?: "json") {
+        val fileName = when(schemaFileFormat) {
             "json" -> "$schemaName-$schemaFileName.json"
             "yaml" -> "$schemaName-$schemaFileName.yaml"
             else -> throw GradleException("schemaFileFormat=$schemaFileFormat not recognized")
         }
 
-        val dirPath = if (schemaFilePath.isNullOrBlank()) {
+        val dirPath = if (schemaFilePath.isBlank()) {
             Paths.get("asyncapi-schemas")
         } else {
             Paths.get(schemaFilePath)
@@ -129,7 +127,7 @@ open class ResolveTask: DefaultTask() {
                 objectMapper.writeValueAsString(foundAsyncAPI)
             }
         } catch (exception: Exception) {
-            throw GradleException("Can't serialize ${schemaClass.simpleName}", exception)
+            throw GradleException("Can't serialize ${schemaClass.simpleName} because ${exception.message}", exception)
         }
 
         writeSchema(schema, schemaClass.simpleName)
@@ -145,10 +143,16 @@ open class ResolveTask: DefaultTask() {
     }
 
     @Throws(GradleException::class)
-    private fun loadClasses(packageName: String): Set<Class<*>> {
+    private fun loadClasses(packageName: String, classLoader: ClassLoader): Set<Class<*>> {
         return try {
+//            val reflections = Reflections(packageName, SubTypesScanner(false))
+//            reflections.getSubTypesOf(AsyncAPI::class.java)
+
+            // Workaround TODO: clarify https://github.com/ronmamo/reflections/issues/289
             val reflections = Reflections(packageName, SubTypesScanner(false))
-            reflections.getSubTypesOf(AsyncAPI::class.java)
+            val subTypes = reflections.store.get(SubTypesScanner::class.java, "com.asyncapi.v2.model.AsyncAPI")
+
+            subTypes.stream().map(classLoader::loadClass).collect(Collectors.toSet())
         } catch (exception: Exception) {
             throw GradleException("Loading package error: $packageName", exception)
         }
