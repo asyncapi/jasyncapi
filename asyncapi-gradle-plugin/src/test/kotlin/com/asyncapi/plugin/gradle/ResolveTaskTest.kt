@@ -1,9 +1,9 @@
 package com.asyncapi.plugin.gradle
 
 import org.gradle.testkit.runner.GradleRunner
+import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.BeforeAll
-import org.junit.jupiter.api.TestInstance
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.io.TempDir
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
@@ -12,13 +12,12 @@ import org.junit.jupiter.params.provider.ValueSource
 import java.io.File
 import java.util.stream.Stream
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 open class ResolveTaskTest {
 
     private lateinit var testProjectDirectory: File
     private lateinit var buildGradleFile: File
 
-    @BeforeAll
+    @BeforeEach
     fun prepareProjectDirectory(@TempDir tempDir: File) {
         testProjectDirectory = tempDir
 
@@ -28,6 +27,11 @@ open class ResolveTaskTest {
 
         File(testProjectDirectory,"settings.gradle")
                 .writeText(this::class.java.getResource("/settings.gradle").readText(Charsets.UTF_8))
+    }
+
+    @AfterEach
+    fun cleanSchemasFolder() {
+        Assertions.assertTrue(File(targetFolderRoot).deleteRecursively())
     }
 
     @ParameterizedTest
@@ -91,46 +95,17 @@ open class ResolveTaskTest {
                 .forwardOutput()
                 .build()
 
-        val generatedLampsSchemaFile = File("generated/asyncapi/Lamps-asyncapi.json")
+        val generatedLampsSchemaFile = File("$targetFolderRoot/asyncapi/Lamps-asyncapi.json")
         val expectedLampsSchema = this::class.java.getResource("/lamps_prettyPrint-asyncapi.json").readText(Charsets.UTF_8)
 
         Assertions.assertTrue(generatedLampsSchemaFile.exists())
         Assertions.assertEquals(generatedLampsSchemaFile.readText(Charsets.UTF_8), expectedLampsSchema)
 
-        val generatedStreetlightsSchemaFile = File("generated/asyncapi/Streetlights-asyncapi.json")
+        val generatedStreetlightsSchemaFile = File("$targetFolderRoot/asyncapi/Streetlights-asyncapi.json")
         val expectedStreetlightsSchema = this::class.java.getResource("/streetlights-asyncapi.json").readText(Charsets.UTF_8)
 
         Assertions.assertTrue(generatedStreetlightsSchemaFile.exists())
         Assertions.assertEquals(expectedStreetlightsSchema, generatedStreetlightsSchemaFile.readText(Charsets.UTF_8))
-
-        Assertions.assertTrue(generatedLampsSchemaFile.delete())
-        Assertions.assertTrue(generatedStreetlightsSchemaFile.delete())
-    }
-
-    fun schemaGenerationWithCustomParamsTestProperties(): Stream<Arguments> {
-        return Stream.of(
-                Arguments.of("""
-                    
-                    resolve {
-                        schemaFileName = "asyncapi-schema"
-                        schemaFilePath = "generated/asyncapi/json"
-                        classNames = ['com.asyncapi.plugin.gradle.asyncapi.lamps.Lamps']
-                        prettyPrint = false
-                    }
-                """.trimIndent(), "generated/asyncapi/json/Lamps-asyncapi-schema.json", "/lamps-asyncapi.json"
-                ),
-                Arguments.of("""
-                    
-                    resolve {
-                        schemaFileName = "asyncapi-schema"
-                        schemaFilePath = "generated/asyncapi/yaml"
-                        schemaFileFormat = "yaml"
-                        classNames = ['com.asyncapi.plugin.gradle.asyncapi.lamps.Lamps']
-                        prettyPrint = false
-                    }
-                """.trimIndent(), "generated/asyncapi/yaml/Lamps-asyncapi-schema.yaml", "/lamps-asyncapi.yaml"
-                )
-        )
     }
 
     @ParameterizedTest
@@ -154,8 +129,37 @@ open class ResolveTaskTest {
 
         Assertions.assertTrue(generatedSchemaFile.exists())
         Assertions.assertEquals(expectedSchema, generatedSchemaFile.readText(Charsets.UTF_8))
+    }
 
-        Assertions.assertTrue(generatedSchemaFile.delete())
+    companion object {
+        private const val targetFolderRoot = "generated"
+
+        @JvmStatic
+        fun schemaGenerationWithCustomParamsTestProperties(): Stream<Arguments> {
+            return Stream.of(
+                    Arguments.of("""
+                    
+                    resolve {
+                        schemaFileName = "asyncapi-schema"
+                        schemaFilePath = "$targetFolderRoot/asyncapi/json"
+                        classNames = ['com.asyncapi.plugin.gradle.asyncapi.lamps.Lamps']
+                        prettyPrint = false
+                    }
+                """.trimIndent(), "generated/asyncapi/json/Lamps-asyncapi-schema.json", "/lamps-asyncapi.json"
+                    ),
+                    Arguments.of("""
+                    
+                    resolve {
+                        schemaFileName = "asyncapi-schema"
+                        schemaFilePath = "$targetFolderRoot/asyncapi/yaml"
+                        schemaFileFormat = "yaml"
+                        classNames = ['com.asyncapi.plugin.gradle.asyncapi.lamps.Lamps']
+                        prettyPrint = false
+                    }
+                """.trimIndent(), "generated/asyncapi/yaml/Lamps-asyncapi-schema.yaml", "/lamps-asyncapi.yaml"
+                    )
+            )
+        }
     }
 
 }
