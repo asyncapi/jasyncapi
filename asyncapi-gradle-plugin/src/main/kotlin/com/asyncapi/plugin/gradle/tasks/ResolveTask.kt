@@ -1,5 +1,6 @@
 package com.asyncapi.plugin.gradle.tasks
 
+import com.asyncapi.v2.model.AsyncAPI
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
@@ -12,11 +13,11 @@ import org.gradle.api.tasks.Optional
 import org.gradle.api.tasks.TaskAction
 import org.reflections.Reflections
 import org.reflections.scanners.SubTypesScanner
+import org.reflections.util.ConfigurationBuilder
 import java.io.File
 import java.net.URLClassLoader
 import java.nio.file.Files
 import java.nio.file.Paths
-import java.util.stream.Collectors
 
 open class ResolveTask: DefaultTask() {
 
@@ -145,14 +146,13 @@ open class ResolveTask: DefaultTask() {
     @Throws(GradleException::class)
     private fun loadClasses(packageName: String, classLoader: ClassLoader): Set<Class<*>> {
         return try {
-//            val reflections = Reflections(packageName, SubTypesScanner(false))
-//            reflections.getSubTypesOf(AsyncAPI::class.java)
-
-            // Workaround TODO: clarify https://github.com/ronmamo/reflections/issues/289
-            val reflections = Reflections(packageName, SubTypesScanner(false))
-            val subTypes = reflections.store.get(SubTypesScanner::class.java, "com.asyncapi.v2.model.AsyncAPI")
-
-            subTypes.stream().map(classLoader::loadClass).collect(Collectors.toSet())
+            val reflections = Reflections(ConfigurationBuilder()
+                    .forPackages(packageName)
+                    .addScanners(SubTypesScanner(false))
+                    .addUrls((classLoader as URLClassLoader).urLs.asList())
+                    .addClassLoader(classLoader)
+            )
+            reflections.getSubTypesOf(AsyncAPI::class.java)
         } catch (exception: Exception) {
             throw GradleException("Loading package error: $packageName", exception)
         }
