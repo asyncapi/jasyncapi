@@ -10,6 +10,8 @@ import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
 import org.junit.jupiter.params.provider.ValueSource
 import java.io.File
+import java.nio.file.Files
+import java.nio.file.Paths
 import java.util.stream.Stream
 
 open class ResolveTaskTest {
@@ -27,6 +29,12 @@ open class ResolveTaskTest {
 
         File(testProjectDirectory,"settings.gradle")
                 .writeText(this::class.java.getResource("/settings.gradle").readText(Charsets.UTF_8))
+        copySources()
+    }
+
+    private fun copySources() {
+        val sourcesLocation = Files.createDirectories(Paths.get(testProjectDirectory.path,"/src/main/kotlin")).toFile()
+        File("src/test/kotlin").copyRecursively(sourcesLocation)
     }
 
     @AfterEach
@@ -46,6 +54,7 @@ open class ResolveTaskTest {
             
             resolve {
                 packageNames = ['com.asyncapi.plugin.gradle.asyncapi.lamps']
+                classPath = sourceSets.main.runtimeClasspath
             }
         """
     ])
@@ -81,6 +90,7 @@ open class ResolveTaskTest {
             
             resolve {
                 packageNames = ['com.asyncapi.plugin.gradle.asyncapi.lamps', 'com.asyncapi.plugin.gradle.asyncapi.streetlights']
+                classPath = sourceSets.main.runtimeClasspath
             }
         """
     ])

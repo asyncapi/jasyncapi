@@ -10,6 +10,11 @@ repositories {
     mavenCentral()
 }
 
+sourceSets {
+    main.kotlin.srcDirs += 'src/main/kotlin'
+    main.kotlin.excludes += 'com/asyncapi/plugin/gradle/*Test.kt'
+}
+
 dependencies {
     compile "com.asyncapi:asyncapi-core:1.0.0-SNAPSHOT"
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
