@@ -97,7 +97,7 @@ public class YamlSchemaGeneratorMojoTest {
     public void customFileNameGenerationTest() throws Exception {
         executePom(FilesHelper.readResource("reference-test-cases/yaml/custom-pom.xml"));
 
-        File generatedSchema = FilesHelper.open("target/generated-test-sources/Complete/asyncapi.yaml");
+        File generatedSchema = FilesHelper.open("target/generated-test-sources/Complete/StreetlightsAsyncAPI-asyncapi-schema.yaml");
         File expectedSchema = FilesHelper.readResource("reference-test-cases/yaml/StreetlightsAsyncAPI-asyncapi.yaml");
 
         Assert.assertEquals(FileUtils.readLines(expectedSchema), FileUtils.readLines(generatedSchema));

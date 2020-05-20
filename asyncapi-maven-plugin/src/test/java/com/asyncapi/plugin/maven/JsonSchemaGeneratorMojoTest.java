@@ -97,7 +97,7 @@ public class JsonSchemaGeneratorMojoTest {
     public void customFileNameGenerationTest() throws Exception {
         executePom(FilesHelper.readResource("reference-test-cases/json/custom-pom.xml"));
 
-        File generatedSchema = FilesHelper.open("target/generated-test-sources/Complete/asyncapi.json");
+        File generatedSchema = FilesHelper.open("target/generated-test-sources/Complete/StreetlightsAsyncAPI-asyncapi-schema.json");
         File expectedSchema = FilesHelper.readResource("reference-test-cases/json/StreetlightsAsyncAPI-asyncapi.json");
 
         Assert.assertEquals(FileUtils.readLines(expectedSchema), FileUtils.readLines(generatedSchema));

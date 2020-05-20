@@ -7,7 +7,7 @@
                 <configuration>
                     <classNames>com.asyncapi.plugin.maven.asyncapi.streetlights.StreetlightsAsyncAPI</classNames>
                     <schemaFileFormat>json</schemaFileFormat>
-                    <schemaFileName>asyncapi</schemaFileName>
+                    <schemaFileName>asyncapi-schema</schemaFileName>
                     <schemaFilePath>target/generated-test-sources/Complete</schemaFilePath>
                 </configuration>
             </plugin>
