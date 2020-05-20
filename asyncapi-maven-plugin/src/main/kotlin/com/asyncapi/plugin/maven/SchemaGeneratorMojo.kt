@@ -81,7 +81,7 @@ class SchemaGeneratorMojo: AbstractMojo() {
             generateSchema(loadClass(it))
         }
 
-        classNames.forEach {
+        packageNames.forEach {
             loadClasses(it).forEach(this::generateSchema)
         }
     }
