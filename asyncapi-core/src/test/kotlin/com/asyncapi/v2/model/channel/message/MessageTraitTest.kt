@@ -1,7 +1,7 @@
 package com.asyncapi.v2.model.channel.message
 
 import com.asyncapi.v2.ClasspathUtils
-import com.google.gson.GsonBuilder
+import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test
  */
 class MessageTraitTest {
 
-    private val gson = GsonBuilder().setPrettyPrinting().create()
+    private val objectMapper = ObjectMapper()
 
     private fun buildMessageTrait(): MessageTrait {
         return MessageTrait.builder()
@@ -26,7 +26,7 @@ class MessageTraitTest {
         val model = ClasspathUtils.readAsString("/json/model/channel/message/messageTrait.json")
 
         Assertions.assertEquals(
-                gson.fromJson(model, MessageTrait::class.java),
+                objectMapper.readValue(model, MessageTrait::class.java),
                 buildMessageTrait()
         )
     }

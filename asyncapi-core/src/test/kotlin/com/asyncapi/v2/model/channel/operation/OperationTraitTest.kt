@@ -3,7 +3,6 @@ package com.asyncapi.v2.model.channel.operation
 import com.asyncapi.v2.ClasspathUtils
 import com.asyncapi.v2.binding.amqp.AMQPOperationBinding
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.google.gson.GsonBuilder
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test

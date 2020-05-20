@@ -1,7 +1,7 @@
 package com.asyncapi.v2.model.info
 
 import com.asyncapi.v2.ClasspathUtils
-import com.google.gson.GsonBuilder
+import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test
  */
 class ContactTest {
 
-    private val gson = GsonBuilder().setPrettyPrinting().create()
+    private val objectMapper = ObjectMapper()
 
     private fun buildContact(): Contact {
         return Contact(
@@ -27,7 +27,7 @@ class ContactTest {
         val model = ClasspathUtils.readAsString("/json/model/info/contact.json")
 
         Assertions.assertEquals(
-                gson.fromJson(model, Contact::class.java),
+                objectMapper.readValue(model, Contact::class.java),
                 buildContact()
         )
     }
