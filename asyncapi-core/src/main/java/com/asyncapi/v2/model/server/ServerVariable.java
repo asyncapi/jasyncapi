@@ -12,6 +12,8 @@ import java.util.List;
 /**
  * An object representing a Server Variable for server URL template substitution.
  *
+ * @version 2.0.0
+ * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#serverVariableObject">ServerVariable</a>
  * @author Pavel Bodiachevskii
  */
 @Data

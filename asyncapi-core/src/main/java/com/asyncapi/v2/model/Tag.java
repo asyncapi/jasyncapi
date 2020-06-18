@@ -8,6 +8,8 @@ import javax.annotation.Nonnull;
 /**
  * Allows adding meta data to a single tag.
  *
+ * @version 2.0.0
+ * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#a-name-tagobject-a-tag-object">Tag</a>
  * @author Pavel Bodiachevskii
  */
 @Data

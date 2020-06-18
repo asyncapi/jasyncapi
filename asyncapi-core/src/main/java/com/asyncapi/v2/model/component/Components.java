@@ -22,6 +22,8 @@ import java.util.Map;
  * components object will have no effect on the API unless they are explicitly referenced from properties outside the
  * components object.
  *
+ * @version 2.0.0
+ * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#componentsObject">Components</a>
  * @author Pavel Bodiachevskii
  */
 @Data

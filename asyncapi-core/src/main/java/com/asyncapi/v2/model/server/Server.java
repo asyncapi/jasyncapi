@@ -16,6 +16,8 @@ import java.util.Map;
  * Variable substitution can be used so that some details, for example usernames and passwords, can be injected by
  * code generation tools.
  *
+ * @version 2.0.0
+ * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#serverObject">Server</a>
  * @author Pavel Bodiachevskii
  */
 @Data

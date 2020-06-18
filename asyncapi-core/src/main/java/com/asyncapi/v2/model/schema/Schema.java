@@ -17,7 +17,7 @@ import java.util.Map;
 /**
  *
  * @see <a href="https://json-schema.org/draft/2019-09/json-schema-validation.html">Json Schema Validation</a>
- * @see <a href = "https://www.asyncapi.com/docs/specifications/2.0.0/#a-name-schemaobject-a-schema-object">AnyncAPI Schema Object</a>
+ * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#a-name-schemaobject-a-schema-object">AnyncAPI Schema Object</a>
  * @author Pavel Bodiachevskii
  */
 @Data

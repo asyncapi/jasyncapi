@@ -21,6 +21,8 @@ import java.util.Map;
 /**
  * Describes a message received on a given channel and operation.
  *
+ * @version 2.0.0
+ * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#messageObject">Message</a>
  * @author Pavel Bodiachevskii
  */
 @Data

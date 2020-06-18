@@ -17,10 +17,16 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Describes a trait that MAY be applied to a Message Object. This object MAY contain any property from the Message Object, except payload and traits.
+ * Describes a trait that MAY be applied to a Message Object({@link Message}).
+ * <br><br>
+ * This object MAY contain any property from the Message Object({@link Message}), except payload and traits.
+ * <br><br>
+ * If you're looking to apply traits to an operation, see the Operation Trait Object({@link com.asyncapi.v2.model.channel.operation.OperationTrait}).
  *
- * If you're looking to apply traits to an operation, see the Operation Trait Object.
- *
+ * @version 2.0.0
+ * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#messageObject">Message</a>
+ * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#messageTraitObject">MessageTrait</a>
+ * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#operationTraitObject">OperationTrait</a>
  * @author Pavel Bodiachevskii
  */
 @Data

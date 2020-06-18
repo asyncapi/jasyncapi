@@ -11,6 +11,8 @@ import javax.annotation.CheckForNull;
 /**
  * Describes a parameter included in a channel name.
  *
+ * @version 2.0.0
+ * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#parameterObject">Parameter</a>
  * @author Pavel Bodiachevskii
  */
 @Data

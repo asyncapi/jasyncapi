@@ -11,6 +11,8 @@ import javax.annotation.Nonnull;
  *
  * Allows referencing an external resource for extended documentation.
  *
+ * @version 2.0.0
+ * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#externalDocumentationObject">ExternalDocumentation</a>
  * @author Pavel Bodiachevskii
  */
 @Data

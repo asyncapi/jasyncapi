@@ -16,10 +16,13 @@ import java.util.Map;
 
 /**
  * Describes a publish or a subscribe operation.
- *
+ * <br><br>
  * This provides a place to document how and why messages are sent and received.
+ * <br>
  * For example, an operation might describe a chat application use case where a user sends a text message to a group.
  *
+ * @version 2.0.0
+ * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#operationObject">Operation</a>
  * @author Pavel Bodiachevskii
  */
 @Data

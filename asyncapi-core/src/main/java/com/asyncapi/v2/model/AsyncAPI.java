@@ -15,6 +15,8 @@ import java.util.Map;
  * This is the root document object for the API specification.
  * It combines resource listing and API declaration together into one document.
  *
+ * @version 2.0.0
+ * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#A2SObject">AsyncAPI</a>
  * @author Pavel Bodiachevskii
  */
 @Data

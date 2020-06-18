@@ -5,19 +5,26 @@ import com.asyncapi.v2.binding.OperationBindingsDeserializer;
 import com.asyncapi.v2.model.ExternalDocumentation;
 import com.asyncapi.v2.model.Tag;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.Map;
 
 /**
- * Describes a trait that MAY be applied to an Operation Object.
- * This object MAY contain any property from the {@link Operation} Object, except message and traits.
+ * Describes a trait that MAY be applied to an Operation Object({@link Operation}).
+ * <br>
+ * This object MAY contain any property from the Operation Object({@link Operation}), except message and traits.
+ * <br>
+ * If you're looking to apply traits to a message, see the Message Trait Object({@link com.asyncapi.v2.model.channel.message.MessageTrait}.
  *
- * If you're looking to apply traits to a message, see the Message Trait Object.
- *
+ * @version 2.0.0
+ * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#operationObject">Operation</a>
+ * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#operationTraitObject">OperationTrait</a>
+ * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#messageTraitObject">MessageTrait</a>
  * @author Pavel Bodiachevskii
  */
 @Data

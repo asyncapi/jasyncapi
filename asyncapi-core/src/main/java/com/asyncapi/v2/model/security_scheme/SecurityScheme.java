@@ -27,6 +27,7 @@ import javax.annotation.Nonnull;
  *
  * This object MAY be extended with <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#specificationExtensions">Specification Extensions</a>.
  *
+ * @version 2.0.0
  * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#a-name-securityschemeobject-a-security-scheme-object">Security Scheme Object</a>
  * @author Pavel Bodiachevskii
  */

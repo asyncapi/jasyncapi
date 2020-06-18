@@ -8,6 +8,8 @@ import javax.annotation.Nonnull;
 /**
  * The object provides metadata about the API. The metadata can be used by the clients if needed.
  *
+ * @version 2.0.0
+ * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#infoObject">Info</a>
  * @author Pavel Bodiachevskii
  */
 @Data

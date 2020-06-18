@@ -9,6 +9,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 /**
+ *  * @version 2.0.0
+ *  * <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#a-name-securityschemeobject-a-security-scheme-object">SecurityScheme</a>
  * @author Pavel Bodiachevskii
  */
 @Data

@@ -19,6 +19,8 @@ import javax.annotation.Nonnull;
  * For this specification, reference resolution is done as defined by the JSON Reference specification and not by
  * the JSON Schema specification.
  *
+ * @version 2.0.0
+ * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#referenceObject">Reference</a>
  * @author Pavel Bodiachevskii
  */
 @Data

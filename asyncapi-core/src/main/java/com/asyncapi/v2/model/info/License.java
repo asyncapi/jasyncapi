@@ -8,6 +8,8 @@ import javax.annotation.Nonnull;
 /**
  * License information for the exposed API.
  *
+ * @version 2.0.0
+ * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#licenseObject">License</a>
  * @author Pavel Bodiachevskii
  */
 @Data

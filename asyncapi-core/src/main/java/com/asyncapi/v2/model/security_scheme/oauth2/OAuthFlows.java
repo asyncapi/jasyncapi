@@ -16,6 +16,7 @@ import javax.annotation.CheckForNull;
  *
  * This object MAY be extended with <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#specificationExtensions">Specification Extensions</a>.
  *
+ * @version 2.0.0
  * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#a-name-oauthflowsobject-a-oauth-flows-object">OAuth Flows Object</a>
  * @author Pavel Bodiachevskii
  */
