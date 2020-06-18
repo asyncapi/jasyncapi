@@ -8,8 +8,12 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 /**
- * This class defines how to describe AMQP 0-9-1 operation binding.
+ * Describes AMQP 0-9-1 operation binding.
  *
+ * Contains information about the operation representation in AMQP.
+ *
+ * @version 0.2.0
+ * @see <a href="https://github.com/asyncapi/bindings/tree/master/amqp#operation-binding-object">AMQP operation binding</a>
  * @author Pavel Bodiachevskii
  */
 @Data

@@ -1,7 +1,6 @@
 package com.asyncapi.v2.binding.nats;
 
 import com.asyncapi.v2.binding.MessageBinding;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -9,8 +8,10 @@ import lombok.NoArgsConstructor;
 /**
  * This class MUST NOT contain any properties. Its name is reserved for future use.
  *
- * This class defines how to describe NATS message binding.
+ * Describes NATS message binding.
  *
+ * @version 0.1.0
+ * @see <a href="https://github.com/asyncapi/bindings/tree/master/nats#message-binding-object">NATS message binding</a>
  * @author Pavel Bodiachevskii
  */
 @Data

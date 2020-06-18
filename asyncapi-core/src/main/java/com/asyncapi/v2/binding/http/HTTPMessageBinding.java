@@ -7,8 +7,12 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nullable;
 
 /**
- * This class defines how to describe HTTP message binding.
+ * Describes HTTP message binding.
  *
+ * Contains information about the message representation in HTTP.
+ *
+ * @version 0.1.0
+ * @see <a href="https://github.com/asyncapi/bindings/tree/master/http#message-binding-object">HTTP message binding</a>
  * @author Pavel Bodiachevskii
  */
 @Data

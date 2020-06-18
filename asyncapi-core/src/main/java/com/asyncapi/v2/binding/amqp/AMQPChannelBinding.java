@@ -7,8 +7,12 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nullable;
 
 /**
- * This class defines how to describe AMQP 0-9-1 channel binding.
+ * Describes AMQP 0-9-1 channel binding.
  *
+ * Contains information about the channel representation in AMQP.
+ *
+ * @version 0.2.0
+ * @see <a href="https://github.com/asyncapi/bindings/tree/master/amqp#channel-binding-object">AMQP channel binding</a>
  * @author Pavel Bodiachevskii
  */
 @Data

@@ -7,10 +7,15 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nullable;
 
 /**
- * This class MUST NOT contain any properties. Its name is reserved for future use.
+ * Describes WebSockets channel binding.
  *
- * This class defines how to describe WebSockets channel binding.
+ * When using WebSockets, the channel represents the connection. Unlike other protocols that support multiple virtual
+ * channels (topics, routing keys, etc.) per connection, WebSockets doesn't support virtual channels or, put it another
+ * way, there's only one channel and its characteristics are strongly related to the protocol used for the handshake,
+ * i.e., HTTP.
  *
+ * @version 0.1.0
+ * @see <a href="https://github.com/asyncapi/bindings/tree/master/websockets#channel-binding-object">WebSockets channel binding</a>
  * @author Pavel Bodiachevskii
  */
 @Data

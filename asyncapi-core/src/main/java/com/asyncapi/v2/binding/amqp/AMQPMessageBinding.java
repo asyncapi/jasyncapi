@@ -7,8 +7,12 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nullable;
 
 /**
- * This class defines how to describe AMQP 0-9-1 message binding.
+ * Describes AMQP 0-9-1 message binding.
  *
+ * Contains information about the message representation in AMQP.
+ *
+ * @version 0.2.0
+ * @see <a href="https://github.com/asyncapi/bindings/tree/master/amqp#message-binding-object">AMQP message binding</a>
  * @author Pavel Bodiachevskii
  */
 @Data

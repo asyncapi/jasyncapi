@@ -7,10 +7,12 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nullable;
 
 /**
- * This class MUST NOT contain any properties. Its name is reserved for future use.
+ * Describes Kafka operation binding.
  *
- * This class defines how to describe Kafka operation binding.
+ * Contains information about the operation representation in Kafka.
  *
+ * @version 0.1.0
+ * @see <a href="https://github.com/asyncapi/bindings/tree/master/kafka#operation-binding-object">Kafka operation binding</a>
  * @author Pavel Bodiachevskii
  */
 @Data

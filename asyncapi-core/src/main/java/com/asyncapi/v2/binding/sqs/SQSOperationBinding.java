@@ -1,7 +1,6 @@
 package com.asyncapi.v2.binding.sqs;
 
 import com.asyncapi.v2.binding.OperationBinding;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -9,8 +8,10 @@ import lombok.NoArgsConstructor;
 /**
  * This class MUST NOT contain any properties. Its name is reserved for future use.
  *
- * This class defines how to describe SQS operation binding.
+ * Describes SQS operation binding.
  *
+ * @version 0.1.0
+ * @see <a href="https://github.com/asyncapi/bindings/tree/master/sqs#operation-binding-object">SQS operation binding</a>
  * @author Pavel Bodiachevskii
  */
 @Data

@@ -8,8 +8,12 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 /**
- * This class defines how to describe HTTP operation binding.
+ * Describes HTTP operation binding.
  *
+ * Contains information about the operation representation in HTTP.
+ *
+ * @version 0.1.0
+ * @see <a href="https://github.com/asyncapi/bindings/tree/master/http#operation-binding-object">HTTP operation binding</a>
  * @author Pavel Bodiachevskii
  */
 @Data

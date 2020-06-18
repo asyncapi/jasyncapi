@@ -7,10 +7,12 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nullable;
 
 /**
- * This class MUST NOT contain any properties. Its name is reserved for future use.
+ * Describes MQTT server binding.
  *
- * This class defines how to describe MQTT server binding.
+ * Contains information about the server representation in MQTT.
  *
+ * @version 0.1.0
+ * @see <a href="https://github.com/asyncapi/bindings/tree/master/mqtt#server-binding-object">MQTT server binding</a>
  * @author Pavel Bodiachevskii
  */
 @Data

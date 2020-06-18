@@ -7,10 +7,12 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nullable;
 
 /**
- * This class MUST NOT contain any properties. Its name is reserved for future use.
+ * Describes MQTT message binding.
  *
- * This class defines how to describe MQTT message binding.
+ * Contains information about the message representation in MQTT.
  *
+ * @version 0.1.0
+ * @see <a href="https://github.com/asyncapi/bindings/tree/master/mqtt#message-binding-object">MQTT message binding</a>
  * @author Pavel Bodiachevskii
  */
 @Data
