@@ -353,6 +353,23 @@ public class Schema {
     @CheckForNull
     private Map<String, Schema> properties;
 
+    /**
+     * The value of "items" MUST be either a valid JSON Schema or an array of valid JSON Schemas.
+     *
+     * This keyword determines how child instances validate for arrays, and does not directly validate the immediate instance itself.
+     *
+     * If "items" is a schema, validation succeeds if all elements in the array successfully validate against that schema.
+     *
+     * If "items" is an array of schemas, validation succeeds if each element of the instance validates against the schema at the same position, if any.
+     *
+     * Omitting this keyword has the same behavior as an empty schema.
+     */
+    @CheckForNull
+    private Schema items;
+
+    @CheckForNull
+    private List<Schema> itemsList;
+
     @CheckForNull
     @JsonProperty("$ref")
     private String ref;
