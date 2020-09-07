@@ -17,9 +17,9 @@
       "description" : "Test broker",
       "variables" : {
         "port" : {
-          "enumValues" : [ "1883", "8883" ],
-          "defaultValue" : "1883",
-          "description" : "Secure connection (TLS) is available through port 8883."
+          "description" : "Secure connection (TLS) is available through port 8883.",
+          "enum" : [ "1883", "8883" ],
+          "default" : "1883"
         }
       },
       "security" : [ {
@@ -38,15 +38,15 @@
         "operationId" : "receiveLampInfo",
         "summary" : "Receive information about lamp.",
         "traits" : [ {
-          "ref" : "#/components/operationTraits/kafka"
+          "$ref" : "#/components/operationTraits/kafka"
         } ],
         "message" : {
-          "ref" : "#/components/messages/lampInfo"
+          "$ref" : "#/components/messages/lampInfo"
         }
       },
       "parameters" : {
         "lampId" : {
-          "ref" : "#/components/parameters/lampId"
+          "$ref" : "#/components/parameters/lampId"
         }
       }
     }
@@ -54,15 +54,15 @@
   "components" : {
     "schemas" : {
       "lampInfoPayload" : {
-        "type" : "OBJECT",
+        "type" : "object",
         "properties" : {
           "lumens" : {
-            "type" : "INTEGER",
+            "type" : "integer",
             "minimum" : 0,
             "description" : "Lamp intensity measured in lumens."
           },
           "watts" : {
-            "type" : "INTEGER",
+            "type" : "integer",
             "maximum" : 100,
             "minimum" : 0,
             "description" : "Lamp watt consumption."
@@ -73,29 +73,29 @@
     "messages" : {
       "lampInfo" : {
         "payload" : {
-          "ref" : "#/components/schemas/lampInfoPayload"
+          "$ref" : "#/components/schemas/lampInfoPayload"
         },
         "contentType" : "application/json",
         "name" : "lampInfo",
         "title" : "Lamp info",
         "summary" : "Lamp information.",
         "traits" : [ {
-          "ref" : "#/components/messageTraits/commonHeaders"
+          "$ref" : "#/components/messageTraits/commonHeaders"
         } ]
       }
     },
     "securitySchemes" : {
       "apiKey" : {
-        "type" : "API_KEY",
+        "type" : "apiKey",
         "description" : "Provide your API key as the user and leave the password empty.",
-        "in" : "USER"
+        "in" : "user"
       }
     },
     "parameters" : {
       "lampId" : {
         "description" : "The ID of the lamp.",
         "schema" : {
-          "type" : "STRING"
+          "type" : "string"
         }
       }
     },
@@ -111,10 +111,10 @@
     "messageTraits" : {
       "commonHeaders" : {
         "headers" : {
-          "type" : "OBJECT",
+          "type" : "object",
           "properties" : {
             "my-app-header" : {
-              "type" : "INTEGER",
+              "type" : "integer",
               "maximum" : 100,
               "minimum" : 0
             }

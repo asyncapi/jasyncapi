@@ -6,6 +6,8 @@ import org.junit.jupiter.api.*
 import org.junit.jupiter.api.io.TempDir
 import java.io.File
 import java.io.StringWriter
+import java.nio.file.Files
+import java.nio.file.Paths
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 open class ResolveTaskErrorsTest {
@@ -13,7 +15,7 @@ open class ResolveTaskErrorsTest {
     private lateinit var testProjectDirectory: File
     private lateinit var buildGradleFile: File
 
-    @BeforeAll
+    @BeforeEach
     fun prepareProjectDirectory(@TempDir tempDir: File) {
         testProjectDirectory = tempDir
 
@@ -23,6 +25,17 @@ open class ResolveTaskErrorsTest {
 
         File(testProjectDirectory,"settings.gradle")
                 .writeText(this::class.java.getResource("/settings.gradle").readText(Charsets.UTF_8))
+        copySources()
+    }
+
+    private fun copySources() {
+        val sourcesLocation = Files.createDirectories(Paths.get(testProjectDirectory.path,"/src/main/kotlin")).toFile()
+        File("src/test/kotlin").copyRecursively(sourcesLocation)
+    }
+
+    @AfterEach
+    fun cleanSchemasFolder() {
+        Assertions.assertTrue(File(ResolveTaskErrorsTest.targetFolderRoot).deleteRecursively())
     }
 
     @Test
@@ -61,6 +74,7 @@ open class ResolveTaskErrorsTest {
             
             resolve {
                 classNames = ['com.asyncapi.plugin.gradle.asyncapi.lamps.Lamps']
+                classPath = sourceSets.main.runtimeClasspath
                 schemaFileFormat = "text"
             }
         """.trimIndent(), Charsets.UTF_8)
@@ -83,6 +97,10 @@ open class ResolveTaskErrorsTest {
         Assertions.assertTrue(errorWriter.buffer.contains("* What went wrong:\n" +
                 "Execution failed for task ':resolve'.\n" +
                 "> Can't serialize Lamps because schemaFileFormat=text not recognized", true))
+    }
+
+    companion object {
+        private const val targetFolderRoot = "generated"
     }
 
 }

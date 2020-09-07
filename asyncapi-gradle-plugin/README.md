@@ -35,7 +35,7 @@ Parameter | Description | Required | Default
 `schemaFilePath`|output path where file(s) are saved|`false`|`generated/asyncapi`
 `includeNulls`|include `null` values or not|`false`|`false`
 `prettyPrint`|pretty format or not|`false`|`true`
-`classPath`|class path to work with when reflection works|`false`|`empty`
+`classPath`|class path to work with when reflection works|`true`|`empty`
 
 ## Schema definition example
 ```kotlin
