@@ -48,6 +48,7 @@ open class ResolveTaskTest {
 
             resolve {
                 classNames = ['com.asyncapi.plugin.gradle.asyncapi.lamps.Lamps']
+                classPath = sourceSets.main.runtimeClasspath
             }
         """,
         """
@@ -84,6 +85,7 @@ open class ResolveTaskTest {
 
             resolve {
                 classNames = ['com.asyncapi.plugin.gradle.asyncapi.lamps.Lamps', 'com.asyncapi.plugin.gradle.asyncapi.streetlights.Streetlights']
+                classPath = sourceSets.main.runtimeClasspath
             }
         """,
         """
@@ -154,6 +156,7 @@ open class ResolveTaskTest {
                         schemaFilePath = "$targetFolderRoot/asyncapi/json"
                         classNames = ['com.asyncapi.plugin.gradle.asyncapi.lamps.Lamps']
                         prettyPrint = false
+                        classPath = sourceSets.main.runtimeClasspath
                     }
                 """.trimIndent(), "generated/asyncapi/json/Lamps-asyncapi-schema.json", "/lamps-asyncapi.json"
                     ),
@@ -165,6 +168,7 @@ open class ResolveTaskTest {
                         schemaFileFormat = "yaml"
                         classNames = ['com.asyncapi.plugin.gradle.asyncapi.lamps.Lamps']
                         prettyPrint = false
+                        classPath = sourceSets.main.runtimeClasspath
                     }
                 """.trimIndent(), "generated/asyncapi/yaml/Lamps-asyncapi-schema.yaml", "/lamps-asyncapi.yaml"
                     )

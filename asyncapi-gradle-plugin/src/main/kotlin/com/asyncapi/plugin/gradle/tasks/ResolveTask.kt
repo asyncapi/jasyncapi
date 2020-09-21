@@ -71,7 +71,7 @@ open class ResolveTask: DefaultTask() {
         }.toSet()
 
         classPathUrls.plus(buildClasspathUrls)
-        val classLoader = URLClassLoader(classPathUrls.toTypedArray())
+        val classLoader = URLClassLoader(classPathUrls.toTypedArray(), Thread.currentThread().contextClassLoader)
 
         logger.info("Resolving AsyncAPI specification..")
 
