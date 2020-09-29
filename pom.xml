@@ -21,7 +21,7 @@
 
     <modules>
         <module>asyncapi-core</module>
-        <module>asyncapi-maven-plugin</module>
+        <module>asyncapi-plugin</module>
     </modules>
 
     <properties>

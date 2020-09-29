@@ -4,8 +4,5 @@
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="async-api" target="8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
