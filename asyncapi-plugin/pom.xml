@@ -15,6 +15,7 @@
 
     <modules>
         <module>asyncapi-plugin-maven</module>
+        <module>asyncapi-plugin-core</module>
     </modules>
 
 </project>
