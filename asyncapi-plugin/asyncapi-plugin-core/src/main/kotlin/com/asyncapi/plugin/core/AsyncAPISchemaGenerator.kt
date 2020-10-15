@@ -30,12 +30,12 @@ abstract class AsyncAPISchemaGenerator(
         private val classNames: Array<String> = emptyArray(),
         private val packageNames: Array<String> = emptyArray(),
         // generation preferences
-        private val includeNulls: Boolean = false,
-        private val prettyPrint: Boolean = true,
+        private val includeNulls: Boolean = DefaultSchemaProperties.schemaIncludeNulls,
+        private val prettyPrint: Boolean = DefaultSchemaProperties.schemaPrettyPrint,
         // schema file preferences
-        private val schemaFileNamePostfix: String = "asyncapi",
-        private val schemaFileFormat: String = "json",
-        private val schemaFilePath: String = "generated/asyncapi"
+        private val schemaFileNamePostfix: String = DefaultSchemaProperties.fileNamePostfix,
+        private val schemaFileFormat: String = DefaultSchemaProperties.fileFormat,
+        private val schemaFilePath: String = DefaultSchemaProperties.filePath
 ) {
 
     /**

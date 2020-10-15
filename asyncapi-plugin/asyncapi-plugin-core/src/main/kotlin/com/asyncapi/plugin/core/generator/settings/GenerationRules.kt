@@ -1,12 +1,14 @@
 package com.asyncapi.plugin.core.generator.settings
 
+import com.asyncapi.plugin.core.DefaultSchemaProperties
+
 /**
  * AsyncAPI schema generation rules.
  *
- * @param avoidNulls include null values to generated schema.
+ * @param includeNulls include null values to generated schema.
  * @param prettyPrint pretty print schema if it possible.
  */
 data class GenerationRules(
-        val avoidNulls: Boolean = true,
-        val prettyPrint: Boolean = true
+        val includeNulls: Boolean = DefaultSchemaProperties.schemaIncludeNulls,
+        val prettyPrint: Boolean = DefaultSchemaProperties.schemaPrettyPrint
 )
