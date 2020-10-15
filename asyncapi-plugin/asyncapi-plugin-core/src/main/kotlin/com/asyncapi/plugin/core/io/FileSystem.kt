@@ -1,16 +1,15 @@
 package com.asyncapi.plugin.core.io
 
+import com.asyncapi.plugin.core.DefaultSchemaProperties
 import java.io.File
 import java.nio.file.Files
 import java.nio.file.Paths
 
 object FileSystem {
 
-    const val defaultPath = "asyncapi-schemas"
-
-        fun save(name: String, content: String, path: String) {
+    fun save(name: String, content: String, path: String) {
         val dirPath = if (path.isBlank()) {
-            Paths.get(defaultPath)
+            Paths.get(DefaultSchemaProperties.filePath)
         } else {
             Paths.get(path)
         }
