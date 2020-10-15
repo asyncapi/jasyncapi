@@ -7,7 +7,7 @@ import java.io.File
 class FileSystemTest {
 
     @Test
-    fun saveWithDefaultPath() {
+    fun `save with default path`() {
         FileSystem.save("StreetLights-asyncapi.json", "{}", "")
         val savedSchema = File("${FileSystem.defaultPath}/StreetLights-asyncapi.json")
         savedSchema.deleteOnExit()
@@ -16,7 +16,7 @@ class FileSystemTest {
     }
 
     @Test
-    fun save() {
+    fun `save with given path`() {
         val path = "generated/asyncapi"
 
         FileSystem.save("StreetLights-asyncapi.json", "{}", path)
