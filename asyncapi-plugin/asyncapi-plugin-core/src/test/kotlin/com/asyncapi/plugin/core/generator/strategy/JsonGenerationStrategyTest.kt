@@ -4,7 +4,11 @@ import com.asyncapi.plugin.core.DefaultSchemaProperties
 import com.asyncapi.plugin.core.generator.settings.GenerationSettings
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.Arguments
+import org.junit.jupiter.params.provider.MethodSource
 import java.io.File
+import java.util.stream.Stream
 
 /*
     TODO: compare generated schemas with handwritten
@@ -24,15 +28,6 @@ class JsonGenerationStrategyTest: GenerationStrategyTest() {
     }
 
     /*
-        * default path +
-        * given path +
-        * classes only +
-        * packages only +
-        * classes and packages
-        * classes and packages are empty +
-     */
-
-    /*
         Default schema properties.
      */
     @Test
@@ -45,79 +40,6 @@ class JsonGenerationStrategyTest: GenerationStrategyTest() {
         schemasFolder.deleteOnExit()
 
         Assertions.assertFalse(schemasFolder.exists(), "Folders must not be created in case when classes & packages are empty.")
-    }
-
-    @Test
-    fun `generate with default schema properties when classes are not empty`() {
-        val jsonGenerationStrategy = JsonGenerationStrategy(composeGenerationSettings(
-                classes = arrayOf(
-                        "com.asyncapi.schemas.lamps.Lamps",
-                        "com.asyncapi.schemas.streetlights.Streetlights"
-                )
-        ))
-        jsonGenerationStrategy.generate()
-
-        val schemasFolder = File(DefaultSchemaProperties.filePath)
-
-        Assertions.assertTrue(schemasFolder.exists() && schemasFolder.isDirectory, "Schemas folder must exists and be folder.")
-        Assertions.assertTrue(schemasFolder.list()!!.isNotEmpty(), "Schemas folder must not be empty.")
-
-        val expectedSchemaFileNameEnding = "${DefaultSchemaProperties.fileNamePostfix}.json"
-        schemasFolder.listFiles()?.forEach {
-            Assertions.assertTrue(it.name.endsWith(expectedSchemaFileNameEnding), "Schema must ends with: $expectedSchemaFileNameEnding")
-        }
-
-        schemasFolder.deleteRecursively()
-    }
-
-    @Test
-    fun `generate with default schema properties when packages are not empty`() {
-        val jsonGenerationStrategy = JsonGenerationStrategy(composeGenerationSettings(
-                packages = arrayOf(
-                        "com.asyncapi.schemas.lamps",
-                        "com.asyncapi.schemas.streetlights"
-                )
-        ))
-        jsonGenerationStrategy.generate()
-
-        val schemasFolder = File(DefaultSchemaProperties.filePath)
-
-        Assertions.assertTrue(schemasFolder.exists() && schemasFolder.isDirectory, "Schemas folder must exists and be folder.")
-        Assertions.assertTrue(schemasFolder.list()!!.isNotEmpty(), "Schemas folder must not be empty.")
-
-        val expectedSchemaFileNameEnding = "${DefaultSchemaProperties.fileNamePostfix}.json"
-        schemasFolder.listFiles()?.forEach {
-            Assertions.assertTrue(it.name.endsWith(expectedSchemaFileNameEnding), "Schema must ends with: $expectedSchemaFileNameEnding")
-        }
-
-        schemasFolder.deleteRecursively()
-    }
-
-    @Test
-    fun `generate with default schema properties when classes and packages are not empty`() {
-        val jsonGenerationStrategy = JsonGenerationStrategy(composeGenerationSettings(
-                classes = arrayOf(
-                        "com.asyncapi.schemas.lamps.Lamps",
-                        "com.asyncapi.schemas.streetlights.Streetlights"
-                ),
-                packages = arrayOf(
-                        "com.asyncapi.schemas.lamps",
-                        "com.asyncapi.schemas.streetlights"
-                )
-        ))
-        jsonGenerationStrategy.generate()
-
-        val schemasFolder = File(DefaultSchemaProperties.filePath)
-
-        Assertions.assertTrue(schemasFolder.exists() && schemasFolder.isDirectory, "Schemas folder must exists and be folder.")
-        Assertions.assertTrue(schemasFolder.list()!!.isNotEmpty(), "Schemas folder must not be empty.")
-
-        val expectedSchemaFileNameEnding = "${DefaultSchemaProperties.fileNamePostfix}.json"
-        schemasFolder.listFiles()?.forEach {
-            Assertions.assertTrue(it.name.endsWith(expectedSchemaFileNameEnding), "Schema must ends with: $expectedSchemaFileNameEnding")
-        }
-
-        schemasFolder.deleteRecursively()
     }
 
     /*
@@ -137,86 +59,131 @@ class JsonGenerationStrategyTest: GenerationStrategyTest() {
         Assertions.assertFalse(schemasFolder.exists(), "Folders must not be created in case when classes & packages are empty.")
     }
 
-    @Test
-    fun `generate with given path when classes are not empty`() {
-        val path = "asyncapi-schemas"
-
-        val jsonGenerationStrategy = JsonGenerationStrategy(composeGenerationSettings(
-                classes = arrayOf(
-                        "com.asyncapi.schemas.lamps.Lamps",
-                        "com.asyncapi.schemas.streetlights.Streetlights"
-                ),
-                path = path
-        ))
+    @ParameterizedTest
+    @MethodSource("schemaGenerationSettings")
+    fun generate(settings: GenerationSettings) {
+        val jsonGenerationStrategy = JsonGenerationStrategy(settings)
         jsonGenerationStrategy.generate()
 
-        val schemasFolder = File(path)
+        val folderWithSchemas = File(settings.schemaFile.path)
+        val expectedSchemaFileNameEnding = "${settings.schemaFile.namePostfix}.json"
 
-        Assertions.assertTrue(schemasFolder.exists() && schemasFolder.isDirectory, "Schemas folder must exists and be folder.")
-        Assertions.assertTrue(schemasFolder.list()!!.isNotEmpty(), "Schemas folder must not be empty.")
-
-        val expectedSchemaFileNameEnding = "${DefaultSchemaProperties.fileNamePostfix}.json"
-        schemasFolder.listFiles()?.forEach {
+        Assertions.assertTrue(folderWithSchemas.exists() && folderWithSchemas.isDirectory, "Path must exists and be folder.")
+        Assertions.assertTrue(folderWithSchemas.listFiles()?.isNotEmpty() ?: false, "Folder must not be empty.")
+        folderWithSchemas.listFiles()?.forEach {
             Assertions.assertTrue(it.name.endsWith(expectedSchemaFileNameEnding), "Schema must ends with: $expectedSchemaFileNameEnding")
         }
 
-        schemasFolder.deleteRecursively()
+        folderWithSchemas.deleteRecursively()
     }
 
-    @Test
-    fun `generate with given path when packages are not empty`() {
-        val path = "asyncapi-schemas"
+    companion object {
 
-        val jsonGenerationStrategy = JsonGenerationStrategy(composeGenerationSettings(
-                packages = arrayOf(
-                        "com.asyncapi.schemas.lamps",
-                        "com.asyncapi.schemas.streetlights"
-                ),
-                path = path
-        ))
-        jsonGenerationStrategy.generate()
+        @JvmStatic
+        fun schemaGenerationSettings(): Stream<Arguments> {
+            val jsonGenerationStrategyTest = JsonGenerationStrategyTest()
 
-        val schemasFolder = File(path)
-
-        Assertions.assertTrue(schemasFolder.exists() && schemasFolder.isDirectory, "Schemas folder must exists and be folder.")
-        Assertions.assertTrue(schemasFolder.list()!!.isNotEmpty(), "Schemas folder must not be empty.")
-
-        val expectedSchemaFileNameEnding = "${DefaultSchemaProperties.fileNamePostfix}.json"
-        schemasFolder.listFiles()?.forEach {
-            Assertions.assertTrue(it.name.endsWith(expectedSchemaFileNameEnding), "Schema must ends with: $expectedSchemaFileNameEnding")
+            /*
+                * with default schema properties when classes are not empty
+                * with default schema properties when packages are not empty
+                * with default schema properties when classes and packages are not empty
+                *
+                * with given path when classes are not empty
+                * with given path when packages are not empty
+                * with given path when classes and packages are not empty
+                *
+                * with given path, namePostfix when classes are not empty
+                * with given path, namePostfix when packages are not empty
+                * with given path, namePostfix when classes and packages are not empty
+             */
+            return Stream.of(
+                    /*
+                        default
+                     */
+                    Arguments.of(jsonGenerationStrategyTest.composeGenerationSettings(
+                            classes = arrayOf(
+                                    "com.asyncapi.schemas.lamps.Lamps",
+                                    "com.asyncapi.schemas.streetlights.Streetlights"
+                            )
+                    )),
+                    Arguments.of(jsonGenerationStrategyTest.composeGenerationSettings(
+                            packages = arrayOf(
+                                    "com.asyncapi.schemas.lamps",
+                                    "com.asyncapi.schemas.streetlights"
+                            )
+                    )),
+                    Arguments.of(jsonGenerationStrategyTest.composeGenerationSettings(
+                            classes = arrayOf(
+                                    "com.asyncapi.schemas.lamps.Lamps",
+                                    "com.asyncapi.schemas.streetlights.Streetlights"
+                            ),
+                            packages = arrayOf(
+                                    "com.asyncapi.schemas.lamps",
+                                    "com.asyncapi.schemas.streetlights"
+                            )
+                    )),
+                    /*
+                        path
+                     */
+                    Arguments.of(jsonGenerationStrategyTest.composeGenerationSettings(
+                            classes = arrayOf(
+                                    "com.asyncapi.schemas.lamps.Lamps",
+                                    "com.asyncapi.schemas.streetlights.Streetlights"
+                            ),
+                            path = "asyncapi-schemas"
+                    )),
+                    Arguments.of(jsonGenerationStrategyTest.composeGenerationSettings(
+                            packages = arrayOf(
+                                    "com.asyncapi.schemas.lamps",
+                                    "com.asyncapi.schemas.streetlights"
+                            ),
+                            path = "asyncapi-schemas"
+                    )),
+                    Arguments.of(jsonGenerationStrategyTest.composeGenerationSettings(
+                            classes = arrayOf(
+                                    "com.asyncapi.schemas.lamps.Lamps",
+                                    "com.asyncapi.schemas.streetlights.Streetlights"
+                            ),
+                            packages = arrayOf(
+                                    "com.asyncapi.schemas.lamps",
+                                    "com.asyncapi.schemas.streetlights"
+                            ),
+                            path = "asyncapi-schemas"
+                    )),
+                    /*
+                        path, namePostfix
+                     */
+                    Arguments.of(jsonGenerationStrategyTest.composeGenerationSettings(
+                            classes = arrayOf(
+                                    "com.asyncapi.schemas.lamps.Lamps",
+                                    "com.asyncapi.schemas.streetlights.Streetlights"
+                            ),
+                            path = "asyncapi-schemas",
+                            namePostfix = "schema"
+                    )),
+                    Arguments.of(jsonGenerationStrategyTest.composeGenerationSettings(
+                            packages = arrayOf(
+                                    "com.asyncapi.schemas.lamps",
+                                    "com.asyncapi.schemas.streetlights"
+                            ),
+                            path = "asyncapi-schemas",
+                            namePostfix = "schema"
+                    )),
+                    Arguments.of(jsonGenerationStrategyTest.composeGenerationSettings(
+                            classes = arrayOf(
+                                    "com.asyncapi.schemas.lamps.Lamps",
+                                    "com.asyncapi.schemas.streetlights.Streetlights"
+                            ),
+                            packages = arrayOf(
+                                    "com.asyncapi.schemas.lamps",
+                                    "com.asyncapi.schemas.streetlights"
+                            ),
+                            path = "asyncapi-schemas",
+                            namePostfix = "schema"
+                    ))
+            )
         }
 
-        schemasFolder.deleteRecursively()
-    }
-
-    @Test
-    fun `generate with given path when classes and packages are not empty`() {
-        val path = "asyncapi-schemas"
-
-        val jsonGenerationStrategy = JsonGenerationStrategy(composeGenerationSettings(
-                classes = arrayOf(
-                        "com.asyncapi.schemas.lamps.Lamps",
-                        "com.asyncapi.schemas.streetlights.Streetlights"
-                ),
-                packages = arrayOf(
-                        "com.asyncapi.schemas.lamps",
-                        "com.asyncapi.schemas.streetlights"
-                ),
-                path = path
-        ))
-        jsonGenerationStrategy.generate()
-
-        val schemasFolder = File(path)
-
-        Assertions.assertTrue(schemasFolder.exists() && schemasFolder.isDirectory, "Schemas folder must exists and be folder.")
-        Assertions.assertTrue(schemasFolder.list()!!.isNotEmpty(), "Schemas folder must not be empty.")
-
-        val expectedSchemaFileNameEnding = "${DefaultSchemaProperties.fileNamePostfix}.json"
-        schemasFolder.listFiles()?.forEach {
-            Assertions.assertTrue(it.name.endsWith(expectedSchemaFileNameEnding), "Schema must ends with: $expectedSchemaFileNameEnding")
-        }
-
-        schemasFolder.deleteRecursively()
     }
 
 }
