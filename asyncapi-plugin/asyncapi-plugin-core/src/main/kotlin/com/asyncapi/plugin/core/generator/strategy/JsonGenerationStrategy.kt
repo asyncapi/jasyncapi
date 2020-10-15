@@ -26,7 +26,7 @@ class JsonGenerationStrategy(
     private val objectMapper: ObjectMapper by lazy {
         val instance = ObjectMapper()
 
-        if (!generationSettings.rules.avoidNulls) {
+        if (!generationSettings.rules.includeNulls) {
             instance.setSerializationInclusion(JsonInclude.Include.NON_NULL)
         }
 

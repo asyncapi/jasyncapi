@@ -28,7 +28,7 @@ class YamlGenerationStrategy(
     private val objectMapper: ObjectMapper by lazy {
         val instance = ObjectMapper(YAMLFactory().disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER))
 
-        if (!generationSettings.rules.avoidNulls) {
+        if (!generationSettings.rules.includeNulls) {
             instance.setSerializationInclusion(JsonInclude.Include.NON_NULL)
         }
 
