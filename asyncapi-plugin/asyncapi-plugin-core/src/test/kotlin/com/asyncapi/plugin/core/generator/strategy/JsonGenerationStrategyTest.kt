@@ -1,6 +1,7 @@
 package com.asyncapi.plugin.core.generator.strategy
 
 import com.asyncapi.plugin.core.DefaultSchemaProperties
+import com.asyncapi.plugin.core.generator.settings.GenerationRules
 import com.asyncapi.plugin.core.generator.settings.GenerationSettings
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
@@ -10,9 +11,6 @@ import org.junit.jupiter.params.provider.MethodSource
 import java.io.File
 import java.util.stream.Stream
 
-/*
-    TODO: compare generated schemas with handwritten
- */
 class JsonGenerationStrategyTest: GenerationStrategyTest() {
 
     private fun composeGenerationSettings(classes: Array<String> = emptyArray(),
@@ -72,6 +70,9 @@ class JsonGenerationStrategyTest: GenerationStrategyTest() {
         Assertions.assertTrue(folderWithSchemas.listFiles()?.isNotEmpty() ?: false, "Folder must not be empty.")
         folderWithSchemas.listFiles()?.forEach {
             Assertions.assertTrue(it.name.endsWith(expectedSchemaFileNameEnding), "Schema must ends with: $expectedSchemaFileNameEnding")
+        }
+        folderWithSchemas.listFiles()?.forEach {
+            validateSchemaContent(it, settings.rules, "json")
         }
 
         folderWithSchemas.deleteRecursively()

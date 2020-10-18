@@ -5,6 +5,8 @@ import com.asyncapi.plugin.core.generator.settings.GenerationRules
 import com.asyncapi.plugin.core.generator.settings.GenerationSources
 import com.asyncapi.plugin.core.generator.settings.SchemaFileSettings
 import com.asyncapi.plugin.core.logging.Logger
+import org.junit.jupiter.api.Assertions
+import java.io.File
 import java.net.URLClassLoader
 
 open class GenerationStrategyTest {
@@ -28,6 +30,29 @@ open class GenerationStrategyTest {
     protected fun composeSchemaFileSettings(path: String = DefaultSchemaProperties.filePath,
                                             namePostfix: String = DefaultSchemaProperties.fileNamePostfix): SchemaFileSettings {
         return SchemaFileSettings(path, namePostfix)
+    }
+
+    protected fun validateSchemaContent(schema: File, generationRules: GenerationRules, format: String) {
+        val expectedSchemaName = schema.nameWithoutExtension.split("-")[0] + "-asyncapi.$format"
+        val expectedSchemaPath = if (generationRules.prettyPrint) {
+            if (generationRules.includeNulls) {
+                "schemas/pretty-print/include-nulls"
+            } else {
+                "schemas/pretty-print/avoid-nulls"
+            }
+        } else {
+            if (!generationRules.includeNulls) {
+                "schemas/raw/include-nulls"
+            } else {
+                "schemas/raw/avoid-nulls"
+            }
+        }
+
+        Assertions.assertEquals(
+                this::class.java.getResource("/$expectedSchemaPath/$expectedSchemaName").readText(Charsets.UTF_8),
+                File(schema.path).readText(Charsets.UTF_8),
+                "Handwritten schema must be identical to generated."
+        )
     }
 
 }
