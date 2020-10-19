@@ -6,6 +6,7 @@ import com.asyncapi.plugin.core.generator.settings.GenerationSources
 import com.asyncapi.plugin.core.generator.settings.SchemaFileSettings
 import com.asyncapi.plugin.core.logging.Logger
 import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.BeforeEach
 import java.io.File
 import java.net.URLClassLoader
 
@@ -14,6 +15,20 @@ open class GenerationStrategyTest {
     protected val logger = object: Logger {
         override fun info(message: String) {
             println(message)
+        }
+    }
+
+    @BeforeEach
+    private fun deleteGeneratedSchemas() {
+        val defaultSchemasFolder = File(defaultPath.split("/")[0])
+        val schemasFolder = File(customPath)
+
+        if (defaultSchemasFolder.exists()) {
+            defaultSchemasFolder.deleteRecursively()
+        }
+
+        if (schemasFolder.exists()) {
+            schemasFolder.deleteRecursively()
         }
     }
 
@@ -53,6 +68,11 @@ open class GenerationStrategyTest {
                 File(schema.path).readText(Charsets.UTF_8),
                 "Handwritten schema must be identical to generated."
         )
+    }
+
+    companion object {
+        const val defaultPath = DefaultSchemaProperties.filePath
+        const val customPath = "asyncapi-schemas"
     }
 
 }

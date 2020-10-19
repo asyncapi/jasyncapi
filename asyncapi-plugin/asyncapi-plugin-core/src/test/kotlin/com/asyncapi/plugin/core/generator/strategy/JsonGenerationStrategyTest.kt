@@ -1,7 +1,6 @@
 package com.asyncapi.plugin.core.generator.strategy
 
 import com.asyncapi.plugin.core.DefaultSchemaProperties
-import com.asyncapi.plugin.core.generator.settings.GenerationRules
 import com.asyncapi.plugin.core.generator.settings.GenerationSettings
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
@@ -33,10 +32,7 @@ class JsonGenerationStrategyTest: GenerationStrategyTest() {
         val jsonGenerationStrategy = JsonGenerationStrategy(composeGenerationSettings())
         jsonGenerationStrategy.generate()
 
-        val schemasFolder = File(DefaultSchemaProperties.filePath)
-        schemasFolder.listFiles()?.forEach { it.deleteOnExit() }
-        schemasFolder.deleteOnExit()
-
+        val schemasFolder = File(defaultPath)
         Assertions.assertFalse(schemasFolder.exists(), "Folders must not be created in case when classes & packages are empty.")
     }
 
@@ -45,15 +41,10 @@ class JsonGenerationStrategyTest: GenerationStrategyTest() {
      */
     @Test
     fun `generate with given path when classes and packages are empty`() {
-        val path = "asyncapi-schemas"
-
-        val jsonGenerationStrategy = JsonGenerationStrategy(composeGenerationSettings(path = path))
+        val jsonGenerationStrategy = JsonGenerationStrategy(composeGenerationSettings(path = customPath))
         jsonGenerationStrategy.generate()
 
-        val schemasFolder = File(DefaultSchemaProperties.filePath)
-        schemasFolder.listFiles()?.forEach { it.deleteOnExit() }
-        schemasFolder.deleteOnExit()
-
+        val schemasFolder = File(customPath)
         Assertions.assertFalse(schemasFolder.exists(), "Folders must not be created in case when classes & packages are empty.")
     }
 
@@ -74,8 +65,6 @@ class JsonGenerationStrategyTest: GenerationStrategyTest() {
         folderWithSchemas.listFiles()?.forEach {
             validateSchemaContent(it, settings.rules, "json")
         }
-
-        folderWithSchemas.deleteRecursively()
     }
 
     companion object {
@@ -131,14 +120,14 @@ class JsonGenerationStrategyTest: GenerationStrategyTest() {
                                     "com.asyncapi.schemas.lamps.Lamps",
                                     "com.asyncapi.schemas.streetlights.Streetlights"
                             ),
-                            path = "asyncapi-schemas"
+                            path = customPath
                     )),
                     Arguments.of(jsonGenerationStrategyTest.composeGenerationSettings(
                             packages = arrayOf(
                                     "com.asyncapi.schemas.lamps",
                                     "com.asyncapi.schemas.streetlights"
                             ),
-                            path = "asyncapi-schemas"
+                            path = customPath
                     )),
                     Arguments.of(jsonGenerationStrategyTest.composeGenerationSettings(
                             classes = arrayOf(
@@ -149,7 +138,7 @@ class JsonGenerationStrategyTest: GenerationStrategyTest() {
                                     "com.asyncapi.schemas.lamps",
                                     "com.asyncapi.schemas.streetlights"
                             ),
-                            path = "asyncapi-schemas"
+                            path = customPath
                     )),
                     /*
                         path, namePostfix
@@ -159,7 +148,7 @@ class JsonGenerationStrategyTest: GenerationStrategyTest() {
                                     "com.asyncapi.schemas.lamps.Lamps",
                                     "com.asyncapi.schemas.streetlights.Streetlights"
                             ),
-                            path = "asyncapi-schemas",
+                            path = customPath,
                             namePostfix = "schema"
                     )),
                     Arguments.of(jsonGenerationStrategyTest.composeGenerationSettings(
@@ -167,7 +156,7 @@ class JsonGenerationStrategyTest: GenerationStrategyTest() {
                                     "com.asyncapi.schemas.lamps",
                                     "com.asyncapi.schemas.streetlights"
                             ),
-                            path = "asyncapi-schemas",
+                            path = customPath,
                             namePostfix = "schema"
                     )),
                     Arguments.of(jsonGenerationStrategyTest.composeGenerationSettings(
@@ -179,7 +168,7 @@ class JsonGenerationStrategyTest: GenerationStrategyTest() {
                                     "com.asyncapi.schemas.lamps",
                                     "com.asyncapi.schemas.streetlights"
                             ),
-                            path = "asyncapi-schemas",
+                            path = customPath,
                             namePostfix = "schema"
                     ))
             )
