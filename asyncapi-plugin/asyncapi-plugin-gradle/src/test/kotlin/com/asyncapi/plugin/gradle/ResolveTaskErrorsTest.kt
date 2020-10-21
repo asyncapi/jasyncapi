@@ -64,7 +64,7 @@ open class ResolveTaskErrorsTest {
 
         Assertions.assertTrue(errorWriter.buffer.contains("* What went wrong:\n" +
                 "Execution failed for task ':resolve'.\n" +
-                "> classNames or packageNames are required", true))
+                "> Can't generate schema: classNames or packageNames are required", true))
     }
 
     @Test
@@ -96,7 +96,7 @@ open class ResolveTaskErrorsTest {
 
         Assertions.assertTrue(errorWriter.buffer.contains("* What went wrong:\n" +
                 "Execution failed for task ':resolve'.\n" +
-                "> Can't serialize Lamps because schemaFileFormat=text not recognized", true))
+                "> Can't generate schema: schemaFileFormat=text not recognize", true))
     }
 
     companion object {
