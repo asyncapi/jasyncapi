@@ -6,6 +6,7 @@
         <option value="src/main/java" />
         <option value="src/main/kotlin" />
         <option value="src/test/java" />
+        <option value="src/test/kotlin" />
         <option value="target/generated-test-sources/Complete" />
       </list>
     </option>
