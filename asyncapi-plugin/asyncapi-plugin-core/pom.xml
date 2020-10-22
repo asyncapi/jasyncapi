@@ -13,58 +13,35 @@
     <version>1.0.0-RC1</version>
 
     <properties>
-        <kotlin.version>1.4.10</kotlin.version>
         <reflections.version>0.9.12</reflections.version>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>com.asyncapi</groupId>
-            <artifactId>asyncapi-core</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
+        <!-- Json/Yaml -->
         <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-yaml</artifactId>
-            <version>${jackson.version}</version>
         </dependency>
+        <!-- Reflection -->
         <dependency>
             <groupId>org.reflections</groupId>
             <artifactId>reflections</artifactId>
             <version>${reflections.version}</version>
         </dependency>
-
-        <!-- JUnit5 -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.6.1</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.6.1</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-params</artifactId>
-            <version>5.6.1</version>
-            <scope>test</scope>
-        </dependency>
-
         <!-- Kotlin -->
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-stdlib-jdk8</artifactId>
-            <version>${kotlin.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-test</artifactId>
-            <version>${kotlin.version}</version>
-            <scope>test</scope>
+        </dependency>
+        <!-- AsyncAPI core -->
+        <dependency>
+            <groupId>com.asyncapi</groupId>
+            <artifactId>asyncapi-core</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
