@@ -1,0 +1,40 @@
+{
+  "description": "This channel is used to exchange messages about users signing up",
+  "subscribe": {
+    "summary": "A user signed up.",
+    "message": {
+      "description": "A longer description of the message",
+      "payload": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "$ref": "#/components/schemas/user"
+          },
+          "signup": {
+            "$ref": "#/components/schemas/signup"
+          }
+        }
+      }
+    }
+  },
+  "parameters": {
+    "param1": {
+      "$ref": "#/components/operationTraits/kafka"
+    },
+    "param2": {
+      "description": "Id of the user.",
+      "schema": {
+        "type": "string"
+      },
+      "location": "$message.payload#/user/id"
+    }
+  },
+  "bindings": {
+    "amqp": {
+      "is": "queue",
+      "queue": {
+        "exclusive": true
+      }
+    }
+  }
+}

@@ -5,5 +5,9 @@
 
 This is a code-first tool for [AsyncAPI](https://www.asyncapi.com/) specification.
 
-> You can find snapshot in development branch. Here are located to maven modules:
-> `asyncapi-core` wich contains defined AsyncAPI schema and `asyncapi-maven-plugin`, `asyncapi-gradle-plugin` for schema generation
+## What's ready
+- [Maven plugin](asyncapi-plugin/asyncapi-plugin-maven)
+- [Gradle plugin](asyncapi-plugin/asyncapi-plugin-gradle)
+- [Schema definition](/asyncapi-core)
+
+Ready for `kotlin`. Each field in schema definition is properly annotated with `jsr-305` annotation(s).

@@ -1,0 +1,14 @@
+{
+  "headers": {
+    "type": "object",
+    "properties": {
+      "Content-Type": {
+        "type": "string",
+        "enum": "['application/json']"
+      }
+    }
+  },
+  "meta": {
+    "version": "0.1.0"
+  }
+}

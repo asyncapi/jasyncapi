@@ -1,0 +1,15 @@
+{
+  "title": "AsyncApi sample",
+  "version": "2.0",
+  "description": "short description",
+  "termsOfService": "https://www.asyncapi.com/about/",
+  "contact": {
+    "name": "AsyncApi",
+    "url": "https://www.asyncapi.com",
+    "email": "java@asyncapi.com"
+  },
+  "license": {
+    "name": "Apache License 2.0",
+    "url": "http://www.apache.org/licenses/"
+  }
+}
