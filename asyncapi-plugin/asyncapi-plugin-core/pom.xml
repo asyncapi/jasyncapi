@@ -10,7 +10,6 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>asyncapi-plugin-core</artifactId>
-    <version>1.0.0-RC1</version>
 
     <properties>
         <reflections.version>0.9.12</reflections.version>

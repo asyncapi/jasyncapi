@@ -23,7 +23,7 @@ dependencies {
     compile("com.fasterxml.jackson.core:jackson-core:$jacksonVersion")
     compile("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$jacksonVersion")
 
-    compile("com.asyncapi:asyncapi-plugin-core:1.0.0-RC1")
+    compile("com.asyncapi:asyncapi-plugin-core:1.0.0-SNAPSHOT")
 
     testCompile("org.jetbrains.kotlin:kotlin-test:1.3.71")
     testCompile("org.junit.jupiter:junit-jupiter-engine:5.6.1")
