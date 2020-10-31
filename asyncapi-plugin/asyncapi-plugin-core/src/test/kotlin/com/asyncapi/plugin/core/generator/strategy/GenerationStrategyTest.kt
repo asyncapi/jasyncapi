@@ -16,6 +16,10 @@ open class GenerationStrategyTest {
         override fun info(message: String) {
             println(message)
         }
+
+        override fun error(message: String) {
+            println(message)
+        }
     }
 
     @BeforeEach
