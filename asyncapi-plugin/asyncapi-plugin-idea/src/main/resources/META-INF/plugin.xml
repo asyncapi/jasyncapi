@@ -1,0 +1,22 @@
+<idea-plugin>
+    <id>com.asyncapi.plugin.idea</id>
+    <name>AsyncAPI</name>
+    <vendor email="pavelbodyachevskiy@gmail.com" url="https://www.asyncapi.com">AsyncAPI</vendor>
+
+    <description><![CDATA[
+    <p>A plugin to help you easily edit AsyncAPI specification files.</p><br/>
+    ]]>
+    </description>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
+</idea-plugin>
