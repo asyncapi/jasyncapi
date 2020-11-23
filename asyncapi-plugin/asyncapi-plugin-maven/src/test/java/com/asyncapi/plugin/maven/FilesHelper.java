@@ -3,6 +3,9 @@ package com.asyncapi.plugin.maven;
 import java.io.File;
 import java.util.Objects;
 
+/**
+ * @author Pavel Bodiachevskii
+ */
 public class FilesHelper {
 
     public static File readResource(String path) {

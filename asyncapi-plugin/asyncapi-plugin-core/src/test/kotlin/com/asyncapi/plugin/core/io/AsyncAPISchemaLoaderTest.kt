@@ -8,6 +8,9 @@ import org.junit.jupiter.api.Test
 import java.net.URLClassLoader
 import kotlin.streams.toList
 
+/**
+ * @author Pavel Bodiachevskii
+ */
 class AsyncAPISchemaLoaderTest {
 
     private fun mockLogger(): Logger {

@@ -11,6 +11,9 @@ import org.gradle.api.tasks.TaskAction
 import java.io.File
 import java.net.URLClassLoader
 
+/**
+ * @author Pavel Bodiachevskii
+ */
 open class ResolveTask: DefaultTask() {
 
     @get:Input

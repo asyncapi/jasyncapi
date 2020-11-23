@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import java.io.File
 
+/**
+ * @author Pavel Bodiachevskii
+ */
 class FileSystemTest {
 
     @Test

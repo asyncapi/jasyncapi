@@ -30,6 +30,9 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * @author Pavel Bodiachevskii
+ */
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)

@@ -21,6 +21,9 @@ import com.asyncapi.v2.model.security_scheme.SecurityScheme
 import com.asyncapi.v2.model.server.Server
 import com.asyncapi.v2.model.server.ServerVariable
 
+/**
+ * @author Pavel Bodiachevskii
+ */
 class Lamps(asyncapi: String = "2.0.0",
             id: String? = null,
             defaultContentType: String? = null,

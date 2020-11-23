@@ -13,6 +13,9 @@ import java.io.File
 import java.net.URL
 import java.net.URLClassLoader
 
+/**
+ * @author Pavel Bodiachevskii
+ */
 @Mojo(name = "generate",
         defaultPhase = LifecyclePhase.COMPILE,
         requiresDependencyResolution = ResolutionScope.COMPILE,

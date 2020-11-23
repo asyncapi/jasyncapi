@@ -3,6 +3,9 @@ package com.asyncapi.plugin.core
 import com.asyncapi.plugin.core.logging.Logger
 import java.net.URLClassLoader
 
+/**
+ * @author Pavel Bodiachevskii
+ */
 class AsyncAPISchemaGeneratorImpl(
         // sources to generate from
         private val classNames: Array<String> = emptyArray(),
