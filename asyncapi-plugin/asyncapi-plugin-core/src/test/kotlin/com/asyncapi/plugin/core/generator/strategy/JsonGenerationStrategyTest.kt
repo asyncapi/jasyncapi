@@ -10,6 +10,9 @@ import org.junit.jupiter.params.provider.MethodSource
 import java.io.File
 import java.util.stream.Stream
 
+/**
+ * @author Pavel Bodiachevskii
+ */
 class JsonGenerationStrategyTest: GenerationStrategyTest() {
 
     private fun composeGenerationSettings(classes: Array<String> = emptyArray(),

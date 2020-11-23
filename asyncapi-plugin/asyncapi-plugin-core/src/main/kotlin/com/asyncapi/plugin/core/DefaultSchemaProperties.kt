@@ -1,5 +1,8 @@
 package com.asyncapi.plugin.core
 
+/**
+ * @author Pavel Bodiachevskii
+ */
 object DefaultSchemaProperties {
 
     /*

@@ -1,5 +1,8 @@
 package com.asyncapi.plugin.core.generator.settings
 
+/**
+ * @author Pavel Bodiachevskii
+ */
 data class GenerationSources(
         val classes: Array<String>,
         val packages: Array<String>,
