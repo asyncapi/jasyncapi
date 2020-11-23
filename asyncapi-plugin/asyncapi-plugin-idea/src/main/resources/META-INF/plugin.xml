@@ -11,12 +11,23 @@
     <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
     <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.plugins.yaml</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
+
+        <!-- Templates for AsyncAPI schema example -->
+        <internalFileTemplate name="AsyncAPI schema (yaml)"/>
+        <internalFileTemplate name="AsyncAPI schema (json)"/>
+
+        <!-- Icons to render when working with AsyncAPI files -->
+        <iconProvider implementation="com.asyncapi.plugin.idea.extensions.icon.AsyncAPIIconProvider" id="asyncAPIIconProvider" />
     </extensions>
 
     <actions>
         <!-- Add your actions here -->
+        <action id="asyncapi.createSchema" class="com.asyncapi.plugin.idea.actions.CreateAsyncAPISchema" text="AsyncAPI Schema" description="Create a Swagger or an OpenAPI file">
+            <add-to-group group-id="NewGroup" relative-to-action="NewFromTemplate" anchor="after"/>
+        </action>
     </actions>
 </idea-plugin>
