@@ -8,8 +8,8 @@ import com.asyncapi.v2.model.AsyncAPI
 import org.reflections.Reflections
 import org.reflections.scanners.SubTypesScanner
 import org.reflections.util.ConfigurationBuilder
+import org.reflections.util.FilterBuilder
 import java.net.URLClassLoader
-import kotlin.jvm.Throws
 
 /**
  * Loads classes which extends [com.asyncapi.v2.model.AsyncAPI].
@@ -33,6 +33,7 @@ open class AsyncAPISchemaLoader(
      */
     @Throws(AsyncAPISchemaGenerationException::class)
     open fun load(): Set<Class<*>> {
+        logger.info("schemas loader: looking for schemas")
         val loadedClasses = loadClasses()
         val loadedClassesFromPackages = loadedClassesFromPackages()
 
@@ -44,27 +45,30 @@ open class AsyncAPISchemaLoader(
         val classesToLoad = sources.classes
         val loadedClasses = mutableSetOf<Class<*>>()
 
-        logger.info("Searching for schemas...")
+        logger.info("[classes]: loading...")
 
         if (classesToLoad.isEmpty()) {
-            logger.info("Given classes are empty. No classes found to load.")
+            logger.info("[classes]: nothing to load")
 
             return mutableSetOf()
         }
 
-        logger.info("Loading ${classesToLoad.size} given classes.")
+        logger.info("[classes]: loading ${classesToLoad.size} classes")
 
         classesToLoad.forEach { className ->
-            logger.info("Loading: $className")
+            logger.info("[classes]: loading $className")
             try {
                 loadedClasses.add(sources.classLoader.loadClass(className))
             } catch (classNotFoundException: ClassNotFoundException) {
+                logger.error("[classes]: can't load $className - ${classNotFoundException.message}")
                 throw AsyncAPISchemaGenerationException("Can't load class: $className", classNotFoundException)
             }
         }
 
         if (loadedClasses.isEmpty()) {
-            logger.info("No classes found to load.")
+            logger.info("[classes]: no classes loaded")
+        } else {
+            logger.info("[classes]: loaded ${loadedClasses.size} classes")
         }
 
         return loadedClasses
@@ -75,37 +79,42 @@ open class AsyncAPISchemaLoader(
         val packagesToScan = sources.packages
         val loadedClassesFromPackages = mutableSetOf<Class<*>>()
 
-        logger.info("Searching for schemas...")
+        logger.info("[packages]: searching...")
 
         if (packagesToScan.isEmpty()) {
-            logger.info("Given packages to scan are empty. No classes found to load.")
+            logger.info("[packages]: no classes found to load")
 
             return mutableSetOf()
         }
 
-        logger.info("Scanning ${packagesToScan.size} packages.")
+        logger.info("[packages]: scanning ${packagesToScan.size} packages")
 
         packagesToScan.forEach { packageName ->
-            logger.info("Scanning package: $packageName")
+            logger.info("[packages]: scanning $packageName")
             try {
                 val reflections = Reflections(ConfigurationBuilder()
                         .forPackages(packageName)
+                        .filterInputsBy(FilterBuilder().includePackage(packageName))
                         .addScanners(SubTypesScanner(false))
                         .addUrls((sources.classLoader as URLClassLoader).urLs.asList())
                         .addClassLoader(sources.classLoader)
                 )
 
                 val foundClasses = reflections.getSubTypesOf(AsyncAPI::class.java)
-                logger.info("Found: ${foundClasses.size} classes in $packageName")
+                logger.info("[packages]: found ${foundClasses.size} classes in $packageName")
+                foundClasses.map { it.name }.toList().forEach { logger.info(it) }
 
                 loadedClassesFromPackages.addAll(foundClasses)
             } catch (exception: Exception) {
+                logger.error("[classes]: can't load classes from $packageName - ${exception.message}")
                 throw AsyncAPISchemaGenerationException("Can't load classes from: $packageName", exception)
             }
         }
 
         if (loadedClassesFromPackages.isEmpty()) {
-            logger.info("No classes found to load.")
+            logger.info("[packages]: no classes loaded")
+        } else {
+            logger.info("[packages]: loaded ${loadedClassesFromPackages.size} classes")
         }
 
         return loadedClassesFromPackages

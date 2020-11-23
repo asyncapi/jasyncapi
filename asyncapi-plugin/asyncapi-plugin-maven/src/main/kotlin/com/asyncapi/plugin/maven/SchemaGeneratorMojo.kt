@@ -50,7 +50,12 @@ class SchemaGeneratorMojo: AbstractMojo() {
                         log.info(message)
                     }
 
+                    override fun error(message: String) {
+                        println(message)
+                    }
+
                 }
+
             }
 
             override fun resolveClassLoader(): ClassLoader {

@@ -48,6 +48,10 @@ open class ResolveTask: DefaultTask() {
                         logger.info(message)
                     }
 
+                    override fun error(message: String) {
+                        logger.error(message)
+                    }
+
                 }
             }
 

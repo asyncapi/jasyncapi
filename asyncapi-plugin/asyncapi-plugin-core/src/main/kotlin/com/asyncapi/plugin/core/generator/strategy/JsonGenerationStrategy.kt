@@ -1,13 +1,12 @@
 package com.asyncapi.plugin.core.generator.strategy
 
-import com.asyncapi.plugin.core.io.AsyncAPISchemaLoader
-import com.asyncapi.plugin.core.generator.settings.GenerationSettings
 import com.asyncapi.plugin.core.generator.GenerationStrategy
 import com.asyncapi.plugin.core.generator.exception.AsyncAPISchemaGenerationException
+import com.asyncapi.plugin.core.generator.settings.GenerationSettings
+import com.asyncapi.plugin.core.io.AsyncAPISchemaLoader
 import com.asyncapi.plugin.core.io.FileSystem
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.ObjectMapper
-import kotlin.jvm.Throws
 
 /**
  * AsyncAPI schema generation strategy in json format.
@@ -44,6 +43,7 @@ class JsonGenerationStrategy(
         val schemaFileName = "${schemaClass.simpleName}-${generationSettings.schemaFile.namePostfix}.json"
         val schemaFilePath = generationSettings.schemaFile.path
 
+        generationSettings.logger.info("saving ${schemaClass.name} to $schemaFilePath")
         FileSystem.save(schemaFileName, schema, schemaFilePath)
     }
 

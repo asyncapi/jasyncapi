@@ -1,15 +1,14 @@
 package com.asyncapi.plugin.core
 
+import com.asyncapi.plugin.core.generator.GenerationStrategy
+import com.asyncapi.plugin.core.generator.exception.AsyncAPISchemaGenerationException
 import com.asyncapi.plugin.core.generator.settings.GenerationRules
 import com.asyncapi.plugin.core.generator.settings.GenerationSettings
 import com.asyncapi.plugin.core.generator.settings.GenerationSources
-import com.asyncapi.plugin.core.generator.GenerationStrategy
-import com.asyncapi.plugin.core.generator.exception.AsyncAPISchemaGenerationException
 import com.asyncapi.plugin.core.generator.settings.SchemaFileSettings
 import com.asyncapi.plugin.core.generator.strategy.JsonGenerationStrategy
 import com.asyncapi.plugin.core.generator.strategy.YamlGenerationStrategy
 import com.asyncapi.plugin.core.logging.Logger
-import kotlin.jvm.Throws
 
 /**
  * AsyncAPI schema generator.
@@ -69,10 +68,12 @@ abstract class AsyncAPISchemaGenerator(
 
     @Throws(IllegalArgumentException::class)
     private fun checkRequiredParameters() {
+        resolveLogger().info("required parameters: checking...")
         if (classNames.isEmpty() && packageNames.isEmpty()) {
+            resolveLogger().error("required parameters: classNames or packageNames are required")
             throw IllegalArgumentException("classNames or packageNames are required")
         }
-
+        resolveLogger().info("required parameters: ok")
     }
 
     @Throws(IllegalArgumentException::class)
@@ -88,10 +89,20 @@ abstract class AsyncAPISchemaGenerator(
                 schemaFileSettings
         )
 
+        resolveLogger().info("generation strategy: checking...")
         return when(schemaFileFormat.toLowerCase()) {
-            "json" -> JsonGenerationStrategy(generationSettings)
-            "yaml" -> YamlGenerationStrategy(generationSettings)
-            else -> throw IllegalArgumentException("schemaFileFormat=$schemaFileFormat not recognized")
+            "json" -> {
+                resolveLogger().info("generation strategy: json")
+                JsonGenerationStrategy(generationSettings)
+            }
+            "yaml" -> {
+                resolveLogger().info("generation strategy: yaml")
+                YamlGenerationStrategy(generationSettings)
+            }
+            else -> {
+                resolveLogger().error("generation strategy: $schemaFileFormat not recognized")
+                throw IllegalArgumentException("schemaFileFormat=$schemaFileFormat not recognized")
+            }
         }
     }
 

@@ -1,5 +1,6 @@
 package com.asyncapi.plugin.core.io
 
+import com.asyncapi.plugin.core.generator.exception.AsyncAPISchemaGenerationException
 import com.asyncapi.plugin.core.generator.settings.GenerationSources
 import com.asyncapi.plugin.core.logging.Logger
 import org.junit.jupiter.api.Assertions
@@ -14,6 +15,11 @@ class AsyncAPISchemaLoaderTest {
             override fun info(message: String) {
                 println(message)
             }
+
+            override fun error(message: String) {
+                println(message)
+            }
+
         }
     }
 
@@ -85,6 +91,63 @@ class AsyncAPISchemaLoaderTest {
 
         Assertions.assertTrue(expectedSchemas.asList().containsAll(loadedSchemas.stream().map { it.name }.toList()), "Loader must load all given classes from given packages")
 
+    }
+
+    @Test
+    fun `when class doesn't exists`() {
+        val classesToLoad = arrayOf(
+                "com.asyncapi.schemas.streetlights.GothamStreetlights"
+        )
+
+        val loader = AsyncAPISchemaLoader(mockLogger(), GenerationSources(classesToLoad, emptyArray(), composeClassLoader()))
+        Assertions.assertThrows(AsyncAPISchemaGenerationException::class.java) {loader.load()}
+    }
+
+    @Test
+    fun `when one of classes doesn't exists`() {
+        val classesToLoad = arrayOf(
+                "com.asyncapi.schemas.lamps.Lamps",
+                "com.asyncapi.schemas.streetlights.Streetlights",
+                "com.asyncapi.schemas.streetlights.GothamStreetlights"
+        )
+
+        val loader = AsyncAPISchemaLoader(mockLogger(), GenerationSources(classesToLoad, emptyArray(), composeClassLoader()))
+        Assertions.assertThrows(AsyncAPISchemaGenerationException::class.java) {loader.load()}
+    }
+
+    @Test
+    fun `when root package given`() {
+        val packagesToLoad = arrayOf(
+                "com.asyncapi.schemas"
+        )
+        val expectedSchemas = arrayOf(
+                "com.asyncapi.schemas.lamps.Lamps",
+                "com.asyncapi.schemas.streetlights.Streetlights"
+        )
+
+        val loader = AsyncAPISchemaLoader(mockLogger(), GenerationSources(emptyArray(), packagesToLoad, composeClassLoader()))
+        val loadedSchemas = loader.load()
+
+        Assertions.assertEquals(expectedSchemas.size, loadedSchemas.size, "Loader must load all given classes from given packages")
+
+        Assertions.assertTrue(expectedSchemas.asList().containsAll(loadedSchemas.stream().map { it.name }.toList()), "Loader must load all given classes from given packages")
+    }
+
+    @Test
+    fun `when single package given`() {
+        val packagesToLoad = arrayOf(
+                "com.asyncapi.schemas.lamps.Lamps"
+        )
+        val expectedSchemas = arrayOf(
+                "com.asyncapi.schemas.lamps.Lamps"
+        )
+
+        val loader = AsyncAPISchemaLoader(mockLogger(), GenerationSources(emptyArray(), packagesToLoad, composeClassLoader()))
+        val loadedSchemas = loader.load()
+
+        Assertions.assertEquals(expectedSchemas.size, loadedSchemas.size, "Loader must load all given classes from given packages")
+
+        Assertions.assertTrue(expectedSchemas.asList().containsAll(loadedSchemas.stream().map { it.name }.toList()), "Loader must load all given classes from given packages")
     }
 
 }
