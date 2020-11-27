@@ -22,6 +22,10 @@
 
         <!-- Icons to render when working with AsyncAPI files -->
         <iconProvider implementation="com.asyncapi.plugin.idea.extensions.icon.AsyncAPIIconProvider" id="asyncAPIIconProvider" />
+
+        <!-- AsyncAPI schema inspection -->
+        <localInspection language="yaml" displayName="AsyncAPI schema inspection (yaml)" groupName="AsyncAPI schema inspections" enabledByDefault="true" level="ERROR" implementationClass="com.asyncapi.plugin.idea.extensions.inspection.AsyncAPIYamlSchemaInspection"/>
+        <localInspection language="JSON" displayName="AsyncAPI schema inspection (json)" groupName="AsyncAPI schema inspections" enabledByDefault="true" level="ERROR" implementationClass="com.asyncapi.plugin.idea.extensions.inspection.AsyncAPIJsonSchemaInspection"/>
     </extensions>
 
     <actions>
