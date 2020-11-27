@@ -2,6 +2,9 @@ package com.asyncapi.v2.model.schema;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * @author Pavel Bodiachevskii
+ */
 public enum  Type {
 
     @JsonProperty("null")

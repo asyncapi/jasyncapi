@@ -10,6 +10,9 @@ import org.junit.jupiter.api.BeforeEach
 import java.io.File
 import java.net.URLClassLoader
 
+/**
+ * @author Pavel Bodiachevskii
+ */
 open class GenerationStrategyTest {
 
     protected val logger = object: Logger {
