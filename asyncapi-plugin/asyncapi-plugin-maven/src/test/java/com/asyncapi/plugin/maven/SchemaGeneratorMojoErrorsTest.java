@@ -14,6 +14,9 @@ import org.junit.runner.RunWith;
 import java.io.File;
 import java.io.FileReader;
 
+/**
+ * @author Pavel Bodiachevskii
+ */
 @RunWith(JUnitParamsRunner.class)
 public class SchemaGeneratorMojoErrorsTest {
 

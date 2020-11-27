@@ -23,15 +23,10 @@ intellij {
 }
 tasks.getByName<org.jetbrains.intellij.tasks.PatchPluginXmlTask>("patchPluginXml") {
     changeNotes("""
-        AsyncAPI schema inspection and validation using AsyncAPI JSON Schema.
+        <ul>
+            <li>Recognition of AsyncAPI schemas.</li>
+            <li>AsyncAPI schema example creation from <code>file -> new -> AsyncAPI</code> schema</li>
+            <li>AsyncAPI schema inspection and validation using AsyncAPI JSON Schema</li>
+        </ul>
     """.trimIndent())
-}
-
-tasks {
-    compileKotlin {
-        kotlinOptions.jvmTarget = "1.8"
-    }
-    compileTestKotlin {
-        kotlinOptions.jvmTarget = "1.8"
-    }
 }

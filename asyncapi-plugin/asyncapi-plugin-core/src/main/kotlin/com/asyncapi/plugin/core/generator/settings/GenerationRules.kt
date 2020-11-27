@@ -7,6 +7,8 @@ import com.asyncapi.plugin.core.DefaultSchemaProperties
  *
  * @param includeNulls include null values to generated schema.
  * @param prettyPrint pretty print schema if it possible.
+ *
+ * @author Pavel Bodiachevskii
  */
 data class GenerationRules(
         val includeNulls: Boolean = DefaultSchemaProperties.schemaIncludeNulls,
