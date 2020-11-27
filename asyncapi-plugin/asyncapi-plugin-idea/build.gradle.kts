@@ -23,6 +23,9 @@ intellij {
 }
 tasks.getByName<org.jetbrains.intellij.tasks.PatchPluginXmlTask>("patchPluginXml") {
     changeNotes("""
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>""")
+        <ul>
+            <li>Recognition of AsyncAPI schemas.</li>
+            <li>AsyncAPI schema example creation from <code>file -> new -> AsyncAPI</code> schema</li>
+        </ul>
+    """.trimIndent())
 }
