@@ -13,6 +13,9 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
+    implementation("com.jayway.jsonpath", "json-path", "2.4.0") {
+        exclude("org.slf4j", "slf4j-api")
+    }
     testCompile("junit", "junit", "4.12")
 }
 
@@ -29,4 +32,13 @@ tasks.getByName<org.jetbrains.intellij.tasks.PatchPluginXmlTask>("patchPluginXml
             <li>AsyncAPI schema inspection and validation using AsyncAPI JSON Schema</li>
         </ul>
     """.trimIndent())
+}
+
+tasks {
+    compileKotlin {
+        kotlinOptions.jvmTarget = "1.8"
+    }
+    compileTestKotlin {
+        kotlinOptions.jvmTarget = "1.8"
+    }
 }
