@@ -29,6 +29,9 @@
 
         <!-- AsyncAPI schema indexing -->
         <fileBasedIndex implementation="com.asyncapi.plugin.idea.extensions.index.AsyncAPISchemaIndex"/>
+
+        <!-- AsyncAPI references -->
+        <psi.referenceContributor language="JSON" implementation="com.asyncapi.plugin.idea.extensions.psi.reference.contributor.json.AsyncAPISchemaReferenceContributor"/>
     </extensions>
 
     <actions>
