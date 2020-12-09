@@ -30,6 +30,7 @@ tasks.getByName<org.jetbrains.intellij.tasks.PatchPluginXmlTask>("patchPluginXml
             <li>Recognition of AsyncAPI schemas.</li>
             <li>AsyncAPI schema example creation from <code>file -> new -> AsyncAPI</code> schema</li>
             <li>AsyncAPI schema inspection and validation using AsyncAPI JSON Schema</li>
+            <li>Supporting of schema references in json schema and autocompletion</li>
         </ul>
     """.trimIndent())
 }
