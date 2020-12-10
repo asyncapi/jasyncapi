@@ -36,7 +36,7 @@
 
     <actions>
         <!-- Add your actions here -->
-        <action id="asyncapi.createSchema" class="com.asyncapi.plugin.idea.actions.CreateAsyncAPISchema" text="AsyncAPI Schema" description="Create a Swagger or an OpenAPI file">
+        <action id="asyncapi.createSchema" class="com.asyncapi.plugin.idea.actions.CreateAsyncAPISchema" text="AsyncAPI Schema" description="Create a AsyncAPI schema">
             <add-to-group group-id="NewGroup" relative-to-action="NewFromTemplate" anchor="after"/>
         </action>
     </actions>
