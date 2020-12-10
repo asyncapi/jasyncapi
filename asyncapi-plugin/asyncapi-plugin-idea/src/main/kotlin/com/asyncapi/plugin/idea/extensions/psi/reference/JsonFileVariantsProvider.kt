@@ -15,7 +15,8 @@ import com.intellij.json.psi.JsonProperty
 class JsonFileVariantsProvider(
         private val foundJsonElements: List<JsonElement>,
         private val asyncAPISchemaName: String,
-        private val psiXPath: String
+        private val psiXPath: String,
+        private val referencedFileLocation: String? = null
 ) {
 
     fun variants(): Array<LookupElement> {
@@ -70,7 +71,7 @@ class JsonFileVariantsProvider(
     }
 
     private fun convertToSchemaReferenceAndActualize(psiXPath: String): String {
-        return psiXPath.replace("$", "#")
+        val schemaReference = psiXPath.replace("$", "#")
                 .split(".")
                 /*
                     Last element if it exists must be deleted.
@@ -78,6 +79,8 @@ class JsonFileVariantsProvider(
                  */
                 .dropLast(1)
                 .joinToString("/")
+
+        return referencedFileLocation?.plus(schemaReference) ?: schemaReference
     }
 
     private fun buildVariant(variant: String): LookupElement {
