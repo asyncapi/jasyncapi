@@ -1,17 +1,15 @@
 package com.asyncapi.plugin.idea._core
 
+import com.asyncapi.plugin.idea._core.xpath.PSI
+import com.intellij.json.psi.JsonFile
 import com.intellij.openapi.vfs.VirtualFile
-import com.jayway.jsonpath.Configuration
-import com.jayway.jsonpath.JsonPath
 
 /**
  * @author Pavel Bodiachevskii
  */
 class AsyncAPISchemaReferences(
-        asyncapiJson: String
+        private val asyncapiJson: JsonFile?
 ) {
-
-    private val asyncapiJsonObject = Configuration.defaultConfiguration().jsonProvider().parse(asyncapiJson)
 
     fun extractReferencedFiles(references: List<String>, asyncapiSchemaDir: VirtualFile): List<String> {
         return references.asSequence().filter { !it.startsWith("#/") }
@@ -57,9 +55,11 @@ class AsyncAPISchemaReferences(
     private fun extractElements(vararg jsonPaths: String): List<String> {
         val references = mutableListOf<String>()
 
+        asyncapiJson ?: return references
+
         jsonPaths.forEach {
             try {
-                references.addAll(JsonPath.read<List<String>>(asyncapiJsonObject, it))
+                references.addAll(PSI.find(asyncapiJson, it))
             } catch (e: Exception) {
                 /* do nothing */
             }

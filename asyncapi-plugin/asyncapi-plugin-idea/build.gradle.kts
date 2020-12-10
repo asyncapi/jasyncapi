@@ -13,9 +13,6 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
-    implementation("com.jayway.jsonpath", "json-path", "2.4.0") {
-        exclude("org.slf4j", "slf4j-api")
-    }
     testCompile("junit", "junit", "4.12")
 }
 

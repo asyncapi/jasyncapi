@@ -2,20 +2,16 @@ package com.asyncapi.plugin.idea.extensions.index
 
 import com.asyncapi.plugin.idea._core.AsyncAPISchemaReferences
 import com.asyncapi.plugin.idea._core.xpath.PSI
+import com.intellij.json.psi.JsonFile
+import com.intellij.psi.PsiFile
 import com.intellij.util.indexing.DataIndexer
 import com.intellij.util.indexing.FileContent
-import com.jayway.jsonpath.JsonPath
 import org.jetbrains.yaml.YAMLFileType
 
 /**
  * @author Pavel Bodiachevskii
  */
 class AsyncAPISchemaIndexer: DataIndexer<String, Set<String>, FileContent> {
-
-    /*
-        Fastest way is to use existing json path instead of implementing own for idea's psiFile.
-        But potential OOM and performance degradation may occur
-    */
 
     override fun map(inputData: FileContent): MutableMap<String, Set<String>> {
         val index = mutableMapOf<String, Set<String>>()
@@ -25,13 +21,12 @@ class AsyncAPISchemaIndexer: DataIndexer<String, Set<String>, FileContent> {
             return index
         }
 
-        if (!isAsyncAPISchema(inputData)) {
+        if (!isAsyncAPISchema(inputData.psiFile)) {
             return index
         }
 
         index[AsyncAPISchemaIndex.asyncapi] = setOf(inputData.file.name)
-        val asyncAPISchemaReferences = AsyncAPISchemaReferences(inputData.contentAsText.toString())
-        PSI.find(inputData.psiFile, "$.info.description")
+        val asyncAPISchemaReferences = AsyncAPISchemaReferences(inputData.psiFile as? JsonFile)
 
         index[AsyncAPISchemaIndex.channels] = asyncAPISchemaReferences.extractReferencedFiles(asyncAPISchemaReferences.channels(), asyncapiSchemaDir).toSet()
         index[AsyncAPISchemaIndex.parameters] = asyncAPISchemaReferences.extractReferencedFiles(asyncAPISchemaReferences.parameters(), asyncapiSchemaDir).toSet()
@@ -44,14 +39,8 @@ class AsyncAPISchemaIndexer: DataIndexer<String, Set<String>, FileContent> {
         return index
     }
 
-    private fun isAsyncAPISchema(inputData: FileContent): Boolean {
-        return try {
-            JsonPath.compile("$.asyncapi").read<String>(inputData.contentAsText.toString())
-
-            true
-        } catch (e: Exception) {
-            false
-        }
+    private fun isAsyncAPISchema(inputData: PsiFile): Boolean {
+        return PSI.find(inputData, "$.asyncapi").firstOrNull()?.contains("2.0.0") ?: false
     }
 
 }
