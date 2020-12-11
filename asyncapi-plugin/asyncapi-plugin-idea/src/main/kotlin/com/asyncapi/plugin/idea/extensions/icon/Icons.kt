@@ -8,6 +8,7 @@ import javax.swing.Icon
  */
 object Icons {
 
+    @JvmField
     val ASYNCAPI_ICON: Icon = IconLoader.getIcon("/icons/asyncapi.png")
 
 }
