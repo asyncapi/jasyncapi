@@ -3,7 +3,9 @@ package com.asyncapi.plugin.idea.psi.reference
 import com.intellij.codeInsight.completion.CompletionType
 import com.intellij.testFramework.fixtures.BasePlatformTestCase
 
-
+/**
+ * @author Pavel Bodiachevskii
+ */
 class JsonReferenceVariantsTest: BasePlatformTestCase() {
 
     override fun getTestDataPath(): String = "src/test/testData/json/reference/completion"
