@@ -1,6 +1,6 @@
 package com.asyncapi.plugin.idea._core
 
-import com.asyncapi.plugin.idea._core.xpath.PSI
+import com.asyncapi.plugin.idea._core.xpath.JsonFileXPath
 import com.intellij.json.psi.JsonFile
 import com.intellij.openapi.vfs.VirtualFile
 
@@ -57,13 +57,7 @@ class AsyncAPISchemaReferences(
 
         asyncapiJson ?: return references
 
-        jsonPaths.forEach {
-            try {
-                references.addAll(PSI.find(asyncapiJson, it))
-            } catch (e: Exception) {
-                /* do nothing */
-            }
-        }
+        jsonPaths.forEach { references.addAll(JsonFileXPath.findText(asyncapiJson, it)) }
 
         return references
     }

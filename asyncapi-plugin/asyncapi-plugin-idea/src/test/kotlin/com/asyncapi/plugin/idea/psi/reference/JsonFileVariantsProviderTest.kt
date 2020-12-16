@@ -1,10 +1,10 @@
 package com.asyncapi.plugin.idea.psi.reference
 
-import com.asyncapi.plugin.idea._core.xpath.PSI
+import com.asyncapi.plugin.idea._core.xpath.JsonFileXPath
 import com.asyncapi.plugin.idea.extensions.psi.reference.JsonFileVariantsProvider
 import com.intellij.json.psi.JsonElement
+import com.intellij.json.psi.JsonFile
 import com.intellij.lang.Language
-import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiFileFactory
 import com.intellij.testFramework.fixtures.BasePlatformTestCase
 import junit.framework.TestCase
@@ -34,7 +34,7 @@ class JsonFileVariantsProviderTest: BasePlatformTestCase() {
                 "asyncapi.json",
                 Language.findLanguageByID("JSON")!!,
                 asyncAPISchema
-        )
+        ) as JsonFile
 
         TestCase.assertEquals(listOf("#/components", "#/components/messages"), collectVariants("#/co", asyncAPIPSI))
         TestCase.assertEquals(listOf("#/components", "#/components/messages"), collectVariants("#/comp", asyncAPIPSI))
@@ -107,9 +107,9 @@ class JsonFileVariantsProviderTest: BasePlatformTestCase() {
         TestCase.assertTrue("In case of wrong property name variants must be empty", collectVariants("#/$%^^", asyncAPIPSI).isEmpty())
     }
 
-    private fun collectVariants(xpath: String, schema: PsiFile): List<String> {
-        val psiPath = PSI.compileXPath(xpath)
-        val foundPsiElements = PSI.findPsiElements(schema, psiPath, true)
+    private fun collectVariants(xpath: String, schema: JsonFile): List<String> {
+        val psiPath = JsonFileXPath.compileXPath(xpath)
+        val foundPsiElements = JsonFileXPath.findPsi(schema, psiPath, true)
 
         return JsonFileVariantsProvider(
                 foundPsiElements.filterIsInstance<JsonElement>(),

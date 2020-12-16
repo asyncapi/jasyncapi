@@ -1,9 +1,10 @@
 package com.asyncapi.plugin.idea.extensions.psi.reference
 
-import com.asyncapi.plugin.idea._core.xpath.PSI
+import com.asyncapi.plugin.idea._core.xpath.JsonFileXPath
 import com.intellij.codeInsight.completion.CompletionUtilCore
 import com.intellij.codeInsight.lookup.LookupElement
 import com.intellij.json.psi.JsonElement
+import com.intellij.json.psi.JsonFile
 import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiReferenceBase
@@ -22,7 +23,7 @@ class AsyncAPILocalReference(private val psiElement: PsiElement, private val tex
     val key = element.text.substring(textRange.startOffset, textRange.endOffset)
 
     override fun resolve(): PsiElement? {
-        val variants = PSI.findPsiElements(psiElement.containingFile, PSI.compileXPath(psiElement.text), false)
+        val variants = JsonFileXPath.findPsi(psiElement.containingFile as JsonFile, JsonFileXPath.compileXPath(psiElement.text), false)
         return if (variants.isEmpty()) {
             null
         } else {
@@ -32,9 +33,9 @@ class AsyncAPILocalReference(private val psiElement: PsiElement, private val tex
 
     override fun getVariants(): Array<LookupElement> {
         val lookupString = key.replace(CompletionUtilCore.DUMMY_IDENTIFIER, "").trim()
-        val psiPath = PSI.compileXPath(psiElement.text).replace(CompletionUtilCore.DUMMY_IDENTIFIER, "").trim()
+        val psiPath = JsonFileXPath.compileXPath(psiElement.text).replace(CompletionUtilCore.DUMMY_IDENTIFIER, "").trim()
 
-        val foundPsiElements = PSI.findPsiElements(psiElement.containingFile, psiPath, true)
+        val foundPsiElements = JsonFileXPath.findPsi(psiElement.containingFile as JsonFile, psiPath, true)
 
         return JsonFileVariantsProvider(
                 foundPsiElements.filterIsInstance<JsonElement>(),

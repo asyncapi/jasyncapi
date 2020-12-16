@@ -1,7 +1,7 @@
 package com.asyncapi.plugin.idea.extensions.index
 
 import com.asyncapi.plugin.idea._core.AsyncAPISchemaReferences
-import com.asyncapi.plugin.idea._core.xpath.PSI
+import com.asyncapi.plugin.idea._core.xpath.JsonFileXPath
 import com.intellij.json.psi.JsonFile
 import com.intellij.psi.PsiFile
 import com.intellij.util.indexing.DataIndexer
@@ -40,7 +40,7 @@ class AsyncAPISchemaIndexer: DataIndexer<String, Set<String>, FileContent> {
     }
 
     private fun isAsyncAPISchema(inputData: PsiFile): Boolean {
-        return PSI.find(inputData, "$.asyncapi").firstOrNull()?.contains("2.0.0") ?: false
+        return JsonFileXPath.findText(inputData as JsonFile, "$.asyncapi").firstOrNull()?.contains("2.0.0") ?: false
     }
 
 }
