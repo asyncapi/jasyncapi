@@ -1,8 +1,7 @@
 package com.asyncapi.plugin.idea._core
 
-import com.asyncapi.plugin.idea._core.xpath.PSI_yaml
+import com.asyncapi.plugin.idea._core.xpath.YamlFileXPath
 import com.intellij.lang.Language
-import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFileFactory
 import com.intellij.testFramework.fixtures.BasePlatformTestCase
 import junit.framework.TestCase
@@ -12,7 +11,7 @@ import org.jetbrains.yaml.psi.YAMLFile
 /**
  * @author Pavel Bodiachevskii
  */
-class PSI_yamlTest: BasePlatformTestCase() {
+class YamlFileXPathTest: BasePlatformTestCase() {
 
     fun test() {
         val psiFileFactory = PsiFileFactory.getInstance(project)
@@ -21,13 +20,13 @@ class PSI_yamlTest: BasePlatformTestCase() {
                 "asyncapi.yaml",
                 Language.findInstance(YAMLLanguage::class.java),
                 asyncAPISchema
-        )
+        ) as YAMLFile
 
         collectReferencesToMessages(asyncAPIPSI)
         collectAsyncAPI(asyncAPIPSI)
     }
 
-    private fun collectReferencesToMessages(asyncAPI: PsiElement) {
+    private fun collectReferencesToMessages(asyncAPI: YAMLFile) {
         val userSignedUp = listOf(
                 "#/components/messages/UserSignedUp",
                 "#/components/messages/UserSignedUp",
@@ -38,13 +37,13 @@ class PSI_yamlTest: BasePlatformTestCase() {
         )
         val allReferences = userSignedUp + userSignedOut
 
-        TestCase.assertEquals(allReferences, PSI_yaml.find(asyncAPI as? YAMLFile, "$.channels.*.*.message.\$ref"))
-        TestCase.assertEquals(userSignedUp, PSI_yaml.find(asyncAPI as? YAMLFile, "$.channels.user/signedup.*.message.\$ref"))
-        TestCase.assertEquals(userSignedOut, PSI_yaml.find(asyncAPI as? YAMLFile, "$.channels.user/signedout.*.message.\$ref"))
+        TestCase.assertEquals(allReferences, YamlFileXPath.findText(asyncAPI, "$.channels.*.*.message.\$ref"))
+        TestCase.assertEquals(userSignedUp, YamlFileXPath.findText(asyncAPI, "$.channels.user/signedup.*.message.\$ref"))
+        TestCase.assertEquals(userSignedOut, YamlFileXPath.findText(asyncAPI, "$.channels.user/signedout.*.message.\$ref"))
     }
 
-    private fun collectAsyncAPI(asyncAPI: PsiElement) {
-        TestCase.assertEquals(listOf("2.0.0"), PSI_yaml.find(asyncAPI as? YAMLFile, "$.asyncapi"))
+    private fun collectAsyncAPI(asyncAPI: YAMLFile) {
+        TestCase.assertEquals(listOf("2.0.0"), YamlFileXPath.findText(asyncAPI, "$.asyncapi"))
     }
 
 }
