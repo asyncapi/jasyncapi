@@ -30,14 +30,10 @@ class AsyncAPISchemaIndexer: DataIndexer<String, Set<String>, FileContent> {
     }
 
     private fun isAsyncAPISchema(inputData: PsiFile): Boolean {
-        if (inputData !is JsonFile || inputData !is YAMLFile) {
-            return false
-        }
-
         val psiXPath = "$.asyncapi"
-        val asyncapi: String? = when (inputData::class) {
-            is JsonFile -> JsonFileXPath.findText(inputData, psiXPath).firstOrNull()
-            is YAMLFile -> YamlFileXPath.findText(inputData, psiXPath).firstOrNull()
+        val asyncapi: String? = when (inputData) {
+            is JsonFile -> JsonFileXPath.findText(inputData as? JsonFile, psiXPath).firstOrNull()
+            is YAMLFile -> YamlFileXPath.findText(inputData as? YAMLFile, psiXPath).firstOrNull()
             else -> ""
         }
 
