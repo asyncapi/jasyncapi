@@ -1,8 +1,10 @@
 package com.asyncapi.plugin.idea.extensions.icon
 
+import com.asyncapi.plugin.idea.extensions.inspection.AsyncAPISchemaDetector
 import com.intellij.ide.IconProvider
 import com.intellij.json.psi.JsonFile
 import com.intellij.psi.PsiElement
+import com.intellij.psi.PsiFile
 import org.jetbrains.yaml.psi.YAMLFile
 import javax.swing.Icon
 
@@ -11,11 +13,13 @@ import javax.swing.Icon
  */
 class AsyncAPIIconProvider: IconProvider() {
 
+    private val asyncApiSchemaDetector = AsyncAPISchemaDetector()
+
     override fun getIcon(element: PsiElement, flags: Int): Icon? {
         if (element is JsonFile || element is YAMLFile) {
-
-            // TODO: Use IDEA indexes instead of cheap substring search.
-            if (element.text.contains("asyncapi")) {
+            if (asyncApiSchemaDetector.isAsyncAPISchema(element as? PsiFile) ||
+                asyncApiSchemaDetector.isReferencedAsyncAPISchema(element as? PsiFile)
+            ) {
                 return Icons.ASYNCAPI_ICON
             }
         }

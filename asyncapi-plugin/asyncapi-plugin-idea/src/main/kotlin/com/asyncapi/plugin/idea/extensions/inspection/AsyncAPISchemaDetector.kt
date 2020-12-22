@@ -1,47 +1,85 @@
 package com.asyncapi.plugin.idea.extensions.inspection
 
-import com.intellij.json.JsonLanguage
-import com.intellij.json.psi.JsonObject
+import com.asyncapi.plugin.idea.extensions.index.AsyncAPISchemaIndex
+import com.intellij.json.psi.JsonFile
 import com.intellij.psi.PsiFile
-import org.jetbrains.yaml.YAMLLanguage
-import org.jetbrains.yaml.psi.YAMLDocument
-import org.jetbrains.yaml.psi.impl.YAMLKeyValueImpl
+import com.intellij.psi.search.GlobalSearchScope
+import com.intellij.util.indexing.FileBasedIndex
+import org.jetbrains.yaml.psi.YAMLFile
 
 /**
  * @author Pavel Bodiachevskii
  */
 class AsyncAPISchemaDetector {
 
-    private val asyncapiKey = "asyncapi"
-    private val asyncapiVersion = ".*(2(\\.\\d+)+)(?![\\d\\.]).*"
-
-    fun isAsyncAPIYamlSchema(psiFile: PsiFile): Boolean {
-        if (psiFile.language !is YAMLLanguage) {
+    fun isAsyncAPIJsonSchema(psiFile: PsiFile?): Boolean {
+        psiFile ?: return false
+        if (psiFile !is JsonFile) {
             return false
         }
 
-        val yamlElements = psiFile.children.filterIsInstance<YAMLDocument>().first().topLevelValue?.yamlElements
-        val foundAsyncapiYamlPsiElement = yamlElements?.first { it.name.equals(asyncapiKey) }
-        foundAsyncapiYamlPsiElement ?: return false
-//        return yamlElements?.map { it.name }?.contains(asyncapiKey) ?: false
-
-        return isAsyncAPI2((foundAsyncapiYamlPsiElement as YAMLKeyValueImpl).valueText)
+        return indexedAsyncAPISchemas(psiFile).contains(psiFile.virtualFile?.path)
     }
 
-    fun isAsyncAPIJsonSchema(psiFile: PsiFile): Boolean {
-        if (psiFile.language !is JsonLanguage) {
+    fun isAsyncAPIYamlSchema(psiFile: PsiFile?): Boolean {
+        psiFile ?: return false
+        if (psiFile !is YAMLFile) {
             return false
         }
 
-        val jsonObject = psiFile.children.filterIsInstance<JsonObject>().first()
-//        jsonObject.findProperty(asyncapiKey) ?: return false
-
-//        return true
-        return isAsyncAPI2(jsonObject.findProperty(asyncapiKey)?.value?.text ?: "")
+        return indexedAsyncAPISchemas(psiFile).contains(psiFile.virtualFile?.path)
     }
 
-    private fun isAsyncAPI2(foundAsyncapiVersion: String): Boolean {
-        return foundAsyncapiVersion.matches(Regex(asyncapiVersion))
+    fun isAsyncAPISchema(psiFile: PsiFile?): Boolean {
+        psiFile ?: return false
+        return when (psiFile) {
+            is JsonFile -> return isAsyncAPIJsonSchema(psiFile)
+            is YAMLFile -> return isAsyncAPIYamlSchema(psiFile)
+            else -> false
+        }
+    }
+
+    fun isReferencedAsyncAPIJsonSchema(psiFile: PsiFile?): Boolean {
+        psiFile ?: return false
+        if (psiFile !is JsonFile) {
+            return false
+        }
+
+        return indexedReferencedAsyncAPISchemas(psiFile).contains(psiFile.virtualFile?.path)
+    }
+
+    fun isReferencedAsyncAPIYamlSchema(psiFile: PsiFile?): Boolean {
+        psiFile ?: return false
+        if (psiFile !is JsonFile) {
+            return false
+        }
+
+        return indexedReferencedAsyncAPISchemas(psiFile).contains(psiFile.virtualFile?.path)
+    }
+
+    fun isReferencedAsyncAPISchema(psiFile: PsiFile?): Boolean {
+        psiFile ?: return false
+        return when (psiFile) {
+            is JsonFile -> return isReferencedAsyncAPIJsonSchema(psiFile)
+            is YAMLFile -> return isReferencedAsyncAPIYamlSchema(psiFile)
+            else -> false
+        }
+    }
+
+    private fun indexedAsyncAPISchemas(asyncapiSchema: PsiFile): List<String> {
+        return FileBasedIndex.getInstance().getValues(
+                AsyncAPISchemaIndex.asyncapiIndexId,
+                AsyncAPISchemaIndex.asyncapi,
+                GlobalSearchScope.allScope(asyncapiSchema.project)
+        ).flatten()
+    }
+
+    private fun indexedReferencedAsyncAPISchemas(asyncapiSchema: PsiFile): List<String> {
+        return FileBasedIndex.getInstance().getValues(
+                AsyncAPISchemaIndex.asyncapiIndexId,
+                AsyncAPISchemaIndex.references,
+                GlobalSearchScope.allScope(asyncapiSchema.project)
+        ).flatten()
     }
 
 }
