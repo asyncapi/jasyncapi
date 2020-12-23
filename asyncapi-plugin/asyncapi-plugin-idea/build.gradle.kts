@@ -29,6 +29,8 @@ tasks.getByName<org.jetbrains.intellij.tasks.PatchPluginXmlTask>("patchPluginXml
             <li>AsyncAPI schema inspection and validation using AsyncAPI JSON Schema</li>
             <li>Local references resolving with auto-completion in AsyncAPI schema (json)</li>
             <li>File references resolving with auto-completion in AsyncAPI schema (json)</li>
+            <li>Local references resolving with auto-completion in AsyncAPI schema (yaml)</li>
+            <li>File references resolving with auto-completion in AsyncAPI schema (yaml)</li>
         </ul>
     """.trimIndent())
 }

@@ -49,7 +49,7 @@ object YamlFileXPath: PsiFileXPath<YAMLFile>() {
             return yamlKeyValue.value
         } else {
             if (partialMatch) {
-                if (yamlKeyValue.keyText.contains(expectedPropertyName)) {
+                if (yamlKeyValue.keyText.contains(expectedPropertyName, true)) {
                     return yamlKeyValue.value
                 }
             } else {

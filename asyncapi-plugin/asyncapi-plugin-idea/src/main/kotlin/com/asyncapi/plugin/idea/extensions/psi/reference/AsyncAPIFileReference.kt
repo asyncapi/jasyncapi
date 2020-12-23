@@ -1,6 +1,7 @@
 package com.asyncapi.plugin.idea.extensions.psi.reference
 
 import com.asyncapi.plugin.idea._core.xpath.JsonFileXPath
+import com.asyncapi.plugin.idea._core.xpath.YamlFileXPath
 import com.intellij.codeInsight.completion.CompletionUtilCore
 import com.intellij.codeInsight.lookup.LookupElement
 import com.intellij.json.psi.JsonElement
@@ -10,6 +11,8 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiManager
 import com.intellij.psi.PsiReferenceBase
+import org.jetbrains.yaml.psi.YAMLFile
+import org.jetbrains.yaml.psi.YAMLPsiElement
 
 /**
  * Reference to schema located in file.
@@ -34,7 +37,11 @@ class AsyncAPIFileReference(
         localReference ?: return file
 
         val psiXPath = JsonFileXPath.compileXPath(localReference)
-        return JsonFileXPath.findPsi(file as JsonFile, psiXPath, false).firstOrNull()
+        return when (file) {
+            is JsonFile -> JsonFileXPath.findPsi(file, psiXPath, false).firstOrNull()
+            is YAMLFile -> YamlFileXPath.findPsi(file, psiXPath, false).firstOrNull()
+            else -> null
+        }
     }
 
     @Synchronized
@@ -51,14 +58,29 @@ class AsyncAPIFileReference(
         localReference ?: return LookupElement.EMPTY_ARRAY
 
         val psiXPath = JsonFileXPath.compileXPath(localReference)
-        val foundPsiElements = JsonFileXPath.findPsi(file as JsonFile, psiXPath, true)
+        return when (file) {
+            is JsonFile -> {
+                val foundPsiElements = JsonFileXPath.findPsi(file, psiXPath, true)
 
-        return JsonFileVariantsProvider(
-                foundPsiElements.filterIsInstance<JsonElement>(),
-                file.containingFile.name,
-                psiXPath,
-                fileLocation
-        ).variants()
+                JsonFileVariantsProvider(
+                        foundPsiElements.filterIsInstance<JsonElement>(),
+                        file.containingFile.name,
+                        psiXPath,
+                        fileLocation
+                ).variants()
+            }
+            is YAMLFile -> {
+                val foundPsiElements = YamlFileXPath.findPsi(file, psiXPath, true)
+
+                YamlFileVariantsProvider(
+                        foundPsiElements.filterIsInstance<YAMLPsiElement>(),
+                        file.containingFile.name,
+                        psiXPath,
+                        fileLocation
+                ).variants()
+            }
+            else -> emptyArray()
+        }
     }
 
     private fun extractFileLocation(fileReference: String): String? {

@@ -32,6 +32,7 @@
 
         <!-- AsyncAPI references -->
         <psi.referenceContributor language="JSON" implementation="com.asyncapi.plugin.idea.extensions.psi.reference.contributor.json.AsyncAPISchemaReferenceContributor"/>
+        <psi.referenceContributor language="yaml" implementation="com.asyncapi.plugin.idea.extensions.psi.reference.contributor.yaml.AsyncAPISchemaReferenceContributor"/>
     </extensions>
 
     <actions>
