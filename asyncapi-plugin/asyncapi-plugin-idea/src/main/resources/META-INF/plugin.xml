@@ -4,7 +4,16 @@
     <vendor email="pavelbodyachevskiy@gmail.com" url="https://www.asyncapi.com">AsyncAPI</vendor>
 
     <description><![CDATA[
-    <p>A plugin to help you easily edit AsyncAPI specification files.</p><br/>
+    <h2>⚠️ This plugin doesn't support AsyncAPI 1.x</h2>
+    <p>Plugin to help you easily edit <a href="https://www.asyncapi.com/">AsyncAPI</a> specification files.</p>
+    <h3>Features</h3>
+    <ul>
+        <li>Recognition of AsyncAPI schemas (.json/.yaml/.yml).</li>
+        <li>AsyncAPI schema example creation from <code>file -> new -> AsyncAPI schema</code>.</li>
+        <li>AsyncAPI schema inspection and validation using <a href="https://github.com/asyncapi/asyncapi/blob/master/versions/2.0.0/schema.json">AsyncAPI JSON Schema</a>.</li>
+        <li>Local references resolving with auto-completion in AsyncAPI schema (.json/.yaml/.yml).</li>
+        <li>File references resolving with auto-completion in AsyncAPI schema (.json/.yaml/.yml).</li>
+    </ul>
     ]]>
     </description>
 
