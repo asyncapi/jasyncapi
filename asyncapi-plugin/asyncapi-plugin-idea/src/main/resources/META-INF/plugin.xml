@@ -1,0 +1,53 @@
+<idea-plugin>
+    <id>com.asyncapi.plugin.idea</id>
+    <name>AsyncAPI</name>
+    <vendor email="pavelbodyachevskiy@gmail.com" url="https://www.asyncapi.com">AsyncAPI</vendor>
+
+    <description><![CDATA[
+    <h2>⚠️ This plugin doesn't support AsyncAPI 1.x</h2>
+    <p>Plugin to help you easily edit <a href="https://www.asyncapi.com/">AsyncAPI</a> specification files.</p>
+    <h3>Features</h3>
+    <ul>
+        <li>Recognition of AsyncAPI schemas (.json/.yaml/.yml).</li>
+        <li>AsyncAPI schema example creation from <code>file -> new -> AsyncAPI schema</code>.</li>
+        <li>AsyncAPI schema inspection and validation using <a href="https://github.com/asyncapi/asyncapi/blob/master/versions/2.0.0/schema.json">AsyncAPI JSON Schema</a>.</li>
+        <li>Local references resolving with auto-completion in AsyncAPI schema (.json/.yaml/.yml).</li>
+        <li>File references resolving with auto-completion in AsyncAPI schema (.json/.yaml/.yml).</li>
+    </ul>
+    ]]>
+    </description>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.plugins.yaml</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+
+        <!-- Templates for AsyncAPI schema example -->
+        <internalFileTemplate name="AsyncAPI schema (yaml)"/>
+        <internalFileTemplate name="AsyncAPI schema (json)"/>
+
+        <!-- Icons to render when working with AsyncAPI files -->
+        <iconProvider implementation="com.asyncapi.plugin.idea.extensions.icon.AsyncAPIIconProvider" id="asyncAPIIconProvider" />
+
+        <!-- AsyncAPI schema inspection -->
+        <localInspection language="yaml" displayName="AsyncAPI schema inspection (yaml)" groupName="AsyncAPI schema inspections" enabledByDefault="true" level="ERROR" implementationClass="com.asyncapi.plugin.idea.extensions.inspection.AsyncAPIYamlSchemaInspection"/>
+        <localInspection language="JSON" displayName="AsyncAPI schema inspection (json)" groupName="AsyncAPI schema inspections" enabledByDefault="true" level="ERROR" implementationClass="com.asyncapi.plugin.idea.extensions.inspection.AsyncAPIJsonSchemaInspection"/>
+
+        <!-- AsyncAPI schema indexing -->
+        <fileBasedIndex implementation="com.asyncapi.plugin.idea.extensions.index.AsyncAPISchemaIndex"/>
+
+        <!-- AsyncAPI references -->
+        <psi.referenceContributor language="JSON" implementation="com.asyncapi.plugin.idea.extensions.psi.reference.contributor.json.AsyncAPISchemaReferenceContributor"/>
+        <psi.referenceContributor language="yaml" implementation="com.asyncapi.plugin.idea.extensions.psi.reference.contributor.yaml.AsyncAPISchemaReferenceContributor"/>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="asyncapi.createSchema" class="com.asyncapi.plugin.idea.actions.CreateAsyncAPISchema" text="AsyncAPI Schema" description="Create a AsyncAPI schema">
+            <add-to-group group-id="NewGroup" relative-to-action="NewFromTemplate" anchor="after"/>
+        </action>
+    </actions>
+</idea-plugin>
