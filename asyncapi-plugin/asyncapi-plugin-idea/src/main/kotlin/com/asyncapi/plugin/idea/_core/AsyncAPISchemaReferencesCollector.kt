@@ -22,9 +22,9 @@ class AsyncAPISchemaReferencesCollector(
         possibleReferencesLocation.forEach { (referenceLocation, xpaths) ->
             references[referenceLocation] = xpaths.flatMap { collect(it) }
                     .asSequence()
-                    .filter(this::isFileReference)
-                    .map(this::cutReferenceToPropertyIfExists)
-                    .filter(this::isJsonOrYaml)
+                    .filter { isFileReference(it) }
+                    .map { cutReferenceToPropertyIfExists(it) }
+                    .filter { isJsonOrYaml(it) }
                     .mapNotNull { dir?.findFileByRelativePath(it)?.path }
                     .toSet()
         }
