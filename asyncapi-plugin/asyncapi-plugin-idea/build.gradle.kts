@@ -22,6 +22,8 @@ intellij {
     setPlugins("yaml")
 }
 tasks.getByName<org.jetbrains.intellij.tasks.PatchPluginXmlTask>("patchPluginXml") {
+    sinceBuild("201.*")
+    untilBuild("203.*")
     changeNotes("""
         <ul>
             <li>Recognition of AsyncAPI schemas.</li>
