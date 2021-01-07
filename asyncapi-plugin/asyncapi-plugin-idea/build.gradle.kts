@@ -26,13 +26,7 @@ tasks.getByName<org.jetbrains.intellij.tasks.PatchPluginXmlTask>("patchPluginXml
     untilBuild("203.*")
     changeNotes("""
         <ul>
-            <li>Recognition of AsyncAPI schemas.</li>
-            <li>AsyncAPI schema example creation from <code>file -> new -> AsyncAPI schema</code>.</li>
-            <li>AsyncAPI schema inspection and validation using AsyncAPI JSON Schema.</li>
-            <li>Local references resolving with auto-completion in AsyncAPI schema (json).</li>
-            <li>File references resolving with auto-completion in AsyncAPI schema (json).</li>
-            <li>Local references resolving with auto-completion in AsyncAPI schema (yaml).</li>
-            <li>File references resolving with auto-completion in AsyncAPI schema (yaml).</li>
+            <li>IDEA's version range was set to 201.* - 203.*</li>
         </ul>
     """.trimIndent())
 }
