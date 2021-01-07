@@ -8,14 +8,33 @@
     <artifactId>asyncapi</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
+    <!-- Project Information -->
+    <inceptionYear>2020</inceptionYear>
+    <url>https://github.com/asyncapi/java-asyncapi</url>
     <description>
-        Java AsyncAPI.
+        <![CDATA[
+        Building the future of event-driven architecture. Open source tools to easily build and maintain your event-driven architecture.
+        All powered by the AsyncAPI specification, the industry standard for defining asynchronous APIs.
+        ]]>
     </description>
+    <organization>
+        <name>AsyncAPI Initiative</name>
+        <url>https://www.asyncapi.com/</url>
+    </organization>
     <developers>
         <developer>
             <name>Pavel Bodiachevskii</name>
+            <url>https://github.com/Pakisan</url>
         </developer>
     </developers>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
+    </licenses>
 
     <packaging>pom</packaging>
 
