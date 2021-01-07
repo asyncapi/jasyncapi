@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.asyncapi"
-version = "1.0.0-EAP"
+version = "1.0.0-EAP-1"
 
 repositories {
     mavenCentral()
