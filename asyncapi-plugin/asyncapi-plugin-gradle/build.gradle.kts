@@ -9,6 +9,8 @@ repositories {
     mavenCentral()
 }
 
+group = "com.asyncapi"
+version = "1.0.0-EAP"
 
 dependencies {
     val reflectionsVersion = "0.9.12"
