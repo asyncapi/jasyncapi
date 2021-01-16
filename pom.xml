@@ -35,6 +35,11 @@
             <comments>A business-friendly OSS license</comments>
         </license>
     </licenses>
+    <scm>
+        <url>https://github.com/asyncapi/java-asyncapi</url>
+        <connection>scm:git:https://github.com/asyncapi/java-asyncapi.git</connection>
+        <tag>HEAD</tag>
+    </scm>
 
     <packaging>pom</packaging>
 
