@@ -1,12 +1,16 @@
-# AsyncAPI for Java - Maven Plugin
----
+<h1 align="center">
+  <br>
+  <a href="https://asyncapi.org"><img src="./assets/logo.png" alt="AsyncAPI logo" height="80"></a>
+</h1>
+<h4 align="center">Building the future of event-driven architectures</h4>
+<h6 align="center">We're on a mission to standardize message-based communication and increase interoperability of the different systems out there.</h6>
 
 > ⚠️ This plugin doesn't support AsyncAPI 1.x
 
-Maven plugin for the [java-asyncapi](https://github.com/Pakisan/java-asyncapi) - Integrating AsyncAPI Schema generation in your builds.
+Maven plugin helps to generate AsyncAPI specification from hand-crafted AsyncAPI class at choosed build cycle step.
 
 ## Features
----
+
 - Generate AsyncAPI schema(s) for one or multiple Java classes.
 - Generate AsyncAPI schemas for all classes in one or multiple packages.
 - Generaty AsyncAPI schema in `json`, `yaml` format
@@ -25,17 +29,14 @@ Maven plugin for the [java-asyncapi](https://github.com/Pakisan/java-asyncapi) -
 ```
 
 ### Parameters
-Parameter | Description | Required | Default
---------- | ----------- | --------- | -------
-`classNames`|class names to generate from|`true` if `packageNames` not present|`null`
-`packageNames`|package names to generate from|`true` if `classNames` not present|`null`
-`schemaFileName`|file name (no extension)|`false`|`asyncapi`
-`schemaFileFormat`|file format (`json`, `yaml`)|`false`|`json`
-`schemaFilePath`|output path where file(s) are saved|`false`|`generated/asyncapi`
-`includeNulls`|include `null` values or not|`false`|`false`
-`prettyPrint`|pretty format or not|`false`|`true`
+**[parameters description](../asyncapi-plugin-core)**
 
-## Schema definition example
+### Schema definition example
+
+* [AsyncAPI class extending](#asyncapi-class-extending)
+* [Annotations](#annotations)
+
+#### AsyncAPI class extending
 ```java
 public class StreetlightsAsyncAPI extends AsyncAPI {
 
@@ -390,3 +391,6 @@ public class StreetlightsAsyncAPI extends AsyncAPI {
 
 }
 ```
+
+#### Annotations
+Right now manual definition is the only way. Annotations with reflection for their handling will appear soon.
