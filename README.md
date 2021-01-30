@@ -16,6 +16,9 @@ This monorepo stores modules, which simplifies interacting with AsyncAPI in `jvm
     * [plugin](#plugin)
 * [Release](#release)
     * [maven artifacts](#release-maven-artifacts)
+    * [gradle artifacts](#release-gradle-artifacts)
+        * [relese to maven central](#release-to-maven-central)
+        * [release to gradle plugins](#release-to-gradle-plugins)
 
 ## Monorepo structure
 Currently here it's splitted on two submodules:
@@ -154,4 +157,56 @@ _Example_
 * Build it, test it and release it to maven central repository
 ```shell script
 ➜  async-api git:(1.0.0-EAP) ✗ mvn clean deploy -P release 
+```
+
+### Release gradle artifacts:
+
+#### release to maven central
+**[gradle gpg instruction](https://docs.gradle.org/current/userguide/signing_plugin.html#signing_plugin)**
+<br>
+**[sonatype's instruction for deployment releasing](https://central.sonatype.org/pages/releasing-the-deployment.html)**
+
+* Request credentials for one of AsyncAPI's account on [Sonatype's Jira](https://issues.sonatype.org), which is synced 
+with [Sonatype's nexus](https://oss.sonatype.org)
+* Generate pgp key if it was not generated yet
+    * export secret key ring file containing your private key
+    ```shell script
+      gpg --keyring secring.gpg --export-secret-keys > ~/.gnupg/secring.gpg
+    ```
+* Create `/Users/{userName}/.gradle/gradle.properties`
+```properties
+# gpg
+signing.keyId={key name}
+signing.password={key passphrase}
+signing.secretKeyRingFile=/Users/{userName}/.gnupg/secring.gpg
+
+# oss.sonatype.org
+ossrhUsername={Jira username}
+ossrhPassword={Jira password}
+```
+* Choose new release version and set it to root [build.gradle.kts](./asyncapi-plugin/asyncapi-plugin-gradle/build.gradle.kts).
+_Example_
+```kotlin
+version = "{new release version}"
+```
+* Build it, test it and release it to maven central repository
+```shell script
+➜  asyncapi-plugin-gradle git:(1.0.0-EAP) ✗ ./gradlew publishPluginMavenPublicationToMavenRepository
+```
+* Go to [stagin repositories](https://oss.sonatype.org/#stagingRepositories) and release it manually
+    * Select repository
+    * Click `close` and wait some time
+    * Click `release`
+
+#### release to gradle plugins
+
+* Request `key` and `secret` for gradle account
+* Update `/Users/{userName}/.gradle/gradle.properties` with gradle credential
+```properties
+gradle.publish.key={key}
+gradle.publish.secret={secret}
+```
+* Release plugin to [gradle plugins](https://plugins.gradle.org/)
+```shell script
+➜  asyncapi-plugin-gradle git:(1.0.0-EAP) ✗ ./gradlew publishPlugins
 ```
