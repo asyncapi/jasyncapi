@@ -16,6 +16,6 @@ sourceSets {
 }
 
 dependencies {
-    compile "com.asyncapi:asyncapi-core:1.0.0-SNAPSHOT"
+    compile "com.asyncapi:asyncapi-core:1.0.0-EAP"
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 }
