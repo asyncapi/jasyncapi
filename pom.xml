@@ -6,16 +6,41 @@
 
     <groupId>com.asyncapi</groupId>
     <artifactId>asyncapi</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0-EAP</version>
 
+    <!-- Project Information -->
+    <name>AsyncAPI</name>
+    <inceptionYear>2020</inceptionYear>
+    <url>https://github.com/asyncapi/java-asyncapi</url>
     <description>
-        Java AsyncAPI.
+        <![CDATA[
+        Building the future of event-driven architecture. Open source tools to easily build and maintain your event-driven architecture.
+        All powered by the AsyncAPI specification, the industry standard for defining asynchronous APIs.
+        ]]>
     </description>
+    <organization>
+        <name>AsyncAPI Initiative</name>
+        <url>https://www.asyncapi.com/</url>
+    </organization>
     <developers>
         <developer>
             <name>Pavel Bodiachevskii</name>
+            <url>https://github.com/Pakisan</url>
         </developer>
     </developers>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
+    </licenses>
+    <scm>
+        <url>https://github.com/asyncapi/java-asyncapi</url>
+        <connection>scm:git:https://github.com/asyncapi/java-asyncapi.git</connection>
+        <tag>HEAD</tag>
+    </scm>
 
     <packaging>pom</packaging>
 
@@ -30,6 +55,7 @@
         <java.version>1.8</java.version>
         <lombok.version>1.18.10</lombok.version>
         <junit5.version>5.6.1</junit5.version>
+        <dokka.version>0.10.1</dokka.version>
     </properties>
 
     <dependencies>
@@ -93,8 +119,57 @@
         </dependencies>
     </dependencyManagement>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
+    <!-- Dokka lives here -->
+    <pluginRepositories>
+        <pluginRepository>
+            <id>jcenter</id>
+            <name>JCenter</name>
+            <url>https://jcenter.bintray.com/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
+
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-maven-plugin</artifactId>
@@ -154,6 +229,58 @@
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <!-- Plugins for release cycle -->
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.7</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Generates Javadoc from kotlin code -->
+            <plugin>
+                <groupId>org.jetbrains.dokka</groupId>
+                <artifactId>dokka-maven-plugin</artifactId>
+                <version>${dokka.version}</version>
+                <executions>
+                    <execution>
+<!--                        <phase>pre-site</phase>-->
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>dokka</goal>
+                            <goal>javadoc</goal>
+                            <goal>javadocJar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <dokkaPlugins>
+                        <plugin>
+                            <groupId>org.jetbrains.dokka</groupId>
+                            <artifactId>kotlin-as-java-plugin</artifactId>
+                            <version>${dokka.version}</version>
+                        </plugin>
+                    </dokkaPlugins>
                 </configuration>
             </plugin>
         </plugins>
