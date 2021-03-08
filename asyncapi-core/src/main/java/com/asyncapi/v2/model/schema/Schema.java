@@ -20,7 +20,7 @@ import java.util.Map;
  * <br>
  * Further information about the properties can be found in <a href="https://tools.ietf.org/html/draft-handrews-json-schema-01">JSON Schema Core</a> and <a href="https://tools.ietf.org/html/draft-handrews-json-schema-validation-01">JSON Schema Validation</a>.
  * Unless stated otherwise, the property definitions follow the JSON Schema specification as referenced here.
- * <br<br>
+ * <br><br>
  * The AsyncAPI Schema Object is a JSON Schema vocabulary which extends JSON Schema Core and Validation vocabularies.
  * As such, any keyword available for those vocabularies is by definition available in AsyncAPI, and will work the
  * exact same way, including but not limited to defined properties.
@@ -480,7 +480,7 @@ public class Schema {
      * [[CREF1: This keyword may be split into two, with the variation that uses an array of property names rather than a
      * subschema getting a new name.  The dual behavior is confusing and relatively difficult to implement.  In the previous
      * draft, we proposed dropping the keyword altogether, or dropping one of its forms, but we received feedback in support of
-     * keeping it.  See issues #442 and #528 at <https://github.com/json-schema-org/json-schema-spec/issues> for further discussion.
+     * keeping it.  See issues #442 and #528 at https://github.com/json-schema-org/json-schema-spec/issues for further discussion.
      * Further feedback is encouraged.]]
      * <br><br>
      * This keyword specifies rules that are evaluated if the instance is an object and contains a certain property.
