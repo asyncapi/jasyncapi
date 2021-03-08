@@ -45,14 +45,14 @@ components:
       type: "object"
       properties:
         lumens:
+          description: "Lamp intensity measured in lumens."
           type: "integer"
           minimum: 0
-          description: "Lamp intensity measured in lumens."
         watts:
+          description: "Lamp watt consumption."
           type: "integer"
           maximum: 100
           minimum: 0
-          description: "Lamp watt consumption."
   messages:
     lampInfo:
       payload:

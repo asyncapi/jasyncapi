@@ -74,7 +74,7 @@ public class StreetlightsAsyncAPI extends AsyncAPI {
         serverVariables.put("port", ServerVariable.builder()
                 .description("Secure connection (TLS) is available through port 8883.")
                 .defaultValue("1883")
-                .enumValues(Arrays.asList("1883", "8883"))
+                .enumValue(Arrays.asList("1883", "8883"))
                 .build()
         );
 

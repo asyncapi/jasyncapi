@@ -1,25 +1,16 @@
 package com.asyncapi.v2.model.schema;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 /**
  * @author Pavel Bodiachevskii
  */
-public enum  Type {
+public class Type {
 
-    @JsonProperty("null")
-    NULL,
-    @JsonProperty("boolean")
-    BOOLEAN,
-    @JsonProperty("object")
-    OBJECT,
-    @JsonProperty("array")
-    ARRAY,
-    @JsonProperty("number")
-    NUMBER,
-    @JsonProperty("string")
-    STRING,
-    @JsonProperty("integer")
-    INTEGER
+    public final static String NULL = "null";
+    public final static String BOOLEAN = "boolean";
+    public final static String OBJECT = "object";
+    public final static String ARRAY = "array";
+    public final static String NUMBER = "number";
+    public final static String STRING = "string";
+    public final static String INTEGER = "integer";
 
 }
