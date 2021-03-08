@@ -135,7 +135,10 @@ public class Message {
     private Map<String, ? extends MessageBinding> bindings;
 
     /**
-     * An array with examples of valid message objects.
+     * An array of key/value pairs where keys MUST be either <b></b>headers</b> and/or <b>payload</b>.
+     * <br>
+     * Values MUST contain examples
+     * that validate against the {@link #headers} or {@link #payload} fields, respectively.
      */
     @CheckForNull
     private List<Map<String, Object>> examples;
