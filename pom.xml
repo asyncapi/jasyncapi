@@ -6,7 +6,7 @@
 
     <groupId>com.asyncapi</groupId>
     <artifactId>asyncapi</artifactId>
-    <version>1.0.0-EAP</version>
+    <version>1.0.0-EAP-1</version>
 
     <!-- Project Information -->
     <name>AsyncAPI</name>

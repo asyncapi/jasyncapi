@@ -15,6 +15,9 @@ import org.junit.runner.RunWith;
 
 import java.io.File;
 import java.io.FileReader;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * @author Pavel Bodiachevskii
@@ -51,7 +54,7 @@ public class YamlSchemaGeneratorMojoTest {
     public void singleSchemaGenerationTest(File pom, File generatedSchema, File expectedSchema) throws Exception {
         executePom(pom);
 
-        Assert.assertEquals(FileUtils.readLines(expectedSchema), FileUtils.readLines(generatedSchema));
+        Assert.assertEquals(format(FileUtils.readLines(expectedSchema)), format(FileUtils.readLines(generatedSchema)));
     }
 
     public Object[] multipleSchemaGenerationParams() {
@@ -92,8 +95,8 @@ public class YamlSchemaGeneratorMojoTest {
     ) throws Exception {
         executePom(pom);
 
-        Assert.assertEquals(FileUtils.readLines(expectedSchemaFirst), FileUtils.readLines(generatedSchemaFirst));
-        Assert.assertEquals(FileUtils.readLines(expectedSchemaSecond), FileUtils.readLines(generatedSchemaSecond));
+        Assert.assertEquals(format(FileUtils.readLines(expectedSchemaFirst)), format(FileUtils.readLines(generatedSchemaFirst)));
+        Assert.assertEquals(format(FileUtils.readLines(expectedSchemaSecond)), format(FileUtils.readLines(generatedSchemaSecond)));
     }
 
     @Test
@@ -103,7 +106,7 @@ public class YamlSchemaGeneratorMojoTest {
         File generatedSchema = FilesHelper.open("target/generated-test-sources/Complete/StreetlightsAsyncAPI-asyncapi-schema.yaml");
         File expectedSchema = FilesHelper.readResource("reference-test-cases/yaml/StreetlightsAsyncAPI-asyncapi.yaml");
 
-        Assert.assertEquals(FileUtils.readLines(expectedSchema), FileUtils.readLines(generatedSchema));
+        Assert.assertEquals(format(FileUtils.readLines(expectedSchema)), format(FileUtils.readLines(generatedSchema)));
     }
 
     /**
@@ -123,6 +126,22 @@ public class YamlSchemaGeneratorMojoTest {
 
         // And execute
         myMojo.execute();
+    }
+
+    private List<String> format(List<String> fileLines) {
+        return fileLines.stream()
+                .filter(Objects::nonNull)
+                .filter(line -> !line.isEmpty())
+                .map(line -> {
+                    int index = line.lastIndexOf(",");
+                    if (index > 0) {
+                        return line.substring(0, index);
+                    }
+
+                    return line;
+                })
+                .sorted()
+                .collect(Collectors.toList());
     }
 
 }
