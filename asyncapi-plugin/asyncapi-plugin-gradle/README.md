@@ -75,7 +75,7 @@ class Lamps(asyncapi: String = "2.0.0",
                                 Pair("port", ServerVariable.builder()
                                         .description("Secure connection (TLS) is available through port 8883.")
                                         .defaultValue("1883")
-                                        .enumValues(listOf("1883", "8883"))
+                                        .enumValue(listOf("1883", "8883"))
                                         .build()
                                 )
                         ))

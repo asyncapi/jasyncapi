@@ -229,7 +229,7 @@ public class StreetlightsAsyncAPI extends AsyncAPI {
         Map<String, Schema> turnOnOffPayloadProperties = new HashMap<>();
         lightMeasuredPayloadProperties.put("command", Schema.builder()
                 .type(Type.STRING)
-                .enumValues(Arrays.asList("on", "off"))
+                .enumValue(Arrays.asList("on", "off"))
                 .description("Whether to turn on or off the light.")
                 .build()
         );
