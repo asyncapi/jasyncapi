@@ -1,3 +1,6 @@
+#This action is centrally managed in https://github.com/asyncapi/.github/
+#Don't make changes to this file in this repo as they will be overwritten with changes made to the same file in above mentioned repo
+
 name: Automerge release bump PR
 
 on:
@@ -44,5 +47,5 @@ jobs:
           MERGE_LABELS: ""
           MERGE_METHOD: "squash"
           MERGE_COMMIT_MESSAGE: "pull-request-title"
-          MERGE_RETRIES: "10"
-          MERGE_RETRY_SLEEP: "10000"
+          MERGE_RETRIES: "20"
+          MERGE_RETRY_SLEEP: "20000"
