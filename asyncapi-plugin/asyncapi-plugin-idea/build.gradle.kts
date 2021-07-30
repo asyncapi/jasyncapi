@@ -23,8 +23,11 @@ intellij {
 }
 tasks.getByName<org.jetbrains.intellij.tasks.PatchPluginXmlTask>("patchPluginXml") {
     sinceBuild("201.*")
-    untilBuild("203.*")
+    untilBuild("212.*")
     changeNotes("""
+        <ul>
+            <li>IDEA's version range was extended to 212.*</li>
+        </ul>
         <ul>
             <li>IDEA's version range was set to 201.* - 203.*</li>
         </ul>
