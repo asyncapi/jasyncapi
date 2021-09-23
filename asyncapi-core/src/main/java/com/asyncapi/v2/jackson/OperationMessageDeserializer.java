@@ -11,9 +11,11 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * Serializes operation traits list.
+ * Serializes operation message list.
  *
  * @author Pavel Bodiachevskii
  */
@@ -29,12 +31,28 @@ public class OperationMessageDeserializer extends JsonDeserializer<Object> {
         return chooseKnownPojo(node);
     }
 
-    private Object chooseKnownPojo(JsonNode traitsValue) throws IOException {
-        if (traitsValue.get("$ref") != null) {
-            return objectMapper.readValue(traitsValue.toString(), Reference.class);
+    private Object chooseKnownPojo(JsonNode messageValue) throws IOException {
+        if (messageValue.get("$ref") != null) {
+            return objectMapper.readValue(messageValue.toString(), Reference.class);
+        } else if (messageValue.get("oneOf") != null) {
+            return extractOneOf(messageValue);
         } else {
-            return objectMapper.readValue(traitsValue.toString(), Message.class);
+            return objectMapper.readValue(messageValue.toString(), Message.class);
         }
+    }
+
+    private List extractOneOf(JsonNode messageValue) throws IOException {
+        List oneOf = new ArrayList();
+        for (JsonNode array : messageValue) {
+            if (array.isArray()) {
+                for (JsonNode item : array) {
+                    Object parsedChildOrNull = chooseKnownPojo(item);
+                    if (parsedChildOrNull != null)
+                        oneOf.add(parsedChildOrNull);
+                }
+            }
+        }
+        return oneOf;
     }
 
 }

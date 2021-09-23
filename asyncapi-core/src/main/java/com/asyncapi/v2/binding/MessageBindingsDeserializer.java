@@ -4,6 +4,7 @@ import com.asyncapi.v2.binding.amqp.AMQPMessageBinding;
 import com.asyncapi.v2.binding.amqp1.AMQP1MessageBinding;
 import com.asyncapi.v2.binding.http.HTTPMessageBinding;
 import com.asyncapi.v2.binding.jms.JMSMessageBinding;
+import com.asyncapi.v2.binding.kafka.KafkaMessageBinding;
 import com.asyncapi.v2.binding.mqtt.MQTTMessageBinding;
 import com.asyncapi.v2.binding.mqtt5.MQTT5MessageBinding;
 import com.asyncapi.v2.binding.nats.NATSMessageBinding;
@@ -62,7 +63,7 @@ public class MessageBindingsDeserializer extends JsonDeserializer<Map<String, ? 
             case "amqp1":  return (T) objectMapper.readValue(binding.toString(), AMQP1MessageBinding.class);
             case "http":  return (T) objectMapper.readValue(binding.toString(), HTTPMessageBinding.class);
             case "jms":  return (T) objectMapper.readValue(binding.toString(), JMSMessageBinding.class);
-            case "kafka":  return (T) objectMapper.readValue(binding.toString(), JMSMessageBinding.class);
+            case "kafka":  return (T) objectMapper.readValue(binding.toString(), KafkaMessageBinding.class);
             case "mqtt":  return (T) objectMapper.readValue(binding.toString(), MQTTMessageBinding.class);
             case "mqtt5":  return (T) objectMapper.readValue(binding.toString(), MQTT5MessageBinding.class);
             case "nats":  return (T) objectMapper.readValue(binding.toString(), NATSMessageBinding.class);
