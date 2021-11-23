@@ -1,1 +1,0 @@
-rootProject.name = "asyncapi-idea-plugin"
