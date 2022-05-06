@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.annotation.CheckForNull;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -261,7 +262,7 @@ public class Schema {
      * If the instance is a number, then this keyword validates only if the instance is less than or exactly equal to "maximum".
      */
     @CheckForNull
-    public Integer maximum;
+    public BigDecimal maximum;
 
     /**
      * The value of "exclusiveMaximum" MUST be number, representing an exclusive upper limit for a numeric instance.
@@ -269,7 +270,7 @@ public class Schema {
      * If the instance is a number, then the instance is valid only if it has a value strictly less than (not equal to) "exclusiveMaximum".
      */
     @CheckForNull
-    public Integer exclusiveMaximum;
+    public BigDecimal exclusiveMaximum;
 
     /**
      * The value of "minimum" MUST be a number, representing an inclusive lower limit for a numeric instance.
@@ -277,7 +278,7 @@ public class Schema {
      * If the instance is a number, then this keyword validates only if the instance is greater than or exactly equal to "minimum".
      */
     @CheckForNull
-    public Integer minimum;
+    public BigDecimal minimum;
 
     /**
      * The value of "exclusiveMinimum" MUST be number, representing an exclusive lower limit for a numeric instance.
@@ -285,7 +286,7 @@ public class Schema {
      * If the instance is a number, then the instance is valid only if it has a value strictly greater than (not equal to) "exclusiveMinimum".
      */
     @CheckForNull
-    public Integer exclusiveMinimum;
+    public BigDecimal exclusiveMinimum;
 
     /*
         Validation Keywords for Strings
