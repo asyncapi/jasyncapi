@@ -26,6 +26,7 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
+import java.math.BigDecimal;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -160,14 +161,14 @@ public class LampsAsyncAPI extends AsyncAPI {
         Map<String, Schema> lampInfoPayloadProperties = new HashMap<>();
         lampInfoPayloadProperties.put("lumens", Schema.builder()
                 .type(Type.INTEGER)
-                .minimum(0)
+                .minimum(BigDecimal.ZERO)
                 .description("Lamp intensity measured in lumens.")
                 .build()
         );
         lampInfoPayloadProperties.put("watts", Schema.builder()
                 .type(Type.INTEGER)
-                .minimum(0)
-                .maximum(100)
+                .minimum( BigDecimal.ZERO )
+                .maximum( BigDecimal.valueOf( 100 ) )
                 .description("Lamp watt consumption.")
                 .build()
         );
@@ -214,8 +215,8 @@ public class LampsAsyncAPI extends AsyncAPI {
         Map<String, Schema> commonHeadersProperties = new HashMap<>();
         commonHeadersProperties.put("my-app-header", Schema.builder()
                 .type(Type.INTEGER)
-                .minimum(0)
-                .maximum(100)
+                .minimum(BigDecimal.ONE)
+                .maximum(BigDecimal.valueOf( 100 ))
                 .build()
         );
 

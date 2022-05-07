@@ -13,6 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
+import java.math.BigDecimal
 
 /**
  * @author Pavel Bodiachevskii
@@ -98,8 +99,8 @@ class ComponentsTest {
                                         .type(Type.OBJECT)
                                         .properties(mapOf(Pair("my-app-header", Schema.builder()
                                                 .type(Type.INTEGER)
-                                                .minimum(0)
-                                                .maximum(100)
+                                                .minimum(BigDecimal.ZERO)
+                                                .maximum(BigDecimal.valueOf(100))
                                                 .build()))
                                         )
                                         .build()

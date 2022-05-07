@@ -33,6 +33,7 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
+import java.math.BigDecimal;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -210,7 +211,7 @@ public class StreetlightsAsyncAPI extends AsyncAPI {
         Map<String, Schema> lightMeasuredPayloadProperties = new HashMap<>();
         lightMeasuredPayloadProperties.put("lumens", Schema.builder()
                 .type(Type.INTEGER)
-                .minimum(0)
+                .minimum(BigDecimal.ZERO)
                 .description("Light intensity measured in lumens.")
                 .build()
         );
@@ -248,8 +249,8 @@ public class StreetlightsAsyncAPI extends AsyncAPI {
         Map<String, Schema> dimLightPayloadProperties = new HashMap<>();
         dimLightPayloadProperties.put("command", Schema.builder()
                 .type(Type.INTEGER)
-                .minimum(0)
-                .maximum(100)
+                .minimum( BigDecimal.ONE )
+                .maximum(BigDecimal.valueOf( 100 ))
                 .build()
         );
         dimLightPayloadProperties.put("sentAt", Schema.builder()
@@ -360,8 +361,8 @@ public class StreetlightsAsyncAPI extends AsyncAPI {
         Map<String, Schema> commonHeadersProperties = new HashMap<>();
         commonHeadersProperties.put("my-app-header", Schema.builder()
                 .type(Type.INTEGER)
-                .minimum(0)
-                .maximum(100)
+                .minimum(BigDecimal.ZERO)
+                .maximum(BigDecimal.valueOf( 100 ))
                 .build()
         );
 
