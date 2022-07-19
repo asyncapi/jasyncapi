@@ -5,7 +5,7 @@
     <parent>
         <artifactId>asyncapi-plugin</artifactId>
         <groupId>com.asyncapi</groupId>
-        <version>1.0.0-EAP-1</version>
+        <version>1.0.0-EAP-2</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -76,7 +76,7 @@
         <!-- Kotlin -->
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-stdlib-jdk8</artifactId>
+            <artifactId>kotlin-stdlib</artifactId>
         </dependency>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
@@ -97,35 +97,33 @@
     </dependencies>
 
     <build>
-        <plugins>
-            <plugin>
-                <artifactId>maven-plugin-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <artifactId>maven-source-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <artifactId>maven-javadoc-plugin</artifactId>
-            </plugin>
-        </plugins>
         <pluginManagement>
-            <plugins>
+	        <plugins>
+	            <!-- <plugin>
+	                <artifactId>maven-plugin-plugin</artifactId>
+	            </plugin> -->
+	            <plugin>
+	                <artifactId>maven-checkstyle-plugin</artifactId>
+	            </plugin>
+	            <plugin>
+	                <artifactId>maven-source-plugin</artifactId>
+	            </plugin>
+	            <plugin>
+	                <artifactId>maven-javadoc-plugin</artifactId>
+	            </plugin>
                 <plugin>
                     <artifactId>maven-plugin-plugin</artifactId>
                     <version>3.6.0</version>
                 </plugin>
-                <plugin>
+                <!-- <plugin>
                     <artifactId>maven-site-plugin</artifactId>
                     <version>3.9.0</version>
-                </plugin>
+                </plugin> -->
             </plugins>
         </pluginManagement>
     </build>
 
-    <reporting>
+    <!-- <reporting>
         <plugins>
             <plugin>
                 <artifactId>maven-plugin-plugin</artifactId>
@@ -138,6 +136,6 @@
                 </reportSets>
             </plugin>
         </plugins>
-    </reporting>
+    </reporting> -->
 
 </project>

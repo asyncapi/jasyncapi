@@ -6,7 +6,7 @@
 
     <groupId>com.asyncapi</groupId>
     <artifactId>asyncapi</artifactId>
-    <version>1.0.0-EAP-1</version>
+    <version>1.0.0-EAP-2</version>
 
     <!-- Project Information -->
     <name>AsyncAPI</name>
@@ -50,12 +50,12 @@
     </modules>
 
     <properties>
-        <kotlin.version>1.6.20</kotlin.version>
+        <kotlin.version>1.7.10</kotlin.version>
         <jackson.version>2.13.2</jackson.version>
-        <java.version>1.8</java.version>
+        <java.version>11</java.version>
         <lombok.version>1.18.10</lombok.version>
         <junit5.version>5.6.1</junit5.version>
-        <dokka.version>0.10.1</dokka.version>
+        <dokka.version>1.7.0</dokka.version>
     </properties>
 
     <dependencies>
@@ -85,7 +85,7 @@
             <!-- Kotlin -->
             <dependency>
                 <groupId>org.jetbrains.kotlin</groupId>
-                <artifactId>kotlin-stdlib-jdk8</artifactId>
+                <artifactId>kotlin-stdlib</artifactId>
                 <version>${kotlin.version}</version>
             </dependency>
             <dependency>
@@ -147,7 +147,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>2.2.1</version>
+                <version>3.2.1</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -160,7 +160,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.9.1</version>
+                <version>3.3.2</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -243,7 +243,7 @@
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
             </plugin>
-            <plugin>
+<!--             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
                 <version>1.5</version>
@@ -256,7 +256,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin> -->
             <!-- Generates Javadoc from kotlin code -->
             <plugin>
                 <groupId>org.jetbrains.dokka</groupId>

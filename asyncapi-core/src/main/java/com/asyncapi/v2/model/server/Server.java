@@ -2,6 +2,9 @@ package com.asyncapi.v2.model.server;
 
 import com.asyncapi.v2.binding.ServerBinding;
 import com.asyncapi.v2.binding.ServerBindingsDeserializer;
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.*;
 
@@ -9,6 +12,7 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.Map;
+import java.util.HashMap;
 
 /**
  * An object representing a message broker, a server or any other kind of computer program capable of sending and/or
@@ -35,6 +39,7 @@ public class Server {
      */
     @Nonnull
     @NonNull
+    @JsonProperty
     private String url;
 
     /**
@@ -45,12 +50,14 @@ public class Server {
      */
     @Nonnull
     @NonNull
+    @JsonProperty
     private String protocol;
 
     /**
      * The version of the protocol used for connection. For instance: AMQP 0.9.1, HTTP 2.0, Kafka 1.0.0, etc.
      */
     @CheckForNull
+    @JsonProperty
     private String protocolVersion;
 
     /**
@@ -58,12 +65,14 @@ public class Server {
      * representation.
      */
     @CheckForNull
+    @JsonProperty
     private String description;
 
     /**
      * A map between a variable name and its value. The value is used for substitution in the server's URL template.
      */
     @CheckForNull
+    @JsonProperty
     private Map<String, ServerVariable> variables;
 
     /**
@@ -78,6 +87,7 @@ public class Server {
      * Objects in the list needs to be satisfied to authorize the connection.
      */
     @CheckForNull
+    @JsonProperty
     private List<Map<String, List<String>>> security;
 
     /**
@@ -88,4 +98,8 @@ public class Server {
     @JsonDeserialize(using = ServerBindingsDeserializer.class)
     private Map<String, ? extends ServerBinding> bindings;
 
+    @JsonAnyGetter
+    @JsonAnySetter
+    @Builder.Default
+    protected Map<String, String> extensionFields = new HashMap<String, String>();
 }

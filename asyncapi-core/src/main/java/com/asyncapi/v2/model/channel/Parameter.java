@@ -1,10 +1,17 @@
 package com.asyncapi.v2.model.channel;
 
 import com.asyncapi.v2.model.schema.Schema;
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.annotation.CheckForNull;
 
@@ -24,12 +31,14 @@ public class Parameter {
     /**
      * A verbose explanation of the parameter. CommonMark syntax can be used for rich text representation.
      */
+    @JsonProperty
     @CheckForNull
     private String description;
 
     /**
      * Definition of the parameter.
      */
+    @JsonProperty
     @CheckForNull
     private Schema schema;
 
@@ -39,7 +48,16 @@ public class Parameter {
      * Even when a definition for the target field exists, it MUST NOT be used to validate this parameter but,
      * instead, the schema property MUST be used.
      */
+    @JsonProperty
     @CheckForNull
     private String location;
 
+    /**
+     * Extension fields in the form x-extension-field-name for the exposed API.
+     */
+    @JsonAnySetter
+    @JsonAnyGetter
+    @CheckForNull
+    @Builder.Default
+    protected Map<String, String> extensionFields = new HashMap<String, String>();
 }

@@ -9,6 +9,7 @@ import com.asyncapi.v2.binding.mqtt5.MQTT5ChannelBinding;
 import com.asyncapi.v2.binding.nats.NATSChannelBinding;
 import com.asyncapi.v2.binding.redis.RedisChannelBinding;
 import com.asyncapi.v2.binding.sns.SNSChannelBinding;
+import com.asyncapi.v2.binding.solace.SolaceChannelBinding;
 import com.asyncapi.v2.binding.sqs.SQSChannelBinding;
 import com.asyncapi.v2.binding.stomp.STOMPChannelBinding;
 import com.asyncapi.v2.binding.ws.WebSocketsChannelBinding;
@@ -68,6 +69,7 @@ public class ChannelBindingsDeserializer extends JsonDeserializer<Map<String, ? 
             case "nats":  return (T) objectMapper.readValue(binding.toString(), NATSChannelBinding.class);
             case "redis":  return (T) objectMapper.readValue(binding.toString(), RedisChannelBinding.class);
             case "sns":  return (T) objectMapper.readValue(binding.toString(), SNSChannelBinding.class);
+            case "solace": return (T) objectMapper.readValue(binding.toString(), SolaceChannelBinding.class);
             case "sqs":  return (T) objectMapper.readValue(binding.toString(), SQSChannelBinding.class);
             case "stomp":  return (T) objectMapper.readValue(binding.toString(), STOMPChannelBinding.class);
             case "ws":  return (T) objectMapper.readValue(binding.toString(), WebSocketsChannelBinding.class);

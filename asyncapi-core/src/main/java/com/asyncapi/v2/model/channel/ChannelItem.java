@@ -4,6 +4,7 @@ import com.asyncapi.v2.binding.ChannelBinding;
 import com.asyncapi.v2.binding.ChannelBindingsDeserializer;
 import com.asyncapi.v2.jackson.ChannelParametersDeserializer;
 import com.asyncapi.v2.model.channel.operation.Operation;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -31,24 +32,28 @@ public class ChannelItem {
      * The referenced structure MUST be in the format of a Channel Item Object.
      * If there are conflicts between the referenced definition and this Channel Item's definition, the behavior is undefined.
      */
+    @JsonProperty
     @CheckForNull
     private String $ref;
 
     /**
      * An optional description of this channel item. CommonMark syntax can be used for rich text representation.
      */
+    @JsonProperty
     @CheckForNull
     private String description;
 
     /**
      * A definition of the SUBSCRIBE operation.
      */
+    @JsonProperty
     @CheckForNull
     private Operation subscribe;
 
     /**
      * A definition of the PUBLISH operation.
      */
+    @JsonProperty
     @CheckForNull
     private Operation publish;
 
