@@ -4,6 +4,8 @@ import com.asyncapi.v2.binding.ChannelBinding;
 import com.asyncapi.v2.binding.ChannelBindingsDeserializer;
 import com.asyncapi.v2.jackson.ChannelParametersDeserializer;
 import com.asyncapi.v2.model.channel.operation.Operation;
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
@@ -12,6 +14,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.annotation.CheckForNull;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -80,4 +83,12 @@ public class ChannelItem {
     @JsonDeserialize(using = ChannelBindingsDeserializer.class)
     private Map<String, ? extends ChannelBinding> bindings;
 
+    /**
+     * Extension fields in the form x-extension-field-name for the exposed API.
+     */
+    @JsonAnySetter
+    @JsonAnyGetter
+    @CheckForNull
+    @Builder.Default
+    protected Map<String, String> extensionFields = new HashMap<String, String>();
 }
