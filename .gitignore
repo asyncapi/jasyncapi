@@ -54,6 +54,8 @@ buildNumber.properties
 
 # Mac
 .DS_Store
+
+# Eclipse
 asyncapi-plugin/asyncapi-plugin-maven/.settings/org.eclipse.jdt.core.prefs
 asyncapi-plugin/asyncapi-plugin-maven/.project
 asyncapi-plugin/.project
