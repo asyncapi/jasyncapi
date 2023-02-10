@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
  * Describes Google Cloud Pub/Sub operation binding.
  *
  * @version 0.1.0
- * @see <a href="https://github.com/asyncapi/bindings/tree/master/googlepubsub">Google Cloud Pub/Sub operation binding</a>
+ * @see <a href="https://github.com/asyncapi/bindings/tree/master/googlepubsub#operation-binding-object">Google Cloud Pub/Sub operation binding</a>
  * @author Pavel Bodiachevskii
  */
 @Data

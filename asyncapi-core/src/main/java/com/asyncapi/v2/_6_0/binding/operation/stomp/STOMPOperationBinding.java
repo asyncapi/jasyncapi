@@ -1,6 +1,6 @@
 package com.asyncapi.v2._6_0.binding.operation.stomp;
 
-import com.asyncapi.v2.binding.OperationBinding;
+import com.asyncapi.v2._6_0.binding.operation.OperationBinding;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

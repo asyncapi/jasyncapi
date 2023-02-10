@@ -1,6 +1,6 @@
 package com.asyncapi.v2._6_0.binding.operation.mqtt;
 
-import com.asyncapi.v2.binding.OperationBinding;
+import com.asyncapi.v2._6_0.binding.operation.OperationBinding;
 import lombok.*;
 
 import javax.annotation.CheckForNull;
@@ -8,7 +8,7 @@ import javax.annotation.Nullable;
 
 /**
  * Describes MQTT operation binding.
- *
+ * <p>
  * Contains information about the operation representation in MQTT.
  *
  * @version 0.1.0

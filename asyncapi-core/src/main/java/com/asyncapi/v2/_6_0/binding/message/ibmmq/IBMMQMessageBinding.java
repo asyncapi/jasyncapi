@@ -11,7 +11,7 @@ import javax.annotation.CheckForNull;
  * This object contains information about the message representation in IBM MQ.
  *
  * @version 0.1.0
- * @see <a href="https://github.com/asyncapi/bindings/tree/master/ibmmq">IBM MQ server binding</a>
+ * @see <a href="https://github.com/asyncapi/bindings/tree/master/ibmmq#message-binding-object">IBM MQ message binding</a>
  * @author Pavel Bodiachevskii
  */
 @Data

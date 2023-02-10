@@ -1,13 +1,13 @@
 package com.asyncapi.v2._6_0.binding.operation.amqp1;
 
-import com.asyncapi.v2.binding.OperationBinding;
+import com.asyncapi.v2._6_0.binding.operation.OperationBinding;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
  * This class MUST NOT contain any properties. Its name is reserved for future use.
- *
+ * <p>
  * Describes AMQP 1.0 operation binding.
  *
  * @version 0.1.0

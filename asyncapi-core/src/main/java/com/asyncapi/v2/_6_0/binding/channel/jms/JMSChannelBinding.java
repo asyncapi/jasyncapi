@@ -1,13 +1,13 @@
 package com.asyncapi.v2._6_0.binding.channel.jms;
 
-import com.asyncapi.v2.binding.ChannelBinding;
+import com.asyncapi.v2._6_0.binding.channel.ChannelBinding;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
  * This class MUST NOT contain any properties. Its name is reserved for future use.
- *
+ * <p>
  * Describes JMS channel binding.
  *
  * @version 0.1.0

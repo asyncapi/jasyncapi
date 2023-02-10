@@ -1,6 +1,6 @@
 package com.asyncapi.v2._6_0.binding.message.kafka;
 
-import com.asyncapi.v2.binding.MessageBinding;
+import com.asyncapi.v2._6_0.binding.message.MessageBinding;
 import lombok.*;
 
 import javax.annotation.CheckForNull;
@@ -8,7 +8,7 @@ import javax.annotation.Nullable;
 
 /**
  * Describes Kafka message binding.
- *
+ * <p>
  * Contains information about the message representation in Kafka.
  *
  * @version 0.1.0

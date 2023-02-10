@@ -1,6 +1,6 @@
 package com.asyncapi.v2._6_0.binding.channel.pulsar;
 
-import com.asyncapi.v2._6_0.binding.operation.OperationBinding;
+import com.asyncapi.v2._6_0.binding.channel.ChannelBinding;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
@@ -10,11 +10,9 @@ import java.util.List;
 
 /**
  * Describes Pulsar channel binding.
- * <p>
- * This object MUST NOT contain any properties. Its name is reserved for future use.
  *
  * @version 0.1.0
- * @see <a href="https://github.com/asyncapi/bindings/tree/master/pulsar">Pulsar channel binding</a>
+ * @see <a href="https://github.com/asyncapi/bindings/tree/master/pulsar#channel-binding-object">Pulsar channel binding</a>
  * @author Pavel Bodiachevskii
  */
 @Data
@@ -22,7 +20,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class PulsarChannelBinding extends OperationBinding {
+public class PulsarChannelBinding extends ChannelBinding {
 
     /**
      * The namespace the channel is associated with.

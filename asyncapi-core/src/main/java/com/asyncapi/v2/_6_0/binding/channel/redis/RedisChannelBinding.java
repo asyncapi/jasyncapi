@@ -1,6 +1,6 @@
 package com.asyncapi.v2._6_0.binding.channel.redis;
 
-import com.asyncapi.v2.binding.ChannelBinding;
+import com.asyncapi.v2._6_0.binding.channel.ChannelBinding;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

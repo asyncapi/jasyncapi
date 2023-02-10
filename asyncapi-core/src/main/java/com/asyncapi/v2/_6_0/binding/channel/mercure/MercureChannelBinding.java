@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
  * Describes Mercure channel binding.
  *
  * @version 0.1.0
- * @see <a href="https://github.com/asyncapi/bindings/tree/master/mercure">Mercure channel binding</a>
+ * @see <a href="https://github.com/asyncapi/bindings/tree/master/mercure#channel-binding-object">Mercure channel binding</a>
  * @author Pavel Bodiachevskii
  */
 @Data

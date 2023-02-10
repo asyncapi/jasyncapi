@@ -1,13 +1,11 @@
 package com.asyncapi.v2._6_0.binding.operation.nats;
 
-import com.asyncapi.v2.binding.OperationBinding;
+import com.asyncapi.v2._6_0.binding.operation.OperationBinding;
 import lombok.*;
 
 import javax.annotation.CheckForNull;
 
 /**
- * This class MUST NOT contain any properties. Its name is reserved for future use.
- * <p>
  * Describes NATS operation binding.
  *
  * @version 0.1.0

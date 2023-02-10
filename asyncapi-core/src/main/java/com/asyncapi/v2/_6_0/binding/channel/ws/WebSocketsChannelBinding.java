@@ -4,7 +4,6 @@ import com.asyncapi.v2._6_0.binding.channel.ChannelBinding;
 import lombok.*;
 
 import javax.annotation.CheckForNull;
-import javax.annotation.Nullable;
 
 /**
  * Describes WebSockets channel binding.

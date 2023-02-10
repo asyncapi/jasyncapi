@@ -1,10 +1,9 @@
 package com.asyncapi.v2._6_0.binding.operation.amqp;
 
-import com.asyncapi.v2.binding.OperationBinding;
+import com.asyncapi.v2._6_0.binding.operation.OperationBinding;
 import lombok.*;
 
 import javax.annotation.CheckForNull;
-import javax.annotation.Nullable;
 import java.util.List;
 
 /**

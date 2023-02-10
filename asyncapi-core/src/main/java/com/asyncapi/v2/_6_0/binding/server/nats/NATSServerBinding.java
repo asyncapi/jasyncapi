@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
  * Describes NATS channel binding.
  *
  * @version 0.1.0
- * @see <a href="https://github.com/asyncapi/bindings/tree/master/nats#channel-binding-object">NATS channel binding</a>
+ * @see <a href="https://github.com/asyncapi/bindings/tree/master/nats#server-binding-object">NATS server binding</a>
  * @author Pavel Bodiachevskii
  */
 @Data

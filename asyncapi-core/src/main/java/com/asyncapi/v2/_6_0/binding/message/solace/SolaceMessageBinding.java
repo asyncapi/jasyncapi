@@ -9,7 +9,7 @@ import lombok.*;
  * Describes Solace message binding.
  *
  * @version 0.3.0
- * @see <a href="https://github.com/asyncapi/bindings/tree/master/solace">Solace message binding</a>
+ * @see <a href="https://github.com/asyncapi/bindings/tree/master/solace#message-binding-object">Solace message binding</a>
  * @author Pavel Bodiachevskii
  */
 @Data

@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
  * Describes Google Cloud Pub/Sub server binding.
  *
  * @version 0.1.0
- * @see <a href="https://github.com/asyncapi/bindings/tree/master/googlepubsub">Redis server binding</a>
+ * @see <a href="https://github.com/asyncapi/bindings/tree/master/googlepubsub">Google Cloud Pub/Sub server binding</a>
  * @author Pavel Bodiachevskii
  */
 @Data

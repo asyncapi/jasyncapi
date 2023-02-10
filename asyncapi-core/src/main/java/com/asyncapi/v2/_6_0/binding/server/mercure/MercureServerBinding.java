@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
  * Describes Mercure server binding.
  *
  * @version 0.1.0
- * @see <a href="https://github.com/asyncapi/bindings/tree/master/mercure">Redis server binding</a>
+ * @see <a href="https://github.com/asyncapi/bindings/tree/master/mercure#server-binding-object">Mercure server binding</a>
  * @author Pavel Bodiachevskii
  */
 @Data

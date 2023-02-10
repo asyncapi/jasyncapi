@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
  * Describes Mercure message binding.
  *
  * @version 0.1.0
- * @see <a href="https://github.com/asyncapi/bindings/tree/master/mercure">Mercure message binding</a>
+ * @see <a href="https://github.com/asyncapi/bindings/tree/master/mercure#message-binding-object">Mercure message binding</a>
  * @author Pavel Bodiachevskii
  */
 @Data

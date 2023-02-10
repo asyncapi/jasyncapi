@@ -1,10 +1,9 @@
 package com.asyncapi.v2._6_0.binding.message.mqtt;
 
-import com.asyncapi.v2.binding.MessageBinding;
+import com.asyncapi.v2._6_0.binding.message.MessageBinding;
 import lombok.*;
 
 import javax.annotation.CheckForNull;
-import javax.annotation.Nullable;
 
 /**
  * Describes MQTT message binding.

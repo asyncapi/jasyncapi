@@ -1,6 +1,6 @@
 package com.asyncapi.v2._6_0.binding.channel.amqp1;
 
-import com.asyncapi.v2.binding.ChannelBinding;
+import com.asyncapi.v2._6_0.binding.channel.ChannelBinding;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
  * Describes AMQP 1.0 channel binding.
  *
  * @version 0.1.0
- * @see <a href="https://github.com/asyncapi/bindings/tree/master/amqp1#channel-binding-object">AMQP channel binding</a>
+ * @see <a href="https://github.com/asyncapi/bindings/tree/master/amqp1#channel-binding-object">AMQP 1.0 channel binding</a>
  * @author Pavel Bodiachevskii
  */
 @Data

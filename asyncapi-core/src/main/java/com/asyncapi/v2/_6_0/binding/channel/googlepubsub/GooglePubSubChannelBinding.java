@@ -1,6 +1,6 @@
 package com.asyncapi.v2._6_0.binding.channel.googlepubsub;
 
-import com.asyncapi.v2._6_0.binding.message.MessageBinding;
+import com.asyncapi.v2._6_0.binding.channel.ChannelBinding;
 import lombok.*;
 
 import javax.annotation.CheckForNull;
@@ -13,7 +13,7 @@ import java.util.Map;
  * Describes Google Cloud Pub/Sub channel binding.
  *
  * @version 0.1.0
- * @see <a href="https://github.com/asyncapi/bindings/tree/master/googlepubsub">Google Cloud Pub/Sub channel binding</a>
+ * @see <a href="https://github.com/asyncapi/bindings/tree/master/googlepubsub#channel-binding-object">Google Cloud Pub/Sub channel binding</a>
  * @author Pavel Bodiachevskii
  */
 @Data
@@ -21,7 +21,7 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class GooglePubSubChannelBinding extends MessageBinding {
+public class GooglePubSubChannelBinding extends ChannelBinding {
 
     /**
      * The Google Cloud Pub/Sub Topic name

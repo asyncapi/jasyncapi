@@ -9,7 +9,7 @@ import javax.annotation.CheckForNull;
  * Describes Pulsar server binding.
  *
  * @version 0.1.0
- * @see <a href="https://github.com/asyncapi/bindings/tree/master/pulsar">Redis server binding</a>
+ * @see <a href="https://github.com/asyncapi/bindings/tree/master/pulsar#server-binding-object">Redis server binding</a>
  * @author Pavel Bodiachevskii
  */
 @Data

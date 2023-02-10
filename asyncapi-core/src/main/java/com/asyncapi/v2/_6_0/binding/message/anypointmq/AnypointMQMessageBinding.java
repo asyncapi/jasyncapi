@@ -1,6 +1,6 @@
 package com.asyncapi.v2._6_0.binding.message.anypointmq;
 
-import com.asyncapi.v2._6_0.binding.channel.ChannelBinding;
+import com.asyncapi.v2._6_0.binding.message.MessageBinding;
 import lombok.*;
 
 import javax.annotation.CheckForNull;
@@ -9,7 +9,7 @@ import javax.annotation.CheckForNull;
  * Describes Anypoint MQ message binding.
  *
  * @version 0.0.1
- * @see <a href="https://github.com/asyncapi/bindings/blob/master/anypointmq/README.md#channel-binding-object">Anypoint MQ channel binding</a>
+ * @see <a href="https://github.com/asyncapi/bindings/blob/master/anypointmq/README.md#message-binding-object">Anypoint MQ message binding</a>
  * @author Pavel Bodiachevskii
  */
 @Data
@@ -17,7 +17,7 @@ import javax.annotation.CheckForNull;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class AnypointMQMessageBinding extends ChannelBinding {
+public class AnypointMQMessageBinding extends MessageBinding {
 
     /**
      * OPTIONAL.

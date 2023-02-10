@@ -12,7 +12,7 @@ import javax.annotation.CheckForNull;
  * Describes Google Cloud Pub/Sub message binding.
  *
  * @version 0.1.0
- * @see <a href="https://github.com/asyncapi/bindings/tree/master/googlepubsub">Google Cloud Pub/Sub operation binding</a>
+ * @see <a href="https://github.com/asyncapi/bindings/tree/master/googlepubsub#message-binding-object">Google Cloud Pub/Sub message binding</a>
  * @author Pavel Bodiachevskii
  */
 @Data

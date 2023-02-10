@@ -9,7 +9,7 @@ import lombok.*;
  * Describes Solace channel binding.
  *
  * @version 0.3.0
- * @see <a href="https://github.com/asyncapi/bindings/tree/master/solace">Solace channel binding</a>
+ * @see <a href="https://github.com/asyncapi/bindings/tree/master/solace#channel-binding-object">Solace channel binding</a>
  * @author Pavel Bodiachevskii
  */
 @Data

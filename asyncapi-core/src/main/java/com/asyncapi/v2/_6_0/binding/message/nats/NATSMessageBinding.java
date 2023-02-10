@@ -1,6 +1,6 @@
 package com.asyncapi.v2._6_0.binding.message.nats;
 
-import com.asyncapi.v2.binding.MessageBinding;
+import com.asyncapi.v2._6_0.binding.message.MessageBinding;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

@@ -7,12 +7,10 @@ import javax.annotation.CheckForNull;
 import java.util.List;
 
 /**
- * This class MUST NOT contain any properties. Its name is reserved for future use.
- * <p>
  * Describes Solace operation binding.
  *
  * @version 0.3.0
- * @see <a href="https://github.com/asyncapi/bindings/tree/master/solace">Solace operation binding</a>
+ * @see <a href="https://github.com/asyncapi/bindings/tree/master/solace#operation-binding-object">Solace operation binding</a>
  * @author Pavel Bodiachevskii
  */
 @Data

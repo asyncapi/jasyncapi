@@ -1,11 +1,10 @@
 package com.asyncapi.v2._6_0.binding.operation.http;
 
-import com.asyncapi.v2.binding.OperationBinding;
+import com.asyncapi.v2._6_0.binding.operation.OperationBinding;
 import lombok.*;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 /**
  * Describes HTTP operation binding.

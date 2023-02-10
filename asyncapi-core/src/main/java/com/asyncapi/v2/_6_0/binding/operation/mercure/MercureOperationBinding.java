@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
  * Describes Mercure operation binding.
  *
  * @version 0.1.0
- * @see <a href="https://github.com/asyncapi/bindings/tree/master/mercure">Mercure operation binding</a>
+ * @see <a href="https://github.com/asyncapi/bindings/tree/master/mercure#operation-binding-object">Mercure operation binding</a>
  * @author Pavel Bodiachevskii
  */
 @Data
