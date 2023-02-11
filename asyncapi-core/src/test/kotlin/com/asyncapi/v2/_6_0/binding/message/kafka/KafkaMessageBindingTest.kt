@@ -10,18 +10,6 @@ class KafkaMessageBindingTest {
 
     private val objectMapper = ObjectMapper()
 
-    private fun build(): KafkaMessageBinding {
-        return KafkaMessageBinding.builder()
-                .key(mapOf(
-                        Pair("type", "string"),
-                        Pair("enum", listOf("myKey"))
-                ))
-                .schemaIdLocation("payload")
-                .schemaIdPayloadEncoding("apicurio-new")
-                .schemaLookupStrategy("TopicIdStrategy")
-                .build()
-    }
-
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
@@ -31,6 +19,21 @@ class KafkaMessageBindingTest {
                 objectMapper.readValue(model, KafkaMessageBinding::class.java),
                 build()
         )
+    }
+
+    companion object {
+        @JvmStatic
+        fun build(): KafkaMessageBinding {
+            return KafkaMessageBinding.builder()
+                    .key(mapOf(
+                            Pair("type", "string"),
+                            Pair("enum", listOf("myKey"))
+                    ))
+                    .schemaIdLocation("payload")
+                    .schemaIdPayloadEncoding("apicurio-new")
+                    .schemaLookupStrategy("TopicIdStrategy")
+                    .build()
+        }
     }
 
 }

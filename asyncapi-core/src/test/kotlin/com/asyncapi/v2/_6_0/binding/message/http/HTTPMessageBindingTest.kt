@@ -10,20 +10,6 @@ class HTTPMessageBindingTest {
 
     private val objectMapper = ObjectMapper()
 
-    private fun build(): HTTPMessageBinding {
-        return HTTPMessageBinding.builder()
-                .headers(mapOf(
-                        Pair("type", "object"),
-                        Pair("properties", mapOf(
-                                Pair("Content-Type", mapOf(
-                                        Pair("type", "string"),
-                                        Pair("enum", listOf("application/json"))
-                                ))
-                        )),
-                ))
-                .build()
-    }
-
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
@@ -35,4 +21,20 @@ class HTTPMessageBindingTest {
         )
     }
 
+    companion object {
+        @JvmStatic
+        fun build(): HTTPMessageBinding {
+            return HTTPMessageBinding.builder()
+                    .headers(mapOf(
+                            Pair("type", "object"),
+                            Pair("properties", mapOf(
+                                    Pair("Content-Type", mapOf(
+                                            Pair("type", "string"),
+                                            Pair("enum", listOf("application/json"))
+                                    ))
+                            )),
+                    ))
+                    .build()
+        }
+    }
 }

@@ -10,25 +10,6 @@ class HTTPOperationBindingTest {
 
     private val objectMapper = ObjectMapper()
 
-    private fun build(): HTTPOperationBinding {
-        return HTTPOperationBinding.builder()
-                .type("request")
-                .method("GET")
-                .query(mapOf(
-                        Pair("type", "object"),
-                        Pair("required", listOf("companyId")),
-                        Pair("properties", mapOf(
-                                Pair("companyId", mapOf(
-                                        Pair("type", "number"),
-                                        Pair("minimum", 1),
-                                        Pair("description", "The Id of the company.")
-                                )),
-                                Pair("additionalProperties", false)
-                        )),
-                ))
-                .build()
-    }
-
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
@@ -38,6 +19,28 @@ class HTTPOperationBindingTest {
                 objectMapper.readValue(model, HTTPOperationBinding::class.java),
                 build()
         )
+    }
+
+    companion object {
+        @JvmStatic
+        fun build(): HTTPOperationBinding {
+            return HTTPOperationBinding.builder()
+                    .type("request")
+                    .method("GET")
+                    .query(mapOf(
+                            Pair("type", "object"),
+                            Pair("required", listOf("companyId")),
+                            Pair("properties", mapOf(
+                                    Pair("companyId", mapOf(
+                                            Pair("type", "number"),
+                                            Pair("minimum", 1),
+                                            Pair("description", "The Id of the company.")
+                                    )),
+                                    Pair("additionalProperties", false)
+                            )),
+                    ))
+                    .build()
+        }
     }
 
 }

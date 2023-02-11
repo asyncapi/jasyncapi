@@ -11,12 +11,6 @@ class NATSOperationBindingTest {
 
     private val objectMapper = ObjectMapper()
 
-    private fun build(): NATSOperationBinding {
-        return NATSOperationBinding.builder()
-                .queue("messages")
-                .build()
-    }
-
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
@@ -26,6 +20,15 @@ class NATSOperationBindingTest {
                 objectMapper.readValue(model, NATSOperationBinding::class.java),
                 build()
         )
+    }
+
+    companion object {
+        @JvmStatic
+        fun build(): NATSOperationBinding {
+            return NATSOperationBinding.builder()
+                    .queue("messages")
+                    .build()
+        }
     }
 
 }

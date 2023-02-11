@@ -10,19 +10,6 @@ class KafkaOperationBindingTest {
 
     private val objectMapper = ObjectMapper()
 
-    private fun build(): KafkaOperationBinding {
-        return KafkaOperationBinding.builder()
-                .groupId(mapOf(
-                        Pair("type", "string"),
-                        Pair("enum", listOf("myGroupId"))
-                ))
-                .clientId(mapOf(
-                        Pair("type", "string"),
-                        Pair("enum", listOf("myClientId"))
-                ))
-                .build()
-    }
-
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
@@ -32,6 +19,22 @@ class KafkaOperationBindingTest {
                 objectMapper.readValue(model, KafkaOperationBinding::class.java),
                 build()
         )
+    }
+
+    companion object {
+        @JvmStatic
+        fun build(): KafkaOperationBinding {
+            return KafkaOperationBinding.builder()
+                    .groupId(mapOf(
+                            Pair("type", "string"),
+                            Pair("enum", listOf("myGroupId"))
+                    ))
+                    .clientId(mapOf(
+                            Pair("type", "string"),
+                            Pair("enum", listOf("myClientId"))
+                    ))
+                    .build()
+        }
     }
 
 }

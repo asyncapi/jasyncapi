@@ -10,36 +10,6 @@ class SolaceOperationBindingTest {
 
     private val objectMapper = ObjectMapper()
 
-    private fun build(): SolaceOperationBinding {
-        return SolaceOperationBinding.builder()
-                .destinations(listOf(
-                        SolaceOperationBinding.Destination.builder()
-                                .destinationType("queue")
-                                .queue(SolaceOperationBinding.Destination.Queue.builder()
-                                        .name("CreatedHREvents")
-                                        .topicSubscriptions(listOf("person/*/created"))
-                                        .accessType("exclusive")
-                                        .maxMsgSpoolSize("1,500")
-                                        .maxTtl("60")
-                                        .build()
-                                )
-                                .build(),
-                        SolaceOperationBinding.Destination.builder()
-                                .destinationType("queue")
-                                .queue(SolaceOperationBinding.Destination.Queue.builder()
-                                        .name("UpdatedHREvents")
-                                        .topicSubscriptions(listOf("person/*/updated"))
-                                        .build()
-                                )
-                                .topic(SolaceOperationBinding.Destination.Topic.builder()
-                                        .topicSubscriptions(listOf("person/*/updated"))
-                                        .build()
-                                )
-                                .build()
-                ))
-                .build()
-    }
-
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
@@ -49,6 +19,39 @@ class SolaceOperationBindingTest {
                 objectMapper.readValue(model, SolaceOperationBinding::class.java),
                 build()
         )
+    }
+
+    companion object {
+        @JvmStatic
+        fun build(): SolaceOperationBinding {
+            return SolaceOperationBinding.builder()
+                    .destinations(listOf(
+                            SolaceOperationBinding.Destination.builder()
+                                    .destinationType("queue")
+                                    .queue(SolaceOperationBinding.Destination.Queue.builder()
+                                            .name("CreatedHREvents")
+                                            .topicSubscriptions(listOf("person/*/created"))
+                                            .accessType("exclusive")
+                                            .maxMsgSpoolSize("1,500")
+                                            .maxTtl("60")
+                                            .build()
+                                    )
+                                    .build(),
+                            SolaceOperationBinding.Destination.builder()
+                                    .destinationType("queue")
+                                    .queue(SolaceOperationBinding.Destination.Queue.builder()
+                                            .name("UpdatedHREvents")
+                                            .topicSubscriptions(listOf("person/*/updated"))
+                                            .build()
+                                    )
+                                    .topic(SolaceOperationBinding.Destination.Topic.builder()
+                                            .topicSubscriptions(listOf("person/*/updated"))
+                                            .build()
+                                    )
+                                    .build()
+                    ))
+                    .build()
+        }
     }
 
 }

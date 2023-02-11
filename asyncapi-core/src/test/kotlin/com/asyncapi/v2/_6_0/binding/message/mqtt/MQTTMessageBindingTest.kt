@@ -10,11 +10,6 @@ class MQTTMessageBindingTest {
 
     private val objectMapper = ObjectMapper()
 
-    private fun build(): MQTTMessageBinding {
-        return MQTTMessageBinding.builder()
-                .build()
-    }
-
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
@@ -24,6 +19,14 @@ class MQTTMessageBindingTest {
                 objectMapper.readValue(model, MQTTMessageBinding::class.java),
                 build()
         )
+    }
+
+    companion object {
+        @JvmStatic
+        fun build(): MQTTMessageBinding {
+            return MQTTMessageBinding.builder()
+                    .build()
+        }
     }
 
 }

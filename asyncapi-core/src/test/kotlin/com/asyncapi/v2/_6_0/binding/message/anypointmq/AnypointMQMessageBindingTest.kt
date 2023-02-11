@@ -10,21 +10,6 @@ class AnypointMQMessageBindingTest {
 
     private val objectMapper = ObjectMapper()
 
-    private fun build(): AnypointMQMessageBinding {
-        return AnypointMQMessageBinding.builder()
-                .headers(mapOf(
-                        Pair("type", "object"),
-                        Pair("properties", mapOf(
-
-                                Pair("correlationId", mapOf(
-                                        Pair("description", "Correlation ID set by application"),
-                                        Pair("type", "string")
-                                ))
-                        ))
-                ))
-                .build()
-    }
-
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
@@ -34,6 +19,24 @@ class AnypointMQMessageBindingTest {
                 objectMapper.readValue(model, AnypointMQMessageBinding::class.java),
                 build()
         )
+    }
+
+    companion object {
+        @JvmStatic
+        fun build(): AnypointMQMessageBinding {
+            return AnypointMQMessageBinding.builder()
+                    .headers(mapOf(
+                            Pair("type", "object"),
+                            Pair("properties", mapOf(
+
+                                    Pair("correlationId", mapOf(
+                                            Pair("description", "Correlation ID set by application"),
+                                            Pair("type", "string")
+                                    ))
+                            ))
+                    ))
+                    .build()
+        }
     }
 
 }

@@ -10,13 +10,6 @@ class MQTTOperationBindingTest {
 
     private val objectMapper = ObjectMapper()
 
-    private fun build(): MQTTOperationBinding {
-        return MQTTOperationBinding.builder()
-                .qos(2)
-                .retain(true)
-                .build()
-    }
-
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
@@ -26,6 +19,16 @@ class MQTTOperationBindingTest {
                 objectMapper.readValue(model, MQTTOperationBinding::class.java),
                 build()
         )
+    }
+
+    companion object {
+        @JvmStatic
+        fun build(): MQTTOperationBinding {
+            return MQTTOperationBinding.builder()
+                    .qos(2)
+                    .retain(true)
+                    .build()
+        }
     }
 
 }

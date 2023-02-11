@@ -10,15 +10,6 @@ class IBMMQMessageBindingTest {
 
     private val objectMapper = ObjectMapper()
 
-    private fun build(): IBMMQMessageBinding {
-        return IBMMQMessageBinding.builder()
-                .type("jms")
-                .description("JMS stream message")
-                .headers("Content-Type: application/json")
-                .expiry(0)
-                .build()
-    }
-
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
@@ -28,6 +19,18 @@ class IBMMQMessageBindingTest {
                 objectMapper.readValue(model, IBMMQMessageBinding::class.java),
                 build()
         )
+    }
+
+    companion object {
+        @JvmStatic
+        fun build(): IBMMQMessageBinding {
+            return IBMMQMessageBinding.builder()
+                    .type("jms")
+                    .description("JMS stream message")
+                    .headers("Content-Type: application/json")
+                    .expiry(0)
+                    .build()
+        }
     }
 
 }

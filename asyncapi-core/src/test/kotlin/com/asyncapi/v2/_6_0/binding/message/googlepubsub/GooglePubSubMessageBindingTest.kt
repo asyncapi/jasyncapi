@@ -10,15 +10,6 @@ class GooglePubSubMessageBindingTest {
 
     private val objectMapper = ObjectMapper()
 
-    private fun build(): GooglePubSubMessageBinding {
-        return GooglePubSubMessageBinding.builder()
-                .schema(GooglePubSubMessageBinding.SchemaDefinition(
-                        "projects/your-project/schemas/message-avro",
-                        "avro"
-                ))
-                .build()
-    }
-
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
@@ -28,6 +19,18 @@ class GooglePubSubMessageBindingTest {
                 objectMapper.readValue(model, GooglePubSubMessageBinding::class.java),
                 build()
         )
+    }
+
+    companion object {
+        @JvmStatic
+        fun build(): GooglePubSubMessageBinding {
+            return GooglePubSubMessageBinding.builder()
+                    .schema(GooglePubSubMessageBinding.SchemaDefinition(
+                            "projects/your-project/schemas/message-avro",
+                            "avro"
+                    ))
+                    .build()
+        }
     }
 
 }
