@@ -1,7 +1,6 @@
 package com.asyncapi.v2._6_0.model.channel;
 
-import com.asyncapi.v2.binding.ChannelBinding;
-import com.asyncapi.v2.binding.ChannelBindingsDeserializer;
+import com.asyncapi.v2._6_0.jackson.binding.channel.ChannelBindingsDeserializer;
 import com.asyncapi.v2._6_0.jackson.model.channel.ChannelParametersDeserializer;
 import com.asyncapi.v2._6_0.model.channel.operation.Operation;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -80,9 +79,15 @@ public class ChannelItem {
 
     /**
      * A map where the keys describe the name of the protocol and the values describe protocol-specific definitions for the channel.
+     * <p>
+     * MUST BE:
+     * <ul>
+     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link com.asyncapi.v2._6_0.binding.channel.ChannelBinding}</li>
+     * </ul>
      */
     @CheckForNull
     @JsonDeserialize(using = ChannelBindingsDeserializer.class)
-    private Map<String, ? extends ChannelBinding> bindings;
+    private Map<String, Object> bindings;
 
 }
