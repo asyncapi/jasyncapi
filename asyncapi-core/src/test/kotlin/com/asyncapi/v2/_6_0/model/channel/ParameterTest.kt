@@ -14,7 +14,7 @@ class ParameterTest {
 
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
-    fun schema() {
+    fun schemaReference() {
         val model = ClasspathUtils.readAsString("/json/2.6.0/model/channel/parameter with reference to schema.json")
 
         val parameter = build()
@@ -27,7 +27,7 @@ class ParameterTest {
 
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
-    fun schemaReference() {
+    fun schema() {
         val model = ClasspathUtils.readAsString("/json/2.6.0/model/channel/parameter with schema.json")
 
         val parameter = build()

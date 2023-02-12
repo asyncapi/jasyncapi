@@ -14,13 +14,6 @@ class AnypointMQChannelBindingTest {
 
     private val objectMapper = ObjectMapper()
 
-    private fun build(): AnypointMQChannelBinding {
-        return AnypointMQChannelBinding.builder()
-                .destination("user-signup-exchg")
-                .destinationType("exchange")
-                .build()
-    }
-
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
@@ -30,6 +23,16 @@ class AnypointMQChannelBindingTest {
                 objectMapper.readValue(model, AnypointMQChannelBinding::class.java),
                 build()
         )
+    }
+
+    companion object {
+        @JvmStatic
+        fun build(): AnypointMQChannelBinding {
+            return AnypointMQChannelBinding.builder()
+                    .destination("user-signup-exchg")
+                    .destinationType("exchange")
+                    .build()
+        }
     }
 
 }

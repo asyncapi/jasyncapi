@@ -14,26 +14,6 @@ class AMQPChannelBindingTest {
 
     private val objectMapper = ObjectMapper()
 
-    private fun build(): AMQPChannelBinding {
-        return AMQPChannelBinding.builder()
-                .`is`("routingKey")
-                .queue(AMQPChannelBinding.QueueProperties.builder()
-                        .name("my-queue-name")
-                        .durable(true)
-                        .exclusive(true)
-                        .autoDelete(false)
-                        .build()
-                )
-                .exchange(AMQPChannelBinding.ExchangeProperties.builder()
-                        .name("myExchange")
-                        .type("topic")
-                        .durable(true)
-                        .autoDelete(false)
-                        .build()
-                )
-                .build()
-    }
-
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
@@ -43,6 +23,29 @@ class AMQPChannelBindingTest {
                 objectMapper.readValue(model, AMQPChannelBinding::class.java),
                 build()
         )
+    }
+
+    companion object {
+        @JvmStatic
+        fun build(): AMQPChannelBinding {
+            return AMQPChannelBinding.builder()
+                    .`is`("routingKey")
+                    .queue(AMQPChannelBinding.QueueProperties.builder()
+                            .name("my-queue-name")
+                            .durable(true)
+                            .exclusive(true)
+                            .autoDelete(false)
+                            .build()
+                    )
+                    .exchange(AMQPChannelBinding.ExchangeProperties.builder()
+                            .name("myExchange")
+                            .type("topic")
+                            .durable(true)
+                            .autoDelete(false)
+                            .build()
+                    )
+                    .build()
+        }
     }
 
 }

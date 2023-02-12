@@ -21,52 +21,6 @@ class OperationTest {
 
     private val objectMapper = ObjectMapper()
 
-    private fun build(): Operation {
-        return Operation.builder()
-                .operationId("sendMessage")
-                .summary("Send message")
-                .description("Send message to remote server")
-                .security(listOf(
-                        mapOf(
-                                Pair("api_key", listOf("write:messages"))
-                        )
-                ))
-                .tags(listOf(
-                        Tag.builder()
-                                .name("messages")
-                                .description("operations with messages")
-                                .externalDocs(ExternalDocumentation("Messages validation rules", "messages/validation-rules"))
-                                .build()
-                ))
-                .externalDocs(ExternalDocumentation("Messages sending rules", "messages/sending-rules"))
-                .bindings(mapOf(
-                        Pair("amqp", AMQPOperationBindingTest.build()),
-                        Pair("amqp1", Reference("#/components/operationBindings/amqp1")),
-                        Pair("anypointmq", Reference("#/components/operationBindings/anypointmq")),
-                        Pair("googlepubsub", Reference("#/components/operationBindings/googlepubsub")),
-                        Pair("http", HTTPOperationBindingTest.build()),
-                        Pair("ibmmq", Reference("#/components/operationBindings/ibmmq")),
-                        Pair("jms", Reference("#/components/operationBindings/jms")),
-                        Pair("kafka", KafkaOperationBindingTest.build()),
-                        Pair("mercure", Reference("#/components/operationBindings/mercure")),
-                        Pair("mqtt", MQTTOperationBindingTest.build()),
-                        Pair("mqtt5", Reference("#/components/operationBindings/mqtt5")),
-                        Pair("nats", NATSOperationBindingTest.build()),
-                        Pair("pulsar", Reference("#/components/operationBindings/pulsar")),
-                        Pair("redis", Reference("#/components/operationBindings/redis")),
-                        Pair("sns", Reference("#/components/operationBindings/sns")),
-                        Pair("solace", SolaceOperationBindingTest.build()),
-                        Pair("sqs", Reference("#/components/operationBindings/sqs")),
-                        Pair("stomp", Reference("#/components/operationBindings/stomp")),
-                        Pair("ws", Reference("#/components/operationBindings/ws"))
-                ))
-                .traits(listOf(
-                        Reference("#/components/operationTraits/sendMessage"),
-                        OperationTraitTest.build()
-                ))
-                .build()
-    }
-
     @Test
     @DisplayName("Operation with reference to message")
     fun referenceToMessage() {
@@ -107,6 +61,55 @@ class OperationTest {
                 objectMapper.readValue(model, Operation::class.java),
                 operation
         )
+    }
+
+    companion object {
+        @JvmStatic
+        fun build(): Operation {
+            return Operation.builder()
+                    .operationId("sendMessage")
+                    .summary("Send message")
+                    .description("Send message to remote server")
+                    .security(listOf(
+                            mapOf(
+                                    Pair("api_key", listOf("write:messages"))
+                            )
+                    ))
+                    .tags(listOf(
+                            Tag.builder()
+                                    .name("messages")
+                                    .description("operations with messages")
+                                    .externalDocs(ExternalDocumentation("Messages validation rules", "messages/validation-rules"))
+                                    .build()
+                    ))
+                    .externalDocs(ExternalDocumentation("Messages sending rules", "messages/sending-rules"))
+                    .bindings(mapOf(
+                            Pair("amqp", AMQPOperationBindingTest.build()),
+                            Pair("amqp1", Reference("#/components/operationBindings/amqp1")),
+                            Pair("anypointmq", Reference("#/components/operationBindings/anypointmq")),
+                            Pair("googlepubsub", Reference("#/components/operationBindings/googlepubsub")),
+                            Pair("http", HTTPOperationBindingTest.build()),
+                            Pair("ibmmq", Reference("#/components/operationBindings/ibmmq")),
+                            Pair("jms", Reference("#/components/operationBindings/jms")),
+                            Pair("kafka", KafkaOperationBindingTest.build()),
+                            Pair("mercure", Reference("#/components/operationBindings/mercure")),
+                            Pair("mqtt", MQTTOperationBindingTest.build()),
+                            Pair("mqtt5", Reference("#/components/operationBindings/mqtt5")),
+                            Pair("nats", NATSOperationBindingTest.build()),
+                            Pair("pulsar", Reference("#/components/operationBindings/pulsar")),
+                            Pair("redis", Reference("#/components/operationBindings/redis")),
+                            Pair("sns", Reference("#/components/operationBindings/sns")),
+                            Pair("solace", SolaceOperationBindingTest.build()),
+                            Pair("sqs", Reference("#/components/operationBindings/sqs")),
+                            Pair("stomp", Reference("#/components/operationBindings/stomp")),
+                            Pair("ws", Reference("#/components/operationBindings/ws"))
+                    ))
+                    .traits(listOf(
+                            Reference("#/components/operationTraits/sendMessage"),
+                            OperationTraitTest.build()
+                    ))
+                    .build()
+        }
     }
 
 }

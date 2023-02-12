@@ -14,30 +14,6 @@ class WebSocketsChannelBindingTest {
 
     private val objectMapper = ObjectMapper()
 
-    private fun build(): WebSocketsChannelBinding {
-        return WebSocketsChannelBinding.builder()
-                .method("GET")
-                .query(mapOf(
-                        Pair("type", "object"),
-                        Pair("properties", mapOf(
-                                Pair("ref", mapOf(
-                                        Pair("type", "string"),
-                                        Pair("description", "Referral.")
-                                ))
-                        )),
-                ))
-                .headers(mapOf(
-                        Pair("type", "object"),
-                        Pair("properties", mapOf(
-                                Pair("Authentication", mapOf(
-                                        Pair("type", "string"),
-                                        Pair("description", "Authentication token")
-                                ))
-                        )),
-                ))
-                .build()
-    }
-
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
@@ -47,6 +23,33 @@ class WebSocketsChannelBindingTest {
                 objectMapper.readValue(model, WebSocketsChannelBinding::class.java),
                 build()
         )
+    }
+
+    companion object {
+        @JvmStatic
+        fun build(): WebSocketsChannelBinding {
+            return WebSocketsChannelBinding.builder()
+                    .method("GET")
+                    .query(mapOf(
+                            Pair("type", "object"),
+                            Pair("properties", mapOf(
+                                    Pair("ref", mapOf(
+                                            Pair("type", "string"),
+                                            Pair("description", "Referral.")
+                                    ))
+                            )),
+                    ))
+                    .headers(mapOf(
+                            Pair("type", "object"),
+                            Pair("properties", mapOf(
+                                    Pair("Authentication", mapOf(
+                                            Pair("type", "string"),
+                                            Pair("description", "Authentication token")
+                                    ))
+                            )),
+                    ))
+                    .build()
+        }
     }
 
 }

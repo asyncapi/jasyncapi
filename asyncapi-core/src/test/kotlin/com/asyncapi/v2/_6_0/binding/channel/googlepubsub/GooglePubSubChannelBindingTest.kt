@@ -10,33 +10,6 @@ class GooglePubSubChannelBindingTest {
 
     private val objectMapper = ObjectMapper()
 
-    private fun build(): GooglePubSubChannelBinding {
-        return GooglePubSubChannelBinding.builder()
-                .topic("projects/your-project/topics/topic-proto-schema")
-                .messageRetentionDuration("86400s")
-                .messageStoragePolicy(GooglePubSubChannelBinding.MessageStoragePolicy(
-                        listOf(
-                                "us-central1",
-                                "us-central2",
-                                "us-east1",
-                                "us-east4",
-                                "us-east5",
-                                "us-east7",
-                                "us-south1",
-                                "us-west1",
-                                "us-west2",
-                                "us-west3",
-                                "us-west4"
-                        )
-                ))
-                .schemaSettings(GooglePubSubChannelBinding.SchemaSettings.builder()
-                        .encoding("binary")
-                        .name("projects/your-project/schemas/message-proto")
-                        .build()
-                )
-                .build()
-    }
-
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
@@ -46,6 +19,36 @@ class GooglePubSubChannelBindingTest {
                 objectMapper.readValue(model, GooglePubSubChannelBinding::class.java),
                 build()
         )
+    }
+
+    companion object {
+        @JvmStatic
+        fun build(): GooglePubSubChannelBinding {
+            return GooglePubSubChannelBinding.builder()
+                    .topic("projects/your-project/topics/topic-proto-schema")
+                    .messageRetentionDuration("86400s")
+                    .messageStoragePolicy(GooglePubSubChannelBinding.MessageStoragePolicy(
+                            listOf(
+                                    "us-central1",
+                                    "us-central2",
+                                    "us-east1",
+                                    "us-east4",
+                                    "us-east5",
+                                    "us-east7",
+                                    "us-south1",
+                                    "us-west1",
+                                    "us-west2",
+                                    "us-west3",
+                                    "us-west4"
+                            )
+                    ))
+                    .schemaSettings(GooglePubSubChannelBinding.SchemaSettings.builder()
+                            .encoding("binary")
+                            .name("projects/your-project/schemas/message-proto")
+                            .build()
+                    )
+                    .build()
+        }
     }
 
 }

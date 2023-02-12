@@ -14,22 +14,6 @@ class KafkaChannelBindingTest {
 
     private val objectMapper = ObjectMapper()
 
-    private fun build(): KafkaChannelBinding {
-        return KafkaChannelBinding.builder()
-                .topic("my-specific-topic-name")
-                .partitions(20)
-                .replicas(3)
-                .topicConfiguration(KafkaChannelBinding.TopicConfiguration.builder()
-                        .cleanupPolicy(listOf("delete", "compact"))
-                        .retentionMs(604_800_000)
-                        .retentionBytes(1_000_000_000)
-                        .deleteRetentionMs(86_400_000)
-                        .maxMessageBytes(1_048_588)
-                        .build()
-                )
-                .build()
-    }
-
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
@@ -39,6 +23,25 @@ class KafkaChannelBindingTest {
                 objectMapper.readValue(model, KafkaChannelBinding::class.java),
                 build()
         )
+    }
+
+    companion object {
+        @JvmStatic
+        fun build(): KafkaChannelBinding {
+            return KafkaChannelBinding.builder()
+                    .topic("my-specific-topic-name")
+                    .partitions(20)
+                    .replicas(3)
+                    .topicConfiguration(KafkaChannelBinding.TopicConfiguration.builder()
+                            .cleanupPolicy(listOf("delete", "compact"))
+                            .retentionMs(604_800_000)
+                            .retentionBytes(1_000_000_000)
+                            .deleteRetentionMs(86_400_000)
+                            .maxMessageBytes(1_048_588)
+                            .build()
+                    )
+                    .build()
+        }
     }
 
 }

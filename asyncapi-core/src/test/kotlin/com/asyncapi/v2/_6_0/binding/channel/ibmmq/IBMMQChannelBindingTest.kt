@@ -11,26 +11,6 @@ class IBMMQChannelBindingTest {
 
     private val objectMapper = ObjectMapper()
 
-    private fun build(): IBMMQChannelBinding {
-        return IBMMQChannelBinding.builder()
-                .destinationType("topic")
-                .queue(IBMMQChannelBinding.Queue.builder()
-                        .objectName("message")
-                        .isPartitioned(false)
-                        .exclusive(true)
-                        .build()
-                )
-                .topic(Topic.builder()
-                        .string("messages")
-                        .objectName("message")
-                        .durablePermitted(true)
-                        .lastMsgRetained(true)
-                        .build()
-                )
-                .maxMsgLength(1024)
-                .build()
-    }
-
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
@@ -40,6 +20,29 @@ class IBMMQChannelBindingTest {
                 objectMapper.readValue(model, IBMMQChannelBinding::class.java),
                 build()
         )
+    }
+
+    companion object {
+        @JvmStatic
+        fun build(): IBMMQChannelBinding {
+            return IBMMQChannelBinding.builder()
+                    .destinationType("topic")
+                    .queue(IBMMQChannelBinding.Queue.builder()
+                            .objectName("message")
+                            .isPartitioned(false)
+                            .exclusive(true)
+                            .build()
+                    )
+                    .topic(Topic.builder()
+                            .string("messages")
+                            .objectName("message")
+                            .durablePermitted(true)
+                            .lastMsgRetained(true)
+                            .build()
+                    )
+                    .maxMsgLength(1024)
+                    .build()
+        }
     }
 
 }
