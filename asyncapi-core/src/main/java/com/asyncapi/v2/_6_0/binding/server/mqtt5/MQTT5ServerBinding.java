@@ -4,8 +4,6 @@ import com.asyncapi.v2._6_0.binding.server.ServerBinding;
 import lombok.*;
 
 /**
- * This class MUST NOT contain any properties. Its name is reserved for future use.
- * <p>
  * Describes MQTT 5 server binding.
  *
  * @version 0.2.0

@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
  * Describes <a href="https://docs.mulesoft.com/mq/">Anypoint MQ</a> server binding.
  *
  * @version 0.0.1
- * @see <a href="https://github.com/asyncapi/bindings/tree/master/anypointmq">HTTP server binding</a>
+ * @see <a href="https://github.com/asyncapi/bindings/tree/master/anypointmq#server-binding-object">Anypoint MQ server binding</a>
  * @author Pavel Bodiachevskii
  */
 @Data

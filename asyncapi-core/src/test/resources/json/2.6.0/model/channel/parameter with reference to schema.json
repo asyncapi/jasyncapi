@@ -1,0 +1,7 @@
+{
+  "description": "Id of the user.",
+  "schema": {
+    "$ref": "#/components/schemas/userId"
+  },
+  "location": "$message.payload#/user/id"
+}

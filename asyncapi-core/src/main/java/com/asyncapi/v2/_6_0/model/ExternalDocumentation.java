@@ -19,6 +19,7 @@ import javax.annotation.Nonnull;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode
 public class ExternalDocumentation {
 
     /**

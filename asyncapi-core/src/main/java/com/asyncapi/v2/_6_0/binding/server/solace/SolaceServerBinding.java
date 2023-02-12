@@ -4,12 +4,10 @@ import com.asyncapi.v2._6_0.binding.server.ServerBinding;
 import lombok.*;
 
 /**
- * This class MUST NOT contain any properties. Its name is reserved for future use.
- * <p>
- * Describes SNS server binding.
+ * Describes Solace server binding.
  *
  * @version 0.3.0
- * @see <a href="https://github.com/asyncapi/bindings/tree/master/solace">SNS server binding</a>
+ * @see <a href="https://github.com/asyncapi/bindings/tree/master/solace#server-binding-object">Solace server binding</a>
  * @author Pavel Bodiachevskii
  */
 @Data

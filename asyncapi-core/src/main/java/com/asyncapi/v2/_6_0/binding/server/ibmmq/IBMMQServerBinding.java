@@ -12,7 +12,7 @@ import javax.annotation.CheckForNull;
  * This object contains additional connectivity information not possible to represent within the core AsyncAPI specification.
  *
  * @version 0.1.0
- * @see <a href="https://github.com/asyncapi/bindings/tree/master/ibmmq">Redis server binding</a>
+ * @see <a href="https://github.com/asyncapi/bindings/tree/master/ibmmq#server-binding-object">IBM MQ server binding</a>
  * @author Pavel Bodiachevskii
  */
 @Data
