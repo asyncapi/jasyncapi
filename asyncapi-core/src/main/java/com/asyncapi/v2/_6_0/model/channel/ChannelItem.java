@@ -2,8 +2,7 @@ package com.asyncapi.v2._6_0.model.channel;
 
 import com.asyncapi.v2.binding.ChannelBinding;
 import com.asyncapi.v2.binding.ChannelBindingsDeserializer;
-import com.asyncapi.v2.jackson.ChannelParametersDeserializer;
-import com.asyncapi.v2.model.channel.Parameter;
+import com.asyncapi.v2._6_0.jackson.model.channel.ChannelParametersDeserializer;
 import com.asyncapi.v2._6_0.model.channel.operation.Operation;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -67,14 +66,12 @@ public class ChannelItem {
 
     /**
      * A map of the parameters included in the channel name.
-     * It SHOULD be present only when using channels with expressions (as defined by RFC 6570 section 2.2).
-     *
-     * This map MUST contain all the parameters used in the parent channel name.
-     *
+     * It SHOULD be present only when using channels with expressions (as defined by <a href="https://tools.ietf.org/html/rfc6570#section-2.2">RFC 6570 section 2.2</a>).
+     * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v2.model.Reference}</li>
-     *     <li>{@link Parameter}</li>
+     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link com.asyncapi.v2._6_0.model.channel.Parameter}</li>
      * </ul>
      */
     @CheckForNull
