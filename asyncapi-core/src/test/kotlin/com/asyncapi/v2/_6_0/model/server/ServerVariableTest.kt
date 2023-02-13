@@ -14,15 +14,6 @@ class ServerVariableTest {
 
     private val objectMapper = ObjectMapper()
 
-    private fun build(): ServerVariable {
-        return ServerVariable.builder()
-                .enumValues(listOf("8883", "8884"))
-                .description("To which port connect")
-                .defaultValue("8883")
-                .examples(listOf("8883", "8884"))
-                .build()
-    }
-
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
@@ -32,6 +23,18 @@ class ServerVariableTest {
                 objectMapper.readValue(model, ServerVariable::class.java),
                 build()
         )
+    }
+
+    companion object {
+        @JvmStatic
+        fun build(): ServerVariable {
+            return ServerVariable.builder()
+                    .enumValues(listOf("8883", "8884"))
+                    .description("To which port connect")
+                    .defaultValue("8883")
+                    .examples(listOf("8883", "8884"))
+                    .build()
+        }
     }
 
 }

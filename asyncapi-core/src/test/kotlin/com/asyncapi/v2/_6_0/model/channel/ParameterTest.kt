@@ -46,6 +46,20 @@ class ParameterTest {
                     .location("\$message.payload#/user/id")
                     .build()
         }
+
+        fun buildWithSchema(): Parameter {
+            val parameter = build()
+            parameter.schema = Schema.builder().type("string").build()
+
+            return parameter
+        }
+
+        fun buildWithSchemaReference(): Parameter {
+            val parameter = build()
+            parameter.schema = Reference("#/components/schemas/userId")
+
+            return parameter
+        }
     }
 
 }

@@ -53,28 +53,32 @@ class ChannelItemTest {
                     .parameters(mapOf(
                             Pair("userId", userIdParameter)
                     ))
-                    .bindings(mapOf(
-                            Pair("amqp", AMQPChannelBindingTest.build()),
-                            Pair("amqp1", Reference("#/components/channelBindings/amqp1")),
-                            Pair("anypointmq", AnypointMQChannelBindingTest.build()),
-                            Pair("googlepubsub", GooglePubSubChannelBindingTest.build()),
-                            Pair("http", Reference("#/components/channelBindings/http")),
-                            Pair("ibmmq", IBMMQChannelBindingTest.build()),
-                            Pair("jms", Reference("#/components/channelBindings/jms")),
-                            Pair("kafka", KafkaChannelBindingTest.build()),
-                            Pair("mercure", Reference("#/components/channelBindings/mercure")),
-                            Pair("mqtt", Reference("#/components/channelBindings/mqtt")),
-                            Pair("mqtt5", Reference("#/components/channelBindings/mqtt5")),
-                            Pair("nats", Reference("#/components/channelBindings/nats")),
-                            Pair("pulsar", PulsarChannelBindingTest.build()),
-                            Pair("redis", Reference("#/components/channelBindings/redis")),
-                            Pair("sns", Reference("#/components/channelBindings/sns")),
-                            Pair("solace", Reference("#/components/channelBindings/solace")),
-                            Pair("sqs", Reference("#/components/channelBindings/sqs")),
-                            Pair("stomp", Reference("#/components/channelBindings/stomp")),
-                            Pair("ws", WebSocketsChannelBindingTest.build())
-                    ))
+                    .bindings(bindings())
                     .build()
+        }
+
+        fun bindings(): Map<String, Any> {
+            return mapOf(
+                    Pair("amqp", AMQPChannelBindingTest.build()),
+                    Pair("amqp1", Reference("#/components/channelBindings/amqp1")),
+                    Pair("anypointmq", AnypointMQChannelBindingTest.build()),
+                    Pair("googlepubsub", GooglePubSubChannelBindingTest.build()),
+                    Pair("http", Reference("#/components/channelBindings/http")),
+                    Pair("ibmmq", IBMMQChannelBindingTest.build()),
+                    Pair("jms", Reference("#/components/channelBindings/jms")),
+                    Pair("kafka", KafkaChannelBindingTest.build()),
+                    Pair("mercure", Reference("#/components/channelBindings/mercure")),
+                    Pair("mqtt", Reference("#/components/channelBindings/mqtt")),
+                    Pair("mqtt5", Reference("#/components/channelBindings/mqtt5")),
+                    Pair("nats", Reference("#/components/channelBindings/nats")),
+                    Pair("pulsar", PulsarChannelBindingTest.build()),
+                    Pair("redis", Reference("#/components/channelBindings/redis")),
+                    Pair("sns", Reference("#/components/channelBindings/sns")),
+                    Pair("solace", Reference("#/components/channelBindings/solace")),
+                    Pair("sqs", Reference("#/components/channelBindings/sqs")),
+                    Pair("stomp", Reference("#/components/channelBindings/stomp")),
+                    Pair("ws", WebSocketsChannelBindingTest.build())
+            )
         }
     }
 
