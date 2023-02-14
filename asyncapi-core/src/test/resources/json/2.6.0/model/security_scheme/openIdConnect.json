@@ -1,0 +1,5 @@
+{
+  "type": "openIdConnect",
+  "description": "openIdConnect",
+  "openIdConnectUrl": "https://server.com/.well-known/openid-configuration"
+}

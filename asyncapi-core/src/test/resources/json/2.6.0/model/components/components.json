@@ -1429,7 +1429,98 @@
       "$ref": "#/components/messages/userSignout"
     }
   },
-  "securitySchemes": null,
+  "securitySchemes": {
+    "apiKey": {
+      "type": "apiKey",
+      "description": "apiKey",
+      "in": "user"
+    },
+    "asymmetricEncryption": {
+      "$ref": "#/components/securitySchemes/asymmetricEncryption"
+    },
+    "gssapi": {
+      "$ref": "#/components/securitySchemes/gssapi"
+    },
+    "oauth2": {
+      "type": "oauth2",
+      "description": "oauth2",
+      "flows": {
+        "authorizationCode": {
+          "authorizationUrl": "https://example.com/api/oauth/dialog",
+          "tokenUrl": "https://example.com/api/oauth/token",
+          "refreshUrl": "https://example.com/api/oauth/refresh",
+          "scopes": {
+            "write:pets": "modify pets in your account",
+            "read:pets": "read your pets"
+          }
+        },
+        "clientCredentials": {
+          "tokenUrl": "https://example.com/api/oauth/token",
+          "refreshUrl": "https://example.com/api/oauth/refresh",
+          "scopes": {
+            "write:pets": "modify pets in your account",
+            "read:pets": "read your pets"
+          }
+        },
+        "implicit": {
+          "authorizationUrl": "https://example.com/api/oauth/dialog",
+          "refreshUrl": "https://example.com/api/oauth/refresh",
+          "scopes": {
+            "write:pets": "modify pets in your account",
+            "read:pets": "read your pets"
+          }
+        },
+        "password": {
+          "tokenUrl": "https://example.com/api/oauth/token",
+          "refreshUrl": "https://example.com/api/oauth/refresh",
+          "scopes": {
+            "write:pets": "modify pets in your account",
+            "read:pets": "read your pets"
+          }
+        }
+      }
+    },
+    "openIdConnect": {
+      "type": "openIdConnect",
+      "description": "openIdConnect",
+      "openIdConnectUrl": "https://server.com/.well-known/openid-configuration"
+    },
+    "httpApiKey": {
+      "type": "httpApiKey",
+      "description": "httpApiKey",
+      "name": "api_key",
+      "in": "header"
+    },
+    "httpBasic": {
+      "type": "http",
+      "description": "http",
+      "scheme": "basic"
+    },
+    "httpBearer": {
+      "type": "http",
+      "description": "http",
+      "scheme": "bearer",
+      "bearerFormat": "JWT"
+    },
+    "plain": {
+      "$ref": "#/components/securitySchemes/plain"
+    },
+    "scramSha256": {
+      "$ref": "#/components/securitySchemes/scramSha256"
+    },
+    "scramSha512": {
+      "$ref": "#/components/securitySchemes/scramSha512"
+    },
+    "symmetricEncryption": {
+      "$ref": "#/components/securitySchemes/symmetricEncryption"
+    },
+    "userPassword": {
+      "$ref": "#/components/securitySchemes/userPassword"
+    },
+    "X509": {
+      "$ref": "#/components/securitySchemes/X509"
+    }
+  },
   "parameters": {
     "parameterWithSchema": {
       "description": "Id of the user.",

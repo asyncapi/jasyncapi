@@ -9,6 +9,11 @@ import com.asyncapi.v2._6_0.model.channel.message.MessageTest
 import com.asyncapi.v2._6_0.model.channel.message.MessageTraitTest
 import com.asyncapi.v2._6_0.model.channel.operation.OperationTest
 import com.asyncapi.v2._6_0.model.channel.operation.OperationTraitTest
+import com.asyncapi.v2._6_0.model.security_scheme.ApiKeySecuritySchemeTest
+import com.asyncapi.v2._6_0.model.security_scheme.OpenIdConnectSecuritySchemeTest
+import com.asyncapi.v2._6_0.model.security_scheme.http.HttpApiKeySecuritySchemeTest
+import com.asyncapi.v2._6_0.model.security_scheme.http.HttpSecuritySchemeTest
+import com.asyncapi.v2._6_0.model.security_scheme.oauth2.OAuth2SecuritySchemeTest
 import com.asyncapi.v2._6_0.model.server.ServerTest
 import com.asyncapi.v2._6_0.model.server.ServerVariableTest
 import com.fasterxml.jackson.databind.ObjectMapper
@@ -55,7 +60,22 @@ class ComponentsTest {
                             Pair("userSignup", MessageTest.build()),
                             Pair("userSignout", Reference("#/components/messages/userSignout"))
                     ))
-                    .securitySchemes(null)
+                    .securitySchemes(mapOf(
+                            Pair("apiKey", ApiKeySecuritySchemeTest.build()),
+                            Pair("asymmetricEncryption", Reference("#/components/securitySchemes/asymmetricEncryption")),
+                            Pair("gssapi", Reference("#/components/securitySchemes/gssapi")),
+                            Pair("oauth2", OAuth2SecuritySchemeTest.build()),
+                            Pair("openIdConnect", OpenIdConnectSecuritySchemeTest.build()),
+                            Pair("httpApiKey", HttpApiKeySecuritySchemeTest.build()),
+                            Pair("httpBasic", HttpSecuritySchemeTest.buildBasic()),
+                            Pair("httpBearer", HttpSecuritySchemeTest.buildBearer()),
+                            Pair("plain", Reference("#/components/securitySchemes/plain")),
+                            Pair("scramSha256", Reference("#/components/securitySchemes/scramSha256")),
+                            Pair("scramSha512", Reference("#/components/securitySchemes/scramSha512")),
+                            Pair("symmetricEncryption", Reference("#/components/securitySchemes/symmetricEncryption")),
+                            Pair("userPassword", Reference("#/components/securitySchemes/userPassword")),
+                            Pair("X509", Reference("#/components/securitySchemes/X509")),
+                    ))
                     .parameters(mapOf(
                             Pair("parameterWithSchema", ParameterTest.buildWithSchema()),
                             Pair("parameterWithSchemaReference", ParameterTest.buildWithSchemaReference()),

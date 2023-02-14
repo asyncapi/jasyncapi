@@ -4,13 +4,8 @@ import com.asyncapi.v2._6_0.jackson.binding.channel.ChannelBindingsDeserializer;
 import com.asyncapi.v2._6_0.jackson.binding.message.MessageBindingsDeserializer;
 import com.asyncapi.v2._6_0.jackson.binding.operation.OperationBindingsDeserializer;
 import com.asyncapi.v2._6_0.jackson.binding.server.ServerBindingsDeserializer;
-import com.asyncapi.v2._6_0.jackson.model.channel.ChannelParametersDeserializer;
-import com.asyncapi.v2._6_0.jackson.model.channel.message.MessagesDeserializer;
 import com.asyncapi.v2._6_0.jackson.model.component.*;
-import com.asyncapi.v2._6_0.jackson.model.server.ServerVariablesDeserializer;
-import com.asyncapi.v2._6_0.jackson.model.server.ServersDeserializer;
 import com.asyncapi.v2._6_0.model.channel.ChannelItem;
-import com.asyncapi.v2._6_0.model.channel.operation.OperationTrait;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -93,7 +88,7 @@ public class Components {
     private Map<String, Object> messages;
 
     /**
-     * An object to hold reusable {@link com.asyncapi.v2.model.security_scheme.SecurityScheme} Objects.
+     * An object to hold reusable {@link com.asyncapi.v2._6_0.model.security_scheme.SecurityScheme} Objects.
      * <p>
      * MUST BE:
      * <ul>
@@ -102,7 +97,7 @@ public class Components {
      * </ul>
      */
     @CheckForNull
-//    @JsonDeserialize(using = ComponentsSecuritySchemesDeserializer.class)
+    @JsonDeserialize(using = ComponentsSecuritySchemesDeserializer.class)
     private Map<String, Object> securitySchemes;
 
     /**
