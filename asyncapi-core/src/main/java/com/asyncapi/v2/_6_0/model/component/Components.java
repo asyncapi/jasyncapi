@@ -1,17 +1,11 @@
 package com.asyncapi.v2._6_0.model.component;
 
-import com.asyncapi.v2._6_0.binding.server.ServerBinding;
+import com.asyncapi.v2._6_0.jackson.binding.channel.ChannelBindingsDeserializer;
+import com.asyncapi.v2._6_0.jackson.binding.message.MessageBindingsDeserializer;
+import com.asyncapi.v2._6_0.jackson.binding.operation.OperationBindingsDeserializer;
 import com.asyncapi.v2._6_0.jackson.binding.server.ServerBindingsDeserializer;
-import com.asyncapi.v2._6_0.jackson.model.server.ServerVariablesDeserializer;
-import com.asyncapi.v2._6_0.jackson.model.server.ServersDeserializer;
-import com.asyncapi.v2.binding.*;
-import com.asyncapi.v2.jackson.ComponentsMessagesDeserializer;
-import com.asyncapi.v2.jackson.ComponentsParametersDeserializer;
-import com.asyncapi.v2.jackson.ComponentsSchemasDeserializer;
-import com.asyncapi.v2.jackson.ComponentsSecuritySchemesDeserializer;
-import com.asyncapi.v2.model.channel.message.CorrelationId;
-import com.asyncapi.v2.model.channel.message.MessageTrait;
-import com.asyncapi.v2.model.channel.operation.OperationTrait;
+import com.asyncapi.v2._6_0.jackson.model.component.*;
+import com.asyncapi.v2._6_0.model.channel.ChannelItem;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -41,7 +35,7 @@ public class Components {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v2.model.schema.Schema}</li>
+     *     <li>{@link com.asyncapi.v2._6_0.model.schema.Schema}</li>
      *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
      * </ul>
      */
@@ -59,7 +53,7 @@ public class Components {
      * </ul>
      */
     @CheckForNull
-    @JsonDeserialize(using = ServersDeserializer.class)
+    @JsonDeserialize(using = ComponentsServersDeserializer.class)
     private Map<String, Object> servers;
 
     /**
@@ -67,25 +61,25 @@ public class Components {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v2._6_0.model.server.Server}</li>
+     *     <li>{@link com.asyncapi.v2._6_0.model.server.ServerVariable}</li>
      *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
      * </ul>
      */
     @CheckForNull
-    @JsonDeserialize(using = ServerVariablesDeserializer.class)
+    @JsonDeserialize(using = ComponentsServerVariablesDeserializer.class)
     private Map<String, Object> serverVariables;
 
     /**
-     * An object to hold reusable {@link com.asyncapi.v2.model.channel.ChannelItem} Objects.
+     * An object to hold reusable {@link com.asyncapi.v2._6_0.model.channel.ChannelItem} Objects.
      */
-    private Map<String, Object> channels;
+    private Map<String, ChannelItem> channels;
 
     /**
-     * An object to hold reusable {@link com.asyncapi.v2.model.channel.message.Message} Objects.
+     * An object to hold reusable {@link com.asyncapi.v2._6_0.model.channel.message.Message} Objects.
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v2.model.channel.message.Message}</li>
+     *     <li>{@link com.asyncapi.v2._6_0.model.channel.message.Message}</li>
      *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
      * </ul>
      */
@@ -94,11 +88,11 @@ public class Components {
     private Map<String, Object> messages;
 
     /**
-     * An object to hold reusable {@link com.asyncapi.v2.model.security_scheme.SecurityScheme} Objects.
+     * An object to hold reusable {@link com.asyncapi.v2._6_0.model.security_scheme.SecurityScheme} Objects.
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v2.model.security_scheme.SecurityScheme}</li>
+     *     <li>{@link com.asyncapi.v2._6_0.model.security_scheme.SecurityScheme}</li>
      *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
      * </ul>
      */
@@ -107,12 +101,12 @@ public class Components {
     private Map<String, Object> securitySchemes;
 
     /**
-     * An object to hold reusable {@link com.asyncapi.v2.model.channel.Parameter} Objects.
+     * An object to hold reusable {@link com.asyncapi.v2._6_0.model.channel.Parameter} Objects.
      * <p>
      * MUST BE:
      * <ul>
      *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
-     *     <li>{@link com.asyncapi.v2.model.channel.Parameter}</li>
+     *     <li>{@link com.asyncapi.v2._6_0.model.channel.Parameter}</li>
      * </ul>
      */
     @CheckForNull
@@ -120,40 +114,43 @@ public class Components {
     private Map<String, Object> parameters;
 
     /**
-     * An object to hold reusable {@link com.asyncapi.v2.model.channel.message.CorrelationId} Objects.
+     * An object to hold reusable {@link com.asyncapi.v2._6_0.model.channel.message.CorrelationId} Objects.
      * <p>
      * MUST BE:
      * <ul>
      *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
-     *     <li>{@link com.asyncapi.v2.model.channel.message.CorrelationId}</li>
+     *     <li>{@link com.asyncapi.v2._6_0.model.channel.message.CorrelationId}</li>
      * </ul>
      */
     @CheckForNull
-    private Map<String, CorrelationId> correlationIds;
+    @JsonDeserialize(using = ComponentsCorrelationIdsDeserializer.class)
+    private Map<String, Object> correlationIds;
 
     /**
-     * An object to hold reusable {@link com.asyncapi.v2.model.channel.operation.OperationTrait} Objects.
+     * An object to hold reusable {@link com.asyncapi.v2._6_0.model.channel.operation.OperationTrait} Objects.
      * <p>
      * MUST BE:
      * <ul>
      *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
-     *     <li>{@link com.asyncapi.v2.model.channel.operation.OperationTrait}</li>
+     *     <li>{@link com.asyncapi.v2._6_0.model.channel.operation.OperationTrait}</li>
      * </ul>
      */
     @CheckForNull
-    private Map<String, OperationTrait> operationTraits;
+    @JsonDeserialize(using = ComponentsOperationTraitsDeserializer.class)
+    private Map<String, Object> operationTraits;
 
     /**
-     * An object to hold reusable {@link com.asyncapi.v2.model.channel.message.MessageTrait} Objects.
+     * An object to hold reusable {@link com.asyncapi.v2._6_0.model.channel.message.MessageTrait} Objects.
      * <p>
      * MUST BE:
      * <ul>
      *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
-     *     <li>{@link com.asyncapi.v2.model.channel.message.MessageTrait}</li>
+     *     <li>{@link com.asyncapi.v2._6_0.model.channel.message.MessageTrait}</li>
      * </ul>
      */
     @CheckForNull
-    private Map<String, MessageTrait> messageTraits;
+    @JsonDeserialize(using = ComponentsMessageTraitsDeserializer.class)
+    private Map<String, Object> messageTraits;
 
     /**
      * An object to hold reusable {@link com.asyncapi.v2._6_0.binding.server.ServerBinding} Objects.
@@ -165,42 +162,42 @@ public class Components {
      */
     @CheckForNull
     @JsonDeserialize(using = ServerBindingsDeserializer.class)
-    private Map<String, ? extends ServerBinding> serverBindings;
+    private Map<String, Object> serverBindings;
 
     /**
-     * An object to hold reusable {@link com.asyncapi.v2.binding.ChannelBinding} Objects.
+     * An object to hold reusable {@link com.asyncapi.v2._6_0.binding.channel.ChannelBinding} Objects.
      * MUST BE:
      * <ul>
      *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
-     *     <li>{@link com.asyncapi.v2.binding.ChannelBinding}</li>
+     *     <li>{@link com.asyncapi.v2._6_0.binding.channel.ChannelBinding}</li>
      * </ul>
      */
     @CheckForNull
     @JsonDeserialize(using = ChannelBindingsDeserializer.class)
-    private Map<String, ? extends ChannelBinding> channelBindings;
+    private Map<String, Object> channelBindings;
 
     /**
-     * An object to hold reusable {@link com.asyncapi.v2.binding.OperationBinding} Objects.
+     * An object to hold reusable {@link com.asyncapi.v2._6_0.binding.operation.OperationBinding} Objects.
      * MUST BE:
      * <ul>
      *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
-     *     <li>{@link com.asyncapi.v2.binding.OperationBinding}</li>
+     *     <li>{@link com.asyncapi.v2._6_0.binding.operation.OperationBinding}</li>
      * </ul>
      */
     @CheckForNull
     @JsonDeserialize(using = OperationBindingsDeserializer.class)
-    private Map<String, ? extends OperationBinding> operationBindings;
+    private Map<String, Object> operationBindings;
 
     /**
-     * An object to hold reusable {@link com.asyncapi.v2.binding.MessageBinding} Objects.
+     * An object to hold reusable {@link com.asyncapi.v2._6_0.binding.message.MessageBinding} Objects.
      * MUST BE:
      * <ul>
      *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
-     *     <li>{@link com.asyncapi.v2.binding.MessageBinding}</li>
+     *     <li>{@link com.asyncapi.v2._6_0.binding.message.MessageBinding}</li>
      * </ul>
      */
     @CheckForNull
     @JsonDeserialize(using = MessageBindingsDeserializer.class)
-    private Map<String, ? extends MessageBinding> messageBindings;
+    private Map<String, Object> messageBindings;
 
 }

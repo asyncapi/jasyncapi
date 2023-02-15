@@ -3,7 +3,7 @@ package com.asyncapi.v2._6_0.model;
 import com.asyncapi.v2.model.ExternalDocumentation;
 import com.asyncapi.v2.model.Tag;
 import com.asyncapi.v2._6_0.model.channel.ChannelItem;
-import com.asyncapi.v2.model.component.Components;
+import com.asyncapi.v2._6_0.model.component.Components;
 import com.asyncapi.v2._6_0.model.info.Info;
 import com.asyncapi.v2._6_0.model.server.Server;
 import lombok.*;

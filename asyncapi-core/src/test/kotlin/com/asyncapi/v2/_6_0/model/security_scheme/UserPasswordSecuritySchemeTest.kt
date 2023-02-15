@@ -1,4 +1,4 @@
-package com.asyncapi.v2._6_0.model.server
+package com.asyncapi.v2._6_0.model.security_scheme
 
 import com.asyncapi.v2.ClasspathUtils
 import com.fasterxml.jackson.databind.ObjectMapper
@@ -7,32 +7,29 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
 /**
- * @version 2.6.0
  * @author Pavel Bodiachevskii
  */
-class ServerVariableTest {
+class UserPasswordSecuritySchemeTest {
 
     private val objectMapper = ObjectMapper()
 
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
-        val model = ClasspathUtils.readAsString("/json/2.6.0/model/server/serverVariable.json")
+        val model = ClasspathUtils.readAsString("/json/2.6.0/model/security_scheme/userPassword.json")
 
         Assertions.assertEquals(
-                objectMapper.readValue(model, ServerVariable::class.java),
+                objectMapper.readValue(model, SecurityScheme::class.java),
                 build()
         )
     }
 
     companion object {
         @JvmStatic
-        fun build(): ServerVariable {
-            return ServerVariable.builder()
-                    .enumValues(listOf("8883", "8884"))
-                    .description("To which port connect")
-                    .defaultValue("8883")
-                    .examples(listOf("8883", "8884"))
+        fun build(): SecurityScheme {
+            return SecurityScheme.builder()
+                    .type(SecurityScheme.Type.USER_PASSWORD)
+                    .description("userPassword")
                     .build()
         }
     }
