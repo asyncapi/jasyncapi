@@ -8,7 +8,6 @@ import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -20,8 +19,6 @@ import java.util.Map;
  * @author Pavel Bodiachevskii
  */
 public class ComponentsSecuritySchemesDeserializer extends JsonDeserializer<Map<String, Object>> {
-
-    private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
     public Map<String, Object> deserialize(
@@ -36,7 +33,7 @@ public class ComponentsSecuritySchemesDeserializer extends JsonDeserializer<Map<
         node.fieldNames().forEachRemaining(
                 fieldName -> {
                     try {
-                        parameters.put(fieldName, chooseKnownPojo(node.get(fieldName)));
+                        parameters.put(fieldName, chooseKnownPojo(node.get(fieldName), objectCodec));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -46,12 +43,12 @@ public class ComponentsSecuritySchemesDeserializer extends JsonDeserializer<Map<
         return parameters;
     }
 
-    private Object chooseKnownPojo(JsonNode parametersValue) throws IOException {
-        if (parametersValue.get("$ref") != null) {
-            return objectMapper.readValue(parametersValue.toString(), Reference.class);
+    private Object chooseKnownPojo(JsonNode parametersValue, final ObjectCodec objectCodec) throws IOException {
+        JsonNode ref = parametersValue.get("$ref");
+        if (ref != null) {
+            return ref.traverse(objectCodec).readValueAs(Reference.class);
         } else {
-            return objectMapper.readValue(parametersValue.toString(), SecurityScheme.class);
+            return parametersValue.traverse(objectCodec).readValueAs(SecurityScheme.class);
         }
     }
-
 }

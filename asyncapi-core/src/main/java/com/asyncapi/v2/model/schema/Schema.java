@@ -1,16 +1,18 @@
 package com.asyncapi.v2.model.schema;
 
 import com.asyncapi.v2.model.ExternalDocumentation;
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.annotation.CheckForNull;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
+import java.util.HashMap;
 
 // TODO: Finish. Not all properties are present.
 // TODO: Write tests
@@ -61,6 +63,7 @@ public class Schema {
      * A title will preferably be short
      */
     @CheckForNull
+    @JsonProperty
     public String title;
 
     /**
@@ -75,6 +78,7 @@ public class Schema {
      * A description will provide explanation about the purpose of the instance described by this schema.
      */
     @CheckForNull
+    @JsonProperty
     public String description;
 
     /**
@@ -112,6 +116,7 @@ public class Schema {
      * Omitting this keyword has the same behavior as values of false.
      */
     @CheckForNull
+    @JsonProperty
     public Boolean readOnly;
 
     /**
@@ -131,6 +136,7 @@ public class Schema {
      * Omitting this keyword has the same behavior as values of false.
      */
     @CheckForNull
+    @JsonProperty
     public Boolean writeOnly;
 
     /**
@@ -145,6 +151,7 @@ public class Schema {
      * "default" MAY still be used in this manner.
      */
     @CheckForNull
+    @JsonProperty
     public List<Object> examples;
 
     @CheckForNull
@@ -186,6 +193,7 @@ public class Schema {
      * The value of this property SHOULD be ignored if the instance described is not a string.
      */
     @CheckForNull
+    @JsonProperty
     private String contentEncoding;
 
     /**
@@ -201,6 +209,7 @@ public class Schema {
      * is Unicode).
      */
     @CheckForNull
+    @JsonProperty
     private String contentMediaType;
 
     /*
@@ -222,6 +231,7 @@ public class Schema {
      *
      */
     @CheckForNull
+    @JsonProperty
     public Object type;
 
     /**
@@ -254,6 +264,7 @@ public class Schema {
      * A numeric instance is valid only if division by this keyword's value results in an integer.
      */
     @CheckForNull
+    @JsonProperty
     public Integer multipleOf;
 
     /**
@@ -262,6 +273,7 @@ public class Schema {
      * If the instance is a number, then this keyword validates only if the instance is less than or exactly equal to "maximum".
      */
     @CheckForNull
+    @JsonProperty
     public BigDecimal maximum;
 
     /**
@@ -270,6 +282,7 @@ public class Schema {
      * If the instance is a number, then the instance is valid only if it has a value strictly less than (not equal to) "exclusiveMaximum".
      */
     @CheckForNull
+    @JsonProperty
     public BigDecimal exclusiveMaximum;
 
     /**
@@ -278,6 +291,7 @@ public class Schema {
      * If the instance is a number, then this keyword validates only if the instance is greater than or exactly equal to "minimum".
      */
     @CheckForNull
+    @JsonProperty
     public BigDecimal minimum;
 
     /**
@@ -286,6 +300,7 @@ public class Schema {
      * If the instance is a number, then the instance is valid only if it has a value strictly greater than (not equal to) "exclusiveMinimum".
      */
     @CheckForNull
+    @JsonProperty
     public BigDecimal exclusiveMinimum;
 
     /*
@@ -300,6 +315,7 @@ public class Schema {
      * The length of a string instance is defined as the number of its characters as defined by <a href="https://tools.ietf.org/html/rfc7159">RFC 7159</a> [<a href="https://tools.ietf.org/html/rfc7159">RFC7159</a>].
      */
     @CheckForNull
+    @JsonProperty
     public Integer maxLength;
 
     /**
@@ -312,6 +328,7 @@ public class Schema {
      * Omitting this keyword has the same behavior as a value of 0.
      */
     @CheckForNull
+    @JsonProperty
     public Integer minLength;
 
     /**
@@ -322,6 +339,7 @@ public class Schema {
      * Recall: regular expressions are not implicitly anchored.
      */
     @CheckForNull
+    @JsonProperty
     public String pattern;
 
     /*
@@ -341,6 +359,7 @@ public class Schema {
      * Omitting this keyword has the same behavior as an empty schema.
      */
     @CheckForNull
+    @JsonProperty
     public Object items;
 
     /**
@@ -365,6 +384,7 @@ public class Schema {
      * An array instance is valid against "maxItems" if its size is less than, or equal to, the value of this keyword.
      */
     @CheckForNull
+    @JsonProperty
     public Integer maxItems;
 
     /**
@@ -375,6 +395,7 @@ public class Schema {
      * Omitting this keyword has the same behavior as a value of 0.
      */
     @CheckForNull
+    @JsonProperty
     public Integer minItems;
 
     /**
@@ -386,6 +407,7 @@ public class Schema {
      * Omitting this keyword has the same behavior as a value of false.
      */
     @CheckForNull
+    @JsonProperty
     public Boolean uniqueItems;
 
     /**
@@ -394,6 +416,7 @@ public class Schema {
      * An array instance is valid against "contains" if at least one of its elements is valid against the given schema.
      */
     @CheckForNull
+    @JsonProperty
     public Schema contains;
 
     /*
@@ -407,6 +430,7 @@ public class Schema {
      * the value of this keyword.
      */
     @CheckForNull
+    @JsonProperty
     public Integer maxProperties;
 
     /**
@@ -418,6 +442,7 @@ public class Schema {
      * Omitting this keyword has the same behavior as a value of 0.
      */
     @CheckForNull
+    @JsonProperty
     public Integer minProperties;
 
     /**
@@ -428,6 +453,7 @@ public class Schema {
      * Omitting this keyword has the same behavior as an empty array.
      */
     @CheckForNull
+    @JsonProperty
     public List<String> required;
 
     /**
@@ -442,6 +468,7 @@ public class Schema {
      * Omitting this keyword has the same behavior as an empty object.
      */
     @CheckForNull
+    @JsonProperty
     public Map<String, Schema> properties;
 
     /**
@@ -459,6 +486,7 @@ public class Schema {
      * Omitting this keyword has the same behavior as an empty object.
      */
     @CheckForNull
+    @JsonProperty
     public Map<String, Schema> patternProperties;
 
     /**
@@ -475,6 +503,7 @@ public class Schema {
      * Omitting this keyword has the same behavior as an empty schema.
      */
     @CheckForNull
+    @JsonProperty
     public Schema additionalProperties;
 
     /**
@@ -498,6 +527,7 @@ public class Schema {
      * Omitting this keyword has the same behavior as an empty object.
      */
     @CheckForNull
+    @JsonProperty
     public Object dependencies;
 
     /**
@@ -509,6 +539,7 @@ public class Schema {
      * Omitting this keyword has the same behavior as an empty schema.
      */
     @CheckForNull
+    @JsonProperty
     public Schema propertyNames;
 
     /*
@@ -585,6 +616,7 @@ public class Schema {
      * by this keyword's value.
      */
     @CheckForNull
+    @JsonProperty
     public List<Schema> allOf;
 
     /**
@@ -594,6 +626,7 @@ public class Schema {
      * defined by this keyword's value.
      */
     @CheckForNull
+    @JsonProperty
     public List<Schema> anyOf;
 
     /**
@@ -603,6 +636,7 @@ public class Schema {
      * defined by this keyword's value.
      */
     @CheckForNull
+    @JsonProperty
     public List<Schema> oneOf;
 
     /**
@@ -611,6 +645,7 @@ public class Schema {
      * An instance is valid against this keyword if it fails to validate successfully against the schema defined by this keyword.
      */
     @CheckForNull
+    @JsonProperty
     public Schema not;
 
     // Fields defined in AsyncAPI below
@@ -623,6 +658,7 @@ public class Schema {
      * While relying on JSON Schema's defined formats, the AsyncAPI Specification offers a few additional predefined formats.
      */
     @CheckForNull
+    @JsonProperty
     public Object format;
 
     /*
@@ -636,17 +672,25 @@ public class Schema {
      * When used, the value MUST be the name of this schema or any schema that inherits it. See <a href="https://www.asyncapi.com/docs/specifications/2.0.0#schemaComposition">Composition and Inheritance for more details</a>.
      */
     @CheckForNull
+    @JsonProperty
     public String discriminator;
     /**
      * Additional external documentation for this schema.
      */
     @CheckForNull
+    @JsonProperty
     public ExternalDocumentation externalDocs;
 
     /**
      * Specifies that a schema is deprecated and SHOULD be transitioned out of usage. Default value is <code>false</code>.
      */
     @CheckForNull
+    @JsonProperty
     public Boolean deprecated;
+
+    @JsonAnyGetter
+    @JsonAnySetter
+    @Builder.Default
+    protected Map<String, String> extensionFields = new HashMap<String, String>();
 
 }

@@ -8,8 +8,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="asyncapi-core" />
-        <module name="asyncapi-plugin-core" />
-        <module name="asyncapi-maven-plugin" />
       </profile>
     </annotationProcessing>
   </component>

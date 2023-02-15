@@ -1,0 +1,6 @@
+{
+  "type": "httpApiKey",
+  "description": "httpApiKey",
+  "name": "api_key",
+  "in": "header"
+}
