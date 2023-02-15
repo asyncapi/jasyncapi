@@ -46,7 +46,6 @@
 
     <modules>
         <module>asyncapi-core</module>
-        <module>asyncapi-plugin</module>
     </modules>
 
     <properties>
