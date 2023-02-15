@@ -1,9 +1,9 @@
 package com.asyncapi.v2.yaml
 
 import com.asyncapi.v2.ClasspathUtils
-import com.asyncapi.v2.binding.kafka.KafkaMessageBinding
-import com.asyncapi.v2.model.AsyncAPI
-import com.asyncapi.v2.model.channel.message.Message
+import com.asyncapi.v2._0_0.binding.kafka.KafkaMessageBinding
+import com.asyncapi.v2._0_0.model.AsyncAPI
+import com.asyncapi.v2._0_0.model.channel.message.Message
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
 import org.junit.jupiter.api.Assertions

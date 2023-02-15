@@ -1,12 +1,14 @@
 package com.asyncapi.v2.model.channel.operation
 
 import com.asyncapi.v2.ClasspathUtils
-import com.asyncapi.v2.binding.amqp.AMQPOperationBinding
-import com.asyncapi.v2.model.Reference
-import com.asyncapi.v2.model.Tag
-import com.asyncapi.v2.model.channel.message.Message
-import com.asyncapi.v2.model.schema.Schema
-import com.asyncapi.v2.model.schema.Type
+import com.asyncapi.v2._0_0.binding.amqp.AMQPOperationBinding
+import com.asyncapi.v2._0_0.model.Reference
+import com.asyncapi.v2._0_0.model.Tag
+import com.asyncapi.v2._0_0.model.channel.message.Message
+import com.asyncapi.v2._0_0.model.channel.operation.Operation
+import com.asyncapi.v2._0_0.model.channel.operation.OperationTrait
+import com.asyncapi.v2._0_0.model.schema.Schema
+import com.asyncapi.v2._0_0.model.schema.Type
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import org.junit.jupiter.api.Assertions

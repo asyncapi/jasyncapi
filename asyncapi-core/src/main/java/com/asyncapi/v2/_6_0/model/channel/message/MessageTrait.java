@@ -3,15 +3,8 @@ package com.asyncapi.v2._6_0.model.channel.message;
 import com.asyncapi.v2._6_0.jackson.binding.message.MessageBindingsDeserializer;
 import com.asyncapi.v2._6_0.jackson.model.channel.message.MessageCorrelationIdDeserializer;
 import com.asyncapi.v2._6_0.jackson.model.channel.message.MessageHeadersDeserializer;
-import com.asyncapi.v2._6_0.jackson.model.channel.message.MessagePayloadDeserializer;
-import com.asyncapi.v2._6_0.jackson.model.channel.message.MessageTraitsDeserializer;
 import com.asyncapi.v2._6_0.model.ExternalDocumentation;
 import com.asyncapi.v2._6_0.model.Tag;
-import com.asyncapi.v2.binding.MessageBinding;
-import com.asyncapi.v2.jackson.MessageTraitCorrelationIdDeserializer;
-import com.asyncapi.v2.jackson.MessageTraitHeadersDeserializer;
-import com.asyncapi.v2.model.channel.message.CorrelationId;
-import com.asyncapi.v2.model.channel.message.Message;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.*;
 
