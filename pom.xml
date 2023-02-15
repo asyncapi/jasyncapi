@@ -6,7 +6,7 @@
 
     <groupId>com.asyncapi</groupId>
     <artifactId>asyncapi</artifactId>
-    <version>1.0.1-EAP-1</version>
+    <version>1.0.0-EAP-1</version>
 
     <!-- Project Information -->
     <name>AsyncAPI</name>
@@ -52,7 +52,7 @@
     <properties>
         <kotlin.version>1.7.10</kotlin.version>
         <jackson.version>2.13.3</jackson.version>
-        <java.version>11</java.version>
+        <java.version>1.8</java.version>
         <lombok.version>1.18.10</lombok.version>
         <junit5.version>5.6.1</junit5.version>
         <dokka.version>1.7.0</dokka.version>
@@ -85,7 +85,7 @@
             <!-- Kotlin -->
             <dependency>
                 <groupId>org.jetbrains.kotlin</groupId>
-                <artifactId>kotlin-stdlib</artifactId>
+                <artifactId>kotlin-stdlib-jdk8</artifactId>
                 <version>${kotlin.version}</version>
             </dependency>
             <dependency>
