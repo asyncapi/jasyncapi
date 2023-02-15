@@ -20,7 +20,7 @@ class ParameterTest {
                 "Id of the user.",
                 Schema.builder().type(Type.STRING).build(),
                 "\$message.payload#/user/id",
-                null
+                emptyMap()
         )
     }
 
