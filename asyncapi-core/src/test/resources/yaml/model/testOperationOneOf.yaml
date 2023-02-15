@@ -1,0 +1,26 @@
+asyncapi: 2.1.0
+info:
+  title: test api
+  version: 1.0.0
+channels:
+  test-topic-1:
+    subscribe:
+      message:
+        oneOf:
+          - $ref: '#/components/messages/test-event-1'
+          - $ref: '#/components/messages/test-event-2'
+
+
+components:
+  messages:
+    test-event-1:
+      contentType: 'application/json'
+      payload:
+        type: object
+        additionalProperties: true
+
+    test-event-2:
+      contentType: 'application/json'
+      payload:
+        type: object
+        additionalProperties: true

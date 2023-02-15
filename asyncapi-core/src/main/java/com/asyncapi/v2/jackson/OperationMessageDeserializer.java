@@ -10,9 +10,11 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * Serializes operation traits list.
+ * Serializes operation message list.
  *
  * @author Pavel Bodiachevskii
  */
@@ -26,12 +28,28 @@ public class OperationMessageDeserializer extends JsonDeserializer<Object> {
         return chooseKnownPojo(node, objectCodec);
     }
 
-    private Object chooseKnownPojo(JsonNode traitsValue, final ObjectCodec objectCodec) throws IOException {
-        JsonNode ref = traitsValue.get("$ref");
-        if (ref != null) {
+    private Object chooseKnownPojo(JsonNode messageValue, final ObjectCodec objectCodec) throws IOException {
+        JsonNode ref = messageValue.get("$ref");
+        if (messageValue.get("$ref") != null) {
             return ref.traverse(objectCodec).readValueAs(Reference.class);
+        } else if (messageValue.get("oneOf") != null) {
+            return extractOneOf(messageValue, objectCodec);
         } else {
-            return traitsValue.traverse(objectCodec).readValueAs(Message.class);
+            return messageValue.traverse(objectCodec).readValueAs(Message.class);
         }
+    }
+
+    private List<Object> extractOneOf(JsonNode messageValue, final ObjectCodec objectCodec) throws IOException {
+        List<Object> oneOf = new ArrayList<>();
+        for (JsonNode array : messageValue) {
+            if (array.isArray()) {
+                for (JsonNode item : array) {
+                    Object parsedChildOrNull = chooseKnownPojo(item, objectCodec);
+                    if (parsedChildOrNull != null)
+                        oneOf.add(parsedChildOrNull);
+                }
+            }
+        }
+        return oneOf;
     }
 }
