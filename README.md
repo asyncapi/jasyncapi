@@ -69,7 +69,7 @@ IDEA plugin simplifies work with AsyncAPI specification not only in Intellij IDE
 
 [JetBrains plugin marketplace](https://plugins.jetbrains.com/plugin/15673-asyncapi)
 
-**[Source code with description and example](asyncapi-plugin/asyncapi-plugin-idea)**
+**[Source code with description and example](https://github.com/Pakisan/jasyncapi-idea-plugin)**
 
 ## Release
 

@@ -8,7 +8,6 @@ import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,32 +20,31 @@ import java.util.List;
  */
 public class OperationMessageDeserializer extends JsonDeserializer<Object> {
 
-    private final ObjectMapper objectMapper = new ObjectMapper();
-
     @Override
     public Object deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
         ObjectCodec objectCodec = p.getCodec();
         JsonNode node = objectCodec.readTree(p);
 
-        return chooseKnownPojo(node);
+        return chooseKnownPojo(node, objectCodec);
     }
 
-    private Object chooseKnownPojo(JsonNode messageValue) throws IOException {
+    private Object chooseKnownPojo(JsonNode messageValue, final ObjectCodec objectCodec) throws IOException {
+        JsonNode ref = messageValue.get("$ref");
         if (messageValue.get("$ref") != null) {
-            return objectMapper.readValue(messageValue.toString(), Reference.class);
+            return ref.traverse(objectCodec).readValueAs(Reference.class);
         } else if (messageValue.get("oneOf") != null) {
-            return extractOneOf(messageValue);
+            return extractOneOf(messageValue, objectCodec);
         } else {
-            return objectMapper.readValue(messageValue.toString(), Message.class);
+            return messageValue.traverse(objectCodec).readValueAs(Message.class);
         }
     }
 
-    private List extractOneOf(JsonNode messageValue) throws IOException {
-        List oneOf = new ArrayList();
+    private List<Object> extractOneOf(JsonNode messageValue, final ObjectCodec objectCodec) throws IOException {
+        List<Object> oneOf = new ArrayList<>();
         for (JsonNode array : messageValue) {
             if (array.isArray()) {
                 for (JsonNode item : array) {
-                    Object parsedChildOrNull = chooseKnownPojo(item);
+                    Object parsedChildOrNull = chooseKnownPojo(item, objectCodec);
                     if (parsedChildOrNull != null)
                         oneOf.add(parsedChildOrNull);
                 }
@@ -54,5 +52,4 @@ public class OperationMessageDeserializer extends JsonDeserializer<Object> {
         }
         return oneOf;
     }
-
 }

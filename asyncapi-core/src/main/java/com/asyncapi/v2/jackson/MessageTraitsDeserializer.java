@@ -8,7 +8,6 @@ import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,8 +20,6 @@ import java.util.List;
  */
 public class MessageTraitsDeserializer extends JsonDeserializer<List<Object>> {
 
-    private final ObjectMapper objectMapper = new ObjectMapper();
-
     @Override
     public List<Object> deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
         ObjectCodec objectCodec = p.getCodec();
@@ -33,7 +30,7 @@ public class MessageTraitsDeserializer extends JsonDeserializer<List<Object>> {
         node.forEach(
                 traitsValue -> {
                     try {
-                        traits.add(chooseKnownPojo(traitsValue));
+                        traits.add(chooseKnownPojo(traitsValue, objectCodec));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -43,12 +40,12 @@ public class MessageTraitsDeserializer extends JsonDeserializer<List<Object>> {
         return traits;
     }
 
-    private Object chooseKnownPojo(JsonNode traitsValue) throws IOException {
-        if (traitsValue.get("$ref") != null) {
-            return objectMapper.readValue(traitsValue.toString(), Reference.class);
+    private Object chooseKnownPojo(JsonNode traitsValue, final ObjectCodec objectCodec) throws IOException {
+        JsonNode ref = traitsValue.get("$ref");
+        if (ref != null) {
+            return ref.traverse(objectCodec).readValueAs(Reference.class);
         } else {
-            return objectMapper.readValue(traitsValue.toString(), MessageTrait.class);
+            return traitsValue.traverse(objectCodec).readValueAs(MessageTrait.class);
         }
     }
-
 }
