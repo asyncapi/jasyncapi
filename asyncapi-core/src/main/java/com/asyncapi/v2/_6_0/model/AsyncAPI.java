@@ -1,7 +1,5 @@
 package com.asyncapi.v2._6_0.model;
 
-import com.asyncapi.v2.model.ExternalDocumentation;
-import com.asyncapi.v2.model.Tag;
 import com.asyncapi.v2._6_0.model.channel.ChannelItem;
 import com.asyncapi.v2._6_0.model.component.Components;
 import com.asyncapi.v2._6_0.model.info.Info;
@@ -40,7 +38,6 @@ public class AsyncAPI {
      * Patch versions will correspond to patches of this document.
      */
     @Nonnull
-    @NonNull
     private String asyncapi = "2.6.0";
 
     /**
@@ -61,7 +58,6 @@ public class AsyncAPI {
      * Provides metadata about the API. The metadata can be used by the clients if needed.
      */
     @Nonnull
-    @NonNull
     private Info info;
 
     /**
@@ -91,7 +87,6 @@ public class AsyncAPI {
      * Channels are also known as "topics", "routing keys", "event types" or "paths".
      */
     @Nonnull
-    @NonNull
     private Map<String, ChannelItem> channels;
 
     /**
