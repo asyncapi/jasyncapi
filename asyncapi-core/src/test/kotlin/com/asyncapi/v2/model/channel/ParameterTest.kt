@@ -19,7 +19,8 @@ class ParameterTest {
         return Parameter(
                 "Id of the user.",
                 Schema.builder().type(Type.STRING).build(),
-                "\$message.payload#/user/id"
+                "\$message.payload#/user/id",
+                null
         )
     }
 

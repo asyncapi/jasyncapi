@@ -8,6 +8,9 @@ import com.asyncapi.v2.jackson.MessagePayloadDeserializer;
 import com.asyncapi.v2.jackson.MessageTraitsDeserializer;
 import com.asyncapi.v2.model.ExternalDocumentation;
 import com.asyncapi.v2.model.Tag;
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,6 +20,7 @@ import lombok.NoArgsConstructor;
 import javax.annotation.CheckForNull;
 import java.util.List;
 import java.util.Map;
+import java.util.HashMap;
 
 /**
  * Describes a message received on a given channel and operation.
@@ -80,6 +84,7 @@ public class Message {
      * A custom value MUST NOT refer to one of the schema formats listed in the table.
      */
     @CheckForNull
+    @JsonProperty
     private String schemaFormat;
 
     /**
@@ -88,42 +93,49 @@ public class Message {
      * defaultContentType field.
      */
     @CheckForNull
+    @JsonProperty
     private String contentType;
 
     /**
      * A machine-friendly name for the message.
      */
     @CheckForNull
+    @JsonProperty
     private String name;
 
     /**
      * A human-friendly title for the message.
      */
     @CheckForNull
+    @JsonProperty
     private String title;
 
     /**
      * A short summary of what the message is about.
      */
     @CheckForNull
+    @JsonProperty
     private String summary;
 
     /**
      * A verbose explanation of the message. CommonMark syntax can be used for rich text representation.
      */
     @CheckForNull
+    @JsonProperty
     private String description;
 
     /**
      * A list of tags for API documentation control. Tags can be used for logical grouping of messages.
      */
     @CheckForNull
+    @JsonProperty
     private List<Tag> tags;
 
     /**
      * Additional external documentation for this message.
      */
     @CheckForNull
+    @JsonProperty
     private ExternalDocumentation externalDocs;
 
     /**
@@ -141,6 +153,7 @@ public class Message {
      * that validate against the {@link #headers} or {@link #payload} fields, respectively.
      */
     @CheckForNull
+    @JsonProperty
     private List<Map<String, Object>> examples;
 
     /**
@@ -156,5 +169,10 @@ public class Message {
     @CheckForNull
     @JsonDeserialize(using = MessageTraitsDeserializer.class)
     private List<Object> traits;
+
+    @JsonAnyGetter
+    @JsonAnySetter
+    @Builder.Default
+    protected Map<String, String> extensionFields = new HashMap<String, String>();
 
 }

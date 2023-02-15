@@ -9,6 +9,7 @@ import com.asyncapi.v2.binding.mqtt5.MQTT5MessageBinding;
 import com.asyncapi.v2.binding.nats.NATSMessageBinding;
 import com.asyncapi.v2.binding.redis.RedisMessageBinding;
 import com.asyncapi.v2.binding.sns.SNSMessageBinding;
+import com.asyncapi.v2.binding.solace.SolaceMessageBinding;
 import com.asyncapi.v2.binding.sqs.SQSMessageBinding;
 import com.asyncapi.v2.binding.stomp.STOMPMessageBinding;
 import com.asyncapi.v2.binding.ws.WebSocketsMessageBinding;
@@ -68,6 +69,7 @@ public class MessageBindingsDeserializer extends JsonDeserializer<Map<String, ? 
             case "nats":  return (T) objectMapper.readValue(binding.toString(), NATSMessageBinding.class);
             case "redis":  return (T) objectMapper.readValue(binding.toString(), RedisMessageBinding.class);
             case "sns":  return (T) objectMapper.readValue(binding.toString(), SNSMessageBinding.class);
+            case "solace":  return (T) objectMapper.readValue(binding.toString(), SolaceMessageBinding.class);
             case "sqs":  return (T) objectMapper.readValue(binding.toString(), SQSMessageBinding.class);
             case "stomp":  return (T) objectMapper.readValue(binding.toString(), STOMPMessageBinding.class);
             case "ws":  return (T) objectMapper.readValue(binding.toString(), WebSocketsMessageBinding.class);
