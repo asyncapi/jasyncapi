@@ -9,6 +9,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.annotation.CheckForNull;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
@@ -273,7 +274,7 @@ public class Schema {
      */
     @CheckForNull
     @JsonProperty
-    public Integer maximum;
+    public BigDecimal maximum;
 
     /**
      * The value of "exclusiveMaximum" MUST be number, representing an exclusive upper limit for a numeric instance.
@@ -282,7 +283,7 @@ public class Schema {
      */
     @CheckForNull
     @JsonProperty
-    public Integer exclusiveMaximum;
+    public BigDecimal exclusiveMaximum;
 
     /**
      * The value of "minimum" MUST be a number, representing an inclusive lower limit for a numeric instance.
@@ -291,7 +292,7 @@ public class Schema {
      */
     @CheckForNull
     @JsonProperty
-    public Integer minimum;
+    public BigDecimal minimum;
 
     /**
      * The value of "exclusiveMinimum" MUST be number, representing an exclusive lower limit for a numeric instance.
@@ -300,7 +301,7 @@ public class Schema {
      */
     @CheckForNull
     @JsonProperty
-    public Integer exclusiveMinimum;
+    public BigDecimal exclusiveMinimum;
 
     /*
         Validation Keywords for Strings
