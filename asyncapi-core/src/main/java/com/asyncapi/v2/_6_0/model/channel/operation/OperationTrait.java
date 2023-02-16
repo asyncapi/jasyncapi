@@ -1,8 +1,9 @@
 package com.asyncapi.v2._6_0.model.channel.operation;
 
-import com.asyncapi.v2._6_0.jackson.binding.operation.OperationBindingsDeserializer;
+import com.asyncapi.v2.jackson.binding.operation.OperationBindingsDeserializer;
 import com.asyncapi.v2._6_0.model.ExternalDocumentation;
 import com.asyncapi.v2._6_0.model.Tag;
+import com.asyncapi.v2.binding.operation.OperationBinding;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -89,7 +90,7 @@ public class OperationTrait {
      * MUST BE:
      * <ul>
      *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
-     *     <li>{@link com.asyncapi.v2._6_0.binding.operation.OperationBinding}</li>
+     *     <li>{@link OperationBinding}</li>
      * </ul>
      */
     @CheckForNull

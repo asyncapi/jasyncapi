@@ -1,6 +1,6 @@
 package com.asyncapi.v2._0_0.binding.solace;
 
-import com.asyncapi.v2._0_0.binding.ChannelBinding;
+import com.asyncapi.v2.binding.channel.ChannelBinding;
 import lombok.*;
 
 /**

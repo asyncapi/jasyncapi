@@ -1,6 +1,6 @@
 package com.asyncapi.v2._0_0.binding.solace;
 
-import com.asyncapi.v2._0_0.binding.OperationBinding;
+import com.asyncapi.v2.binding.operation.OperationBinding;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 

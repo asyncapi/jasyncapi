@@ -1,6 +1,6 @@
 package com.asyncapi.v2._0_0.binding.solace;
 
-import com.asyncapi.v2._0_0.binding.MessageBinding;
+import com.asyncapi.v2.binding.message.MessageBinding;
 import lombok.*;
 
 /**

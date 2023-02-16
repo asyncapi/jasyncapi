@@ -2,7 +2,7 @@ package com.asyncapi.v2._0_0.binding.solace;
 
 import javax.annotation.CheckForNull;
 
-import com.asyncapi.v2._0_0.binding.ServerBinding;
+import com.asyncapi.v2.binding.server.ServerBinding;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;

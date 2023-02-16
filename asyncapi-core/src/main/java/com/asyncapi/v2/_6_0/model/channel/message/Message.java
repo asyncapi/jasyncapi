@@ -1,12 +1,13 @@
 package com.asyncapi.v2._6_0.model.channel.message;
 
-import com.asyncapi.v2._6_0.jackson.binding.message.MessageBindingsDeserializer;
+import com.asyncapi.v2.jackson.binding.message.MessageBindingsDeserializer;
 import com.asyncapi.v2._6_0.jackson.model.channel.message.MessageCorrelationIdDeserializer;
 import com.asyncapi.v2._6_0.jackson.model.channel.message.MessageHeadersDeserializer;
 import com.asyncapi.v2._6_0.jackson.model.channel.message.MessagePayloadDeserializer;
 import com.asyncapi.v2._6_0.jackson.model.channel.message.MessageTraitsDeserializer;
 import com.asyncapi.v2._6_0.model.ExternalDocumentation;
 import com.asyncapi.v2._6_0.model.Tag;
+import com.asyncapi.v2.binding.message.MessageBinding;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.*;
 
@@ -144,7 +145,7 @@ public class Message {
      * MUST BE:
      * <ul>
      *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
-     *     <li>{@link com.asyncapi.v2._6_0.binding.message.MessageBinding}</li>
+     *     <li>{@link MessageBinding}</li>
      * </ul>
      */
     @CheckForNull

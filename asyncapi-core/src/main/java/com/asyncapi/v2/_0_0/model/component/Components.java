@@ -1,6 +1,5 @@
 package com.asyncapi.v2._0_0.model.component;
 
-import com.asyncapi.v2._0_0.binding.*;
 import com.asyncapi.v2._0_0.model.Reference;
 import com.asyncapi.v2._0_0.model.channel.Parameter;
 import com.asyncapi.v2._0_0.model.channel.message.Message;
@@ -13,6 +12,13 @@ import com.asyncapi.v2._0_0.jackson.ComponentsSecuritySchemesDeserializer;
 import com.asyncapi.v2._0_0.model.channel.message.CorrelationId;
 import com.asyncapi.v2._0_0.model.channel.message.MessageTrait;
 import com.asyncapi.v2._0_0.model.channel.operation.OperationTrait;
+import com.asyncapi.v2.jackson.binding.channel.ChannelBindingsDeserializer;
+import com.asyncapi.v2.jackson.binding.message.MessageBindingsDeserializer;
+import com.asyncapi.v2.jackson.binding.operation.OperationBindingsDeserializer;
+import com.asyncapi.v2.jackson.binding.server.ServerBindingsDeserializer;
+import com.asyncapi.v2.binding.channel.ChannelBinding;
+import com.asyncapi.v2.binding.message.MessageBinding;
+import com.asyncapi.v2.binding.operation.OperationBinding;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
