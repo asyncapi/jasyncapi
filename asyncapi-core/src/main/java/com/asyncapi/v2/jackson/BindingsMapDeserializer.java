@@ -17,9 +17,7 @@ import java.util.Map;
  */
 public abstract class BindingsMapDeserializer extends JsonDeserializer<Map<String, Object>> {
 
-    protected final ObjectMapper objectMapper = new ObjectMapper();
-
-    public abstract Object chooseKnownPojo(String bindingKey, JsonNode binding) throws JsonProcessingException;
+    public abstract Object chooseKnownPojo(String bindingKey, JsonNode binding, ObjectCodec objectCodec) throws IOException;
 
     @Override
     public Map<String, Object> deserialize(
@@ -34,7 +32,7 @@ public abstract class BindingsMapDeserializer extends JsonDeserializer<Map<Strin
         node.fieldNames().forEachRemaining(
                 fieldName -> {
                     try {
-                        bindings.put(fieldName, chooseKnownPojo(fieldName, node.get(fieldName)));
+                        bindings.put(fieldName, chooseKnownPojo(fieldName, node.get(fieldName), objectCodec));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

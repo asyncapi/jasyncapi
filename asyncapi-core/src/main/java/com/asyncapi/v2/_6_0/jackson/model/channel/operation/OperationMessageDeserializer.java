@@ -9,7 +9,6 @@ import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 
@@ -20,24 +19,21 @@ import java.io.IOException;
  */
 public class OperationMessageDeserializer extends JsonDeserializer<Object> {
 
-    private final ObjectMapper objectMapper = new ObjectMapper();
-
     @Override
     public Object deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
         ObjectCodec objectCodec = p.getCodec();
         JsonNode node = objectCodec.readTree(p);
 
-        return chooseKnownPojo(node);
+        return chooseKnownPojo(node, objectCodec);
     }
 
-    private Object chooseKnownPojo(JsonNode message) throws IOException {
+    private Object chooseKnownPojo(JsonNode message, ObjectCodec objectCodec) throws IOException {
         if (message.get("oneOf") != null) {
-            return objectMapper.readValue(message.toString(), OneOfMessages.class);
+            return message.traverse(objectCodec).readValueAs(OneOfMessages.class);
         } else if (message.get("$ref") != null) {
-            return objectMapper.readValue(message.toString(), Reference.class);
+            return message.traverse(objectCodec).readValueAs(Reference.class);
         } else {
-            return objectMapper.readValue(message.toString(), Message.class);
+            return message.traverse(objectCodec).readValueAs(Message.class);
         }
     }
-
 }
