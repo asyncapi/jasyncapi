@@ -4,8 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.CheckForNull;
 import java.util.List;
 
 /**
@@ -27,7 +27,7 @@ public class SolaceTopic {
      * A list of topics that the client subscribes to, only applicable when destinationType is 'topic'.
      * If none is given, the client subscribes to the topic as represented by the channel name.
      */
-    @CheckForNull
+    @Nullable
     protected List<String> topicSubscriptions;
 
 }

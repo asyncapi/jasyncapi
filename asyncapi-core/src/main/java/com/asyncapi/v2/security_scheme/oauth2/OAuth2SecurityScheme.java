@@ -6,9 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * @version 2.6.0
@@ -26,13 +25,13 @@ public class OAuth2SecurityScheme extends SecurityScheme {
      * <p>
      * An object containing configuration information for the flow types supported.
      */
-    @Nonnull
+    @NotNull
     private OAuthFlows flows;
 
     @Builder(builderMethodName = "oauth2SecuritySchemeBuilder")
-    public OAuth2SecurityScheme(@Nonnull Type type,
+    public OAuth2SecurityScheme(@NotNull Type type,
                                 @Nullable String description,
-                                @Nonnull OAuthFlows flows) {
+                                @NotNull OAuthFlows flows) {
         super(type, description);
         this.flows = flows;
     }

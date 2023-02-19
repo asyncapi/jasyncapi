@@ -6,10 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * @version 2.6.0
@@ -27,20 +25,20 @@ public class HttpSecurityScheme extends SecurityScheme {
      * <p>
      * The name of the HTTP Authorization scheme to be used in the <a href="https://tools.ietf.org/html/rfc7235#section-5.1">Authorization header as defined in RFC7235</a>.
      */
-    @Nonnull
+    @NotNull
     private String scheme;
 
     /**
      * A hint to the client to identify how the bearer token is formatted. Bearer tokens are usually generated
      * by an authorization server, so this information is primarily for documentation purposes.
      */
-    @CheckForNull
+    @Nullable
     private String bearerFormat;
 
     @Builder(builderMethodName = "httpSecuritySchemeBuilder")
-    public HttpSecurityScheme(@Nonnull Type type,
+    public HttpSecurityScheme(@NotNull Type type,
                               @Nullable String description,
-                              @Nonnull String scheme,
+                              @NotNull String scheme,
                               @Nullable String bearerFormat) {
         super(type, description);
         this.scheme = scheme;

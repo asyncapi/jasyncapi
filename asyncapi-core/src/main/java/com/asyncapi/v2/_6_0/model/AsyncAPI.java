@@ -8,9 +8,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.Map;
 
@@ -40,7 +40,7 @@ public class AsyncAPI {
      * and tooling should typically be compatible with the corresponding major.minor (1.0.*).
      * Patch versions will correspond to patches of this document.
      */
-    @Nonnull
+    @NotNull
     private String asyncapi = "2.6.0";
 
     /**
@@ -52,7 +52,7 @@ public class AsyncAPI {
      * It is RECOMMENDED to use a <a href="https://tools.ietf.org/html/rfc8141">URN</a> to globally and uniquely identify the application during long periods of time,
      * even after it becomes unavailable or ceases to exist.
      */
-    @CheckForNull
+    @Nullable
     private String id;
 
     /**
@@ -60,14 +60,14 @@ public class AsyncAPI {
      * <p>
      * Provides metadata about the API. The metadata can be used by the clients if needed.
      */
-    @Nonnull
+    @NotNull
     private Info info;
 
     /**
      * TODO: references
      * Provides connection details of servers.
      */
-    @CheckForNull
+    @Nullable
     private Map<String, Server> servers;
 
     /**
@@ -77,7 +77,7 @@ public class AsyncAPI {
      * <p>
      * In case a message can't be encoded/decoded using this value, schema parsers MUST use their default content type.
      */
-    @CheckForNull
+    @Nullable
     private String defaultContentType;
 
     /**
@@ -89,25 +89,25 @@ public class AsyncAPI {
      * <p>
      * Channels are also known as "topics", "routing keys", "event types" or "paths".
      */
-    @Nonnull
+    @NotNull
     private Map<String, ChannelItem> channels;
 
     /**
      * An element to hold various schemas for the specification.
      */
-    @CheckForNull
+    @Nullable
     private Components components;
 
     /**
      * A list of tags used by the specification with additional metadata. Each tag name in the list MUST be unique.
      */
-    @CheckForNull
+    @Nullable
     private List<Tag> tags;
 
     /**
      * Additional external documentation.
      */
-    @CheckForNull
+    @Nullable
     private ExternalDocumentation externalDocs;
 
 }

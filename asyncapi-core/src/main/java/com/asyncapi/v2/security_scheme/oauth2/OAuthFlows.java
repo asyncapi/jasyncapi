@@ -8,8 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.CheckForNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Allows configuration of the supported OAuth Flows.
@@ -29,25 +28,25 @@ public class OAuthFlows {
     /**
      * Configuration for the OAuth Implicit flow
      */
-    @CheckForNull
+    @Nullable
     private ImplicitOAuthFlow implicit;
 
     /**
      * Configuration for the OAuth Resource Owner Protected Credentials flow
      */
-    @CheckForNull
+    @Nullable
     private PasswordOAuthFlow password;
 
     /**
      * Configuration for the OAuth Client Credentials flow.
      */
-    @CheckForNull
+    @Nullable
     private ClientCredentialsOAuthFlow clientCredentials;
 
     /**
      * Configuration for the OAuth Authorization Code flow
      */
-    @CheckForNull
+    @Nullable
     private AuthorizationCodeOAuthFlow authorizationCode;
 
 }

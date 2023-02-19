@@ -5,9 +5,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import java.util.Map;
 
 /**
@@ -26,13 +26,13 @@ public class ClientCredentialsOAuthFlow extends OAuthFlow {
      * <p>
      * The token URL to be used for this flow. This MUST be in the form of a URL.
      */
-    @Nonnull
+    @NotNull
     private String tokenUrl;
 
     @Builder(builderMethodName = "clientCredentialsOAuthFlowBuilder")
     public ClientCredentialsOAuthFlow(@Nullable String refreshUrl,
-                                      @Nonnull Map<String, String> scopes,
-                                      @Nonnull String tokenUrl) {
+                                      @NotNull Map<String, String> scopes,
+                                      @NotNull String tokenUrl) {
         super(refreshUrl, scopes);
         this.tokenUrl = tokenUrl;
     }

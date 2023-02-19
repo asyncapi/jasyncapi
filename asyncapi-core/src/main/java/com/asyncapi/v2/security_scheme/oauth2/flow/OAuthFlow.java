@@ -4,9 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
 import java.util.Map;
 
 /**
@@ -27,7 +27,7 @@ public class OAuthFlow {
     /**
      * The URL to be used for obtaining refresh tokens. This MUST be in the form of an absolute URL.
      */
-    @CheckForNull
+    @Nullable
     private String refreshUrl;
 
     /**
@@ -35,7 +35,7 @@ public class OAuthFlow {
      * <p>
      * The available scopes for the OAuth2 security scheme. A map between the scope name and a short description for it.
      */
-    @Nonnull
+    @NotNull
     private Map<String, String> scopes;
 
 }

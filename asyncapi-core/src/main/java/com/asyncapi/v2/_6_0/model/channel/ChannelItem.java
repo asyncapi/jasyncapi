@@ -10,8 +10,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.CheckForNull;
 import java.util.List;
 import java.util.Map;
 
@@ -35,33 +35,33 @@ public class ChannelItem {
      * <p>
      * Deprecated: Usage of the $ref property has been deprecated.
      */
-    @CheckForNull
+    @Nullable
     @JsonProperty("$ref")
     private String ref;
 
     /**
      * An optional description of this channel item. <a href="https://spec.commonmark.org/">CommonMark syntax</a> can be used for rich text representation.
      */
-    @CheckForNull
+    @Nullable
     private String description;
 
     /**
      * The servers on which this channel is available, specified as an optional unordered list of names (string keys) of {@link com.asyncapi.v2._6_0.model.server.Server} Objects defined in the {@link com.asyncapi.v2._6_0.model.server.Server} Object (a map).
      * If servers is absent or empty then this channel must be available on all servers defined in the Servers Object.
      */
-    @CheckForNull
+    @Nullable
     private List<String> servers;
 
     /**
      * A definition of the SUBSCRIBE operation, which defines the messages produced by the application and sent to the channel.
      */
-    @CheckForNull
+    @Nullable
     private Operation subscribe;
 
     /**
      * A definition of the PUBLISH operation.
      */
-    @CheckForNull
+    @Nullable
     private Operation publish;
 
     /**
@@ -74,7 +74,7 @@ public class ChannelItem {
      *     <li>{@link com.asyncapi.v2._6_0.model.channel.Parameter}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = ChannelParametersDeserializer.class)
     private Map<String, Object> parameters;
 
@@ -87,7 +87,7 @@ public class ChannelItem {
      *     <li>{@link ChannelBinding}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = ChannelBindingsDeserializer.class)
     private Map<String, Object> bindings;
 

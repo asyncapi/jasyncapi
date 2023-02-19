@@ -6,8 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.CheckForNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Describes IBM MQ server binding.
@@ -32,7 +31,7 @@ public class IBMMQServerBinding extends ServerBinding {
      * <p>
      * MUST NOT be specified for URI Scheme http:// or file://
      */
-    @CheckForNull
+    @Nullable
     private String groupId;
 
     /**
@@ -40,7 +39,7 @@ public class IBMMQServerBinding extends ServerBinding {
      * <p>
      * MUST NOT be specified for URI Scheme ibmmq://
      */
-    @CheckForNull
+    @Nullable
     @Builder.Default
     private String ccdtQueueManagerName = "*";
 
@@ -50,7 +49,7 @@ public class IBMMQServerBinding extends ServerBinding {
      * <p>
      * MUST NOT be specified for protocol ibmmq or URI Scheme file:// or http://
      */
-    @CheckForNull
+    @Nullable
     @Builder.Default
     private String cipherSpec = "ANY";
 

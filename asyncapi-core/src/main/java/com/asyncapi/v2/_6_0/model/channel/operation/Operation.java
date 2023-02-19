@@ -12,8 +12,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.CheckForNull;
 import java.util.List;
 import java.util.Map;
 
@@ -41,19 +41,19 @@ public class Operation {
      * Tools and libraries MAY use the operationId to uniquely identify an operation, therefore, it is RECOMMENDED to
      * follow common programming naming conventions.
      */
-    @CheckForNull
+    @Nullable
     private String operationId;
 
     /**
      * A short summary of what the operation is about.
      */
-    @CheckForNull
+    @Nullable
     private String summary;
 
     /**
      * A verbose explanation of the operation. <a href="http://spec.commonmark.org/">CommonMark syntax</a> can be used for rich text representation.
      */
-    @CheckForNull
+    @Nullable
     private String description;
 
     /**
@@ -66,19 +66,19 @@ public class Operation {
      * Provide scopes that are required to establish successful connection with the server.
      * If scopes are not needed, the list can be empty. For other security scheme types, the array MUST be empty.
      */
-    @CheckForNull
+    @Nullable
     private List<Map<String, List<String>>> security;
 
     /**
      * A list of tags for logical grouping and categorization of operations.
      */
-    @CheckForNull
+    @Nullable
     private List<Tag> tags;
 
     /**
      * Additional external documentation for this operation.
      */
-    @CheckForNull
+    @Nullable
     private ExternalDocumentation externalDocs;
 
     /**
@@ -90,7 +90,7 @@ public class Operation {
      *     <li>{@link OperationBinding}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = OperationBindingsDeserializer.class)
     private Map<String, Object> bindings;
 
@@ -104,7 +104,7 @@ public class Operation {
      *     <li>{@link com.asyncapi.v2._6_0.model.channel.operation.OperationTrait}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = OperationTraitsDeserializer.class)
     private List<Object> traits;
 
@@ -120,7 +120,7 @@ public class Operation {
      *     <li>{@link com.asyncapi.v2._6_0.model.channel.message.OneOfMessages}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = OperationMessageDeserializer.class)
     private Object message;
 

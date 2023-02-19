@@ -5,9 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * TODO: This object can be extended with Specification Extensions.
@@ -29,7 +28,7 @@ public class ExternalDocumentation {
     /**
      * A short description of the target documentation. <a href="https://spec.commonmark.org/">CommonMark syntax</a> can be used for rich text representation.
      */
-    @CheckForNull
+    @Nullable
     private String description;
 
     /**
@@ -37,7 +36,7 @@ public class ExternalDocumentation {
      * <p>
      * The URL for the target documentation. Value MUST be in the format of a URL.
      */
-    @Nonnull
+    @NotNull
     private String url;
 
 }

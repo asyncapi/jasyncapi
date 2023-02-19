@@ -4,9 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * An object that specifies an identifier at design time that can used for message tracing and correlation.
@@ -26,7 +25,7 @@ public class CorrelationId {
     /**
      * An optional description of the identifier. <a href="https://spec.commonmark.org/">CommonMark syntax</a> can be used for rich text representation.
      */
-    @CheckForNull
+    @Nullable
     private String description;
 
     /**
@@ -34,7 +33,7 @@ public class CorrelationId {
      * <p>
      * A <a href="https://www.asyncapi.com/docs/reference/specification/v2.6.0#runtimeExpression">runtime expression</a> that specifies the location of the correlation ID.
      */
-    @Nonnull
+    @NotNull
     private String location;
 
 }

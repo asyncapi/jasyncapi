@@ -13,8 +13,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.CheckForNull;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,28 +37,28 @@ public class ChannelItem {
      * If there are conflicts between the referenced definition and this Channel Item's definition, the behavior is undefined.
      */
     @JsonProperty
-    @CheckForNull
+    @Nullable
     private String $ref;
 
     /**
      * An optional description of this channel item. CommonMark syntax can be used for rich text representation.
      */
     @JsonProperty
-    @CheckForNull
+    @Nullable
     private String description;
 
     /**
      * A definition of the SUBSCRIBE operation.
      */
     @JsonProperty
-    @CheckForNull
+    @Nullable
     private Operation subscribe;
 
     /**
      * A definition of the PUBLISH operation.
      */
     @JsonProperty
-    @CheckForNull
+    @Nullable
     private Operation publish;
 
     /**
@@ -73,14 +73,14 @@ public class ChannelItem {
      *     <li>{@link Parameter}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = ChannelParametersDeserializer.class)
     private Map<String, Object> parameters;
 
     /**
      * A map where the keys describe the name of the protocol and the values describe protocol-specific definitions for the channel.
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = ChannelBindingsDeserializer.class)
     private Map<String, ? extends ChannelBinding> bindings;
 
@@ -89,7 +89,7 @@ public class ChannelItem {
      */
     @JsonAnySetter
     @JsonAnyGetter
-    @CheckForNull
+    @Nullable
     @Builder.Default
     protected Map<String, String> extensionFields = new HashMap<String, String>();
 }

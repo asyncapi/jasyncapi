@@ -7,8 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.CheckForNull;
 import java.util.List;
 import java.util.Map;
 
@@ -61,7 +61,7 @@ public class Schema {
      * <br><br>
      * A title will preferably be short
      */
-    @CheckForNull
+    @Nullable
     public String title;
 
     /**
@@ -75,7 +75,7 @@ public class Schema {
      * <br><br>
      * A description will provide explanation about the purpose of the instance described by this schema.
      */
-    @CheckForNull
+    @Nullable
     public String description;
 
     /**
@@ -90,7 +90,7 @@ public class Schema {
      * is not provided. Unlike JSON Schema, the value MUST conform to the defined type for the Schema Object defined at
      * the same level. For example, of type is <code>string</code>, then default can be <code>"foo"</code> but cannot be <code>1</code>.
      */
-    @CheckForNull
+    @Nullable
     @JsonProperty("default")
     public Object defaultValue;
 
@@ -112,7 +112,7 @@ public class Schema {
      * <br><br>
      * Omitting this keyword has the same behavior as values of false.
      */
-    @CheckForNull
+    @Nullable
     public Boolean readOnly;
 
     /**
@@ -131,7 +131,7 @@ public class Schema {
      * <br><br>
      * Omitting this keyword has the same behavior as values of false.
      */
-    @CheckForNull
+    @Nullable
     public Boolean writeOnly;
 
     /**
@@ -145,10 +145,10 @@ public class Schema {
      * Implementations MAY use the value(s) of "default", if present, as an additional example.  If "examples" is absent,
      * "default" MAY still be used in this manner.
      */
-    @CheckForNull
+    @Nullable
     public List<Object> examples;
 
-    @CheckForNull
+    @Nullable
     @JsonProperty("$ref")
     private String ref;
 
@@ -186,7 +186,7 @@ public class Schema {
      * <br><br>
      * The value of this property SHOULD be ignored if the instance described is not a string.
      */
-    @CheckForNull
+    @Nullable
     private String contentEncoding;
 
     /**
@@ -201,7 +201,7 @@ public class Schema {
      * text document type, and the character set SHOULD be the character set into which the JSON string value was decoded (for which the default
      * is Unicode).
      */
-    @CheckForNull
+    @Nullable
     private String contentMediaType;
 
     /*
@@ -222,7 +222,7 @@ public class Schema {
      * An instance validates if and only if the instance is in any of the sets listed for this keyword.
      *
      */
-    @CheckForNull
+    @Nullable
     public Object type;
 
     /**
@@ -232,7 +232,7 @@ public class Schema {
      * <br>
      * Elements in the array might be of any value, including null.
      */
-    @CheckForNull
+    @Nullable
     @JsonProperty("enum")
     public List<Object> enumValue;
 
@@ -241,7 +241,7 @@ public class Schema {
      * <br>
      * An instance validates successfully against this keyword if its value is equal to the value of the keyword.
      */
-    @CheckForNull
+    @Nullable
     @JsonProperty("const")
     public Object constValue;
 
@@ -254,7 +254,7 @@ public class Schema {
      * <br>
      * A numeric instance is valid only if division by this keyword's value results in an integer.
      */
-    @CheckForNull
+    @Nullable
     public Integer multipleOf;
 
     /**
@@ -262,7 +262,7 @@ public class Schema {
      * <br>
      * If the instance is a number, then this keyword validates only if the instance is less than or exactly equal to "maximum".
      */
-    @CheckForNull
+    @Nullable
     public Integer maximum;
 
     /**
@@ -270,7 +270,7 @@ public class Schema {
      * <br>
      * If the instance is a number, then the instance is valid only if it has a value strictly less than (not equal to) "exclusiveMaximum".
      */
-    @CheckForNull
+    @Nullable
     public Integer exclusiveMaximum;
 
     /**
@@ -278,7 +278,7 @@ public class Schema {
      * <br>
      * If the instance is a number, then this keyword validates only if the instance is greater than or exactly equal to "minimum".
      */
-    @CheckForNull
+    @Nullable
     public Integer minimum;
 
     /**
@@ -286,7 +286,7 @@ public class Schema {
      * <br>
      * If the instance is a number, then the instance is valid only if it has a value strictly greater than (not equal to) "exclusiveMinimum".
      */
-    @CheckForNull
+    @Nullable
     public Integer exclusiveMinimum;
 
     /*
@@ -300,7 +300,7 @@ public class Schema {
      * <br>
      * The length of a string instance is defined as the number of its characters as defined by <a href="https://tools.ietf.org/html/rfc7159">RFC 7159</a> [<a href="https://tools.ietf.org/html/rfc7159">RFC7159</a>].
      */
-    @CheckForNull
+    @Nullable
     public Integer maxLength;
 
     /**
@@ -312,7 +312,7 @@ public class Schema {
      * <br>
      * Omitting this keyword has the same behavior as a value of 0.
      */
-    @CheckForNull
+    @Nullable
     public Integer minLength;
 
     /**
@@ -322,7 +322,7 @@ public class Schema {
      * A string instance is considered valid if the regular expression matches the instance successfully.
      * Recall: regular expressions are not implicitly anchored.
      */
-    @CheckForNull
+    @Nullable
     public String pattern;
 
     /*
@@ -341,7 +341,7 @@ public class Schema {
      * <br>
      * Omitting this keyword has the same behavior as an empty schema.
      */
-    @CheckForNull
+    @Nullable
     public Object items;
 
     /**
@@ -357,7 +357,7 @@ public class Schema {
      * <br>
      * Omitting this keyword has the same behavior as an empty schema.
      */
-    @CheckForNull
+    @Nullable
     public Schema additionalItems;
 
     /**
@@ -365,7 +365,7 @@ public class Schema {
      * <br>
      * An array instance is valid against "maxItems" if its size is less than, or equal to, the value of this keyword.
      */
-    @CheckForNull
+    @Nullable
     public Integer maxItems;
 
     /**
@@ -375,7 +375,7 @@ public class Schema {
      * <br>
      * Omitting this keyword has the same behavior as a value of 0.
      */
-    @CheckForNull
+    @Nullable
     public Integer minItems;
 
     /**
@@ -386,7 +386,7 @@ public class Schema {
      * <br>
      * Omitting this keyword has the same behavior as a value of false.
      */
-    @CheckForNull
+    @Nullable
     public Boolean uniqueItems;
 
     /**
@@ -394,7 +394,7 @@ public class Schema {
      * <br>
      * An array instance is valid against "contains" if at least one of its elements is valid against the given schema.
      */
-    @CheckForNull
+    @Nullable
     public Schema contains;
 
     /*
@@ -407,7 +407,7 @@ public class Schema {
      * An object instance is valid against "maxProperties" if its number of properties is less than, or equal to,
      * the value of this keyword.
      */
-    @CheckForNull
+    @Nullable
     public Integer maxProperties;
 
     /**
@@ -418,7 +418,7 @@ public class Schema {
      * <br><br>
      * Omitting this keyword has the same behavior as a value of 0.
      */
-    @CheckForNull
+    @Nullable
     public Integer minProperties;
 
     /**
@@ -428,7 +428,7 @@ public class Schema {
      * <br><br>
      * Omitting this keyword has the same behavior as an empty array.
      */
-    @CheckForNull
+    @Nullable
     public List<String> required;
 
     /**
@@ -442,7 +442,7 @@ public class Schema {
      * <br><br>
      * Omitting this keyword has the same behavior as an empty object.
      */
-    @CheckForNull
+    @Nullable
     public Map<String, Schema> properties;
 
     /**
@@ -459,7 +459,7 @@ public class Schema {
      * <br><br>
      * Omitting this keyword has the same behavior as an empty object.
      */
-    @CheckForNull
+    @Nullable
     public Map<String, Schema> patternProperties;
 
     /**
@@ -475,7 +475,7 @@ public class Schema {
      * <br><br>
      * Omitting this keyword has the same behavior as an empty schema.
      */
-    @CheckForNull
+    @Nullable
     public Schema additionalProperties;
 
     /**
@@ -498,7 +498,7 @@ public class Schema {
      * <br><br>
      * Omitting this keyword has the same behavior as an empty object.
      */
-    @CheckForNull
+    @Nullable
     public Object dependencies;
 
     /**
@@ -509,7 +509,7 @@ public class Schema {
      * <br><br>
      * Omitting this keyword has the same behavior as an empty schema.
      */
-    @CheckForNull
+    @Nullable
     public Schema propertyNames;
 
     /*
@@ -544,7 +544,7 @@ public class Schema {
      * including when the keyword is present without either "then" or "else".
      */
     @JsonProperty("if")
-    @CheckForNull
+    @Nullable
     public Schema ifValue;
 
     /**
@@ -558,7 +558,7 @@ public class Schema {
      * purposes, in such cases.
      */
     @JsonProperty("then")
-    @CheckForNull
+    @Nullable
     public Schema thenValue;
 
     /**
@@ -572,7 +572,7 @@ public class Schema {
      * purposes, in such cases.
      */
     @JsonProperty("else")
-    @CheckForNull
+    @Nullable
     public Schema elseValue;
 
     /*
@@ -585,7 +585,7 @@ public class Schema {
      * An instance validates successfully against this keyword if it validates successfully against all schemas defined
      * by this keyword's value.
      */
-    @CheckForNull
+    @Nullable
     public List<Schema> allOf;
 
     /**
@@ -594,7 +594,7 @@ public class Schema {
      * An instance validates successfully against this keyword if it validates successfully against at least one schema
      * defined by this keyword's value.
      */
-    @CheckForNull
+    @Nullable
     public List<Schema> anyOf;
 
     /**
@@ -603,7 +603,7 @@ public class Schema {
      * An instance validates successfully against this keyword if it validates successfully against exactly one schema
      * defined by this keyword's value.
      */
-    @CheckForNull
+    @Nullable
     public List<Schema> oneOf;
 
     /**
@@ -611,7 +611,7 @@ public class Schema {
      * <br><br>
      * An instance is valid against this keyword if it fails to validate successfully against the schema defined by this keyword.
      */
-    @CheckForNull
+    @Nullable
     public Schema not;
 
     // Fields defined in AsyncAPI below
@@ -623,7 +623,7 @@ public class Schema {
      * See <a href ="https://www.asyncapi.com/docs/specifications/2.0.0#dataTypeFormat">Data Type Formats</a> for further details.
      * While relying on JSON Schema's defined formats, the AsyncAPI Specification offers a few additional predefined formats.
      */
-    @CheckForNull
+    @Nullable
     public Object format;
 
     /*
@@ -636,18 +636,18 @@ public class Schema {
      * The property name used MUST be defined at this schema and it MUST be in the <code>required</code> property list.
      * When used, the value MUST be the name of this schema or any schema that inherits it. See <a href="https://www.asyncapi.com/docs/specifications/2.0.0#schemaComposition">Composition and Inheritance for more details</a>.
      */
-    @CheckForNull
+    @Nullable
     public String discriminator;
     /**
      * Additional external documentation for this schema.
      */
-    @CheckForNull
+    @Nullable
     public ExternalDocumentation externalDocs;
 
     /**
      * Specifies that a schema is deprecated and SHOULD be transitioned out of usage. Default value is <code>false</code>.
      */
-    @CheckForNull
+    @Nullable
     public Boolean deprecated;
 
 }

@@ -4,9 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * The object provides metadata about the API. The metadata can be used by the clients if needed.
@@ -26,7 +25,7 @@ public class Info {
      * <p>
      * The title of the application.
      */
-    @Nonnull
+    @NotNull
     private String title;
 
     /**
@@ -34,31 +33,31 @@ public class Info {
      * <p>
      * Provides the version of the application API (not to be confused with the specification version).
      */
-    @Nonnull
+    @NotNull
     private String version;
 
     /**
      * A short description of the application. CommonMark syntax can be used for rich text representation.
      */
-    @CheckForNull
+    @Nullable
     private String description;
 
     /**
      * A URL to the Terms of Service for the API. MUST be in the format of a URL.
      */
-    @CheckForNull
+    @Nullable
     private String termsOfService;
 
     /**
      * The contact information for the exposed API.
      */
-    @CheckForNull
+    @Nullable
     private Contact contact;
 
     /**
      * The license information for the exposed API.
      */
-    @CheckForNull
+    @Nullable
     private License license;
 
 }

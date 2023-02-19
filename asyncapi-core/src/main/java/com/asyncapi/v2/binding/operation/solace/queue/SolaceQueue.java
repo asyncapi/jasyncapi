@@ -5,8 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.CheckForNull;
 import java.util.List;
 
 /**
@@ -27,34 +27,34 @@ public class SolaceQueue {
     /**
      * The name of the queue, only applicable when destinationType is 'queue'.
      */
-    @CheckForNull
+    @Nullable
     private String name;
 
     /**
      * A list of topics that the queue subscribes to, only applicable when destinationType is 'queue'.
      * If none is given, the queue subscribes to the topic as represented by the channel name.
      */
-    @CheckForNull
+    @Nullable
     private List<String> topicSubscriptions;
 
     /**
      * 'exclusive' or 'nonexclusive'. This is documented <a href="https://docs.solace.com/Messaging/Guaranteed-Msg/Endpoints.htm#Queues">here</a>. Only applicable when destinationType is 'queue'.
      */
-    @CheckForNull
+    @Nullable
     private AccessType accessType;
 
     /**
      * The maximum amount of message spool that the given queue may use. This is documented <a href="https://docs.solace.com/Messaging/Guaranteed-Msg/Message-Spooling.htm#max-spool-usage">here</a>.
      * Only applicable when destinationType is 'queue'.
      */
-    @CheckForNull
+    @Nullable
     private String maxMsgSpoolSize;
 
     /**
      * The maximum TTL to apply to messages to be spooled. This is documented <a href="https://docs.solace.com/Messaging/Guaranteed-Msg/Configuring-Queues.htm">here</a>.
      * Only applicable when destinationType is 'queue'.
      */
-    @CheckForNull
+    @Nullable
     private String maxTtl;
 
     public enum AccessType {

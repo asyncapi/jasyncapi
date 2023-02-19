@@ -6,8 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.CheckForNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Describes Kafka server binding.
@@ -26,7 +25,7 @@ public class KafkaServerBinding extends ServerBinding {
     /**
      * API URL for the Schema Registry used when producing Kafka messages (if a Schema Registry was used)
      */
-    @CheckForNull
+    @Nullable
     private String schemaRegistryUrl;
 
     /**
@@ -34,13 +33,13 @@ public class KafkaServerBinding extends ServerBinding {
      * <p>
      * The vendor of Schema Registry and Kafka serdes library that should be used (e.g. apicurio, confluent, ibm, or karapace)
      */
-    @CheckForNull
+    @Nullable
     private String schemaRegistryVendor;
 
     /**
      * The version of this binding.
      */
-    @CheckForNull
+    @Nullable
     @Builder.Default
     private String bindingVersion = "0.4.0";
 

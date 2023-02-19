@@ -24,8 +24,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.CheckForNull;
 import java.util.Map;
 
 /**
@@ -52,7 +52,7 @@ public class Components {
      *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = ComponentsSchemasDeserializer.class)
     private Map<String, Object> schemas;
 
@@ -65,7 +65,7 @@ public class Components {
      *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = ComponentsServersDeserializer.class)
     private Map<String, Object> servers;
 
@@ -78,7 +78,7 @@ public class Components {
      *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = ComponentsServerVariablesDeserializer.class)
     private Map<String, Object> serverVariables;
 
@@ -96,7 +96,7 @@ public class Components {
      *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = ComponentsMessagesDeserializer.class)
     private Map<String, Object> messages;
 
@@ -109,7 +109,7 @@ public class Components {
      *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = ComponentsSecuritySchemesDeserializer.class)
     private Map<String, Object> securitySchemes;
 
@@ -122,7 +122,7 @@ public class Components {
      *     <li>{@link com.asyncapi.v2._6_0.model.channel.Parameter}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = ComponentsParametersDeserializer.class)
     private Map<String, Object> parameters;
 
@@ -135,7 +135,7 @@ public class Components {
      *     <li>{@link com.asyncapi.v2._6_0.model.channel.message.CorrelationId}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = ComponentsCorrelationIdsDeserializer.class)
     private Map<String, Object> correlationIds;
 
@@ -148,7 +148,7 @@ public class Components {
      *     <li>{@link com.asyncapi.v2._6_0.model.channel.operation.OperationTrait}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = ComponentsOperationTraitsDeserializer.class)
     private Map<String, Object> operationTraits;
 
@@ -161,7 +161,7 @@ public class Components {
      *     <li>{@link com.asyncapi.v2._6_0.model.channel.message.MessageTrait}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = ComponentsMessageTraitsDeserializer.class)
     private Map<String, Object> messageTraits;
 
@@ -173,7 +173,7 @@ public class Components {
      *     <li>{@link ServerBinding}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = ServerBindingsDeserializer.class)
     private Map<String, Object> serverBindings;
 
@@ -185,7 +185,7 @@ public class Components {
      *     <li>{@link ChannelBinding}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = ChannelBindingsDeserializer.class)
     private Map<String, Object> channelBindings;
 
@@ -197,7 +197,7 @@ public class Components {
      *     <li>{@link OperationBinding}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = OperationBindingsDeserializer.class)
     private Map<String, Object> operationBindings;
 
@@ -209,7 +209,7 @@ public class Components {
      *     <li>{@link MessageBinding}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = MessageBindingsDeserializer.class)
     private Map<String, Object> messageBindings;
 

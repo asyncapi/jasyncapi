@@ -21,9 +21,10 @@
         </dependency>
         <!-- JSR305 -->
         <dependency>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-            <version>3.0.2</version>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>24.0.0</version>
+            <scope>provided</scope>
         </dependency>
         <!-- Tests -->
         <dependency>

@@ -14,8 +14,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.CheckForNull;
 import java.util.List;
 import java.util.Map;
 
@@ -48,7 +48,7 @@ public class MessageTrait {
      *     <li>{@link Reference}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = MessageHeadersDeserializer.class)
     private Object headers;
 
@@ -61,7 +61,7 @@ public class MessageTrait {
      *     <li>{@link Reference}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = MessageCorrelationIdDeserializer.class)
     private Object correlationId;
 
@@ -72,7 +72,7 @@ public class MessageTrait {
      * table for more information. Custom values are allowed but their implementation is OPTIONAL. A custom
      * value MUST NOT refer to one of the schema formats listed in the table.
      */
-    @CheckForNull
+    @Nullable
     private String schemaFormat;
 
     /**
@@ -80,56 +80,56 @@ public class MessageTrait {
      * media type (e.g. application/json). When omitted, the value MUST be the one specified on the
      * defaultContentType field.
      */
-    @CheckForNull
+    @Nullable
     private String contentType;
 
     /**
      * A machine-friendly name for the message.
      */
-    @CheckForNull
+    @Nullable
     private String name;
 
     /**
      * A human-friendly title for the message.
      */
-    @CheckForNull
+    @Nullable
     private String title;
 
     /**
      * A short summary of what the message is about.
      */
-    @CheckForNull
+    @Nullable
     private String summary;
 
     /**
      * A verbose explanation of the message. CommonMark syntax can be used for rich text representation.
      */
-    @CheckForNull
+    @Nullable
     private String description;
 
     /**
      * A list of tags for API documentation control. Tags can be used for logical grouping of messages.
      */
-    @CheckForNull
+    @Nullable
     private List<Tag> tags;
 
     /**
      * Additional external documentation for this message.
      */
-    @CheckForNull
+    @Nullable
     private ExternalDocumentation externalDocs;
 
     /**
      * A map where the keys describe the name of the protocol and the values describe protocol-specific definitions for the message.
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = MessageBindingsDeserializer.class)
     private Map<String, ? extends MessageBinding> bindings;
 
     /**
      * An array with examples of valid message objects.
      */
-    @CheckForNull
+    @Nullable
     private List<Map<String, Object>> examples;
 
 }

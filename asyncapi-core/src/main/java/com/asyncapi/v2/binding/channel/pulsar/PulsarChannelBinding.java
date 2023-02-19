@@ -7,9 +7,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
 import java.util.List;
 
 /**
@@ -29,50 +29,50 @@ public class PulsarChannelBinding extends ChannelBinding {
     /**
      * The namespace the channel is associated with.
      */
-    @Nonnull
+    @NotNull
     private String namespace;
 
     /**
      * Persistence of the topic in Pulsar. It MUST be either persistent or non-persistent.
      */
-    @Nonnull
+    @NotNull
     private String persistence;
 
     /**
      * Topic compaction threshold given in Megabytes.
      */
-    @CheckForNull
+    @Nullable
     private Integer compaction;
 
     /**
      * A list of clusters the topic is replicated to.
      */
-    @CheckForNull
+    @Nullable
     @JsonProperty("geo-replication")
     private List<String> geoReplication;
 
     /**
      * Topic retention policy.
      */
-    @CheckForNull
+    @Nullable
     private RetentionDefinition retention;
 
     /**
      * Message time-to-live in seconds.
      */
-    @CheckForNull
+    @Nullable
     private Integer ttl;
 
     /**
      * Message deduplication. When true, it ensures that each message produced on Pulsar topics is persisted to disk only once.
      */
-    @CheckForNull
+    @Nullable
     private Boolean deduplication;
 
     /**
      * The version of this binding. If omitted, "latest" MUST be assumed.
      */
-    @CheckForNull
+    @Nullable
     @Builder.Default
     private String bindingVersion = "0.1.0";
 
@@ -89,14 +89,14 @@ public class PulsarChannelBinding extends ChannelBinding {
         /**
          * Time given in Minutes.
          */
-        @CheckForNull
+        @Nullable
         @Builder.Default
         private Integer time = 0;
 
         /**
          * Size given in MegaBytes.
          */
-        @CheckForNull
+        @Nullable
         @Builder.Default
         private Integer size = 0;
 

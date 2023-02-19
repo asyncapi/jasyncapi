@@ -6,8 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.CheckForNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,14 +30,14 @@ public class SolaceOperationBinding extends OperationBinding {
     /**
      * List of destinations
      */
-    @CheckForNull
+    @Nullable
     @Builder.Default
     private List<SolaceDestination> destinations = new ArrayList<>();
 
     /**
      * Version of the binding object (e.g. bindingVersion: 0.3.0)
      */
-    @CheckForNull
+    @Nullable
     @Builder.Default
     private String bindingVersion = "0.3.0";
 

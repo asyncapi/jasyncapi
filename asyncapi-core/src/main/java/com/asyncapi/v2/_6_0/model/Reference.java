@@ -5,8 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * A simple object to allow referencing other components in the specification, internally and externally.
@@ -34,7 +33,7 @@ public class Reference {
      * <p>
      * The reference string.
      */
-    @Nonnull
+    @NotNull
     @JsonProperty(value = "$ref")
     private String ref;
 

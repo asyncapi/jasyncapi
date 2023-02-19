@@ -6,9 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Describes IBM MQ channel binding.
@@ -31,7 +30,7 @@ public class IBMMQChannelBinding extends ChannelBinding {
      * <p>
      * MUST be either topic or queue. For type topic, the AsyncAPI channel name MUST be assumed for the IBM MQ topic string unless overridden.
      */
-    @CheckForNull
+    @Nullable
     private String destinationType;
 
     /**
@@ -39,7 +38,7 @@ public class IBMMQChannelBinding extends ChannelBinding {
      * <p>
      * queue and topic fields MUST NOT coexist within a channel binding
      */
-    @CheckForNull
+    @Nullable
     private Queue queue;
 
     /**
@@ -49,7 +48,7 @@ public class IBMMQChannelBinding extends ChannelBinding {
      * <p>
      * queue and topic fields MUST NOT coexist within a channel binding.
      */
-    @CheckForNull
+    @Nullable
     private Topic topic;
 
     /**
@@ -59,7 +58,7 @@ public class IBMMQChannelBinding extends ChannelBinding {
      * <p>
      * MUST be 0-104,857,600 bytes (100 MB).
      */
-    @CheckForNull
+    @Nullable
     private Integer maxMsgLength;
 
     /**
@@ -83,7 +82,7 @@ public class IBMMQChannelBinding extends ChannelBinding {
          * <p>
          * A value MUST be specified. MUST NOT exceed 48 characters in length. MUST be a valid IBM MQ queue name
          */
-        @Nonnull
+        @NotNull
         private String objectName;
 
         /**
@@ -92,14 +91,14 @@ public class IBMMQChannelBinding extends ChannelBinding {
          * <p>
          * If false, binding options SHOULD NOT be specified when accessing the queue.
          */
-        @CheckForNull
+        @Nullable
         @Builder.Default
         private Boolean isPartitioned = false;
 
         /**
          * Specifies if it is recommended to open the queue exclusively.
          */
-        @CheckForNull
+        @Nullable
         @Builder.Default
         private Boolean exclusive = false;
 
@@ -123,7 +122,7 @@ public class IBMMQChannelBinding extends ChannelBinding {
          * <p>
          * MUST NOT exceed 10240 characters in length. MAY coexist with topic.objectName
          */
-        @CheckForNull
+        @Nullable
         private String string;
 
         /**
@@ -134,20 +133,20 @@ public class IBMMQChannelBinding extends ChannelBinding {
          * <p>
          * MUST NOT exceed 48 characters in length. MAY coexist with topic.string
          */
-        @CheckForNull
+        @Nullable
         private String objectName;
 
         /**
          * Defines if the subscription may be durable.
          */
-        @CheckForNull
+        @Nullable
         @Builder.Default
         private Boolean durablePermitted = true;
 
         /**
          * Defines if the last message published will be made available to new subscriptions.
          */
-        @CheckForNull
+        @Nullable
         @Builder.Default
         private Boolean lastMsgRetained = false;
 

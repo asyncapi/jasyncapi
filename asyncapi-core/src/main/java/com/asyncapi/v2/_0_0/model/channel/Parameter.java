@@ -8,8 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.CheckForNull;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,14 +30,14 @@ public class Parameter {
      * A verbose explanation of the parameter. CommonMark syntax can be used for rich text representation.
      */
     @JsonProperty
-    @CheckForNull
+    @Nullable
     private String description;
 
     /**
      * Definition of the parameter.
      */
     @JsonProperty
-    @CheckForNull
+    @Nullable
     private Schema schema;
 
     /**
@@ -47,7 +47,7 @@ public class Parameter {
      * instead, the schema property MUST be used.
      */
     @JsonProperty
-    @CheckForNull
+    @Nullable
     private String location;
 
     /**
@@ -55,7 +55,7 @@ public class Parameter {
      */
     @JsonAnySetter
     @JsonAnyGetter
-    @CheckForNull
+    @Nullable
     @Builder.Default
     protected Map<String, String> extensionFields = new HashMap<String, String>();
 }

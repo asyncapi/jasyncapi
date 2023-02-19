@@ -6,8 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.CheckForNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Describes MQTT message binding.
@@ -28,7 +27,7 @@ public class MQTTMessageBinding extends MessageBinding {
     /**
      * The version of this binding. If omitted, "latest" MUST be assumed.
      */
-    @CheckForNull
+    @Nullable
     @Builder.Default
     private String bindingVersion = "0.1.0";
 

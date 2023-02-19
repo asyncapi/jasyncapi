@@ -6,8 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.CheckForNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Describes Solace server binding.
@@ -28,13 +27,13 @@ public class SolaceServerBinding extends ServerBinding {
      * <p>
      * e.g. msgVpn: solace-broker-msg-vpn
      */
-    @CheckForNull
+    @Nullable
     private String msgVpn;
 
     /**
      * The version of this binding.
      */
-    @CheckForNull
+    @Nullable
     @Builder.Default
     private String bindingVersion = "0.3.0";
 

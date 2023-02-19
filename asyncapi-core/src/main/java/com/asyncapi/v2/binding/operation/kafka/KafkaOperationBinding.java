@@ -6,8 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.CheckForNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Describes Kafka operation binding.
@@ -31,7 +30,7 @@ public class KafkaOperationBinding extends OperationBinding {
      *
      * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#schemaObject">Schema object</a>
      */
-    @CheckForNull
+    @Nullable
     private Object groupId;
 
     /**
@@ -40,13 +39,13 @@ public class KafkaOperationBinding extends OperationBinding {
      *
      * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#schemaObject">Schema object</a>
      */
-    @CheckForNull
+    @Nullable
     private Object clientId;
 
     /**
      * The version of this binding. If omitted, "latest" MUST be assumed.
      */
-    @CheckForNull
+    @Nullable
     @Builder.Default
     private String bindingVersion = "0.4.0";
 

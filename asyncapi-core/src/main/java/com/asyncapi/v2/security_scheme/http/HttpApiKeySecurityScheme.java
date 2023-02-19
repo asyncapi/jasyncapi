@@ -7,10 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * @version 2.6.0
@@ -28,7 +26,7 @@ public class HttpApiKeySecurityScheme extends SecurityScheme {
      * <p>
      * The name of the header, query or cookie parameter to be used.
      */
-    @Nonnull
+    @NotNull
     private String name;
 
     /**
@@ -36,13 +34,13 @@ public class HttpApiKeySecurityScheme extends SecurityScheme {
      * <p>
      * The location of the API key.
      */
-    @CheckForNull
+    @Nullable
     private ApiKeyLocation in;
 
     @Builder(builderMethodName = "httpApiKeySecuritySchemeBuilder")
-    public HttpApiKeySecurityScheme(@Nonnull Type type,
+    public HttpApiKeySecurityScheme(@NotNull Type type,
                                     @Nullable String description,
-                                    @Nonnull String name,
+                                    @NotNull String name,
                                     @Nullable ApiKeyLocation in) {
         super(type, description);
         this.name = name;

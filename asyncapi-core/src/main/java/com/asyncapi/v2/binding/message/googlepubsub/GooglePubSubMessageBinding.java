@@ -6,8 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.CheckForNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * The Message Binding Object is used to describe the Google Cloud Pub/Sub specific <a href="https://cloud.google.com/pubsub/docs/reference/rest/v1/PubsubMessage">PubsubMessage</a> details, alongside with
@@ -29,26 +28,26 @@ public class GooglePubSubMessageBinding extends MessageBinding {
     /**
      * If non-empty, identifies related messages for which publish order should be respected (For more information, see <a href="https://cloud.google.com/pubsub/docs/ordering">ordering messages</a>.)
      */
-    @CheckForNull
+    @Nullable
     private String orderingKey;
 
     /**
      * Attributes for this message (If this field is empty, the message must contain non-empty data. This can be used to
      * filter messages on the subscription.)
      */
-    @CheckForNull
+    @Nullable
     private Object attributes;
 
     /**
      * Describes the schema used to validate the payload of this message
      */
-    @CheckForNull
+    @Nullable
     private SchemaDefinition schema;
 
     /**
      * OPTIONAL, defaults to latest. The version of this binding.
      */
-    @CheckForNull
+    @Nullable
     @Builder.Default
     private String bindingVersion = "0.1.0";
 
@@ -68,13 +67,13 @@ public class GooglePubSubMessageBinding extends MessageBinding {
         /**
          * The name of the schema
          */
-        @CheckForNull
+        @Nullable
         private String name;
 
         /**
          * The type of the schema
          */
-        @CheckForNull
+        @Nullable
         private String type;
 
     }

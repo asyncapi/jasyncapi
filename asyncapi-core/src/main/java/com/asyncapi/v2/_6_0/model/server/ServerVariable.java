@@ -5,8 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.CheckForNull;
 import java.util.List;
 
 /**
@@ -25,27 +25,27 @@ public class ServerVariable {
     /**
      * An enumeration of string values to be used if the substitution options are from a limited set.
      */
-    @CheckForNull
+    @Nullable
     @JsonProperty(value = "enum")
     private List<String> enumValues;
 
     /**
      * The default value to use for substitution, and to send, if an alternate value is not supplied.
      */
-    @CheckForNull
+    @Nullable
     @JsonProperty("default")
     private String defaultValue;
 
     /**
      * An optional description for the server variable. <a href="https://spec.commonmark.org/">CommonMark syntax</a> MAY be used for rich text representation.
      */
-    @CheckForNull
+    @Nullable
     private String description;
 
     /**
      * An array of examples of the server variable.
      */
-    @CheckForNull
+    @Nullable
     private List<String> examples;
 
 }

@@ -10,8 +10,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.CheckForNull;
 import java.util.List;
 import java.util.Map;
 
@@ -41,37 +41,37 @@ public class OperationTrait {
      * Tools and libraries MAY use the operationId to uniquely identify an operation, therefore, it is RECOMMENDED
      * to follow common programming naming conventions.
      */
-    @CheckForNull
+    @Nullable
     private String operationId;
 
     /**
      * A short summary of what the operation is about.
      */
-    @CheckForNull
+    @Nullable
     private String summary;
 
     /**
      * A verbose explanation of the operation. CommonMark syntax can be used for rich text representation.
      */
-    @CheckForNull
+    @Nullable
     private String description;
 
     /**
      * A list of tags for API documentation control. Tags can be used for logical grouping of operations.
      */
-    @CheckForNull
+    @Nullable
     private List<Tag> tags;
 
     /**
      * Additional external documentation for this operation.
      */
-    @CheckForNull
+    @Nullable
     private ExternalDocumentation externalDocs;
 
     /**
      * A map where the keys describe the name of the protocol and the values describe protocol-specific definitions for the operation.
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = OperationBindingsDeserializer.class)
     private Map<String, ? extends OperationBinding> bindings;
 

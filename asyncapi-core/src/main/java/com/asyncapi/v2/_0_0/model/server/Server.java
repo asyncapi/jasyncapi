@@ -10,9 +10,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,7 +40,7 @@ public class Server {
      * location is relative to the location where the AsyncAPI document is being served. Variable substitutions will be
      * made when a variable is named in {brackets}.
      */
-    @Nonnull
+    @NotNull
     @JsonProperty
     private String url;
 
@@ -50,14 +50,14 @@ public class Server {
      * The protocol this URL supports for connection. Supported protocol include, but are not limited to:
      * amqp, amqps, http, https, jms, kafka, kafka-secure, mqtt, secure-mqtt, stomp, stomps, ws, wss.
      */
-    @Nonnull
+    @NotNull
     @JsonProperty
     private String protocol;
 
     /**
      * The version of the protocol used for connection. For instance: AMQP 0.9.1, HTTP 2.0, Kafka 1.0.0, etc.
      */
-    @CheckForNull
+    @Nullable
     @JsonProperty
     private String protocolVersion;
 
@@ -65,14 +65,14 @@ public class Server {
      * An optional string describing the host designated by the URL. CommonMark syntax MAY be used for rich text
      * representation.
      */
-    @CheckForNull
+    @Nullable
     @JsonProperty
     private String description;
 
     /**
      * A map between a variable name and its value. The value is used for substitution in the server's URL template.
      */
-    @CheckForNull
+    @Nullable
     @JsonProperty
     private Map<String, ServerVariable> variables;
 
@@ -87,7 +87,7 @@ public class Server {
      * When a list of Security Requirement Objects is defined on a Server object, only one of the Security Requirement
      * Objects in the list needs to be satisfied to authorize the connection.
      */
-    @CheckForNull
+    @Nullable
     @JsonProperty
     private List<Map<String, List<String>>> security;
 
@@ -95,7 +95,7 @@ public class Server {
      * A map where the keys describe the name of the protocol and the values describe protocol-specific definitions
      * for the server.
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = ServerBindingsDeserializer.class)
     private Map<String, ? extends ServerBinding> bindings;
 

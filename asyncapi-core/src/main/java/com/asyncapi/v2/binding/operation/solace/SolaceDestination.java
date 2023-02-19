@@ -7,8 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.CheckForNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Describes Solace destination.
@@ -29,27 +28,27 @@ public class SolaceDestination {
      * 'queue' or 'topic'. If the type is queue, then the subscriber can bind to the queue, which in turn will
      * subscribe to the topic as represented by the channel name or to the provided topicSubscriptions.
      */
-    @CheckForNull
+    @Nullable
     private Type destinationType;
 
     /**
      * 'direct' or 'persistent'. This determines the quality of service for publishing messages as documented <a href="https://docs.solace.com/Get-Started/Core-Concepts-Message-Delivery-Modes.htm">here</a>.
      * Default is 'persistent'.
      */
-    @CheckForNull
+    @Nullable
     @Builder.Default
     private DeliveryMode deliveryMode = DeliveryMode.PERSISTENT;
 
     /**
      * Solace queue destination details.
      */
-    @CheckForNull
+    @Nullable
     private SolaceQueue queue;
 
     /**
      * Solace topic destination details
      */
-    @CheckForNull
+    @Nullable
     private SolaceTopic topic;
 
     public enum Type {

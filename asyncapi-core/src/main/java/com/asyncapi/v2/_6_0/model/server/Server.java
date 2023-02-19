@@ -9,9 +9,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.Map;
 
@@ -38,7 +38,7 @@ public class Server {
      * location is relative to the location where the AsyncAPI document is being served. Variable substitutions will be
      * made when a variable is named in {brackets}.
      */
-    @Nonnull
+    @NotNull
     private String url;
 
     /**
@@ -47,20 +47,20 @@ public class Server {
      * The protocol this URL supports for connection. Supported protocol include, but are not limited to:
      * amqp, amqps, http, https, ibmmq, jms, kafka, kafka-secure, anypointmq, mqtt, secure-mqtt, solace, stomp, stomps, ws, wss, mercure, googlepubsub, pulsar.
      */
-    @Nonnull
+    @NotNull
     private String protocol;
 
     /**
      * The version of the protocol used for connection. For instance: AMQP 0.9.1, HTTP 2.0, Kafka 1.0.0, etc.
      */
-    @CheckForNull
+    @Nullable
     private String protocolVersion;
 
     /**
      * An optional string describing the host designated by the URL. <a href="https://spec.commonmark.org/">CommonMark syntax</a> MAY be used for rich text
      * representation.
      */
-    @CheckForNull
+    @Nullable
     private String description;
 
     /**
@@ -72,7 +72,7 @@ public class Server {
      *     <li>{@link com.asyncapi.v2._6_0.model.server.ServerVariable}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = ServerVariablesDeserializer.class)
     private Map<String, Object> variables;
 
@@ -87,13 +87,13 @@ public class Server {
      * When a list of Security Requirement Objects is defined on a Server object, only one of the Security Requirement
      * Objects in the list needs to be satisfied to authorize the connection.
      */
-    @CheckForNull
+    @Nullable
     private List<Map<String, List<String>>> security;
 
     /**
      * A list of tags for logical grouping and categorization of servers.
      */
-    @CheckForNull
+    @Nullable
     private List<Tag> tags;
 
     /**
@@ -106,7 +106,7 @@ public class Server {
      *     <li>{@link ServerBinding}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = ServerBindingsDeserializer.class)
     private Map<String, Object> bindings;
 

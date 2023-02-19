@@ -6,8 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.CheckForNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Describes WebSockets channel binding.
@@ -31,7 +30,7 @@ public class WebSocketsChannelBinding extends ChannelBinding {
     /**
      * The HTTP method to use when establishing the connection. Its value MUST be either GET or POST.
      */
-    @CheckForNull
+    @Nullable
     private String method;
 
     /**
@@ -41,7 +40,7 @@ public class WebSocketsChannelBinding extends ChannelBinding {
      *
      * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#schemaObject">Schema object</a>
      */
-    @CheckForNull
+    @Nullable
     private Object query;
 
     /**
@@ -51,13 +50,13 @@ public class WebSocketsChannelBinding extends ChannelBinding {
      *
      * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#schemaObject">Schema object</a>
      */
-    @CheckForNull
+    @Nullable
     private Object headers;
 
     /**
      * The version of this binding. If omitted, "latest" MUST be assumed.
      */
-    @CheckForNull
+    @Nullable
     @Builder.Default
     private String bindingVersion = "0.1.0";
 

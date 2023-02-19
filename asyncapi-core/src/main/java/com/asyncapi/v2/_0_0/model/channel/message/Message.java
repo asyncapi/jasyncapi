@@ -18,8 +18,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.CheckForNull;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,7 +47,7 @@ public class Message {
      *     <li>{@link Reference}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = MessageHeadersDeserializer.class)
     private Object headers;
 
@@ -60,7 +60,7 @@ public class Message {
      *     <li>{@link com.fasterxml.jackson.databind.JsonNode}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = MessagePayloadDeserializer.class)
     private Object payload;
 
@@ -73,7 +73,7 @@ public class Message {
      *     {@link Reference}
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = MessageCorrelationIdDeserializer.class)
     private Object correlationId;
 
@@ -85,7 +85,7 @@ public class Message {
      *
      * A custom value MUST NOT refer to one of the schema formats listed in the table.
      */
-    @CheckForNull
+    @Nullable
     @JsonProperty
     private String schemaFormat;
 
@@ -94,49 +94,49 @@ public class Message {
      * media type (e.g. application/json). When omitted, the value MUST be the one specified on the
      * defaultContentType field.
      */
-    @CheckForNull
+    @Nullable
     @JsonProperty
     private String contentType;
 
     /**
      * A machine-friendly name for the message.
      */
-    @CheckForNull
+    @Nullable
     @JsonProperty
     private String name;
 
     /**
      * A human-friendly title for the message.
      */
-    @CheckForNull
+    @Nullable
     @JsonProperty
     private String title;
 
     /**
      * A short summary of what the message is about.
      */
-    @CheckForNull
+    @Nullable
     @JsonProperty
     private String summary;
 
     /**
      * A verbose explanation of the message. CommonMark syntax can be used for rich text representation.
      */
-    @CheckForNull
+    @Nullable
     @JsonProperty
     private String description;
 
     /**
      * A list of tags for API documentation control. Tags can be used for logical grouping of messages.
      */
-    @CheckForNull
+    @Nullable
     @JsonProperty
     private List<Tag> tags;
 
     /**
      * Additional external documentation for this message.
      */
-    @CheckForNull
+    @Nullable
     @JsonProperty
     private ExternalDocumentation externalDocs;
 
@@ -144,7 +144,7 @@ public class Message {
      * A map where the keys describe the name of the protocol and the values describe protocol-specific definitions
      * for the message.
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = MessageBindingsDeserializer.class)
     private Map<String, ? extends MessageBinding> bindings;
 
@@ -154,7 +154,7 @@ public class Message {
      * Values MUST contain examples
      * that validate against the {@link #headers} or {@link #payload} fields, respectively.
      */
-    @CheckForNull
+    @Nullable
     @JsonProperty
     private List<Map<String, Object>> examples;
 
@@ -168,7 +168,7 @@ public class Message {
      *     <li>{@link MessageTrait}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = MessageTraitsDeserializer.class)
     private List<Object> traits;
 

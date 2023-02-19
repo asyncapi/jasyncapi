@@ -6,8 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.CheckForNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Describes IBM MQ message binding.
@@ -30,7 +29,7 @@ public class IBMMQMessageBinding extends MessageBinding {
      * <p>
      * MUST be either string, jms or binary
      */
-    @CheckForNull
+    @Nullable
     private String type;
 
     /**
@@ -41,7 +40,7 @@ public class IBMMQMessageBinding extends MessageBinding {
      * <p>
      * headers MUST NOT be specified if type = string or jms
      */
-    @CheckForNull
+    @Nullable
     private String headers;
 
     /**
@@ -50,7 +49,7 @@ public class IBMMQMessageBinding extends MessageBinding {
      * The description field of the IBM MQ message binding object MAY include CommonMark markdown formatting.
      * A minimum markdown syntax as described by <a href="https://spec.commonmark.org/0.27/">CommonMark 0.27</a> is assumed.
      */
-    @CheckForNull
+    @Nullable
     private String description;
 
     /**
@@ -61,13 +60,13 @@ public class IBMMQMessageBinding extends MessageBinding {
      * <p>
      * expiry value MUST be either zero (unlimited) or greater than zero.
      */
-    @CheckForNull
+    @Nullable
     private Integer expiry;
 
     /**
      * The version of this binding.
      */
-    @CheckForNull
+    @Nullable
     @Builder.Default
     private String bindingVersion = "0.1.0";
 

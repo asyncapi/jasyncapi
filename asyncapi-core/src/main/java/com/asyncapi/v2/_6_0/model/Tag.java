@@ -5,9 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Allows adding meta data to a single tag.
@@ -26,19 +25,19 @@ public class Tag {
     /**
      * Required. The name of the tag.
      */
-    @Nonnull
+    @NotNull
     private String name;
 
     /**
      * A short description for the tag. <a href="https://spec.commonmark.org/">CommonMark syntax</a> can be used for rich text representation.
      */
-    @CheckForNull
+    @Nullable
     private String description;
 
     /**
      * Additional external documentation for this tag.
      */
-    @CheckForNull
+    @Nullable
     private ExternalDocumentation externalDocs;
 
 }

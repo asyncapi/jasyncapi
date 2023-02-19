@@ -24,8 +24,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.CheckForNull;
 import java.util.Map;
 
 /**
@@ -52,7 +52,7 @@ public class Components {
      *     <li>{@link Reference}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = ComponentsSchemasDeserializer.class)
     private Map<String, Object> schemas;
 
@@ -65,7 +65,7 @@ public class Components {
      *     <li>{@link Reference}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = ComponentsMessagesDeserializer.class)
     private Map<String, Object> messages;
 
@@ -78,7 +78,7 @@ public class Components {
      *     <li>{@link Reference}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = ComponentsSecuritySchemesDeserializer.class)
     private Map<String, Object> securitySchemes;
 
@@ -91,53 +91,53 @@ public class Components {
      *     <li>{@link Parameter}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = ComponentsParametersDeserializer.class)
     private Map<String, Object> parameters;
 
     /**
      * An object to hold reusable Correlation ID Objects.
      */
-    @CheckForNull
+    @Nullable
     private Map<String, CorrelationId> correlationIds;
 
     /**
      * An object to hold reusable Operation Trait Objects.
      */
-    @CheckForNull
+    @Nullable
     private Map<String, OperationTrait> operationTraits;
 
     /**
      * An object to hold reusable Message Trait Objects.
      */
-    @CheckForNull
+    @Nullable
     private Map<String, MessageTrait> messageTraits;
 
     /**
      * An object to hold reusable Server Binding Objects.
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = ServerBindingsDeserializer.class)
     private Map<String, ? extends ServerBindingsDeserializer> serverBindings;
 
     /**
      * An object to hold reusable Channel Binding Objects.
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = ChannelBindingsDeserializer.class)
     private Map<String, ? extends ChannelBinding> channelBindings;
 
     /**
      * An object to hold reusable Operation Binding Objects.
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = OperationBindingsDeserializer.class)
     private Map<String, ? extends OperationBinding> operationBindings;
 
     /**
      * An object to hold reusable Message Binding Objects.
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = MessageBindingsDeserializer.class)
     private Map<String, ? extends MessageBinding> messageBindings;
 

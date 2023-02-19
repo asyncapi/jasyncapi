@@ -6,9 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * @version 2.6.0
@@ -26,13 +25,13 @@ public class ApiKeySecurityScheme extends SecurityScheme {
      * <p>
      * The location of the API key.
      */
-    @Nonnull
+    @NotNull
     private ApiKeyLocation in;
 
     @Builder(builderMethodName = "apiKeySecuritySchemeBuilder")
-    public ApiKeySecurityScheme(@Nonnull Type type,
+    public ApiKeySecurityScheme(@NotNull Type type,
                                 @Nullable String description,
-                                @Nonnull ApiKeyLocation in) {
+                                @NotNull ApiKeyLocation in) {
         super(type, description);
         this.in = in;
     }

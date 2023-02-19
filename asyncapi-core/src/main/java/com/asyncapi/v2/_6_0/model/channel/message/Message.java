@@ -14,8 +14,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.CheckForNull;
 import java.util.List;
 import java.util.Map;
 
@@ -40,7 +40,7 @@ public class Message {
      * Tools and libraries MAY use the messageId to uniquely identify a message, therefore, it is RECOMMENDED to
      * follow common programming naming conventions.
      */
-    @CheckForNull
+    @Nullable
     private String messageId;
 
     /**
@@ -53,7 +53,7 @@ public class Message {
      *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = MessageHeadersDeserializer.class)
     private Object headers;
 
@@ -67,7 +67,7 @@ public class Message {
      *     <li>{@link com.asyncapi.v2._6_0.model.schema.Schema}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = MessagePayloadDeserializer.class)
     private Object payload;
 
@@ -80,7 +80,7 @@ public class Message {
      *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = MessageCorrelationIdDeserializer.class)
     private Object correlationId;
 
@@ -95,7 +95,7 @@ public class Message {
      * Custom values are allowed but their implementation is OPTIONAL.
      * A custom value MUST NOT refer to one of the schema formats listed in the <a href="https://www.asyncapi.com/docs/reference/specification/v2.6.0#messageObjectSchemaFormatTable">table<a/>.
      */
-    @CheckForNull
+    @Nullable
     private String schemaFormat;
 
     /**
@@ -103,43 +103,43 @@ public class Message {
      * media type (e.g. application/json). When omitted, the value MUST be the one specified on the
      * {@link com.asyncapi.v2._6_0.model.AsyncAPI#getDefaultContentType()} field.
      */
-    @CheckForNull
+    @Nullable
     private String contentType;
 
     /**
      * A machine-friendly name for the message.
      */
-    @CheckForNull
+    @Nullable
     private String name;
 
     /**
      * A human-friendly title for the message.
      */
-    @CheckForNull
+    @Nullable
     private String title;
 
     /**
      * A short summary of what the message is about.
      */
-    @CheckForNull
+    @Nullable
     private String summary;
 
     /**
      * A verbose explanation of the message. <a href="https://spec.commonmark.org/">CommonMark syntax</a> can be used for rich text representation.
      */
-    @CheckForNull
+    @Nullable
     private String description;
 
     /**
      * A list of tags for API documentation control. Tags can be used for logical grouping of messages.
      */
-    @CheckForNull
+    @Nullable
     private List<Tag> tags;
 
     /**
      * Additional external documentation for this message.
      */
-    @CheckForNull
+    @Nullable
     private ExternalDocumentation externalDocs;
 
     /**
@@ -152,14 +152,14 @@ public class Message {
      *     <li>{@link MessageBinding}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = MessageBindingsDeserializer.class)
     private Map<String, Object> bindings;
 
     /**
      * List of examples.
      */
-    @CheckForNull
+    @Nullable
     private List<MessageExample> examples;
 
     /**
@@ -173,7 +173,7 @@ public class Message {
      *     <li>{@link com.asyncapi.v2._6_0.model.channel.message.MessageTrait}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = MessageTraitsDeserializer.class)
     private List<Object> traits;
 

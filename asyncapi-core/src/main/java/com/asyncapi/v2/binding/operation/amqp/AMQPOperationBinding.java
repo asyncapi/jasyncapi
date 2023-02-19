@@ -6,8 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.CheckForNull;
 import java.util.List;
 
 /**
@@ -29,7 +29,7 @@ public class AMQPOperationBinding extends OperationBinding {
     /**
      * TTL (Time-To-Live) for the message. It MUST be greater than or equal to zero.
      */
-    @CheckForNull
+    @Nullable
     private Integer expiration;
 
     /**
@@ -37,7 +37,7 @@ public class AMQPOperationBinding extends OperationBinding {
      * <p>
      * Applies to: publish, subscribe
      */
-    @CheckForNull
+    @Nullable
     private String userId;
 
     /**
@@ -45,7 +45,7 @@ public class AMQPOperationBinding extends OperationBinding {
      * <p>
      * Applies to: publish, subscribe
      */
-    @CheckForNull
+    @Nullable
     private List<String> cc;
 
     /**
@@ -53,7 +53,7 @@ public class AMQPOperationBinding extends OperationBinding {
      * <p>
      * Applies to: publish, subscribe
      */
-    @CheckForNull
+    @Nullable
     private Integer priority;
 
     /**
@@ -61,7 +61,7 @@ public class AMQPOperationBinding extends OperationBinding {
      * <p>
      * Applies to: publish, subscribe
      */
-    @CheckForNull
+    @Nullable
     private Integer deliveryMode;
 
     /**
@@ -69,7 +69,7 @@ public class AMQPOperationBinding extends OperationBinding {
      * <p>
      * Applies to: publish
      */
-    @CheckForNull
+    @Nullable
     private Boolean mandatory;
 
     /**
@@ -77,7 +77,7 @@ public class AMQPOperationBinding extends OperationBinding {
      * <p>
      * Applies to: publish
      */
-    @CheckForNull
+    @Nullable
     private List<String> bcc;
 
     /**
@@ -85,7 +85,7 @@ public class AMQPOperationBinding extends OperationBinding {
      * <p>
      * Applies to: publish, subscribe
      */
-    @CheckForNull
+    @Nullable
     private String replyTo;
 
     /**
@@ -93,7 +93,7 @@ public class AMQPOperationBinding extends OperationBinding {
      * <p>
      * Applies to: publish, subscribe
      */
-    @CheckForNull
+    @Nullable
     private Boolean timestamp;
 
     /**
@@ -101,13 +101,13 @@ public class AMQPOperationBinding extends OperationBinding {
      * <p>
      * Applies to: subscribe
      */
-    @CheckForNull
+    @Nullable
     private Boolean ack;
 
     /**
      * The version of this binding. If omitted, "latest" MUST be assumed.
      */
-    @CheckForNull
+    @Nullable
     @Builder.Default
     private String bindingVersion = "0.2.0";
 

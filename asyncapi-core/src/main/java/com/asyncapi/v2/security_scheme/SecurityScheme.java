@@ -10,9 +10,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Defines a security scheme that can be used by the operations. Supported schemes are:
@@ -77,13 +76,13 @@ public class SecurityScheme {
      *     <li>openIdConnect</li>
      * </ul>
      */
-    @Nonnull
+    @NotNull
     private Type type;
 
     /**
      * A short description for security scheme. <a href="http://spec.commonmark.org/">CommonMark syntax</a> MAY be used for rich text representation.
      */
-    @CheckForNull
+    @Nullable
     private String description;
 
     public enum Type {

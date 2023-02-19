@@ -7,8 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.CheckForNull;
 import java.util.List;
 
 /**
@@ -28,7 +28,7 @@ public class KafkaChannelBinding extends ChannelBinding {
     /**
      * Kafka topic name if different from channel name.
      */
-    @CheckForNull
+    @Nullable
     private String topic;
 
     /**
@@ -36,7 +36,7 @@ public class KafkaChannelBinding extends ChannelBinding {
      * <p>
      * MUST be positive.
      */
-    @CheckForNull
+    @Nullable
     private Integer partitions;
 
     /**
@@ -44,19 +44,19 @@ public class KafkaChannelBinding extends ChannelBinding {
      * <p>
      * MUST be positive.
      */
-    @CheckForNull
+    @Nullable
     private Integer replicas;
 
     /**
      * Topic configuration properties that are relevant for the API.
      */
-    @CheckForNull
+    @Nullable
     private TopicConfiguration topicConfiguration;
 
     /**
      * The version of this binding. If omitted, "latest" MUST be assumed.
      */
-    @CheckForNull
+    @Nullable
     @Builder.Default
     private String bindingVersion = "0.4.0";
 
@@ -78,35 +78,35 @@ public class KafkaChannelBinding extends ChannelBinding {
          * <p>
          * array may only contain delete and/or compact
          */
-        @CheckForNull
+        @Nullable
         @JsonProperty("cleanup.policy")
         private List<String> cleanupPolicy;
 
         /**
          * The <a href="https://kafka.apache.org/documentation/#topicconfigs_retention.ms">retention.ms</a> configuration option.
          */
-        @CheckForNull
+        @Nullable
         @JsonProperty("retention.ms")
         private Integer retentionMs;
 
         /**
          * The <a href="https://kafka.apache.org/documentation/#topicconfigs_retention.bytes">retention.bytes</a> configuration option.
          */
-        @CheckForNull
+        @Nullable
         @JsonProperty("retention.bytes")
         private Integer retentionBytes;
 
         /**
          * The <a href="https://kafka.apache.org/documentation/#topicconfigs_delete.retention.ms">delete.retention.ms</a> configuration option.
          */
-        @CheckForNull
+        @Nullable
         @JsonProperty("delete.retention.ms")
         private Integer deleteRetentionMs;
 
         /**
          * The <a href="https://kafka.apache.org/documentation/#topicconfigs_max.message.bytes">max.message.bytes</a> configuration option.
          */
-        @CheckForNull
+        @Nullable
         @JsonProperty("max.message.bytes")
         private Integer maxMessageBytes;
 

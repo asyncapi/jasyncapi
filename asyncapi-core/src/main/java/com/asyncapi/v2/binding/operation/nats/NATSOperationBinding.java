@@ -6,8 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.CheckForNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Describes NATS operation binding.
@@ -26,13 +25,13 @@ public class NATSOperationBinding extends OperationBinding {
     /**
      * Defines the name of the queue to use. It MUST NOT exceed 255 characters.
      */
-    @CheckForNull
+    @Nullable
     private String queue;
 
     /**
      * The version of this binding. If omitted, "latest" MUST be assumed.
      */
-    @CheckForNull
+    @Nullable
     @Builder.Default
     private String bindingVersion = "0.1.0";
 

@@ -7,9 +7,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,7 +31,7 @@ public class Info {
      *
      * The title of the application.
      */
-    @Nonnull
+    @NotNull
     @JsonProperty
     private String title;
 
@@ -40,35 +40,35 @@ public class Info {
      *
      * Provides the version of the application API (not to be confused with the specification version).
      */
-    @Nonnull
+    @NotNull
     @JsonProperty
     private String version;
 
     /**
      * A short description of the application. CommonMark syntax can be used for rich text representation.
      */
-    @CheckForNull
+    @Nullable
     @JsonProperty
     private String description;
 
     /**
      * A URL to the Terms of Service for the API. MUST be in the format of a URL.
      */
-    @CheckForNull
+    @Nullable
     @JsonProperty
     private String termsOfService;
 
     /**
      * The contact information for the exposed API.
      */
-    @CheckForNull
+    @Nullable
     @JsonProperty
     private Contact contact;
 
     /**
      * The license information for the exposed API.
      */
-    @CheckForNull
+    @Nullable
     @JsonProperty
     private License license;
 

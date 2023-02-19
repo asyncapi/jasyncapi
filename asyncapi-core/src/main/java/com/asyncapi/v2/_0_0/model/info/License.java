@@ -4,9 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * License information for the exposed API.
@@ -24,13 +23,13 @@ public class License {
     /**
      * Required. The license name used for the API.
      */
-    @Nonnull
+    @NotNull
     private String name;
 
     /**
      * A URL to the license used for the API. MUST be in the format of a URL.
      */
-    @CheckForNull
+    @Nullable
     private String url;
 
 }

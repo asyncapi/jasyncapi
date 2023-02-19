@@ -6,10 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Describes MQTT server binding.
@@ -31,7 +29,6 @@ public class MQTTServerBinding extends ServerBinding {
      * The client identifier.
      */
     @Nullable
-    @CheckForNull
     private String clientId;
 
     /**
@@ -43,7 +40,6 @@ public class MQTTServerBinding extends ServerBinding {
      * Last Will and Testament configuration.
      */
     @Nullable
-    @CheckForNull
     private LastWillConfiguration lastWill;
 
     /**
@@ -55,7 +51,6 @@ public class MQTTServerBinding extends ServerBinding {
      * The version of this binding. If omitted, "latest" MUST be assumed.
      */
     @Nullable
-    @CheckForNull
     @Builder.Default
     private String bindingVersion = "0.1.0";
 
@@ -68,7 +63,7 @@ public class MQTTServerBinding extends ServerBinding {
         /**
          * The topic where the Last Will and Testament message will be sent.
          */
-        @Nonnull
+        @NotNull
         private String topic;
 
         /**
@@ -80,7 +75,7 @@ public class MQTTServerBinding extends ServerBinding {
         /**
          * Last Will message.
          */
-        @CheckForNull
+        @Nullable
         private String message;
 
         /**

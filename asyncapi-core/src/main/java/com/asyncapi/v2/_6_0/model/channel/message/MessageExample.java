@@ -5,8 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.CheckForNull;
 import java.util.Map;
 
 /**
@@ -22,25 +22,25 @@ public class MessageExample {
     /**
      * The value of this field MUST validate against the {@link com.asyncapi.v2._6_0.model.channel.message.Message#getHeaders()} field.
      */
-    @CheckForNull
+    @Nullable
     public Map<String, Object> headers;
 
     /**
      * The value of this field MUST validate against the Message {@link com.asyncapi.v2._6_0.model.channel.message.Message#getPayload()} field.
      */
-    @CheckForNull
+    @Nullable
     private Object payload;
 
     /**
      * A machine-friendly name.
      */
-    @CheckForNull
+    @Nullable
     private String name;
 
     /**
      * A short summary of what the example is about.
      */
-    @CheckForNull
+    @Nullable
     private String summary;
 
 }

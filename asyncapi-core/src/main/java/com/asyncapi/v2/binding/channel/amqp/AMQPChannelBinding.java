@@ -6,8 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.CheckForNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Describes AMQP 0-9-1 channel binding.
@@ -28,22 +27,22 @@ public class AMQPChannelBinding extends ChannelBinding {
     /**
      * Defines what type of channel is it. Can be either queue or routingKey (default).
      */
-    @CheckForNull
+    @Nullable
     private String is;
 
     /**
      * When is=routingKey, this object defines the exchange properties.
      */
-    @CheckForNull
+    @Nullable
     private ExchangeProperties exchange;
 
     /**
      * When is=queue, this object defines the queue properties.
      */
-    @CheckForNull
+    @Nullable
     private QueueProperties queue;
 
-    @CheckForNull
+    @Nullable
     @Builder.Default
     private String bindingVersion = "0.2.0";
 
@@ -57,31 +56,31 @@ public class AMQPChannelBinding extends ChannelBinding {
         /**
          * The name of the exchange. It MUST NOT exceed 255 characters long.
          */
-        @CheckForNull
+        @Nullable
         private String name;
 
         /**
          * The type of the exchange. Can be either topic, direct, fanout, default or headers.
          */
-        @CheckForNull
+        @Nullable
         private String type;
 
         /**
          * Whether the exchange should survive broker restarts or not.
          */
-        @CheckForNull
+        @Nullable
         private Boolean durable;
 
         /**
          * Whether the exchange should be deleted when the last queue is unbound from it.
          */
-        @CheckForNull
+        @Nullable
         private Boolean autoDelete;
 
         /**
          * The virtual host of the exchange. Defaults to /.
          */
-        @CheckForNull
+        @Nullable
         @Builder.Default
         private String vhost = "/";
 
@@ -97,31 +96,31 @@ public class AMQPChannelBinding extends ChannelBinding {
         /**
          * The name of the queue. It MUST NOT exceed 255 characters long.
          */
-        @CheckForNull
+        @Nullable
         private String name;
 
         /**
          * Whether the queue should survive broker restarts or not.
          */
-        @CheckForNull
+        @Nullable
         private Boolean durable;
 
         /**
          * Whether the queue should be used only by one connection or not.
          */
-        @CheckForNull
+        @Nullable
         private Boolean exclusive;
 
         /**
          * Whether the queue should be deleted when the last consumer unsubscribes.
          */
-        @CheckForNull
+        @Nullable
         private Boolean autoDelete;
 
         /**
          * The virtual host of the queue. Defaults to /.
          */
-        @CheckForNull
+        @Nullable
         @Builder.Default
         private String vhost = "/";
 

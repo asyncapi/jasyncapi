@@ -6,8 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.CheckForNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Describes Anypoint MQ message binding.
@@ -30,13 +29,13 @@ public class AnypointMQMessageBinding extends MessageBinding {
      * This schema MUST be of type object and have a properties key. Examples of Anypoint MQ protocol headers are
      * messageId and messageGroupId.
      */
-    @CheckForNull
+    @Nullable
     private Object headers;
 
     /**
      * OPTIONAL, defaults to latest. The version of this binding.
      */
-    @CheckForNull
+    @Nullable
     @Builder.Default
     private String bindingVersion = "0.0.1";
 

@@ -6,8 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.CheckForNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Describes AMQP 0-9-1 message binding.
@@ -28,19 +27,19 @@ public class AMQPMessageBinding extends MessageBinding {
     /**
      * A MIME encoding for the message content.
      */
-    @CheckForNull
+    @Nullable
     private String contentEncoding;
 
     /**
      * Application-specific message type.
      */
-    @CheckForNull
+    @Nullable
     private String messageType;
 
     /**
      * The version of this binding. If omitted, "latest" MUST be assumed.
      */
-    @CheckForNull
+    @Nullable
     @Builder.Default
     private String bindingVersion = "0.2.0";
 

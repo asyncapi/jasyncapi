@@ -6,8 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.CheckForNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Describes Anypoint MQ channel binding.
@@ -29,7 +28,7 @@ public class AnypointMQChannelBinding extends ChannelBinding {
      * The destination (queue or exchange) name for this channel. SHOULD only be specified if the channel name differs
      * from the actual destination name, such as when the channel name is not a valid destination name in Anypoint MQ.
      */
-    @CheckForNull
+    @Nullable
     private String destination;
 
     /**
@@ -39,13 +38,13 @@ public class AnypointMQChannelBinding extends ChannelBinding {
      * SHOULD be specified to document the messaging model (publish/subscribe, point-to-point, strict message ordering)
      * supported by this channel.
      */
-    @CheckForNull
+    @Nullable
     private String destinationType;
 
     /**
      * OPTIONAL, defaults to latest. The version of this binding.
      */
-    @CheckForNull
+    @Nullable
     @Builder.Default
     private String bindingVersion = "0.0.1";
 

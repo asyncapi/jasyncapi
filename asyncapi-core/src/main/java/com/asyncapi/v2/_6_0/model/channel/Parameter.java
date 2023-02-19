@@ -6,8 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.CheckForNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Describes a parameter included in a channel name.
@@ -25,7 +24,7 @@ public class Parameter {
     /**
      * A verbose explanation of the parameter. <a href="https://spec.commonmark.org/">CommonMark syntax</a> can be used for rich text representation.
      */
-    @CheckForNull
+    @Nullable
     private String description;
 
     /**
@@ -37,7 +36,7 @@ public class Parameter {
      *     <li>{@link com.asyncapi.v2._6_0.model.schema.Schema}</li>
      * </ul>
      */
-    @CheckForNull
+    @Nullable
     @JsonDeserialize(using = SchemaDeserializer.class)
     private Object schema;
 
@@ -47,7 +46,7 @@ public class Parameter {
      * Even when a definition for the target field exists, it MUST NOT be used to validate this parameter but, instead,
      * the schema property MUST be used.
      */
-    @CheckForNull
+    @Nullable
     private String location;
 
 }

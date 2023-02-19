@@ -4,8 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * A simple object to allow referencing other components in the specification, internally and externally.
@@ -32,7 +31,7 @@ public class Reference {
      *
      * The reference string.
      */
-    @Nonnull
+    @NotNull
     @JsonProperty(value = "$ref")
     private String ref;
 

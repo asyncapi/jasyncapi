@@ -7,8 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.Nonnull;
 import java.util.List;
 
 /**
@@ -29,7 +29,7 @@ public class OneOfMessages {
      *     <li>{@link com.asyncapi.v2._6_0.model.channel.message.Message}</li>
      * </ul>
      */
-    @Nonnull
+    @NotNull
     @JsonDeserialize(using = MessagesDeserializer.class)
     private List<Object> oneOf;
 

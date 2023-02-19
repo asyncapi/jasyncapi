@@ -5,9 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * @version 2.6.0
@@ -25,13 +24,13 @@ public class OpenIdConnectSecurityScheme extends SecurityScheme {
      * <p>
      * OpenId Connect URL to discover OAuth2 configuration values. This MUST be in the form of a URL.
      */
-    @Nonnull
+    @NotNull
     private String openIdConnectUrl;
 
     @Builder(builderMethodName = "openIdConnectSecurityScheme")
-    public OpenIdConnectSecurityScheme(@Nonnull Type type,
+    public OpenIdConnectSecurityScheme(@NotNull Type type,
                                        @Nullable String description,
-                                       @Nonnull String openIdConnectUrl) {
+                                       @NotNull String openIdConnectUrl) {
         super(type, description);
         this.openIdConnectUrl = openIdConnectUrl;
     }

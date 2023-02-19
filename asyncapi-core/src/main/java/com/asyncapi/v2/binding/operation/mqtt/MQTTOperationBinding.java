@@ -6,8 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.CheckForNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Describes MQTT operation binding.
@@ -31,7 +30,7 @@ public class MQTTOperationBinding extends OperationBinding {
      * <p>
      * Applies to: publish, subscribe
      */
-    @CheckForNull
+    @Nullable
     private Integer qos;
 
     /**
@@ -39,7 +38,7 @@ public class MQTTOperationBinding extends OperationBinding {
      * <p>
      * Applies to: publish, subscribe
      */
-    @CheckForNull
+    @Nullable
     private Boolean retain;
 
     /**
@@ -47,7 +46,7 @@ public class MQTTOperationBinding extends OperationBinding {
      * <p>
      * Applies to: publish, subscribe
      */
-    @CheckForNull
+    @Nullable
     @Builder.Default
     private String bindingVersion = "0.1.0";
 

@@ -6,9 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Describes HTTP operation binding.
@@ -31,14 +30,14 @@ public class HTTPOperationBinding extends OperationBinding {
      * <p>
      * Type of operation. Its value MUST be either request or response.
      */
-    @Nonnull
+    @NotNull
     private String type;
 
     /**
      * When type is request, this is the HTTP method, otherwise it MUST be ignored. Its value MUST be one of
      * GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS, CONNECT, and TRACE.
      */
-    @CheckForNull
+    @Nullable
     private String method;
 
     /**
@@ -47,13 +46,13 @@ public class HTTPOperationBinding extends OperationBinding {
      *
      * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#schemaObject">Schema object</a>
      */
-    @CheckForNull
+    @Nullable
     private Object query;
 
     /**
      * The version of this binding. If omitted, "latest" MUST be assumed.
      */
-    @CheckForNull
+    @Nullable
     @Builder.Default
     private String bindingVersion = "0.1.0";
 

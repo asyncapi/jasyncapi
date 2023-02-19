@@ -6,8 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.CheckForNull;
 import java.util.List;
 import java.util.Map;
 
@@ -35,31 +35,31 @@ public class GooglePubSubChannelBinding extends ChannelBinding {
     /**
      * An object of key-value pairs (These are used to categorize Cloud Resources like Cloud Pub/Sub Topics.)
      */
-    @CheckForNull
+    @Nullable
     private Map<String, Object> labels;
 
     /**
      * Indicates the minimum duration to retain a message after it is published to the topic (Must be a valid <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Duration">Duration</a>.)
      */
-    @CheckForNull
+    @Nullable
     private String messageRetentionDuration;
 
     /**
      * Policy constraining the set of Google Cloud Platform regions where messages published to the topic may be stored
      */
-    @CheckForNull
+    @Nullable
     private MessageStoragePolicy messageStoragePolicy;
 
     /**
      * Settings for validating messages published against a schema
      */
-    @CheckForNull
+    @Nullable
     private SchemaSettings schemaSettings;
 
     /**
      * OPTIONAL, defaults to latest. The version of this binding.
      */
-    @CheckForNull
+    @Nullable
     @Builder.Default
     private String bindingVersion = "0.1.0";
 
@@ -76,7 +76,7 @@ public class GooglePubSubChannelBinding extends ChannelBinding {
         /**
          * A list of IDs of GCP regions where messages that are published to the topic may be persisted in storage
          */
-        @CheckForNull
+        @Nullable
         private List<String> allowedPersistenceRegions;
 
     }
@@ -94,25 +94,25 @@ public class GooglePubSubChannelBinding extends ChannelBinding {
         /**
          * The encoding of the message (Must be one of the possible <a href="https://cloud.google.com/pubsub/docs/reference/rest/v1/projects.topics#encoding">Encoding</a> values.)
          */
-        @CheckForNull
+        @Nullable
         private String encoding;
 
         /**
          * The minimum (inclusive) revision allowed for validating messages
          */
-        @CheckForNull
+        @Nullable
         private String firstRevisionId;
 
         /**
          * The maximum (inclusive) revision allowed for validating messages
          */
-        @CheckForNull
+        @Nullable
         private String lastRevisionId;
 
         /**
          * The name of the schema that messages published should be validated against (The format is projects/{project}/schemas/{schema}.)
          */
-        @CheckForNull
+        @Nullable
         private String name;
 
     }

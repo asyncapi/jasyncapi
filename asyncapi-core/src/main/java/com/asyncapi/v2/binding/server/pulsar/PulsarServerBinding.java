@@ -6,8 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import javax.annotation.CheckForNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Describes Pulsar server binding.
@@ -26,14 +25,14 @@ public class PulsarServerBinding extends ServerBinding {
     /**
      * The pulsar tenant. If omitted, "public" MUST be assumed.
      */
-    @CheckForNull
+    @Nullable
     @Builder.Default
     private String tenant = "public";
 
     /**
      * The version of this binding.
      */
-    @CheckForNull
+    @Nullable
     @Builder.Default
     private String bindingVersion = "0.1.0";
 
