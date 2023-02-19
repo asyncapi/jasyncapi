@@ -1,4 +1,4 @@
-package com.asyncapi.v2._6_0.jackson;
+package com.asyncapi.v2.jackson;
 
 import com.asyncapi.v2._6_0.model.Reference;
 import com.fasterxml.jackson.core.JsonParser;

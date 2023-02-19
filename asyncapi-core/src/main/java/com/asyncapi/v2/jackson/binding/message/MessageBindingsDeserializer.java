@@ -1,5 +1,6 @@
 package com.asyncapi.v2.jackson.binding.message;
 
+import com.asyncapi.v2._6_0.model.Reference;
 import com.asyncapi.v2.binding.message.amqp.AMQPMessageBinding;
 import com.asyncapi.v2.binding.message.amqp1.AMQP1MessageBinding;
 import com.asyncapi.v2.binding.message.anypointmq.AnypointMQMessageBinding;
@@ -19,52 +20,18 @@ import com.asyncapi.v2.binding.message.solace.SolaceMessageBinding;
 import com.asyncapi.v2.binding.message.sqs.SQSMessageBinding;
 import com.asyncapi.v2.binding.message.stomp.STOMPMessageBinding;
 import com.asyncapi.v2.binding.message.ws.WebSocketsMessageBinding;
-import com.asyncapi.v2._6_0.model.Reference;
-import com.fasterxml.jackson.core.JsonParser;
+import com.asyncapi.v2.jackson.BindingsMapDeserializer;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.ObjectCodec;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Serializes message bindings map.
  *
  * @author Pavel Bodiachevskii
  */
-public class MessageBindingsDeserializer extends JsonDeserializer<Map<String, Object>> {
+public class MessageBindingsDeserializer extends BindingsMapDeserializer {
 
-    private final ObjectMapper objectMapper = new ObjectMapper();
-
-    @Override
-    public Map<String, Object> deserialize(
-            JsonParser p,
-            DeserializationContext ctxt
-    ) throws IOException, JsonProcessingException {
-        ObjectCodec objectCodec = p.getCodec();
-        JsonNode node = objectCodec.readTree(p);
-
-        Map<String, Object> bindings = new HashMap<>();
-
-        node.fieldNames().forEachRemaining(
-                fieldName -> {
-                    try {
-                        bindings.put(fieldName, chooseKnownPojo(fieldName, node.get(fieldName)));
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-        );
-
-        return bindings;
-    }
-
-    private Object chooseKnownPojo(String bindingKey, JsonNode binding) throws IOException {
+    public Object chooseKnownPojo(String bindingKey, JsonNode binding) throws JsonProcessingException {
         if (binding.get("$ref" ) != null) {
             return objectMapper.readValue(binding.toString(), Reference.class);
         }
