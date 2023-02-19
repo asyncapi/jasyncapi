@@ -1,7 +1,6 @@
-package com.asyncapi.v2._6_0.binding.message.ibmmq
+package com.asyncapi.v2.binding.message.ibmmq
 
 import com.asyncapi.v2.ClasspathUtils
-import com.asyncapi.v2.binding.message.ibmmq.IBMMQMessageBinding
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName

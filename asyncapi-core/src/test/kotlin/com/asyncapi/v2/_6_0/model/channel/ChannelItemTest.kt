@@ -1,13 +1,13 @@
 package com.asyncapi.v2._6_0.model.channel
 
 import com.asyncapi.v2.ClasspathUtils
-import com.asyncapi.v2._6_0.binding.channel.amqp.AMQPChannelBindingTest
-import com.asyncapi.v2._6_0.binding.channel.anypointmq.AnypointMQChannelBindingTest
-import com.asyncapi.v2._6_0.binding.channel.googlepubsub.GooglePubSubChannelBindingTest
-import com.asyncapi.v2._6_0.binding.channel.ibmmq.IBMMQChannelBindingTest
-import com.asyncapi.v2._6_0.binding.channel.kafka.KafkaChannelBindingTest
-import com.asyncapi.v2._6_0.binding.channel.pulsar.PulsarChannelBindingTest
-import com.asyncapi.v2._6_0.binding.channel.ws.WebSocketsChannelBindingTest
+import com.asyncapi.v2.binding.channel.amqp.AMQPChannelBindingTest
+import com.asyncapi.v2.binding.channel.anypointmq.AnypointMQChannelBindingTest
+import com.asyncapi.v2.binding.channel.googlepubsub.GooglePubSubChannelBindingTest
+import com.asyncapi.v2.binding.channel.ibmmq.IBMMQChannelBindingTest
+import com.asyncapi.v2.binding.channel.kafka.KafkaChannelBindingTest
+import com.asyncapi.v2.binding.channel.pulsar.PulsarChannelBindingTest
+import com.asyncapi.v2.binding.channel.ws.WebSocketsChannelBindingTest
 import com.asyncapi.v2._6_0.model.Reference
 import com.asyncapi.v2._6_0.model.channel.message.*
 import com.asyncapi.v2._6_0.model.channel.operation.OperationTest

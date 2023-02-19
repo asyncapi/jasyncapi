@@ -1,8 +1,6 @@
-package com.asyncapi.v2._6_0.binding.operation.solace
+package com.asyncapi.v2.binding.operation.solace
 
 import com.asyncapi.v2.ClasspathUtils
-import com.asyncapi.v2.binding.operation.solace.SolaceDestination
-import com.asyncapi.v2.binding.operation.solace.SolaceOperationBinding
 import com.asyncapi.v2.binding.operation.solace.queue.SolaceQueue
 import com.asyncapi.v2.binding.operation.solace.topic.SolaceTopic
 import com.fasterxml.jackson.databind.ObjectMapper

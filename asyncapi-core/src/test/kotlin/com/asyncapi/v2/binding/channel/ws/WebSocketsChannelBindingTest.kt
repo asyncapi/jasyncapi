@@ -1,7 +1,6 @@
-package com.asyncapi.v2._6_0.binding.channel.ws
+package com.asyncapi.v2.binding.channel.ws
 
 import com.asyncapi.v2.ClasspathUtils
-import com.asyncapi.v2.binding.channel.ws.WebSocketsChannelBinding
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName

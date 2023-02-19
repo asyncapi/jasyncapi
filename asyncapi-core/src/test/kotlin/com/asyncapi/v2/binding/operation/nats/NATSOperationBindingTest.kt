@@ -1,7 +1,6 @@
-package com.asyncapi.v2._6_0.binding.operation.nats
+package com.asyncapi.v2.binding.operation.nats
 
 import com.asyncapi.v2.ClasspathUtils
-import com.asyncapi.v2.binding.operation.nats.NATSOperationBinding
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName

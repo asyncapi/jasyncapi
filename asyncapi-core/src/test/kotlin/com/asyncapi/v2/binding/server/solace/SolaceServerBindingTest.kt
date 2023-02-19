@@ -1,7 +1,6 @@
-package com.asyncapi.v2._6_0.binding.server.solace
+package com.asyncapi.v2.binding.server.solace
 
 import com.asyncapi.v2.ClasspathUtils
-import com.asyncapi.v2.binding.server.solace.SolaceServerBinding
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName
