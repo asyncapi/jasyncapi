@@ -1,7 +1,10 @@
 package com.asyncapi.v2.binding.operation.ibmmq;
 
 import com.asyncapi.v2.binding.operation.OperationBinding;
-import lombok.*;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * Describes IBM MQ operation binding.

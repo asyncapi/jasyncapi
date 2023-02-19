@@ -1,7 +1,10 @@
 package com.asyncapi.v2._6_0.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.annotation.Nonnull;
 

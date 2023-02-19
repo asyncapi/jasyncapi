@@ -1,10 +1,13 @@
 package com.asyncapi.v2.binding.server.solace;
 
-import javax.annotation.CheckForNull;
-
 import com.asyncapi.v2.binding.server.ServerBinding;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
-import lombok.*;
+import javax.annotation.CheckForNull;
 
 /**
  * Describes Solace server binding.

@@ -1,6 +1,10 @@
 package com.asyncapi.v2._6_0.model.channel.message;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.annotation.CheckForNull;
 import java.util.Map;

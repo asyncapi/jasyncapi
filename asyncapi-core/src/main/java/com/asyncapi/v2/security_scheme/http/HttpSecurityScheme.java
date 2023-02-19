@@ -1,7 +1,11 @@
 package com.asyncapi.v2.security_scheme.http;
 
 import com.asyncapi.v2.security_scheme.SecurityScheme;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;

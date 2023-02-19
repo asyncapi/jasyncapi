@@ -1,7 +1,11 @@
 package com.asyncapi.v2.binding.message.googlepubsub;
 
 import com.asyncapi.v2.binding.message.MessageBinding;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.annotation.CheckForNull;
 

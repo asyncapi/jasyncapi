@@ -1,7 +1,7 @@
 package com.asyncapi.v2._0_0.jackson.model.channel;
 
-import com.asyncapi.v2._0_0.model.channel.Parameter;
 import com.asyncapi.v2._0_0.model.Reference;
+import com.asyncapi.v2._0_0.model.channel.Parameter;
 import com.asyncapi.v2.jackson.MapOfReferencesOrObjectsDeserializer;
 
 /**

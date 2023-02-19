@@ -6,10 +6,14 @@ import com.asyncapi.v2._0_0.model.ExternalDocumentation;
 import com.asyncapi.v2._0_0.model.Reference;
 import com.asyncapi.v2._0_0.model.Tag;
 import com.asyncapi.v2._0_0.model.channel.message.Message;
-import com.asyncapi.v2.jackson.binding.operation.OperationBindingsDeserializer;
 import com.asyncapi.v2.binding.operation.OperationBinding;
+import com.asyncapi.v2.jackson.binding.operation.OperationBindingsDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.annotation.CheckForNull;
 import java.util.List;

@@ -1,11 +1,15 @@
 package com.asyncapi.v2._6_0.model.server;
 
-import com.asyncapi.v2.jackson.binding.server.ServerBindingsDeserializer;
 import com.asyncapi.v2._6_0.jackson.model.server.ServerVariablesDeserializer;
 import com.asyncapi.v2._6_0.model.Tag;
 import com.asyncapi.v2.binding.server.ServerBinding;
+import com.asyncapi.v2.jackson.binding.server.ServerBindingsDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;

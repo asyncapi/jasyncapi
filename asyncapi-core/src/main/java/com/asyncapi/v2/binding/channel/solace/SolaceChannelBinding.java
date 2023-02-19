@@ -1,7 +1,10 @@
 package com.asyncapi.v2.binding.channel.solace;
 
 import com.asyncapi.v2.binding.channel.ChannelBinding;
-import lombok.*;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * This class MUST NOT contain any properties. Its name is reserved for future use.

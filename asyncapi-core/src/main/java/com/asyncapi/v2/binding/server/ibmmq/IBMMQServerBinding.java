@@ -1,7 +1,11 @@
 package com.asyncapi.v2.binding.server.ibmmq;
 
 import com.asyncapi.v2.binding.server.ServerBinding;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.annotation.CheckForNull;
 

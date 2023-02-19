@@ -4,16 +4,14 @@ import com.asyncapi.v2._0_0.model.schema.Schema;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.annotation.CheckForNull;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.annotation.CheckForNull;
 
 /**
  * Describes a parameter included in a channel name.

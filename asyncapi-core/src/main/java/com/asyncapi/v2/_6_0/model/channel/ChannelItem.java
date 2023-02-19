@@ -1,9 +1,9 @@
 package com.asyncapi.v2._6_0.model.channel;
 
-import com.asyncapi.v2.jackson.binding.channel.ChannelBindingsDeserializer;
 import com.asyncapi.v2._6_0.jackson.model.channel.ChannelParametersDeserializer;
 import com.asyncapi.v2._6_0.model.channel.operation.Operation;
 import com.asyncapi.v2.binding.channel.ChannelBinding;
+import com.asyncapi.v2.jackson.binding.channel.ChannelBindingsDeserializer;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;

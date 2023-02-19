@@ -2,7 +2,11 @@ package com.asyncapi.v2.binding.channel.pulsar;
 
 import com.asyncapi.v2.binding.channel.ChannelBinding;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;

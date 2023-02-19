@@ -1,6 +1,9 @@
 package com.asyncapi.v2.security_scheme.oauth2.flow;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;

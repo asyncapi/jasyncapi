@@ -1,6 +1,10 @@
 package com.asyncapi.v2.security_scheme;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

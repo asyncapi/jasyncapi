@@ -2,7 +2,11 @@ package com.asyncapi.v2._6_0.model.channel.message;
 
 import com.asyncapi.v2._6_0.jackson.model.channel.message.MessagesDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.annotation.Nonnull;
 import java.util.List;

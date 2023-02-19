@@ -4,12 +4,12 @@ import com.asyncapi.v2._0_0.jackson.model.channel.message.MessageCorrelationIdDe
 import com.asyncapi.v2._0_0.jackson.model.channel.message.MessageHeadersDeserializer;
 import com.asyncapi.v2._0_0.jackson.model.channel.message.MessagePayloadDeserializer;
 import com.asyncapi.v2._0_0.jackson.model.channel.message.MessageTraitsDeserializer;
-import com.asyncapi.v2._0_0.model.Reference;
-import com.asyncapi.v2._0_0.model.schema.Schema;
 import com.asyncapi.v2._0_0.model.ExternalDocumentation;
+import com.asyncapi.v2._0_0.model.Reference;
 import com.asyncapi.v2._0_0.model.Tag;
-import com.asyncapi.v2.jackson.binding.message.MessageBindingsDeserializer;
+import com.asyncapi.v2._0_0.model.schema.Schema;
 import com.asyncapi.v2.binding.message.MessageBinding;
+import com.asyncapi.v2.jackson.binding.message.MessageBindingsDeserializer;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -20,9 +20,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.annotation.CheckForNull;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.HashMap;
 
 /**
  * Describes a message received on a given channel and operation.

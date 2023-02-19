@@ -1,6 +1,11 @@
 package com.asyncapi.v2._6_0.model;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;

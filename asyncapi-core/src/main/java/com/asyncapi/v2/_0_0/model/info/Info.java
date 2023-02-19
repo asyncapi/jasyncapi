@@ -1,16 +1,18 @@
 package com.asyncapi.v2._0_0.model.info;
 
-import lombok.*;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+
+import javax.annotation.CheckForNull;
+import javax.annotation.Nonnull;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * The object provides metadata about the API. The metadata can be used by the clients if needed.
