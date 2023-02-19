@@ -1,11 +1,15 @@
 package com.asyncapi.v2._6_0.model.component;
 
-import com.asyncapi.v2._6_0.jackson.binding.channel.ChannelBindingsDeserializer;
-import com.asyncapi.v2._6_0.jackson.binding.message.MessageBindingsDeserializer;
-import com.asyncapi.v2._6_0.jackson.binding.operation.OperationBindingsDeserializer;
-import com.asyncapi.v2._6_0.jackson.binding.server.ServerBindingsDeserializer;
+import com.asyncapi.v2.jackson.binding.channel.ChannelBindingsDeserializer;
+import com.asyncapi.v2.jackson.binding.message.MessageBindingsDeserializer;
+import com.asyncapi.v2.jackson.binding.operation.OperationBindingsDeserializer;
+import com.asyncapi.v2.jackson.binding.server.ServerBindingsDeserializer;
 import com.asyncapi.v2._6_0.jackson.model.component.*;
 import com.asyncapi.v2._6_0.model.channel.ChannelItem;
+import com.asyncapi.v2.binding.channel.ChannelBinding;
+import com.asyncapi.v2.binding.message.MessageBinding;
+import com.asyncapi.v2.binding.operation.OperationBinding;
+import com.asyncapi.v2.binding.server.ServerBinding;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -153,11 +157,11 @@ public class Components {
     private Map<String, Object> messageTraits;
 
     /**
-     * An object to hold reusable {@link com.asyncapi.v2._6_0.binding.server.ServerBinding} Objects.
+     * An object to hold reusable {@link ServerBinding} Objects.
      * MUST BE:
      * <ul>
      *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
-     *     <li>{@link com.asyncapi.v2._6_0.binding.server.ServerBinding}</li>
+     *     <li>{@link ServerBinding}</li>
      * </ul>
      */
     @CheckForNull
@@ -165,11 +169,11 @@ public class Components {
     private Map<String, Object> serverBindings;
 
     /**
-     * An object to hold reusable {@link com.asyncapi.v2._6_0.binding.channel.ChannelBinding} Objects.
+     * An object to hold reusable {@link ChannelBinding} Objects.
      * MUST BE:
      * <ul>
      *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
-     *     <li>{@link com.asyncapi.v2._6_0.binding.channel.ChannelBinding}</li>
+     *     <li>{@link ChannelBinding}</li>
      * </ul>
      */
     @CheckForNull
@@ -177,11 +181,11 @@ public class Components {
     private Map<String, Object> channelBindings;
 
     /**
-     * An object to hold reusable {@link com.asyncapi.v2._6_0.binding.operation.OperationBinding} Objects.
+     * An object to hold reusable {@link OperationBinding} Objects.
      * MUST BE:
      * <ul>
      *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
-     *     <li>{@link com.asyncapi.v2._6_0.binding.operation.OperationBinding}</li>
+     *     <li>{@link OperationBinding}</li>
      * </ul>
      */
     @CheckForNull
@@ -189,11 +193,11 @@ public class Components {
     private Map<String, Object> operationBindings;
 
     /**
-     * An object to hold reusable {@link com.asyncapi.v2._6_0.binding.message.MessageBinding} Objects.
+     * An object to hold reusable {@link MessageBinding} Objects.
      * MUST BE:
      * <ul>
      *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
-     *     <li>{@link com.asyncapi.v2._6_0.binding.message.MessageBinding}</li>
+     *     <li>{@link MessageBinding}</li>
      * </ul>
      */
     @CheckForNull

@@ -1,7 +1,7 @@
 package com.asyncapi.v2.security_scheme
 
 import com.asyncapi.v2.ClasspathUtils
-import com.asyncapi.v2.model.security_scheme.SecurityScheme
+import com.asyncapi.v2._0_0.model.security_scheme.SecurityScheme
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import org.junit.jupiter.api.Assertions

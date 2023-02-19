@@ -1,14 +1,16 @@
 package com.asyncapi.v2.model
 
 import com.asyncapi.v2.ClasspathUtils
-import com.asyncapi.v2.model.channel.Parameter
-import com.asyncapi.v2.model.channel.message.CorrelationId
-import com.asyncapi.v2.model.channel.message.Message
-import com.asyncapi.v2.model.channel.message.MessageTrait
-import com.asyncapi.v2.model.component.Components
-import com.asyncapi.v2.model.schema.Schema
-import com.asyncapi.v2.model.schema.Type
-import com.asyncapi.v2.model.security_scheme.SecurityScheme
+import com.asyncapi.v2._0_0.model.Reference
+import com.asyncapi.v2._0_0.model.Tag
+import com.asyncapi.v2._0_0.model.channel.Parameter
+import com.asyncapi.v2._0_0.model.channel.message.CorrelationId
+import com.asyncapi.v2._0_0.model.channel.message.Message
+import com.asyncapi.v2._0_0.model.channel.message.MessageTrait
+import com.asyncapi.v2._0_0.model.component.Components
+import com.asyncapi.v2._0_0.model.schema.Schema
+import com.asyncapi.v2._0_0.model.schema.Type
+import com.asyncapi.v2._0_0.model.security_scheme.SecurityScheme
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName

@@ -1,6 +1,6 @@
 package com.asyncapi.v2._6_0.model.schema;
 
-import com.asyncapi.v2.model.ExternalDocumentation;
+import com.asyncapi.v2._6_0.model.ExternalDocumentation;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
