@@ -7,7 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
@@ -33,7 +32,6 @@ public class Info {
      * The title of the application.
      */
     @Nonnull
-    @NonNull
     @JsonProperty
     private String title;
 
@@ -43,7 +41,6 @@ public class Info {
      * Provides the version of the application API (not to be confused with the specification version).
      */
     @Nonnull
-    @NonNull
     @JsonProperty
     private String version;
 

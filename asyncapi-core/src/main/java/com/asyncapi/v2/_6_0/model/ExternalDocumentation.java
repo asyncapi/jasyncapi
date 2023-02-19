@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
@@ -39,7 +38,6 @@ public class ExternalDocumentation {
      * The URL for the target documentation. Value MUST be in the format of a URL.
      */
     @Nonnull
-    @NonNull
     private String url;
 
 }

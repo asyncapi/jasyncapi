@@ -8,7 +8,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
@@ -42,7 +41,6 @@ public class AsyncAPI {
      * Patch versions will correspond to patches of this document.
      */
     @Nonnull
-    @NonNull
     private String asyncapi = "2.0.0";
 
     /**
@@ -73,7 +71,6 @@ public class AsyncAPI {
      * Provides metadata about the API. The metadata can be used by the clients if needed.
      */
     @Nonnull
-    @NonNull
     private Info info;
 
     /**
@@ -92,7 +89,6 @@ public class AsyncAPI {
      * Channels are also known as "topics", "routing keys", "event types" or "paths".
      */
     @Nonnull
-    @NonNull
     private Map<String, ChannelItem> channels;
 
     /**

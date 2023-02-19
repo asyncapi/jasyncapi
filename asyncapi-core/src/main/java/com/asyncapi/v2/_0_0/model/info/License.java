@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
@@ -26,7 +25,6 @@ public class License {
      * Required. The license name used for the API.
      */
     @Nonnull
-    @NonNull
     private String name;
 
     /**

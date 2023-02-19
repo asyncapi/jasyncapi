@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
@@ -36,7 +35,6 @@ public class CorrelationId {
      * A runtime expression that specifies the location of the correlation ID.
      */
     @Nonnull
-    @NonNull
     private String location;
 
 }

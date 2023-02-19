@@ -10,7 +10,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
@@ -42,7 +41,6 @@ public class Server {
      * made when a variable is named in {brackets}.
      */
     @Nonnull
-    @NonNull
     @JsonProperty
     private String url;
 
@@ -53,7 +51,6 @@ public class Server {
      * amqp, amqps, http, https, jms, kafka, kafka-secure, mqtt, secure-mqtt, stomp, stomps, ws, wss.
      */
     @Nonnull
-    @NonNull
     @JsonProperty
     private String protocol;
 

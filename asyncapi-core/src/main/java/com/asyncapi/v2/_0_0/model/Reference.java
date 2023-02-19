@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 import javax.annotation.Nonnull;
 
@@ -34,7 +33,6 @@ public class Reference {
      * The reference string.
      */
     @Nonnull
-    @NonNull
     @JsonProperty(value = "$ref")
     private String ref;
 
