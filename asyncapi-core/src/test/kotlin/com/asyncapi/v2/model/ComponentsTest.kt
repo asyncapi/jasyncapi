@@ -10,7 +10,7 @@ import com.asyncapi.v2._0_0.model.channel.message.MessageTrait
 import com.asyncapi.v2._0_0.model.component.Components
 import com.asyncapi.v2._0_0.model.schema.Schema
 import com.asyncapi.v2._0_0.model.schema.Type
-import com.asyncapi.v2._0_0.model.security_scheme.SecurityScheme
+import com.asyncapi.v2.security_scheme.SecurityScheme
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName

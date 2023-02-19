@@ -10,6 +10,7 @@ import com.asyncapi.v2.binding.channel.ChannelBinding;
 import com.asyncapi.v2.binding.message.MessageBinding;
 import com.asyncapi.v2.binding.operation.OperationBinding;
 import com.asyncapi.v2.binding.server.ServerBinding;
+import com.asyncapi.v2.security_scheme.SecurityScheme;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -92,11 +93,11 @@ public class Components {
     private Map<String, Object> messages;
 
     /**
-     * An object to hold reusable {@link com.asyncapi.v2._6_0.model.security_scheme.SecurityScheme} Objects.
+     * An object to hold reusable {@link SecurityScheme} Objects.
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v2._6_0.model.security_scheme.SecurityScheme}</li>
+     *     <li>{@link SecurityScheme}</li>
      *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
      * </ul>
      */

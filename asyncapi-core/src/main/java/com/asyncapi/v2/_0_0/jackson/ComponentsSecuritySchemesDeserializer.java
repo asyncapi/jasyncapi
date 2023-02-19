@@ -1,6 +1,6 @@
 package com.asyncapi.v2._0_0.jackson;
 
-import com.asyncapi.v2._0_0.model.security_scheme.SecurityScheme;
+import com.asyncapi.v2.security_scheme.SecurityScheme;
 import com.asyncapi.v2._0_0.model.Reference;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;

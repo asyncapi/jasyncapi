@@ -4,7 +4,7 @@ import com.asyncapi.v2._0_0.model.Reference;
 import com.asyncapi.v2._0_0.model.channel.Parameter;
 import com.asyncapi.v2._0_0.model.channel.message.Message;
 import com.asyncapi.v2._0_0.model.schema.Schema;
-import com.asyncapi.v2._0_0.model.security_scheme.SecurityScheme;
+import com.asyncapi.v2.security_scheme.SecurityScheme;
 import com.asyncapi.v2._0_0.jackson.ComponentsMessagesDeserializer;
 import com.asyncapi.v2._0_0.jackson.ComponentsParametersDeserializer;
 import com.asyncapi.v2._0_0.jackson.ComponentsSchemasDeserializer;
