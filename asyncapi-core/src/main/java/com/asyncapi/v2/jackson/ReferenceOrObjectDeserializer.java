@@ -7,13 +7,10 @@ import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 
 public abstract class ReferenceOrObjectDeserializer<ObjectType> extends JsonDeserializer<Object> {
-
-    private final ObjectMapper objectMapper = new ObjectMapper();
 
     abstract public Class<ObjectType> objectTypeClass();
 
@@ -22,14 +19,15 @@ public abstract class ReferenceOrObjectDeserializer<ObjectType> extends JsonDese
         ObjectCodec objectCodec = p.getCodec();
         JsonNode node = objectCodec.readTree(p);
 
-        return chooseKnownPojo(node);
+        return chooseKnownPojo(node, objectCodec);
     }
 
-    private Object chooseKnownPojo(JsonNode correlationId) throws IOException {
-        if (correlationId.get("$ref") != null) {
-            return objectMapper.readValue(correlationId.toString(), Reference.class);
+    private Object chooseKnownPojo(JsonNode jsonNode, ObjectCodec objectCodec) throws IOException {
+        JsonNode ref = jsonNode.get("$ref");
+        if (ref != null) {
+            return ref.traverse(objectCodec).readValueAs(Reference.class);
         } else {
-            return objectMapper.readValue(correlationId.toString(), objectTypeClass());
+            return jsonNode.traverse(objectCodec).readValueAs(objectTypeClass());
         }
     }
 

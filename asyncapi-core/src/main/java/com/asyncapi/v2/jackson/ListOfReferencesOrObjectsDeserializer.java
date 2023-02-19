@@ -7,7 +7,6 @@ import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,9 +14,9 @@ import java.util.List;
 
 public abstract class ListOfReferencesOrObjectsDeserializer<ObjectType> extends JsonDeserializer<List<Object>> {
 
-    private final ObjectMapper objectMapper = new ObjectMapper();
-
     abstract public Class<ObjectType> objectTypeClass();
+
+    abstract public Class<?> referenceClass();
 
     @Override
     public List<Object> deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
@@ -29,7 +28,7 @@ public abstract class ListOfReferencesOrObjectsDeserializer<ObjectType> extends 
         node.forEach(
                 traitsValue -> {
                     try {
-                        traits.add(chooseKnownPojo(traitsValue));
+                        traits.add(chooseKnownPojo(traitsValue, objectCodec));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -39,11 +38,12 @@ public abstract class ListOfReferencesOrObjectsDeserializer<ObjectType> extends 
         return traits;
     }
 
-    private Object chooseKnownPojo(JsonNode messagesValue) throws IOException {
-        if (messagesValue.get("$ref") != null) {
-            return objectMapper.readValue(messagesValue.toString(), Reference.class);
+    private Object chooseKnownPojo(JsonNode jsonNode, ObjectCodec objectCodec) throws IOException {
+        JsonNode ref = jsonNode.get("$ref");
+        if (ref != null) {
+            return ref.traverse(objectCodec).readValueAs(referenceClass());
         } else {
-            return objectMapper.readValue(messagesValue.toString(), objectTypeClass());
+            return jsonNode.traverse(objectCodec).readValueAs(objectTypeClass());
         }
     }
 

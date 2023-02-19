@@ -7,7 +7,6 @@ import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -19,9 +18,9 @@ import java.util.Map;
  */
 public abstract class MapOfReferencesOrObjectsDeserializer<ObjectType> extends JsonDeserializer<Map<String, Object>> {
 
-    private final ObjectMapper objectMapper = new ObjectMapper();
-
     abstract public Class<ObjectType> objectTypeClass();
+
+    abstract public Class<?> referenceClass();
 
     @Override
     public Map<String, Object> deserialize(JsonParser jsonParser,
@@ -35,7 +34,7 @@ public abstract class MapOfReferencesOrObjectsDeserializer<ObjectType> extends J
         map.fieldNames().forEachRemaining(
                 fieldName -> {
                     try {
-                        parameters.put(fieldName, chooseKnownPojo(map.get(fieldName)));
+                        parameters.put(fieldName, chooseKnownPojo(map.get(fieldName), objectCodec));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -45,11 +44,12 @@ public abstract class MapOfReferencesOrObjectsDeserializer<ObjectType> extends J
         return parameters;
     }
 
-    private Object chooseKnownPojo(JsonNode parametersValue) throws IOException {
-        if (parametersValue.get("$ref") != null) {
-            return objectMapper.readValue(parametersValue.toString(), Reference.class);
+    private Object chooseKnownPojo(JsonNode parametersValue, ObjectCodec objectCodec) throws IOException {
+        JsonNode ref = parametersValue.get("$ref");
+        if (ref != null) {
+            return ref.traverse(objectCodec).readValueAs(referenceClass());
         } else {
-            return objectMapper.readValue(parametersValue.toString(), objectTypeClass());
+            return parametersValue.traverse(objectCodec).readValueAs(objectTypeClass());
         }
     }
 

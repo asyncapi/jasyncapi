@@ -2,50 +2,23 @@ package com.asyncapi.v2._0_0.jackson.model.channel.message;
 
 import com.asyncapi.v2._0_0.model.Reference;
 import com.asyncapi.v2._0_0.model.channel.message.MessageTrait;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.ObjectCodec;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonDeserializer;
-import com.fasterxml.jackson.databind.JsonNode;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import com.asyncapi.v2.jackson.ListOfReferencesOrObjectsDeserializer;
 
 /**
  * Serializes message traits list.
  *
  * @author Pavel Bodiachevskii
  */
-public class MessageTraitsDeserializer extends JsonDeserializer<List<Object>> {
+public class MessageTraitsDeserializer extends ListOfReferencesOrObjectsDeserializer<MessageTrait> {
 
     @Override
-    public List<Object> deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-        ObjectCodec objectCodec = p.getCodec();
-        JsonNode node = objectCodec.readTree(p);
-
-        List<Object> traits = new ArrayList<>();
-
-        node.forEach(
-                traitsValue -> {
-                    try {
-                        traits.add(chooseKnownPojo(traitsValue, objectCodec));
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-        );
-
-        return traits;
+    public Class<MessageTrait> objectTypeClass() {
+        return MessageTrait.class;
     }
 
-    private Object chooseKnownPojo(JsonNode traitsValue, final ObjectCodec objectCodec) throws IOException {
-        JsonNode ref = traitsValue.get("$ref");
-        if (ref != null) {
-            return ref.traverse(objectCodec).readValueAs(Reference.class);
-        } else {
-            return traitsValue.traverse(objectCodec).readValueAs(MessageTrait.class);
-        }
+    @Override
+    public Class<?> referenceClass() {
+        return Reference.class;
     }
+
 }

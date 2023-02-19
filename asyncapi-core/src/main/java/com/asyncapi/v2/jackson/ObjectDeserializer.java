@@ -6,13 +6,10 @@ import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 
 public abstract class ObjectDeserializer<ObjectType> extends JsonDeserializer<Object> {
-
-    private final ObjectMapper objectMapper = new ObjectMapper();
 
     abstract public Class<ObjectType> objectTypeClass();
 
@@ -21,11 +18,11 @@ public abstract class ObjectDeserializer<ObjectType> extends JsonDeserializer<Ob
         ObjectCodec objectCodec = p.getCodec();
         JsonNode node = objectCodec.readTree(p);
 
-        return chooseKnownPojo(node);
+        return chooseKnownPojo(node, objectCodec);
     }
 
-    private Object chooseKnownPojo(JsonNode correlationId) throws IOException {
-        return objectMapper.readValue(correlationId.toString(), objectTypeClass());
+    private Object chooseKnownPojo(JsonNode jsonNode, ObjectCodec objectCodec) throws IOException {
+        return jsonNode.traverse(objectCodec).readValueAs(objectTypeClass());
     }
 
 }
