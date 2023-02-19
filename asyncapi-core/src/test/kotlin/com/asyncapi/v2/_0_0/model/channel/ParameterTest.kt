@@ -1,4 +1,4 @@
-package com.asyncapi.v2.model.channel
+package com.asyncapi.v2._0_0.model.channel
 
 import com.asyncapi.v2.ClasspathUtils
 import com.asyncapi.v2._0_0.model.channel.Parameter

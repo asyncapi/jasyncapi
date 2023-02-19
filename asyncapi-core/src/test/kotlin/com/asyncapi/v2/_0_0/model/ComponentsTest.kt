@@ -1,4 +1,4 @@
-package com.asyncapi.v2.model
+package com.asyncapi.v2._0_0.model
 
 import com.asyncapi.v2.ClasspathUtils
 import com.asyncapi.v2._0_0.model.Reference
