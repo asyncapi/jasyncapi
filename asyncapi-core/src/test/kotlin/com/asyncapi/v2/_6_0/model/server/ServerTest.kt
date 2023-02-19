@@ -1,6 +1,8 @@
 package com.asyncapi.v2._6_0.model.server
 
 import com.asyncapi.v2.ClasspathUtils
+import com.asyncapi.v2._6_0.model.Reference
+import com.asyncapi.v2._6_0.model.Tag
 import com.asyncapi.v2.binding.server.amqp1.AMQP1ServerBinding
 import com.asyncapi.v2.binding.server.anypointmq.AnypointMQServerBinding
 import com.asyncapi.v2.binding.server.googlepubsub.GooglePubSubServerBinding
@@ -19,8 +21,6 @@ import com.asyncapi.v2.binding.server.solace.SolaceServerBinding
 import com.asyncapi.v2.binding.server.sqs.SQSServerBinding
 import com.asyncapi.v2.binding.server.stomp.STOMPServerBinding
 import com.asyncapi.v2.binding.server.ws.WebSocketsServerBinding
-import com.asyncapi.v2._6_0.model.Reference
-import com.asyncapi.v2._6_0.model.Tag
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName

@@ -1,8 +1,6 @@
 package com.asyncapi.v2._0_0.model
 
 import com.asyncapi.v2.ClasspathUtils
-import com.asyncapi.v2._0_0.model.Reference
-import com.asyncapi.v2._0_0.model.Tag
 import com.asyncapi.v2._0_0.model.channel.Parameter
 import com.asyncapi.v2._0_0.model.channel.message.CorrelationId
 import com.asyncapi.v2._0_0.model.channel.message.Message

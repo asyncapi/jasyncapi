@@ -9,13 +9,13 @@ import com.asyncapi.v2._6_0.model.channel.message.MessageTest
 import com.asyncapi.v2._6_0.model.channel.message.MessageTraitTest
 import com.asyncapi.v2._6_0.model.channel.operation.OperationTest
 import com.asyncapi.v2._6_0.model.channel.operation.OperationTraitTest
+import com.asyncapi.v2._6_0.model.server.ServerTest
+import com.asyncapi.v2._6_0.model.server.ServerVariableTest
 import com.asyncapi.v2.security_scheme.ApiKeySecuritySchemeTest
 import com.asyncapi.v2.security_scheme.OpenIdConnectSecuritySchemeTest
 import com.asyncapi.v2.security_scheme.http.HttpApiKeySecuritySchemeTest
 import com.asyncapi.v2.security_scheme.http.HttpSecuritySchemeTest
 import com.asyncapi.v2.security_scheme.oauth2.OAuth2SecuritySchemeTest
-import com.asyncapi.v2._6_0.model.server.ServerTest
-import com.asyncapi.v2._6_0.model.server.ServerVariableTest
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName

@@ -1,8 +1,6 @@
 package com.asyncapi.v2._0_0.model.server
 
 import com.asyncapi.v2.ClasspathUtils
-import com.asyncapi.v2._0_0.model.server.Server
-import com.asyncapi.v2._0_0.model.server.ServerVariable
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName

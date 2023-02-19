@@ -1,9 +1,6 @@
 package com.asyncapi.v2._0_0.model
 
 import com.asyncapi.v2.ClasspathUtils
-import com.asyncapi.v2._0_0.model.AsyncAPI
-import com.asyncapi.v2._0_0.model.ExternalDocumentation
-import com.asyncapi.v2._0_0.model.Tag
 import com.asyncapi.v2._0_0.model.channel.ChannelItem
 import com.asyncapi.v2._0_0.model.component.Components
 import com.asyncapi.v2._0_0.model.info.Info

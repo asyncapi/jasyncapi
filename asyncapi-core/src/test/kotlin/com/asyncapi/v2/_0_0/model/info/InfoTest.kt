@@ -1,9 +1,6 @@
 package com.asyncapi.v2._0_0.model.info
 
 import com.asyncapi.v2.ClasspathUtils
-import com.asyncapi.v2._0_0.model.info.Contact
-import com.asyncapi.v2._0_0.model.info.Info
-import com.asyncapi.v2._0_0.model.info.License
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName

@@ -1,6 +1,10 @@
 package com.asyncapi.v2._6_0.model.channel.message
 
 import com.asyncapi.v2.ClasspathUtils
+import com.asyncapi.v2._6_0.model.ExternalDocumentation
+import com.asyncapi.v2._6_0.model.Reference
+import com.asyncapi.v2._6_0.model.Tag
+import com.asyncapi.v2._6_0.model.schema.Schema
 import com.asyncapi.v2.binding.message.amqp.AMQPMessageBindingTest
 import com.asyncapi.v2.binding.message.anypointmq.AnypointMQMessageBindingTest
 import com.asyncapi.v2.binding.message.googlepubsub.GooglePubSubMessageBindingTest
@@ -8,10 +12,6 @@ import com.asyncapi.v2.binding.message.http.HTTPMessageBindingTest
 import com.asyncapi.v2.binding.message.ibmmq.IBMMQMessageBindingTest
 import com.asyncapi.v2.binding.message.kafka.KafkaMessageBindingTest
 import com.asyncapi.v2.binding.message.mqtt.MQTTMessageBindingTest
-import com.asyncapi.v2._6_0.model.ExternalDocumentation
-import com.asyncapi.v2._6_0.model.Reference
-import com.asyncapi.v2._6_0.model.Tag
-import com.asyncapi.v2._6_0.model.schema.Schema
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName

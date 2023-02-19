@@ -1,7 +1,6 @@
 package com.asyncapi.v2._0_0.model.channel.operation
 
 import com.asyncapi.v2.ClasspathUtils
-import com.asyncapi.v2._0_0.model.channel.operation.OperationTrait
 import com.asyncapi.v2.binding.operation.amqp.AMQPOperationBinding
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Assertions

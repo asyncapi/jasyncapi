@@ -1,15 +1,15 @@
 package com.asyncapi.v2._6_0.model.channel.operation
 
 import com.asyncapi.v2.ClasspathUtils
+import com.asyncapi.v2._6_0.model.ExternalDocumentation
+import com.asyncapi.v2._6_0.model.Reference
+import com.asyncapi.v2._6_0.model.Tag
 import com.asyncapi.v2.binding.operation.amqp.AMQPOperationBindingTest
 import com.asyncapi.v2.binding.operation.http.HTTPOperationBindingTest
 import com.asyncapi.v2.binding.operation.kafka.KafkaOperationBindingTest
 import com.asyncapi.v2.binding.operation.mqtt.MQTTOperationBindingTest
 import com.asyncapi.v2.binding.operation.nats.NATSOperationBindingTest
 import com.asyncapi.v2.binding.operation.solace.SolaceOperationBindingTest
-import com.asyncapi.v2._6_0.model.ExternalDocumentation
-import com.asyncapi.v2._6_0.model.Reference
-import com.asyncapi.v2._6_0.model.Tag
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName
