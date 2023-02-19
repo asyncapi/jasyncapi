@@ -2,7 +2,7 @@ package com.asyncapi.v2._0_0.model.channel;
 
 import com.asyncapi.v2.jackson.binding.channel.ChannelBindingsDeserializer;
 import com.asyncapi.v2.binding.channel.ChannelBinding;
-import com.asyncapi.v2._0_0.jackson.ChannelParametersDeserializer;
+import com.asyncapi.v2._0_0.jackson.model.channel.ChannelParametersDeserializer;
 import com.asyncapi.v2._0_0.model.Reference;
 import com.asyncapi.v2._0_0.model.channel.operation.Operation;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;

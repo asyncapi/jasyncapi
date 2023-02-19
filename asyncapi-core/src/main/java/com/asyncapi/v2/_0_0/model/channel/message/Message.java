@@ -1,9 +1,9 @@
 package com.asyncapi.v2._0_0.model.channel.message;
 
-import com.asyncapi.v2._0_0.jackson.MessageCorrelationIdDeserializer;
-import com.asyncapi.v2._0_0.jackson.MessageHeadersDeserializer;
-import com.asyncapi.v2._0_0.jackson.MessagePayloadDeserializer;
-import com.asyncapi.v2._0_0.jackson.MessageTraitsDeserializer;
+import com.asyncapi.v2._0_0.jackson.model.channel.message.MessageCorrelationIdDeserializer;
+import com.asyncapi.v2._0_0.jackson.model.channel.message.MessageHeadersDeserializer;
+import com.asyncapi.v2._0_0.jackson.model.channel.message.MessagePayloadDeserializer;
+import com.asyncapi.v2._0_0.jackson.model.channel.message.MessageTraitsDeserializer;
 import com.asyncapi.v2._0_0.model.Reference;
 import com.asyncapi.v2._0_0.model.schema.Schema;
 import com.asyncapi.v2._0_0.model.ExternalDocumentation;

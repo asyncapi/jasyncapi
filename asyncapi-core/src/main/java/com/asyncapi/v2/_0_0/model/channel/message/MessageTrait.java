@@ -1,7 +1,7 @@
 package com.asyncapi.v2._0_0.model.channel.message;
 
-import com.asyncapi.v2._0_0.jackson.MessageTraitCorrelationIdDeserializer;
-import com.asyncapi.v2._0_0.jackson.MessageTraitHeadersDeserializer;
+import com.asyncapi.v2._0_0.jackson.model.channel.message.MessageTraitCorrelationIdDeserializer;
+import com.asyncapi.v2._0_0.jackson.model.channel.message.MessageTraitHeadersDeserializer;
 import com.asyncapi.v2._0_0.model.Reference;
 import com.asyncapi.v2._0_0.model.channel.operation.OperationTrait;
 import com.asyncapi.v2._0_0.model.schema.Schema;

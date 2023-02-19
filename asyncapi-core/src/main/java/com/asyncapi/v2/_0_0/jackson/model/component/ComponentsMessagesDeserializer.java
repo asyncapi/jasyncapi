@@ -1,6 +1,6 @@
-package com.asyncapi.v2._0_0.jackson;
+package com.asyncapi.v2._0_0.jackson.model.component;
 
-import com.asyncapi.v2.security_scheme.SecurityScheme;
+import com.asyncapi.v2._0_0.model.channel.message.Message;
 import com.asyncapi.v2._0_0.model.Reference;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -18,7 +18,7 @@ import java.util.Map;
  *
  * @author Pavel Bodiachevskii
  */
-public class ComponentsSecuritySchemesDeserializer extends JsonDeserializer<Map<String, Object>> {
+public class ComponentsMessagesDeserializer extends JsonDeserializer<Map<String, Object>> {
 
     @Override
     public Map<String, Object> deserialize(
@@ -48,7 +48,7 @@ public class ComponentsSecuritySchemesDeserializer extends JsonDeserializer<Map<
         if (ref != null) {
             return ref.traverse(objectCodec).readValueAs(Reference.class);
         } else {
-            return parametersValue.traverse(objectCodec).readValueAs(SecurityScheme.class);
+            return parametersValue.traverse(objectCodec).readValueAs(Message.class);
         }
     }
 }

@@ -1,7 +1,6 @@
-package com.asyncapi.v2._0_0.jackson;
+package com.asyncapi.v2._0_0.jackson.model.channel.message;
 
-import com.asyncapi.v2._0_0.model.Reference;
-import com.asyncapi.v2._0_0.model.channel.message.CorrelationId;
+import com.asyncapi.v2._0_0.model.schema.Schema;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.ObjectCodec;
@@ -16,7 +15,7 @@ import java.io.IOException;
  *
  * @author Pavel Bodiachevskii
  */
-public class MessageCorrelationIdDeserializer extends JsonDeserializer<Object> {
+public class MessagePayloadDeserializer extends JsonDeserializer<Object> {
 
     @Override
     public Object deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
@@ -26,12 +25,11 @@ public class MessageCorrelationIdDeserializer extends JsonDeserializer<Object> {
         return chooseKnownPojo(node, objectCodec);
     }
 
-    private Object chooseKnownPojo(JsonNode traitsValue, final ObjectCodec objectCodec) throws IOException {
-        JsonNode ref = traitsValue.get("$ref");
-        if (ref != null) {
-            return ref.traverse(objectCodec).readValueAs(Reference.class);
-        } else {
-            return traitsValue.traverse(objectCodec).readValueAs(CorrelationId.class);
+    private Object chooseKnownPojo(JsonNode traitsValue, final ObjectCodec objectCodec) {
+        try {
+            return traitsValue.traverse(objectCodec).readValueAs(Schema.class);
+        } catch (Exception e) {
+            return traitsValue;
         }
     }
 }

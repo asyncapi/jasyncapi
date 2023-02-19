@@ -1,7 +1,7 @@
-package com.asyncapi.v2._0_0.jackson;
+package com.asyncapi.v2._0_0.jackson.model.channel.message;
 
 import com.asyncapi.v2._0_0.model.Reference;
-import com.asyncapi.v2._0_0.model.schema.Schema;
+import com.asyncapi.v2._0_0.model.channel.message.CorrelationId;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.ObjectCodec;
@@ -16,7 +16,7 @@ import java.io.IOException;
  *
  * @author Pavel Bodiachevskii
  */
-public class MessageTraitHeadersDeserializer extends JsonDeserializer<Object> {
+public class MessageCorrelationIdDeserializer extends JsonDeserializer<Object> {
 
     @Override
     public Object deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
@@ -31,7 +31,7 @@ public class MessageTraitHeadersDeserializer extends JsonDeserializer<Object> {
         if (ref != null) {
             return ref.traverse(objectCodec).readValueAs(Reference.class);
         } else {
-            return traitsValue.traverse(objectCodec).readValueAs(Schema.class);
+            return traitsValue.traverse(objectCodec).readValueAs(CorrelationId.class);
         }
     }
 }

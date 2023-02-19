@@ -1,7 +1,7 @@
-package com.asyncapi.v2._0_0.jackson;
+package com.asyncapi.v2._0_0.jackson.model.channel.message;
 
-import com.asyncapi.v2._0_0.model.channel.operation.OperationTrait;
 import com.asyncapi.v2._0_0.model.Reference;
+import com.asyncapi.v2._0_0.model.channel.message.MessageTrait;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.ObjectCodec;
@@ -14,11 +14,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Serializes operation traits list.
+ * Serializes message traits list.
  *
  * @author Pavel Bodiachevskii
  */
-public class OperationTraitsDeserializer extends JsonDeserializer<List<Object>> {
+public class MessageTraitsDeserializer extends JsonDeserializer<List<Object>> {
 
     @Override
     public List<Object> deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
@@ -45,7 +45,7 @@ public class OperationTraitsDeserializer extends JsonDeserializer<List<Object>> 
         if (ref != null) {
             return ref.traverse(objectCodec).readValueAs(Reference.class);
         } else {
-            return traitsValue.traverse(objectCodec).readValueAs(OperationTrait.class);
+            return traitsValue.traverse(objectCodec).readValueAs(MessageTrait.class);
         }
     }
 }

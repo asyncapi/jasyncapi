@@ -1,7 +1,7 @@
-package com.asyncapi.v2._0_0.jackson;
+package com.asyncapi.v2._0_0.jackson.model.channel;
 
-import com.asyncapi.v2._0_0.model.channel.message.Message;
 import com.asyncapi.v2._0_0.model.Reference;
+import com.asyncapi.v2._0_0.model.channel.Parameter;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.ObjectCodec;
@@ -14,11 +14,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Serializes component security schemes map.
+ * Serializes channel parameters map.
  *
  * @author Pavel Bodiachevskii
  */
-public class ComponentsMessagesDeserializer extends JsonDeserializer<Map<String, Object>> {
+public class ChannelParametersDeserializer extends JsonDeserializer<Map<String, Object>> {
 
     @Override
     public Map<String, Object> deserialize(
@@ -48,7 +48,7 @@ public class ComponentsMessagesDeserializer extends JsonDeserializer<Map<String,
         if (ref != null) {
             return ref.traverse(objectCodec).readValueAs(Reference.class);
         } else {
-            return parametersValue.traverse(objectCodec).readValueAs(Message.class);
+            return parametersValue.traverse(objectCodec).readValueAs(Parameter.class);
         }
     }
 }

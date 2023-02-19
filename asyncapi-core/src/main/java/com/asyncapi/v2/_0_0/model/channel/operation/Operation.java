@@ -1,7 +1,7 @@
 package com.asyncapi.v2._0_0.model.channel.operation;
 
-import com.asyncapi.v2._0_0.jackson.OperationMessageDeserializer;
-import com.asyncapi.v2._0_0.jackson.OperationTraitsDeserializer;
+import com.asyncapi.v2._0_0.jackson.model.channel.operation.OperationMessageDeserializer;
+import com.asyncapi.v2._0_0.jackson.model.channel.operation.OperationTraitsDeserializer;
 import com.asyncapi.v2._0_0.model.ExternalDocumentation;
 import com.asyncapi.v2._0_0.model.Reference;
 import com.asyncapi.v2._0_0.model.Tag;
