@@ -43,12 +43,14 @@ public abstract class MapOfReferencesOrObjectsDeserializer<ObjectType> extends J
         return parameters;
     }
 
-    private Object chooseKnownPojo(JsonNode parametersValue, ObjectCodec objectCodec) throws IOException {
-        JsonNode ref = parametersValue.get("$ref");
-        if (ref != null) {
-            return ref.traverse(objectCodec).readValueAs(referenceClass());
-        } else {
-            return parametersValue.traverse(objectCodec).readValueAs(objectTypeClass());
+    private Object chooseKnownPojo(JsonNode jsonNode, ObjectCodec objectCodec) throws IOException {
+        JsonNode ref = jsonNode.get("$ref");
+        try (JsonParser jsonParser = jsonNode.traverse(objectCodec)) {
+            if (ref != null) {
+                return jsonParser.readValueAs(referenceClass());
+            } else {
+                return jsonParser.readValueAs(objectTypeClass());
+            }
         }
     }
 

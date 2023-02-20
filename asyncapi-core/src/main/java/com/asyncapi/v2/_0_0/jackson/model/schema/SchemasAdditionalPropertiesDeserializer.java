@@ -25,10 +25,12 @@ public class SchemasAdditionalPropertiesDeserializer extends JsonDeserializer<Ob
     }
 
     private Object chooseKnownPojo(JsonNode jsonNode, final ObjectCodec objectCodec) throws IOException {
-        if (jsonNode.isBoolean()) {
-            return jsonNode.asBoolean();
-        } else {
-            return jsonNode.traverse(objectCodec).readValueAs(Schema.class);
+        try (JsonParser jsonParser = jsonNode.traverse(objectCodec)) {
+            if (jsonNode.isBoolean()) {
+                return jsonNode.asBoolean();
+            } else {
+                return jsonParser.readValueAs(Schema.class);
+            }
         }
     }
 }

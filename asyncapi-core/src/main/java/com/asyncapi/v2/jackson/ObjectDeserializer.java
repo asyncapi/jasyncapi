@@ -22,7 +22,9 @@ public abstract class ObjectDeserializer<ObjectType> extends JsonDeserializer<Ob
     }
 
     private Object chooseKnownPojo(JsonNode jsonNode, ObjectCodec objectCodec) throws IOException {
-        return jsonNode.traverse(objectCodec).readValueAs(objectTypeClass());
+        try (JsonParser jsonParser = jsonNode.traverse(objectCodec)) {
+            return jsonParser.readValueAs(objectTypeClass());
+        }
     }
 
 }

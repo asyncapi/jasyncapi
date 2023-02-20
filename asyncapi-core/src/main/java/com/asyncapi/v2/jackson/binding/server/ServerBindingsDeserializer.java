@@ -21,7 +21,7 @@ import com.asyncapi.v2.binding.server.sqs.SQSServerBinding;
 import com.asyncapi.v2.binding.server.stomp.STOMPServerBinding;
 import com.asyncapi.v2.binding.server.ws.WebSocketsServerBinding;
 import com.asyncapi.v2.jackson.BindingsMapDeserializer;
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.JsonNode;
 
@@ -37,31 +37,33 @@ public class ServerBindingsDeserializer extends BindingsMapDeserializer {
 
     @Override
     public Object chooseKnownPojo(String bindingKey, JsonNode binding, ObjectCodec objectCodec) throws IOException {
-        if (binding.get("$ref" ) != null) {
-            return binding.traverse(objectCodec).readValueAs(Reference.class);
-        }
+        try (JsonParser jsonParser = binding.traverse(objectCodec)) {
+            if (binding.get("$ref" ) != null) {
+                return jsonParser.readValueAs(Reference.class);
+            }
 
-        switch (bindingKey) {
-            case "amqp": return binding.traverse(objectCodec).readValueAs(AMQPServerBinding.class);
-            case "amqp1": return binding.traverse(objectCodec).readValueAs(AMQP1ServerBinding.class);
-            case "anypointmq": return binding.traverse(objectCodec).readValueAs(AnypointMQServerBinding.class);
-            case "googlepubsub": return binding.traverse(objectCodec).readValueAs(GooglePubSubServerBinding.class);
-            case "http": return binding.traverse(objectCodec).readValueAs(HTTPServerBinding.class);
-            case "ibmmq": return binding.traverse(objectCodec).readValueAs(IBMMQServerBinding.class);
-            case "jms": return binding.traverse(objectCodec).readValueAs(JMSServerBinding.class);
-            case "kafka": return binding.traverse(objectCodec).readValueAs(KafkaServerBinding.class);
-            case "mercure": return binding.traverse(objectCodec).readValueAs(MercureServerBinding.class);
-            case "mqtt": return binding.traverse(objectCodec).readValueAs(MQTTServerBinding.class);
-            case "mqtt5": return binding.traverse(objectCodec).readValueAs(MQTT5ServerBinding.class);
-            case "nats": return binding.traverse(objectCodec).readValueAs(NATSServerBinding.class);
-            case "pulsar": return binding.traverse(objectCodec).readValueAs(PulsarServerBinding.class);
-            case "redis": return binding.traverse(objectCodec).readValueAs(RedisServerBinding.class);
-            case "sns": return binding.traverse(objectCodec).readValueAs(SNSServerBinding.class);
-            case "solace": return binding.traverse(objectCodec).readValueAs(SolaceServerBinding.class);
-            case "sqs": return binding.traverse(objectCodec).readValueAs(SQSServerBinding.class);
-            case "stomp": return binding.traverse(objectCodec).readValueAs(STOMPServerBinding.class);
-            case "ws": return binding.traverse(objectCodec).readValueAs(WebSocketsServerBinding.class);
-            default: return null;
+            switch (bindingKey) {
+                case "amqp": return jsonParser.readValueAs(AMQPServerBinding.class);
+                case "amqp1": return jsonParser.readValueAs(AMQP1ServerBinding.class);
+                case "anypointmq": return jsonParser.readValueAs(AnypointMQServerBinding.class);
+                case "googlepubsub": return jsonParser.readValueAs(GooglePubSubServerBinding.class);
+                case "http": return jsonParser.readValueAs(HTTPServerBinding.class);
+                case "ibmmq": return jsonParser.readValueAs(IBMMQServerBinding.class);
+                case "jms": return jsonParser.readValueAs(JMSServerBinding.class);
+                case "kafka": return jsonParser.readValueAs(KafkaServerBinding.class);
+                case "mercure": return jsonParser.readValueAs(MercureServerBinding.class);
+                case "mqtt": return jsonParser.readValueAs(MQTTServerBinding.class);
+                case "mqtt5": return jsonParser.readValueAs(MQTT5ServerBinding.class);
+                case "nats": return jsonParser.readValueAs(NATSServerBinding.class);
+                case "pulsar": return jsonParser.readValueAs(PulsarServerBinding.class);
+                case "redis": return jsonParser.readValueAs(RedisServerBinding.class);
+                case "sns": return jsonParser.readValueAs(SNSServerBinding.class);
+                case "solace": return jsonParser.readValueAs(SolaceServerBinding.class);
+                case "sqs": return jsonParser.readValueAs(SQSServerBinding.class);
+                case "stomp": return jsonParser.readValueAs(STOMPServerBinding.class);
+                case "ws": return jsonParser.readValueAs(WebSocketsServerBinding.class);
+                default: return null;
+            }
         }
     }
 

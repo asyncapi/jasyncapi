@@ -39,10 +39,12 @@ public abstract class ListOfReferencesOrObjectsDeserializer<ObjectType> extends 
 
     private Object chooseKnownPojo(JsonNode jsonNode, ObjectCodec objectCodec) throws IOException {
         JsonNode ref = jsonNode.get("$ref");
-        if (ref != null) {
-            return ref.traverse(objectCodec).readValueAs(referenceClass());
-        } else {
-            return jsonNode.traverse(objectCodec).readValueAs(objectTypeClass());
+        try (JsonParser jsonParser = jsonNode.traverse(objectCodec)) {
+            if (ref != null) {
+                return jsonParser.readValueAs(referenceClass());
+            } else {
+                return jsonParser.readValueAs(objectTypeClass());
+            }
         }
     }
 

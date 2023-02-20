@@ -28,12 +28,14 @@ public class OperationMessageDeserializer extends JsonDeserializer<Object> {
     }
 
     private Object chooseKnownPojo(JsonNode message, ObjectCodec objectCodec) throws IOException {
-        if (message.get("oneOf") != null) {
-            return message.traverse(objectCodec).readValueAs(OneOfMessages.class);
-        } else if (message.get("$ref") != null) {
-            return message.traverse(objectCodec).readValueAs(Reference.class);
-        } else {
-            return message.traverse(objectCodec).readValueAs(Message.class);
+        try (JsonParser jsonParser = message.traverse(objectCodec)) {
+            if (message.get("oneOf") != null) {
+                return jsonParser.readValueAs(OneOfMessages.class);
+            } else if (message.get("$ref") != null) {
+                return jsonParser.readValueAs(Reference.class);
+            } else {
+                return jsonParser.readValueAs(Message.class);
+            }
         }
     }
 }
