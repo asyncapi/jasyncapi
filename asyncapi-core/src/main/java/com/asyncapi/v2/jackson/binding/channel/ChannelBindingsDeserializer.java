@@ -22,7 +22,10 @@ import com.asyncapi.v2.binding.channel.stomp.STOMPChannelBinding;
 import com.asyncapi.v2.binding.channel.ws.WebSocketsChannelBinding;
 import com.asyncapi.v2.jackson.BindingsMapDeserializer;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.JsonNode;
+
+import java.io.IOException;
 
 /**
  * Serializes channel bindings map.
@@ -31,31 +34,31 @@ import com.fasterxml.jackson.databind.JsonNode;
  */
 public class ChannelBindingsDeserializer extends BindingsMapDeserializer {
 
-    public Object chooseKnownPojo(String bindingKey, JsonNode binding) throws JsonProcessingException {
+    public Object chooseKnownPojo(String bindingKey, JsonNode binding, ObjectCodec objectCodec) throws IOException {
         if (binding.get("$ref" ) != null) {
-            return objectMapper.readValue(binding.toString(), Reference.class);
+            return binding.traverse(objectCodec).readValueAs(Reference.class);
         }
 
         switch (bindingKey) {
-            case "amqp": return objectMapper.readValue(binding.toString(), AMQPChannelBinding.class);
-            case "amqp1": return objectMapper.readValue(binding.toString(), AMQP1ChannelBinding.class);
-            case "anypointmq": return objectMapper.readValue(binding.toString(), AnypointMQChannelBinding.class);
-            case "googlepubsub": return objectMapper.readValue(binding.toString(), GooglePubSubChannelBinding.class);
-            case "http": return objectMapper.readValue(binding.toString(), HTTPChannelBinding.class);
-            case "ibmmq": return objectMapper.readValue(binding.toString(), IBMMQChannelBinding.class);
-            case "jms": return objectMapper.readValue(binding.toString(), JMSChannelBinding.class);
-            case "kafka": return objectMapper.readValue(binding.toString(), KafkaChannelBinding.class);
-            case "mercure": return objectMapper.readValue(binding.toString(), MercureChannelBinding.class);
-            case "mqtt": return objectMapper.readValue(binding.toString(), MQTTChannelBinding.class);
-            case "mqtt5": return objectMapper.readValue(binding.toString(), MQTT5ChannelBinding.class);
-            case "nats": return objectMapper.readValue(binding.toString(), NATSChannelBinding.class);
-            case "pulsar": return objectMapper.readValue(binding.toString(), PulsarChannelBinding.class);
-            case "redis": return objectMapper.readValue(binding.toString(), RedisChannelBinding.class);
-            case "sns": return objectMapper.readValue(binding.toString(), SNSChannelBinding.class);
-            case "solace": return objectMapper.readValue(binding.toString(), SolaceChannelBinding.class);
-            case "sqs": return objectMapper.readValue(binding.toString(), SQSChannelBinding.class);
-            case "stomp": return objectMapper.readValue(binding.toString(), STOMPChannelBinding.class);
-            case "ws": return objectMapper.readValue(binding.toString(), WebSocketsChannelBinding.class);
+            case "amqp": return binding.traverse(objectCodec).readValueAs(AMQPChannelBinding.class);
+            case "amqp1": return binding.traverse(objectCodec).readValueAs(AMQP1ChannelBinding.class);
+            case "anypointmq": return binding.traverse(objectCodec).readValueAs(AnypointMQChannelBinding.class);
+            case "googlepubsub": return binding.traverse(objectCodec).readValueAs(GooglePubSubChannelBinding.class);
+            case "http": return binding.traverse(objectCodec).readValueAs(HTTPChannelBinding.class);
+            case "ibmmq": return binding.traverse(objectCodec).readValueAs(IBMMQChannelBinding.class);
+            case "jms": return binding.traverse(objectCodec).readValueAs(JMSChannelBinding.class);
+            case "kafka": return binding.traverse(objectCodec).readValueAs(KafkaChannelBinding.class);
+            case "mercure": return binding.traverse(objectCodec).readValueAs(MercureChannelBinding.class);
+            case "mqtt": return binding.traverse(objectCodec).readValueAs(MQTTChannelBinding.class);
+            case "mqtt5": return binding.traverse(objectCodec).readValueAs(MQTT5ChannelBinding.class);
+            case "nats": return binding.traverse(objectCodec).readValueAs(NATSChannelBinding.class);
+            case "pulsar": return binding.traverse(objectCodec).readValueAs(PulsarChannelBinding.class);
+            case "redis": return binding.traverse(objectCodec).readValueAs(RedisChannelBinding.class);
+            case "sns": return binding.traverse(objectCodec).readValueAs(SNSChannelBinding.class);
+            case "solace": return binding.traverse(objectCodec).readValueAs(SolaceChannelBinding.class);
+            case "sqs": return binding.traverse(objectCodec).readValueAs(SQSChannelBinding.class);
+            case "stomp": return binding.traverse(objectCodec).readValueAs(STOMPChannelBinding.class);
+            case "ws": return binding.traverse(objectCodec).readValueAs(WebSocketsChannelBinding.class);
             default: return null;
         }
     }

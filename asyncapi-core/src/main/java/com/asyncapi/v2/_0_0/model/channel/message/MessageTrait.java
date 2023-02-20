@@ -131,5 +131,4 @@ public class MessageTrait {
      */
     @Nullable
     private List<Map<String, Object>> examples;
-
 }

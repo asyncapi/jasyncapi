@@ -1,7 +1,9 @@
 package com.asyncapi.v2._6_0.model.schema;
 
+import com.asyncapi.v2._6_0.jackson.model.schema.SchemasAdditionalPropertiesDeserializer;
 import com.asyncapi.v2._6_0.model.ExternalDocumentation;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -476,7 +478,8 @@ public class Schema {
      * Omitting this keyword has the same behavior as an empty schema.
      */
     @Nullable
-    public Schema additionalProperties;
+    @JsonDeserialize(using = SchemasAdditionalPropertiesDeserializer.class)
+    public Object additionalProperties;
 
     /**
      * [[CREF1: This keyword may be split into two, with the variation that uses an array of property names rather than a

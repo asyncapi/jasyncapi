@@ -22,7 +22,10 @@ import com.asyncapi.v2.binding.operation.stomp.STOMPOperationBinding;
 import com.asyncapi.v2.binding.operation.ws.WebSocketsOperationBinding;
 import com.asyncapi.v2.jackson.BindingsMapDeserializer;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.JsonNode;
+
+import java.io.IOException;
 
 /**
  * Serializes operation bindings map.
@@ -32,31 +35,31 @@ import com.fasterxml.jackson.databind.JsonNode;
  */
 public class OperationBindingsDeserializer extends BindingsMapDeserializer {
 
-    public Object chooseKnownPojo(String bindingKey, JsonNode binding) throws JsonProcessingException {
+    public Object chooseKnownPojo(String bindingKey, JsonNode binding, ObjectCodec objectCodec) throws IOException {
         if (binding.get("$ref" ) != null) {
-            return objectMapper.readValue(binding.toString(), Reference.class);
+            return binding.traverse(objectCodec).readValueAs(Reference.class);
         }
 
         switch (bindingKey) {
-            case "amqp": return objectMapper.readValue(binding.toString(), AMQPOperationBinding.class);
-            case "amqp1": return objectMapper.readValue(binding.toString(), AMQP1OperationBinding.class);
-            case "anypointmq": return objectMapper.readValue(binding.toString(), AnypointMQOperationBinding.class);
-            case "googlepubsub": return objectMapper.readValue(binding.toString(), GooglePubSubOperationBinding.class);
-            case "http": return objectMapper.readValue(binding.toString(), HTTPOperationBinding.class);
-            case "ibmmq": return objectMapper.readValue(binding.toString(), IBMMQOperationBinding.class);
-            case "jms": return objectMapper.readValue(binding.toString(), JMSOperationBinding.class);
-            case "kafka": return objectMapper.readValue(binding.toString(), KafkaOperationBinding.class);
-            case "mercure": return objectMapper.readValue(binding.toString(), MercureOperationBinding.class);
-            case "mqtt": return objectMapper.readValue(binding.toString(), MQTTOperationBinding.class);
-            case "mqtt5": return objectMapper.readValue(binding.toString(), MQTT5OperationBinding.class);
-            case "nats": return objectMapper.readValue(binding.toString(), NATSOperationBinding.class);
-            case "pulsar": return objectMapper.readValue(binding.toString(), PulsarOperationBinding.class);
-            case "redis": return objectMapper.readValue(binding.toString(), RedisOperationBinding.class);
-            case "sns": return objectMapper.readValue(binding.toString(), SNSOperationBinding.class);
-            case "solace": return objectMapper.readValue(binding.toString(), SolaceOperationBinding.class);
-            case "sqs": return objectMapper.readValue(binding.toString(), SQSOperationBinding.class);
-            case "stomp": return objectMapper.readValue(binding.toString(), STOMPOperationBinding.class);
-            case "ws": return objectMapper.readValue(binding.toString(), WebSocketsOperationBinding.class);
+            case "amqp": return binding.traverse(objectCodec).readValueAs(AMQPOperationBinding.class);
+            case "amqp1": return binding.traverse(objectCodec).readValueAs(AMQP1OperationBinding.class);
+            case "anypointmq": return binding.traverse(objectCodec).readValueAs(AnypointMQOperationBinding.class);
+            case "googlepubsub": return binding.traverse(objectCodec).readValueAs(GooglePubSubOperationBinding.class);
+            case "http": return binding.traverse(objectCodec).readValueAs(HTTPOperationBinding.class);
+            case "ibmmq": return binding.traverse(objectCodec).readValueAs(IBMMQOperationBinding.class);
+            case "jms": return binding.traverse(objectCodec).readValueAs(JMSOperationBinding.class);
+            case "kafka": return binding.traverse(objectCodec).readValueAs(KafkaOperationBinding.class);
+            case "mercure": return binding.traverse(objectCodec).readValueAs(MercureOperationBinding.class);
+            case "mqtt": return binding.traverse(objectCodec).readValueAs(MQTTOperationBinding.class);
+            case "mqtt5": return binding.traverse(objectCodec).readValueAs(MQTT5OperationBinding.class);
+            case "nats": return binding.traverse(objectCodec).readValueAs(NATSOperationBinding.class);
+            case "pulsar": return binding.traverse(objectCodec).readValueAs(PulsarOperationBinding.class);
+            case "redis": return binding.traverse(objectCodec).readValueAs(RedisOperationBinding.class);
+            case "sns": return binding.traverse(objectCodec).readValueAs(SNSOperationBinding.class);
+            case "solace": return binding.traverse(objectCodec).readValueAs(SolaceOperationBinding.class);
+            case "sqs": return binding.traverse(objectCodec).readValueAs(SQSOperationBinding.class);
+            case "stomp": return binding.traverse(objectCodec).readValueAs(STOMPOperationBinding.class);
+            case "ws": return binding.traverse(objectCodec).readValueAs(WebSocketsOperationBinding.class);
             default: return null;
         }
     }

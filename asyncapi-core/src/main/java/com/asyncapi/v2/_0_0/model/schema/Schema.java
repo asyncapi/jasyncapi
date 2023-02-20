@@ -1,15 +1,17 @@
 package com.asyncapi.v2._0_0.model.schema;
 
+import com.asyncapi.v2._0_0.jackson.model.schema.SchemasAdditionalPropertiesDeserializer;
 import com.asyncapi.v2._0_0.model.ExternalDocumentation;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.jetbrains.annotations.Nullable;
 
+import org.jetbrains.annotations.Nullable;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
@@ -505,7 +507,8 @@ public class Schema {
      */
     @Nullable
     @JsonProperty
-    public Schema additionalProperties;
+    @JsonDeserialize(using = SchemasAdditionalPropertiesDeserializer.class)
+    public Object additionalProperties;
 
     /**
      * [[CREF1: This keyword may be split into two, with the variation that uses an array of property names rather than a
