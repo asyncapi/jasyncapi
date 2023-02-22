@@ -1,5 +1,6 @@
 package com.asyncapi.v2._0_0.model.component;
 
+import com.asyncapi.v2.ExtendableObject;
 import com.asyncapi.v2._0_0.jackson.model.component.ComponentsMessagesDeserializer;
 import com.asyncapi.v2._0_0.jackson.model.component.ComponentsParametersDeserializer;
 import com.asyncapi.v2._0_0.jackson.model.component.ComponentsSchemasDeserializer;
@@ -23,6 +24,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.Nullable;
 
@@ -41,7 +43,8 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Components {
+@EqualsAndHashCode(callSuper = true)
+public class Components extends ExtendableObject {
 
     /**
      * An object to hold reusable Schema Objects.

@@ -1,5 +1,6 @@
 package com.asyncapi.v2._6_0.model.channel.message;
 
+import com.asyncapi.v2.ExtendableObject;
 import com.asyncapi.v2._6_0.jackson.model.channel.message.MessageCorrelationIdDeserializer;
 import com.asyncapi.v2._6_0.jackson.model.channel.message.MessageHeadersDeserializer;
 import com.asyncapi.v2._6_0.jackson.model.channel.message.MessagePayloadDeserializer;
@@ -30,8 +31,8 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
-public class Message {
+@EqualsAndHashCode(callSuper = true)
+public class Message extends ExtendableObject {
 
     /**
      * Unique string used to identify the message.

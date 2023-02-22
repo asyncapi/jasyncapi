@@ -1,5 +1,6 @@
 package com.asyncapi.v2._6_0.model.server;
 
+import com.asyncapi.v2.ExtendableObject;
 import com.asyncapi.v2._6_0.jackson.model.server.ServerVariablesDeserializer;
 import com.asyncapi.v2._6_0.model.Tag;
 import com.asyncapi.v2.binding.server.ServerBinding;
@@ -8,6 +9,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -29,7 +31,8 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Server {
+@EqualsAndHashCode(callSuper = true)
+public class Server extends ExtendableObject {
 
     /**
      * REQUIRED.

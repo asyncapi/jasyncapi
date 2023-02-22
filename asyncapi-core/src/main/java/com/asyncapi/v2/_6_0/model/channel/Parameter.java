@@ -1,10 +1,12 @@
 package com.asyncapi.v2._6_0.model.channel;
 
+import com.asyncapi.v2.ExtendableObject;
 import com.asyncapi.v2._6_0.jackson.model.schema.SchemaDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.Nullable;
 
@@ -19,7 +21,8 @@ import org.jetbrains.annotations.Nullable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Parameter {
+@EqualsAndHashCode(callSuper = true)
+public class Parameter extends ExtendableObject {
 
     /**
      * A verbose explanation of the parameter. <a href="https://spec.commonmark.org/">CommonMark syntax</a> can be used for rich text representation.

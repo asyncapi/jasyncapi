@@ -1,21 +1,20 @@
 package com.asyncapi.v2._0_0.model.channel;
 
+import com.asyncapi.v2.ExtendableObject;
 import com.asyncapi.v2._0_0.jackson.model.channel.ChannelParametersDeserializer;
 import com.asyncapi.v2._0_0.model.Reference;
 import com.asyncapi.v2._0_0.model.channel.operation.Operation;
 import com.asyncapi.v2.binding.channel.ChannelBinding;
 import com.asyncapi.v2.jackson.binding.channel.ChannelBindingsDeserializer;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -29,7 +28,8 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ChannelItem {
+@EqualsAndHashCode(callSuper = true)
+public class ChannelItem extends ExtendableObject {
 
     /**
      * Allows for an external definition of this channel item.
@@ -84,12 +84,4 @@ public class ChannelItem {
     @JsonDeserialize(using = ChannelBindingsDeserializer.class)
     private Map<String, ? extends ChannelBinding> bindings;
 
-    /**
-     * Extension fields in the form x-extension-field-name for the exposed API.
-     */
-    @JsonAnySetter
-    @JsonAnyGetter
-    @Nullable
-    @Builder.Default
-    protected Map<String, String> extensionFields = new HashMap<String, String>();
 }

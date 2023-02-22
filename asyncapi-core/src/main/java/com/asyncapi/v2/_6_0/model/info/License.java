@@ -1,8 +1,10 @@
 package com.asyncapi.v2._6_0.model.info;
 
+import com.asyncapi.v2.ExtendableObject;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -18,7 +20,8 @@ import org.jetbrains.annotations.Nullable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class License {
+@EqualsAndHashCode(callSuper = true)
+public class License extends ExtendableObject {
 
     /**
      * Required. The license name used for the API.

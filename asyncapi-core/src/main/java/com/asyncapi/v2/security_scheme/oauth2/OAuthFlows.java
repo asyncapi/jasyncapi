@@ -1,5 +1,6 @@
 package com.asyncapi.v2.security_scheme.oauth2;
 
+import com.asyncapi.v2.ExtendableObject;
 import com.asyncapi.v2.security_scheme.oauth2.flow.AuthorizationCodeOAuthFlow;
 import com.asyncapi.v2.security_scheme.oauth2.flow.ClientCredentialsOAuthFlow;
 import com.asyncapi.v2.security_scheme.oauth2.flow.ImplicitOAuthFlow;
@@ -7,6 +8,7 @@ import com.asyncapi.v2.security_scheme.oauth2.flow.PasswordOAuthFlow;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.Nullable;
 
@@ -23,7 +25,8 @@ import org.jetbrains.annotations.Nullable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class OAuthFlows {
+@EqualsAndHashCode(callSuper = true)
+public class OAuthFlows extends ExtendableObject {
 
     /**
      * Configuration for the OAuth Implicit flow

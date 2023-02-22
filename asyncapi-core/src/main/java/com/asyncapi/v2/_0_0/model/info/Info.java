@@ -1,17 +1,14 @@
 package com.asyncapi.v2._0_0.model.info;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.asyncapi.v2.ExtendableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * The object provides metadata about the API. The metadata can be used by the clients if needed.
@@ -24,7 +21,8 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Info {
+@EqualsAndHashCode(callSuper = true)
+public class Info extends ExtendableObject {
 
     /**
      * Required.
@@ -71,13 +69,5 @@ public class Info {
     @Nullable
     @JsonProperty
     private License license;
-
-    /**
-     * Extension fields in the form x-extension-field-name for the exposed API.
-     */
-    @JsonAnyGetter
-    @JsonAnySetter
-    @Builder.Default
-    protected Map<String, String> extensionFields = new HashMap<String, String>();
 
 }

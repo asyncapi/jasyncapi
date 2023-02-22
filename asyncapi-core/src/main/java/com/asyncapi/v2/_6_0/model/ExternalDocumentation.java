@@ -1,5 +1,6 @@
 package com.asyncapi.v2._6_0.model;
 
+import com.asyncapi.v2.ExtendableObject;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,8 +23,8 @@ import org.jetbrains.annotations.Nullable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
-public class ExternalDocumentation {
+@EqualsAndHashCode(callSuper = true)
+public class ExternalDocumentation extends ExtendableObject {
 
     /**
      * A short description of the target documentation. <a href="https://spec.commonmark.org/">CommonMark syntax</a> can be used for rich text representation.

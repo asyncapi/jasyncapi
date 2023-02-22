@@ -1,5 +1,6 @@
 package com.asyncapi.v2._0_0.model.channel.message;
 
+import com.asyncapi.v2.ExtendableObject;
 import com.asyncapi.v2._0_0.jackson.model.channel.message.MessageCorrelationIdDeserializer;
 import com.asyncapi.v2._0_0.jackson.model.channel.message.MessageHeadersDeserializer;
 import com.asyncapi.v2._0_0.model.ExternalDocumentation;
@@ -13,6 +14,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.Nullable;
 
@@ -36,7 +38,8 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MessageTrait {
+@EqualsAndHashCode(callSuper = true)
+public class MessageTrait extends ExtendableObject {
 
     /**
      * Schema definition of the application headers. Schema MUST be of type "object".

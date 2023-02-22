@@ -1,17 +1,14 @@
 package com.asyncapi.v2._0_0.model.channel;
 
+import com.asyncapi.v2.ExtendableObject;
 import com.asyncapi.v2._0_0.model.schema.Schema;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Describes a parameter included in a channel name.
@@ -24,7 +21,8 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Parameter {
+@EqualsAndHashCode(callSuper = true)
+public class Parameter extends ExtendableObject {
 
     /**
      * A verbose explanation of the parameter. CommonMark syntax can be used for rich text representation.
@@ -50,12 +48,4 @@ public class Parameter {
     @Nullable
     private String location;
 
-    /**
-     * Extension fields in the form x-extension-field-name for the exposed API.
-     */
-    @JsonAnySetter
-    @JsonAnyGetter
-    @Nullable
-    @Builder.Default
-    protected Map<String, String> extensionFields = new HashMap<String, String>();
 }

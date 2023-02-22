@@ -1,5 +1,6 @@
 package com.asyncapi.v2._6_0.model;
 
+import com.asyncapi.v2.ExtendableObject;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,8 +20,8 @@ import org.jetbrains.annotations.Nullable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
-public class Tag {
+@EqualsAndHashCode(callSuper = true)
+public class Tag extends ExtendableObject {
 
     /**
      * Required. The name of the tag.
