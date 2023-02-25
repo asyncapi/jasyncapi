@@ -62,10 +62,10 @@ class SchemaGeneratorMojo: AbstractMojo() {
             }
 
             override fun resolveClassLoader(): ClassLoader {
-                val urls = emptySet<URL>()
+                val urls = mutableSetOf<URL>()
 
                 project.runtimeClasspathElements.forEach {
-                    urls.plus(File(it).toURI().toURL())
+                    urls.add(File(it).toURI().toURL())
                 }
 
                 return URLClassLoader(urls.toTypedArray(), Thread.currentThread().contextClassLoader)
