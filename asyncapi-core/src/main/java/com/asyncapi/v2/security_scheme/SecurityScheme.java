@@ -1,5 +1,6 @@
 package com.asyncapi.v2.security_scheme;
 
+import com.asyncapi.v2.ExtendableObject;
 import com.asyncapi.v2.security_scheme.http.HttpApiKeySecurityScheme;
 import com.asyncapi.v2.security_scheme.http.HttpSecurityScheme;
 import com.asyncapi.v2.security_scheme.oauth2.OAuth2SecurityScheme;
@@ -9,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -58,7 +60,8 @@ import org.jetbrains.annotations.Nullable;
         @JsonSubTypes.Type(value = SecurityScheme.class, name = "scramSha512"),
         @JsonSubTypes.Type(value = SecurityScheme.class, name = "gssapi"),
 })
-public class SecurityScheme {
+@EqualsAndHashCode(callSuper = true)
+public class SecurityScheme extends ExtendableObject {
 
     /**
      * REQUIRED.

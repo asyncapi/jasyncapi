@@ -1,5 +1,6 @@
 package com.asyncapi.v2._0_0.model;
 
+import com.asyncapi.v2.ExtendableObject;
 import com.asyncapi.v2._0_0.model.channel.ChannelItem;
 import com.asyncapi.v2._0_0.model.component.Components;
 import com.asyncapi.v2._0_0.model.info.Info;
@@ -7,6 +8,7 @@ import com.asyncapi.v2._0_0.model.server.Server;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -26,7 +28,8 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AsyncAPI {
+@EqualsAndHashCode(callSuper = true)
+public class AsyncAPI extends ExtendableObject {
 
     /**
      * Required.

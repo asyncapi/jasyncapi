@@ -34,8 +34,7 @@ class InfoTest {
                 "short description",
                 "https://www.asyncapi.com/about/",
                 buildContact(),
-                buildLicense(),
-                emptyMap()
+                buildLicense()
         )
     }
 

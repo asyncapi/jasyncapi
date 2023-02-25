@@ -1,5 +1,6 @@
 package com.asyncapi.v2._6_0.model.channel.message;
 
+import com.asyncapi.v2.ExtendableObject;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,8 +17,8 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
-public class MessageExample {
+@EqualsAndHashCode(callSuper = true)
+public class MessageExample extends ExtendableObject {
 
     /**
      * The value of this field MUST validate against the {@link com.asyncapi.v2._6_0.model.channel.message.Message#getHeaders()} field.

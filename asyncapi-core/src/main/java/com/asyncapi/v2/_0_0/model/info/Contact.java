@@ -1,8 +1,10 @@
 package com.asyncapi.v2._0_0.model.info;
 
+import com.asyncapi.v2.ExtendableObject;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.Nullable;
 
@@ -17,7 +19,8 @@ import org.jetbrains.annotations.Nullable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Contact {
+@EqualsAndHashCode(callSuper = true)
+public class Contact extends ExtendableObject {
 
     /**
      * The identifying name of the contact person/organization.

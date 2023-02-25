@@ -1,5 +1,6 @@
 package com.asyncapi.v2.binding.server;
 
+import com.asyncapi.v2.ExtendableObject;
 import lombok.EqualsAndHashCode;
 
 /**
@@ -8,6 +9,6 @@ import lombok.EqualsAndHashCode;
  * @version 2.6.0
  * @author Pavel Bodiachevskii
  */
-@EqualsAndHashCode
-public class ServerBinding {
+@EqualsAndHashCode(callSuper = true)
+public class ServerBinding extends ExtendableObject {
 }

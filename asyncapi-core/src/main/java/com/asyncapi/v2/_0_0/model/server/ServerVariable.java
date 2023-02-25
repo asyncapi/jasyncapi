@@ -1,9 +1,11 @@
 package com.asyncapi.v2._0_0.model.server;
 
+import com.asyncapi.v2.ExtendableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.Nullable;
 
@@ -20,7 +22,8 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ServerVariable {
+@EqualsAndHashCode(callSuper = true)
+public class ServerVariable extends ExtendableObject {
 
     /**
      * An enumeration of string values to be used if the substitution options are from a limited set.

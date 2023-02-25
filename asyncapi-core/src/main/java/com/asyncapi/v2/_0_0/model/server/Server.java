@@ -1,19 +1,18 @@
 package com.asyncapi.v2._0_0.model.server;
 
+import com.asyncapi.v2.ExtendableObject;
 import com.asyncapi.v2.binding.server.ServerBinding;
 import com.asyncapi.v2.jackson.binding.server.ServerBindingsDeserializer;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -31,7 +30,8 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Server {
+@EqualsAndHashCode(callSuper = true)
+public class Server extends ExtendableObject {
 
     /**
      * REQUIRED.
@@ -99,8 +99,4 @@ public class Server {
     @JsonDeserialize(using = ServerBindingsDeserializer.class)
     private Map<String, ? extends ServerBinding> bindings;
 
-    @JsonAnyGetter
-    @JsonAnySetter
-    @Builder.Default
-    protected Map<String, String> extensionFields = new HashMap<String, String>();
 }

@@ -1,5 +1,6 @@
 package com.asyncapi.v2._0_0.model.channel.message;
 
+import com.asyncapi.v2.ExtendableObject;
 import com.asyncapi.v2._0_0.jackson.model.channel.message.MessageCorrelationIdDeserializer;
 import com.asyncapi.v2._0_0.jackson.model.channel.message.MessageHeadersDeserializer;
 import com.asyncapi.v2._0_0.jackson.model.channel.message.MessagePayloadDeserializer;
@@ -10,17 +11,15 @@ import com.asyncapi.v2._0_0.model.Tag;
 import com.asyncapi.v2._0_0.model.schema.Schema;
 import com.asyncapi.v2.binding.message.MessageBinding;
 import com.asyncapi.v2.jackson.binding.message.MessageBindingsDeserializer;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -35,7 +34,8 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Message {
+@EqualsAndHashCode(callSuper = true)
+public class Message extends ExtendableObject {
 
     /**
      * Schema definition of the application headers. Schema MUST be of type "object".
@@ -171,10 +171,5 @@ public class Message {
     @Nullable
     @JsonDeserialize(using = MessageTraitsDeserializer.class)
     private List<Object> traits;
-
-    @JsonAnyGetter
-    @JsonAnySetter
-    @Builder.Default
-    protected Map<String, String> extensionFields = new HashMap<String, String>();
 
 }

@@ -1,38 +1,26 @@
 package com.asyncapi.v2.binding.channel.anypointmq
 
-import com.asyncapi.v2.ClasspathUtils
-import com.fasterxml.jackson.databind.ObjectMapper
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.Test
+import com.asyncapi.v2.SerDeTest
 
 /**
  * @version 2.6.0
  * @author Pavel Bodiachevskii
  */
-class AnypointMQChannelBindingTest {
+class AnypointMQChannelBindingTest: SerDeTest<AnypointMQChannelBinding>() {
 
-    private val objectMapper = ObjectMapper()
+    override fun objectClass() = AnypointMQChannelBinding::class.java
 
-    @Test
-    @DisplayName("Compare hand crafted model with parsed json")
-    fun compareModelWithParsedJson() {
-        val model = ClasspathUtils.readAsString("/json/2.6.0/binding/channel/anypoint/anypointMQChannelBinding.json")
+    override fun baseObjectJson() = "/json/2.6.0/binding/channel/anypoint/anypointMQChannelBinding.json"
 
-        Assertions.assertEquals(
-                objectMapper.readValue(model, AnypointMQChannelBinding::class.java),
-                build()
-        )
-    }
+    override fun extendedObjectJson() = "/json/2.6.0/binding/channel/anypoint/anypointMQChannelBinding - extended.json"
 
-    companion object {
-        @JvmStatic
-        fun build(): AnypointMQChannelBinding {
-            return AnypointMQChannelBinding.builder()
-                    .destination("user-signup-exchg")
-                    .destinationType("exchange")
-                    .build()
-        }
+    override fun wronglyExtendedObjectJson() = "/json/2.6.0/binding/channel/anypoint/anypointMQChannelBinding - wrongly extended.json"
+
+    override fun build(): AnypointMQChannelBinding {
+        return AnypointMQChannelBinding.builder()
+                .destination("user-signup-exchg")
+                .destinationType("exchange")
+                .build()
     }
 
 }

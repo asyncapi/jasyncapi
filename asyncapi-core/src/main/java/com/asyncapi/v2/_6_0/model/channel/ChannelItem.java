@@ -1,5 +1,6 @@
 package com.asyncapi.v2._6_0.model.channel;
 
+import com.asyncapi.v2.ExtendableObject;
 import com.asyncapi.v2._6_0.jackson.model.channel.ChannelParametersDeserializer;
 import com.asyncapi.v2._6_0.model.channel.operation.Operation;
 import com.asyncapi.v2.binding.channel.ChannelBinding;
@@ -9,6 +10,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.Nullable;
 
@@ -26,7 +28,8 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ChannelItem {
+@EqualsAndHashCode(callSuper = true)
+public class ChannelItem extends ExtendableObject {
 
     /**
      * Allows for a referenced definition of this channel item. The referenced structure MUST be in the form of a {@link com.asyncapi.v2._6_0.model.channel.ChannelItem} Object.

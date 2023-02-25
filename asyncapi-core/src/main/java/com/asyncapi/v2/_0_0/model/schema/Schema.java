@@ -1,19 +1,18 @@
 package com.asyncapi.v2._0_0.model.schema;
 
+import com.asyncapi.v2.ExtendableObject;
 import com.asyncapi.v2._0_0.jackson.model.schema.SchemasAdditionalPropertiesDeserializer;
 import com.asyncapi.v2._0_0.model.ExternalDocumentation;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
 import org.jetbrains.annotations.Nullable;
+
 import java.math.BigDecimal;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -40,7 +39,8 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Schema {
+@EqualsAndHashCode(callSuper = true)
+public class Schema extends ExtendableObject {
 
     /*
         Schema Annotations
@@ -691,10 +691,5 @@ public class Schema {
     @Nullable
     @JsonProperty
     public Boolean deprecated;
-
-    @JsonAnyGetter
-    @JsonAnySetter
-    @Builder.Default
-    protected Map<String, String> extensionFields = new HashMap<String, String>();
 
 }

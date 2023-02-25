@@ -1,5 +1,6 @@
 package com.asyncapi.v2._0_0.model.channel.operation;
 
+import com.asyncapi.v2.ExtendableObject;
 import com.asyncapi.v2._0_0.jackson.model.channel.operation.OperationMessageDeserializer;
 import com.asyncapi.v2._0_0.jackson.model.channel.operation.OperationTraitsDeserializer;
 import com.asyncapi.v2._0_0.model.ExternalDocumentation;
@@ -34,8 +35,8 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
-public class Operation {
+@EqualsAndHashCode(callSuper = true)
+public class Operation extends ExtendableObject {
 
     /**
      * Unique string used to identify the operation.
