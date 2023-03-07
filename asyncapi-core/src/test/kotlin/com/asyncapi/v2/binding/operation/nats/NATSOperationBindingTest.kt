@@ -1,33 +1,21 @@
 package com.asyncapi.v2.binding.operation.nats
 
-import com.asyncapi.v2.ClasspathUtils
-import com.fasterxml.jackson.databind.ObjectMapper
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.Test
+import com.asyncapi.v2.SerDeTest
 
-class NATSOperationBindingTest {
+class NATSOperationBindingTest: SerDeTest<NATSOperationBinding>() {
 
-    private val objectMapper = ObjectMapper()
+    override fun objectClass() = NATSOperationBinding::class.java
 
-    @Test
-    @DisplayName("Compare hand crafted model with parsed json")
-    fun compareModelWithParsedJson() {
-        val model = ClasspathUtils.readAsString("/json/2.6.0/binding/operation/nats/natsOperationBinding.json")
+    override fun baseObjectJson() = "/json/2.6.0/binding/operation/nats/natsOperationBinding.json"
 
-        Assertions.assertEquals(
-                objectMapper.readValue(model, NATSOperationBinding::class.java),
-                build()
-        )
-    }
+    override fun extendedObjectJson() = "/json/2.6.0/binding/operation/nats/natsOperationBinding - extended.json"
 
-    companion object {
-        @JvmStatic
-        fun build(): NATSOperationBinding {
-            return NATSOperationBinding.builder()
-                    .queue("messages")
-                    .build()
-        }
+    override fun wronglyExtendedObjectJson() = "/json/2.6.0/binding/operation/nats/natsOperationBinding - wrongly extended.json"
+
+    override fun build(): NATSOperationBinding {
+        return NATSOperationBinding.builder()
+                .queue("messages")
+                .build()
     }
 
 }

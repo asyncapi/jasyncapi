@@ -1,46 +1,34 @@
 package com.asyncapi.v2.binding.operation.http
 
-import com.asyncapi.v2.ClasspathUtils
-import com.fasterxml.jackson.databind.ObjectMapper
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.Test
+import com.asyncapi.v2.SerDeTest
 
-class HTTPOperationBindingTest {
+class HTTPOperationBindingTest: SerDeTest<HTTPOperationBinding>() {
 
-    private val objectMapper = ObjectMapper()
+    override fun objectClass() = HTTPOperationBinding::class.java
 
-    @Test
-    @DisplayName("Compare hand crafted model with parsed json")
-    fun compareModelWithParsedJson() {
-        val model = ClasspathUtils.readAsString("/json/2.6.0/binding/operation/http/httpOperationBinding.json")
+    override fun baseObjectJson() = "/json/2.6.0/binding/operation/http/httpOperationBinding.json"
 
-        Assertions.assertEquals(
-                objectMapper.readValue(model, HTTPOperationBinding::class.java),
-                build()
-        )
-    }
+    override fun extendedObjectJson() = "/json/2.6.0/binding/operation/http/httpOperationBinding - extended.json"
 
-    companion object {
-        @JvmStatic
-        fun build(): HTTPOperationBinding {
-            return HTTPOperationBinding.builder()
-                    .type("request")
-                    .method("GET")
-                    .query(mapOf(
-                            Pair("type", "object"),
-                            Pair("required", listOf("companyId")),
-                            Pair("properties", mapOf(
-                                    Pair("companyId", mapOf(
-                                            Pair("type", "number"),
-                                            Pair("minimum", 1),
-                                            Pair("description", "The Id of the company.")
-                                    )),
-                                    Pair("additionalProperties", false)
-                            )),
-                    ))
-                    .build()
-        }
+    override fun wronglyExtendedObjectJson() = "/json/2.6.0/binding/operation/http/httpOperationBinding - wrongly extended.json"
+
+    override fun build(): HTTPOperationBinding {
+        return HTTPOperationBinding.builder()
+                .type("request")
+                .method("GET")
+                .query(mapOf(
+                        Pair("type", "object"),
+                        Pair("required", listOf("companyId")),
+                        Pair("properties", mapOf(
+                                Pair("companyId", mapOf(
+                                        Pair("type", "number"),
+                                        Pair("minimum", 1),
+                                        Pair("description", "The Id of the company.")
+                                )),
+                                Pair("additionalProperties", false)
+                        )),
+                ))
+                .build()
     }
 
 }

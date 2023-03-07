@@ -51,22 +51,22 @@ class OperationTraitTest {
                     ))
                     .externalDocs(ExternalDocumentation("Messages sending rules", "messages/sending-rules"))
                     .bindings(mapOf(
-                            Pair("amqp", AMQPOperationBindingTest.build()),
+                            Pair("amqp", AMQPOperationBindingTest().build()),
                             Pair("amqp1", Reference("#/components/operationBindings/amqp1")),
                             Pair("anypointmq", Reference("#/components/operationBindings/anypointmq")),
                             Pair("googlepubsub", Reference("#/components/operationBindings/googlepubsub")),
-                            Pair("http", HTTPOperationBindingTest.build()),
+                            Pair("http", HTTPOperationBindingTest().build()),
                             Pair("ibmmq", Reference("#/components/operationBindings/ibmmq")),
                             Pair("jms", Reference("#/components/operationBindings/jms")),
-                            Pair("kafka", KafkaOperationBindingTest.build()),
+                            Pair("kafka", KafkaOperationBindingTest().build()),
                             Pair("mercure", Reference("#/components/operationBindings/mercure")),
-                            Pair("mqtt", MQTTOperationBindingTest.build()),
+                            Pair("mqtt", MQTTOperationBindingTest().build()),
                             Pair("mqtt5", Reference("#/components/operationBindings/mqtt5")),
-                            Pair("nats", NATSOperationBindingTest.build()),
+                            Pair("nats", NATSOperationBindingTest().build()),
                             Pair("pulsar", Reference("#/components/operationBindings/pulsar")),
                             Pair("redis", Reference("#/components/operationBindings/redis")),
                             Pair("sns", Reference("#/components/operationBindings/sns")),
-                            Pair("solace", SolaceOperationBindingTest.build()),
+                            Pair("solace", SolaceOperationBindingTest().build()),
                             Pair("sqs", Reference("#/components/operationBindings/sqs")),
                             Pair("stomp", Reference("#/components/operationBindings/stomp")),
                             Pair("ws", Reference("#/components/operationBindings/ws"))
