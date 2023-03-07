@@ -98,16 +98,16 @@ class MessageTest {
 
         fun bindings(): Map<String, Any> {
             return mapOf(
-                    Pair("amqp", AMQPMessageBindingTest.build()),
+                    Pair("amqp", AMQPMessageBindingTest().build()),
                     Pair("amqp1", Reference("#/components/messageBindings/amqp1")),
-                    Pair("anypointmq", AnypointMQMessageBindingTest.build()),
-                    Pair("googlepubsub", GooglePubSubMessageBindingTest.build()),
-                    Pair("http", HTTPMessageBindingTest.build()),
-                    Pair("ibmmq", IBMMQMessageBindingTest.build()),
+                    Pair("anypointmq", AnypointMQMessageBindingTest().build()),
+                    Pair("googlepubsub", GooglePubSubMessageBindingTest().build()),
+                    Pair("http", HTTPMessageBindingTest().build()),
+                    Pair("ibmmq", IBMMQMessageBindingTest().build()),
                     Pair("jms", Reference("#/components/messageBindings/jms")),
-                    Pair("kafka", KafkaMessageBindingTest.build()),
+                    Pair("kafka", KafkaMessageBindingTest().build()),
                     Pair("mercure", Reference("#/components/messageBindings/mercure")),
-                    Pair("mqtt", MQTTMessageBindingTest.build()),
+                    Pair("mqtt", MQTTMessageBindingTest().build()),
                     Pair("mqtt5", Reference("#/components/messageBindings/mqtt5")),
                     Pair("nats", Reference("#/components/messageBindings/nats")),
                     Pair("pulsar", Reference("#/components/messageBindings/pulsar")),

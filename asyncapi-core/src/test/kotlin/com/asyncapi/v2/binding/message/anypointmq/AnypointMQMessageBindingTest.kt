@@ -1,42 +1,30 @@
 package com.asyncapi.v2.binding.message.anypointmq
 
-import com.asyncapi.v2.ClasspathUtils
-import com.fasterxml.jackson.databind.ObjectMapper
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.Test
+import com.asyncapi.v2.SerDeTest
 
-class AnypointMQMessageBindingTest {
+class AnypointMQMessageBindingTest: SerDeTest<AnypointMQMessageBinding>() {
 
-    private val objectMapper = ObjectMapper()
+    override fun objectClass() = AnypointMQMessageBinding::class.java
 
-    @Test
-    @DisplayName("Compare hand crafted model with parsed json")
-    fun compareModelWithParsedJson() {
-        val model = ClasspathUtils.readAsString("/json/2.6.0/binding/message/anypointmq/anypointMQMessageBinding.json")
+    override fun baseObjectJson() = "/json/2.6.0/binding/message/anypointmq/anypointMQMessageBinding.json"
 
-        Assertions.assertEquals(
-                objectMapper.readValue(model, AnypointMQMessageBinding::class.java),
-                build()
-        )
-    }
+    override fun extendedObjectJson() = "/json/2.6.0/binding/message/anypointmq/anypointMQMessageBinding - extended.json"
 
-    companion object {
-        @JvmStatic
-        fun build(): AnypointMQMessageBinding {
-            return AnypointMQMessageBinding.builder()
-                    .headers(mapOf(
-                            Pair("type", "object"),
-                            Pair("properties", mapOf(
+    override fun wronglyExtendedObjectJson() = "/json/2.6.0/binding/message/anypointmq/anypointMQMessageBinding - wrongly extended.json"
 
-                                    Pair("correlationId", mapOf(
-                                            Pair("description", "Correlation ID set by application"),
-                                            Pair("type", "string")
-                                    ))
-                            ))
-                    ))
-                    .build()
-        }
+    override fun build(): AnypointMQMessageBinding {
+        return AnypointMQMessageBinding.builder()
+                .headers(mapOf(
+                        Pair("type", "object"),
+                        Pair("properties", mapOf(
+
+                                Pair("correlationId", mapOf(
+                                        Pair("description", "Correlation ID set by application"),
+                                        Pair("type", "string")
+                                ))
+                        ))
+                ))
+                .build()
     }
 
 }
