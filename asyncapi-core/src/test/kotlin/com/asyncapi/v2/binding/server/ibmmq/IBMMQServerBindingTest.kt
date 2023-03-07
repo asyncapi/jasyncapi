@@ -1,35 +1,26 @@
 package com.asyncapi.v2.binding.server.ibmmq
 
-import com.asyncapi.v2.ClasspathUtils
-import com.fasterxml.jackson.databind.ObjectMapper
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.Test
+import com.asyncapi.v2.SerDeTest
 
 /**
  * @version 2.6.0
  * @author Pavel Bodiachevskii
  */
-class IBMMQServerBindingTest {
+class IBMMQServerBindingTest: SerDeTest<IBMMQServerBinding>() {
 
-    private val objectMapper = ObjectMapper()
+    override fun objectClass() = IBMMQServerBinding::class.java
 
-    private fun build(): IBMMQServerBinding {
+    override fun baseObjectJson() = "/json/2.6.0/binding/server/ibmmq/ibmmqServerBinding.json"
+
+    override fun extendedObjectJson() = "/json/2.6.0/binding/server/ibmmq/ibmmqServerBinding - extended.json"
+
+    override fun wronglyExtendedObjectJson() = "/json/2.6.0/binding/server/ibmmq/ibmmqServerBinding - wrongly extended.json"
+
+    override fun build(): IBMMQServerBinding {
         return IBMMQServerBinding.builder()
                 .groupId("PRODCLSTR1")
                 .cipherSpec("ANY_TLS12_OR_HIGHER")
                 .build()
-    }
-
-    @Test
-    @DisplayName("Compare hand crafted model with parsed json")
-    fun compareModelWithParsedJson() {
-        val model = ClasspathUtils.readAsString("/json/2.6.0/binding/server/ibmmq/ibmmqServerBinding.json")
-
-        Assertions.assertEquals(
-                objectMapper.readValue(model, IBMMQServerBinding::class.java),
-                build()
-        )
     }
 
 }

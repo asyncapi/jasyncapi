@@ -1,34 +1,25 @@
 package com.asyncapi.v2.binding.server.pulsar
 
-import com.asyncapi.v2.ClasspathUtils
-import com.fasterxml.jackson.databind.ObjectMapper
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.Test
+import com.asyncapi.v2.SerDeTest
 
 /**
  * @version 2.6.0
  * @author Pavel Bodiachevskii
  */
-class PulsarServerBindingTest {
+class PulsarServerBindingTest: SerDeTest<PulsarServerBinding>() {
 
-    private val objectMapper = ObjectMapper()
+    override fun objectClass() = PulsarServerBinding::class.java
 
-    private fun build(): PulsarServerBinding {
+    override fun baseObjectJson() = "/json/2.6.0/binding/server/pulsar/pulsarServerBinding.json"
+
+    override fun extendedObjectJson() = "/json/2.6.0/binding/server/pulsar/pulsarServerBinding - extended.json"
+
+    override fun wronglyExtendedObjectJson() = "/json/2.6.0/binding/server/pulsar/pulsarServerBinding - wrongly extended.json"
+
+    override fun build(): PulsarServerBinding {
         return PulsarServerBinding.builder()
                 .tenant("contoso")
                 .build()
-    }
-
-    @Test
-    @DisplayName("Compare hand crafted model with parsed json")
-    fun compareModelWithParsedJson() {
-        val model = ClasspathUtils.readAsString("/json/2.6.0/binding/server/pulsar/pulsarServerBinding.json")
-
-        Assertions.assertEquals(
-                objectMapper.readValue(model, PulsarServerBinding::class.java),
-                build()
-        )
     }
 
 }
