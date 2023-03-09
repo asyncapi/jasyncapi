@@ -1,37 +1,25 @@
 package com.asyncapi.v2.security_scheme
 
-import com.asyncapi.v2.ClasspathUtils
-import com.fasterxml.jackson.databind.ObjectMapper
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.Test
+import com.asyncapi.v2.SerDeTest
 
 /**
  * @author Pavel Bodiachevskii
  */
-class GssapiSecuritySchemeTest {
+class GssapiSecuritySchemeTest: SerDeTest<SecurityScheme>() {
 
-    private val objectMapper = ObjectMapper()
+    override fun objectClass() = SecurityScheme::class.java
 
-    @Test
-    @DisplayName("Compare hand crafted model with parsed json")
-    fun compareModelWithParsedJson() {
-        val model = ClasspathUtils.readAsString("/json/2.6.0/model/security_scheme/gssapi.json")
+    override fun baseObjectJson() = "/json/2.6.0/model/security_scheme/gssapi.json"
 
-        Assertions.assertEquals(
-                objectMapper.readValue(model, SecurityScheme::class.java),
-                build()
-        )
-    }
+    override fun extendedObjectJson() = "/json/2.6.0/model/security_scheme/gssapi - extended.json"
 
-    companion object {
-        @JvmStatic
-        fun build(): SecurityScheme {
-            return SecurityScheme.builder()
-                    .type(SecurityScheme.Type.GSSAPI)
-                    .description("gssapi")
-                    .build()
-        }
+    override fun wronglyExtendedObjectJson() = "/json/2.6.0/model/security_scheme/gssapi - wrongly extended.json"
+
+    override fun build(): SecurityScheme {
+        return SecurityScheme.builder()
+                .type(SecurityScheme.Type.GSSAPI)
+                .description("gssapi")
+                .build()
     }
 
 }

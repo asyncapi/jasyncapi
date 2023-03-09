@@ -14,7 +14,8 @@ import com.asyncapi.v2._6_0.model.server.ServerVariableTest
 import com.asyncapi.v2.security_scheme.ApiKeySecuritySchemeTest
 import com.asyncapi.v2.security_scheme.OpenIdConnectSecuritySchemeTest
 import com.asyncapi.v2.security_scheme.http.HttpApiKeySecuritySchemeTest
-import com.asyncapi.v2.security_scheme.http.HttpSecuritySchemeTest
+import com.asyncapi.v2.security_scheme.http.HttpSecuritySchemeBasicTest
+import com.asyncapi.v2.security_scheme.http.HttpSecuritySchemeBearerTest
 import com.asyncapi.v2.security_scheme.oauth2.OAuth2SecuritySchemeTest
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Assertions
@@ -61,14 +62,14 @@ class ComponentsTest {
                             Pair("userSignout", Reference("#/components/messages/userSignout"))
                     ))
                     .securitySchemes(mapOf(
-                            Pair("apiKey", ApiKeySecuritySchemeTest.build()),
+                            Pair("apiKey", ApiKeySecuritySchemeTest().build()),
                             Pair("asymmetricEncryption", Reference("#/components/securitySchemes/asymmetricEncryption")),
                             Pair("gssapi", Reference("#/components/securitySchemes/gssapi")),
-                            Pair("oauth2", OAuth2SecuritySchemeTest.build()),
-                            Pair("openIdConnect", OpenIdConnectSecuritySchemeTest.build()),
-                            Pair("httpApiKey", HttpApiKeySecuritySchemeTest.build()),
-                            Pair("httpBasic", HttpSecuritySchemeTest.buildBasic()),
-                            Pair("httpBearer", HttpSecuritySchemeTest.buildBearer()),
+                            Pair("oauth2", OAuth2SecuritySchemeTest().build()),
+                            Pair("openIdConnect", OpenIdConnectSecuritySchemeTest().build()),
+                            Pair("httpApiKey", HttpApiKeySecuritySchemeTest().build()),
+                            Pair("httpBasic", HttpSecuritySchemeBasicTest().build()),
+                            Pair("httpBearer", HttpSecuritySchemeBearerTest().build()),
                             Pair("plain", Reference("#/components/securitySchemes/plain")),
                             Pair("scramSha256", Reference("#/components/securitySchemes/scramSha256")),
                             Pair("scramSha512", Reference("#/components/securitySchemes/scramSha512")),
