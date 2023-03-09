@@ -1,6 +1,6 @@
 package com.asyncapi.v2._6_0.model.server
 
-import com.asyncapi.v2.ClasspathUtils
+import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._6_0.model.Reference
 import com.asyncapi.v2._6_0.model.Tag
 import com.asyncapi.v2.binding.server.amqp1.AMQP1ServerBinding
@@ -21,59 +21,49 @@ import com.asyncapi.v2.binding.server.solace.SolaceServerBinding
 import com.asyncapi.v2.binding.server.sqs.SQSServerBinding
 import com.asyncapi.v2.binding.server.stomp.STOMPServerBinding
 import com.asyncapi.v2.binding.server.ws.WebSocketsServerBinding
-import com.fasterxml.jackson.databind.ObjectMapper
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.Test
 
 /**
  * @version 2.6.0
  * @author Pavel Bodiachevskii
  */
-class ServerTest {
+class ServerTest: SerDeTest<Server>() {
 
-    private val objectMapper = ObjectMapper()
+    override fun objectClass() = Server::class.java
 
-    @Test
-    @DisplayName("Compare hand crafted model with parsed json")
-    fun compareModelWithParsedJson() {
-        val model = ClasspathUtils.readAsString("/json/2.6.0/model/server/server.json")
+    override fun baseObjectJson() = "/json/2.6.0/model/server/server.json"
 
-        Assertions.assertEquals(
-                objectMapper.readValue(model, Server::class.java),
-                build()
-        )
+    override fun extendedObjectJson() = "/json/2.6.0/model/server/server - extended.json"
+
+    override fun wronglyExtendedObjectJson() = "/json/2.6.0/model/server/server - wrongly extended.json"
+
+    override fun build(): Server {
+        return Server.builder()
+                .url("{username}.gigantic-server.com:{port}/{basePath}")
+                .protocol("secure-mqtt")
+                .protocolVersion("5")
+                .description("The production API server")
+                .variables(mapOf(
+                        Pair("username", ServerVariable.builder()
+                                .defaultValue("demo")
+                                .description("This value is assigned by the service provider, in this example `gigantic-server.com`")
+                                .build()),
+                        Pair("port", ServerVariable.builder()
+                                .enumValues(listOf("8883", "8884"))
+                                .defaultValue("8883")
+                                .build()),
+                        Pair("basePath", Reference("#/components/serverVariables/basePath"))
+                ))
+                .security(listOf(mapOf(
+                        Pair("mqttBroker", emptyList())
+                )))
+                .tags(listOf(
+                        Tag("env:staging", "This environment is a replica of the production environment", null)
+                ))
+                .bindings(bindings())
+                .build()
     }
 
     companion object {
-        @JvmStatic
-        fun build(): Server {
-            return Server.builder()
-                    .url("{username}.gigantic-server.com:{port}/{basePath}")
-                    .protocol("secure-mqtt")
-                    .protocolVersion("5")
-                    .description("The production API server")
-                    .variables(mapOf(
-                            Pair("username", ServerVariable.builder()
-                                    .defaultValue("demo")
-                                    .description("This value is assigned by the service provider, in this example `gigantic-server.com`")
-                                    .build()),
-                            Pair("port", ServerVariable.builder()
-                                    .enumValues(listOf("8883", "8884"))
-                                    .defaultValue("8883")
-                                    .build()),
-                            Pair("basePath", Reference("#/components/serverVariables/basePath"))
-                    ))
-                    .security(listOf(mapOf(
-                            Pair("mqttBroker", emptyList())
-                    )))
-                    .tags(listOf(
-                            Tag("env:staging", "This environment is a replica of the production environment", null)
-                    ))
-                    .bindings(bindings())
-                    .build()
-        }
-
         @JvmStatic
         fun bindings(): Map<String, Any> {
             return mapOf(

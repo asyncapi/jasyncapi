@@ -47,11 +47,11 @@ class ComponentsTest {
             return Components.builder()
                     .schemas(null)
                     .servers(mapOf(
-                            Pair("mqtt-test", ServerTest.build()),
+                            Pair("mqtt-test", ServerTest().build()),
                             Pair("mqtt-stage", Reference("#/components/servers/mqtt-stage"))
                     ))
                     .serverVariables(mapOf(
-                            Pair("port", ServerVariableTest.build()),
+                            Pair("port", ServerVariableTest().build()),
                             Pair("basePath", Reference("#/components/serverVariables/basePath"))
                     ))
                     .channels(mapOf(
