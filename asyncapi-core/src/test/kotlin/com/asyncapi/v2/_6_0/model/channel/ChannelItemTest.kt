@@ -32,7 +32,7 @@ class ChannelItemTest: SerDeTest<ChannelItem>() {
         ))
         val publish = OperationTest.build()
         publish.message = MessageTest.build()
-        val userIdParameter = ParameterTest.build()
+        val userIdParameter = ParameterWithSchemaTest().build()
         userIdParameter.schema = Schema.builder().type("string").build()
 
         return ChannelItem.builder()

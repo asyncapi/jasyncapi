@@ -3,7 +3,8 @@ package com.asyncapi.v2._6_0.model.component
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._6_0.model.Reference
 import com.asyncapi.v2._6_0.model.channel.ChannelItemTest
-import com.asyncapi.v2._6_0.model.channel.ParameterTest
+import com.asyncapi.v2._6_0.model.channel.ParameterWithSchemaTest
+import com.asyncapi.v2._6_0.model.channel.ParameterWithReferenceToSchemaTest
 import com.asyncapi.v2._6_0.model.channel.message.CorrelationIdTest
 import com.asyncapi.v2._6_0.model.channel.message.MessageTest
 import com.asyncapi.v2._6_0.model.channel.message.MessageTraitTest
@@ -67,8 +68,8 @@ class ComponentsTest: SerDeTest<Components>() {
                         Pair("X509", Reference("#/components/securitySchemes/X509")),
                 ))
                 .parameters(mapOf(
-                        Pair("parameterWithSchema", ParameterTest.buildWithSchema()),
-                        Pair("parameterWithSchemaReference", ParameterTest.buildWithSchemaReference()),
+                        Pair("parameterWithSchema", ParameterWithSchemaTest().build()),
+                        Pair("parameterWithSchemaReference", ParameterWithReferenceToSchemaTest().build()),
                         Pair("parameter", Reference("#/components/parameters/parameter"))
                 ))
                 .correlationIds(mapOf(
