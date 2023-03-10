@@ -44,7 +44,7 @@ class ComponentsTest: SerDeTest<Components>() {
                         Pair("basePath", Reference("#/components/serverVariables/basePath"))
                 ))
                 .channels(mapOf(
-                        Pair("sign-up", ChannelItemTest.build()),
+                        Pair("sign-up", ChannelItemTest().build()),
                 ))
                 .messages(mapOf(
                         Pair("userSignup", MessageTest.build()),
