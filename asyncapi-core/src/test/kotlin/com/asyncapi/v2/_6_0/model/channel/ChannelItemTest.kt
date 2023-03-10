@@ -2,9 +2,8 @@ package com.asyncapi.v2._6_0.model.channel
 
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._6_0.model.Reference
-import com.asyncapi.v2._6_0.model.channel.message.MessageTest
-import com.asyncapi.v2._6_0.model.channel.message.OneOfMessages
-import com.asyncapi.v2._6_0.model.channel.operation.OperationTest
+import com.asyncapi.v2._6_0.model.channel.operation.OperationWithMessageTest
+import com.asyncapi.v2._6_0.model.channel.operation.OperationWithOneOfMessageTest
 import com.asyncapi.v2._6_0.model.schema.Schema
 import com.asyncapi.v2.binding.channel.amqp.AMQPChannelBindingTest
 import com.asyncapi.v2.binding.channel.anypointmq.AnypointMQChannelBindingTest
@@ -25,13 +24,8 @@ class ChannelItemTest: SerDeTest<ChannelItem>() {
     override fun wronglyExtendedObjectJson() = "/json/2.6.0/model/channel/channelItem - wrongly extended.json"
 
     override fun build(): ChannelItem {
-        val subscribe = OperationTest.build()
-        subscribe.message = OneOfMessages(listOf(
-                Reference("#/components/schemas/sendMessage"),
-                MessageTest.build()
-        ))
-        val publish = OperationTest.build()
-        publish.message = MessageTest.build()
+        val subscribe = OperationWithOneOfMessageTest().build()
+        val publish = OperationWithMessageTest().build()
         val userIdParameter = ParameterWithSchemaTest().build()
         userIdParameter.schema = Schema.builder().type("string").build()
 
