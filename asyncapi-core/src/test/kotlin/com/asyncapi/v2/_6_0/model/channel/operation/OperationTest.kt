@@ -44,7 +44,7 @@ class OperationWithReferenceToMessageTest: SerDeTest<Operation>() {
                 .bindings(OperationTest.bindings())
                 .traits(listOf(
                         Reference("#/components/operationTraits/sendMessage"),
-                        OperationTraitTest.build()
+                        OperationTraitTest().build()
                 ))
                 .message(Reference("#/components/schemas/sendMessage"))
                 .build()
@@ -83,7 +83,7 @@ class OperationWithMessageTest: SerDeTest<Operation>() {
                 .bindings(OperationTest.bindings())
                 .traits(listOf(
                         Reference("#/components/operationTraits/sendMessage"),
-                        OperationTraitTest.build()
+                        OperationTraitTest().build()
                 ))
                 .message(MessageTest.build())
                 .build()
@@ -121,7 +121,7 @@ class OperationWithOneOfMessageTest: SerDeTest<Operation>() {
                 .bindings(OperationTest.bindings())
                 .traits(listOf(
                         Reference("#/components/operationTraits/sendMessage"),
-                        OperationTraitTest.build()
+                        OperationTraitTest().build()
                 ))
                 .message(OneOfMessages(listOf(
                         Reference("#/components/schemas/sendMessage"),

@@ -77,7 +77,7 @@ class ComponentsTest: SerDeTest<Components>() {
                         Pair("correlationId", Reference("#/correlationIds/parameters/correlationId"))
                 ))
                 .operationTraits(mapOf(
-                        Pair("sendMessage", OperationTraitTest.build()),
+                        Pair("sendMessage", OperationTraitTest().build()),
                         Pair("deleteMessage", Reference("#/components/operationTraits/deleteMessage"))
                 ))
                 .messageTraits(mapOf(
