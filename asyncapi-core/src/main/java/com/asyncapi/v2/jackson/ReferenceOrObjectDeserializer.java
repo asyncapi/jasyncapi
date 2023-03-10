@@ -7,6 +7,7 @@ import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException;
 
 import java.io.IOException;
 
@@ -19,7 +20,24 @@ public abstract class ReferenceOrObjectDeserializer<ObjectType> extends JsonDese
         ObjectCodec objectCodec = p.getCodec();
         JsonNode node = objectCodec.readTree(p);
 
-        return chooseKnownPojo(node, objectCodec);
+        /*
+            Problem:
+              Both, Reference class and Schema class have $ref field.
+              So, this is only reason why I receive next exception:
+              "com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException:
+                Unrecognized field "title" (class com.asyncapi.v2._6_0.model.Reference),
+                not marked as ignorable (one known property: "$ref"])"
+              in case when Schema contains $ref.
+            Solution:
+             Try to deserialize reference. In case of exception, try to deserialize it as given ObjectType. In case of
+             one more exception, throw it.
+            TODO: Think how to improve.
+         */
+        try {
+            return chooseKnownPojo(node, objectCodec);
+        } catch (UnrecognizedPropertyException unrecognizedPropertyException) {
+            return readAsReference(node, objectCodec);
+        }
     }
 
     private Object chooseKnownPojo(JsonNode jsonNode, ObjectCodec objectCodec) throws IOException {
@@ -30,6 +48,12 @@ public abstract class ReferenceOrObjectDeserializer<ObjectType> extends JsonDese
             } else {
                 return jsonParser.readValueAs(objectTypeClass());
             }
+        }
+    }
+
+    private Object readAsReference(JsonNode jsonNode, ObjectCodec objectCodec) throws IOException {
+        try (JsonParser jsonParser = jsonNode.traverse(objectCodec)) {
+            return jsonParser.readValueAs(objectTypeClass());
         }
     }
 
