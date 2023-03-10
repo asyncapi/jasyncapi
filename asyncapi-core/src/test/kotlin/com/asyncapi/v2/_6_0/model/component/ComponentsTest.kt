@@ -73,7 +73,7 @@ class ComponentsTest: SerDeTest<Components>() {
                         Pair("parameter", Reference("#/components/parameters/parameter"))
                 ))
                 .correlationIds(mapOf(
-                        Pair("userSignupCorrelationId", CorrelationIdTest.build()),
+                        Pair("userSignupCorrelationId", CorrelationIdTest().build()),
                         Pair("correlationId", Reference("#/correlationIds/parameters/correlationId"))
                 ))
                 .operationTraits(mapOf(
