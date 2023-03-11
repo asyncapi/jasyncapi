@@ -24,7 +24,7 @@ class ContactTest {
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
-        val model = ClasspathUtils.readAsString("/json/model/info/contact.json")
+        val model = ClasspathUtils.readAsString("/json/2.0.0/model/info/contact.json")
 
         Assertions.assertEquals(
                 objectMapper.readValue(model, Contact::class.java),

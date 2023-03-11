@@ -27,7 +27,7 @@ class OperationTraitTest {
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
-        val model = ClasspathUtils.readAsString("/json/model/channel/operation/operationTrait.json")
+        val model = ClasspathUtils.readAsString("/json/2.0.0/model/channel/operation/operationTrait.json")
 
         Assertions.assertEquals(
                 objectMapper.readValue(model, OperationTrait::class.java),

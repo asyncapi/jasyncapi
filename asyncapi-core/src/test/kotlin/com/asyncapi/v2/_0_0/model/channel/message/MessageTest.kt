@@ -69,7 +69,7 @@ class MessageTest {
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
-        val model = ClasspathUtils.readAsString("/json/model/channel/message/message.json")
+        val model = ClasspathUtils.readAsString("/json/2.0.0/model/channel/message/message.json")
 
         Assertions.assertEquals(
                 objectMapper.readValue(model, object: TypeReference<Message>() {}),

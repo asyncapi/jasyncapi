@@ -69,7 +69,7 @@ class OperationTest {
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
-        val model = ClasspathUtils.readAsString("/json/model/channel/operation/operation.json")
+        val model = ClasspathUtils.readAsString("/json/2.0.0/model/channel/operation/operation.json")
 
         Assertions.assertEquals(
                 objectMapper.readValue(model, Operation::class.java),

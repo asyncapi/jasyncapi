@@ -23,7 +23,7 @@ class ServerVariableTest {
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
-        val model = ClasspathUtils.readAsString("/json/model/server/serverVariable.json")
+        val model = ClasspathUtils.readAsString("/json/2.0.0/model/server/serverVariable.json")
 
         Assertions.assertEquals(
                 objectMapper.readValue(model, ServerVariable::class.java),

@@ -26,7 +26,7 @@ class ParameterTest {
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
-        val model = ClasspathUtils.readAsString("/json/model/channel/parameter.json")
+        val model = ClasspathUtils.readAsString("/json/2.0.0/model/channel/parameter.json")
 
         Assertions.assertEquals(
                 objectMapper.readValue(model, Parameter::class.java),

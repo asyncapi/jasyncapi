@@ -15,14 +15,14 @@ class InfoTest {
 
     private fun buildContact(): Contact {
         return objectMapper.readValue(
-                ClasspathUtils.readAsString("/json/model/info/contact.json"),
+                ClasspathUtils.readAsString("/json/2.0.0/model/info/contact.json"),
                 Contact::class.java
         )
     }
 
     private fun buildLicense(): License {
         return objectMapper.readValue(
-                ClasspathUtils.readAsString("/json/model/info/license.json"),
+                ClasspathUtils.readAsString("/json/2.0.0/model/info/license.json"),
                 License::class.java
         )
     }
@@ -41,7 +41,7 @@ class InfoTest {
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
-        val model = ClasspathUtils.readAsString("/json/model/info/info.json")
+        val model = ClasspathUtils.readAsString("/json/2.0.0/model/info/info.json")
 
         Assertions.assertEquals(
                 objectMapper.readValue(model, Info::class.java),

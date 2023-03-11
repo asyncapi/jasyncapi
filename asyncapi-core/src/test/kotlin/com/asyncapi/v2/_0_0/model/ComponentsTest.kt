@@ -114,7 +114,7 @@ class ComponentsTest {
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
-        val components = ClasspathUtils.readAsString("/json/model/components.json")
+        val components = ClasspathUtils.readAsString("/json/2.0.0/model/components.json")
 
         Assertions.assertEquals(
                 objectMapper.readValue(components, Components::class.java),

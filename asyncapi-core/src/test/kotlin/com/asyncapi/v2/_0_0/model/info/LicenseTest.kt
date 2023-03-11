@@ -23,7 +23,7 @@ class LicenseTest {
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
-        val model = ClasspathUtils.readAsString("/json/model/info/license.json")
+        val model = ClasspathUtils.readAsString("/json/2.0.0/model/info/license.json")
 
         Assertions.assertEquals(
                 objectMapper.readValue(model, License::class.java),

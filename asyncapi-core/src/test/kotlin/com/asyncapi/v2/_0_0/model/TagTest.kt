@@ -24,7 +24,7 @@ class TagTest {
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
-        val model = ClasspathUtils.readAsString("/json/model/tag.json")
+        val model = ClasspathUtils.readAsString("/json/2.0.0/model/tag.json")
 
         Assertions.assertEquals(
                 objectMapper.readValue(model, Tag::class.java),

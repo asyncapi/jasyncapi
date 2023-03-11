@@ -20,14 +20,14 @@ class AsyncAPITest {
 
     private fun buildInfo(): Info {
         return objectMapper.readValue(
-                ClasspathUtils.readAsString("/json/model/info/info.json"),
+                ClasspathUtils.readAsString("/json/2.0.0/model/info/info.json"),
                 Info::class.java
         )
     }
 
     private fun buildChannels(): Map<String, ChannelItem> {
         val channelItem = objectMapper.readValue(
-                ClasspathUtils.readAsString("/json/model/channel/channel.json"),
+                ClasspathUtils.readAsString("/json/2.0.0/model/channel/channel.json"),
                 object: TypeReference<ChannelItem>() {}
         )
 
@@ -36,7 +36,7 @@ class AsyncAPITest {
 
     private fun buildServers(): Map<String, Server> {
         val server = objectMapper.readValue(
-                ClasspathUtils.readAsString("/json/model/server/server.json"),
+                ClasspathUtils.readAsString("/json/2.0.0/model/server/server.json"),
                 Server::class.java
         )
 
@@ -45,7 +45,7 @@ class AsyncAPITest {
 
     private fun buildTags(): List<Tag> {
         val tag = objectMapper.readValue(
-                ClasspathUtils.readAsString("/json/model/tag.json"),
+                ClasspathUtils.readAsString("/json/2.0.0/model/tag.json"),
                 Tag::class.java
         )
 
@@ -54,14 +54,14 @@ class AsyncAPITest {
 
     private fun buildExternalDocs(): ExternalDocumentation {
         return objectMapper.readValue(
-                ClasspathUtils.readAsString("/json/model/externalDocumentation.json"),
+                ClasspathUtils.readAsString("/json/2.0.0/model/externalDocumentation.json"),
                 ExternalDocumentation::class.java
         )
     }
 
     private fun buildComponents(): Components {
         return objectMapper.readValue(
-                ClasspathUtils.readAsString("/json/model/components.json"),
+                ClasspathUtils.readAsString("/json/2.0.0/model/components.json"),
                 object: TypeReference<Components>() {}
         )
     }
@@ -83,7 +83,7 @@ class AsyncAPITest {
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
-        val model = ClasspathUtils.readAsString("/json/model/asyncapi.json")
+        val model = ClasspathUtils.readAsString("/json/2.0.0/model/asyncapi.json")
 
         Assertions.assertEquals(
                 objectMapper.readValue(model, AsyncAPI::class.java),
