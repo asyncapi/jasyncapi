@@ -9,11 +9,11 @@ class OpenIdConnectSecuritySchemeTest: SerDeTest<OpenIdConnectSecurityScheme>() 
 
     override fun objectClass() = OpenIdConnectSecurityScheme::class.java
 
-    override fun baseObjectJson() = "/json/2.6.0/model/security_scheme/openIdConnect.json"
+    override fun baseObjectJson() = "/json/security_scheme/openIdConnect.json"
 
-    override fun extendedObjectJson() = "/json/2.6.0/model/security_scheme/openIdConnect - extended.json"
+    override fun extendedObjectJson() = "/json/security_scheme/openIdConnect - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.6.0/model/security_scheme/openIdConnect - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/security_scheme/openIdConnect - wrongly extended.json"
 
     override fun build(): SecurityScheme {
         return OpenIdConnectSecurityScheme.openIdConnectSecurityScheme()

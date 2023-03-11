@@ -6,11 +6,11 @@ class AuthorizationCodeOAuthFlowTest: SerDeTest<AuthorizationCodeOAuthFlow>() {
 
     override fun objectClass() = AuthorizationCodeOAuthFlow::class.java
 
-    override fun baseObjectJson() = "/json/2.6.0/model/security_scheme/oauth2/flow/authorizationCodeOAuthFlow.json"
+    override fun baseObjectJson() = "/json/security_scheme/oauth2/flow/authorizationCodeOAuthFlow.json"
 
-    override fun extendedObjectJson() = "/json/2.6.0/model/security_scheme/oauth2/flow/authorizationCodeOAuthFlow - extended.json"
+    override fun extendedObjectJson() = "/json/security_scheme/oauth2/flow/authorizationCodeOAuthFlow - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.6.0/model/security_scheme/oauth2/flow/authorizationCodeOAuthFlow - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/security_scheme/oauth2/flow/authorizationCodeOAuthFlow - wrongly extended.json"
 
     override fun build(): AuthorizationCodeOAuthFlow {
         return AuthorizationCodeOAuthFlow.authorizationCodeOAuthFlowBuilder()

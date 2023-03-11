@@ -9,11 +9,11 @@ class ApiKeySecuritySchemeTest: SerDeTest<ApiKeySecurityScheme>() {
 
     override fun objectClass() = ApiKeySecurityScheme::class.java
 
-    override fun baseObjectJson() = "/json/2.6.0/model/security_scheme/apiKey.json"
+    override fun baseObjectJson() = "/json/security_scheme/apiKey.json"
 
-    override fun extendedObjectJson() = "/json/2.6.0/model/security_scheme/apiKey - extended.json"
+    override fun extendedObjectJson() = "/json/security_scheme/apiKey - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.6.0/model/security_scheme/apiKey - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/security_scheme/apiKey - wrongly extended.json"
 
     override fun build(): SecurityScheme {
         return ApiKeySecurityScheme.apiKeySecuritySchemeBuilder()

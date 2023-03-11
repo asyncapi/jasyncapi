@@ -6,11 +6,11 @@ class ClientCredentialsOAuthFlowTest: SerDeTest<ClientCredentialsOAuthFlow>() {
 
     override fun objectClass() = ClientCredentialsOAuthFlow::class.java
 
-    override fun baseObjectJson() = "/json/2.6.0/model/security_scheme/oauth2/flow/clientCredentialsOAuthFlow.json"
+    override fun baseObjectJson() = "/json/security_scheme/oauth2/flow/clientCredentialsOAuthFlow.json"
 
-    override fun extendedObjectJson() = "/json/2.6.0/model/security_scheme/oauth2/flow/clientCredentialsOAuthFlow - extended.json"
+    override fun extendedObjectJson() = "/json/security_scheme/oauth2/flow/clientCredentialsOAuthFlow - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.6.0/model/security_scheme/oauth2/flow/clientCredentialsOAuthFlow - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/security_scheme/oauth2/flow/clientCredentialsOAuthFlow - wrongly extended.json"
 
     override fun build(): ClientCredentialsOAuthFlow {
         return ClientCredentialsOAuthFlow.clientCredentialsOAuthFlowBuilder()
