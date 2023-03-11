@@ -61,7 +61,7 @@ class AsyncAPITest {
 
     private fun buildComponents(): Components {
         return objectMapper.readValue(
-                ClasspathUtils.readAsString("/json/2.0.0/model/components.json"),
+                ClasspathUtils.readAsString("/json/2.0.0/model/components/components.json"),
                 object: TypeReference<Components>() {}
         )
     }

@@ -1,11 +1,12 @@
-package com.asyncapi.v2._0_0.model
+package com.asyncapi.v2._0_0.model.component
 
 import com.asyncapi.v2.ClasspathUtils
+import com.asyncapi.v2._0_0.model.Reference
+import com.asyncapi.v2._0_0.model.Tag
 import com.asyncapi.v2._0_0.model.channel.Parameter
 import com.asyncapi.v2._0_0.model.channel.message.CorrelationId
 import com.asyncapi.v2._0_0.model.channel.message.Message
 import com.asyncapi.v2._0_0.model.channel.message.MessageTrait
-import com.asyncapi.v2._0_0.model.component.Components
 import com.asyncapi.v2._0_0.model.schema.Schema
 import com.asyncapi.v2._0_0.model.schema.Type
 import com.asyncapi.v2.security_scheme.SecurityScheme
@@ -114,7 +115,7 @@ class ComponentsTest {
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
-        val components = ClasspathUtils.readAsString("/json/2.0.0/model/components.json")
+        val components = ClasspathUtils.readAsString("/json/2.0.0/model/components/components.json")
 
         Assertions.assertEquals(
                 objectMapper.readValue(components, Components::class.java),
