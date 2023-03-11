@@ -91,7 +91,7 @@ class MessageTraitTest {
                             Pair("stomp", Reference("#/components/messageBindings/stomp")),
                             Pair("ws", Reference("#/components/messageBindings/ws"))
                     ))
-                    .examples(listOf(MessageExampleTest.build()))
+                    .examples(listOf(MessageExampleTest().build()))
                     .build()
         }
     }

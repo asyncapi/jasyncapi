@@ -89,7 +89,7 @@ class MessageTest {
                     ))
                     .externalDocs(ExternalDocumentation("User sign up rules", "messages/sign-up-rules"))
                     .bindings(bindings())
-                    .examples(listOf(MessageExampleTest.build()))
+                    .examples(listOf(MessageExampleTest().build()))
                     .traits(listOf(
                             Reference("#/components/messageTraits/commonHeaders"),
                     ))
