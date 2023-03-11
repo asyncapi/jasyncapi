@@ -1,40 +1,28 @@
 package com.asyncapi.v2.binding.operation.kafka
 
-import com.asyncapi.v2.ClasspathUtils
-import com.fasterxml.jackson.databind.ObjectMapper
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.Test
+import com.asyncapi.v2.SerDeTest
 
-class KafkaOperationBindingTest {
+class KafkaOperationBindingTest: SerDeTest<KafkaOperationBinding>() {
 
-    private val objectMapper = ObjectMapper()
+    override fun objectClass() = KafkaOperationBinding::class.java
 
-    @Test
-    @DisplayName("Compare hand crafted model with parsed json")
-    fun compareModelWithParsedJson() {
-        val model = ClasspathUtils.readAsString("/json/2.6.0/binding/operation/kafka/kafkaOperationBinding.json")
+    override fun baseObjectJson() = "/json/2.6.0/binding/operation/kafka/kafkaOperationBinding.json"
 
-        Assertions.assertEquals(
-                objectMapper.readValue(model, KafkaOperationBinding::class.java),
-                build()
-        )
-    }
+    override fun extendedObjectJson() = "/json/2.6.0/binding/operation/kafka/kafkaOperationBinding - extended.json"
 
-    companion object {
-        @JvmStatic
-        fun build(): KafkaOperationBinding {
-            return KafkaOperationBinding.builder()
-                    .groupId(mapOf(
-                            Pair("type", "string"),
-                            Pair("enum", listOf("myGroupId"))
-                    ))
-                    .clientId(mapOf(
-                            Pair("type", "string"),
-                            Pair("enum", listOf("myClientId"))
-                    ))
-                    .build()
-        }
+    override fun wronglyExtendedObjectJson() = "/json/2.6.0/binding/operation/kafka/kafkaOperationBinding - wrongly extended.json"
+
+    override fun build(): KafkaOperationBinding {
+        return KafkaOperationBinding.builder()
+                .groupId(mapOf(
+                        Pair("type", "string"),
+                        Pair("enum", listOf("myGroupId"))
+                ))
+                .clientId(mapOf(
+                        Pair("type", "string"),
+                        Pair("enum", listOf("myClientId"))
+                ))
+                .build()
     }
 
 }

@@ -1,38 +1,26 @@
 package com.asyncapi.v2.security_scheme
 
-import com.asyncapi.v2.ClasspathUtils
-import com.fasterxml.jackson.databind.ObjectMapper
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.Test
+import com.asyncapi.v2.SerDeTest
 
 /**
  * @author Pavel Bodiachevskii
  */
-class ApiKeySecuritySchemeTest {
+class ApiKeySecuritySchemeTest: SerDeTest<ApiKeySecurityScheme>() {
 
-    private val objectMapper = ObjectMapper()
+    override fun objectClass() = ApiKeySecurityScheme::class.java
 
-    @Test
-    @DisplayName("Compare hand crafted model with parsed json")
-    fun compareModelWithParsedJson() {
-        val model = ClasspathUtils.readAsString("/json/2.6.0/model/security_scheme/apiKey.json")
+    override fun baseObjectJson() = "/json/2.6.0/model/security_scheme/apiKey.json"
 
-        Assertions.assertEquals(
-                objectMapper.readValue(model, ApiKeySecurityScheme::class.java),
-                build()
-        )
-    }
+    override fun extendedObjectJson() = "/json/2.6.0/model/security_scheme/apiKey - extended.json"
 
-    companion object {
-        @JvmStatic
-        fun build(): SecurityScheme {
-            return ApiKeySecurityScheme.apiKeySecuritySchemeBuilder()
-                    .type(SecurityScheme.Type.API_KEY)
-                    .description("apiKey")
-                    .`in`(ApiKeySecurityScheme.ApiKeyLocation.USER)
-                    .build()
-        }
+    override fun wronglyExtendedObjectJson() = "/json/2.6.0/model/security_scheme/apiKey - wrongly extended.json"
+
+    override fun build(): SecurityScheme {
+        return ApiKeySecurityScheme.apiKeySecuritySchemeBuilder()
+                .type(SecurityScheme.Type.API_KEY)
+                .description("apiKey")
+                .`in`(ApiKeySecurityScheme.ApiKeyLocation.USER)
+                .build()
     }
 
 }

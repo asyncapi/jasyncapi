@@ -1,40 +1,29 @@
 package com.asyncapi.v2.binding.message.http
 
-import com.asyncapi.v2.ClasspathUtils
-import com.fasterxml.jackson.databind.ObjectMapper
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.Test
+import com.asyncapi.v2.SerDeTest
 
-class HTTPMessageBindingTest {
+class HTTPMessageBindingTest: SerDeTest<HTTPMessageBinding>() {
 
-    private val objectMapper = ObjectMapper()
+    override fun objectClass() = HTTPMessageBinding::class.java
 
-    @Test
-    @DisplayName("Compare hand crafted model with parsed json")
-    fun compareModelWithParsedJson() {
-        val model = ClasspathUtils.readAsString("/json/2.6.0/binding/message/http/httpMessageBinding.json")
+    override fun baseObjectJson() = "/json/2.6.0/binding/message/http/httpMessageBinding.json"
 
-        Assertions.assertEquals(
-                objectMapper.readValue(model, HTTPMessageBinding::class.java),
-                build()
-        )
+    override fun extendedObjectJson() = "/json/2.6.0/binding/message/http/httpMessageBinding - extended.json"
+
+    override fun wronglyExtendedObjectJson() = "/json/2.6.0/binding/message/http/httpMessageBinding - wrongly extended.json"
+
+    override fun build(): HTTPMessageBinding {
+        return HTTPMessageBinding.builder()
+                .headers(mapOf(
+                        Pair("type", "object"),
+                        Pair("properties", mapOf(
+                                Pair("Content-Type", mapOf(
+                                        Pair("type", "string"),
+                                        Pair("enum", listOf("application/json"))
+                                ))
+                        )),
+                ))
+                .build()
     }
 
-    companion object {
-        @JvmStatic
-        fun build(): HTTPMessageBinding {
-            return HTTPMessageBinding.builder()
-                    .headers(mapOf(
-                            Pair("type", "object"),
-                            Pair("properties", mapOf(
-                                    Pair("Content-Type", mapOf(
-                                            Pair("type", "string"),
-                                            Pair("enum", listOf("application/json"))
-                                    ))
-                            )),
-                    ))
-                    .build()
-        }
-    }
 }

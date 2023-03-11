@@ -1,34 +1,22 @@
 package com.asyncapi.v2._6_0.model.channel.message
 
-import com.asyncapi.v2.ClasspathUtils
-import com.fasterxml.jackson.databind.ObjectMapper
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.Test
+import com.asyncapi.v2.SerDeTest
 
-class CorrelationIdTest {
+class CorrelationIdTest: SerDeTest<CorrelationId>() {
 
-    private val objectMapper = ObjectMapper()
+    override fun objectClass() = CorrelationId::class.java
 
-    @Test
-    @DisplayName("Compare hand crafted model with parsed json")
-    fun compareModelWithParsedJson() {
-        val model = ClasspathUtils.readAsString("/json/2.6.0/model/channel/message/correlationId.json")
+    override fun baseObjectJson() = "/json/2.6.0/model/channel/message/correlationId.json"
 
-        Assertions.assertEquals(
-                objectMapper.readValue(model, CorrelationId::class.java),
-                build()
-        )
-    }
+    override fun extendedObjectJson() = "/json/2.6.0/model/channel/message/correlationId - extended.json"
 
-    companion object {
-        @JvmStatic
-        fun build(): CorrelationId {
-            return CorrelationId.builder()
-                    .description("Default Correlation ID")
-                    .location("\$message.header#/correlationId")
-                    .build()
-        }
+    override fun wronglyExtendedObjectJson() = "/json/2.6.0/model/channel/message/correlationId - wrongly extended.json"
+
+    override fun build(): CorrelationId {
+        return CorrelationId.builder()
+                .description("Default Correlation ID")
+                .location("\$message.header#/correlationId")
+                .build()
     }
 
 }
