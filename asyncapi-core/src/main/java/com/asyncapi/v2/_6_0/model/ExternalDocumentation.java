@@ -10,9 +10,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * TODO: This object can be extended with Specification Extensions.
- *  https://www.asyncapi.com/docs/reference/specification/v2.6.0#specificationExtensions
- * <p>
  * Allows referencing an external resource for extended documentation.
  *
  * @version 2.6.0
