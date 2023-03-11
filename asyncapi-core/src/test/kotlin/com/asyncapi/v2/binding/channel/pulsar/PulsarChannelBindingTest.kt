@@ -6,11 +6,11 @@ class PulsarChannelBindingTest: SerDeTest<PulsarChannelBinding>() {
 
     override fun objectClass() = PulsarChannelBinding::class.java
 
-    override fun baseObjectJson() = "/json/2.6.0/binding/channel/pulsar/pulsarChannelBinding.json"
+    override fun baseObjectJson() = "/json/binding/channel/pulsar/pulsarChannelBinding.json"
 
-    override fun extendedObjectJson() = "/json/2.6.0/binding/channel/pulsar/pulsarChannelBinding - extended.json"
+    override fun extendedObjectJson() = "/json/binding/channel/pulsar/pulsarChannelBinding - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.6.0/binding/channel/pulsar/pulsarChannelBinding - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/binding/channel/pulsar/pulsarChannelBinding - wrongly extended.json"
 
     override fun build(): PulsarChannelBinding {
         return PulsarChannelBinding.builder()

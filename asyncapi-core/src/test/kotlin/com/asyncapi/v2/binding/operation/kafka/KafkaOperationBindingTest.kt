@@ -6,11 +6,11 @@ class KafkaOperationBindingTest: SerDeTest<KafkaOperationBinding>() {
 
     override fun objectClass() = KafkaOperationBinding::class.java
 
-    override fun baseObjectJson() = "/json/2.6.0/binding/operation/kafka/kafkaOperationBinding.json"
+    override fun baseObjectJson() = "/json/binding/operation/kafka/kafkaOperationBinding.json"
 
-    override fun extendedObjectJson() = "/json/2.6.0/binding/operation/kafka/kafkaOperationBinding - extended.json"
+    override fun extendedObjectJson() = "/json/binding/operation/kafka/kafkaOperationBinding - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.6.0/binding/operation/kafka/kafkaOperationBinding - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/binding/operation/kafka/kafkaOperationBinding - wrongly extended.json"
 
     override fun build(): KafkaOperationBinding {
         return KafkaOperationBinding.builder()

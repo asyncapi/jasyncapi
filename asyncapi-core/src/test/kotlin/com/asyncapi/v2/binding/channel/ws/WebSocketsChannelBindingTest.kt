@@ -10,11 +10,11 @@ class WebSocketsChannelBindingTest: SerDeTest<WebSocketsChannelBinding>() {
 
     override fun objectClass() = WebSocketsChannelBinding::class.java
 
-    override fun baseObjectJson() = "/json/2.6.0/binding/channel/ws/webSocketsChannelBinding.json"
+    override fun baseObjectJson() = "/json/binding/channel/ws/webSocketsChannelBinding.json"
 
-    override fun extendedObjectJson() = "/json/2.6.0/binding/channel/ws/webSocketsChannelBinding - extended.json"
+    override fun extendedObjectJson() = "/json/binding/channel/ws/webSocketsChannelBinding - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.6.0/binding/channel/ws/webSocketsChannelBinding - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/binding/channel/ws/webSocketsChannelBinding - wrongly extended.json"
 
     override fun build(): WebSocketsChannelBinding {
         return WebSocketsChannelBinding.builder()

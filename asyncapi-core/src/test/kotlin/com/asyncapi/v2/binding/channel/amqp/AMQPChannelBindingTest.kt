@@ -10,11 +10,11 @@ class AMQPChannelBindingTest: SerDeTest<AMQPChannelBinding>() {
 
     override fun objectClass() = AMQPChannelBinding::class.java
 
-    override fun baseObjectJson() = "/json/2.6.0/binding/channel/amqp/amqpChannelBinding.json"
+    override fun baseObjectJson() = "/json/binding/channel/amqp/amqpChannelBinding.json"
 
-    override fun extendedObjectJson() = "/json/2.6.0/binding/channel/amqp/amqpChannelBinding - extended.json"
+    override fun extendedObjectJson() = "/json/binding/channel/amqp/amqpChannelBinding - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.6.0/binding/channel/amqp/amqpChannelBinding - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/binding/channel/amqp/amqpChannelBinding - wrongly extended.json"
 
     override fun build(): AMQPChannelBinding {
         return AMQPChannelBinding.builder()

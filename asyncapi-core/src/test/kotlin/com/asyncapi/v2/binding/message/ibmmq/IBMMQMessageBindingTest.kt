@@ -6,11 +6,11 @@ class IBMMQMessageBindingTest: SerDeTest<IBMMQMessageBinding>() {
 
     override fun objectClass() = IBMMQMessageBinding::class.java
 
-    override fun baseObjectJson() = "/json/2.6.0/binding/message/ibmmq/ibmMQMessageBinding.json"
+    override fun baseObjectJson() = "/json/binding/message/ibmmq/ibmMQMessageBinding.json"
 
-    override fun extendedObjectJson() = "/json/2.6.0/binding/message/ibmmq/ibmMQMessageBinding - extended.json"
+    override fun extendedObjectJson() = "/json/binding/message/ibmmq/ibmMQMessageBinding - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.6.0/binding/message/ibmmq/ibmMQMessageBinding - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/binding/message/ibmmq/ibmMQMessageBinding - wrongly extended.json"
 
     override fun build(): IBMMQMessageBinding {
         return IBMMQMessageBinding.builder()

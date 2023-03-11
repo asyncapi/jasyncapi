@@ -10,11 +10,11 @@ class AnypointMQChannelBindingTest: SerDeTest<AnypointMQChannelBinding>() {
 
     override fun objectClass() = AnypointMQChannelBinding::class.java
 
-    override fun baseObjectJson() = "/json/2.6.0/binding/channel/anypoint/anypointMQChannelBinding.json"
+    override fun baseObjectJson() = "/json/binding/channel/anypoint/anypointMQChannelBinding.json"
 
-    override fun extendedObjectJson() = "/json/2.6.0/binding/channel/anypoint/anypointMQChannelBinding - extended.json"
+    override fun extendedObjectJson() = "/json/binding/channel/anypoint/anypointMQChannelBinding - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.6.0/binding/channel/anypoint/anypointMQChannelBinding - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/binding/channel/anypoint/anypointMQChannelBinding - wrongly extended.json"
 
     override fun build(): AnypointMQChannelBinding {
         return AnypointMQChannelBinding.builder()

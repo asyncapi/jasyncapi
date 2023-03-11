@@ -10,11 +10,11 @@ class KafkaChannelBindingTest: SerDeTest<KafkaChannelBinding>() {
 
     override fun objectClass() = KafkaChannelBinding::class.java
 
-    override fun baseObjectJson() = "/json/2.6.0/binding/channel/kafka/kafkaChannelBinding.json"
+    override fun baseObjectJson() = "/json/binding/channel/kafka/kafkaChannelBinding.json"
 
-    override fun extendedObjectJson() = "/json/2.6.0/binding/channel/kafka/kafkaChannelBinding - extended.json"
+    override fun extendedObjectJson() = "/json/binding/channel/kafka/kafkaChannelBinding - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.6.0/binding/channel/kafka/kafkaChannelBinding - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/binding/channel/kafka/kafkaChannelBinding - wrongly extended.json"
 
     override fun build(): KafkaChannelBinding {
         return KafkaChannelBinding.builder()

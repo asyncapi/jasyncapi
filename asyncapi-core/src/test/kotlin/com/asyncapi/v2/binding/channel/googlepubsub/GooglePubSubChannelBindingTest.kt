@@ -6,11 +6,11 @@ class GooglePubSubChannelBindingTest: SerDeTest<GooglePubSubChannelBinding>() {
 
     override fun objectClass() = GooglePubSubChannelBinding::class.java
 
-    override fun baseObjectJson() = "/json/2.6.0/binding/channel/googlepubsub/googlePubSubChannelBinding.json"
+    override fun baseObjectJson() = "/json/binding/channel/googlepubsub/googlePubSubChannelBinding.json"
 
-    override fun extendedObjectJson() = "/json/2.6.0/binding/channel/googlepubsub/googlePubSubChannelBinding - extended.json"
+    override fun extendedObjectJson() = "/json/binding/channel/googlepubsub/googlePubSubChannelBinding - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.6.0/binding/channel/googlepubsub/googlePubSubChannelBinding - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/binding/channel/googlepubsub/googlePubSubChannelBinding - wrongly extended.json"
 
     override fun build(): GooglePubSubChannelBinding {
        return GooglePubSubChannelBinding.builder()

@@ -6,11 +6,11 @@ class MQTTOperationBindingTest: SerDeTest<MQTTOperationBinding>() {
 
     override fun objectClass() = MQTTOperationBinding::class.java
 
-    override fun baseObjectJson() = "/json/2.6.0/binding/operation/mqtt/mqttOperationBinding.json"
+    override fun baseObjectJson() = "/json/binding/operation/mqtt/mqttOperationBinding.json"
 
-    override fun extendedObjectJson() = "/json/2.6.0/binding/operation/mqtt/mqttOperationBinding - extended.json"
+    override fun extendedObjectJson() = "/json/binding/operation/mqtt/mqttOperationBinding - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.6.0/binding/operation/mqtt/mqttOperationBinding - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/binding/operation/mqtt/mqttOperationBinding - wrongly extended.json"
 
     override fun build(): MQTTOperationBinding {
         return MQTTOperationBinding.builder()

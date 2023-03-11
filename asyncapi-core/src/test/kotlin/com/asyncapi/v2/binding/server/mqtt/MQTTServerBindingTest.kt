@@ -10,11 +10,11 @@ class MQTTServerBindingTest: SerDeTest<MQTTServerBinding>() {
 
     override fun objectClass() = MQTTServerBinding::class.java
 
-    override fun baseObjectJson() = "/json/2.6.0/binding/server/mqtt/mqttServerBinding.json"
+    override fun baseObjectJson() = "/json/binding/server/mqtt/mqttServerBinding.json"
 
-    override fun extendedObjectJson() = "/json/2.6.0/binding/server/mqtt/mqttServerBinding - extended.json"
+    override fun extendedObjectJson() = "/json/binding/server/mqtt/mqttServerBinding - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.6.0/binding/server/mqtt/mqttServerBinding - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/binding/server/mqtt/mqttServerBinding - wrongly extended.json"
 
     override fun build(): MQTTServerBinding {
         return MQTTServerBinding.builder()

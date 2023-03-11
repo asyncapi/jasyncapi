@@ -6,11 +6,11 @@ class NATSOperationBindingTest: SerDeTest<NATSOperationBinding>() {
 
     override fun objectClass() = NATSOperationBinding::class.java
 
-    override fun baseObjectJson() = "/json/2.6.0/binding/operation/nats/natsOperationBinding.json"
+    override fun baseObjectJson() = "/json/binding/operation/nats/natsOperationBinding.json"
 
-    override fun extendedObjectJson() = "/json/2.6.0/binding/operation/nats/natsOperationBinding - extended.json"
+    override fun extendedObjectJson() = "/json/binding/operation/nats/natsOperationBinding - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.6.0/binding/operation/nats/natsOperationBinding - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/binding/operation/nats/natsOperationBinding - wrongly extended.json"
 
     override fun build(): NATSOperationBinding {
         return NATSOperationBinding.builder()
