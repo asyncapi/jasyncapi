@@ -48,7 +48,7 @@ class ComponentsTest: SerDeTest<Components>() {
                         Pair("sign-up", ChannelItemTest().build()),
                 ))
                 .messages(mapOf(
-                        Pair("userSignup", MessageTest.build()),
+                        Pair("userSignup", MessageTest().build()),
                         Pair("userSignout", Reference("#/components/messages/userSignout"))
                 ))
                 .securitySchemes(mapOf(

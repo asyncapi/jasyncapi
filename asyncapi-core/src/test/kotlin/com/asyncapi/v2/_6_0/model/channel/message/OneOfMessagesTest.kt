@@ -27,7 +27,7 @@ class OneOfMessagesTest {
         fun build(): OneOfMessages {
             return OneOfMessages(listOf(
                     Reference("#/components/schemas/sendMessage"),
-                    MessageTest.build()
+                    MessageTest().build()
             ))
         }
     }

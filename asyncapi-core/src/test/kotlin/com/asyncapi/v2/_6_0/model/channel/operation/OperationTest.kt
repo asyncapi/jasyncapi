@@ -85,7 +85,7 @@ class OperationWithMessageTest: SerDeTest<Operation>() {
                         Reference("#/components/operationTraits/sendMessage"),
                         OperationTraitTest().build()
                 ))
-                .message(MessageTest.build())
+                .message(MessageTest().build())
                 .build()
     }
 }
@@ -125,7 +125,7 @@ class OperationWithOneOfMessageTest: SerDeTest<Operation>() {
                 ))
                 .message(OneOfMessages(listOf(
                         Reference("#/components/schemas/sendMessage"),
-                        MessageTest.build()
+                        MessageTest().build()
                 )))
                 .build()
     }

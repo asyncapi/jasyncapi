@@ -1,6 +1,6 @@
 package com.asyncapi.v2._6_0.model.channel.message
 
-import com.asyncapi.v2.ClasspathUtils
+import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._6_0.model.ExternalDocumentation
 import com.asyncapi.v2._6_0.model.Reference
 import com.asyncapi.v2._6_0.model.Tag
@@ -12,90 +12,80 @@ import com.asyncapi.v2.binding.message.http.HTTPMessageBindingTest
 import com.asyncapi.v2.binding.message.ibmmq.IBMMQMessageBindingTest
 import com.asyncapi.v2.binding.message.kafka.KafkaMessageBindingTest
 import com.asyncapi.v2.binding.message.mqtt.MQTTMessageBindingTest
-import com.fasterxml.jackson.databind.ObjectMapper
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.Test
 
-class MessageTest {
+class MessageTest: SerDeTest<Message>() {
 
-    private val objectMapper = ObjectMapper()
+    override fun objectClass() = Message::class.java
 
-    @Test
-    @DisplayName("Compare hand crafted model with parsed json")
-    fun compareModelWithParsedJson() {
-        val model = ClasspathUtils.readAsString("/json/2.6.0/model/channel/message/message.json")
+    override fun baseObjectJson() = "/json/2.6.0/model/channel/message/message.json"
 
-        Assertions.assertEquals(
-                objectMapper.readValue(model, Message::class.java),
-                build()
-        )
+    override fun extendedObjectJson() = "/json/2.6.0/model/channel/message/message - extended.json"
+
+    override fun wronglyExtendedObjectJson() = "/json/2.6.0/model/channel/message/message - wrongly extended.json"
+
+    override fun build(): Message {
+        return Message.builder()
+                .messageId("userSignup")
+                .headers(Schema.builder()
+                        .type("object")
+                        .properties(mapOf(
+                                Pair(
+                                        "correlationId",
+                                        Schema.builder()
+                                                .description("Correlation ID set by application")
+                                                .type("string")
+                                                .build()
+                                ),
+                                Pair(
+                                        "applicationInstanceId",
+                                        Schema.builder()
+                                                .description("Unique identifier for a given instance of the publishing application")
+                                                .type("string")
+                                                .build()
+                                )
+                        ))
+                        .build()
+                )
+                .payload(Schema.builder()
+                        .type("object")
+                        .properties(mapOf(
+                                Pair(
+                                        "user",
+                                        Schema.builder()
+                                                .ref("#/components/schemas/userCreate")
+                                                .build()
+                                ),
+                                Pair(
+                                        "signup",
+                                        Schema.builder()
+                                                .ref("#/components/schemas/signup")
+                                                .build()
+                                )
+                        ))
+                        .build()
+                )
+                .correlationId(CorrelationId("Default Correlation ID", "\$message.header#/correlationId"))
+                .schemaFormat("application/vnd.apache.avro+json;version=1.9.0")
+                .contentType("application/json")
+                .name("UserSignup")
+                .title("User signup")
+                .summary("Action to sign a user up.")
+                .description("A longer description")
+                .tags(listOf(
+                        Tag("user", null, null),
+                        Tag("signup", null, null),
+                        Tag("register", null, null)
+                ))
+                .externalDocs(ExternalDocumentation("User sign up rules", "messages/sign-up-rules"))
+                .bindings(bindings())
+                .examples(listOf(MessageExampleTest().build()))
+                .traits(listOf(
+                        Reference("#/components/messageTraits/commonHeaders"),
+                ))
+                .build()
     }
 
     companion object {
-        @JvmStatic
-        fun build(): Message {
-            return Message.builder()
-                    .messageId("userSignup")
-                    .headers(Schema.builder()
-                            .type("object")
-                            .properties(mapOf(
-                                    Pair(
-                                            "correlationId",
-                                            Schema.builder()
-                                                    .description("Correlation ID set by application")
-                                                    .type("string")
-                                                    .build()
-                                    ),
-                                    Pair(
-                                            "applicationInstanceId",
-                                            Schema.builder()
-                                                    .description("Unique identifier for a given instance of the publishing application")
-                                                    .type("string")
-                                                    .build()
-                                    )
-                            ))
-                            .build()
-                    )
-                    .payload(Schema.builder()
-                            .type("object")
-                            .properties(mapOf(
-                                    Pair(
-                                            "user",
-                                            Schema.builder()
-                                                    .ref("#/components/schemas/userCreate")
-                                                    .build()
-                                    ),
-                                    Pair(
-                                            "signup",
-                                            Schema.builder()
-                                                    .ref("#/components/schemas/signup")
-                                                    .build()
-                                    )
-                            ))
-                            .build()
-                    )
-                    .correlationId(CorrelationId("Default Correlation ID", "\$message.header#/correlationId"))
-                    .schemaFormat("application/vnd.apache.avro+json;version=1.9.0")
-                    .contentType("application/json")
-                    .name("UserSignup")
-                    .title("User signup")
-                    .summary("Action to sign a user up.")
-                    .description("A longer description")
-                    .tags(listOf(
-                            Tag("user", null, null),
-                            Tag("signup", null, null),
-                            Tag("register", null, null)
-                    ))
-                    .externalDocs(ExternalDocumentation("User sign up rules", "messages/sign-up-rules"))
-                    .bindings(bindings())
-                    .examples(listOf(MessageExampleTest().build()))
-                    .traits(listOf(
-                            Reference("#/components/messageTraits/commonHeaders"),
-                    ))
-                    .build()
-        }
-
         fun bindings(): Map<String, Any> {
             return mapOf(
                     Pair("amqp", AMQPMessageBindingTest().build()),
