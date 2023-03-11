@@ -81,7 +81,7 @@ class ComponentsTest: SerDeTest<Components>() {
                         Pair("deleteMessage", Reference("#/components/operationTraits/deleteMessage"))
                 ))
                 .messageTraits(mapOf(
-                        Pair("userSignup", MessageTraitTest.build()),
+                        Pair("userSignup", MessageTraitTest().build()),
                         Pair("userSignout", Reference("#/components/messageTraits/userSignout"))
                 ))
                 .serverBindings(ServerTest.bindings())
