@@ -193,7 +193,11 @@
   "tags": [
     {
       "name": "user",
-      "description": "User-related messages"
+      "description": "User-related messages",
+      "externalDocs": {
+        "description" : "Find more info here",
+        "url" : "https://example.com"
+      }
     }
   ],
   "externalDocs": {
