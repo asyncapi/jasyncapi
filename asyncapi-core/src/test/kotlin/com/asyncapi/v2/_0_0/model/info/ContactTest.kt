@@ -1,34 +1,25 @@
 package com.asyncapi.v2._0_0.model.info
 
-import com.asyncapi.v2.ClasspathUtils
-import com.fasterxml.jackson.databind.ObjectMapper
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.Test
+import com.asyncapi.v2.SerDeTest
 
 /**
  * @author Pavel Bodiachevskii
  */
-class ContactTest {
+class ContactTest: SerDeTest<Contact>() {
 
-    private val objectMapper = ObjectMapper()
+    override fun objectClass() = Contact::class.java
 
-    private fun buildContact(): Contact {
+    override fun baseObjectJson() = "/json/2.0.0/model/info/contact.json"
+
+    override fun extendedObjectJson() = "/json/2.0.0/model/info/contact - extended.json"
+
+    override fun wronglyExtendedObjectJson() = "/json/2.0.0/model/info/contact - wrongly extended.json"
+
+    override fun build(): Contact {
         return Contact(
                 "AsyncApi",
                 "https://www.asyncapi.com",
                 "java@asyncapi.com"
-        )
-    }
-
-    @Test
-    @DisplayName("Compare hand crafted model with parsed json")
-    fun compareModelWithParsedJson() {
-        val model = ClasspathUtils.readAsString("/json/2.0.0/model/info/contact.json")
-
-        Assertions.assertEquals(
-                objectMapper.readValue(model, Contact::class.java),
-                buildContact()
         )
     }
 

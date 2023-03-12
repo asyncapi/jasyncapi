@@ -1,33 +1,24 @@
 package com.asyncapi.v2._0_0.model.info
 
-import com.asyncapi.v2.ClasspathUtils
-import com.fasterxml.jackson.databind.ObjectMapper
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.Test
+import com.asyncapi.v2.SerDeTest
 
 /**
  * @author Pavel Bodiachevskii
  */
-class LicenseTest {
+class LicenseTest: SerDeTest<License>() {
 
-    private val objectMapper = ObjectMapper()
+    override fun objectClass() = License::class.java
 
-    private fun buildLicense(): License {
+    override fun baseObjectJson() = "/json/2.0.0/model/info/license.json"
+
+    override fun extendedObjectJson() = "/json/2.0.0/model/info/license - extended.json"
+
+    override fun wronglyExtendedObjectJson() = "/json/2.0.0/model/info/license - wrongly extended.json"
+
+    override fun build(): License {
         return License(
                 "Apache License 2.0",
                 "http://www.apache.org/licenses/"
-        )
-    }
-
-    @Test
-    @DisplayName("Compare hand crafted model with parsed json")
-    fun compareModelWithParsedJson() {
-        val model = ClasspathUtils.readAsString("/json/2.0.0/model/info/license.json")
-
-        Assertions.assertEquals(
-                objectMapper.readValue(model, License::class.java),
-                buildLicense()
         )
     }
 
