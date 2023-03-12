@@ -22,6 +22,9 @@
     }
   ],
   "bindings": {
+    "amqp": {
+      "$ref": "#/components/serverBindings/amqp"
+    },
     "amqp1": {},
     "anypointmq": {},
     "googlepubsub": {},
@@ -71,5 +74,11 @@
     "sqs": {},
     "stomp": {},
     "ws": {}
-  }
+  },
+  "x-number": 0,
+  "x-string": "",
+  "x-object": {
+    "property": {}
+  },
+  "ext-number": 1
 }
