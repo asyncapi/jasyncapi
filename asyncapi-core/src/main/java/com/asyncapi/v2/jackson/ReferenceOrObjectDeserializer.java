@@ -1,6 +1,5 @@
 package com.asyncapi.v2.jackson;
 
-import com.asyncapi.v2._6_0.model.Reference;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.ObjectCodec;
@@ -14,6 +13,8 @@ import java.io.IOException;
 public abstract class ReferenceOrObjectDeserializer<ObjectType> extends JsonDeserializer<Object> {
 
     abstract public Class<ObjectType> objectTypeClass();
+
+    abstract public Class<?> referenceClass();
 
     @Override
     public Object deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
@@ -36,7 +37,7 @@ public abstract class ReferenceOrObjectDeserializer<ObjectType> extends JsonDese
         try {
             return chooseKnownPojo(node, objectCodec);
         } catch (UnrecognizedPropertyException unrecognizedPropertyException) {
-            return readAsReference(node, objectCodec);
+            return readAsObject(node, objectCodec);
         }
     }
 
@@ -44,14 +45,14 @@ public abstract class ReferenceOrObjectDeserializer<ObjectType> extends JsonDese
         JsonNode ref = jsonNode.get("$ref");
         try (JsonParser jsonParser = jsonNode.traverse(objectCodec)) {
             if (ref != null) {
-                return jsonParser.readValueAs(Reference.class);
+                return jsonParser.readValueAs(referenceClass());
             } else {
                 return jsonParser.readValueAs(objectTypeClass());
             }
         }
     }
 
-    private Object readAsReference(JsonNode jsonNode, ObjectCodec objectCodec) throws IOException {
+    private Object readAsObject(JsonNode jsonNode, ObjectCodec objectCodec) throws IOException {
         try (JsonParser jsonParser = jsonNode.traverse(objectCodec)) {
             return jsonParser.readValueAs(objectTypeClass());
         }

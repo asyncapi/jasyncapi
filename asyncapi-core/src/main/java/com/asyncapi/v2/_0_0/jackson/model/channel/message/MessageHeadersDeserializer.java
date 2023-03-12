@@ -1,5 +1,6 @@
 package com.asyncapi.v2._0_0.jackson.model.channel.message;
 
+import com.asyncapi.v2._0_0.model.Reference;
 import com.asyncapi.v2._0_0.model.schema.Schema;
 import com.asyncapi.v2.jackson.ReferenceOrObjectDeserializer;
 
@@ -13,6 +14,10 @@ public class MessageHeadersDeserializer extends ReferenceOrObjectDeserializer<Sc
     @Override
     public Class<Schema> objectTypeClass() {
         return Schema.class;
+    }
+
+    public Class<?> referenceClass() {
+        return Reference.class;
     }
 
 }
