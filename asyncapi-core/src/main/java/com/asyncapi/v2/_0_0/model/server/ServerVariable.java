@@ -49,6 +49,6 @@ public class ServerVariable extends ExtendableObject {
      * An array of examples of the server variable.
      */
     @Nullable
-    private List<String> example;
+    private List<String> examples;
 
 }
