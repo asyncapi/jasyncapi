@@ -8,5 +8,11 @@
   "examples": [
     "8883",
     "8884"
-  ]
+  ],
+  "x-number": 0,
+  "x-string": "",
+  "x-object": {
+    "property": {}
+  },
+  "ext-number": 1
 }
