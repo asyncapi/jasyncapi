@@ -22,6 +22,17 @@ Hints:
 
 ## Contributors section
 
+### Build
+
+#### Prerequisites
+1. JDK 1.8
+2. Maven 3+
+
+If you are using SDKMAN! use [env](https://sdkman.io/usage#env) to prepare environment
+```shell
+sdk env
+```
+
 ### Publish new release
 
 #### Prerequisites
