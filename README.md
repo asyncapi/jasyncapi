@@ -7,6 +7,8 @@
 > ⚠️ This project doesn't support AsyncAPI 1.x
 ---
 
+[![Version](https://img.shields.io/maven-central/v/com.asyncapi/asyncapi-core?logo=apache-maven)](https://search.maven.org/artifact/io.quarkiverse.asyncapi/quarkus-asyncapi)
+
 ## Overview
 JVM-friendly bindings for AsyncAPI. It allows you to read or write specifications for your asynchronous API  through code
 
