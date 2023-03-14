@@ -1,4 +1,4 @@
-package com.asyncapi.v2._6_0.model.schema;
+package com.asyncapi.v2.schema;
 
 /**
  * @author Pavel Bodiachevskii

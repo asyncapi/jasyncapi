@@ -1,8 +1,8 @@
-package com.asyncapi.v2._6_0.model.schema;
+package com.asyncapi.v2.schema;
 
 import com.asyncapi.v2.ExtendableObject;
-import com.asyncapi.v2._6_0.jackson.model.schema.SchemasAdditionalPropertiesDeserializer;
-import com.asyncapi.v2._6_0.model.ExternalDocumentation;
+import com.asyncapi.v2._0_0.jackson.model.schema.SchemasAdditionalPropertiesDeserializer;
+import com.asyncapi.v2._0_0.model.ExternalDocumentation;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
@@ -12,6 +12,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.Nullable;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -65,6 +66,7 @@ public class Schema extends ExtendableObject {
      * A title will preferably be short
      */
     @Nullable
+    @JsonProperty
     public String title;
 
     /**
@@ -79,6 +81,7 @@ public class Schema extends ExtendableObject {
      * A description will provide explanation about the purpose of the instance described by this schema.
      */
     @Nullable
+    @JsonProperty
     public String description;
 
     /**
@@ -116,6 +119,7 @@ public class Schema extends ExtendableObject {
      * Omitting this keyword has the same behavior as values of false.
      */
     @Nullable
+    @JsonProperty
     public Boolean readOnly;
 
     /**
@@ -135,6 +139,7 @@ public class Schema extends ExtendableObject {
      * Omitting this keyword has the same behavior as values of false.
      */
     @Nullable
+    @JsonProperty
     public Boolean writeOnly;
 
     /**
@@ -149,6 +154,7 @@ public class Schema extends ExtendableObject {
      * "default" MAY still be used in this manner.
      */
     @Nullable
+    @JsonProperty
     public List<Object> examples;
 
     @Nullable
@@ -190,6 +196,7 @@ public class Schema extends ExtendableObject {
      * The value of this property SHOULD be ignored if the instance described is not a string.
      */
     @Nullable
+    @JsonProperty
     private String contentEncoding;
 
     /**
@@ -205,6 +212,7 @@ public class Schema extends ExtendableObject {
      * is Unicode).
      */
     @Nullable
+    @JsonProperty
     private String contentMediaType;
 
     /*
@@ -226,6 +234,7 @@ public class Schema extends ExtendableObject {
      *
      */
     @Nullable
+    @JsonProperty
     public Object type;
 
     /**
@@ -258,6 +267,7 @@ public class Schema extends ExtendableObject {
      * A numeric instance is valid only if division by this keyword's value results in an integer.
      */
     @Nullable
+    @JsonProperty
     public Integer multipleOf;
 
     /**
@@ -266,7 +276,8 @@ public class Schema extends ExtendableObject {
      * If the instance is a number, then this keyword validates only if the instance is less than or exactly equal to "maximum".
      */
     @Nullable
-    public Integer maximum;
+    @JsonProperty
+    public BigDecimal maximum;
 
     /**
      * The value of "exclusiveMaximum" MUST be number, representing an exclusive upper limit for a numeric instance.
@@ -274,7 +285,8 @@ public class Schema extends ExtendableObject {
      * If the instance is a number, then the instance is valid only if it has a value strictly less than (not equal to) "exclusiveMaximum".
      */
     @Nullable
-    public Integer exclusiveMaximum;
+    @JsonProperty
+    public BigDecimal exclusiveMaximum;
 
     /**
      * The value of "minimum" MUST be a number, representing an inclusive lower limit for a numeric instance.
@@ -282,7 +294,8 @@ public class Schema extends ExtendableObject {
      * If the instance is a number, then this keyword validates only if the instance is greater than or exactly equal to "minimum".
      */
     @Nullable
-    public Integer minimum;
+    @JsonProperty
+    public BigDecimal minimum;
 
     /**
      * The value of "exclusiveMinimum" MUST be number, representing an exclusive lower limit for a numeric instance.
@@ -290,7 +303,8 @@ public class Schema extends ExtendableObject {
      * If the instance is a number, then the instance is valid only if it has a value strictly greater than (not equal to) "exclusiveMinimum".
      */
     @Nullable
-    public Integer exclusiveMinimum;
+    @JsonProperty
+    public BigDecimal exclusiveMinimum;
 
     /*
         Validation Keywords for Strings
@@ -304,6 +318,7 @@ public class Schema extends ExtendableObject {
      * The length of a string instance is defined as the number of its characters as defined by <a href="https://tools.ietf.org/html/rfc7159">RFC 7159</a> [<a href="https://tools.ietf.org/html/rfc7159">RFC7159</a>].
      */
     @Nullable
+    @JsonProperty
     public Integer maxLength;
 
     /**
@@ -316,6 +331,7 @@ public class Schema extends ExtendableObject {
      * Omitting this keyword has the same behavior as a value of 0.
      */
     @Nullable
+    @JsonProperty
     public Integer minLength;
 
     /**
@@ -326,6 +342,7 @@ public class Schema extends ExtendableObject {
      * Recall: regular expressions are not implicitly anchored.
      */
     @Nullable
+    @JsonProperty
     public String pattern;
 
     /*
@@ -345,6 +362,7 @@ public class Schema extends ExtendableObject {
      * Omitting this keyword has the same behavior as an empty schema.
      */
     @Nullable
+    @JsonProperty
     public Object items;
 
     /**
@@ -369,6 +387,7 @@ public class Schema extends ExtendableObject {
      * An array instance is valid against "maxItems" if its size is less than, or equal to, the value of this keyword.
      */
     @Nullable
+    @JsonProperty
     public Integer maxItems;
 
     /**
@@ -379,6 +398,7 @@ public class Schema extends ExtendableObject {
      * Omitting this keyword has the same behavior as a value of 0.
      */
     @Nullable
+    @JsonProperty
     public Integer minItems;
 
     /**
@@ -390,6 +410,7 @@ public class Schema extends ExtendableObject {
      * Omitting this keyword has the same behavior as a value of false.
      */
     @Nullable
+    @JsonProperty
     public Boolean uniqueItems;
 
     /**
@@ -398,6 +419,7 @@ public class Schema extends ExtendableObject {
      * An array instance is valid against "contains" if at least one of its elements is valid against the given schema.
      */
     @Nullable
+    @JsonProperty
     public Schema contains;
 
     /*
@@ -411,6 +433,7 @@ public class Schema extends ExtendableObject {
      * the value of this keyword.
      */
     @Nullable
+    @JsonProperty
     public Integer maxProperties;
 
     /**
@@ -422,6 +445,7 @@ public class Schema extends ExtendableObject {
      * Omitting this keyword has the same behavior as a value of 0.
      */
     @Nullable
+    @JsonProperty
     public Integer minProperties;
 
     /**
@@ -432,6 +456,7 @@ public class Schema extends ExtendableObject {
      * Omitting this keyword has the same behavior as an empty array.
      */
     @Nullable
+    @JsonProperty
     public List<String> required;
 
     /**
@@ -446,6 +471,7 @@ public class Schema extends ExtendableObject {
      * Omitting this keyword has the same behavior as an empty object.
      */
     @Nullable
+    @JsonProperty
     public Map<String, Schema> properties;
 
     /**
@@ -463,6 +489,7 @@ public class Schema extends ExtendableObject {
      * Omitting this keyword has the same behavior as an empty object.
      */
     @Nullable
+    @JsonProperty
     public Map<String, Schema> patternProperties;
 
     /**
@@ -479,6 +506,7 @@ public class Schema extends ExtendableObject {
      * Omitting this keyword has the same behavior as an empty schema.
      */
     @Nullable
+    @JsonProperty
     @JsonDeserialize(using = SchemasAdditionalPropertiesDeserializer.class)
     public Object additionalProperties;
 
@@ -503,6 +531,7 @@ public class Schema extends ExtendableObject {
      * Omitting this keyword has the same behavior as an empty object.
      */
     @Nullable
+    @JsonProperty
     public Object dependencies;
 
     /**
@@ -514,6 +543,7 @@ public class Schema extends ExtendableObject {
      * Omitting this keyword has the same behavior as an empty schema.
      */
     @Nullable
+    @JsonProperty
     public Schema propertyNames;
 
     /*
@@ -590,6 +620,7 @@ public class Schema extends ExtendableObject {
      * by this keyword's value.
      */
     @Nullable
+    @JsonProperty
     public List<Schema> allOf;
 
     /**
@@ -599,6 +630,7 @@ public class Schema extends ExtendableObject {
      * defined by this keyword's value.
      */
     @Nullable
+    @JsonProperty
     public List<Schema> anyOf;
 
     /**
@@ -608,6 +640,7 @@ public class Schema extends ExtendableObject {
      * defined by this keyword's value.
      */
     @Nullable
+    @JsonProperty
     public List<Schema> oneOf;
 
     /**
@@ -616,6 +649,7 @@ public class Schema extends ExtendableObject {
      * An instance is valid against this keyword if it fails to validate successfully against the schema defined by this keyword.
      */
     @Nullable
+    @JsonProperty
     public Schema not;
 
     // Fields defined in AsyncAPI below
@@ -628,6 +662,7 @@ public class Schema extends ExtendableObject {
      * While relying on JSON Schema's defined formats, the AsyncAPI Specification offers a few additional predefined formats.
      */
     @Nullable
+    @JsonProperty
     public Object format;
 
     /*
@@ -641,17 +676,20 @@ public class Schema extends ExtendableObject {
      * When used, the value MUST be the name of this schema or any schema that inherits it. See <a href="https://www.asyncapi.com/docs/specifications/2.0.0#schemaComposition">Composition and Inheritance for more details</a>.
      */
     @Nullable
+    @JsonProperty
     public String discriminator;
     /**
      * Additional external documentation for this schema.
      */
     @Nullable
+    @JsonProperty
     public ExternalDocumentation externalDocs;
 
     /**
      * Specifies that a schema is deprecated and SHOULD be transitioned out of usage. Default value is <code>false</code>.
      */
     @Nullable
+    @JsonProperty
     public Boolean deprecated;
 
 }

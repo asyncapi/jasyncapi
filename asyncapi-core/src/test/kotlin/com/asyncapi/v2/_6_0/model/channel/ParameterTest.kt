@@ -2,7 +2,7 @@ package com.asyncapi.v2._6_0.model.channel
 
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._6_0.model.Reference
-import com.asyncapi.v2._6_0.model.schema.Schema
+import com.asyncapi.v2.schema.Schema
 
 class ParameterWithReferenceToSchemaTest: SerDeTest<Parameter>() {
 

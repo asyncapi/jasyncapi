@@ -3,7 +3,7 @@ package com.asyncapi.v2._0_0.model.channel.message
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._0_0.model.ExternalDocumentation
 import com.asyncapi.v2._0_0.model.Tag
-import com.asyncapi.v2._0_0.model.schema.Schema
+import com.asyncapi.v2.schema.Schema
 import com.asyncapi.v2.binding.message.amqp.AMQPMessageBindingTest
 import com.asyncapi.v2.binding.message.amqp1.AMQP1MessageBinding
 import com.asyncapi.v2.binding.message.anypointmq.AnypointMQMessageBindingTest

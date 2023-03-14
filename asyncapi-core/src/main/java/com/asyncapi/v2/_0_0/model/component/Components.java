@@ -11,7 +11,7 @@ import com.asyncapi.v2._0_0.model.channel.message.CorrelationId;
 import com.asyncapi.v2._0_0.model.channel.message.Message;
 import com.asyncapi.v2._0_0.model.channel.message.MessageTrait;
 import com.asyncapi.v2._0_0.model.channel.operation.OperationTrait;
-import com.asyncapi.v2._0_0.model.schema.Schema;
+import com.asyncapi.v2.schema.Schema;
 import com.asyncapi.v2.binding.channel.ChannelBinding;
 import com.asyncapi.v2.binding.message.MessageBinding;
 import com.asyncapi.v2.binding.operation.OperationBinding;

@@ -9,8 +9,8 @@ import com.asyncapi.v2._0_0.model.channel.message.MessageTest
 import com.asyncapi.v2._0_0.model.channel.message.MessageTraitTest
 import com.asyncapi.v2._0_0.model.channel.operation.OperationTest
 import com.asyncapi.v2._0_0.model.channel.operation.OperationTraitTest
-import com.asyncapi.v2._0_0.model.schema.Schema
-import com.asyncapi.v2._0_0.model.schema.Type
+import com.asyncapi.v2.schema.Schema
+import com.asyncapi.v2.schema.Type
 import com.asyncapi.v2._0_0.model.server.ServerTest
 import com.asyncapi.v2.security_scheme.ApiKeySecuritySchemeTest
 import com.asyncapi.v2.security_scheme.OpenIdConnectSecuritySchemeTest

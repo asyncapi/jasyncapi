@@ -1,6 +1,6 @@
 package com.asyncapi.v2._6_0.jackson.model.channel.message;
 
-import com.asyncapi.v2._6_0.model.schema.Schema;
+import com.asyncapi.v2.schema.Schema;
 import com.asyncapi.v2.jackson.ObjectDeserializer;
 
 /**

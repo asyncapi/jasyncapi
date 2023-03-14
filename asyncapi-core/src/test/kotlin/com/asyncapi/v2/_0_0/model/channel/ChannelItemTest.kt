@@ -3,7 +3,7 @@ package com.asyncapi.v2._0_0.model.channel
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._0_0.model.channel.operation.OperationWithMessageTest
 import com.asyncapi.v2._0_0.model.channel.operation.OperationWithReferenceToMessageTest
-import com.asyncapi.v2._0_0.model.schema.Schema
+import com.asyncapi.v2.schema.Schema
 import com.asyncapi.v2.binding.channel.ChannelBinding
 import com.asyncapi.v2.binding.channel.amqp.AMQPChannelBindingTest
 import com.asyncapi.v2.binding.channel.amqp1.AMQP1ChannelBinding

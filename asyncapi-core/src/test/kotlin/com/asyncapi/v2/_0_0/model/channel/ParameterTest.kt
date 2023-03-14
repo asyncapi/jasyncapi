@@ -1,7 +1,7 @@
 package com.asyncapi.v2._0_0.model.channel
 
 import com.asyncapi.v2.SerDeTest
-import com.asyncapi.v2._0_0.model.schema.Schema
+import com.asyncapi.v2.schema.Schema
 
 /**
  * @author Pavel Bodiachevskii
