@@ -1,6 +1,8 @@
 package com.asyncapi.v2._6_0.model.component
 
 import com.asyncapi.v2.SerDeTest
+import com.asyncapi.v2._6_0.model.schema.Schema
+import com.asyncapi.v2._6_0.model.schema.Type
 import com.asyncapi.v2._6_0.model.Reference
 import com.asyncapi.v2._6_0.model.channel.ChannelItemTest
 import com.asyncapi.v2._6_0.model.channel.ParameterWithSchemaTest
@@ -35,7 +37,25 @@ class ComponentsTest: SerDeTest<Components>() {
 
     override fun build(): Components {
         return Components.builder()
-                .schemas(null)
+                .schemas(mapOf(
+                        Pair("Category", Schema.builder()
+                                .type(Type.OBJECT)
+                                .properties(mapOf(
+                                        Pair("id", Schema.builder().type(Type.INTEGER).format("int64").build()),
+                                        Pair("name", Schema.builder().type(Type.STRING).build())
+                                ))
+                                .build()
+                        ),
+                        Pair("Tag", Schema.builder()
+                                .type(Type.OBJECT)
+                                .properties(mapOf(
+                                        Pair("id", Schema.builder().type(Type.INTEGER).format("int64").build()),
+                                        Pair("name", Schema.builder().type(Type.STRING).build())
+                                ))
+                                .build()
+                        ),
+                        Pair("User", Reference("#/components/schemas/user"))
+                ))
                 .servers(mapOf(
                         Pair("mqtt-test", ServerTest().build()),
                         Pair("mqtt-stage", Reference("#/components/servers/mqtt-stage"))

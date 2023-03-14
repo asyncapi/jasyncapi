@@ -1,5 +1,33 @@
 {
-  "schemas": null,
+  "schemas": {
+    "Category": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "Tag": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "User": {
+      "$ref": "#/components/schemas/user"
+    }
+  },
   "servers": {
     "mqtt-test": {
       "url": "{username}.gigantic-server.com:{port}/{basePath}",
