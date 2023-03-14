@@ -1,29 +1,38 @@
 package com.asyncapi.v2._0_0.model.component
 
-import com.asyncapi.v2.ClasspathUtils
+import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._0_0.model.Reference
-import com.asyncapi.v2._0_0.model.Tag
-import com.asyncapi.v2._0_0.model.channel.Parameter
-import com.asyncapi.v2._0_0.model.channel.message.CorrelationId
-import com.asyncapi.v2._0_0.model.channel.message.Message
-import com.asyncapi.v2._0_0.model.channel.message.MessageTrait
+import com.asyncapi.v2._0_0.model.channel.ChannelItemTest
+import com.asyncapi.v2._0_0.model.channel.ParameterTest
+import com.asyncapi.v2._0_0.model.channel.message.CorrelationIdTest
+import com.asyncapi.v2._0_0.model.channel.message.MessageTest
+import com.asyncapi.v2._0_0.model.channel.message.MessageTraitTest
+import com.asyncapi.v2._0_0.model.channel.operation.OperationTest
+import com.asyncapi.v2._0_0.model.channel.operation.OperationTraitTest
 import com.asyncapi.v2._0_0.model.schema.Schema
 import com.asyncapi.v2._0_0.model.schema.Type
-import com.asyncapi.v2.security_scheme.SecurityScheme
-import com.fasterxml.jackson.databind.ObjectMapper
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.Test
-import java.math.BigDecimal
+import com.asyncapi.v2._0_0.model.server.ServerTest
+import com.asyncapi.v2.security_scheme.ApiKeySecuritySchemeTest
+import com.asyncapi.v2.security_scheme.OpenIdConnectSecuritySchemeTest
+import com.asyncapi.v2.security_scheme.http.HttpApiKeySecuritySchemeTest
+import com.asyncapi.v2.security_scheme.http.HttpSecuritySchemeBasicTest
+import com.asyncapi.v2.security_scheme.http.HttpSecuritySchemeBearerTest
+import com.asyncapi.v2.security_scheme.oauth2.OAuth2SecuritySchemeTest
 
 /**
  * @author Pavel Bodiachevskii
  */
-class ComponentsTest {
+class ComponentsTest: SerDeTest<Components>() {
 
-    private val objectMapper = ObjectMapper()
+    override fun objectClass() = Components::class.java
 
-    private fun buildComponents(): Components {
+    override fun baseObjectJson() = "/json/2.0.0/model/components/components.json"
+
+    override fun extendedObjectJson() = "/json/2.0.0/model/components/components - extended.json"
+
+    override fun wronglyExtendedObjectJson() = "/json/2.0.0/model/components/components - wrongly extended.json"
+
+    override fun build(): Components {
         return Components.builder()
                 .schemas(mapOf(
                         Pair("Category", Schema.builder()
@@ -45,82 +54,43 @@ class ComponentsTest {
                         Pair("User", Reference("#/components/schemas/user"))
                 ))
                 .messages(mapOf(
-                        Pair("userSignUp", Message.builder()
-                                .summary("Action to sign a user up.")
-                                .description("Multiline description of what this action does.\n" +
-                                        "Here you have another line.\n")
-                                .tags(listOf(
-                                        Tag("user", null, null),
-                                        Tag("signup", null, null)
-                                ))
-                                .headers(Schema.builder()
-                                        .type(Type.OBJECT)
-                                        .properties(mapOf(
-                                                Pair("applicationInstanceId", Schema.builder()
-                                                        .type(Type.STRING)
-                                                        .description("Unique identifier for a given instance of the publishing application")
-                                                        .build()
-                                                )
-                                        ))
-                                        .build()
-                                )
-                                .payload(Schema.builder()
-                                        .type(Type.OBJECT)
-                                        .properties(mapOf(
-                                                Pair("user", Schema.builder().ref("#/components/schemas/userCreate").build()),
-                                                Pair("signup", Schema.builder().ref("#/components/schemas/signup").build())
-                                        ))
-                                        .build()
-                                )
-                                .build()),
-                        Pair("userSignOut", Reference("#/components/schemas/userSignOut"))
+                        Pair("userSignup", MessageTest().build()),
+                        Pair("userSignout", Reference("#/components/messages/userSignout"))
                 ))
                 .securitySchemes(mapOf(
-                        Pair("1", SecurityScheme.builder().type(SecurityScheme.Type.USER_PASSWORD).build()),
-                        Pair("2", Reference("#/components/schemas/2"))
+                        Pair("apiKey", ApiKeySecuritySchemeTest().build()),
+                        Pair("asymmetricEncryption", Reference("#/components/securitySchemes/asymmetricEncryption")),
+                        Pair("gssapi", Reference("#/components/securitySchemes/gssapi")),
+                        Pair("oauth2", OAuth2SecuritySchemeTest().build()),
+                        Pair("openIdConnect", OpenIdConnectSecuritySchemeTest().build()),
+                        Pair("httpApiKey", HttpApiKeySecuritySchemeTest().build()),
+                        Pair("httpBasic", HttpSecuritySchemeBasicTest().build()),
+                        Pair("httpBearer", HttpSecuritySchemeBearerTest().build()),
+                        Pair("plain", Reference("#/components/securitySchemes/plain")),
+                        Pair("scramSha256", Reference("#/components/securitySchemes/scramSha256")),
+                        Pair("scramSha512", Reference("#/components/securitySchemes/scramSha512")),
+                        Pair("symmetricEncryption", Reference("#/components/securitySchemes/symmetricEncryption")),
+                        Pair("userPassword", Reference("#/components/securitySchemes/userPassword")),
+                        Pair("X509", Reference("#/components/securitySchemes/X509")),
                 ))
                 .parameters(mapOf(
-                        Pair("userId", Parameter.builder()
-                                .description("Id of the user.")
-                                .schema(Schema.builder().type(Type.STRING).build())
-                                .location("\$message.payload#/user/id")
-                                .build()
-                        ),
-                        Pair("userKey", Reference("\$message.payload#/user/key"))
+                        Pair("parameter", ParameterTest().build()),
+                        Pair("parameterRef", Reference("#/components/parameters/parameter"))
                 ))
                 .correlationIds(mapOf(
-                        Pair("default", CorrelationId(
-                                "Default Correlation ID",
-                                "\$message.header#/correlationId"
-                        ))
+                        Pair("userSignupCorrelationId", CorrelationIdTest().build()),
+                ))
+                .operationTraits(mapOf(
+                        Pair("sendMessage", OperationTraitTest().build()),
                 ))
                 .messageTraits(mapOf(
-                        Pair("commonHeaders", MessageTrait.builder()
-                                .headers(Schema.builder()
-                                        .type(Type.OBJECT)
-                                        .properties(mapOf(Pair("my-app-header", Schema.builder()
-                                                .type(Type.INTEGER)
-                                                .minimum(BigDecimal.ZERO)
-                                                .maximum(BigDecimal.valueOf(100))
-                                                .build()))
-                                        )
-                                        .build()
-                                )
-                                .build()
-                        )
+                        Pair("userSignup", MessageTraitTest().build()),
                 ))
+                .serverBindings(ServerTest.bindings())
+                .channelBindings(ChannelItemTest.bindings())
+                .operationBindings(OperationTest.bindings())
+                .messageBindings(MessageTest.bindings())
                 .build()
-    }
-
-    @Test
-    @DisplayName("Compare hand crafted model with parsed json")
-    fun compareModelWithParsedJson() {
-        val components = ClasspathUtils.readAsString("/json/2.0.0/model/components/components.json")
-
-        Assertions.assertEquals(
-                objectMapper.readValue(components, Components::class.java),
-                buildComponents()
-        )
     }
 
 }

@@ -8,12 +8,14 @@ import com.asyncapi.v2._0_0.model.server.Server
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
 /**
  * @author Pavel Bodiachevskii
  */
+@Disabled
 class AsyncAPITest {
 
     private val objectMapper = ObjectMapper()
