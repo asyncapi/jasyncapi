@@ -17,15 +17,15 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Describes a trait that MAY be applied to an Operation Object({@link com.asyncapi.v2._6_0.model.channel.operation.Operation}).
+ * Describes a trait that MAY be applied to an {@link com.asyncapi.v2._6_0.model.channel.operation.Operation}.
  * <p>
- * This object MAY contain any property from the Operation Object({@link com.asyncapi.v2._6_0.model.channel.operation.Operation}), except:
+ * This object MAY contain any property from the {@link com.asyncapi.v2._6_0.model.channel.operation.Operation}, except:
  * <ul>
- *     <li>{@link com.asyncapi.v2._6_0.model.channel.operation.Operation#getMessage()}</li>
- *     <li>{@link com.asyncapi.v2._6_0.model.channel.operation.Operation#getTraits()}</li>
+ *     <li>Message</li>
+ *     <li>Traits</li>
  * </ul>
  * <p>
- * If you're looking to apply traits to a message, see the Message Trait Object({@link com.asyncapi.v2._6_0.model.channel.message.MessageTrait}.
+ * If you're looking to apply traits to a message, see the {@link com.asyncapi.v2._6_0.model.channel.message.MessageTrait}.
  *
  * @version 2.0.0
  * @see <a href="https://www.asyncapi.com/docs/reference/specification/v2.6.0/#operationObject">Operation</a>

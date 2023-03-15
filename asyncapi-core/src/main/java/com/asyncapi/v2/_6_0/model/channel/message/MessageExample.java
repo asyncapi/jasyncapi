@@ -21,7 +21,7 @@ import java.util.Map;
 public class MessageExample extends ExtendableObject {
 
     /**
-     * The value of this field MUST validate against the {@link com.asyncapi.v2._6_0.model.channel.message.Message#getHeaders()} field.
+     * The value of this field MUST validate against the {@link com.asyncapi.v2._6_0.model.channel.message.Message} headers field.
      */
     @Nullable
     public Map<String, Object> headers;

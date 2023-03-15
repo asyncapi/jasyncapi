@@ -5,7 +5,7 @@ import com.asyncapi.v2._6_0.model.server.ServerVariable;
 import com.asyncapi.v2.jackson.MapOfReferencesOrObjectsDeserializer;
 
 /**
- * Serializes {@link com.asyncapi.v2._6_0.model.server.Server#getVariables()} map.
+ * Serializes {@link com.asyncapi.v2._6_0.model.server.Server} variables map.
  *
  * @version 2.6.0
  * @author Pavel Bodiachevskii
