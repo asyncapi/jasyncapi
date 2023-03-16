@@ -1,0 +1,10 @@
+{
+  "type" : "openIdConnect",
+  "description" : "openIdConnect",
+  "openIdConnectUrl" : "https://server.com/.well-known/openid-configuration",
+  "x-number" : 0,
+  "x-string" : "",
+  "x-object" : {
+    "property" : { }
+  }
+}

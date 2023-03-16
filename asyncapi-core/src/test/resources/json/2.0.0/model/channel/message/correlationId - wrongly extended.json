@@ -1,0 +1,10 @@
+{
+  "description": "Default Correlation ID",
+  "location": "$message.header#/correlationId",
+  "x-number": 0,
+  "x-string": "",
+  "x-object": {
+    "property": {}
+  },
+  "ext-number": 1
+}

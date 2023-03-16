@@ -1,5 +1,6 @@
 {
   "type": "http",
+  "description": "http",
   "scheme": "bearer",
   "bearerFormat": "JWT"
 }

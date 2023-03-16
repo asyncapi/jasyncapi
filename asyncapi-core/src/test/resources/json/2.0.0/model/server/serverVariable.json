@@ -1,0 +1,12 @@
+{
+  "enum": [
+    "8883",
+    "8884"
+  ],
+  "default": "8883",
+  "description": "To which port connect",
+  "examples": [
+    "8883",
+    "8884"
+  ]
+}
