@@ -26,7 +26,7 @@ public class HttpSecurityScheme extends SecurityScheme {
      * The name of the HTTP Authorization scheme to be used in the <a href="https://tools.ietf.org/html/rfc7235#section-5.1">Authorization header as defined in RFC7235</a>.
      */
     @NotNull
-    private String scheme;
+    private String scheme = "";
 
     /**
      * A hint to the client to identify how the bearer token is formatted. Bearer tokens are usually generated
