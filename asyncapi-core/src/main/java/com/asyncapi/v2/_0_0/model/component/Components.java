@@ -49,7 +49,7 @@ public class Components extends ExtendableObject {
 
     /**
      * An object to hold reusable Schema Objects.
-     *
+     * <p>
      * MUST BE:
      * <ul>
      *     <li>{@link Schema}</li>
@@ -62,7 +62,7 @@ public class Components extends ExtendableObject {
 
     /**
      * An object to hold reusable Message Objects.
-     *
+     * <p>
      * MUST BE:
      * <ul>
      *     <li>{@link Message}</li>
@@ -75,7 +75,7 @@ public class Components extends ExtendableObject {
 
     /**
      * An object to hold reusable Security Scheme Objects.
-     *
+     * <p>
      * MUST BE:
      * <ul>
      *     <li>{@link SecurityScheme}</li>
@@ -88,7 +88,7 @@ public class Components extends ExtendableObject {
 
     /**
      * An object to hold reusable Parameter Objects.
-     *
+     * <p>
      * MUST BE:
      * <ul>
      *     <li>{@link Reference}</li>

@@ -44,7 +44,7 @@ public class MessageTrait extends ExtendableObject {
     /**
      * Schema definition of the application headers. Schema MUST be of type "object".
      * It MUST NOT define the protocol headers.
-     *
+     * <p>
      * MUST BE:
      * <ul>
      *     <li>{@link Schema}</li>
@@ -57,7 +57,7 @@ public class MessageTrait extends ExtendableObject {
 
     /**
      * Definition of the correlation ID used for message tracing or matching.
-     *
+     * <p>
      * MUST BE:
      * <ul>
      *     <li>{@link CorrelationId}</li>

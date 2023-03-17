@@ -34,12 +34,12 @@ public class AsyncAPI extends ExtendableObject {
 
     /**
      * Required.
-     *
+     * <p>
      * Specifies the AsyncAPI Specification version being used.
      * It can be used by tooling Specifications and clients to interpret the version.
      * The structure shall be major.minor.patch, where patch versions must be compatible
      * with the existing major.minor tooling.
-     *
+     * <p>
      * Typically patch versions will be introduced to address errors in the documentation,
      * and tooling should typically be compatible with the corresponding major.minor (1.0.*).
      * Patch versions will correspond to patches of this document.
@@ -50,10 +50,10 @@ public class AsyncAPI extends ExtendableObject {
 
     /**
      * Identifier of the application the AsyncAPI document is defining.
-     *
+     * <p>
      * This field represents a unique universal identifier of the application the AsyncAPI document is defining.
      * It must conform to the URI format, according to RFC3986.
-     *
+     * <p>
      * It is RECOMMENDED to use a URN to globally and uniquely identify the application during long periods of time,
      * even after it becomes unavailable or ceases to exist.
      */
@@ -64,7 +64,7 @@ public class AsyncAPI extends ExtendableObject {
      * A string representing the default content type to use when encoding/decoding a message's payload.
      * The value MUST be a specific media type (e.g. application/json).
      * This value MUST be used by schema parsers when the contentType property is omitted.
-     *
+     * <p>
      * In case a message can't be encoded/decoded using this value, schema parsers MUST use their default content type.
      */
     @Nullable
@@ -72,7 +72,7 @@ public class AsyncAPI extends ExtendableObject {
 
     /**
      * Required.
-     *
+     * <p>
      * Provides metadata about the API. The metadata can be used by the clients if needed.
      */
     @NotNull
@@ -87,11 +87,11 @@ public class AsyncAPI extends ExtendableObject {
 
     /**
      * Required.
-     *
+     * <p>
      * The available channels and messages for the API.
-     *
+     * <p>
      * Holds the relative paths to the individual channel and their operations. Channel paths are relative to servers.
-     *
+     * <p>
      * Channels are also known as "topics", "routing keys", "event types" or "paths".
      */
     @NotNull

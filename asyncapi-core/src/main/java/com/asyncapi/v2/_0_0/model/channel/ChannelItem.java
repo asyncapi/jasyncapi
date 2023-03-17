@@ -64,9 +64,9 @@ public class ChannelItem extends ExtendableObject {
     /**
      * A map of the parameters included in the channel name.
      * It SHOULD be present only when using channels with expressions (as defined by RFC 6570 section 2.2).
-     *
+     * <p>
      * This map MUST contain all the parameters used in the parent channel name.
-     *
+     * <p>
      * MUST BE:
      * <ul>
      *     <li>{@link Reference}</li>

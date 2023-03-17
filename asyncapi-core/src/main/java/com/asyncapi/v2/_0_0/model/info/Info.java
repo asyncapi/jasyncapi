@@ -26,7 +26,7 @@ public class Info extends ExtendableObject {
 
     /**
      * Required.
-     *
+     * <p>
      * The title of the application.
      */
     @NotNull
@@ -36,7 +36,7 @@ public class Info extends ExtendableObject {
 
     /**
      * Required.
-     *
+     * <p>
      * Provides the version of the application API (not to be confused with the specification version).
      */
     @NotNull
