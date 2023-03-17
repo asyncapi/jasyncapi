@@ -33,6 +33,6 @@ public class Reference {
      */
     @NotNull
     @JsonProperty(value = "$ref")
-    private String ref;
+    private String ref = "";
 
 }
