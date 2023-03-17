@@ -80,7 +80,7 @@ public class SecurityScheme extends ExtendableObject {
      * </ul>
      */
     @NotNull
-    private Type type;
+    private Type type = Type.USER_PASSWORD;
 
     /**
      * A short description for security scheme. <a href="http://spec.commonmark.org/">CommonMark syntax</a> MAY be used for rich text representation.
