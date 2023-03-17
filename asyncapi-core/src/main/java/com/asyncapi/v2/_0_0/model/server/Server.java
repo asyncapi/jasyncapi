@@ -42,7 +42,8 @@ public class Server extends ExtendableObject {
      */
     @NotNull
     @JsonProperty
-    private String url;
+    @Builder.Default
+    private String url = "";
 
     /**
      * REQUIRED.
@@ -52,7 +53,8 @@ public class Server extends ExtendableObject {
      */
     @NotNull
     @JsonProperty
-    private String protocol;
+    @Builder.Default
+    private String protocol = "";
 
     /**
      * The version of the protocol used for connection. For instance: AMQP 0.9.1, HTTP 2.0, Kafka 1.0.0, etc.
