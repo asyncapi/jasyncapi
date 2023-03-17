@@ -26,7 +26,7 @@ public class OAuth2SecurityScheme extends SecurityScheme {
      * An object containing configuration information for the flow types supported.
      */
     @NotNull
-    private OAuthFlows flows;
+    private OAuthFlows flows = new OAuthFlows();
 
     @Builder(builderMethodName = "oauth2SecuritySchemeBuilder")
     public OAuth2SecurityScheme(@NotNull Type type,
