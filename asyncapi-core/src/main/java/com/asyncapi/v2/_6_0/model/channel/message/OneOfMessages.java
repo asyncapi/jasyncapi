@@ -9,6 +9,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -30,7 +31,8 @@ public class OneOfMessages {
      * </ul>
      */
     @NotNull
+    @Builder.Default
     @JsonDeserialize(using = MessagesDeserializer.class)
-    private List<Object> oneOf;
+    private List<Object> oneOf = new LinkedList<>();
 
 }
