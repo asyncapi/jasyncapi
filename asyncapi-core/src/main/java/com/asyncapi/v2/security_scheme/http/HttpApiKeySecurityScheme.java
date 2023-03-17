@@ -27,7 +27,7 @@ public class HttpApiKeySecurityScheme extends SecurityScheme {
      * The name of the header, query or cookie parameter to be used.
      */
     @NotNull
-    private String name;
+    private String name = "";
 
     /**
      * REQUIRED.
