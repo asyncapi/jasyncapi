@@ -27,7 +27,8 @@ public class License extends ExtendableObject {
      * Required. The license name used for the API.
      */
     @NotNull
-    private String name;
+    @Builder.Default
+    private String name = "";
 
     /**
      * A URL to the license used for the API. MUST be in the format of a URL.
