@@ -27,7 +27,7 @@ public class PasswordOAuthFlow extends OAuthFlow {
      * The token URL to be used for this flow. This MUST be in the form of a URL.
      */
     @NotNull
-    private String tokenUrl;
+    private String tokenUrl = "";
 
     @Builder(builderMethodName = "passwordOAuthFlowBuilder")
     public PasswordOAuthFlow(@Nullable String refreshUrl,
