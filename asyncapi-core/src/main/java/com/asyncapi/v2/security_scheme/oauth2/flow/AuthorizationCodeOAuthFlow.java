@@ -29,7 +29,7 @@ public class AuthorizationCodeOAuthFlow extends OAuthFlow {
      * The authorization URL to be used for this flow. This MUST be in the form of an absolute URL.
      */
     @NotNull
-    private String authorizationUrl;
+    private String authorizationUrl = "";
 
     /**
      * REQUIRED.
@@ -37,7 +37,7 @@ public class AuthorizationCodeOAuthFlow extends OAuthFlow {
      * The token URL to be used for this flow. This MUST be in the form of an absolute URL.
      */
     @NotNull
-    private String tokenUrl;
+    private String tokenUrl = "";
 
     @Builder(builderMethodName = "authorizationCodeOAuthFlowBuilder")
     public AuthorizationCodeOAuthFlow(@Nullable String refreshUrl,

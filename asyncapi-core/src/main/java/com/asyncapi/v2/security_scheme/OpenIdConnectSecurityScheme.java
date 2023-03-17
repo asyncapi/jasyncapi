@@ -25,7 +25,7 @@ public class OpenIdConnectSecurityScheme extends SecurityScheme {
      * OpenId Connect URL to discover OAuth2 configuration values. This MUST be in the form of a URL.
      */
     @NotNull
-    private String openIdConnectUrl;
+    private String openIdConnectUrl = "";
 
     @Builder(builderMethodName = "openIdConnectSecurityScheme")
     public OpenIdConnectSecurityScheme(@NotNull Type type,

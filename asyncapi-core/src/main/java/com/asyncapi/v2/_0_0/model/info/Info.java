@@ -31,7 +31,8 @@ public class Info extends ExtendableObject {
      */
     @NotNull
     @JsonProperty
-    private String title;
+    @Builder.Default
+    private String title = "";
 
     /**
      * Required.
@@ -40,7 +41,8 @@ public class Info extends ExtendableObject {
      */
     @NotNull
     @JsonProperty
-    private String version;
+    @Builder.Default
+    private String version = "";
 
     /**
      * A short description of the application. CommonMark syntax can be used for rich text representation.

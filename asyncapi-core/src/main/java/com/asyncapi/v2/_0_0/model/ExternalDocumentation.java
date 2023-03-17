@@ -35,6 +35,7 @@ public class ExternalDocumentation extends ExtendableObject {
      * The URL for the target documentation. Value MUST be in the format of a URL.
      */
     @NotNull
-    private String url;
+    @Builder.Default
+    private String url = "";
 
 }

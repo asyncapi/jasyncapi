@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -44,7 +45,8 @@ public class AsyncAPI extends ExtendableObject {
      * Patch versions will correspond to patches of this document.
      */
     @NotNull
-    private String asyncapi = "2.0.0";
+    @Builder.Default
+    private final String asyncapi = "2.0.0";
 
     /**
      * Identifier of the application the AsyncAPI document is defining.
@@ -74,7 +76,8 @@ public class AsyncAPI extends ExtendableObject {
      * Provides metadata about the API. The metadata can be used by the clients if needed.
      */
     @NotNull
-    private Info info;
+    @Builder.Default
+    private Info info = new Info();
 
     /**
      * Provides connection details of servers.
@@ -92,7 +95,8 @@ public class AsyncAPI extends ExtendableObject {
      * Channels are also known as "topics", "routing keys", "event types" or "paths".
      */
     @NotNull
-    private Map<String, ChannelItem> channels;
+    @Builder.Default
+    private Map<String, ChannelItem> channels = new HashMap<>();
 
     /**
      * An element to hold various schemas for the specification.

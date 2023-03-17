@@ -26,7 +26,7 @@ public class ApiKeySecurityScheme extends SecurityScheme {
      * The location of the API key.
      */
     @NotNull
-    private ApiKeyLocation in;
+    private ApiKeyLocation in = ApiKeyLocation.USER;
 
     @Builder(builderMethodName = "apiKeySecuritySchemeBuilder")
     public ApiKeySecurityScheme(@NotNull Type type,
