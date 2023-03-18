@@ -18,7 +18,7 @@ import org.jetbrains.annotations.Nullable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper = true)
 public class HttpApiKeySecurityScheme extends SecurityScheme {
 
     /**
