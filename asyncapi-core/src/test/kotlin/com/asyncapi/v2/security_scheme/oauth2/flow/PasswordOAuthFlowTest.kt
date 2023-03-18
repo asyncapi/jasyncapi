@@ -13,7 +13,7 @@ class PasswordOAuthFlowTest: SerDeTest<PasswordOAuthFlow>() {
     override fun wronglyExtendedObjectJson() = "/json/security_scheme/oauth2/flow/passwordOAuthFlow - wrongly extended.json"
 
     override fun build(): PasswordOAuthFlow {
-        return PasswordOAuthFlow.passwordOAuthFlowBuilder()
+        return PasswordOAuthFlow.passwordBuilder()
                 .tokenUrl("https://example.com/api/oauth/token")
                 .refreshUrl("https://example.com/api/oauth/refresh")
                 .scopes(mapOf(

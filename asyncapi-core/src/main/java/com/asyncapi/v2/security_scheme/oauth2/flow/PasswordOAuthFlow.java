@@ -29,7 +29,7 @@ public class PasswordOAuthFlow extends OAuthFlow {
     @NotNull
     private String tokenUrl = "";
 
-    @Builder(builderMethodName = "passwordOAuthFlowBuilder")
+    @Builder(builderMethodName = "passwordBuilder")
     public PasswordOAuthFlow(@Nullable String refreshUrl,
                              @NotNull Map<String, String> scopes,
                              @NotNull String tokenUrl) {
