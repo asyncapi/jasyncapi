@@ -17,7 +17,6 @@ class ApiKeySecuritySchemeTest: SerDeTest<ApiKeySecurityScheme>() {
 
     override fun build(): SecurityScheme {
         return ApiKeySecurityScheme.apiKeyBuilder()
-                .type(SecurityScheme.Type.API_KEY)
                 .description("apiKey")
                 .`in`(ApiKeySecurityScheme.ApiKeyLocation.USER)
                 .build()
