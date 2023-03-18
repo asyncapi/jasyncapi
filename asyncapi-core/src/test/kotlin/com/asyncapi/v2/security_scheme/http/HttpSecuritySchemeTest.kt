@@ -14,8 +14,7 @@ class HttpSecuritySchemeBasicTest: SerDeTest<HttpSecurityScheme>() {
     override fun wronglyExtendedObjectJson() = "/json/security_scheme/http/httpBasic - wrongly extended.json"
 
     override fun build(): HttpSecurityScheme {
-        return HttpSecurityScheme.httpSecuritySchemeBuilder()
-                .type(SecurityScheme.Type.HTTP)
+        return HttpSecurityScheme.httpBuilder()
                 .description("http")
                 .scheme("basic")
                 .build()
@@ -34,8 +33,7 @@ class HttpSecuritySchemeBearerTest: SerDeTest<HttpSecurityScheme>() {
     override fun wronglyExtendedObjectJson() = "/json/security_scheme/http/httpBearer - wrongly extended.json"
 
     override fun build(): HttpSecurityScheme {
-        return HttpSecurityScheme.httpSecuritySchemeBuilder()
-                .type(SecurityScheme.Type.HTTP)
+        return HttpSecurityScheme.httpBuilder()
                 .description("http")
                 .scheme("bearer")
                 .bearerFormat("JWT")
