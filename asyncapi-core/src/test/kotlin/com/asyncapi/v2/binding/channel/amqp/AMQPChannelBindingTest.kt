@@ -1,6 +1,9 @@
 package com.asyncapi.v2.binding.channel.amqp
 
 import com.asyncapi.v2.SerDeTest
+import com.asyncapi.v2.binding.channel.amqp.exchange.AMQPChannelExchangeProperties
+import com.asyncapi.v2.binding.channel.amqp.exchange.AMQPChannelExchangeType
+import com.asyncapi.v2.binding.channel.amqp.queue.AMQPChannelQueueProperties
 
 /**
  * @version 2.6.0
@@ -18,17 +21,17 @@ class AMQPChannelBindingTest: SerDeTest<AMQPChannelBinding>() {
 
     override fun build(): AMQPChannelBinding {
         return AMQPChannelBinding.builder()
-                .`is`("routingKey")
-                .queue(AMQPChannelBinding.QueueProperties.builder()
+                .`is`(AMQPChannelType.ROUTING_KEY)
+                .queue(AMQPChannelQueueProperties.builder()
                         .name("my-queue-name")
                         .durable(true)
                         .exclusive(true)
                         .autoDelete(false)
                         .build()
                 )
-                .exchange(AMQPChannelBinding.ExchangeProperties.builder()
+                .exchange(AMQPChannelExchangeProperties.builder()
                         .name("myExchange")
-                        .type("topic")
+                        .type(AMQPChannelExchangeType.TOPIC)
                         .durable(true)
                         .autoDelete(false)
                         .build()
