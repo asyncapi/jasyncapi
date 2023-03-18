@@ -29,7 +29,7 @@ public class ClientCredentialsOAuthFlow extends OAuthFlow {
     @NotNull
     private String tokenUrl = "";
 
-    @Builder(builderMethodName = "clientCredentialsOAuthFlowBuilder")
+    @Builder(builderMethodName = "clientCredentialsBuilder")
     public ClientCredentialsOAuthFlow(@Nullable String refreshUrl,
                                       @NotNull Map<String, String> scopes,
                                       @NotNull String tokenUrl) {

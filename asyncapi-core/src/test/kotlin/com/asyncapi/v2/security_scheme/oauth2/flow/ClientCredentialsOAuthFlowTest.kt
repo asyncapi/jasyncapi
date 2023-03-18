@@ -13,7 +13,7 @@ class ClientCredentialsOAuthFlowTest: SerDeTest<ClientCredentialsOAuthFlow>() {
     override fun wronglyExtendedObjectJson() = "/json/security_scheme/oauth2/flow/clientCredentialsOAuthFlow - wrongly extended.json"
 
     override fun build(): ClientCredentialsOAuthFlow {
-        return ClientCredentialsOAuthFlow.clientCredentialsOAuthFlowBuilder()
+        return ClientCredentialsOAuthFlow.clientCredentialsBuilder()
                 .tokenUrl("https://example.com/api/oauth/token")
                 .refreshUrl("https://example.com/api/oauth/refresh")
                 .scopes(mapOf(
