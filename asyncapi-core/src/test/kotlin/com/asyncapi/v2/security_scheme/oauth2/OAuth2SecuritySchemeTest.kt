@@ -17,8 +17,7 @@ class OAuth2SecuritySchemeTest: SerDeTest<OAuth2SecurityScheme>() {
     override fun wronglyExtendedObjectJson() = "/json/security_scheme/oauth2/oauth2 - wrongly extended.json"
 
     override fun build(): SecurityScheme {
-        return OAuth2SecurityScheme.oauth2SecuritySchemeBuilder()
-                .type(SecurityScheme.Type.OAUTH2)
+        return OAuth2SecurityScheme.oauth2Builder()
                 .description("oauth2")
                 .flows(OAuthFlowTest().build())
                 .build()
