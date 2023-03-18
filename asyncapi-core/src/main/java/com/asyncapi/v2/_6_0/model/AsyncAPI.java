@@ -1,10 +1,12 @@
 package com.asyncapi.v2._6_0.model;
 
 import com.asyncapi.v2.ExtendableObject;
+import com.asyncapi.v2._6_0.jackson.model.server.ServersDeserializer;
 import com.asyncapi.v2._6_0.model.channel.ChannelItem;
 import com.asyncapi.v2._6_0.model.component.Components;
 import com.asyncapi.v2._6_0.model.info.Info;
 import com.asyncapi.v2._6_0.model.server.Server;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -70,11 +72,16 @@ public class AsyncAPI extends ExtendableObject {
     private Info info = new Info();
 
     /**
-     * TODO: references
      * Provides connection details of servers.
+     * MUST BE:
+     * <ul>
+     *     <li>{@link Server}</li>
+     *     <li>{@link Reference}</li>
+     * </ul>
      */
     @Nullable
-    private Map<String, Server> servers;
+    @JsonDeserialize(using = ServersDeserializer.class)
+    private Map<String, Object> servers;
 
     /**
      * A string representing the default content type to use when encoding/decoding a message's payload.

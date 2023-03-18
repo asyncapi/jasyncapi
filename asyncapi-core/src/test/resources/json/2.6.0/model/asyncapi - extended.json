@@ -101,6 +101,9 @@
         "stomp" : { },
         "ws" : { }
       }
+    },
+    "stage-2" : {
+      "$ref" : "#/components/servers/stage-2"
     }
   },
   "defaultContentType" : "application/json",

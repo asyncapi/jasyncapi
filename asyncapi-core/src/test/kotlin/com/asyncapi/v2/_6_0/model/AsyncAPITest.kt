@@ -25,7 +25,8 @@ class AsyncAPITest: SerDeTest<AsyncAPI>() {
                 "https://www.asyncapi.com",
                 InfoTest().build(),
                 mapOf(
-                        Pair("stage", ServerTest().build())
+                        Pair("stage", ServerTest().build()),
+                        Pair("stage-2", Reference("#/components/servers/stage-2"))
                 ),
                 "application/json",
                 mapOf(
