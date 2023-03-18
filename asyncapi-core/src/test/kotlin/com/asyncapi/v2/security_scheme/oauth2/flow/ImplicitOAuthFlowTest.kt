@@ -13,7 +13,7 @@ class ImplicitOAuthFlowTest: SerDeTest<ImplicitOAuthFlow>() {
     override fun wronglyExtendedObjectJson() = "/json/security_scheme/oauth2/flow/implicitOAuthFlow - wrongly extended.json"
 
     override fun build(): ImplicitOAuthFlow {
-        return ImplicitOAuthFlow.implicitOAuthFlowBuilder()
+        return ImplicitOAuthFlow.implicitBuilder()
                 .authorizationUrl("https://example.com/api/oauth/dialog")
                 .refreshUrl("https://example.com/api/oauth/refresh")
                 .scopes(mapOf(

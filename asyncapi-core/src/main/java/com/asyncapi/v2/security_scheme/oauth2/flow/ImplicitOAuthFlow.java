@@ -29,7 +29,7 @@ public class ImplicitOAuthFlow extends OAuthFlow {
     @NotNull
     private String authorizationUrl = "";
 
-    @Builder(builderMethodName = "implicitOAuthFlowBuilder")
+    @Builder(builderMethodName = "implicitBuilder")
     public ImplicitOAuthFlow(@Nullable String refreshUrl,
                              @NotNull Map<String, String> scopes,
                              @NotNull String authorizationUrl) {
