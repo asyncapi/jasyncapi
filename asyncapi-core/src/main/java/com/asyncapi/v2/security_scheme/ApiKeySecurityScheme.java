@@ -28,7 +28,7 @@ public class ApiKeySecurityScheme extends SecurityScheme {
     @NotNull
     private ApiKeyLocation in = ApiKeyLocation.USER;
 
-    @Builder(builderMethodName = "apiKeySecuritySchemeBuilder")
+    @Builder(builderMethodName = "apiKeyBuilder")
     public ApiKeySecurityScheme(@NotNull Type type,
                                 @Nullable String description,
                                 @NotNull ApiKeyLocation in) {
