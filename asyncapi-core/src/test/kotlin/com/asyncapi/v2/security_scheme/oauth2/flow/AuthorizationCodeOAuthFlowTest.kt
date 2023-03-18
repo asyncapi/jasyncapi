@@ -13,7 +13,7 @@ class AuthorizationCodeOAuthFlowTest: SerDeTest<AuthorizationCodeOAuthFlow>() {
     override fun wronglyExtendedObjectJson() = "/json/security_scheme/oauth2/flow/authorizationCodeOAuthFlow - wrongly extended.json"
 
     override fun build(): AuthorizationCodeOAuthFlow {
-        return AuthorizationCodeOAuthFlow.authorizationCodeOAuthFlowBuilder()
+        return AuthorizationCodeOAuthFlow.authorizationCodeBuilder()
                 .authorizationUrl("https://example.com/api/oauth/dialog")
                 .tokenUrl("https://example.com/api/oauth/token")
                 .refreshUrl("https://example.com/api/oauth/refresh")

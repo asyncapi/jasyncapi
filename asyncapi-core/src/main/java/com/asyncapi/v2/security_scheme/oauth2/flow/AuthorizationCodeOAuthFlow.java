@@ -39,7 +39,7 @@ public class AuthorizationCodeOAuthFlow extends OAuthFlow {
     @NotNull
     private String tokenUrl = "";
 
-    @Builder(builderMethodName = "authorizationCodeOAuthFlowBuilder")
+    @Builder(builderMethodName = "authorizationCodeBuilder")
     public AuthorizationCodeOAuthFlow(@Nullable String refreshUrl,
                                       @NotNull Map<String, String> scopes,
                                       @NotNull String authorizationUrl,
