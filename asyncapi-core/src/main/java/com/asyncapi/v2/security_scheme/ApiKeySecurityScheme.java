@@ -28,11 +28,10 @@ public class ApiKeySecurityScheme extends SecurityScheme {
     @NotNull
     private ApiKeyLocation in = ApiKeyLocation.USER;
 
-    @Builder(builderMethodName = "apiKeySecuritySchemeBuilder")
-    public ApiKeySecurityScheme(@NotNull Type type,
-                                @Nullable String description,
+    @Builder(builderMethodName = "apiKeyBuilder")
+    public ApiKeySecurityScheme(@Nullable String description,
                                 @NotNull ApiKeyLocation in) {
-        super(type, description);
+        super(Type.API_KEY, description);
         this.in = in;
     }
 

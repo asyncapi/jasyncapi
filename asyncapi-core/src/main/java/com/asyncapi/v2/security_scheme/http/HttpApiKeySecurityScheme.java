@@ -37,12 +37,11 @@ public class HttpApiKeySecurityScheme extends SecurityScheme {
     @Nullable
     private ApiKeyLocation in;
 
-    @Builder(builderMethodName = "httpApiKeySecuritySchemeBuilder")
-    public HttpApiKeySecurityScheme(@NotNull Type type,
-                                    @Nullable String description,
+    @Builder(builderMethodName = "httpApiKeyBuilder")
+    public HttpApiKeySecurityScheme(@Nullable String description,
                                     @NotNull String name,
                                     @Nullable ApiKeyLocation in) {
-        super(type, description);
+        super(Type.HTTP_API_KEY, description);
         this.name = name;
         this.in = in;
     }

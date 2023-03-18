@@ -16,8 +16,7 @@ class OpenIdConnectSecuritySchemeTest: SerDeTest<OpenIdConnectSecurityScheme>() 
     override fun wronglyExtendedObjectJson() = "/json/security_scheme/openIdConnect - wrongly extended.json"
 
     override fun build(): SecurityScheme {
-        return OpenIdConnectSecurityScheme.openIdConnectSecurityScheme()
-                .type(SecurityScheme.Type.OPENID_CONNECT)
+        return OpenIdConnectSecurityScheme.openIdBuilder()
                 .description("openIdConnect")
                 .openIdConnectUrl("https://server.com/.well-known/openid-configuration")
                 .build()

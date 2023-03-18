@@ -35,12 +35,11 @@ public class HttpSecurityScheme extends SecurityScheme {
     @Nullable
     private String bearerFormat;
 
-    @Builder(builderMethodName = "httpSecuritySchemeBuilder")
-    public HttpSecurityScheme(@NotNull Type type,
-                              @Nullable String description,
+    @Builder(builderMethodName = "httpBuilder")
+    public HttpSecurityScheme(@Nullable String description,
                               @NotNull String scheme,
                               @Nullable String bearerFormat) {
-        super(type, description);
+        super(Type.HTTP, description);
         this.scheme = scheme;
         this.bearerFormat = bearerFormat;
     }

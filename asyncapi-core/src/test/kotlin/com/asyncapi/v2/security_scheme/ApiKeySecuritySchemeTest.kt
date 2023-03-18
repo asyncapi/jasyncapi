@@ -16,8 +16,7 @@ class ApiKeySecuritySchemeTest: SerDeTest<ApiKeySecurityScheme>() {
     override fun wronglyExtendedObjectJson() = "/json/security_scheme/apiKey - wrongly extended.json"
 
     override fun build(): SecurityScheme {
-        return ApiKeySecurityScheme.apiKeySecuritySchemeBuilder()
-                .type(SecurityScheme.Type.API_KEY)
+        return ApiKeySecurityScheme.apiKeyBuilder()
                 .description("apiKey")
                 .`in`(ApiKeySecurityScheme.ApiKeyLocation.USER)
                 .build()

@@ -27,11 +27,10 @@ public class OpenIdConnectSecurityScheme extends SecurityScheme {
     @NotNull
     private String openIdConnectUrl = "";
 
-    @Builder(builderMethodName = "openIdConnectSecurityScheme")
-    public OpenIdConnectSecurityScheme(@NotNull Type type,
-                                       @Nullable String description,
+    @Builder(builderMethodName = "openIdBuilder")
+    public OpenIdConnectSecurityScheme(@Nullable String description,
                                        @NotNull String openIdConnectUrl) {
-        super(type, description);
+        super(Type.OPENID_CONNECT, description);
         this.openIdConnectUrl = openIdConnectUrl;
     }
 
