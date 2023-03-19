@@ -20,7 +20,7 @@ class MQTTServerBindingTest: SerDeTest<MQTTServerBinding>() {
         return MQTTServerBinding.builder()
                 .clientId("guest")
                 .cleanSession(true)
-                .lastWill(MQTTServerBinding.LastWillConfiguration(
+                .lastWill(MQTTServerLastWillConfiguration(
                         "/last-wills",
                         2,
                         "Guest gone offline.",
