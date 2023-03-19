@@ -1,6 +1,9 @@
 package com.asyncapi.v2.binding.operation.nats;
 
 import com.asyncapi.v2.binding.operation.OperationBinding;
+import com.fasterxml.jackson.annotation.JsonClassDescription;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,12 +23,19 @@ import org.jetbrains.annotations.Nullable;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
+@JsonClassDescription("Describes NATS operation binding.")
 public class NATSOperationBinding extends OperationBinding {
 
     /**
      * Defines the name of the queue to use. It MUST NOT exceed 255 characters.
      */
     @Nullable
+    @javax.validation.constraints.Size(
+            max = 255,
+            message = "Queue name must be lower or equals to 255."
+    )
+    @JsonProperty("queue")
+    @JsonPropertyDescription("Defines the name of the queue to use. It MUST NOT exceed 255 characters.")
     private String queue;
 
     /**
@@ -33,6 +43,8 @@ public class NATSOperationBinding extends OperationBinding {
      */
     @Nullable
     @Builder.Default
+    @JsonProperty("bindingVersion")
+    @JsonPropertyDescription("The version of this binding.")
     private String bindingVersion = "0.1.0";
 
 }
