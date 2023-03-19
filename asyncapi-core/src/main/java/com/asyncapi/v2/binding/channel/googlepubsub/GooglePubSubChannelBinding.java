@@ -1,20 +1,23 @@
 package com.asyncapi.v2.binding.channel.googlepubsub;
 
 import com.asyncapi.v2.binding.channel.ChannelBinding;
+import com.fasterxml.jackson.annotation.JsonClassDescription;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
 import java.util.Map;
 
 /**
- * The Channel Bindings Object is used to describe the Google Cloud Pub/Sub specific <a href="https://cloud.google.com/pubsub/docs/reference/rest/v1/projects.topics/create">Topic</a> details with AsyncAPI.
- * <p>
  * Describes Google Cloud Pub/Sub channel binding.
+ * <p>
+ * The Channel Bindings Object is used to describe the Google Cloud Pub/Sub specific <a href="https://cloud.google.com/pubsub/docs/reference/rest/v1/projects.topics/create">Topic</a> details with AsyncAPI.
  *
  * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/googlepubsub#channel-binding-object">Google Cloud Pub/Sub channel binding</a>
@@ -25,96 +28,58 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
+@JsonClassDescription("Describes Google Cloud Pub/Sub channel binding.")
 public class GooglePubSubChannelBinding extends ChannelBinding {
 
     /**
-     * The Google Cloud Pub/Sub Topic name
+     * The Google Cloud Pub/Sub Topic name.
      */
-    private String topic;
+    @NotNull
+    @javax.validation.constraints.NotNull
+    @JsonProperty(value = "topic", required = true)
+    @JsonPropertyDescription("The Google Cloud Pub/Sub Topic name.")
+    private String topic = "";
 
     /**
      * An object of key-value pairs (These are used to categorize Cloud Resources like Cloud Pub/Sub Topics.)
      */
     @Nullable
+    @JsonProperty("labels")
+    @JsonPropertyDescription("An object of key-value pairs (These are used to categorize Cloud Resources like Cloud Pub/Sub Topics.)")
     private Map<String, Object> labels;
 
     /**
      * Indicates the minimum duration to retain a message after it is published to the topic (Must be a valid <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Duration">Duration</a>.)
      */
     @Nullable
+    @JsonProperty("messageRetentionDuration")
+    @JsonPropertyDescription("Indicates the minimum duration to retain a message after it is published to the topic (Must be a valid https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Duration.)")
     private String messageRetentionDuration;
 
     /**
      * Policy constraining the set of Google Cloud Platform regions where messages published to the topic may be stored
      */
     @Nullable
-    private MessageStoragePolicy messageStoragePolicy;
+    @JsonProperty("messageStoragePolicy")
+    @JsonPropertyDescription("Policy constraining the set of Google Cloud Platform regions where messages published to the topic may be stored")
+    private GooglePubSubChannelMessageStoragePolicy messageStoragePolicy;
 
     /**
      * Settings for validating messages published against a schema
      */
-    @Nullable
-    private SchemaSettings schemaSettings;
+    @NotNull
+    @javax.validation.constraints.NotNull
+    @JsonProperty(value = "schemaSettings", required = true)
+    @JsonPropertyDescription("Settings for validating messages published against a schema")
+    private GooglePubSubChannelSchemaSettings schemaSettings = new GooglePubSubChannelSchemaSettings();
 
     /**
-     * OPTIONAL, defaults to latest. The version of this binding.
+     * The version of this binding.
      */
     @Nullable
     @Builder.Default
+    @JsonProperty(value = "bindingVersion")
+    @JsonPropertyDescription("The version of this binding.")
     private String bindingVersion = "0.1.0";
-
-    /**
-     * The Message Storage Policy Object is used to describe the Google Cloud Pub/Sub <a href="https://cloud.google.com/pubsub/docs/reference/rest/v1/projects.topics#MessageStoragePolicy">MessageStoragePolicy</a> Object with AsyncAPI.
-     */
-    @Data
-    @Builder
-    @NoArgsConstructor
-    @AllArgsConstructor
-    @EqualsAndHashCode
-    public static class MessageStoragePolicy {
-
-        /**
-         * A list of IDs of GCP regions where messages that are published to the topic may be persisted in storage
-         */
-        @Nullable
-        private List<String> allowedPersistenceRegions;
-
-    }
-
-    /**
-     * The Schema Settings Object is used to describe the Google Cloud Pub/Sub <a href="https://cloud.google.com/pubsub/docs/reference/rest/v1/projects.topics#SchemaSettings">SchemaSettings</a> Object with AsyncAPI.
-     */
-    @Data
-    @Builder
-    @NoArgsConstructor
-    @AllArgsConstructor
-    @EqualsAndHashCode
-    public static class SchemaSettings {
-
-        /**
-         * The encoding of the message (Must be one of the possible <a href="https://cloud.google.com/pubsub/docs/reference/rest/v1/projects.topics#encoding">Encoding</a> values.)
-         */
-        @Nullable
-        private String encoding;
-
-        /**
-         * The minimum (inclusive) revision allowed for validating messages
-         */
-        @Nullable
-        private String firstRevisionId;
-
-        /**
-         * The maximum (inclusive) revision allowed for validating messages
-         */
-        @Nullable
-        private String lastRevisionId;
-
-        /**
-         * The name of the schema that messages published should be validated against (The format is projects/{project}/schemas/{schema}.)
-         */
-        @Nullable
-        private String name;
-
-    }
 
 }
