@@ -1,6 +1,7 @@
 package com.asyncapi.v2.binding.server.kafka;
 
 import com.asyncapi.v2.binding.server.ServerBinding;
+import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import lombok.AllArgsConstructor;
@@ -22,6 +23,7 @@ import org.jetbrains.annotations.Nullable;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
+@JsonClassDescription("Describes Kafka server binding.")
 public class KafkaServerBinding extends ServerBinding {
 
     /**
