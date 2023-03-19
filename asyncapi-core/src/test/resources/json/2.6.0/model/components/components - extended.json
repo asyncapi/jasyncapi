@@ -2609,6 +2609,7 @@
           "$ref" : "#/components/channelBindings/jms"
         },
         "kafka" : {
+          "bindingVersion" : "0.4.0",
           "topic" : "my-specific-topic-name",
           "partitions" : 20,
           "replicas" : 3,
@@ -2618,8 +2619,7 @@
             "retention.bytes" : 1000000000,
             "delete.retention.ms" : 86400000,
             "max.message.bytes" : 1048588
-          },
-          "bindingVersion" : "0.4.0"
+          }
         },
         "mercure" : {
           "$ref" : "#/components/channelBindings/mercure"
@@ -4265,6 +4265,7 @@
       "$ref" : "#/components/channelBindings/jms"
     },
     "kafka" : {
+      "bindingVersion" : "0.4.0",
       "topic" : "my-specific-topic-name",
       "partitions" : 20,
       "replicas" : 3,
@@ -4274,8 +4275,7 @@
         "retention.bytes" : 1000000000,
         "delete.retention.ms" : 86400000,
         "max.message.bytes" : 1048588
-      },
-      "bindingVersion" : "0.4.0"
+      }
     },
     "mercure" : {
       "$ref" : "#/components/channelBindings/mercure"

@@ -1,4 +1,5 @@
 {
+  "bindingVersion" : "0.4.0",
   "topic" : "my-specific-topic-name",
   "partitions" : 20,
   "replicas" : 3,
@@ -9,7 +10,6 @@
     "delete.retention.ms" : 86400000,
     "max.message.bytes" : 1048588
   },
-  "bindingVersion" : "0.4.0",
   "x-number" : 0,
   "x-string" : "",
   "x-object" : {
