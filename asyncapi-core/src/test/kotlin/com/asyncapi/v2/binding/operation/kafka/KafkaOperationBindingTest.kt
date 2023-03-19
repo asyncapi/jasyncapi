@@ -1,6 +1,8 @@
 package com.asyncapi.v2.binding.operation.kafka
 
 import com.asyncapi.v2.SerDeTest
+import com.asyncapi.v2.schema.Schema
+import com.asyncapi.v2.schema.Type
 
 class KafkaOperationBindingTest: SerDeTest<KafkaOperationBinding>() {
 
@@ -14,14 +16,14 @@ class KafkaOperationBindingTest: SerDeTest<KafkaOperationBinding>() {
 
     override fun build(): KafkaOperationBinding {
         return KafkaOperationBinding.builder()
-                .groupId(mapOf(
-                        Pair("type", "string"),
-                        Pair("enum", listOf("myGroupId"))
-                ))
-                .clientId(mapOf(
-                        Pair("type", "string"),
-                        Pair("enum", listOf("myClientId"))
-                ))
+                .groupId(Schema.builder()
+                        .type(Type.STRING)
+                        .enumValue(listOf("myGroupId"))
+                        .build())
+                .clientId(Schema.builder()
+                        .type(Type.STRING)
+                        .enumValue(listOf("myClientId"))
+                        .build())
                 .build()
     }
 
