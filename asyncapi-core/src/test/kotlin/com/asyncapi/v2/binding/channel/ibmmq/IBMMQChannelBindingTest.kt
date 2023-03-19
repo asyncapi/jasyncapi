@@ -1,7 +1,6 @@
 package com.asyncapi.v2.binding.channel.ibmmq
 
 import com.asyncapi.v2.SerDeTest
-import com.asyncapi.v2.binding.channel.ibmmq.IBMMQChannelBinding.Topic
 
 class IBMMQChannelBindingTest: SerDeTest<IBMMQChannelBinding>() {
 
@@ -15,14 +14,14 @@ class IBMMQChannelBindingTest: SerDeTest<IBMMQChannelBinding>() {
 
     override fun build(): IBMMQChannelBinding {
         return IBMMQChannelBinding.builder()
-                .destinationType("topic")
-                .queue(IBMMQChannelBinding.Queue.builder()
+                .destinationType(IBMMQChannelDestinationType.TOPIC)
+                .queue(IBMMQChannelQueueProperties.builder()
                         .objectName("message")
                         .isPartitioned(false)
                         .exclusive(true)
                         .build()
                 )
-                .topic(Topic.builder()
+                .topic(IBMMQChannelTopicProperties.builder()
                         .string("messages")
                         .objectName("message")
                         .durablePermitted(true)

@@ -1,6 +1,9 @@
 package com.asyncapi.v2.binding.channel.ibmmq;
 
 import com.asyncapi.v2.binding.channel.ChannelBinding;
+import com.fasterxml.jackson.annotation.JsonClassDescription;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -31,7 +34,10 @@ public class IBMMQChannelBinding extends ChannelBinding {
      * MUST be either topic or queue. For type topic, the AsyncAPI channel name MUST be assumed for the IBM MQ topic string unless overridden.
      */
     @Nullable
-    private String destinationType;
+    @Builder.Default
+    @JsonProperty(value = "destinationType", defaultValue = "topic")
+    @JsonPropertyDescription("Defines the type of AsyncAPI channel.")
+    private IBMMQChannelDestinationType destinationType = IBMMQChannelDestinationType.TOPIC;
 
     /**
      * REQUIRED if destinationType = queue
@@ -39,7 +45,9 @@ public class IBMMQChannelBinding extends ChannelBinding {
      * queue and topic fields MUST NOT coexist within a channel binding
      */
     @Nullable
-    private Queue queue;
+    @JsonProperty("queue")
+    @JsonPropertyDescription("Defines the properties of a queue.")
+    private IBMMQChannelQueueProperties queue;
 
     /**
      * Defines the properties of a topic.
@@ -49,7 +57,9 @@ public class IBMMQChannelBinding extends ChannelBinding {
      * queue and topic fields MUST NOT coexist within a channel binding.
      */
     @Nullable
-    private Topic topic;
+    @JsonProperty("topic")
+    @JsonPropertyDescription("Defines the properties of a topic.")
+    private IBMMQChannelTopicProperties topic;
 
     /**
      * The maximum length of the physical message (in bytes) accepted by the Topic or Queue. Messages produced that are
@@ -59,97 +69,24 @@ public class IBMMQChannelBinding extends ChannelBinding {
      * MUST be 0-104,857,600 bytes (100 MB).
      */
     @Nullable
+    @javax.validation.constraints.Min(
+            value = 0,
+            message = "Maximum length of the physical message (in bytes) must be greater or equals to 0"
+    )
+    @javax.validation.constraints.Max(
+            value = 104857600,
+            message = "Maximum length of the physical message (in bytes) must be lower or equals to 104857600"
+    )
+    @JsonProperty("maxMsgLength")
+    @JsonPropertyDescription("The maximum length of the physical message (in bytes) accepted by the Topic or Queue. Messages produced that are greater in size than this value may fail to be delivered. More information on the maximum message length can be found on this [page](https://www.ibm.com/support/knowledgecenter/SSFKSJ_latest/com.ibm.mq.ref.dev.doc/q097520_.html) in the IBM MQ Knowledge Center.")
     private Integer maxMsgLength;
 
     /**
      * The version of this binding.
      */
     @Builder.Default
+    @JsonProperty("bindingVersion")
+    @JsonPropertyDescription("The version of this binding.")
     private String bindingVersion = "0.1.0";
-
-    /**
-     * Defines the properties of a queue.
-     */
-    @Data
-    @Builder
-    @NoArgsConstructor
-    @AllArgsConstructor
-    @EqualsAndHashCode
-    public static class Queue {
-
-        /**
-         * Defines the name of the IBM MQ queue associated with the channel.
-         * <p>
-         * A value MUST be specified. MUST NOT exceed 48 characters in length. MUST be a valid IBM MQ queue name
-         */
-        @NotNull
-        private String objectName;
-
-        /**
-         * Defines if the queue is a cluster queue and therefore partitioned. If true, a binding option MAY be specified
-         * when accessing the queue. More information on binding options can be found on this page in the IBM MQ Knowledge Center.
-         * <p>
-         * If false, binding options SHOULD NOT be specified when accessing the queue.
-         */
-        @Nullable
-        @Builder.Default
-        private Boolean isPartitioned = false;
-
-        /**
-         * Specifies if it is recommended to open the queue exclusively.
-         */
-        @Nullable
-        @Builder.Default
-        private Boolean exclusive = false;
-
-    }
-
-    /**
-     * Defines the properties of a topic.
-     */
-    @Data
-    @Builder
-    @NoArgsConstructor
-    @AllArgsConstructor
-    @EqualsAndHashCode
-    public static class Topic {
-
-        /**
-         * The value of the IBM MQ topic string to be used.
-         * <p>
-         * OPTIONAL
-         * Note: if specified, SHALL override AsyncAPI channel name.
-         * <p>
-         * MUST NOT exceed 10240 characters in length. MAY coexist with topic.objectName
-         */
-        @Nullable
-        private String string;
-
-        /**
-         * The name of the IBM MQ topic object.
-         * <p>
-         * OPTIONAL
-         * Note: if specified, SHALL override AsyncAPI channel name.
-         * <p>
-         * MUST NOT exceed 48 characters in length. MAY coexist with topic.string
-         */
-        @Nullable
-        private String objectName;
-
-        /**
-         * Defines if the subscription may be durable.
-         */
-        @Nullable
-        @Builder.Default
-        private Boolean durablePermitted = true;
-
-        /**
-         * Defines if the last message published will be made available to new subscriptions.
-         */
-        @Nullable
-        @Builder.Default
-        private Boolean lastMsgRetained = false;
-
-    }
 
 }
