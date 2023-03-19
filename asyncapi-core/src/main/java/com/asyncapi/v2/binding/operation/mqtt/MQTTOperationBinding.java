@@ -35,6 +35,14 @@ public class MQTTOperationBinding extends OperationBinding {
      * Applies to: publish, subscribe
      */
     @Nullable
+    @javax.validation.constraints.Min(
+            value = 0,
+            message = "QoS must be greater or equals to 0."
+    )
+    @javax.validation.constraints.Max(
+            value = 2,
+            message = "QoS must be lower or equals to 0."
+    )
     @JsonProperty("qos")
     @JsonPropertyDescription("Defines the Quality of Service (QoS) levels for the message flow between client and server. Its value MUST be either 0 (At most once delivery), 1 (At least once delivery), or 2 (Exactly once delivery).")
     private Integer qos;
