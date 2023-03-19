@@ -1,6 +1,8 @@
 package com.asyncapi.v2.binding.server.kafka;
 
 import com.asyncapi.v2.binding.server.ServerBinding;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,6 +28,8 @@ public class KafkaServerBinding extends ServerBinding {
      * API URL for the Schema Registry used when producing Kafka messages (if a Schema Registry was used)
      */
     @Nullable
+    @JsonProperty("schemaRegistryUrl")
+    @JsonPropertyDescription("API URL for the Schema Registry used when producing Kafka messages (if a Schema Registry was used)")
     private String schemaRegistryUrl;
 
     /**
@@ -34,6 +38,8 @@ public class KafkaServerBinding extends ServerBinding {
      * The vendor of Schema Registry and Kafka serdes library that should be used (e.g. apicurio, confluent, ibm, or karapace)
      */
     @Nullable
+    @JsonProperty("schemaRegistryVendor")
+    @JsonPropertyDescription("The vendor of Schema Registry and Kafka serdes library that should be used (e.g. apicurio, confluent, ibm, or karapace)")
     private String schemaRegistryVendor;
 
     /**
@@ -41,6 +47,8 @@ public class KafkaServerBinding extends ServerBinding {
      */
     @Nullable
     @Builder.Default
+    @JsonProperty("bindingVersion")
+    @JsonPropertyDescription("The version of this binding.")
     private String bindingVersion = "0.4.0";
 
 }
