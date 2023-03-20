@@ -6,7 +6,7 @@ import com.asyncapi.v2._0_0.jackson.model.channel.message.MessageHeadersDeserial
 import com.asyncapi.v2._0_0.jackson.model.channel.message.MessagePayloadDeserializer;
 import com.asyncapi.v2._0_0.jackson.model.channel.message.MessageTraitsDeserializer;
 import com.asyncapi.v2._0_0.model.ExternalDocumentation;
-import com.asyncapi.v2._0_0.model.Reference;
+import com.asyncapi.v2.Reference;
 import com.asyncapi.v2._0_0.model.Tag;
 import com.asyncapi.v2.schema.Schema;
 import com.asyncapi.v2.binding.message.MessageBinding;

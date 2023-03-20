@@ -1,9 +1,9 @@
 package com.asyncapi.v2._6_0.model.component
 
+import com.asyncapi.v2.Reference
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2.schema.Schema
 import com.asyncapi.v2.schema.Type
-import com.asyncapi.v2._6_0.model.Reference
 import com.asyncapi.v2._6_0.model.channel.ChannelItemTest
 import com.asyncapi.v2._6_0.model.channel.ParameterWithSchemaTest
 import com.asyncapi.v2._6_0.model.channel.ParameterWithReferenceToSchemaTest

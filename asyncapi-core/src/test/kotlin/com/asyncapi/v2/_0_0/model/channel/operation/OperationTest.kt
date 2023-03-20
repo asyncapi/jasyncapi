@@ -2,7 +2,7 @@ package com.asyncapi.v2._0_0.model.channel.operation
 
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._0_0.model.ExternalDocumentation
-import com.asyncapi.v2._0_0.model.Reference
+import com.asyncapi.v2.Reference
 import com.asyncapi.v2._0_0.model.Tag
 import com.asyncapi.v2._0_0.model.channel.message.MessageTest
 import com.asyncapi.v2.binding.operation.OperationBinding

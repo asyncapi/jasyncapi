@@ -1,5 +1,6 @@
 package com.asyncapi.v2._6_0.model
 
+import com.asyncapi.v2.Reference
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._6_0.model.channel.ChannelItemTest
 import com.asyncapi.v2._6_0.model.component.ComponentsTest

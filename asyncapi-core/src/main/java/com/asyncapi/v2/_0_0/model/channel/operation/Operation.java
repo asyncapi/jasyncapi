@@ -4,7 +4,7 @@ import com.asyncapi.v2.ExtendableObject;
 import com.asyncapi.v2._0_0.jackson.model.channel.operation.OperationMessageDeserializer;
 import com.asyncapi.v2._0_0.jackson.model.channel.operation.OperationTraitsDeserializer;
 import com.asyncapi.v2._0_0.model.ExternalDocumentation;
-import com.asyncapi.v2._0_0.model.Reference;
+import com.asyncapi.v2.Reference;
 import com.asyncapi.v2._0_0.model.Tag;
 import com.asyncapi.v2._0_0.model.channel.message.Message;
 import com.asyncapi.v2.binding.operation.OperationBinding;

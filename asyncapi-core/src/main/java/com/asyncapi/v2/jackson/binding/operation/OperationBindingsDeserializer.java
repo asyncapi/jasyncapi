@@ -1,6 +1,6 @@
 package com.asyncapi.v2.jackson.binding.operation;
 
-import com.asyncapi.v2._6_0.model.Reference;
+import com.asyncapi.v2.Reference;
 import com.asyncapi.v2.binding.operation.amqp.AMQPOperationBinding;
 import com.asyncapi.v2.binding.operation.amqp1.AMQP1OperationBinding;
 import com.asyncapi.v2.binding.operation.anypointmq.AnypointMQOperationBinding;

@@ -1,7 +1,7 @@
 package com.asyncapi.v2._6_0.model.server
 
+import com.asyncapi.v2.Reference
 import com.asyncapi.v2.SerDeTest
-import com.asyncapi.v2._6_0.model.Reference
 import com.asyncapi.v2._6_0.model.Tag
 import com.asyncapi.v2.binding.server.amqp1.AMQP1ServerBinding
 import com.asyncapi.v2.binding.server.anypointmq.AnypointMQServerBinding

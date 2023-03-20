@@ -1,7 +1,7 @@
 package com.asyncapi.v2._6_0.model.channel
 
+import com.asyncapi.v2.Reference
 import com.asyncapi.v2.SerDeTest
-import com.asyncapi.v2._6_0.model.Reference
 import com.asyncapi.v2._6_0.model.channel.operation.OperationWithMessageTest
 import com.asyncapi.v2._6_0.model.channel.operation.OperationWithOneOfMessageTest
 import com.asyncapi.v2.schema.Schema

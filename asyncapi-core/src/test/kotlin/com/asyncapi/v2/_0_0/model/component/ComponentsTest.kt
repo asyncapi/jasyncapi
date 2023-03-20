@@ -1,7 +1,7 @@
 package com.asyncapi.v2._0_0.model.component
 
 import com.asyncapi.v2.SerDeTest
-import com.asyncapi.v2._0_0.model.Reference
+import com.asyncapi.v2.Reference
 import com.asyncapi.v2._0_0.model.channel.ChannelItemTest
 import com.asyncapi.v2._0_0.model.channel.ParameterTest
 import com.asyncapi.v2._0_0.model.channel.message.CorrelationIdTest
