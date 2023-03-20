@@ -1,8 +1,10 @@
 package com.asyncapi.v2.binding.operation.solace;
 
-import com.asyncapi.v2.binding.operation.solace.queue.SolaceQueue;
-import com.asyncapi.v2.binding.operation.solace.topic.SolaceTopic;
+import com.asyncapi.v2.binding.operation.solace.queue.SolaceOperationQueue;
+import com.asyncapi.v2.binding.operation.solace.topic.SolaceOperationTopic;
+import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,13 +24,16 @@ import org.jetbrains.annotations.Nullable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SolaceDestination {
+@JsonClassDescription("Describes Solace destination.")
+public class SolaceOperationDestination {
 
     /**
      * 'queue' or 'topic'. If the type is queue, then the subscriber can bind to the queue, which in turn will
      * subscribe to the topic as represented by the channel name or to the provided topicSubscriptions.
      */
     @Nullable
+    @JsonProperty("destinationType")
+    @JsonPropertyDescription("'queue' or 'topic'. If the type is queue, then the subscriber can bind to the queue, which in turn will subscribe to the topic as represented by the channel name or to the provided topicSubscriptions.")
     private Type destinationType;
 
     /**
@@ -37,26 +42,32 @@ public class SolaceDestination {
      */
     @Nullable
     @Builder.Default
+    @JsonProperty(value = "deliveryMode", defaultValue = "persistent")
+    @JsonPropertyDescription("'direct' or 'persistent'. This determines the quality of service for publishing messages as documented at https://docs.solace.com/Get-Started/Core-Concepts-Message-Delivery-Modes.htm. Default is 'persistent'.")
     private DeliveryMode deliveryMode = DeliveryMode.PERSISTENT;
 
     /**
      * Solace queue destination details.
      */
     @Nullable
-    private SolaceQueue queue;
+    @JsonProperty("queue")
+    @JsonPropertyDescription("Solace queue destination details.")
+    private SolaceOperationQueue queue;
 
     /**
-     * Solace topic destination details
+     * Solace topic destination details.
      */
     @Nullable
-    private SolaceTopic topic;
+    @JsonProperty("topic")
+    @JsonPropertyDescription("Solace topic destination details.")
+    private SolaceOperationTopic topic;
 
     public enum Type {
 
         @JsonProperty("queue")
         QUEUE,
         @JsonProperty("topic")
-        TOPIC;
+        TOPIC
 
     }
 
@@ -65,7 +76,7 @@ public class SolaceDestination {
         @JsonProperty("direct")
         DIRECT,
         @JsonProperty("persistent")
-        PERSISTENT;
+        PERSISTENT
 
     }
 

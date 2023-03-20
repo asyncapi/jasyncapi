@@ -1,6 +1,8 @@
 package com.asyncapi.v2.binding.operation.solace.queue;
 
+import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,12 +24,15 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SolaceQueue {
+@JsonClassDescription("Describes Solace queue.")
+public class SolaceOperationQueue {
 
     /**
      * The name of the queue, only applicable when destinationType is 'queue'.
      */
     @Nullable
+    @JsonProperty("name")
+    @JsonPropertyDescription("The name of the queue, only applicable when destinationType is 'queue'.")
     private String name;
 
     /**
@@ -35,12 +40,16 @@ public class SolaceQueue {
      * If none is given, the queue subscribes to the topic as represented by the channel name.
      */
     @Nullable
+    @JsonProperty("topicSubscriptions")
+    @JsonPropertyDescription("A list of topics that the queue subscribes to, only applicable when destinationType is 'queue'. If none is given, the queue subscribes to the topic as represented by the channel name.")
     private List<String> topicSubscriptions;
 
     /**
      * 'exclusive' or 'nonexclusive'. This is documented <a href="https://docs.solace.com/Messaging/Guaranteed-Msg/Endpoints.htm#Queues">here</a>. Only applicable when destinationType is 'queue'.
      */
     @Nullable
+    @JsonProperty("accessType")
+    @JsonPropertyDescription("'exclusive' or 'nonexclusive'. This is documented at https://docs.solace.com/Messaging/Guaranteed-Msg/Endpoints.htm#Queues. Only applicable when destinationType is 'queue'.")
     private AccessType accessType;
 
     /**
@@ -48,6 +57,8 @@ public class SolaceQueue {
      * Only applicable when destinationType is 'queue'.
      */
     @Nullable
+    @JsonProperty("maxMsgSpoolSize")
+    @JsonPropertyDescription("The maximum amount of message spool that the given queue may use. This is documented at https://docs.solace.com/Messaging/Guaranteed-Msg/Message-Spooling.htm#max-spool-usage. Only applicable when destinationType is 'queue'.")
     private String maxMsgSpoolSize;
 
     /**
@@ -55,6 +66,8 @@ public class SolaceQueue {
      * Only applicable when destinationType is 'queue'.
      */
     @Nullable
+    @JsonProperty("maxTtl")
+    @JsonPropertyDescription("The maximum TTL to apply to messages to be spooled. This is documented at https://docs.solace.com/Messaging/Guaranteed-Msg/Configuring-Queues.htm. Only applicable when destinationType is 'queue'.")
     private String maxTtl;
 
     public enum AccessType {

@@ -1,8 +1,8 @@
 package com.asyncapi.v2.binding.operation.solace
 
 import com.asyncapi.v2.SerDeTest
-import com.asyncapi.v2.binding.operation.solace.queue.SolaceQueue
-import com.asyncapi.v2.binding.operation.solace.topic.SolaceTopic
+import com.asyncapi.v2.binding.operation.solace.queue.SolaceOperationQueue
+import com.asyncapi.v2.binding.operation.solace.topic.SolaceOperationTopic
 
 class SolaceOperationBindingTest: SerDeTest<SolaceOperationBinding>() {
 
@@ -17,25 +17,25 @@ class SolaceOperationBindingTest: SerDeTest<SolaceOperationBinding>() {
     override fun build(): SolaceOperationBinding {
         return SolaceOperationBinding.builder()
                 .destinations(listOf(
-                        SolaceDestination.builder()
-                                .destinationType(SolaceDestination.Type.QUEUE)
-                                .queue(SolaceQueue.builder()
+                        SolaceOperationDestination.builder()
+                                .destinationType(SolaceOperationDestination.Type.QUEUE)
+                                .queue(SolaceOperationQueue.builder()
                                         .name("CreatedHREvents")
                                         .topicSubscriptions(listOf("person/*/created"))
-                                        .accessType(SolaceQueue.AccessType.EXCLUSIVE)
+                                        .accessType(SolaceOperationQueue.AccessType.EXCLUSIVE)
                                         .maxMsgSpoolSize("1,500")
                                         .maxTtl("60")
                                         .build()
                                 )
                                 .build(),
-                        SolaceDestination.builder()
-                                .destinationType(SolaceDestination.Type.QUEUE)
-                                .queue(SolaceQueue.builder()
+                        SolaceOperationDestination.builder()
+                                .destinationType(SolaceOperationDestination.Type.QUEUE)
+                                .queue(SolaceOperationQueue.builder()
                                         .name("UpdatedHREvents")
                                         .topicSubscriptions(listOf("person/*/updated"))
                                         .build()
                                 )
-                                .topic(SolaceTopic.builder()
+                                .topic(SolaceOperationTopic.builder()
                                         .topicSubscriptions(listOf("person/*/updated"))
                                         .build()
                                 )
