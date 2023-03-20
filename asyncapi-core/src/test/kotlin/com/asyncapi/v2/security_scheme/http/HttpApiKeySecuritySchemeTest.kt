@@ -1,7 +1,6 @@
 package com.asyncapi.v2.security_scheme.http
 
 import com.asyncapi.v2.SerDeTest
-import com.asyncapi.v2.security_scheme.SecurityScheme
 
 class HttpApiKeySecuritySchemeTest: SerDeTest<HttpApiKeySecurityScheme>() {
 
