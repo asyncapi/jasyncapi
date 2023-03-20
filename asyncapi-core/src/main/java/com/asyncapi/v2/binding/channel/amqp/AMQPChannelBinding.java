@@ -35,6 +35,7 @@ public class AMQPChannelBinding extends ChannelBinding {
      * Defines what type of channel is it. Can be either queue or routingKey (default).
      */
     @NotNull
+    @Builder.Default
     @javax.validation.constraints.NotNull
     @JsonProperty(value = "is", required = true, defaultValue = "routingKey")
     @JsonPropertyDescription("Defines what type of channel is it. Can be either queue or routingKey (default).")

@@ -34,6 +34,7 @@ public class GooglePubSubMessageSchemaDefinition {
      * The name of the schema
      */
     @NotNull
+    @Builder.Default
     @javax.validation.constraints.NotNull
     @JsonProperty(value = "name", required = true)
     @JsonPropertyDescription("The name of the schema")
@@ -43,6 +44,7 @@ public class GooglePubSubMessageSchemaDefinition {
      * The type of the schema
      */
     @NotNull
+    @Builder.Default
     @javax.validation.constraints.NotNull
     @JsonProperty(value = "type", required = true)
     @JsonPropertyDescription("The type of the schema")

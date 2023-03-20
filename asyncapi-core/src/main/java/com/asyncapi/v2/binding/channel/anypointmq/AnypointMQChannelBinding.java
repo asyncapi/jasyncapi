@@ -45,6 +45,7 @@ public class AnypointMQChannelBinding extends ChannelBinding {
      * supported by this channel.
      */
     @Nullable
+    @Builder.Default
     @JsonProperty(value = "destinationType", defaultValue = "queue")
     @JsonPropertyDescription("The type of destination, which MUST be either exchange or queue or fifo-queue. SHOULD be specified to document the messaging model (publish/subscribe, point-to-point, strict message ordering) supported by this channel.")
     private AnypointMQChannelDestinationType destinationType = AnypointMQChannelDestinationType.QUEUE;

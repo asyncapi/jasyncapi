@@ -34,6 +34,7 @@ public class HTTPOperationBinding extends OperationBinding {
      * Type of operation. Its value MUST be either request or response.
      */
     @NotNull
+    @Builder.Default
     @javax.validation.constraints.NotNull
     @JsonProperty(value = "type", required = true)
     @JsonPropertyDescription("Type of operation. Its value MUST be either request or response.")
