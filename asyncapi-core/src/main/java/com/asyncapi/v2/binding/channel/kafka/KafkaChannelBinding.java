@@ -11,8 +11,6 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
-
 /**
  * Describes Kafka channel binding.
  *
