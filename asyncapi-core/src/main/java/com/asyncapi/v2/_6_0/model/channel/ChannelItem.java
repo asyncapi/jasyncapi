@@ -73,7 +73,7 @@ public class ChannelItem extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link com.asyncapi.v2.Reference}</li>
      *     <li>{@link com.asyncapi.v2._6_0.model.channel.Parameter}</li>
      * </ul>
      */
@@ -86,7 +86,7 @@ public class ChannelItem extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link com.asyncapi.v2.Reference}</li>
      *     <li>{@link ChannelBinding}</li>
      * </ul>
      */

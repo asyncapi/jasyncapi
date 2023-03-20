@@ -52,7 +52,7 @@ public class Components extends ExtendableObject {
      * MUST BE:
      * <ul>
      *     <li>{@link com.asyncapi.v2.schema.Schema}</li>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link com.asyncapi.v2.Reference}</li>
      * </ul>
      */
     @Nullable
@@ -65,7 +65,7 @@ public class Components extends ExtendableObject {
      * MUST BE:
      * <ul>
      *     <li>{@link com.asyncapi.v2._6_0.model.server.Server}</li>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link com.asyncapi.v2.Reference}</li>
      * </ul>
      */
     @Nullable
@@ -78,7 +78,7 @@ public class Components extends ExtendableObject {
      * MUST BE:
      * <ul>
      *     <li>{@link com.asyncapi.v2._6_0.model.server.ServerVariable}</li>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link com.asyncapi.v2.Reference}</li>
      * </ul>
      */
     @Nullable
@@ -96,7 +96,7 @@ public class Components extends ExtendableObject {
      * MUST BE:
      * <ul>
      *     <li>{@link com.asyncapi.v2._6_0.model.channel.message.Message}</li>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link com.asyncapi.v2.Reference}</li>
      * </ul>
      */
     @Nullable
@@ -109,7 +109,7 @@ public class Components extends ExtendableObject {
      * MUST BE:
      * <ul>
      *     <li>{@link SecurityScheme}</li>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link com.asyncapi.v2.Reference}</li>
      * </ul>
      */
     @Nullable
@@ -121,7 +121,7 @@ public class Components extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link com.asyncapi.v2.Reference}</li>
      *     <li>{@link com.asyncapi.v2._6_0.model.channel.Parameter}</li>
      * </ul>
      */
@@ -134,7 +134,7 @@ public class Components extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link com.asyncapi.v2.Reference}</li>
      *     <li>{@link com.asyncapi.v2._6_0.model.channel.message.CorrelationId}</li>
      * </ul>
      */
@@ -147,7 +147,7 @@ public class Components extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link com.asyncapi.v2.Reference}</li>
      *     <li>{@link com.asyncapi.v2._6_0.model.channel.operation.OperationTrait}</li>
      * </ul>
      */
@@ -160,7 +160,7 @@ public class Components extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link com.asyncapi.v2.Reference}</li>
      *     <li>{@link com.asyncapi.v2._6_0.model.channel.message.MessageTrait}</li>
      * </ul>
      */
@@ -172,7 +172,7 @@ public class Components extends ExtendableObject {
      * An object to hold reusable {@link ServerBinding} Objects.
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link com.asyncapi.v2.Reference}</li>
      *     <li>{@link ServerBinding}</li>
      * </ul>
      */
@@ -184,7 +184,7 @@ public class Components extends ExtendableObject {
      * An object to hold reusable {@link ChannelBinding} Objects.
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link com.asyncapi.v2.Reference}</li>
      *     <li>{@link ChannelBinding}</li>
      * </ul>
      */
@@ -196,7 +196,7 @@ public class Components extends ExtendableObject {
      * An object to hold reusable {@link OperationBinding} Objects.
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link com.asyncapi.v2.Reference}</li>
      *     <li>{@link OperationBinding}</li>
      * </ul>
      */
@@ -208,7 +208,7 @@ public class Components extends ExtendableObject {
      * An object to hold reusable {@link MessageBinding} Objects.
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link com.asyncapi.v2.Reference}</li>
      *     <li>{@link MessageBinding}</li>
      * </ul>
      */

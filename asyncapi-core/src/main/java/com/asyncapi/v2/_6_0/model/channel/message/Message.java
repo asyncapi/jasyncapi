@@ -51,7 +51,7 @@ public class Message extends ExtendableObject {
      * MUST BE:
      * <ul>
      *     <li>{@link com.asyncapi.v2.schema.Schema}</li>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link com.asyncapi.v2.Reference}</li>
      * </ul>
      */
     @Nullable
@@ -78,7 +78,7 @@ public class Message extends ExtendableObject {
      * MUST BE:
      * <ul>
      *     <li>{@link com.asyncapi.v2._6_0.model.channel.message.CorrelationId}</li>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link com.asyncapi.v2.Reference}</li>
      * </ul>
      */
     @Nullable
@@ -149,7 +149,7 @@ public class Message extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link com.asyncapi.v2.Reference}</li>
      *     <li>{@link MessageBinding}</li>
      * </ul>
      */
@@ -170,7 +170,7 @@ public class Message extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link com.asyncapi.v2.Reference}</li>
      *     <li>{@link com.asyncapi.v2._6_0.model.channel.message.MessageTrait}</li>
      * </ul>
      */

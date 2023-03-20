@@ -73,7 +73,7 @@ public class Server extends ExtendableObject {
      * <p>
      * MUST be one of:
      * <ul>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link com.asyncapi.v2.Reference}</li>
      *     <li>{@link com.asyncapi.v2._6_0.model.server.ServerVariable}</li>
      * </ul>
      */
@@ -107,7 +107,7 @@ public class Server extends ExtendableObject {
      * <p>
      * MUST be one of:
      * <ul>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link com.asyncapi.v2.Reference}</li>
      *     <li>{@link ServerBinding}</li>
      * </ul>
      */
