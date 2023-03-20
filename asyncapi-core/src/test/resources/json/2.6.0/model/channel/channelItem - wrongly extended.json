@@ -68,9 +68,9 @@
               "type": "number",
               "minimum": 1,
               "description": "The Id of the company."
-            },
-            "additionalProperties": false
-          }
+            }
+          },
+          "additionalProperties": false
         },
         "bindingVersion": "0.1.0"
       },
@@ -229,9 +229,9 @@
                   "type": "number",
                   "minimum": 1,
                   "description": "The Id of the company."
-                },
-                "additionalProperties": false
-              }
+                }
+              },
+              "additionalProperties": false
             },
             "bindingVersion": "0.1.0"
           },
@@ -561,9 +561,9 @@
               "type": "number",
               "minimum": 1,
               "description": "The Id of the company."
-            },
-            "additionalProperties": false
-          }
+            }
+          },
+          "additionalProperties": false
         },
         "bindingVersion": "0.1.0"
       },
@@ -722,9 +722,9 @@
                   "type": "number",
                   "minimum": 1,
                   "description": "The Id of the company."
-                },
-                "additionalProperties": false
-              }
+                }
+              },
+              "additionalProperties": false
             },
             "bindingVersion": "0.1.0"
           },

@@ -1,6 +1,8 @@
 package com.asyncapi.v2.binding.message.anypointmq
 
 import com.asyncapi.v2.SerDeTest
+import com.asyncapi.v2.schema.Schema
+import com.asyncapi.v2.schema.Type
 
 class AnypointMQMessageBindingTest: SerDeTest<AnypointMQMessageBinding>() {
 
@@ -14,16 +16,18 @@ class AnypointMQMessageBindingTest: SerDeTest<AnypointMQMessageBinding>() {
 
     override fun build(): AnypointMQMessageBinding {
         return AnypointMQMessageBinding.builder()
-                .headers(mapOf(
-                        Pair("type", "object"),
-                        Pair("properties", mapOf(
-
-                                Pair("correlationId", mapOf(
-                                        Pair("description", "Correlation ID set by application"),
-                                        Pair("type", "string")
-                                ))
+                .headers(Schema.builder()
+                        .type(Type.OBJECT)
+                        .properties(mapOf(
+                                Pair(
+                                        "correlationId",
+                                        Schema.builder()
+                                                .type(Type.STRING)
+                                                .description("Correlation ID set by application")
+                                                .build()
+                                )
                         ))
-                ))
+                        .build())
                 .build()
     }
 

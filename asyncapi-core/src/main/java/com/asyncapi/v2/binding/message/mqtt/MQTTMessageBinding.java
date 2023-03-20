@@ -1,6 +1,8 @@
 package com.asyncapi.v2.binding.message.mqtt;
 
 import com.asyncapi.v2.binding.message.MessageBinding;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -29,6 +31,8 @@ public class MQTTMessageBinding extends MessageBinding {
      */
     @Nullable
     @Builder.Default
+    @JsonProperty("bindingVersion")
+    @JsonPropertyDescription("The version of this binding.")
     private String bindingVersion = "0.1.0";
 
 }

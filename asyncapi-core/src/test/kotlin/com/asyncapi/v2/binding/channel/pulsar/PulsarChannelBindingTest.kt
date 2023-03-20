@@ -15,10 +15,10 @@ class PulsarChannelBindingTest: SerDeTest<PulsarChannelBinding>() {
     override fun build(): PulsarChannelBinding {
         return PulsarChannelBinding.builder()
                 .namespace("staging")
-                .persistence("persistent")
+                .persistence(PulsarChannelPersistence.PERSISTENT)
                 .compaction(1000)
                 .geoReplication(listOf("us-east1", "us-west1"))
-                .retention(PulsarChannelBinding.RetentionDefinition.builder()
+                .retention(PulsarChannelRetentionDefinition.builder()
                         .time(7)
                         .size(1000)
                         .build()

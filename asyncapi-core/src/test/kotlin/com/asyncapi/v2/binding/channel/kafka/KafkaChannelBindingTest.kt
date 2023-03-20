@@ -21,8 +21,11 @@ class KafkaChannelBindingTest: SerDeTest<KafkaChannelBinding>() {
                 .topic("my-specific-topic-name")
                 .partitions(20)
                 .replicas(3)
-                .topicConfiguration(KafkaChannelBinding.TopicConfiguration.builder()
-                        .cleanupPolicy(listOf("delete", "compact"))
+                .topicConfiguration(KafkaChannelTopicConfiguration.builder()
+                        .cleanupPolicy(listOf(
+                                KafkaChannelTopicCleanupPolicy.DELETE,
+                                KafkaChannelTopicCleanupPolicy.COMPACT
+                        ))
                         .retentionMs(604_800_000)
                         .retentionBytes(1_000_000_000)
                         .deleteRetentionMs(86_400_000)

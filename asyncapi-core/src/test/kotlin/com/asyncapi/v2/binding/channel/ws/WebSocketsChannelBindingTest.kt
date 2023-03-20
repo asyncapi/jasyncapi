@@ -1,6 +1,8 @@
 package com.asyncapi.v2.binding.channel.ws
 
 import com.asyncapi.v2.SerDeTest
+import com.asyncapi.v2.schema.Schema
+import com.asyncapi.v2.schema.Type
 
 /**
  * @version 2.6.0
@@ -18,25 +20,33 @@ class WebSocketsChannelBindingTest: SerDeTest<WebSocketsChannelBinding>() {
 
     override fun build(): WebSocketsChannelBinding {
         return WebSocketsChannelBinding.builder()
-                .method("GET")
-                .query(mapOf(
-                        Pair("type", "object"),
-                        Pair("properties", mapOf(
-                                Pair("ref", mapOf(
-                                        Pair("type", "string"),
-                                        Pair("description", "Referral.")
-                                ))
-                        )),
-                ))
-                .headers(mapOf(
-                        Pair("type", "object"),
-                        Pair("properties", mapOf(
-                                Pair("Authentication", mapOf(
-                                        Pair("type", "string"),
-                                        Pair("description", "Authentication token")
-                                ))
-                        )),
-                ))
+                .method(WebSocketsChannelMethod.GET)
+                .query(Schema.builder()
+                        .type(Type.OBJECT)
+                        .properties(mapOf(
+                                Pair(
+                                        "ref",
+                                        Schema.builder()
+                                                .type(Type.STRING)
+                                                .description("Referral.")
+                                                .build()
+                                )
+                        ))
+                        .build()
+                )
+                .headers(Schema.builder()
+                        .type(Type.OBJECT)
+                        .properties(mapOf(
+                                Pair(
+                                        "Authentication",
+                                        Schema.builder()
+                                                .type(Type.STRING)
+                                                .description("Authentication token")
+                                                .build()
+                                )
+                        ))
+                        .build()
+                )
                 .build()
     }
 

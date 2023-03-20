@@ -11,6 +11,7 @@ import com.asyncapi.v2.binding.server.jms.JMSServerBinding
 import com.asyncapi.v2.binding.server.kafka.KafkaServerBinding
 import com.asyncapi.v2.binding.server.mercure.MercureServerBinding
 import com.asyncapi.v2.binding.server.mqtt.MQTTServerBinding
+import com.asyncapi.v2.binding.server.mqtt.MQTTServerLastWillConfiguration
 import com.asyncapi.v2.binding.server.mqtt5.MQTT5ServerBinding
 import com.asyncapi.v2.binding.server.nats.NATSServerBinding
 import com.asyncapi.v2.binding.server.pulsar.PulsarServerBinding
@@ -86,7 +87,7 @@ class ServerTest: SerDeTest<Server>() {
                             MQTTServerBinding.builder()
                                     .clientId("guest")
                                     .cleanSession(true)
-                                    .lastWill(MQTTServerBinding.LastWillConfiguration(
+                                    .lastWill(MQTTServerLastWillConfiguration(
                                             "/last-wills",
                                             2,
                                             "Guest gone offline.",

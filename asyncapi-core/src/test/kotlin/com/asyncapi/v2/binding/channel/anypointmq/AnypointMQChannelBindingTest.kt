@@ -19,7 +19,7 @@ class AnypointMQChannelBindingTest: SerDeTest<AnypointMQChannelBinding>() {
     override fun build(): AnypointMQChannelBinding {
         return AnypointMQChannelBinding.builder()
                 .destination("user-signup-exchg")
-                .destinationType("exchange")
+                .destinationType(AnypointMQChannelDestinationType.EXCHANGE)
                 .build()
     }
 

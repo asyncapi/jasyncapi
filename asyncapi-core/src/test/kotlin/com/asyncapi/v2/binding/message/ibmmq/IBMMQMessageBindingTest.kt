@@ -14,7 +14,7 @@ class IBMMQMessageBindingTest: SerDeTest<IBMMQMessageBinding>() {
 
     override fun build(): IBMMQMessageBinding {
         return IBMMQMessageBinding.builder()
-                .type("jms")
+                .type(IBMMQMessageType.JMS)
                 .description("JMS stream message")
                 .headers("Content-Type: application/json")
                 .expiry(0)

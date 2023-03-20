@@ -1,6 +1,9 @@
 package com.asyncapi.v2.binding.message.http;
 
 import com.asyncapi.v2.binding.message.MessageBinding;
+import com.asyncapi.v2.schema.Schema;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,18 +29,20 @@ public class HTTPMessageBinding extends MessageBinding {
 
     /**
      * A Schema object containing the definitions for each query parameter. This schema MUST be of type object
-     * and have a properties key.
-     *
-     * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#schemaObject">Schema object</a>
+     * and have a properties key.*
      */
     @Nullable
-    private Object headers;
+    @JsonProperty("headers")
+    @JsonPropertyDescription("A Schema object containing the definitions for each query parameter. This schema MUST be of type object and have a properties key.")
+    private Schema headers;
 
     /**
-     * The version of this binding. If omitted, "latest" MUST be assumed.
+     * The version of this binding.
      */
     @Nullable
     @Builder.Default
+    @JsonProperty("bindingVersion")
+    @JsonPropertyDescription("The version of this binding.")
     private String bindingVersion = "0.1.0";
 
 }

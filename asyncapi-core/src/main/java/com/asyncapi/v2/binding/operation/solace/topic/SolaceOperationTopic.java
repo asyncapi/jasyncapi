@@ -1,5 +1,8 @@
 package com.asyncapi.v2.binding.operation.solace.topic;
 
+import com.fasterxml.jackson.annotation.JsonClassDescription;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,13 +24,16 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SolaceTopic {
+@JsonClassDescription("Describes Solace topic.")
+public class SolaceOperationTopic {
 
     /**
      * A list of topics that the client subscribes to, only applicable when destinationType is 'topic'.
      * If none is given, the client subscribes to the topic as represented by the channel name.
      */
     @Nullable
+    @JsonProperty("topicSubscriptions")
+    @JsonPropertyDescription("A list of topics that the client subscribes to, only applicable when destinationType is 'topic'. If none is given, the client subscribes to the topic as represented by the channel name.")
     protected List<String> topicSubscriptions;
 
 }

@@ -1,6 +1,9 @@
 package com.asyncapi.v2.binding.channel.anypointmq;
 
 import com.asyncapi.v2.binding.channel.ChannelBinding;
+import com.fasterxml.jackson.annotation.JsonClassDescription;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,6 +23,7 @@ import org.jetbrains.annotations.Nullable;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
+@JsonClassDescription("Describes Anypoint MQ channel binding.")
 public class AnypointMQChannelBinding extends ChannelBinding {
 
     /**
@@ -29,6 +33,8 @@ public class AnypointMQChannelBinding extends ChannelBinding {
      * from the actual destination name, such as when the channel name is not a valid destination name in Anypoint MQ.
      */
     @Nullable
+    @JsonProperty("destination")
+    @JsonPropertyDescription("The destination (queue or exchange) name for this channel. SHOULD only be specified if the channel name differs from the actual destination name, such as when the channel name is not a valid destination name in Anypoint MQ.")
     private String destination;
 
     /**
@@ -39,13 +45,17 @@ public class AnypointMQChannelBinding extends ChannelBinding {
      * supported by this channel.
      */
     @Nullable
-    private String destinationType;
+    @JsonProperty(value = "destinationType", defaultValue = "queue")
+    @JsonPropertyDescription("The type of destination, which MUST be either exchange or queue or fifo-queue. SHOULD be specified to document the messaging model (publish/subscribe, point-to-point, strict message ordering) supported by this channel.")
+    private AnypointMQChannelDestinationType destinationType = AnypointMQChannelDestinationType.QUEUE;
 
     /**
-     * OPTIONAL, defaults to latest. The version of this binding.
+     * The version of this binding.
      */
     @Nullable
     @Builder.Default
+    @JsonProperty(value = "bindingVersion")
+    @JsonPropertyDescription("The version of this binding.")
     private String bindingVersion = "0.0.1";
 
 }

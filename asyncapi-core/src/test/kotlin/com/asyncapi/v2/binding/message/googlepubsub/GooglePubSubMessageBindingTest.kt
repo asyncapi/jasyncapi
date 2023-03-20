@@ -14,9 +14,9 @@ class GooglePubSubMessageBindingTest: SerDeTest<GooglePubSubMessageBinding>() {
 
     override fun build(): GooglePubSubMessageBinding {
         return GooglePubSubMessageBinding.builder()
-                .schema(GooglePubSubMessageBinding.SchemaDefinition(
+                .schema(GooglePubSubMessageSchemaDefinition(
                         "projects/your-project/schemas/message-avro",
-                        "avro"
+                        GooglePubSubMessageSchemaDefinitionType.AVRO
                 ))
                 .build()
     }

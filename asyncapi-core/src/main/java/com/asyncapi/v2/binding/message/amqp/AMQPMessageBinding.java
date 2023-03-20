@@ -1,6 +1,9 @@
 package com.asyncapi.v2.binding.message.amqp;
 
 import com.asyncapi.v2.binding.message.MessageBinding;
+import com.fasterxml.jackson.annotation.JsonClassDescription;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,18 +25,23 @@ import org.jetbrains.annotations.Nullable;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
+@JsonClassDescription("Describes AMQP 0-9-1 message binding.")
 public class AMQPMessageBinding extends MessageBinding {
 
     /**
      * A MIME encoding for the message content.
      */
     @Nullable
+    @JsonProperty("contentEncoding")
+    @JsonPropertyDescription("A MIME encoding for the message content.")
     private String contentEncoding;
 
     /**
      * Application-specific message type.
      */
     @Nullable
+    @JsonProperty("messageType")
+    @JsonPropertyDescription("Application-specific message type.")
     private String messageType;
 
     /**
@@ -41,6 +49,8 @@ public class AMQPMessageBinding extends MessageBinding {
      */
     @Nullable
     @Builder.Default
+    @JsonProperty(value = "bindingVersion")
+    @JsonPropertyDescription("The version of this binding.")
     private String bindingVersion = "0.2.0";
 
 }

@@ -16,7 +16,7 @@ class GooglePubSubChannelBindingTest: SerDeTest<GooglePubSubChannelBinding>() {
        return GooglePubSubChannelBinding.builder()
                .topic("projects/your-project/topics/topic-proto-schema")
                .messageRetentionDuration("86400s")
-               .messageStoragePolicy(GooglePubSubChannelBinding.MessageStoragePolicy(
+               .messageStoragePolicy(GooglePubSubChannelMessageStoragePolicy(
                        listOf(
                                "us-central1",
                                "us-central2",
@@ -31,7 +31,7 @@ class GooglePubSubChannelBindingTest: SerDeTest<GooglePubSubChannelBinding>() {
                                "us-west4"
                        )
                ))
-               .schemaSettings(GooglePubSubChannelBinding.SchemaSettings.builder()
+               .schemaSettings(GooglePubSubChannelSchemaSettings.builder()
                        .encoding("binary")
                        .name("projects/your-project/schemas/message-proto")
                        .build()

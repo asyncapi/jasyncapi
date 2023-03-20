@@ -1,6 +1,9 @@
 package com.asyncapi.v2.binding.server.pulsar;
 
 import com.asyncapi.v2.binding.server.ServerBinding;
+import com.fasterxml.jackson.annotation.JsonClassDescription;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,6 +23,7 @@ import org.jetbrains.annotations.Nullable;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
+@JsonClassDescription("Describes Pulsar server binding.")
 public class PulsarServerBinding extends ServerBinding {
 
     /**
@@ -27,6 +31,8 @@ public class PulsarServerBinding extends ServerBinding {
      */
     @Nullable
     @Builder.Default
+    @JsonProperty(value = "tenant", defaultValue = "public")
+    @JsonPropertyDescription("The pulsar tenant. If omitted, \"public\" MUST be assumed.")
     private String tenant = "public";
 
     /**
@@ -34,6 +40,8 @@ public class PulsarServerBinding extends ServerBinding {
      */
     @Nullable
     @Builder.Default
+    @JsonProperty("bindingVersion")
+    @JsonPropertyDescription("The version of this binding.")
     private String bindingVersion = "0.1.0";
 
 }
