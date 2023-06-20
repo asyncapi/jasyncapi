@@ -55,6 +55,7 @@
         <lombok.version>1.18.26</lombok.version>
         <junit5.version>5.9.2</junit5.version>
         <dokka.version>1.7.0</dokka.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
