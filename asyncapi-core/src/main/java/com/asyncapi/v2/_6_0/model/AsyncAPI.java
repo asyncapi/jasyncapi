@@ -43,6 +43,7 @@ public class AsyncAPI extends ExtendableObject {
      * and tooling should typically be compatible with the corresponding major.minor (1.0.*).
      * Patch versions will correspond to patches of this document.
      */
+    @Builder.Default
     @NotNull
     private String asyncapi = "2.6.0";
 
