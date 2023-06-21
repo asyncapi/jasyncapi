@@ -1,6 +1,8 @@
 package com.asyncapi.v2._6_0.model.channel.message;
 
 import com.asyncapi.v2.ExtendableObject;
+import com.asyncapi.v2.MessageBindingValue;
+import com.asyncapi.v2.MessageTraitValue;
 import com.asyncapi.v2._6_0.jackson.model.channel.message.MessageCorrelationIdDeserializer;
 import com.asyncapi.v2._6_0.jackson.model.channel.message.MessageHeadersDeserializer;
 import com.asyncapi.v2._6_0.model.ExternalDocumentation;
@@ -36,7 +38,7 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class MessageTrait extends ExtendableObject {
+public class MessageTrait extends ExtendableObject implements MessageTraitValue {
 
     /**
      * Unique string used to identify the message.
@@ -145,7 +147,7 @@ public class MessageTrait extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = MessageBindingsDeserializer.class)
-    private Map<String, Object> bindings;
+    private Map<String, MessageBindingValue> bindings;
 
     /**
      * List of examples.

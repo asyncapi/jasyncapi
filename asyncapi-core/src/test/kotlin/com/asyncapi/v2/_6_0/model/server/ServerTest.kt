@@ -1,6 +1,7 @@
 package com.asyncapi.v2._6_0.model.server
 
 import com.asyncapi.v2.SerDeTest
+import com.asyncapi.v2.ServerBindingValue
 import com.asyncapi.v2._6_0.model.Reference
 import com.asyncapi.v2._6_0.model.Tag
 import com.asyncapi.v2.binding.server.amqp1.AMQP1ServerBinding
@@ -65,7 +66,7 @@ class ServerTest: SerDeTest<Server>() {
 
     companion object {
         @JvmStatic
-        fun bindings(): Map<String, Any> {
+        fun bindings(): Map<String, ServerBindingValue> {
             return mapOf(
                     Pair("amqp", Reference("#/components/serverBindings/amqp")),
                     Pair("amqp1", AMQP1ServerBinding()),

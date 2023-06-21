@@ -1,6 +1,7 @@
 package com.asyncapi.v2.security_scheme;
 
 import com.asyncapi.v2.ExtendableObject;
+import com.asyncapi.v2.SecuritySchemeValue;
 import com.asyncapi.v2.security_scheme.http.HttpApiKeySecurityScheme;
 import com.asyncapi.v2.security_scheme.http.HttpSecurityScheme;
 import com.asyncapi.v2.security_scheme.oauth2.OAuth2SecurityScheme;
@@ -61,7 +62,7 @@ import org.jetbrains.annotations.Nullable;
         @JsonSubTypes.Type(value = SecurityScheme.class, name = "gssapi"),
 })
 @EqualsAndHashCode(callSuper = true)
-public class SecurityScheme extends ExtendableObject {
+public class SecurityScheme extends ExtendableObject implements SecuritySchemeValue {
 
     /**
      * REQUIRED.

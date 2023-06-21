@@ -1,10 +1,10 @@
 package com.asyncapi.v2._6_0.model.channel.message
 
+import com.asyncapi.v2.MessageBindingValue
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._6_0.model.ExternalDocumentation
 import com.asyncapi.v2._6_0.model.Reference
 import com.asyncapi.v2._6_0.model.Tag
-import com.asyncapi.v2.schema.Schema
 import com.asyncapi.v2.binding.message.amqp.AMQPMessageBindingTest
 import com.asyncapi.v2.binding.message.anypointmq.AnypointMQMessageBindingTest
 import com.asyncapi.v2.binding.message.googlepubsub.GooglePubSubMessageBindingTest
@@ -12,6 +12,7 @@ import com.asyncapi.v2.binding.message.http.HTTPMessageBindingTest
 import com.asyncapi.v2.binding.message.ibmmq.IBMMQMessageBindingTest
 import com.asyncapi.v2.binding.message.kafka.KafkaMessageBindingTest
 import com.asyncapi.v2.binding.message.mqtt.MQTTMessageBindingTest
+import com.asyncapi.v2.schema.Schema
 
 class MessageTest: SerDeTest<Message>() {
 
@@ -86,7 +87,7 @@ class MessageTest: SerDeTest<Message>() {
     }
 
     companion object {
-        fun bindings(): Map<String, Any> {
+        fun bindings(): Map<String, MessageBindingValue> {
             return mapOf(
                     Pair("amqp", AMQPMessageBindingTest().build()),
                     Pair("amqp1", Reference("#/components/messageBindings/amqp1")),

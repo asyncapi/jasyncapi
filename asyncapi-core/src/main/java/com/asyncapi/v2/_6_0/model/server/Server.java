@@ -1,6 +1,9 @@
 package com.asyncapi.v2._6_0.model.server;
 
 import com.asyncapi.v2.ExtendableObject;
+import com.asyncapi.v2.ServerBindingValue;
+import com.asyncapi.v2.ServerValue;
+import com.asyncapi.v2.ServerVariableValue;
 import com.asyncapi.v2._6_0.jackson.model.server.ServerVariablesDeserializer;
 import com.asyncapi.v2._6_0.model.Tag;
 import com.asyncapi.v2.binding.server.ServerBinding;
@@ -32,7 +35,7 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class Server extends ExtendableObject {
+public class Server extends ExtendableObject implements ServerValue {
 
     /**
      * REQUIRED.
@@ -77,7 +80,7 @@ public class Server extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ServerVariablesDeserializer.class)
-    private Map<String, Object> variables;
+    private Map<String, ServerVariableValue> variables;
 
     /**
      * A declaration of which security mechanisms can be used with this server. The list of values includes alternative
@@ -111,6 +114,6 @@ public class Server extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ServerBindingsDeserializer.class)
-    private Map<String, Object> bindings;
+    private Map<String, ServerBindingValue> bindings;
 
 }

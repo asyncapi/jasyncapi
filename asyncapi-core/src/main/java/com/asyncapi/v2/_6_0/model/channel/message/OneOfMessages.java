@@ -1,5 +1,6 @@
 package com.asyncapi.v2._6_0.model.channel.message;
 
+import com.asyncapi.v2.MessageValue;
 import com.asyncapi.v2._6_0.jackson.model.channel.message.MessagesDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
@@ -31,6 +32,6 @@ public class OneOfMessages {
      */
     @NotNull
     @JsonDeserialize(using = MessagesDeserializer.class)
-    private List<Object> oneOf;
+    private List<MessageValue> oneOf;
 
 }

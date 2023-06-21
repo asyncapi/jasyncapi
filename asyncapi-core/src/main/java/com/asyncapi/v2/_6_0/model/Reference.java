@@ -1,5 +1,18 @@
 package com.asyncapi.v2._6_0.model;
 
+import com.asyncapi.v2.ChannelBindingValue;
+import com.asyncapi.v2.CorrelationIdValue;
+import com.asyncapi.v2.MessageBindingValue;
+import com.asyncapi.v2.MessageTraitValue;
+import com.asyncapi.v2.MessageValue;
+import com.asyncapi.v2.OperationBindingValue;
+import com.asyncapi.v2.OperationTraitValue;
+import com.asyncapi.v2.ParameterValue;
+import com.asyncapi.v2.SchemaValue;
+import com.asyncapi.v2.SecuritySchemeValue;
+import com.asyncapi.v2.ServerBindingValue;
+import com.asyncapi.v2.ServerValue;
+import com.asyncapi.v2.ServerVariableValue;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,7 +39,7 @@ import org.jetbrains.annotations.NotNull;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-public class Reference {
+public class Reference implements ChannelBindingValue, CorrelationIdValue, MessageValue, MessageBindingValue, MessageTraitValue, OperationBindingValue, OperationTraitValue, ParameterValue, SchemaValue, SecuritySchemeValue, ServerValue, ServerBindingValue, ServerVariableValue {
 
     /**
      * Required.

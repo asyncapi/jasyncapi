@@ -1,6 +1,8 @@
 package com.asyncapi.v2._6_0.model.channel.operation;
 
 import com.asyncapi.v2.ExtendableObject;
+import com.asyncapi.v2.OperationBindingValue;
+import com.asyncapi.v2.OperationTraitValue;
 import com.asyncapi.v2._6_0.jackson.model.channel.operation.OperationMessageDeserializer;
 import com.asyncapi.v2._6_0.jackson.model.channel.operation.OperationTraitsDeserializer;
 import com.asyncapi.v2._6_0.model.ExternalDocumentation;
@@ -93,7 +95,7 @@ public class Operation extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = OperationBindingsDeserializer.class)
-    private Map<String, Object> bindings;
+    private Map<String, OperationBindingValue> bindings;
 
     /**
      * A list of traits to apply to the operation object.
@@ -107,7 +109,7 @@ public class Operation extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = OperationTraitsDeserializer.class)
-    private List<Object> traits;
+    private List<OperationTraitValue> traits;
 
     /**
      * A definition of the message that will be published or received by this operation.
@@ -124,5 +126,4 @@ public class Operation extends ExtendableObject {
     @Nullable
     @JsonDeserialize(using = OperationMessageDeserializer.class)
     private Object message;
-
 }
