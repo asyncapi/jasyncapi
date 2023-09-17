@@ -34,6 +34,7 @@ public class IBMMQMessageBinding extends MessageBinding {
      * MUST be either string, jms or binary
      */
     @Nullable
+    @Builder.Default
     @JsonProperty(value = "type", defaultValue = "string")
     @JsonPropertyDescription("The type of the message.")
     private IBMMQMessageType type = IBMMQMessageType.STRING;
@@ -71,6 +72,7 @@ public class IBMMQMessageBinding extends MessageBinding {
      * expiry value MUST be either zero (unlimited) or greater than zero.
      */
     @Nullable
+    @Builder.Default
     @javax.validation.constraints.Min(
             value = 0,
             message = "Expiry must be greater or equals to 0"
