@@ -32,6 +32,7 @@ public class OAuthFlow extends ExtendableObject {
      * The URL to be used for obtaining refresh tokens. This MUST be in the form of an absolute URL.
      */
     @Nullable
+    @Builder.Default
     private String refreshUrl = "";
 
     /**
@@ -40,6 +41,7 @@ public class OAuthFlow extends ExtendableObject {
      * The available scopes for the OAuth2 security scheme. A map between the scope name and a short description for it.
      */
     @NotNull
+    @Builder.Default
     private Map<String, String> scopes = new HashMap<>();
 
 }
