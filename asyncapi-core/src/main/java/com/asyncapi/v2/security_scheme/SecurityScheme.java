@@ -80,6 +80,7 @@ public class SecurityScheme extends ExtendableObject {
      * </ul>
      */
     @NotNull
+    @Builder.Default
     private Type type = Type.USER_PASSWORD;
 
     /**
