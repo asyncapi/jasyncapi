@@ -35,6 +35,7 @@ public class GooglePubSubChannelBinding extends ChannelBinding {
      * The Google Cloud Pub/Sub Topic name.
      */
     @NotNull
+    @Builder.Default
     @javax.validation.constraints.NotNull
     @JsonProperty(value = "topic", required = true)
     @JsonPropertyDescription("The Google Cloud Pub/Sub Topic name.")
@@ -68,6 +69,7 @@ public class GooglePubSubChannelBinding extends ChannelBinding {
      * Settings for validating messages published against a schema
      */
     @NotNull
+    @Builder.Default
     @javax.validation.constraints.NotNull
     @JsonProperty(value = "schemaSettings", required = true)
     @JsonPropertyDescription("Settings for validating messages published against a schema")
