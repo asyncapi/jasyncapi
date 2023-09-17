@@ -6,7 +6,7 @@
     <parent>
         <artifactId>asyncapi</artifactId>
         <groupId>com.asyncapi</groupId>
-        <version>1.0.0-EAP-1</version>
+        <version>1.0.0-EAP-2</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -21,9 +21,10 @@
         </dependency>
         <!-- JSR305 -->
         <dependency>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-            <version>3.0.2</version>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>24.0.0</version>
+            <scope>provided</scope>
         </dependency>
         <!-- Tests -->
         <dependency>
@@ -44,6 +45,11 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-yaml</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
