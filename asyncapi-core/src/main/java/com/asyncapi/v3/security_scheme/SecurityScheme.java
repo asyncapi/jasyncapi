@@ -42,7 +42,7 @@ import org.jetbrains.annotations.Nullable;
         visible = true
 )
 @JsonSubTypes({
-//        @JsonSubTypes.Type(value = SecurityScheme.class, name = "userPassword"),
+        @JsonSubTypes.Type(value = SecurityScheme.class, name = "userPassword"),
         @JsonSubTypes.Type(value = ApiKeySecurityScheme.class, name = "apiKey"),
 //        @JsonSubTypes.Type(value = SecurityScheme.class, name = "X509"),
 //        @JsonSubTypes.Type(value = SecurityScheme.class, name = "symmetricEncryption"),
