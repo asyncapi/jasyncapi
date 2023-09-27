@@ -54,7 +54,7 @@ import org.jetbrains.annotations.Nullable;
         @JsonSubTypes.Type(value = SecurityScheme.class, name = "plain"),
         @JsonSubTypes.Type(value = SecurityScheme.class, name = "scramSha256"),
         @JsonSubTypes.Type(value = SecurityScheme.class, name = "scramSha512"),
-//        @JsonSubTypes.Type(value = SecurityScheme.class, name = "gssapi"),
+        @JsonSubTypes.Type(value = SecurityScheme.class, name = "gssapi"),
 })
 @EqualsAndHashCode(callSuper = true)
 public class SecurityScheme extends ExtendableObject {
