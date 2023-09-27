@@ -52,7 +52,7 @@ import org.jetbrains.annotations.Nullable;
         @JsonSubTypes.Type(value = OAuth2SecurityScheme.class, name = "oauth2"),
         @JsonSubTypes.Type(value = OpenIdConnectSecurityScheme.class, name = "openIdConnect"),
         @JsonSubTypes.Type(value = SecurityScheme.class, name = "plain"),
-//        @JsonSubTypes.Type(value = SecurityScheme.class, name = "scramSha256"),
+        @JsonSubTypes.Type(value = SecurityScheme.class, name = "scramSha256"),
 //        @JsonSubTypes.Type(value = SecurityScheme.class, name = "scramSha512"),
 //        @JsonSubTypes.Type(value = SecurityScheme.class, name = "gssapi"),
 })
