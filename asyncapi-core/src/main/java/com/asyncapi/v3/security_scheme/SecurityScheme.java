@@ -44,7 +44,7 @@ import org.jetbrains.annotations.Nullable;
 @JsonSubTypes({
         @JsonSubTypes.Type(value = SecurityScheme.class, name = "userPassword"),
         @JsonSubTypes.Type(value = ApiKeySecurityScheme.class, name = "apiKey"),
-//        @JsonSubTypes.Type(value = SecurityScheme.class, name = "X509"),
+        @JsonSubTypes.Type(value = SecurityScheme.class, name = "X509"),
 //        @JsonSubTypes.Type(value = SecurityScheme.class, name = "symmetricEncryption"),
 //        @JsonSubTypes.Type(value = SecurityScheme.class, name = "asymmetricEncryption"),
 //        @JsonSubTypes.Type(value = HttpApiKeySecurityScheme.class, name = "httpApiKey"),
