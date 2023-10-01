@@ -1,6 +1,6 @@
 package com.asyncapi.v3.jackson.schema;
 
-import com.asyncapi.v2.schema.Schema;
+import com.asyncapi.v3.schema.Schema;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.ObjectCodec;
