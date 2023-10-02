@@ -1,7 +1,7 @@
 package com.asyncapi.v3._0_0.model;
 
 import com.asyncapi.v3.ExtendableObject;
-import com.asyncapi.v3._0_0.model.channel.ChannelItem;
+import com.asyncapi.v3._0_0.model.channel.Channel;
 import com.asyncapi.v3._0_0.model.component.Components;
 import com.asyncapi.v3._0_0.model.info.Info;
 import com.asyncapi.v3._0_0.model.server.Server;
@@ -89,14 +89,14 @@ public class AsyncAPI extends ExtendableObject {
      */
     @Nullable
     @Builder.Default
-    private Map<String, ChannelItem> channels = new HashMap<>();
+    private Map<String, Channel> channels = new HashMap<>();
 
     /**
      * The available operations for the API.
      */
     @Nullable
     @Builder.Default
-    private Map<String, ChannelItem> operations = new HashMap<>();
+    private Map<String, Channel> operations = new HashMap<>();
 
     /**
      * An element to hold various schemas for the specification.
