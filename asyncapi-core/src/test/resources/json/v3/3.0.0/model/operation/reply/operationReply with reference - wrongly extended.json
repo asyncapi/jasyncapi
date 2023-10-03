@@ -1,0 +1,25 @@
+{
+  "address": {
+    "$ref" : "#/components/addresses/address"
+  },
+  "channel": {
+    "$ref": "#/components/channels/channel"
+  },
+  "messages": [
+    {
+      "$ref": "#/components/messages/message 1"
+    },
+    {
+      "$ref": "#/components/messages/message 2"
+    },
+    {
+      "$ref": "#/components/messages/message 3"
+    }
+  ],
+  "x-number": 0,
+  "x-string": "",
+  "x-object": {
+    "property": {}
+  },
+  "ext-number": 1
+}
