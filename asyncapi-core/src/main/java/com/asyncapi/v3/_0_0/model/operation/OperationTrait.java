@@ -102,6 +102,7 @@ public class OperationTrait extends ExtendableObject {
      *     <li>{@link OperationBinding}</li>
      * </ul>
      */
+    @Nullable
     @JsonDeserialize(using = OperationBindingsDeserializer.class)
     private Map<String, Object> bindings;
 
@@ -113,6 +114,7 @@ public class OperationTrait extends ExtendableObject {
      * therefore, MUST NOT contain Message Objects. However, it is RECOMMENDED that parsers (or other software)
      * dereference this property for a better development experience.
      */
+    @Nullable
     private List<Reference> messages;
 
     /**
@@ -124,6 +126,7 @@ public class OperationTrait extends ExtendableObject {
      *     <li>{@link OperationReply}</li>
      * </ul>
      */
+    @Nullable
     @JsonDeserialize(using = OperationReplyDeserializer.class)
     private Object reply;
 
