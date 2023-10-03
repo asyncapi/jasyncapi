@@ -4,6 +4,7 @@ import com.asyncapi.v3.ExtendableObject;
 import com.asyncapi.v3._0_0.model.channel.Channel;
 import com.asyncapi.v3._0_0.model.component.Components;
 import com.asyncapi.v3._0_0.model.info.Info;
+import com.asyncapi.v3._0_0.model.operation.Operation;
 import com.asyncapi.v3._0_0.model.server.Server;
 import lombok.*;
 import org.jetbrains.annotations.NotNull;
@@ -96,7 +97,7 @@ public class AsyncAPI extends ExtendableObject {
      */
     @Nullable
     @Builder.Default
-    private Map<String, Channel> operations = new HashMap<>();
+    private Map<String, Operation> operations = new HashMap<>();
 
     /**
      * An element to hold various schemas for the specification.
