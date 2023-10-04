@@ -1,11 +1,16 @@
 package com.asyncapi.v3._0_0.model;
 
 import com.asyncapi.v3.ExtendableObject;
+import com.asyncapi.v3.Reference;
+import com.asyncapi.v3._0_0.jackson.model.channel.ChannelsDeserializer;
+import com.asyncapi.v3._0_0.jackson.model.operation.OperationsDeserializer;
+import com.asyncapi.v3._0_0.jackson.model.server.ServersDeserializer;
 import com.asyncapi.v3._0_0.model.channel.Channel;
 import com.asyncapi.v3._0_0.model.component.Components;
 import com.asyncapi.v3._0_0.model.info.Info;
 import com.asyncapi.v3._0_0.model.operation.Operation;
 import com.asyncapi.v3._0_0.model.server.Server;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -77,9 +82,17 @@ public class AsyncAPI extends ExtendableObject {
 
     /**
      * Provides connection details of servers.
+     * <p>
+     * MUST BE:
+     * <ul>
+     *     <li>{@link Server}</li>
+     *     <li>{@link Reference}</li>
+     * </ul>
      */
     @Nullable
-    private Map<String, Server> servers;
+    @Builder.Default
+    @JsonDeserialize(using = ServersDeserializer.class)
+    private Map<String, Object> servers = new HashMap<>();
 
     /**
      * The available channels and messages for the API.
@@ -87,17 +100,31 @@ public class AsyncAPI extends ExtendableObject {
      * Holds the relative paths to the individual channel and their operations. Channel paths are relative to servers.
      * <p>
      * Channels are also known as "topics", "routing keys", "event types" or "paths".
+     * <p>
+     * MUST BE:
+     * <ul>
+     *     <li>{@link Channel}</li>
+     *     <li>{@link Reference}</li>
+     * </ul>
      */
     @Nullable
     @Builder.Default
-    private Map<String, Channel> channels = new HashMap<>();
+    @JsonDeserialize(using = ChannelsDeserializer.class)
+    private Map<String, Object> channels = new HashMap<>();
 
     /**
      * The available operations for the API.
+     * <p>
+     * MUST BE:
+     * <ul>
+     *     <li>{@link Operation}</li>
+     *     <li>{@link Reference}</li>
+     * </ul>
      */
     @Nullable
     @Builder.Default
-    private Map<String, Operation> operations = new HashMap<>();
+    @JsonDeserialize(using = OperationsDeserializer.class)
+    private Map<String, Object> operations = new HashMap<>();
 
     /**
      * An element to hold various schemas for the specification.
