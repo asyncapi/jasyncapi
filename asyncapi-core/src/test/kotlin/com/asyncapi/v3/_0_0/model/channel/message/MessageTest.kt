@@ -72,27 +72,7 @@ class MessageTestWithSchema: SerDeTest<Message>() {
                         Tag("register", null, null),
                 ))
                 .externalDocs(ExternalDocumentation("User sign up rules", "messages/sign-up-rules"))
-                .bindings(mapOf(
-                        Pair("amqp", AMQPMessageBindingTest().build()),
-                        Pair("amqp1", Reference("#/components/messageBindings/amqp1")),
-                        Pair("anypointmq", AnypointMQMessageBindingTest().build()),
-                        Pair("googlepubsub", GooglePubSubMessageBindingTest().build()),
-                        Pair("http", HTTPMessageBindingTest().build()),
-                        Pair("ibmmq", IBMMQMessageBindingTest().build()),
-                        Pair("jms", Reference("#/components/messageBindings/jms")),
-                        Pair("kafka", KafkaMessageBindingTest().build()),
-                        Pair("mercure", Reference("#/components/messageBindings/mercure")),
-                        Pair("mqtt", MQTTMessageBindingTest().build()),
-                        Pair("mqtt5", Reference("#/components/messageBindings/mqtt5")),
-                        Pair("nats", Reference("#/components/messageBindings/nats")),
-                        Pair("pulsar", Reference("#/components/messageBindings/pulsar")),
-                        Pair("redis", Reference("#/components/messageBindings/redis")),
-                        Pair("sns", Reference("#/components/messageBindings/sns")),
-                        Pair("solace", Reference("#/components/messageBindings/solace")),
-                        Pair("sqs", Reference("#/components/messageBindings/sqs")),
-                        Pair("stomp", Reference("#/components/messageBindings/stomp")),
-                        Pair("ws", Reference("#/components/messageBindings/ws"))
-                ))
+                .bindings(bindings())
                 .examples(listOf(MessageExampleTest().build()))
                 .traits(listOf(
                         MessageTraitTestWithSchema().build(),
@@ -100,6 +80,32 @@ class MessageTestWithSchema: SerDeTest<Message>() {
                         MessageTraitTestWithMultiFormatSchema().build()
                 ))
                 .build()
+    }
+
+    companion object {
+        fun bindings(): Map<String, Any> {
+            return mapOf(
+                    Pair("amqp", AMQPMessageBindingTest().build()),
+                    Pair("amqp1", Reference("#/components/messageBindings/amqp1")),
+                    Pair("anypointmq", AnypointMQMessageBindingTest().build()),
+                    Pair("googlepubsub", GooglePubSubMessageBindingTest().build()),
+                    Pair("http", HTTPMessageBindingTest().build()),
+                    Pair("ibmmq", IBMMQMessageBindingTest().build()),
+                    Pair("jms", Reference("#/components/messageBindings/jms")),
+                    Pair("kafka", KafkaMessageBindingTest().build()),
+                    Pair("mercure", Reference("#/components/messageBindings/mercure")),
+                    Pair("mqtt", MQTTMessageBindingTest().build()),
+                    Pair("mqtt5", Reference("#/components/messageBindings/mqtt5")),
+                    Pair("nats", Reference("#/components/messageBindings/nats")),
+                    Pair("pulsar", Reference("#/components/messageBindings/pulsar")),
+                    Pair("redis", Reference("#/components/messageBindings/redis")),
+                    Pair("sns", Reference("#/components/messageBindings/sns")),
+                    Pair("solace", Reference("#/components/messageBindings/solace")),
+                    Pair("sqs", Reference("#/components/messageBindings/sqs")),
+                    Pair("stomp", Reference("#/components/messageBindings/stomp")),
+                    Pair("ws", Reference("#/components/messageBindings/ws"))
+            )
+        }
     }
 
 }
