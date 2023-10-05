@@ -14,7 +14,7 @@ class OneOfMessagesTest {
     @Test
     @DisplayName("Compare hand crafted model with parsed json")
     fun compareModelWithParsedJson() {
-        val model = ClasspathUtils.readAsString("/json/2.6.0/model/channel/message/oneOfMessages.json")
+        val model = ClasspathUtils.readAsString("/json/v2/2.6.0/model/channel/message/oneOfMessages.json")
 
         Assertions.assertEquals(
                 objectMapper.readValue(model, OneOfMessages::class.java),
