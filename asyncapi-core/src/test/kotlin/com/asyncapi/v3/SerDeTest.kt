@@ -1,5 +1,6 @@
 package com.asyncapi.v3
 
+import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.JsonMappingException
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Assertions
@@ -8,7 +9,7 @@ import org.junit.jupiter.api.Test
 
 abstract class SerDeTest<ObjectType> {
 
-    protected val objectMapper = ObjectMapper()
+    protected val objectMapper = ObjectMapper().setSerializationInclusion(JsonInclude.Include.NON_NULL)
 
     protected abstract fun objectClass(): Class<ObjectType>
 

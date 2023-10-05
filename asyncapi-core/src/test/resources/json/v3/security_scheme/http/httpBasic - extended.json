@@ -2,7 +2,6 @@
   "type" : "http",
   "description" : "http",
   "scheme" : "basic",
-  "bearerFormat" : null,
   "x-number" : 0,
   "x-string" : "",
   "x-object" : {

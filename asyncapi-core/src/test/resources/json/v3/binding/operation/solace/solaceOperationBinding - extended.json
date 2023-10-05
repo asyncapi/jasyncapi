@@ -8,17 +8,13 @@
       "accessType" : "exclusive",
       "maxMsgSpoolSize" : "1,500",
       "maxTtl" : "60"
-    },
-    "topic" : null
+    }
   }, {
     "destinationType" : "queue",
     "deliveryMode" : "persistent",
     "queue" : {
       "name" : "UpdatedHREvents",
-      "topicSubscriptions" : [ "person/*/updated" ],
-      "accessType" : null,
-      "maxMsgSpoolSize" : null,
-      "maxTtl" : null
+      "topicSubscriptions" : [ "person/*/updated" ]
     },
     "topic" : {
       "topicSubscriptions" : [ "person/*/updated" ]
