@@ -8,11 +8,11 @@ class SolaceOperationBindingTest: SerDeTest<SolaceOperationBinding>() {
 
     override fun objectClass() = SolaceOperationBinding::class.java
 
-    override fun baseObjectJson() = "/json/binding/operation/solace/solaceOperationBinding.json"
+    override fun baseObjectJson() = "/json/v2/binding/operation/solace/solaceOperationBinding.json"
 
-    override fun extendedObjectJson() = "/json/binding/operation/solace/solaceOperationBinding - extended.json"
+    override fun extendedObjectJson() = "/json/v2/binding/operation/solace/solaceOperationBinding - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/binding/operation/solace/solaceOperationBinding - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/binding/operation/solace/solaceOperationBinding - wrongly extended.json"
 
     override fun build(): SolaceOperationBinding {
         return SolaceOperationBinding.builder()

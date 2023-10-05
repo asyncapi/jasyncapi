@@ -6,11 +6,11 @@ class AMQPOperationBindingTest: SerDeTest<AMQPOperationBinding>() {
 
     override fun objectClass() = AMQPOperationBinding::class.java
 
-    override fun baseObjectJson() = "/json/binding/operation/amqp/amqpOperationBinding.json"
+    override fun baseObjectJson() = "/json/v2/binding/operation/amqp/amqpOperationBinding.json"
 
-    override fun extendedObjectJson() = "/json/binding/operation/amqp/amqpOperationBinding - extended.json"
+    override fun extendedObjectJson() = "/json/v2/binding/operation/amqp/amqpOperationBinding - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/binding/operation/amqp/amqpOperationBinding - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/binding/operation/amqp/amqpOperationBinding - wrongly extended.json"
 
     override fun build(): AMQPOperationBinding {
         return AMQPOperationBinding.builder()
