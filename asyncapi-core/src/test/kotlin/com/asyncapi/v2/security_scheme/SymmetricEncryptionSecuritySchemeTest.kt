@@ -9,11 +9,11 @@ class SymmetricEncryptionSecuritySchemeTest: SerDeTest<SecurityScheme>() {
 
     override fun objectClass() = SecurityScheme::class.java
 
-    override fun baseObjectJson() = "/json/security_scheme/symmetricEncryption.json"
+    override fun baseObjectJson() = "/json/v2/security_scheme/symmetricEncryption.json"
 
-    override fun extendedObjectJson() = "/json/security_scheme/symmetricEncryption - extended.json"
+    override fun extendedObjectJson() = "/json/v2/security_scheme/symmetricEncryption - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/security_scheme/symmetricEncryption - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/security_scheme/symmetricEncryption - wrongly extended.json"
 
     override fun build(): SecurityScheme {
         return SecurityScheme.builder()
