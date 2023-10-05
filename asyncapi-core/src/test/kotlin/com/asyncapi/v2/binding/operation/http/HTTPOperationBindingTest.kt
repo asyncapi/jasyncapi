@@ -9,11 +9,11 @@ class HTTPOperationBindingTest: SerDeTest<HTTPOperationBinding>() {
 
     override fun objectClass() = HTTPOperationBinding::class.java
 
-    override fun baseObjectJson() = "/json/binding/operation/http/httpOperationBinding.json"
+    override fun baseObjectJson() = "/json/v2/binding/operation/http/httpOperationBinding.json"
 
-    override fun extendedObjectJson() = "/json/binding/operation/http/httpOperationBinding - extended.json"
+    override fun extendedObjectJson() = "/json/v2/binding/operation/http/httpOperationBinding - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/binding/operation/http/httpOperationBinding - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/binding/operation/http/httpOperationBinding - wrongly extended.json"
 
     override fun build(): HTTPOperationBinding {
         return HTTPOperationBinding.builder()

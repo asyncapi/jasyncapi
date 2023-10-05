@@ -9,11 +9,11 @@ class InfoTest: SerDeTest<Info>() {
 
     override fun objectClass() = Info::class.java
 
-    override fun baseObjectJson() = "/json/2.6.0/model/info/info.json"
+    override fun baseObjectJson() = "/json/v2/2.6.0/model/info/info.json"
 
-    override fun extendedObjectJson() = "/json/2.6.0/model/info/info - extended.json"
+    override fun extendedObjectJson() = "/json/v2/2.6.0/model/info/info - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.6.0/model/info/info - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/2.6.0/model/info/info - wrongly extended.json"
 
     override fun build(): Info {
         return Info(

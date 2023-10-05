@@ -8,11 +8,11 @@ class KafkaMessageBindingTest: SerDeTest<KafkaMessageBinding>() {
 
     override fun objectClass() = KafkaMessageBinding::class.java
 
-    override fun baseObjectJson() = "/json/binding/message/kafka/kafkaMessageBinding.json"
+    override fun baseObjectJson() = "/json/v2/binding/message/kafka/kafkaMessageBinding.json"
 
-    override fun extendedObjectJson() = "/json/binding/message/kafka/kafkaMessageBinding - extended.json"
+    override fun extendedObjectJson() = "/json/v2/binding/message/kafka/kafkaMessageBinding - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/binding/message/kafka/kafkaMessageBinding - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/binding/message/kafka/kafkaMessageBinding - wrongly extended.json"
 
     override fun build(): KafkaMessageBinding {
         return KafkaMessageBinding.builder()

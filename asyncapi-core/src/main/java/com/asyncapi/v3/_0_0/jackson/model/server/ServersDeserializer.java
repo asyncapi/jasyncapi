@@ -1,0 +1,24 @@
+package com.asyncapi.v3._0_0.jackson.model.server;
+
+import com.asyncapi.v3.Reference;
+import com.asyncapi.v3._0_0.model.server.Server;
+import com.asyncapi.v3.jackson.MapOfReferencesOrObjectsDeserializer;
+
+/**
+ * Serializes component servers map.
+ *
+ * @author Pavel Bodiachevskii
+ */
+public class ServersDeserializer extends MapOfReferencesOrObjectsDeserializer<Server> {
+
+    @Override
+    public Class<Server> objectTypeClass() {
+        return Server.class;
+    }
+
+    @Override
+    public Class<?> referenceClass() {
+        return Reference.class;
+    }
+
+}

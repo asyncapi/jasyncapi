@@ -1,0 +1,15 @@
+{
+  "authorizationUrl": "https://example.com/api/oauth/dialog",
+  "tokenUrl": "https://example.com/api/oauth/token",
+  "refreshUrl": "https://example.com/api/oauth/refresh",
+  "scopes": {
+    "write:pets": "modify pets in your account",
+    "read:pets": "read your pets"
+  },
+  "x-number": 0,
+  "x-string": "",
+  "x-object": {
+    "property": {}
+  },
+  "ext-number": 1
+}

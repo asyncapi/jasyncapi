@@ -6,11 +6,11 @@ class PasswordOAuthFlowTest: SerDeTest<PasswordOAuthFlow>() {
 
     override fun objectClass() = PasswordOAuthFlow::class.java
 
-    override fun baseObjectJson() = "/json/security_scheme/oauth2/flow/passwordOAuthFlow.json"
+    override fun baseObjectJson() = "/json/v2/security_scheme/oauth2/flow/passwordOAuthFlow.json"
 
-    override fun extendedObjectJson() = "/json/security_scheme/oauth2/flow/passwordOAuthFlow - extended.json"
+    override fun extendedObjectJson() = "/json/v2/security_scheme/oauth2/flow/passwordOAuthFlow - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/security_scheme/oauth2/flow/passwordOAuthFlow - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/security_scheme/oauth2/flow/passwordOAuthFlow - wrongly extended.json"
 
     override fun build(): PasswordOAuthFlow {
         return PasswordOAuthFlow.passwordBuilder()
