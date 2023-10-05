@@ -6,11 +6,11 @@ class HttpSecuritySchemeBasicTest: SerDeTest<HttpSecurityScheme>() {
 
     override fun objectClass() = HttpSecurityScheme::class.java
 
-    override fun baseObjectJson() = "/json/security_scheme/http/httpBasic.json"
+    override fun baseObjectJson() = "/json/v2/security_scheme/http/httpBasic.json"
 
-    override fun extendedObjectJson() = "/json/security_scheme/http/httpBasic - extended.json"
+    override fun extendedObjectJson() = "/json/v2/security_scheme/http/httpBasic - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/security_scheme/http/httpBasic - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/security_scheme/http/httpBasic - wrongly extended.json"
 
     override fun build(): HttpSecurityScheme {
         return HttpSecurityScheme.httpBuilder()
@@ -25,11 +25,11 @@ class HttpSecuritySchemeBearerTest: SerDeTest<HttpSecurityScheme>() {
 
     override fun objectClass() = HttpSecurityScheme::class.java
 
-    override fun baseObjectJson() = "/json/security_scheme/http/httpBearer.json"
+    override fun baseObjectJson() = "/json/v2/security_scheme/http/httpBearer.json"
 
-    override fun extendedObjectJson() = "/json/security_scheme/http/httpBearer - extended.json"
+    override fun extendedObjectJson() = "/json/v2/security_scheme/http/httpBearer - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/security_scheme/http/httpBearer - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/security_scheme/http/httpBearer - wrongly extended.json"
 
     override fun build(): HttpSecurityScheme {
         return HttpSecurityScheme.httpBuilder()

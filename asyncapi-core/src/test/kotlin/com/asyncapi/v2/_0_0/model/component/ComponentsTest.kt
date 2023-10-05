@@ -26,11 +26,11 @@ class ComponentsTest: SerDeTest<Components>() {
 
     override fun objectClass() = Components::class.java
 
-    override fun baseObjectJson() = "/json/2.0.0/model/components/components.json"
+    override fun baseObjectJson() = "/json/v2/2.0.0/model/components/components.json"
 
-    override fun extendedObjectJson() = "/json/2.0.0/model/components/components - extended.json"
+    override fun extendedObjectJson() = "/json/v2/2.0.0/model/components/components - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.0.0/model/components/components - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/2.0.0/model/components/components - wrongly extended.json"
 
     override fun build(): Components {
         return Components.builder()

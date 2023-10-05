@@ -1,0 +1,8 @@
+{
+  "authorizationUrl": "https://example.com/api/oauth/dialog",
+  "refreshUrl": "https://example.com/api/oauth/refresh",
+  "scopes": {
+    "write:pets": "modify pets in your account",
+    "read:pets": "read your pets"
+  }
+}

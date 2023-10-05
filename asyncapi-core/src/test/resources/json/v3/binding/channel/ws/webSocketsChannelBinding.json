@@ -1,0 +1,21 @@
+{
+  "method": "GET",
+  "query": {
+    "type": "object",
+    "properties": {
+      "ref": {
+        "type": "string",
+        "description": "Referral."
+      }
+    }
+  },
+  "headers": {
+    "type": "object",
+    "properties": {
+      "Authentication": {
+        "type": "string",
+        "description": "Authentication token"
+      }
+    }
+  }
+}

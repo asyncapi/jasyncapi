@@ -13,11 +13,11 @@ class AsyncAPITest: SerDeTest<AsyncAPI>() {
 
     override fun objectClass() = AsyncAPI::class.java
 
-    override fun baseObjectJson() = "/json/2.0.0/model/asyncapi.json"
+    override fun baseObjectJson() = "/json/v2/2.0.0/model/asyncapi.json"
 
-    override fun extendedObjectJson() = "/json/2.0.0/model/asyncapi - extended.json"
+    override fun extendedObjectJson() = "/json/v2/2.0.0/model/asyncapi - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.0.0/model/asyncapi - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/2.0.0/model/asyncapi - wrongly extended.json"
 
     override fun build(): AsyncAPI {
         return AsyncAPI(

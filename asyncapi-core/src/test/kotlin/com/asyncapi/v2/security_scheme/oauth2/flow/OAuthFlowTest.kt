@@ -6,11 +6,11 @@ class OAuthFlowTest: SerDeTest<OAuthFlow>() {
 
     override fun objectClass() = OAuthFlow::class.java
 
-    override fun baseObjectJson() = "/json/security_scheme/oauth2/flow/oauthFlow.json"
+    override fun baseObjectJson() = "/json/v2/security_scheme/oauth2/flow/oauthFlow.json"
 
-    override fun extendedObjectJson() = "/json/security_scheme/oauth2/flow/oauthFlow - extended.json"
+    override fun extendedObjectJson() = "/json/v2/security_scheme/oauth2/flow/oauthFlow - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/security_scheme/oauth2/flow/oauthFlow - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/security_scheme/oauth2/flow/oauthFlow - wrongly extended.json"
 
     override fun build(): OAuthFlow {
         return OAuthFlow.builder()

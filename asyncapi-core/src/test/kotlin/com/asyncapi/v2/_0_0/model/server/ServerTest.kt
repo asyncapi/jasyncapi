@@ -29,11 +29,11 @@ class ServerTest: SerDeTest<Server>() {
 
     override fun objectClass() = Server::class.java
 
-    override fun baseObjectJson() = "/json/2.0.0/model/server/server.json"
+    override fun baseObjectJson() = "/json/v2/2.0.0/model/server/server.json"
 
-    override fun extendedObjectJson() = "/json/2.0.0/model/server/server - extended.json"
+    override fun extendedObjectJson() = "/json/v2/2.0.0/model/server/server - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.0.0/model/server/server - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/2.0.0/model/server/server - wrongly extended.json"
 
     override fun build(): Server {
         return Server.builder()

@@ -17,11 +17,11 @@ class MessageTest: SerDeTest<Message>() {
 
     override fun objectClass() = Message::class.java
 
-    override fun baseObjectJson() = "/json/2.6.0/model/channel/message/message.json"
+    override fun baseObjectJson() = "/json/v2/2.6.0/model/channel/message/message.json"
 
-    override fun extendedObjectJson() = "/json/2.6.0/model/channel/message/message - extended.json"
+    override fun extendedObjectJson() = "/json/v2/2.6.0/model/channel/message/message - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.6.0/model/channel/message/message - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/2.6.0/model/channel/message/message - wrongly extended.json"
 
     override fun build(): Message {
         return Message.builder()

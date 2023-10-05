@@ -10,11 +10,11 @@ class ServerVariableTest: SerDeTest<ServerVariable>() {
 
     override fun objectClass() = ServerVariable::class.java
 
-    override fun baseObjectJson() = "/json/2.6.0/model/server/serverVariable.json"
+    override fun baseObjectJson() = "/json/v2/2.6.0/model/server/serverVariable.json"
 
-    override fun extendedObjectJson() = "/json/2.6.0/model/server/serverVariable - extended.json"
+    override fun extendedObjectJson() = "/json/v2/2.6.0/model/server/serverVariable - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.6.0/model/server/serverVariable - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/2.6.0/model/server/serverVariable - wrongly extended.json"
 
     override fun build(): ServerVariable {
         return ServerVariable.builder()

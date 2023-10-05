@@ -9,11 +9,11 @@ class LicenseTest: SerDeTest<License>() {
 
     override fun objectClass() = License::class.java
 
-    override fun baseObjectJson() = "/json/2.0.0/model/info/license.json"
+    override fun baseObjectJson() = "/json/v2/2.0.0/model/info/license.json"
 
-    override fun extendedObjectJson() = "/json/2.0.0/model/info/license - extended.json"
+    override fun extendedObjectJson() = "/json/v2/2.0.0/model/info/license - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.0.0/model/info/license - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/2.0.0/model/info/license - wrongly extended.json"
 
     override fun build(): License {
         return License(
