@@ -6,9 +6,12 @@ import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.JsonNodeType;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SchemaItemsDeserializer extends JsonDeserializer<Object> {
 
@@ -20,11 +23,21 @@ public class SchemaItemsDeserializer extends JsonDeserializer<Object> {
         if (nodeType == JsonNodeType.OBJECT) {
             return readAsSchema(node, objectCodec);
         }
-        // TODO: Implement handling of scenario when items is an array of schemas. Maybe return a List<Schema>?
+        if (nodeType == JsonNodeType.ARRAY) {
+            return readAsListOfSchemas((ArrayNode) node, objectCodec);
+        }
         return readAsObject(node, objectCodec);
     }
 
-    private Object readAsSchema(JsonNode jsonNode, ObjectCodec objectCodec) throws IOException {
+    private List<Schema> readAsListOfSchemas(ArrayNode arrayNode, ObjectCodec objectCodec) throws IOException {
+        List<Schema> schemaList = new ArrayList<>();
+        for (JsonNode childNode : arrayNode) {
+            schemaList.add(readAsSchema(childNode, objectCodec));
+        }
+        return schemaList;
+    }
+
+    private Schema readAsSchema(JsonNode jsonNode, ObjectCodec objectCodec) throws IOException {
         try (JsonParser parser = jsonNode.traverse(objectCodec)) {
             return parser.readValueAs(Schema.class);
         }
