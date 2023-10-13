@@ -1,0 +1,19 @@
+{
+  "bindings": {
+    "kafka": {
+      "key": {
+        "type": "string"
+      },
+      "bindingVersion": "0.4.0"
+    }
+  },
+  "payload": {
+    "type": "array",
+    "items": [
+      { "type": "number" },
+      { "type": "string" },
+      { "enum": ["Street", "Avenue", "Boulevard"] },
+      { "enum": ["NW", "NE", "SW", "SE"] }
+    ]
+  }
+}
