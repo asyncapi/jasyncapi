@@ -13,7 +13,7 @@ class MessageWithArrayPayloadTest {
     @Test
     @DisplayName("Test array items property is parsed as a schema object")
     fun testArrayItemsPropertyIsParsedAsSchemaObjectWhenItIsASingleJsonSchema() {
-        val model = ClasspathUtils.readAsString("/json/2.6.0/model/channel/message/messageWithArrayPayloadJsonSchema.json")
+        val model = ClasspathUtils.readAsString("/json/v2/2.6.0/model/channel/message/messageWithArrayPayloadJsonSchema.json")
         val schema = objectMapper.readValue(model, Message::class.java).payload as Schema
         assertTrue(
             schema.items is Schema
@@ -23,7 +23,7 @@ class MessageWithArrayPayloadTest {
     @Test
     @DisplayName("Test array items property is parsed as list of schemas")
     fun testArrayItemsPropertyIsParsedAsArrayListOfSchemasWhenItIsAnArrayOfSchemas() {
-        val model = ClasspathUtils.readAsString("/json/2.6.0/model/channel/message/messageWithArrayPayloadArrayOfSchemas.json")
+        val model = ClasspathUtils.readAsString("/json/v2/2.6.0/model/channel/message/messageWithArrayPayloadArrayOfSchemas.json")
         val schema = objectMapper.readValue(model, Message::class.java).payload as Schema
         assertTrue(schema.items is ArrayList<*> && (schema.items as ArrayList<*>).all { it is Schema })
     }
