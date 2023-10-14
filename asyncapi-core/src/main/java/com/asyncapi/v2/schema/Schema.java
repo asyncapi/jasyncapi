@@ -3,6 +3,7 @@ package com.asyncapi.v2.schema;
 import com.asyncapi.v2.ExtendableObject;
 import com.asyncapi.v2._0_0.jackson.model.schema.SchemasAdditionalPropertiesDeserializer;
 import com.asyncapi.v2._0_0.model.ExternalDocumentation;
+import com.asyncapi.v2.jackson.SchemaItemsDeserializer;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
@@ -362,7 +363,7 @@ public class Schema extends ExtendableObject {
      * Omitting this keyword has the same behavior as an empty schema.
      */
     @Nullable
-    @JsonProperty
+    @JsonDeserialize(using = SchemaItemsDeserializer.class)
     public Object items;
 
     /**

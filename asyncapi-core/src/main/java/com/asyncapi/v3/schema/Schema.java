@@ -1,5 +1,6 @@
 package com.asyncapi.v3.schema;
 
+import com.asyncapi.v3.jackson.SchemaItemsDeserializer;
 import com.asyncapi.v3.ExtendableObject;
 import com.asyncapi.v3.jackson.schema.SchemasAdditionalPropertiesDeserializer;
 import com.asyncapi.v3._0_0.model.ExternalDocumentation;
@@ -358,7 +359,7 @@ public class Schema extends ExtendableObject {
      * Omitting this keyword has the same behavior as an empty schema.
      */
     @Nullable
-    @JsonProperty
+    @JsonDeserialize(using = SchemaItemsDeserializer.class)
     public Object items;
 
     /**
