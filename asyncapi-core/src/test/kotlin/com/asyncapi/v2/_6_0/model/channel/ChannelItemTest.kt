@@ -1,5 +1,6 @@
 package com.asyncapi.v2._6_0.model.channel
 
+import com.asyncapi.v2.ChannelBindingValue
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._6_0.model.Reference
 import com.asyncapi.v2._6_0.model.channel.operation.OperationWithMessageTest
@@ -42,7 +43,7 @@ class ChannelItemTest: SerDeTest<ChannelItem>() {
     }
 
     companion object {
-        fun bindings(): Map<String, Any> {
+        fun bindings(): Map<String, ChannelBindingValue> {
             return mapOf(
                     Pair("amqp", AMQPChannelBindingTest().build()),
                     Pair("amqp1", Reference("#/components/channelBindings/amqp1")),

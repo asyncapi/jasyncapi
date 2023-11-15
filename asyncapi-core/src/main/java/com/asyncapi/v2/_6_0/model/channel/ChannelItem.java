@@ -1,6 +1,8 @@
 package com.asyncapi.v2._6_0.model.channel;
 
+import com.asyncapi.v2.ChannelBindingValue;
 import com.asyncapi.v2.ExtendableObject;
+import com.asyncapi.v2.ParameterValue;
 import com.asyncapi.v2._6_0.jackson.model.channel.ChannelParametersDeserializer;
 import com.asyncapi.v2._6_0.model.channel.operation.Operation;
 import com.asyncapi.v2.binding.channel.ChannelBinding;
@@ -79,7 +81,7 @@ public class ChannelItem extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ChannelParametersDeserializer.class)
-    private Map<String, Object> parameters;
+    private Map<String, ParameterValue> parameters;
 
     /**
      * A map where the keys describe the name of the protocol and the values describe protocol-specific definitions for the channel.
@@ -92,6 +94,6 @@ public class ChannelItem extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ChannelBindingsDeserializer.class)
-    private Map<String, Object> bindings;
+    private Map<String, ChannelBindingValue> bindings;
 
 }

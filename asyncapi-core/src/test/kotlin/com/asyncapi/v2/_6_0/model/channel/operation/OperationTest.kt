@@ -1,5 +1,6 @@
 package com.asyncapi.v2._6_0.model.channel.operation
 
+import com.asyncapi.v2.OperationBindingValue
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._6_0.model.ExternalDocumentation
 import com.asyncapi.v2._6_0.model.Reference
@@ -134,7 +135,7 @@ class OperationWithOneOfMessageTest: SerDeTest<Operation>() {
 class OperationTest {
     companion object {
         @JvmStatic
-        fun bindings(): Map<String, Any> {
+        fun bindings(): Map<String, OperationBindingValue> {
             return mapOf(
                     Pair("amqp", AMQPOperationBindingTest().build()),
                     Pair("amqp1", Reference("#/components/operationBindings/amqp1")),

@@ -1,5 +1,6 @@
 package com.asyncapi.v2._6_0.model.channel.message;
 
+import com.asyncapi.v2.CorrelationIdValue;
 import com.asyncapi.v2.ExtendableObject;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,7 +24,7 @@ import org.jetbrains.annotations.Nullable;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class CorrelationId extends ExtendableObject {
+public class CorrelationId extends ExtendableObject implements CorrelationIdValue {
 
     /**
      * An optional description of the identifier. <a href="https://spec.commonmark.org/">CommonMark syntax</a> can be used for rich text representation.

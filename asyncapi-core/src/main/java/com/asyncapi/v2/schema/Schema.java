@@ -1,6 +1,7 @@
 package com.asyncapi.v2.schema;
 
 import com.asyncapi.v2.ExtendableObject;
+import com.asyncapi.v2.SchemaValue;
 import com.asyncapi.v2._0_0.jackson.model.schema.SchemasAdditionalPropertiesDeserializer;
 import com.asyncapi.v2._0_0.model.ExternalDocumentation;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -40,7 +41,7 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class Schema extends ExtendableObject {
+public class Schema extends ExtendableObject implements SchemaValue {
 
     /*
         Schema Annotations

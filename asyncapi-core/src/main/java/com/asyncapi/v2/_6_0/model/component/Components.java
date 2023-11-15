@@ -1,6 +1,19 @@
 package com.asyncapi.v2._6_0.model.component;
 
+import com.asyncapi.v2.ChannelBindingValue;
+import com.asyncapi.v2.CorrelationIdValue;
 import com.asyncapi.v2.ExtendableObject;
+import com.asyncapi.v2.MessageBindingValue;
+import com.asyncapi.v2.MessageTraitValue;
+import com.asyncapi.v2.MessageValue;
+import com.asyncapi.v2.OperationBindingValue;
+import com.asyncapi.v2.OperationTraitValue;
+import com.asyncapi.v2.ParameterValue;
+import com.asyncapi.v2.SchemaValue;
+import com.asyncapi.v2.SecuritySchemeValue;
+import com.asyncapi.v2.ServerBindingValue;
+import com.asyncapi.v2.ServerValue;
+import com.asyncapi.v2.ServerVariableValue;
 import com.asyncapi.v2._6_0.jackson.model.component.ComponentsCorrelationIdsDeserializer;
 import com.asyncapi.v2._6_0.jackson.model.component.ComponentsMessageTraitsDeserializer;
 import com.asyncapi.v2._6_0.jackson.model.component.ComponentsMessagesDeserializer;
@@ -57,7 +70,7 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ComponentsSchemasDeserializer.class)
-    private Map<String, Object> schemas;
+    private Map<String, SchemaValue> schemas;
 
     /**
      * An object to hold reusable {@link com.asyncapi.v2._6_0.model.server.Server} Objects.
@@ -70,7 +83,7 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ComponentsServersDeserializer.class)
-    private Map<String, Object> servers;
+    private Map<String, ServerValue> servers;
 
     /**
      * An object to hold reusable {@link com.asyncapi.v2._6_0.model.server.ServerVariable} Objects.
@@ -83,7 +96,7 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ComponentsServerVariablesDeserializer.class)
-    private Map<String, Object> serverVariables;
+    private Map<String, ServerVariableValue> serverVariables;
 
     /**
      * An object to hold reusable {@link com.asyncapi.v2._6_0.model.channel.ChannelItem} Objects.
@@ -101,7 +114,7 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ComponentsMessagesDeserializer.class)
-    private Map<String, Object> messages;
+    private Map<String, MessageValue> messages;
 
     /**
      * An object to hold reusable {@link SecurityScheme} Objects.
@@ -114,7 +127,7 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ComponentsSecuritySchemesDeserializer.class)
-    private Map<String, Object> securitySchemes;
+    private Map<String, SecuritySchemeValue> securitySchemes;
 
     /**
      * An object to hold reusable {@link com.asyncapi.v2._6_0.model.channel.Parameter} Objects.
@@ -127,7 +140,7 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ComponentsParametersDeserializer.class)
-    private Map<String, Object> parameters;
+    private Map<String, ParameterValue> parameters;
 
     /**
      * An object to hold reusable {@link com.asyncapi.v2._6_0.model.channel.message.CorrelationId} Objects.
@@ -140,7 +153,7 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ComponentsCorrelationIdsDeserializer.class)
-    private Map<String, Object> correlationIds;
+    private Map<String, CorrelationIdValue> correlationIds;
 
     /**
      * An object to hold reusable {@link com.asyncapi.v2._6_0.model.channel.operation.OperationTrait} Objects.
@@ -153,7 +166,7 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ComponentsOperationTraitsDeserializer.class)
-    private Map<String, Object> operationTraits;
+    private Map<String, OperationTraitValue> operationTraits;
 
     /**
      * An object to hold reusable {@link com.asyncapi.v2._6_0.model.channel.message.MessageTrait} Objects.
@@ -166,7 +179,7 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ComponentsMessageTraitsDeserializer.class)
-    private Map<String, Object> messageTraits;
+    private Map<String, MessageTraitValue> messageTraits;
 
     /**
      * An object to hold reusable {@link ServerBinding} Objects.
@@ -178,7 +191,7 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ServerBindingsDeserializer.class)
-    private Map<String, Object> serverBindings;
+    private Map<String, ServerBindingValue> serverBindings;
 
     /**
      * An object to hold reusable {@link ChannelBinding} Objects.
@@ -190,7 +203,7 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ChannelBindingsDeserializer.class)
-    private Map<String, Object> channelBindings;
+    private Map<String, ChannelBindingValue> channelBindings;
 
     /**
      * An object to hold reusable {@link OperationBinding} Objects.
@@ -202,7 +215,7 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = OperationBindingsDeserializer.class)
-    private Map<String, Object> operationBindings;
+    private Map<String, OperationBindingValue> operationBindings;
 
     /**
      * An object to hold reusable {@link MessageBinding} Objects.
@@ -214,6 +227,6 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = MessageBindingsDeserializer.class)
-    private Map<String, Object> messageBindings;
+    private Map<String, MessageBindingValue> messageBindings;
 
 }
