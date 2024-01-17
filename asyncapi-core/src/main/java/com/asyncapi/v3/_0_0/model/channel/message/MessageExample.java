@@ -17,13 +17,13 @@ import java.util.Map;
 public class MessageExample extends ExtendableObject {
 
     /**
-     * The value of this field MUST validate against the {@link Message#getHeaders()} headers field.
+     * The value of this field MUST validate against the {@link Message} headers field.
      */
     @Nullable
     public Map<String, Object> headers;
 
     /**
-     * The value of this field MUST validate against the Message {@link Message#getPayload()} field.
+     * The value of this field MUST validate against the Message {@link Message} payload field.
      */
     @Nullable
     public Map<String, Object> payload;
