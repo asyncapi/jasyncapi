@@ -49,9 +49,9 @@
     </modules>
 
     <properties>
-        <kotlin.version>1.8.0</kotlin.version>
+        <kotlin.version>1.9.20</kotlin.version>
         <jackson.version>2.14.2</jackson.version>
-        <java.version>1.8</java.version>
+        <java.version>11</java.version>
         <lombok.version>1.18.26</lombok.version>
         <junit5.version>5.9.2</junit5.version>
         <dokka.version>1.7.0</dokka.version>
@@ -78,16 +78,16 @@
             <version>${junit5.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib</artifactId>
+            <version>${kotlin.version}</version>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
         <dependencies>
             <!-- Kotlin -->
-            <dependency>
-                <groupId>org.jetbrains.kotlin</groupId>
-                <artifactId>kotlin-stdlib-jdk8</artifactId>
-                <version>${kotlin.version}</version>
-            </dependency>
             <dependency>
                 <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-test</artifactId>
@@ -98,7 +98,8 @@
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <version>1.18.10</version>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
             </dependency>
             <!-- Json/Yaml -->
             <dependency>
@@ -230,6 +231,13 @@
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
                 </configuration>
             </plugin>
             <!-- Plugins for release cycle -->
