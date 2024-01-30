@@ -30,7 +30,7 @@ Hints:
 
 If you are using SDKMAN! use [env](https://sdkman.io/usage#env) to prepare environment
 ```shell
-sdk env
+sdk env install
 ```
 
 ### Publish new release
