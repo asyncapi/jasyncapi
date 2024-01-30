@@ -33,6 +33,13 @@ If you are using SDKMAN! use [env](https://sdkman.io/usage#env) to prepare envir
 sdk env install
 ```
 
+### Install locally
+
+Each build is GPG signed. To avoid this, and to not configure GPG locally, you can use this command:
+```shell
+ mvn clean install -Dgpg.skip
+```
+
 ### Publish new release
 
 #### Prerequisites
