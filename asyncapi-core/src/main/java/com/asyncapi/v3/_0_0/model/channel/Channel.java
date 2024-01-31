@@ -21,9 +21,9 @@ import java.util.Map;
 /**
  * Describes a shared communication channel.
  *
- * @version 3.0.0
- * @see <a href="https://www.asyncapi.com/docs/reference/specification/v2.6.0#channelItemObject">ChannelItem</a>
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#channelObject">Channel</a>
  * @author Pavel Bodiachevskii
+ * @version 3.0.0
  */
 @Data
 @Builder
@@ -34,10 +34,17 @@ public class Channel extends ExtendableObject {
 
     /**
      * An optional string representation of this channel's address. The address is typically the "topic name",
-     * "routing key", "event type", or "path". When null or absent, it MUST be interpreted as unknown.
+     * "routing key", "event type", or "path".
+     * <p>
+     * When null or absent, it MUST be interpreted as unknown.
      * This is useful when the address is generated dynamically at runtime or can't be known upfront.
      * <p>
-     * It MAY contain Channel Address Expressions.
+     * It MAY contain Channel Address Expressions like {@code {userId}}
+     * <p>
+     * Query parameters and fragments SHALL NOT be used, instead use {@link ChannelBinding} to define them.
+     *
+     * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#channelBindingsObject">Channel bindings</a>
+     * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#channelAddressExpressions">Channel Address Expressions</a>
      */
     @Nullable
     private String address;
@@ -55,9 +62,7 @@ public class Channel extends ExtendableObject {
     private String summary;
 
     /**
-     * An optional description of this channel.
-     * <p>
-     * CommonMark syntax can be used for rich text representation.
+     * An optional description of this channel. <a href="https://spec.commonmark.org/">CommonMark syntax</a> can be used for rich text representation.
      */
     @Nullable
     private String description;
@@ -65,9 +70,13 @@ public class Channel extends ExtendableObject {
     /**
      * An array of $ref pointers to the definition of the servers in which this channel is available.
      * <p>
-     * If servers is absent or empty, this channel MUST be available on all the servers defined in the Servers Object.
-     * Please note the servers property value MUST be an array of Reference Objects and, therefore,
-     * MUST NOT contain an array of Server Objects.
+     * If the channel is located in the {@link com.asyncapi.v3._0_0.model.AsyncAPI#getChannels()},
+     * it MUST point to a subset of server definitions located in the {@link com.asyncapi.v3._0_0.model.AsyncAPI#getServers()},
+     * and MUST NOT point to a subset of server definitions located in the {@link com.asyncapi.v3._0_0.model.AsyncAPI#getComponents()} or anywhere else.
+     * <p>
+     * If the channel is located in the {@link com.asyncapi.v3._0_0.model.AsyncAPI#getComponents()}, it MAY point to a Server Objects in any location.
+     * <p>
+     * If servers is absent or empty, this channel MUST be available on all the servers defined in {@link com.asyncapi.v3._0_0.model.AsyncAPI#getServers()}.
      * <p>
      * However, it is RECOMMENDED that parsers (or other software) dereference this property
      * for a better development experience.
@@ -78,13 +87,15 @@ public class Channel extends ExtendableObject {
     /**
      * A map of the parameters included in the channel address.
      * <p>
-     * It MUST be present only when the address contains Channel Address Expressions.
+     * It MUST be present only when the address contains Channel Address Expressions like {@code {userId}}.
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link Reference}</li>
      *     <li>{@link Parameter}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
+     *
+     * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#channelAddressExpressions">Channel Address Expressions</a>
      */
     @Nullable
     @JsonDeserialize(using = ChannelParametersDeserializer.class)
@@ -92,13 +103,13 @@ public class Channel extends ExtendableObject {
 
     /**
      * A map of the messages that will be sent to this channel by any application at any time.
-     * Every message sent to this channel MUST be valid against one, and only one, of the message
-     * objects defined in this map.
+     * <p>
+     * Every message sent to this channel MUST be valid against one, and only one, of the {@link Message} defined in this map.
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link Reference}</li>
      *     <li>{@link Message}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @Nullable
@@ -110,8 +121,8 @@ public class Channel extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link Reference}</li>
      *     <li>{@link ChannelBinding}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @Nullable
@@ -123,8 +134,8 @@ public class Channel extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link Reference}</li>
      *     <li>{@link Tag}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @Nullable
@@ -136,8 +147,8 @@ public class Channel extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link Reference}</li>
      *     <li>{@link ExternalDocumentation}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @Nullable
