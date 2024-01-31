@@ -10,9 +10,9 @@ import java.util.List;
 /**
  * An object representing a Server Variable for server URL template substitution.
  *
- * @version 3.0.0
- * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#serverVariableObject">ServerVariable</a>
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#serverVariableObject">ServerVariable</a>
  * @author Pavel Bodiachevskii
+ * @version 3.0.0
  */
 @Data
 @Builder
@@ -36,7 +36,7 @@ public class ServerVariable extends ExtendableObject {
     private String defaultValue;
 
     /**
-     * An optional description for the server variable. CommonMark syntax MAY be used for rich text representation.
+     * An optional description for the server variable. <a href="https://spec.commonmark.org/">CommonMark syntax</a> MAY be used for rich text representation.
      */
     @Nullable
     private String description;
