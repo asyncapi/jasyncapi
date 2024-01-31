@@ -12,6 +12,19 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
 
+/**
+ * While the AsyncAPI Specification tries to accommodate most use cases,
+ * additional data can be added to extend the specification at certain points.
+ * <p>
+ * The extensions properties are implemented as patterned fields that are always prefixed by "x-".
+ * <p>
+ * The extensions may or may not be supported by the available tooling, but those may be extended as
+ * well to add requested support (if tools are internal or open-sourced).
+ *
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#specificationExtensions">Specification Extensions</a>
+ * @author Pavel Bodiachevskii
+ * @version 3.0.0
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
