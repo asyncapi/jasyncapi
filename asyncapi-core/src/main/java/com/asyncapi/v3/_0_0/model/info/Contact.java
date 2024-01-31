@@ -7,9 +7,9 @@ import org.jetbrains.annotations.Nullable;
 /**
  * Contact information for the exposed API.
  *
- * @version 3.0.0
- * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0-next-major-spec.14#contactObject">Contact</a>
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#contactObject">Contact</a>
  * @author Pavel Bodiachevskii
+ * @version 3.0.0
  */
 @Data
 @Builder
@@ -25,7 +25,7 @@ public class Contact extends ExtendableObject {
     private String name;
 
     /**
-     * The URL pointing to the contact information. MUST be in the format of a URL.
+     * The URL pointing to the contact information. This MUST be in the form of an absolute URL.
      */
     @Nullable
     private String url;
