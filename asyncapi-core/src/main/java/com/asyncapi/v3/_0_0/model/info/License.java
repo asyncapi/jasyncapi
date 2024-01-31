@@ -8,9 +8,9 @@ import org.jetbrains.annotations.Nullable;
 /**
  * License information for the exposed API.
  *
- * @version 3.0.0
- * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0-next-major-spec.14#licenseObject">License</a>
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#licenseObject">License</a>
  * @author Pavel Bodiachevskii
+ * @version 3.0.0
  */
 @Data
 @Builder
@@ -20,14 +20,16 @@ import org.jetbrains.annotations.Nullable;
 public class License extends ExtendableObject {
 
     /**
-     * Required. The license name used for the API.
+     * <b>Required</b>.
+     * <p>
+     * The license name used for the API.
      */
     @NotNull
     @Builder.Default
     private String name = "";
 
     /**
-     * A URL to the license used for the API. MUST be in the format of a URL.
+     * A URL to the license used for the API. This MUST be in the form of an absolute URL.
      */
     @Nullable
     private String url;
