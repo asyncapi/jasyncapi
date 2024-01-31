@@ -11,9 +11,9 @@ import org.jetbrains.annotations.Nullable;
 /**
  * Allows adding meta data to a single tag.
  *
- * @version 3.0.0
- * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0-next-major-spec.14#tagObject">Tag</a>
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#tagObject">Tag</a>
  * @author Pavel Bodiachevskii
+ * @version 3.0.0
  */
 @Data
 @Builder
@@ -23,7 +23,9 @@ import org.jetbrains.annotations.Nullable;
 public class Tag extends ExtendableObject {
 
     /**
-     * Required. The name of the tag.
+     * <b>Required</b>.
+     * <p>
+     * The name of the tag.
      */
     @NotNull
     @Builder.Default
