@@ -16,10 +16,12 @@ import org.jetbrains.annotations.NotNull;
  * <p>
  * For this specification, reference resolution is done as defined by the JSON Reference specification and not by
  * the JSON Schema specification.
+ * <p>
+ * This object cannot be extended with additional properties and any properties added SHALL be ignored.
  *
- * @version 3.0.0
- * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0-next-major-spec.14#referenceObject">Reference</a>
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#referenceObject">Reference</a>
  * @author Pavel Bodiachevskii
+ * @version 3.0.0
  */
 @Data
 @NoArgsConstructor
@@ -27,7 +29,7 @@ import org.jetbrains.annotations.NotNull;
 public class Reference {
 
     /**
-     * Required.
+     * <b>Required</b>.
      * <p>
      * The reference string.
      */
