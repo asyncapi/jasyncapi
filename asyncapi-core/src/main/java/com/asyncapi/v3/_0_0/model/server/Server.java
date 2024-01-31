@@ -22,13 +22,16 @@ import java.util.Map;
 
 /**
  * An object representing a message broker, a server or any other kind of computer program capable of sending and/or
- * receiving data. This object is used to capture details such as URIs, protocols and security configuration.
+ * receiving data.
+ * <p>
+ * This object is used to capture details such as URIs, protocols and security configuration.
+ * <p>
  * Variable substitution can be used so that some details, for example usernames and passwords, can be injected by
  * code generation tools.
  *
- * @version 3.0.0
- * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#serverObject">Server</a>
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#serverObject">Server</a>
  * @author Pavel Bodiachevskii
+ * @version 3.0.0
  */
 @Data
 @Builder
@@ -38,9 +41,10 @@ import java.util.Map;
 public class Server extends ExtendableObject {
 
     /**
-     * REQUIRED.
+     * <b>REQUIRED</b>.
      * <p>
-     * The server host name. It MAY include the port. This field supports Server Variables.
+     * The server host name. It MAY include the port. This field supports {@link ServerVariable}.
+     * <p>
      * Variable substitutions will be made when a variable is named in {braces}.
      */
     @NotNull
@@ -49,7 +53,7 @@ public class Server extends ExtendableObject {
     private String host = "";
 
     /**
-     * REQUIRED.
+     * <b>REQUIRED</b>.
      * <p>
      * The protocol this URL supports for connection. Supported protocol include, but are not limited to:
      * amqp, amqps, http, https, jms, kafka, kafka-secure, mqtt, secure-mqtt, stomp, stomps, ws, wss.
@@ -67,7 +71,8 @@ public class Server extends ExtendableObject {
     private String protocolVersion;
 
     /**
-     * The path to a resource in the host. This field supports Server Variables.
+     * The path to a resource in the host. This field supports {@link ServerVariable}.
+     * <p>
      * Variable substitutions will be made when a variable is named in {braces}.
      */
     @Nullable
@@ -75,8 +80,7 @@ public class Server extends ExtendableObject {
     private String pathname;
 
     /**
-     * An optional string describing the host designated by the URL. CommonMark syntax MAY be used for rich text
-     * representation.
+     * An optional string describing the server. <a href="https://spec.commonmark.org/">CommonMark syntax</a> MAY be used for rich text representation.
      */
     @Nullable
     @JsonProperty
@@ -98,7 +102,8 @@ public class Server extends ExtendableObject {
 
     /**
      * A map between a variable name and its value.
-     * The value is used for substitution in the server's host and pathname template.
+     * <p>
+     * The value is used for substitution in the server's {@link #getHost()} and {@link #getPathname()} template.
      * <p>
      * MUST BE:
      * <ul>
@@ -113,8 +118,9 @@ public class Server extends ExtendableObject {
 
     /**
      * A declaration of which security schemes can be used with this server. The list of values includes alternative
-     * security scheme objects that can be used. Only one of the security scheme objects need to be satisfied to
-     * authorize a connection or operation.
+     * {@link SecurityScheme} objects that can be used.
+     * <p>
+     * Only one of the security scheme objects need to be satisfied to authorize a connection or operation.
      * <p>
      * MUST BE:
      * <ul>
@@ -161,8 +167,8 @@ public class Server extends ExtendableObject {
      * <p>
      * MUST be one of:
      * <ul>
-     *     <li>{@link Reference}</li>
      *     <li>{@link ServerBinding}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @Nullable
