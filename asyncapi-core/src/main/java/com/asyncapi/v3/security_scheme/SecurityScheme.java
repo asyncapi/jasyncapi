@@ -25,11 +25,12 @@ import org.jetbrains.annotations.Nullable;
  *     <li>SASL (Simple Authentication and Security Layer) as defined in <a href="https://tools.ietf.org/html/rfc4422">RFC4422</a>.</li>
  * </ul>
  *
- * This object MAY be extended with <a href="https://www.asyncapi.com/docs/reference/specification/v2.6.0#specificationExtensions">Specification Extensions</a>.
+ * This object MAY be extended with {@link ExtendableObject}.
  *
- * @version 3.0.0
- * @see <a href="https://www.asyncapi.com/docs/reference/specification/v2.6.0#securitySchemeObject">Security Scheme Object</a>
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#specificationExtensions">Specification Extensions</a>
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#securitySchemeObject">Security Scheme</a>
  * @author Pavel Bodiachevskii
+ * @version 3.0.0
  */
 @Data
 @Builder
@@ -60,7 +61,7 @@ import org.jetbrains.annotations.Nullable;
 public class SecurityScheme extends ExtendableObject {
 
     /**
-     * REQUIRED.
+     * <b>REQUIRED</b>.
      * <p>
      * The type of the security scheme. Valid values are:
      * <ul>
