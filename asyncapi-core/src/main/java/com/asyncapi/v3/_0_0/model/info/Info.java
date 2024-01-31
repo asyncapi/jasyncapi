@@ -17,9 +17,9 @@ import java.util.List;
 /**
  * The object provides metadata about the API. The metadata can be used by the clients if needed.
  *
- * @version 3.0.0
- * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0-next-major-spec.14#infoObject">Info</a>
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#infoObject">Info</a>
  * @author Pavel Bodiachevskii
+ * @version 3.0.0
  */
 @Data
 @Builder
@@ -29,7 +29,7 @@ import java.util.List;
 public class Info extends ExtendableObject {
 
     /**
-     * Required.
+     * <b>Required</b>.
      * <p>
      * The title of the application.
      */
@@ -39,7 +39,7 @@ public class Info extends ExtendableObject {
     private String title = "";
 
     /**
-     * Required.
+     * <b>Required</b>.
      * <p>
      * Provides the version of the application API (not to be confused with the specification version).
      */
@@ -49,14 +49,15 @@ public class Info extends ExtendableObject {
     private String version = "";
 
     /**
-     * A short description of the application. CommonMark syntax can be used for rich text representation.
+     * A short description of the application. <a href="https://spec.commonmark.org/">CommonMark syntax</a> can be used
+     * for rich text representation.
      */
     @Nullable
     @JsonProperty
     private String description;
 
     /**
-     * A URL to the Terms of Service for the API. MUST be in the format of a URL.
+     * A URL to the Terms of Service for the API. This MUST be in the form of an absolute URL.
      */
     @Nullable
     @JsonProperty
