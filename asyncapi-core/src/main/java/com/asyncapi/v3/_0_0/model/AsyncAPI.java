@@ -23,7 +23,7 @@ import java.util.Map;
  * It combines resource listing and API declaration together into one document.
  *
  * @version 3.0.0
- * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0-next-major-spec.14#A2SObject">AsyncAPI</a>
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#A2SObject">AsyncAPI</a>
  * @author Pavel Bodiachevskii
  */
 @Data
@@ -34,7 +34,7 @@ import java.util.Map;
 public class AsyncAPI extends ExtendableObject {
 
     /**
-     * Required.
+     * <b>Required</b>.
      * <p>
      * Specifies the AsyncAPI Specification version being used.
      * It can be used by tooling Specifications and clients to interpret the version.
@@ -50,10 +50,10 @@ public class AsyncAPI extends ExtendableObject {
     private final String asyncapi = "3.0.0";
 
     /**
-     * Identifier of the application the AsyncAPI document is defining.
+     * Identifier of the <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#definitionsApplication">application</a> the AsyncAPI document is defining.
      * <p>
      * This field represents a unique universal identifier of the application the AsyncAPI document is defining.
-     * It must conform to the URI format, according to RFC3986.
+     * It must conform to the URI format, according to <a href="https://datatracker.ietf.org/doc/html/rfc3986">RFC3986</a>.
      * <p>
      * It is RECOMMENDED to use a URN to globally and uniquely identify the application during long periods of time,
      * even after it becomes unavailable or ceases to exist.
@@ -63,7 +63,9 @@ public class AsyncAPI extends ExtendableObject {
 
     /**
      * A string representing the default content type to use when encoding/decoding a message's payload.
+     * <p>
      * The value MUST be a specific media type (e.g. application/json).
+     * <p>
      * This value MUST be used by schema parsers when the contentType property is omitted.
      * <p>
      * In case a message can't be encoded/decoded using this value, schema parsers MUST use their default content type.
@@ -72,7 +74,7 @@ public class AsyncAPI extends ExtendableObject {
     private String defaultContentType;
 
     /**
-     * Required.
+     * <b>Required</b>.
      * <p>
      * Provides metadata about the API. The metadata can be used by the clients if needed.
      */
@@ -95,11 +97,7 @@ public class AsyncAPI extends ExtendableObject {
     private Map<String, Object> servers = new HashMap<>();
 
     /**
-     * The available channels and messages for the API.
-     * <p>
-     * Holds the relative paths to the individual channel and their operations. Channel paths are relative to servers.
-     * <p>
-     * Channels are also known as "topics", "routing keys", "event types" or "paths".
+     * The channels used by this <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#definitionsApplication">application</a>.
      * <p>
      * MUST BE:
      * <ul>
@@ -113,7 +111,7 @@ public class AsyncAPI extends ExtendableObject {
     private Map<String, Object> channels = new HashMap<>();
 
     /**
-     * The available operations for the API.
+     * The operations this <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#definitionsApplication">application</a> MUST implement.
      * <p>
      * MUST BE:
      * <ul>
@@ -127,7 +125,10 @@ public class AsyncAPI extends ExtendableObject {
     private Map<String, Object> operations = new HashMap<>();
 
     /**
-     * An element to hold various schemas for the specification.
+     * An element to hold various reusable objects for the specification.
+     * <p>
+     * Everything that is defined inside this object represents a resource that MAY or MAY NOT be used in the
+     * rest of the document and MAY or MAY NOT be used by the implemented <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#definitionsApplication">application</a>.
      */
     @Nullable
     private Components components;
