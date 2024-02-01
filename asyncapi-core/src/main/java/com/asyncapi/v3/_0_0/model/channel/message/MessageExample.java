@@ -7,7 +7,11 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Map;
 
 /**
- * Message Example Object represents an example of a {@link Message} Object and MUST contain either headers and/or payload fields.
+ * Message Example Object represents an example of a {@link Message} Object and MUST contain either {@link Message#getHeaders()} and/or {@link Message#getPayload()} fields.
+ *
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#messageExampleObject">Message Example</a>
+ * @author Pavel Bodiachevskii
+ * @version 3.0.0
  */
 @Data
 @Builder
