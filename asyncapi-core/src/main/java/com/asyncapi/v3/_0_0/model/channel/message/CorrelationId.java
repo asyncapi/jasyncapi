@@ -8,11 +8,12 @@ import org.jetbrains.annotations.Nullable;
 /**
  * An object that specifies an identifier at design time that can used for message tracing and correlation.
  * <br>
- * For specifying and computing the location of a Correlation ID, a <a href="https://www.asyncapi.com/docs/reference/specification/v2.6.0#runtimeExpression">runtime expression</a> is used.
+ * For specifying and computing the location of a Correlation ID, a runtime expression is used.
  *
- * @version 3.0.0
- * @see <a href="https://www.asyncapi.com/docs/reference/specification/v2.6.0#correlationIdObject">CorrelationId</a>
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#correlationIdObject">Correlation ID</a>
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#runtimeExpression">Runtime Expression</a>
  * @author Pavel Bodiachevskii
+ * @version 3.0.0
  */
 @Data
 @Builder
@@ -28,9 +29,9 @@ public class CorrelationId extends ExtendableObject {
     private String description;
 
     /**
-     * REQUIRED.
+     * <b>REQUIRED</b>.
      * <p>
-     * A <a href="https://www.asyncapi.com/docs/reference/specification/v2.6.0#runtimeExpression">runtime expression</a> that specifies the location of the correlation ID.
+     * A <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#runtimeExpression">runtime expression</a> that specifies the location of the correlation ID.
      */
     @NotNull
     @Builder.Default
