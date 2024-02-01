@@ -19,7 +19,7 @@ import java.util.Map;
 /**
  * Describes a trait that MAY be applied to a {@link Message}.
  * <p>
- * This object MAY contain any property from the {@link Message}, except {@link Message#getPayload()} and {@link Message#getTraits()}.
+ * This object MAY contain any property from the {@link Message}, except {@link Message} payload and {@link Message} traits.
  *
  * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#messageTraitObject">Message Trait</a>
  * @author Pavel Bodiachevskii
