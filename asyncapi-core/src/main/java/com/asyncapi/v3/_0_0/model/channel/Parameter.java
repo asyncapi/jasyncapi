@@ -10,9 +10,9 @@ import java.util.List;
 /**
  * Describes a parameter included in a channel address.
  *
- * @version 3.0.0
- * @see <a href="https://www.asyncapi.com/docs/reference/specification/v2.6.0#parameterObject">Parameter</a>
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#parameterObject">Parameter</a>
  * @author Pavel Bodiachevskii
+ * @version 3.0.0
  */
 @Data
 @Builder
@@ -22,7 +22,7 @@ import java.util.List;
 public class Parameter extends ExtendableObject {
 
     /**
-     * An optional description for the parameter. CommonMark syntax MAY be used for rich text representation.
+     * An optional description for the parameter. <a href="https://spec.commonmark.org/">CommonMark syntax</a> MAY be used for rich text representation.
      */
     @Nullable
     private String description;
@@ -49,6 +49,8 @@ public class Parameter extends ExtendableObject {
 
     /**
      * A runtime expression that specifies the location of the parameter value.
+     *
+     * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#runtimeExpression">Runtime Expression</a>
      */
     @Nullable
     private String location;
