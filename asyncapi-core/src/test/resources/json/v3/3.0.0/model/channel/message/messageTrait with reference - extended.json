@@ -1,5 +1,4 @@
 {
-  "messageId" : "userSignup",
   "headers" : {
     "$ref" : "#/components/messages/message-header"
   },

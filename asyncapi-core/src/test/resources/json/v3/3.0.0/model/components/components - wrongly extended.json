@@ -186,7 +186,6 @@
       "messages": {
         "changeStatus": { "$ref":  "#/components/parameters/user-status"},
         "message": {
-          "messageId": "userSignup",
           "headers": {
             "type": "object",
             "properties": {
@@ -345,7 +344,6 @@
           ],
           "traits": [
             {
-              "messageId": "userSignup",
               "headers": {
                 "type": "object",
                 "properties": {
@@ -495,7 +493,6 @@
               ]
             },
             {
-              "messageId": "userSignup",
               "headers": {
                 "$ref": "#/components/messages/message-header"
               },
@@ -634,7 +631,6 @@
               ]
             },
             {
-              "messageId": "userSignup",
               "headers": {
                 "schemaFormat": "application/vnd.aai.asyncapi+json;version=3.0.0",
                 "schema": {
@@ -788,7 +784,6 @@
           ]
         },
         "message 2": {
-          "messageId": "userSignup",
           "headers": {
             "schemaFormat": "application/vnd.aai.asyncapi+json;version=3.0.0",
             "schema": {
@@ -952,7 +947,6 @@
           ],
           "traits": [
             {
-              "messageId": "userSignup",
               "headers": {
                 "type": "object",
                 "properties": {
@@ -1102,7 +1096,6 @@
               ]
             },
             {
-              "messageId": "userSignup",
               "headers": {
                 "$ref": "#/components/messages/message-header"
               },
@@ -1241,7 +1234,6 @@
               ]
             },
             {
-              "messageId": "userSignup",
               "headers": {
                 "schemaFormat": "application/vnd.aai.asyncapi+json;version=3.0.0",
                 "schema": {
@@ -1395,7 +1387,6 @@
           ]
         },
         "message with reference": {
-          "messageId": "userSignup",
           "headers": {
             "$ref": "#/components/messages/message-header"
           },
@@ -1537,7 +1528,6 @@
           ],
           "traits": [
             {
-              "messageId": "userSignup",
               "headers": {
                 "type": "object",
                 "properties": {
@@ -1687,7 +1677,6 @@
               ]
             },
             {
-              "messageId": "userSignup",
               "headers": {
                 "$ref": "#/components/messages/message-header"
               },
@@ -1826,7 +1815,6 @@
               ]
             },
             {
-              "messageId": "userSignup",
               "headers": {
                 "schemaFormat": "application/vnd.aai.asyncapi+json;version=3.0.0",
                 "schema": {
@@ -2192,7 +2180,6 @@
       "messages": {
         "changeStatus": { "$ref":  "#/components/parameters/user-status"},
         "message": {
-          "messageId": "userSignup",
           "headers": {
             "type": "object",
             "properties": {
@@ -2351,7 +2338,6 @@
           ],
           "traits": [
             {
-              "messageId": "userSignup",
               "headers": {
                 "type": "object",
                 "properties": {
@@ -2501,7 +2487,6 @@
               ]
             },
             {
-              "messageId": "userSignup",
               "headers": {
                 "$ref": "#/components/messages/message-header"
               },
@@ -2640,7 +2625,6 @@
               ]
             },
             {
-              "messageId": "userSignup",
               "headers": {
                 "schemaFormat": "application/vnd.aai.asyncapi+json;version=3.0.0",
                 "schema": {
@@ -2794,7 +2778,6 @@
           ]
         },
         "message 2": {
-          "messageId": "userSignup",
           "headers": {
             "schemaFormat": "application/vnd.aai.asyncapi+json;version=3.0.0",
             "schema": {
@@ -2958,7 +2941,6 @@
           ],
           "traits": [
             {
-              "messageId": "userSignup",
               "headers": {
                 "type": "object",
                 "properties": {
@@ -3108,7 +3090,6 @@
               ]
             },
             {
-              "messageId": "userSignup",
               "headers": {
                 "$ref": "#/components/messages/message-header"
               },
@@ -3247,7 +3228,6 @@
               ]
             },
             {
-              "messageId": "userSignup",
               "headers": {
                 "schemaFormat": "application/vnd.aai.asyncapi+json;version=3.0.0",
                 "schema": {
@@ -3401,7 +3381,6 @@
           ]
         },
         "message with reference": {
-          "messageId": "userSignup",
           "headers": {
             "$ref": "#/components/messages/message-header"
           },
@@ -3543,7 +3522,6 @@
           ],
           "traits": [
             {
-              "messageId": "userSignup",
               "headers": {
                 "type": "object",
                 "properties": {
@@ -3693,7 +3671,6 @@
               ]
             },
             {
-              "messageId": "userSignup",
               "headers": {
                 "$ref": "#/components/messages/message-header"
               },
@@ -3832,7 +3809,6 @@
               ]
             },
             {
-              "messageId": "userSignup",
               "headers": {
                 "schemaFormat": "application/vnd.aai.asyncapi+json;version=3.0.0",
                 "schema": {
@@ -5358,7 +5334,6 @@
   },
   "messages": {
     "message 1": {
-      "messageId": "userSignup",
       "headers": {
         "type": "object",
         "properties": {
@@ -5517,7 +5492,6 @@
       ],
       "traits": [
         {
-          "messageId": "userSignup",
           "headers": {
             "type": "object",
             "properties": {
@@ -5667,7 +5641,6 @@
           ]
         },
         {
-          "messageId": "userSignup",
           "headers": {
             "$ref": "#/components/messages/message-header"
           },
@@ -5806,7 +5779,6 @@
           ]
         },
         {
-          "messageId": "userSignup",
           "headers": {
             "schemaFormat": "application/vnd.aai.asyncapi+json;version=3.0.0",
             "schema": {
@@ -5960,7 +5932,6 @@
       ]
     },
     "message 2": {
-      "messageId": "userSignup",
       "headers": {
         "schemaFormat": "application/vnd.aai.asyncapi+json;version=3.0.0",
         "schema": {
@@ -6124,7 +6095,6 @@
       ],
       "traits": [
         {
-          "messageId": "userSignup",
           "headers": {
             "type": "object",
             "properties": {
@@ -6274,7 +6244,6 @@
           ]
         },
         {
-          "messageId": "userSignup",
           "headers": {
             "$ref": "#/components/messages/message-header"
           },
@@ -6413,7 +6382,6 @@
           ]
         },
         {
-          "messageId": "userSignup",
           "headers": {
             "schemaFormat": "application/vnd.aai.asyncapi+json;version=3.0.0",
             "schema": {
@@ -6567,7 +6535,6 @@
       ]
     },
     "message 3": {
-      "messageId": "userSignup",
       "headers": {
         "$ref": "#/components/messages/message-header"
       },
@@ -6709,7 +6676,6 @@
       ],
       "traits": [
         {
-          "messageId": "userSignup",
           "headers": {
             "type": "object",
             "properties": {
@@ -6859,7 +6825,6 @@
           ]
         },
         {
-          "messageId": "userSignup",
           "headers": {
             "$ref": "#/components/messages/message-header"
           },
@@ -6998,7 +6963,6 @@
           ]
         },
         {
-          "messageId": "userSignup",
           "headers": {
             "schemaFormat": "application/vnd.aai.asyncapi+json;version=3.0.0",
             "schema": {
@@ -7662,7 +7626,6 @@
   },
   "messageTraits": {
     "messageTrait 1": {
-      "messageId": "userSignup",
       "headers": {
         "type": "object",
         "properties": {
@@ -7812,7 +7775,6 @@
       ]
     },
     "messageTrait 2": {
-      "messageId": "userSignup",
       "headers": {
         "schemaFormat": "application/vnd.aai.asyncapi+json;version=3.0.0",
         "schema": {
@@ -7964,7 +7926,6 @@
       ]
     },
     "messageTrait 3": {
-      "messageId": "userSignup",
       "headers": {
         "$ref": "#/components/messages/message-header"
       },

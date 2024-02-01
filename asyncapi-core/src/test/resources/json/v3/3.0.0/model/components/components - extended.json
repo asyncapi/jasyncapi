@@ -171,7 +171,6 @@
           "$ref" : "#/components/parameters/user-status"
         },
         "message" : {
-          "messageId" : "userSignup",
           "headers" : {
             "type" : "object",
             "properties" : {
@@ -314,7 +313,6 @@
             "summary" : "A simple UserSignup example message"
           } ],
           "traits" : [ {
-            "messageId" : "userSignup",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -459,7 +457,6 @@
               "url" : "messages/sign-up-rules"
             }
           }, {
-            "messageId" : "userSignup",
             "headers" : {
               "$ref" : "#/components/messages/message-header"
             },
@@ -594,7 +591,6 @@
               "$ref" : "#/components/externalDocs/external-doc"
             }
           }, {
-            "messageId" : "userSignup",
             "headers" : {
               "schemaFormat" : "application/vnd.aai.asyncapi+json;version=3.0.0",
               "schema" : {
@@ -755,7 +751,6 @@
           }
         },
         "message 2" : {
-          "messageId" : "userSignup",
           "headers" : {
             "schemaFormat" : "application/vnd.aai.asyncapi+json;version=3.0.0",
             "schema" : {
@@ -903,7 +898,6 @@
             "summary" : "A simple UserSignup example message"
           } ],
           "traits" : [ {
-            "messageId" : "userSignup",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -1048,7 +1042,6 @@
               "url" : "messages/sign-up-rules"
             }
           }, {
-            "messageId" : "userSignup",
             "headers" : {
               "$ref" : "#/components/messages/message-header"
             },
@@ -1183,7 +1176,6 @@
               "$ref" : "#/components/externalDocs/external-doc"
             }
           }, {
-            "messageId" : "userSignup",
             "headers" : {
               "schemaFormat" : "application/vnd.aai.asyncapi+json;version=3.0.0",
               "schema" : {
@@ -1345,7 +1337,6 @@
           }
         },
         "message with reference" : {
-          "messageId" : "userSignup",
           "headers" : {
             "$ref" : "#/components/messages/message-header"
           },
@@ -1471,7 +1462,6 @@
             "summary" : "A simple UserSignup example message"
           } ],
           "traits" : [ {
-            "messageId" : "userSignup",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -1616,7 +1606,6 @@
               "url" : "messages/sign-up-rules"
             }
           }, {
-            "messageId" : "userSignup",
             "headers" : {
               "$ref" : "#/components/messages/message-header"
             },
@@ -1751,7 +1740,6 @@
               "$ref" : "#/components/externalDocs/external-doc"
             }
           }, {
-            "messageId" : "userSignup",
             "headers" : {
               "schemaFormat" : "application/vnd.aai.asyncapi+json;version=3.0.0",
               "schema" : {
@@ -2100,7 +2088,6 @@
           "$ref" : "#/components/parameters/user-status"
         },
         "message" : {
-          "messageId" : "userSignup",
           "headers" : {
             "type" : "object",
             "properties" : {
@@ -2243,7 +2230,6 @@
             "summary" : "A simple UserSignup example message"
           } ],
           "traits" : [ {
-            "messageId" : "userSignup",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -2388,7 +2374,6 @@
               "url" : "messages/sign-up-rules"
             }
           }, {
-            "messageId" : "userSignup",
             "headers" : {
               "$ref" : "#/components/messages/message-header"
             },
@@ -2523,7 +2508,6 @@
               "$ref" : "#/components/externalDocs/external-doc"
             }
           }, {
-            "messageId" : "userSignup",
             "headers" : {
               "schemaFormat" : "application/vnd.aai.asyncapi+json;version=3.0.0",
               "schema" : {
@@ -2684,7 +2668,6 @@
           }
         },
         "message 2" : {
-          "messageId" : "userSignup",
           "headers" : {
             "schemaFormat" : "application/vnd.aai.asyncapi+json;version=3.0.0",
             "schema" : {
@@ -2832,7 +2815,6 @@
             "summary" : "A simple UserSignup example message"
           } ],
           "traits" : [ {
-            "messageId" : "userSignup",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -2977,7 +2959,6 @@
               "url" : "messages/sign-up-rules"
             }
           }, {
-            "messageId" : "userSignup",
             "headers" : {
               "$ref" : "#/components/messages/message-header"
             },
@@ -3112,7 +3093,6 @@
               "$ref" : "#/components/externalDocs/external-doc"
             }
           }, {
-            "messageId" : "userSignup",
             "headers" : {
               "schemaFormat" : "application/vnd.aai.asyncapi+json;version=3.0.0",
               "schema" : {
@@ -3274,7 +3254,6 @@
           }
         },
         "message with reference" : {
-          "messageId" : "userSignup",
           "headers" : {
             "$ref" : "#/components/messages/message-header"
           },
@@ -3400,7 +3379,6 @@
             "summary" : "A simple UserSignup example message"
           } ],
           "traits" : [ {
-            "messageId" : "userSignup",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -3545,7 +3523,6 @@
               "url" : "messages/sign-up-rules"
             }
           }, {
-            "messageId" : "userSignup",
             "headers" : {
               "$ref" : "#/components/messages/message-header"
             },
@@ -3680,7 +3657,6 @@
               "$ref" : "#/components/externalDocs/external-doc"
             }
           }, {
-            "messageId" : "userSignup",
             "headers" : {
               "schemaFormat" : "application/vnd.aai.asyncapi+json;version=3.0.0",
               "schema" : {
@@ -5007,7 +4983,6 @@
   },
   "messages" : {
     "message 1" : {
-      "messageId" : "userSignup",
       "headers" : {
         "type" : "object",
         "properties" : {
@@ -5150,7 +5125,6 @@
         "summary" : "A simple UserSignup example message"
       } ],
       "traits" : [ {
-        "messageId" : "userSignup",
         "headers" : {
           "type" : "object",
           "properties" : {
@@ -5295,7 +5269,6 @@
           "url" : "messages/sign-up-rules"
         }
       }, {
-        "messageId" : "userSignup",
         "headers" : {
           "$ref" : "#/components/messages/message-header"
         },
@@ -5430,7 +5403,6 @@
           "$ref" : "#/components/externalDocs/external-doc"
         }
       }, {
-        "messageId" : "userSignup",
         "headers" : {
           "schemaFormat" : "application/vnd.aai.asyncapi+json;version=3.0.0",
           "schema" : {
@@ -5591,7 +5563,6 @@
       }
     },
     "message 2" : {
-      "messageId" : "userSignup",
       "headers" : {
         "schemaFormat" : "application/vnd.aai.asyncapi+json;version=3.0.0",
         "schema" : {
@@ -5739,7 +5710,6 @@
         "summary" : "A simple UserSignup example message"
       } ],
       "traits" : [ {
-        "messageId" : "userSignup",
         "headers" : {
           "type" : "object",
           "properties" : {
@@ -5884,7 +5854,6 @@
           "url" : "messages/sign-up-rules"
         }
       }, {
-        "messageId" : "userSignup",
         "headers" : {
           "$ref" : "#/components/messages/message-header"
         },
@@ -6019,7 +5988,6 @@
           "$ref" : "#/components/externalDocs/external-doc"
         }
       }, {
-        "messageId" : "userSignup",
         "headers" : {
           "schemaFormat" : "application/vnd.aai.asyncapi+json;version=3.0.0",
           "schema" : {
@@ -6181,7 +6149,6 @@
       }
     },
     "message 3" : {
-      "messageId" : "userSignup",
       "headers" : {
         "$ref" : "#/components/messages/message-header"
       },
@@ -6307,7 +6274,6 @@
         "summary" : "A simple UserSignup example message"
       } ],
       "traits" : [ {
-        "messageId" : "userSignup",
         "headers" : {
           "type" : "object",
           "properties" : {
@@ -6452,7 +6418,6 @@
           "url" : "messages/sign-up-rules"
         }
       }, {
-        "messageId" : "userSignup",
         "headers" : {
           "$ref" : "#/components/messages/message-header"
         },
@@ -6587,7 +6552,6 @@
           "$ref" : "#/components/externalDocs/external-doc"
         }
       }, {
-        "messageId" : "userSignup",
         "headers" : {
           "schemaFormat" : "application/vnd.aai.asyncapi+json;version=3.0.0",
           "schema" : {
@@ -7188,7 +7152,6 @@
   },
   "messageTraits" : {
     "messageTrait 1" : {
-      "messageId" : "userSignup",
       "headers" : {
         "type" : "object",
         "properties" : {
@@ -7334,7 +7297,6 @@
       }
     },
     "messageTrait 2" : {
-      "messageId" : "userSignup",
       "headers" : {
         "schemaFormat" : "application/vnd.aai.asyncapi+json;version=3.0.0",
         "schema" : {
@@ -7483,7 +7445,6 @@
       }
     },
     "messageTrait 3" : {
-      "messageId" : "userSignup",
       "headers" : {
         "$ref" : "#/components/messages/message-header"
       },

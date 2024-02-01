@@ -26,7 +26,6 @@ class MessageTestWithSchema: SerDeTest<Message>() {
 
     override fun build(): Message {
         return Message.builder()
-                .messageId("userSignup")
                 .headers(Schema.builder()
                         .type("object")
                         .properties(mapOf(
@@ -122,7 +121,6 @@ class MessageTestWithReference: SerDeTest<Message>() {
 
     override fun build(): Message {
         return Message.builder()
-                .messageId("userSignup")
                 .headers(Reference("#/components/messages/message-header"))
                 .payload(Reference("#/components/messages/message-payload"))
                 .correlationId(Reference("#/components/messages/message-correlation-id"))
@@ -182,7 +180,6 @@ class MessageTestWithMultiFormatSchema: SerDeTest<Message>() {
 
     override fun build(): Message {
         return Message.builder()
-                .messageId("userSignup")
                 .headers(MultiFormatSchema.builder()
                         .schemaFormat("application/vnd.aai.asyncapi+json;version=3.0.0")
                         .schema(linkedMapOf(

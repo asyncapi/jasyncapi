@@ -1,5 +1,4 @@
 {
-  "messageId" : "userSignup",
   "headers" : {
     "$ref" : "#/components/messages/message-header"
   },
@@ -125,7 +124,6 @@
     "summary" : "A simple UserSignup example message"
   } ],
   "traits" : [ {
-    "messageId" : "userSignup",
     "headers" : {
       "type" : "object",
       "properties" : {
@@ -270,7 +268,6 @@
       "url" : "messages/sign-up-rules"
     }
   }, {
-    "messageId" : "userSignup",
     "headers" : {
       "$ref" : "#/components/messages/message-header"
     },
@@ -405,7 +402,6 @@
       "$ref" : "#/components/externalDocs/external-doc"
     }
   }, {
-    "messageId" : "userSignup",
     "headers" : {
       "schemaFormat" : "application/vnd.aai.asyncapi+json;version=3.0.0",
       "schema" : {

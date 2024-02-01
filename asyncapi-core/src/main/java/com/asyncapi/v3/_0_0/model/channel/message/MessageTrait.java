@@ -8,10 +8,7 @@ import com.asyncapi.v3._0_0.jackson.model.channel.message.MessageCorrelationIdDe
 import com.asyncapi.v3._0_0.jackson.model.channel.message.MessageHeadersDeserializer;
 import com.asyncapi.v3._0_0.model.ExternalDocumentation;
 import com.asyncapi.v3._0_0.model.Tag;
-import com.asyncapi.v3.binding.message.MessageBinding;
 import com.asyncapi.v3.jackson.binding.message.MessageBindingsDeserializer;
-import com.asyncapi.v3.schema.MultiFormatSchema;
-import com.asyncapi.v3.schema.Schema;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.*;
 import org.jetbrains.annotations.Nullable;
@@ -20,11 +17,13 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Describes a message received on a given channel and operation.
+ * Describes a trait that MAY be applied to a {@link Message}.
+ * <p>
+ * This object MAY contain any property from the {@link Message}, except {@link Message#getPayload()} and {@link Message#getTraits()}.
  *
- * @version 3.0.0
- * @see <a href="https://www.asyncapi.com/docs/reference/specification/v2.6.0#messageObject">Message</a>
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#messageTraitObject">Message Trait</a>
  * @author Pavel Bodiachevskii
+ * @version 3.0.0
  */
 @Data
 @Builder
@@ -34,31 +33,21 @@ import java.util.Map;
 public class MessageTrait extends ExtendableObject {
 
     /**
-     * Unique string used to identify the message.
-     * <p>
-     * The id MUST be unique among all messages described in the API. The messageId value is case-sensitive.
-     * Tools and libraries MAY use the messageId to uniquely identify a message, therefore, it is RECOMMENDED to
-     * follow common programming naming conventions.
-     */
-    @Nullable
-    private String messageId;
-
-    /**
      * Schema definition of the application headers.
      * <p>
      * Schema MUST be a map of key-value pairs.
      * <p>
      * It MUST NOT define the protocol headers.
      * <p>
-     * If this is a Schema Object, then the schemaFormat will be assumed to
+     * If this is a {@link com.asyncapi.v3.schema.Schema}, then the schemaFormat will be assumed to
      * be "application/vnd.aai.asyncapi+json;version=asyncapi" where the version
      * is equal to the AsyncAPI Version String.
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link Reference}</li>
-     *     <li>{@link Schema}</li>
-     *     <li>{@link MultiFormatSchema}</li>
+     *     <li>{@link com.asyncapi.v3.schema.Schema}</li>
+     *     <li>{@link com.asyncapi.v3.schema.MultiFormatSchema}</li>
+     *     <li>{@link com.asyncapi.v3.Reference}</li>
      * </ul>
      */
     @Nullable
@@ -70,16 +59,19 @@ public class MessageTrait extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link Reference}</li>
      *     <li>{@link CorrelationId}</li>
+     *     <li>{@link com.asyncapi.v3.Reference}</li>
      * </ul>
      */
     @JsonDeserialize(using = MessageCorrelationIdDeserializer.class)
     private Object correlationId;
 
     /**
-     * The content type to use when encoding/decoding a message's payload. The value MUST be a specific media type
-     * (e.g. application/json). When omitted, the value MUST be the one specified on the defaultContentType field.
+     * The content type to use when encoding/decoding a message's payload.
+     * <p>
+     * The value MUST be a specific media type (e.g. application/json).
+     * <p>
+     * When omitted, the value MUST be the one specified on the {@link com.asyncapi.v3._0_0.model.AsyncAPI#getDefaultContentType()} field.
      */
     @Nullable
     private String contentType;
@@ -103,7 +95,7 @@ public class MessageTrait extends ExtendableObject {
     private String summary;
 
     /**
-     * A verbose explanation of the message. CommonMark syntax can be used for rich text representation.
+     * A verbose explanation of the message. <a href="https://spec.commonmark.org/">CommonMark syntax</a> can be used for rich text representation.
      */
     @Nullable
     private String description;
@@ -113,8 +105,8 @@ public class MessageTrait extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link Reference}</li>
-     *     <li>{@link MessageBinding}</li>
+     *     <li>{@link com.asyncapi.v3.binding.message.MessageBinding}</li>
+     *     <li>{@link com.asyncapi.v3.Reference}</li>
      * </ul>
      */
     @Nullable
@@ -132,8 +124,8 @@ public class MessageTrait extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link Reference}</li>
      *     <li>{@link Tag}</li>
+     *     <li>{@link com.asyncapi.v3.Reference}</li>
      * </ul>
      */
     @Nullable
@@ -141,12 +133,12 @@ public class MessageTrait extends ExtendableObject {
     private List<Object> tags;
 
     /**
-     * Additional external documentation for this channel.
+     * Additional external documentation for this message.
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link Reference}</li>
      *     <li>{@link ExternalDocumentation}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @Nullable

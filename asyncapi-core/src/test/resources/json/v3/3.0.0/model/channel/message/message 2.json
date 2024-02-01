@@ -1,5 +1,4 @@
 {
-  "messageId": "userSignup",
   "headers": {
     "schemaFormat": "application/vnd.aai.asyncapi+json;version=3.0.0",
     "schema": {
@@ -163,7 +162,6 @@
   ],
   "traits": [
     {
-      "messageId": "userSignup",
       "headers": {
         "type": "object",
         "properties": {
@@ -313,7 +311,6 @@
       ]
     },
     {
-      "messageId": "userSignup",
       "headers": {
         "$ref": "#/components/messages/message-header"
       },
@@ -452,7 +449,6 @@
       ]
     },
     {
-      "messageId": "userSignup",
       "headers": {
         "schemaFormat": "application/vnd.aai.asyncapi+json;version=3.0.0",
         "schema": {

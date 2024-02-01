@@ -1,5 +1,4 @@
 {
-  "messageId" : "userSignup",
   "headers": {
     "schemaFormat" : "application/vnd.aai.asyncapi+json;version=3.0.0",
     "schema" : {

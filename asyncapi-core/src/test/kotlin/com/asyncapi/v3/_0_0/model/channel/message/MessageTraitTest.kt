@@ -26,7 +26,6 @@ class MessageTraitTestWithSchema: SerDeTest<MessageTrait>() {
 
     override fun build(): MessageTrait {
         return MessageTrait.builder()
-                .messageId("userSignup")
                 .headers(Schema.builder()
                         .type("object")
                         .properties(mapOf(
@@ -98,7 +97,6 @@ class MessageTraitTestWithReference: SerDeTest<MessageTrait>() {
 
     override fun build(): MessageTrait {
         return MessageTrait.builder()
-                .messageId("userSignup")
                 .headers(Reference("#/components/messages/message-header"))
                 .correlationId(Reference("#/components/messages/message-correlation-id"))
                 .contentType("application/json")
@@ -152,7 +150,6 @@ class MessageTraitTestWithMultiFormatSchema: SerDeTest<MessageTrait>() {
 
     override fun build(): MessageTrait {
         return MessageTrait.builder()
-                .messageId("userSignup")
                 .headers(MultiFormatSchema.builder()
                         .schemaFormat("application/vnd.aai.asyncapi+json;version=3.0.0")
                         .schema(linkedMapOf(

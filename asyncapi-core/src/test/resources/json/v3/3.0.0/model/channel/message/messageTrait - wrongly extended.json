@@ -1,5 +1,4 @@
 {
-  "messageId": "userSignup",
   "headers": {
     "type": "object",
     "properties": {
