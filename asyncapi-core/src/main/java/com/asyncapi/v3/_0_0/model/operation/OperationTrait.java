@@ -20,12 +20,12 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Describes a trait that MAY be applied to an Operation Object. This object MAY contain any property from the
- * Operation Object, except the action, channel and traits ones.
+ * Describes a trait that MAY be applied to an {@link Operation}. This object MAY contain any property from the
+ * {@link Operation}, except the action, channel and traits ones.
  *
- * @version 3.0.0
- * @see <a href="https://www.asyncapi.com/docs/reference/specification/v2.6.0#operationObject">Operation</a>
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#operationObject">Operation</a>
  * @author Pavel Bodiachevskii
+ * @version 3.0.0
  */
 @Data
 @Builder
@@ -47,20 +47,22 @@ public class OperationTrait extends ExtendableObject {
     private String summary;
 
     /**
-     * A verbose explanation of the operation. CommonMark syntax can be used for rich text representation.
+     * A verbose explanation of the operation. <a href="https://spec.commonmark.org/">CommonMark syntax</a> can be used for rich text representation.
      */
     @Nullable
     private String description;
 
     /**
      * A declaration of which security schemes are associated with this operation.
-     * Only one of the security scheme objects MUST be satisfied to authorize an operation.
+     * <p>
+     * Only one of the {@link SecurityScheme} objects MUST be satisfied to authorize an operation.
+     * <p>
      * In cases where Server Security also applies, it MUST also be satisfied.
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link Reference}</li>
      *     <li>{@link SecurityScheme}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @Nullable
@@ -72,8 +74,8 @@ public class OperationTrait extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link Reference}</li>
      *     <li>{@link Tag}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @Nullable
@@ -85,8 +87,8 @@ public class OperationTrait extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link Reference}</li>
      *     <li>{@link ExternalDocumentation}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @Nullable
@@ -98,36 +100,12 @@ public class OperationTrait extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link Reference}</li>
      *     <li>{@link OperationBinding}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @Nullable
     @JsonDeserialize(using = OperationBindingsDeserializer.class)
     private Map<String, Object> bindings;
-
-    /**
-     * A list of $ref pointers pointing to the supported Message Objects that can be processed by this operation.
-     * It MUST contain a subset of the messages defined in the channel referenced in this operation.
-     * Every message processed by this operation MUST be valid against one, and only one, of the message objects
-     * referenced in this list. Please note the messages property value MUST be a list of Reference Objects and,
-     * therefore, MUST NOT contain Message Objects. However, it is RECOMMENDED that parsers (or other software)
-     * dereference this property for a better development experience.
-     */
-    @Nullable
-    private List<Reference> messages;
-
-    /**
-     * The definition of the reply in a request-reply operation.
-     * <p>
-     * MUST BE:
-     * <ul>
-     *     <li>{@link Reference}</li>
-     *     <li>{@link OperationReply}</li>
-     * </ul>
-     */
-    @Nullable
-    @JsonDeserialize(using = OperationReplyDeserializer.class)
-    private Object reply;
 
 }

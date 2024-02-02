@@ -4347,29 +4347,6 @@
           "ws" : {
             "$ref" : "#/components/operationBindings/ws"
           }
-        },
-        "messages" : [ {
-          "$ref" : "#/components/messages/message 1"
-        }, {
-          "$ref" : "#/components/messages/message 2"
-        }, {
-          "$ref" : "#/components/messages/message 3"
-        } ],
-        "reply" : {
-          "address" : {
-            "description" : "Consumer inbox",
-            "location" : "$message.header#/replyTo"
-          },
-          "channel" : {
-            "$ref" : "#/components/channels/channel"
-          },
-          "messages" : [ {
-            "$ref" : "#/components/messages/message 1"
-          }, {
-            "$ref" : "#/components/messages/message 2"
-          }, {
-            "$ref" : "#/components/messages/message 3"
-          } ]
         }
       }, {
         "title" : "Send message operation",
@@ -4509,16 +4486,6 @@
           "ws" : {
             "$ref" : "#/components/operationBindings/ws"
           }
-        },
-        "messages" : [ {
-          "$ref" : "#/components/messages/message 1"
-        }, {
-          "$ref" : "#/components/messages/message 2"
-        }, {
-          "$ref" : "#/components/messages/message 3"
-        } ],
-        "reply" : {
-          "$ref" : "#/components/replies/reply"
         }
       }, {
         "$ref" : "#/components/operations/trait"
@@ -4829,29 +4796,6 @@
           "ws" : {
             "$ref" : "#/components/operationBindings/ws"
           }
-        },
-        "messages" : [ {
-          "$ref" : "#/components/messages/message 1"
-        }, {
-          "$ref" : "#/components/messages/message 2"
-        }, {
-          "$ref" : "#/components/messages/message 3"
-        } ],
-        "reply" : {
-          "address" : {
-            "description" : "Consumer inbox",
-            "location" : "$message.header#/replyTo"
-          },
-          "channel" : {
-            "$ref" : "#/components/channels/channel"
-          },
-          "messages" : [ {
-            "$ref" : "#/components/messages/message 1"
-          }, {
-            "$ref" : "#/components/messages/message 2"
-          }, {
-            "$ref" : "#/components/messages/message 3"
-          } ]
         }
       }, {
         "title" : "Send message operation",
@@ -4991,16 +4935,6 @@
           "ws" : {
             "$ref" : "#/components/operationBindings/ws"
           }
-        },
-        "messages" : [ {
-          "$ref" : "#/components/messages/message 1"
-        }, {
-          "$ref" : "#/components/messages/message 2"
-        }, {
-          "$ref" : "#/components/messages/message 3"
-        } ],
-        "reply" : {
-          "$ref" : "#/components/replies/reply"
         }
       }, {
         "$ref" : "#/components/operations/trait"
@@ -9285,29 +9219,6 @@
             "ws" : {
               "$ref" : "#/components/operationBindings/ws"
             }
-          },
-          "messages" : [ {
-            "$ref" : "#/components/messages/message 1"
-          }, {
-            "$ref" : "#/components/messages/message 2"
-          }, {
-            "$ref" : "#/components/messages/message 3"
-          } ],
-          "reply" : {
-            "address" : {
-              "description" : "Consumer inbox",
-              "location" : "$message.header#/replyTo"
-            },
-            "channel" : {
-              "$ref" : "#/components/channels/channel"
-            },
-            "messages" : [ {
-              "$ref" : "#/components/messages/message 1"
-            }, {
-              "$ref" : "#/components/messages/message 2"
-            }, {
-              "$ref" : "#/components/messages/message 3"
-            } ]
           }
         }, {
           "title" : "Send message operation",
@@ -9447,16 +9358,6 @@
             "ws" : {
               "$ref" : "#/components/operationBindings/ws"
             }
-          },
-          "messages" : [ {
-            "$ref" : "#/components/messages/message 1"
-          }, {
-            "$ref" : "#/components/messages/message 2"
-          }, {
-            "$ref" : "#/components/messages/message 3"
-          } ],
-          "reply" : {
-            "$ref" : "#/components/replies/reply"
           }
         }, {
           "$ref" : "#/components/operations/trait"
@@ -9767,29 +9668,6 @@
             "ws" : {
               "$ref" : "#/components/operationBindings/ws"
             }
-          },
-          "messages" : [ {
-            "$ref" : "#/components/messages/message 1"
-          }, {
-            "$ref" : "#/components/messages/message 2"
-          }, {
-            "$ref" : "#/components/messages/message 3"
-          } ],
-          "reply" : {
-            "address" : {
-              "description" : "Consumer inbox",
-              "location" : "$message.header#/replyTo"
-            },
-            "channel" : {
-              "$ref" : "#/components/channels/channel"
-            },
-            "messages" : [ {
-              "$ref" : "#/components/messages/message 1"
-            }, {
-              "$ref" : "#/components/messages/message 2"
-            }, {
-              "$ref" : "#/components/messages/message 3"
-            } ]
           }
         }, {
           "title" : "Send message operation",
@@ -9929,16 +9807,6 @@
             "ws" : {
               "$ref" : "#/components/operationBindings/ws"
             }
-          },
-          "messages" : [ {
-            "$ref" : "#/components/messages/message 1"
-          }, {
-            "$ref" : "#/components/messages/message 2"
-          }, {
-            "$ref" : "#/components/messages/message 3"
-          } ],
-          "reply" : {
-            "$ref" : "#/components/replies/reply"
           }
         }, {
           "$ref" : "#/components/operations/trait"
@@ -11993,29 +11861,6 @@
           "ws" : {
             "$ref" : "#/components/operationBindings/ws"
           }
-        },
-        "messages" : [ {
-          "$ref" : "#/components/messages/message 1"
-        }, {
-          "$ref" : "#/components/messages/message 2"
-        }, {
-          "$ref" : "#/components/messages/message 3"
-        } ],
-        "reply" : {
-          "address" : {
-            "description" : "Consumer inbox",
-            "location" : "$message.header#/replyTo"
-          },
-          "channel" : {
-            "$ref" : "#/components/channels/channel"
-          },
-          "messages" : [ {
-            "$ref" : "#/components/messages/message 1"
-          }, {
-            "$ref" : "#/components/messages/message 2"
-          }, {
-            "$ref" : "#/components/messages/message 3"
-          } ]
         }
       },
       "operationTrait 2" : {
@@ -12156,16 +12001,6 @@
           "ws" : {
             "$ref" : "#/components/operationBindings/ws"
           }
-        },
-        "messages" : [ {
-          "$ref" : "#/components/messages/message 1"
-        }, {
-          "$ref" : "#/components/messages/message 2"
-        }, {
-          "$ref" : "#/components/messages/message 3"
-        } ],
-        "reply" : {
-          "$ref" : "#/components/replies/reply"
         }
       },
       "operationTrait 3" : {

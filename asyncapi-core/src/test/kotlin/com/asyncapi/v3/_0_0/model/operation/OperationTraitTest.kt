@@ -64,12 +64,6 @@ class OperationTraitTest: SerDeTest<OperationTrait>() {
                         Pair("stomp", Reference("#/components/operationBindings/stomp")),
                         Pair("ws", Reference("#/components/operationBindings/ws"))
                 ))
-                .messages(listOf(
-                        Reference("#/components/messages/message 1"),
-                        Reference("#/components/messages/message 2"),
-                        Reference("#/components/messages/message 3"),
-                ))
-                .reply(OperationReplyTest().build())
                 .build()
     }
 
@@ -122,12 +116,6 @@ class OperationTraitTestWithReference: SerDeTest<OperationTrait>() {
                         Pair("stomp", Reference("#/components/operationBindings/stomp")),
                         Pair("ws", Reference("#/components/operationBindings/ws"))
                 ))
-                .messages(listOf(
-                        Reference("#/components/messages/message 1"),
-                        Reference("#/components/messages/message 2"),
-                        Reference("#/components/messages/message 3"),
-                ))
-                .reply(Reference("#/components/replies/reply"))
                 .build()
     }
 

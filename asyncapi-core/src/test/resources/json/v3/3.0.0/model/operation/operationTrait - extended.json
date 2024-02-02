@@ -138,29 +138,6 @@
       "$ref" : "#/components/operationBindings/ws"
     }
   },
-  "messages" : [ {
-    "$ref" : "#/components/messages/message 1"
-  }, {
-    "$ref" : "#/components/messages/message 2"
-  }, {
-    "$ref" : "#/components/messages/message 3"
-  } ],
-  "reply" : {
-    "address" : {
-      "description" : "Consumer inbox",
-      "location" : "$message.header#/replyTo"
-    },
-    "channel" : {
-      "$ref" : "#/components/channels/channel"
-    },
-    "messages" : [ {
-      "$ref" : "#/components/messages/message 1"
-    }, {
-      "$ref" : "#/components/messages/message 2"
-    }, {
-      "$ref" : "#/components/messages/message 3"
-    } ]
-  },
   "x-number" : 0,
   "x-string" : "",
   "x-object" : {
