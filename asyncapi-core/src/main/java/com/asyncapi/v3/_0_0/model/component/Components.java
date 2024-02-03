@@ -38,8 +38,9 @@ import java.util.Map;
  * All objects defined within the components object will have no effect on the API unless they are explicitly referenced
  * from properties outside the components object.
  *
- * @version 3.0.0
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#componentsObject">Components Object</a>
  * @author Pavel Bodiachevskii
+ * @version 3.0.0
  */
 @Data
 @Builder
@@ -49,7 +50,10 @@ import java.util.Map;
 public class Components extends ExtendableObject {
 
     /**
-     * An object to hold reusable {@link }Schema Objects.
+     * An object to hold reusable Schema Object.
+     * <p>
+     * If this is a {@link Schema}, then the schemaFormat will be assumed to be "application/vnd.aai.asyncapi+json;version=asyncapi"
+     * where the version is equal to the AsyncAPI Version String.
      * <p>
      * MUST BE:
      * <ul>
@@ -171,8 +175,8 @@ public class Components extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
+     *      <li>{@link Parameter}</li>
      *     <li>{@link Reference}</li>
-     *     <li>{@link Parameter}</li>
      * </ul>
      */
     @Nullable
@@ -184,8 +188,8 @@ public class Components extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link Reference}</li>
      *     <li>{@link CorrelationId}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @Nullable
@@ -197,8 +201,8 @@ public class Components extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link Reference}</li>
      *     <li>{@link OperationTrait}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @Nullable
@@ -210,8 +214,8 @@ public class Components extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link Reference}</li>
      *     <li>{@link MessageTrait}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @Nullable
@@ -222,8 +226,8 @@ public class Components extends ExtendableObject {
      * An object to hold reusable {@link ServerBinding} Objects.
      * MUST BE:
      * <ul>
-     *     <li>{@link Reference}</li>
      *     <li>{@link ServerBinding}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @Nullable
@@ -234,8 +238,8 @@ public class Components extends ExtendableObject {
      * An object to hold reusable {@link ChannelBinding} Objects.
      * MUST BE:
      * <ul>
-     *     <li>{@link Reference}</li>
      *     <li>{@link ChannelBinding}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @Nullable
@@ -246,8 +250,8 @@ public class Components extends ExtendableObject {
      * An object to hold reusable {@link OperationBinding} Objects.
      * MUST BE:
      * <ul>
-     *     <li>{@link Reference}</li>
      *     <li>{@link OperationBinding}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @Nullable
@@ -258,8 +262,8 @@ public class Components extends ExtendableObject {
      * An object to hold reusable {@link MessageBinding} Objects.
      * MUST BE:
      * <ul>
-     *     <li>{@link Reference}</li>
      *     <li>{@link MessageBinding}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @Nullable
@@ -270,8 +274,8 @@ public class Components extends ExtendableObject {
      * An object to hold reusable {@link ExternalDocumentation} Objects.
      * MUST BE:
      * <ul>
-     *     <li>{@link Reference}</li>
      *     <li>{@link ExternalDocumentation}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @Nullable
@@ -282,8 +286,8 @@ public class Components extends ExtendableObject {
      * An object to hold reusable {@link Tag} Objects.
      * MUST BE:
      * <ul>
-     *     <li>{@link Reference}</li>
      *     <li>{@link Tag}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @Nullable
