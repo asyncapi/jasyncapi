@@ -6,9 +6,11 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * @version 3.0.0
- * @see <a href="https://www.asyncapi.com/docs/reference/specification/v2.6.0#securitySchemeObject">SecurityScheme</a>
+ * HTTP Security Scheme
+ *
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#securitySchemeObject">SecurityScheme</a>
  * @author Pavel Bodiachevskii
+ * @version 3.0.0
  */
 @Data
 @NoArgsConstructor
@@ -17,7 +19,7 @@ import org.jetbrains.annotations.Nullable;
 public class HttpSecurityScheme extends SecurityScheme {
 
     /**
-     * REQUIRED.
+     * <b>REQUIRED</b>.
      * <p>
      * The name of the HTTP Authorization scheme to be used in the <a href="https://tools.ietf.org/html/rfc7235#section-5.1">Authorization header as defined in RFC7235</a>.
      */
