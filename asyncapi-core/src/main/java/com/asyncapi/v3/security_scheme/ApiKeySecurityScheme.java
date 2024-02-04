@@ -6,9 +6,11 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * @version 2.6.0
- * @see <a href="https://www.asyncapi.com/docs/reference/specification/v2.6.0#securitySchemeObject">SecurityScheme</a>
+ * API Key Security Scheme
+ *
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#securitySchemeObject">SecurityScheme</a>
  * @author Pavel Bodiachevskii
+ * @version 3.0.0
  */
 @Data
 @NoArgsConstructor
@@ -17,7 +19,7 @@ import org.jetbrains.annotations.Nullable;
 public class ApiKeySecurityScheme extends SecurityScheme {
 
     /**
-     * REQUIRED.
+     * <b>REQUIRED</b>.
      * <p>
      * The location of the API key.
      */
