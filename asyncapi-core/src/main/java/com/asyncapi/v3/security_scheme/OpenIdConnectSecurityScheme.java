@@ -7,9 +7,11 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 /**
- * @version 2.6.0
- * @see <a href="https://www.asyncapi.com/docs/reference/specification/v2.6.0#securitySchemeObject">SecurityScheme</a>
+ * OpenID Connect Security Scheme
+ *
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#securitySchemeObject">SecurityScheme</a>
  * @author Pavel Bodiachevskii
+ * @version 3.0.0
  */
 @Data
 @NoArgsConstructor
@@ -18,15 +20,15 @@ import java.util.List;
 public class OpenIdConnectSecurityScheme extends SecurityScheme {
 
     /**
-     * REQUIRED.
+     * <b>REQUIRED</b>.
      * <p>
-     * OpenId Connect URL to discover OAuth2 configuration values. This MUST be in the form of a URL.
+     * OpenId Connect URL to discover OAuth2 configuration values. This MUST be in the form of an absolute URL.
      */
     @NotNull
     private String openIdConnectUrl = "";
 
     /**
-     * List of the needed scope names.
+     * List of the needed scope names. An empty array means no scopes are needed.
      */
     @Nullable
     private List<String> scopes;
