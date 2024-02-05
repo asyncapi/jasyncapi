@@ -16,7 +16,7 @@ class ClientCredentialsOAuthFlowTest: SerDeTest<ClientCredentialsOAuthFlow>() {
         return ClientCredentialsOAuthFlow.clientCredentialsBuilder()
                 .tokenUrl("https://example.com/api/oauth/token")
                 .refreshUrl("https://example.com/api/oauth/refresh")
-                .scopes(mapOf(
+                .availableScopes(mapOf(
                         Pair("write:pets", "modify pets in your account"),
                         Pair("read:pets", "read your pets")
                 ))

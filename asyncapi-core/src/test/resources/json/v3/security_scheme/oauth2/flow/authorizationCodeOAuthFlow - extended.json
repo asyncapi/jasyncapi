@@ -1,6 +1,6 @@
 {
   "refreshUrl" : "https://example.com/api/oauth/refresh",
-  "scopes" : {
+  "availableScopes" : {
     "write:pets" : "modify pets in your account",
     "read:pets" : "read your pets"
   },

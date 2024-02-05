@@ -7,9 +7,14 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Map;
 
 /**
- * @version 3.0.0
- * @see <a href="https://www.asyncapi.com/docs/reference/specification/v2.6.0#oauthFlowObject">OAuth Flow Object</a>
+ * Configuration for the OAuth Implicit flow
+ * <p>
+ * This object MAY be extended with {@link com.asyncapi.v3.ExtendableObject}.
+ *
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#oauthFlowObject">OAuth Flow</a>
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#specificationExtensions">Specification Extensions</a>
  * @author Pavel Bodiachevskii
+ * @version 3.0.0
  */
 @Data
 @NoArgsConstructor
@@ -18,7 +23,7 @@ import java.util.Map;
 public class ImplicitOAuthFlow extends OAuthFlow {
 
     /**
-     * REQUIRED.
+     * <b>REQUIRED</b>.
      * <p>
      * The authorization URL to be used for this flow. This MUST be in the form of a URL
      */

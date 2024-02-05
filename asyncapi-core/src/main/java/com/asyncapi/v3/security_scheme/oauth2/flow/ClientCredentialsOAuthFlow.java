@@ -7,9 +7,14 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Map;
 
 /**
- * @version 3.0.0
- * @see <a href="https://www.asyncapi.com/docs/reference/specification/v2.6.0#oauthFlowObject">OAuth Flow Object</a>
+ * Configuration for the OAuth Client Credentials flow
+ * <p>
+ * This object MAY be extended with {@link com.asyncapi.v3.ExtendableObject}.
+ *
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#oauthFlowObject">OAuth Flow</a>
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#specificationExtensions">Specification Extensions</a>
  * @author Pavel Bodiachevskii
+ * @version 3.0.0
  */
 @Data
 @NoArgsConstructor
@@ -18,7 +23,7 @@ import java.util.Map;
 public class ClientCredentialsOAuthFlow extends OAuthFlow {
 
     /**
-     * REQUIRED.
+     * <b>REQUIRED</b>.
      * <p>
      * The token URL to be used for this flow. This MUST be in the form of a URL.
      */
@@ -27,9 +32,9 @@ public class ClientCredentialsOAuthFlow extends OAuthFlow {
 
     @Builder(builderMethodName = "clientCredentialsBuilder")
     public ClientCredentialsOAuthFlow(@Nullable String refreshUrl,
-                                      @NotNull Map<String, String> scopes,
+                                      @NotNull Map<String, String> availableScopes,
                                       @NotNull String tokenUrl) {
-        super(refreshUrl, scopes);
+        super(refreshUrl, availableScopes);
         this.tokenUrl = tokenUrl;
     }
 

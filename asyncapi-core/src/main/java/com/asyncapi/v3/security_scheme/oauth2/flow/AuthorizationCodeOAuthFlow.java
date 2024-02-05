@@ -7,11 +7,14 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Map;
 
 /**
- * This object MAY be extended with <a href="https://www.asyncapi.com/docs/reference/specification/v2.6.0#specificationExtensions">Specification Extensions</a>.
+ * Configuration for the OAuth Authorization Code flow
+ * <p>
+ * This object MAY be extended with {@link com.asyncapi.v3.ExtendableObject}.
  *
- * @version 3.0.0
- * @see <a href="https://www.asyncapi.com/docs/reference/specification/v2.6.0#oauthFlowObject">OAuth Flow Object</a>
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#oauthFlowObject">OAuth Flow</a>
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#specificationExtensions">Specification Extensions</a>
  * @author Pavel Bodiachevskii
+ * @version 3.0.0
  */
 @Data
 @NoArgsConstructor
@@ -20,7 +23,7 @@ import java.util.Map;
 public class AuthorizationCodeOAuthFlow extends OAuthFlow {
 
     /**
-     * REQUIRED.
+     * <b>REQUIRED</b>.
      * <p>
      * The authorization URL to be used for this flow. This MUST be in the form of an absolute URL.
      */
@@ -35,10 +38,10 @@ public class AuthorizationCodeOAuthFlow extends OAuthFlow {
 
     @Builder(builderMethodName = "authorizationCodeBuilder")
     public AuthorizationCodeOAuthFlow(@Nullable String refreshUrl,
-                                      @NotNull Map<String, String> scopes,
+                                      @NotNull Map<String, String> availableScopes,
                                       @NotNull String authorizationUrl,
                                       @Nullable String tokenUrl) {
-        super(refreshUrl, scopes);
+        super(refreshUrl, availableScopes);
         this.authorizationUrl = authorizationUrl;
         this.tokenUrl = tokenUrl;
     }

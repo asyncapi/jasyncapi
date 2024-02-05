@@ -6668,7 +6668,7 @@
       "flows" : {
         "implicit" : {
           "refreshUrl" : "https://example.com/api/oauth/refresh",
-          "scopes" : {
+          "availableScopes" : {
             "write:pets" : "modify pets in your account",
             "read:pets" : "read your pets"
           },
@@ -6676,7 +6676,7 @@
         },
         "password" : {
           "refreshUrl" : "https://example.com/api/oauth/refresh",
-          "scopes" : {
+          "availableScopes" : {
             "write:pets" : "modify pets in your account",
             "read:pets" : "read your pets"
           },
@@ -6684,7 +6684,7 @@
         },
         "clientCredentials" : {
           "refreshUrl" : "https://example.com/api/oauth/refresh",
-          "scopes" : {
+          "availableScopes" : {
             "write:pets" : "modify pets in your account",
             "read:pets" : "read your pets"
           },
@@ -6692,7 +6692,7 @@
         },
         "authorizationCode" : {
           "refreshUrl" : "https://example.com/api/oauth/refresh",
-          "scopes" : {
+          "availableScopes" : {
             "write:pets" : "modify pets in your account",
             "read:pets" : "read your pets"
           },

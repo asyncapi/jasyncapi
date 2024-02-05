@@ -15,7 +15,7 @@ class OAuthFlowTest: SerDeTest<OAuthFlow>() {
     override fun build(): OAuthFlow {
         return OAuthFlow.builder()
                 .refreshUrl("https://example.com/api/oauth/refresh")
-                .scopes(mapOf(
+                .availableScopes(mapOf(
                         Pair("write:pets", "modify pets in your account"),
                         Pair("read:pets", "read your pets")
                 ))

@@ -11,11 +11,12 @@ import java.util.Map;
 /**
  * Configuration details for a supported OAuth Flow
  * <p>
- * This object MAY be extended with <a href="https://www.asyncapi.com/docs/reference/specification/v2.6.0#specificationExtensions">Specification Extensions</a>.
+ * This object MAY be extended with {@link ExtendableObject}.
  *
- * @version 3.0.0
- * @see <a href="https://www.asyncapi.com/docs/reference/specification/v2.6.0#oauthFlowObject">OAuth Flow Object</a>
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#oauthFlowObject">OAuth Flow</a>
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#specificationExtensions">Specification Extensions</a>
  * @author Pavel Bodiachevskii
+ * @version 3.0.0
  */
 @Data
 @Builder
@@ -32,12 +33,12 @@ public class OAuthFlow extends ExtendableObject {
     private String refreshUrl = "";
 
     /**
-     * REQUIRED.
+     * <b>REQUIRED</b>.
      * <p>
      * The available scopes for the OAuth2 security scheme. A map between the scope name and a short description for it.
      */
     @NotNull
     @Builder.Default
-    private Map<String, String> scopes = new HashMap<>();
+    private Map<String, String> availableScopes = new HashMap<>();
 
 }

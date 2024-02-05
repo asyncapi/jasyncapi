@@ -12325,7 +12325,7 @@
             "authorizationUrl": "https://example.com/api/oauth/dialog",
             "tokenUrl": "https://example.com/api/oauth/token",
             "refreshUrl": "https://example.com/api/oauth/refresh",
-            "scopes": {
+            "availableScopes": {
               "write:pets": "modify pets in your account",
               "read:pets": "read your pets"
             }
@@ -12333,7 +12333,7 @@
           "clientCredentials": {
             "tokenUrl": "https://example.com/api/oauth/token",
             "refreshUrl": "https://example.com/api/oauth/refresh",
-            "scopes": {
+            "availableScopes": {
               "write:pets": "modify pets in your account",
               "read:pets": "read your pets"
             }
@@ -12341,7 +12341,7 @@
           "implicit": {
             "authorizationUrl": "https://example.com/api/oauth/dialog",
             "refreshUrl": "https://example.com/api/oauth/refresh",
-            "scopes": {
+            "availableScopes": {
               "write:pets": "modify pets in your account",
               "read:pets": "read your pets"
             }
@@ -12349,7 +12349,7 @@
           "password": {
             "tokenUrl": "https://example.com/api/oauth/token",
             "refreshUrl": "https://example.com/api/oauth/refresh",
-            "scopes": {
+            "availableScopes": {
               "write:pets": "modify pets in your account",
               "read:pets": "read your pets"
             }
