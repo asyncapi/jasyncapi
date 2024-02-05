@@ -24,6 +24,17 @@ abstract class AbstractExampleValidationTest {
         )
     }
 
+    open fun expectedDefaultContentType(): String? = null
+
+    @Test
+    fun `ensure that defaultContentType was read correctly`() {
+        Assertions.assertEquals(
+                specification().defaultContentType,
+                expectedDefaultContentType(),
+                "defaultContentType must be read correctly"
+        )
+    }
+
     abstract fun expectedInfo(): Info
 
     @Test
