@@ -8,9 +8,11 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 /**
- * @version 3.0.0
- * @see <a href="https://www.asyncapi.com/docs/reference/specification/v2.6.0#securitySchemeObject">SecurityScheme</a>
+ * OAuth2 Security Scheme
+ *
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#securitySchemeObject">SecurityScheme</a>
  * @author Pavel Bodiachevskii
+ * @version 3.0.0
  */
 @Data
 @NoArgsConstructor
@@ -19,7 +21,7 @@ import java.util.List;
 public class OAuth2SecurityScheme extends SecurityScheme {
 
     /**
-     * REQUIRED.
+     * <b>REQUIRED</b>.
      * <p>
      * An object containing configuration information for the flow types supported.
      */
