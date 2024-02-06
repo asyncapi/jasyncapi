@@ -20,6 +20,27 @@ Hints:
 - [Springwolf Core](https://github.com/springwolf/springwolf-core) - Automated documentation for async APIs built with Spring Boot
 - [AsyncAPI Quarkus](https://github.com/quarkiverse/quarkus-asyncapi) - Generates AsyncAPIRegistry and configuration classes for Quarkus
 
+## Known open specifications to check compatibility with:
+- [ ] [adeo-kafka-request-reply-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/adeo-kafka-request-reply-asyncapi.yml)
+- [x] [anyof-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/anyof-asyncapi.yml)
+- [x] [application-headers-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/application-headers-asyncapi.yml)
+- [ ] [correlation-id-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/correlation-id-asyncapi.yml)
+- [ ] [gitter-streaming-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/gitter-streaming-asyncapi.yml)
+- [ ] [kraken-websocket-request-reply-message-filter-in-reply-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/kraken-websocket-request-reply-message-filter-in-reply-asyncapi.yml)
+- [ ] [kraken-websocket-request-reply-multiple-channels-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/kraken-websocket-request-reply-multiple-channels-asyncapi.yml)
+- [ ] [mercure-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/mercure-asyncapi.yml)
+- [x] [not-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/not-asyncapi.yml)
+- [x] [oneof-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/oneof-asyncapi.yml)
+- [ ] [operation-security-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/operation-security-asyncapi.yml)
+- [ ] [rpc-client-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/rpc-client-asyncapi.yml)
+- [ ] [rpc-server-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/rpc-server-asyncapi.yml)
+- [ ] [simple-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/simple-asyncapi.yml)
+- [ ] [slack-rtm-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/slack-rtm-asyncapi.yml)
+- [ ] [streetlights-kafka-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/streetlights-kafka-asyncapi.yml)
+- [x] [streetlights-mqtt-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/streetlights-mqtt-asyncapi.yml)
+- [x] [streetlights-operation-security-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/streetlights-operation-security-asyncapi.yml)
+- [x] [websocket-gemini-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/websocket-gemini-asyncapi.yml)
+
 ## Contributors section
 
 ### Build
