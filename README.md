@@ -31,7 +31,7 @@ Hints:
 - [x] [mercure-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/mercure-asyncapi.yml)
 - [x] [not-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/not-asyncapi.yml)
 - [x] [oneof-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/oneof-asyncapi.yml)
-- [ ] [operation-security-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/operation-security-asyncapi.yml)
+- [x] [operation-security-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/operation-security-asyncapi.yml)
 - [x] [rpc-client-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/rpc-client-asyncapi.yml)
 - [x] [rpc-server-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/rpc-server-asyncapi.yml)
 - [x] [simple-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/simple-asyncapi.yml)
