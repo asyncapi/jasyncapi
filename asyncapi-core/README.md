@@ -14,7 +14,7 @@ which allows to use it in null-safety languages like `kotlin` without extra head
 <dependency>
   <groupId>com.asyncapi</groupId>
   <artifactId>asyncapi-core</artifactId>
-  <version>1.0.0-EAP</version>
+  <version>1.0.0-EAP-2</version>
 </dependency>
 ```
 
