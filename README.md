@@ -32,7 +32,7 @@ Hints:
 - [x] [not-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/not-asyncapi.yml)
 - [x] [oneof-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/oneof-asyncapi.yml)
 - [ ] [operation-security-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/operation-security-asyncapi.yml)
-- [ ] [rpc-client-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/rpc-client-asyncapi.yml)
+- [x] [rpc-client-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/rpc-client-asyncapi.yml)
 - [ ] [rpc-server-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/rpc-server-asyncapi.yml)
 - [x] [simple-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/simple-asyncapi.yml)
 - [ ] [slack-rtm-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/slack-rtm-asyncapi.yml)

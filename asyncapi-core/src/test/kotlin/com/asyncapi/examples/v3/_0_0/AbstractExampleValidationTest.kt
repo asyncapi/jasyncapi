@@ -24,6 +24,17 @@ abstract class AbstractExampleValidationTest {
         )
     }
 
+    open fun expectedId(): String? = null
+
+    @Test
+    fun `ensure that id was read correctly`() {
+        Assertions.assertEquals(
+                specification().id,
+                expectedId(),
+                "id must be read correctly"
+        )
+    }
+
     open fun expectedDefaultContentType(): String? = null
 
     @Test
@@ -79,7 +90,7 @@ abstract class AbstractExampleValidationTest {
         )
     }
 
-    abstract fun expectedComponents(): Components
+    abstract fun expectedComponents(): Components?
 
     @Test
     fun `ensure that components were read correctly`() {
