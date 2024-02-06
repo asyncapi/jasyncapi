@@ -34,7 +34,7 @@ Hints:
 - [ ] [operation-security-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/operation-security-asyncapi.yml)
 - [ ] [rpc-client-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/rpc-client-asyncapi.yml)
 - [ ] [rpc-server-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/rpc-server-asyncapi.yml)
-- [ ] [simple-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/simple-asyncapi.yml)
+- [x] [simple-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/simple-asyncapi.yml)
 - [ ] [slack-rtm-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/slack-rtm-asyncapi.yml)
 - [ ] [streetlights-kafka-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/streetlights-kafka-asyncapi.yml)
 - [x] [streetlights-mqtt-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/streetlights-mqtt-asyncapi.yml)
