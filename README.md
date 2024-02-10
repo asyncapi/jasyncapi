@@ -24,7 +24,7 @@ Hints:
 - [ ] [adeo-kafka-request-reply-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/adeo-kafka-request-reply-asyncapi.yml)
 - [x] [anyof-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/anyof-asyncapi.yml)
 - [x] [application-headers-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/application-headers-asyncapi.yml)
-- [ ] [correlation-id-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/correlation-id-asyncapi.yml)
+- [x] [correlation-id-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/correlation-id-asyncapi.yml)
 - [ ] [gitter-streaming-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/gitter-streaming-asyncapi.yml)
 - [ ] [kraken-websocket-request-reply-message-filter-in-reply-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/kraken-websocket-request-reply-message-filter-in-reply-asyncapi.yml)
 - [ ] [kraken-websocket-request-reply-multiple-channels-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/kraken-websocket-request-reply-multiple-channels-asyncapi.yml)
