@@ -21,7 +21,7 @@ Hints:
 - [AsyncAPI Quarkus](https://github.com/quarkiverse/quarkus-asyncapi) - Generates AsyncAPIRegistry and configuration classes for Quarkus
 
 ## Known open specifications to check compatibility with:
-- [ ] [adeo-kafka-request-reply-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/adeo-kafka-request-reply-asyncapi.yml)
+- [x] [adeo-kafka-request-reply-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/adeo-kafka-request-reply-asyncapi.yml)
 - [x] [anyof-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/anyof-asyncapi.yml)
 - [x] [application-headers-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/application-headers-asyncapi.yml)
 - [x] [correlation-id-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/correlation-id-asyncapi.yml)
