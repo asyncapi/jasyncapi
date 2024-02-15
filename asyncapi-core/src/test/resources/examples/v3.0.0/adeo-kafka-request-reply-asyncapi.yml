@@ -87,13 +87,13 @@ channels:
 
     bindings:
       kafka:
-        x-key-subject-name-strategy:
+        x-key.subject.name.strategy:
           type: string
           description: >
             We use the RecordNameStrategy to infer the messages schema. Use
             `key.subject.name.strategy=io.confluent.kafka.serializers.subject.RecordNameStrategy`
             in your consumer configuration.
-        x-value-subject-name-strategy:
+        x-value.subject.name.strategy:
           type: string
           description: >
             We use the RecordNameStrategy to infer the messages schema. Use
@@ -128,7 +128,7 @@ operations:
           description: >
             The groupId must be prefixed by your `svc` account, deliver by the
             Adeo Kafka team. This `svc` must have the write access to the topic.
-        x-value-subject-name-strategy:
+        x-value.subject.name.strategy:
           type: string
           description: >
             We use the RecordNameStrategy to infer the messages schema. Use
@@ -286,12 +286,12 @@ components:
   securitySchemes:
     sasl-ssl:
       type: plain
-      x-sasl-jaas-config: >-
+      x-sasl.jaas.config: >-
         org.apache.kafka.common.security.plain.PlainLoginModule required
         username="<CLUSTER_API_KEY>" password="<CLUSTER_API_SECRET>";
-      x-security-protocol: SASL_SSL
-      x-ssl-endpoint-identification-algorithm: https
-      x-sasl-mechanism: PLAIN
+      x-security.protocol: SASL_SSL
+      x-ssl.endpoint.identification.algorithm: https
+      x-sasl.mechanism: PLAIN
       description: >
         Use [SASL authentication with SSL
         encryption](https://docs.confluent.io/platform/current/security/security_tutorial.html#configure-clients)

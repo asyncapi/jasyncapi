@@ -93,11 +93,11 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
     override fun expectedChannels(): Map<String, Any> {
         val costingResponseChannelKafkaBinding = KafkaChannelBinding()
         costingResponseChannelKafkaBinding.extensionFields = mapOf(
-                Pair("x-key-subject-name-strategy", mapOf(
+                Pair("x-key.subject.name.strategy", mapOf(
                         Pair("type", "string"),
                         Pair("description", "We use the RecordNameStrategy to infer the messages schema. Use `key.subject.name.strategy=io.confluent.kafka.serializers.subject.RecordNameStrategy` in your consumer configuration.\n"),
                 )),
-                Pair("x-value-subject-name-strategy", mapOf(
+                Pair("x-value.subject.name.strategy", mapOf(
                         Pair("type", "string"),
                         Pair("description", "We use the RecordNameStrategy to infer the messages schema. Use `value.subject.name.strategy=io.confluent.kafka.serializers.subject.RecordNameStrategy` in your consumer configuration.\n"),
                 ))
@@ -175,7 +175,7 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
                 )
                 .build()
         receiveACostingRequestKafkaBinding.extensionFields = mapOf(
-                Pair("x-value-subject-name-strategy", mapOf(
+                Pair("x-value.subject.name.strategy", mapOf(
                         Pair("type", "string"),
                         Pair("description", "We use the RecordNameStrategy to infer the messages schema. Use `value.subject.name.strategy=io.confluent.kafka.serializers.subject.RecordNameStrategy` in your producer configuration.\n"
                         ),
@@ -213,11 +213,11 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
                         "to connect to the ADEO Broker."
         )
         saslSslSecurityScheme.extensionFields = mapOf(
-                Pair("x-sasl-jaas-config", "org.apache.kafka.common.security.plain.PlainLoginModule required " +
+                Pair("x-sasl.jaas.config", "org.apache.kafka.common.security.plain.PlainLoginModule required " +
                         "username=\"<CLUSTER_API_KEY>\" password=\"<CLUSTER_API_SECRET>\";"),
-                Pair("x-security-protocol", "SASL_SSL"),
-                Pair("x-ssl-endpoint-identification-algorithm", "https"),
-                Pair("x-sasl-mechanism", "PLAIN")
+                Pair("x-security.protocol", "SASL_SSL"),
+                Pair("x-ssl.endpoint.identification.algorithm", "https"),
+                Pair("x-sasl.mechanism", "PLAIN")
         )
 
         return Components.builder()
