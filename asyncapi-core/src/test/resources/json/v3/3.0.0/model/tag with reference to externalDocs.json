@@ -1,0 +1,7 @@
+{
+  "name": "user",
+  "description": "User-related messages",
+  "externalDocs": {
+    "$ref": "#/components/external-doc"
+  }
+}

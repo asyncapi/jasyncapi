@@ -6,17 +6,17 @@ class GooglePubSubMessageBindingTest: SerDeTest<GooglePubSubMessageBinding>() {
 
     override fun objectClass() = GooglePubSubMessageBinding::class.java
 
-    override fun baseObjectJson() = "/json/binding/message/googlepubsub/googlePubSubMessageBinding.json"
+    override fun baseObjectJson() = "/json/v2/binding/message/googlepubsub/googlePubSubMessageBinding.json"
 
-    override fun extendedObjectJson() = "/json/binding/message/googlepubsub/googlePubSubMessageBinding - extended.json"
+    override fun extendedObjectJson() = "/json/v2/binding/message/googlepubsub/googlePubSubMessageBinding - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/binding/message/googlepubsub/googlePubSubMessageBinding - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/binding/message/googlepubsub/googlePubSubMessageBinding - wrongly extended.json"
 
     override fun build(): GooglePubSubMessageBinding {
         return GooglePubSubMessageBinding.builder()
-                .schema(GooglePubSubMessageBinding.SchemaDefinition(
+                .schema(GooglePubSubMessageSchemaDefinition(
                         "projects/your-project/schemas/message-avro",
-                        "avro"
+                        GooglePubSubMessageSchemaDefinitionType.AVRO
                 ))
                 .build()
     }

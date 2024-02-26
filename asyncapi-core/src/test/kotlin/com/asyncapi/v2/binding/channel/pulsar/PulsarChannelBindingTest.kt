@@ -6,19 +6,19 @@ class PulsarChannelBindingTest: SerDeTest<PulsarChannelBinding>() {
 
     override fun objectClass() = PulsarChannelBinding::class.java
 
-    override fun baseObjectJson() = "/json/binding/channel/pulsar/pulsarChannelBinding.json"
+    override fun baseObjectJson() = "/json/v2/binding/channel/pulsar/pulsarChannelBinding.json"
 
-    override fun extendedObjectJson() = "/json/binding/channel/pulsar/pulsarChannelBinding - extended.json"
+    override fun extendedObjectJson() = "/json/v2/binding/channel/pulsar/pulsarChannelBinding - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/binding/channel/pulsar/pulsarChannelBinding - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/binding/channel/pulsar/pulsarChannelBinding - wrongly extended.json"
 
     override fun build(): PulsarChannelBinding {
         return PulsarChannelBinding.builder()
                 .namespace("staging")
-                .persistence("persistent")
+                .persistence(PulsarChannelPersistence.PERSISTENT)
                 .compaction(1000)
                 .geoReplication(listOf("us-east1", "us-west1"))
-                .retention(PulsarChannelBinding.RetentionDefinition.builder()
+                .retention(PulsarChannelRetentionDefinition.builder()
                         .time(7)
                         .size(1000)
                         .build()

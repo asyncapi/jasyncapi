@@ -1,8 +1,8 @@
 package com.asyncapi.v2._6_0.model.channel.operation
 
+import com.asyncapi.v2.Reference
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._6_0.model.ExternalDocumentation
-import com.asyncapi.v2._6_0.model.Reference
 import com.asyncapi.v2._6_0.model.Tag
 import com.asyncapi.v2.binding.operation.amqp.AMQPOperationBindingTest
 import com.asyncapi.v2.binding.operation.http.HTTPOperationBindingTest
@@ -15,11 +15,11 @@ class OperationTraitTest: SerDeTest<OperationTrait>() {
 
     override fun objectClass() = OperationTrait::class.java
 
-    override fun baseObjectJson() = "/json/2.6.0/model/channel/operation/operationTrait.json"
+    override fun baseObjectJson() = "/json/v2/2.6.0/model/channel/operation/operationTrait.json"
 
-    override fun extendedObjectJson() = "/json/2.6.0/model/channel/operation/operationTrait - extended.json"
+    override fun extendedObjectJson() = "/json/v2/2.6.0/model/channel/operation/operationTrait - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.6.0/model/channel/operation/operationTrait - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/2.6.0/model/channel/operation/operationTrait - wrongly extended.json"
 
     override fun build(): OperationTrait {
         return OperationTrait.builder()

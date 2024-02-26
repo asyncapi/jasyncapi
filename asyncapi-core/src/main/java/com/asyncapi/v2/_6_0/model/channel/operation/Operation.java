@@ -87,7 +87,7 @@ public class Operation extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link com.asyncapi.v2.Reference}</li>
      *     <li>{@link OperationBinding}</li>
      * </ul>
      */
@@ -101,7 +101,7 @@ public class Operation extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link com.asyncapi.v2.Reference}</li>
      *     <li>{@link com.asyncapi.v2._6_0.model.channel.operation.OperationTrait}</li>
      * </ul>
      */
@@ -116,7 +116,7 @@ public class Operation extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link com.asyncapi.v2.Reference}</li>
      *     <li>{@link com.asyncapi.v2._6_0.model.channel.message.Message}</li>
      *     <li>{@link com.asyncapi.v2._6_0.model.channel.message.OneOfMessages}</li>
      * </ul>

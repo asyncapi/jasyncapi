@@ -33,10 +33,11 @@ public class CorrelationId extends ExtendableObject {
 
     /**
      * REQUIRED.
-     *
+     * <p>
      * A runtime expression that specifies the location of the correlation ID.
      */
     @NotNull
-    private String location;
+    @Builder.Default
+    private String location = "";
 
 }

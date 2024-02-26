@@ -1,6 +1,6 @@
 package com.asyncapi.v2.jackson.binding.message;
 
-import com.asyncapi.v2._6_0.model.Reference;
+import com.asyncapi.v2.Reference;
 import com.asyncapi.v2.binding.message.amqp.AMQPMessageBinding;
 import com.asyncapi.v2.binding.message.amqp1.AMQP1MessageBinding;
 import com.asyncapi.v2.binding.message.anypointmq.AnypointMQMessageBinding;

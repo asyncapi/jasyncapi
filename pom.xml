@@ -6,7 +6,7 @@
 
     <groupId>com.asyncapi</groupId>
     <artifactId>asyncapi</artifactId>
-    <version>1.0.0-EAP-2</version>
+    <version>1.0.0-EAP-3-SNAPSHOT</version>
 
     <!-- Project Information -->
     <name>AsyncAPI</name>
@@ -55,6 +55,7 @@
         <lombok.version>1.18.26</lombok.version>
         <junit5.version>5.9.2</junit5.version>
         <dokka.version>1.7.0</dokka.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
@@ -209,6 +210,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
                 <executions>
                     <execution>
                         <id>compile</id>

@@ -2,7 +2,7 @@ package com.asyncapi.v2._0_0.model.channel.operation
 
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._0_0.model.ExternalDocumentation
-import com.asyncapi.v2._0_0.model.Reference
+import com.asyncapi.v2.Reference
 import com.asyncapi.v2._0_0.model.Tag
 import com.asyncapi.v2._0_0.model.channel.message.MessageTest
 import com.asyncapi.v2.binding.operation.OperationBinding
@@ -33,11 +33,11 @@ class OperationWithReferenceToMessageTest: SerDeTest<Operation>() {
 
     override fun objectClass() = Operation::class.java
 
-    override fun baseObjectJson() = "/json/2.0.0/model/channel/operation/operation with reference to message.json"
+    override fun baseObjectJson() = "/json/v2/2.0.0/model/channel/operation/operation with reference to message.json"
 
-    override fun extendedObjectJson() = "/json/2.0.0/model/channel/operation/operation with reference to message - extended.json"
+    override fun extendedObjectJson() = "/json/v2/2.0.0/model/channel/operation/operation with reference to message - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.0.0/model/channel/operation/operation with reference to message - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/2.0.0/model/channel/operation/operation with reference to message - wrongly extended.json"
 
     override fun build(): Operation {
         return Operation.builder()
@@ -67,11 +67,11 @@ class OperationWithMessageTest: SerDeTest<Operation>() {
 
     override fun objectClass() = Operation::class.java
 
-    override fun baseObjectJson() = "/json/2.0.0/model/channel/operation/operation with message.json"
+    override fun baseObjectJson() = "/json/v2/2.0.0/model/channel/operation/operation with message.json"
 
-    override fun extendedObjectJson() = "/json/2.0.0/model/channel/operation/operation with message - extended.json"
+    override fun extendedObjectJson() = "/json/v2/2.0.0/model/channel/operation/operation with message - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.0.0/model/channel/operation/operation with message - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/2.0.0/model/channel/operation/operation with message - wrongly extended.json"
 
     override fun build(): Operation {
         return Operation.builder()

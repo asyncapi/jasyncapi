@@ -42,7 +42,8 @@ public class Server extends ExtendableObject {
      * made when a variable is named in {brackets}.
      */
     @NotNull
-    private String url;
+    @Builder.Default
+    private String url = "";
 
     /**
      * REQUIRED.
@@ -51,7 +52,8 @@ public class Server extends ExtendableObject {
      * amqp, amqps, http, https, ibmmq, jms, kafka, kafka-secure, anypointmq, mqtt, secure-mqtt, solace, stomp, stomps, ws, wss, mercure, googlepubsub, pulsar.
      */
     @NotNull
-    private String protocol;
+    @Builder.Default
+    private String protocol = "";
 
     /**
      * The version of the protocol used for connection. For instance: AMQP 0.9.1, HTTP 2.0, Kafka 1.0.0, etc.
@@ -71,7 +73,7 @@ public class Server extends ExtendableObject {
      * <p>
      * MUST be one of:
      * <ul>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link com.asyncapi.v2.Reference}</li>
      *     <li>{@link com.asyncapi.v2._6_0.model.server.ServerVariable}</li>
      * </ul>
      */
@@ -105,7 +107,7 @@ public class Server extends ExtendableObject {
      * <p>
      * MUST be one of:
      * <ul>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link com.asyncapi.v2.Reference}</li>
      *     <li>{@link ServerBinding}</li>
      * </ul>
      */

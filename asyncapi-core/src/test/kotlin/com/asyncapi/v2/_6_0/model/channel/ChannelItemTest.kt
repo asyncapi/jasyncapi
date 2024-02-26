@@ -1,7 +1,7 @@
 package com.asyncapi.v2._6_0.model.channel
 
+import com.asyncapi.v2.Reference
 import com.asyncapi.v2.SerDeTest
-import com.asyncapi.v2._6_0.model.Reference
 import com.asyncapi.v2._6_0.model.channel.operation.OperationWithMessageTest
 import com.asyncapi.v2._6_0.model.channel.operation.OperationWithOneOfMessageTest
 import com.asyncapi.v2.schema.Schema
@@ -17,11 +17,11 @@ class ChannelItemTest: SerDeTest<ChannelItem>() {
 
     override fun objectClass() = ChannelItem::class.java
 
-    override fun baseObjectJson() = "/json/2.6.0/model/channel/channelItem.json"
+    override fun baseObjectJson() = "/json/v2/2.6.0/model/channel/channelItem.json"
 
-    override fun extendedObjectJson() = "/json/2.6.0/model/channel/channelItem - extended.json"
+    override fun extendedObjectJson() = "/json/v2/2.6.0/model/channel/channelItem - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.6.0/model/channel/channelItem - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/2.6.0/model/channel/channelItem - wrongly extended.json"
 
     override fun build(): ChannelItem {
         val subscribe = OperationWithOneOfMessageTest().build()

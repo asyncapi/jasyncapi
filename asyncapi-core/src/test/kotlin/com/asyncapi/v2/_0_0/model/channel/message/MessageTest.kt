@@ -2,7 +2,7 @@ package com.asyncapi.v2._0_0.model.channel.message
 
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._0_0.model.ExternalDocumentation
-import com.asyncapi.v2._0_0.model.Reference
+import com.asyncapi.v2.Reference
 import com.asyncapi.v2._0_0.model.Tag
 import com.asyncapi.v2.schema.Schema
 import com.asyncapi.v2.binding.message.MessageBinding
@@ -33,11 +33,11 @@ class MessageTest: SerDeTest<Message>() {
 
     override fun objectClass() = Message::class.java
 
-    override fun baseObjectJson() = "/json/2.0.0/model/channel/message/message.json"
+    override fun baseObjectJson() = "/json/v2/2.0.0/model/channel/message/message.json"
 
-    override fun extendedObjectJson() = "/json/2.0.0/model/channel/message/message - extended.json"
+    override fun extendedObjectJson() = "/json/v2/2.0.0/model/channel/message/message - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.0.0/model/channel/message/message - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/2.0.0/model/channel/message/message - wrongly extended.json"
 
     override fun build(): Message {
         return Message.builder()

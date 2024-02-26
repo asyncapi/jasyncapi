@@ -1,6 +1,6 @@
 package com.asyncapi.v2.jackson.binding.channel;
 
-import com.asyncapi.v2._6_0.model.Reference;
+import com.asyncapi.v2.Reference;
 import com.asyncapi.v2.binding.channel.amqp.AMQPChannelBinding;
 import com.asyncapi.v2.binding.channel.amqp1.AMQP1ChannelBinding;
 import com.asyncapi.v2.binding.channel.anypointmq.AnypointMQChannelBinding;

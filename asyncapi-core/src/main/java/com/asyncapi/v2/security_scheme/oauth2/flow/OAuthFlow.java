@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -31,7 +32,8 @@ public class OAuthFlow extends ExtendableObject {
      * The URL to be used for obtaining refresh tokens. This MUST be in the form of an absolute URL.
      */
     @Nullable
-    private String refreshUrl;
+    @Builder.Default
+    private String refreshUrl = "";
 
     /**
      * REQUIRED.
@@ -39,6 +41,7 @@ public class OAuthFlow extends ExtendableObject {
      * The available scopes for the OAuth2 security scheme. A map between the scope name and a short description for it.
      */
     @NotNull
-    private Map<String, String> scopes;
+    @Builder.Default
+    private Map<String, String> scopes = new HashMap<>();
 
 }

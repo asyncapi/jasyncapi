@@ -10,19 +10,22 @@ class KafkaChannelBindingTest: SerDeTest<KafkaChannelBinding>() {
 
     override fun objectClass() = KafkaChannelBinding::class.java
 
-    override fun baseObjectJson() = "/json/binding/channel/kafka/kafkaChannelBinding.json"
+    override fun baseObjectJson() = "/json/v2/binding/channel/kafka/kafkaChannelBinding.json"
 
-    override fun extendedObjectJson() = "/json/binding/channel/kafka/kafkaChannelBinding - extended.json"
+    override fun extendedObjectJson() = "/json/v2/binding/channel/kafka/kafkaChannelBinding - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/binding/channel/kafka/kafkaChannelBinding - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/binding/channel/kafka/kafkaChannelBinding - wrongly extended.json"
 
     override fun build(): KafkaChannelBinding {
         return KafkaChannelBinding.builder()
                 .topic("my-specific-topic-name")
                 .partitions(20)
                 .replicas(3)
-                .topicConfiguration(KafkaChannelBinding.TopicConfiguration.builder()
-                        .cleanupPolicy(listOf("delete", "compact"))
+                .topicConfiguration(KafkaChannelTopicConfiguration.builder()
+                        .cleanupPolicy(listOf(
+                                KafkaChannelTopicCleanupPolicy.DELETE,
+                                KafkaChannelTopicCleanupPolicy.COMPACT
+                        ))
                         .retentionMs(604_800_000)
                         .retentionBytes(1_000_000_000)
                         .deleteRetentionMs(86_400_000)

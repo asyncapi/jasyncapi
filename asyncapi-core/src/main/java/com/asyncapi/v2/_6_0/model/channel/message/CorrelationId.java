@@ -37,6 +37,7 @@ public class CorrelationId extends ExtendableObject {
      * A <a href="https://www.asyncapi.com/docs/reference/specification/v2.6.0#runtimeExpression">runtime expression</a> that specifies the location of the correlation ID.
      */
     @NotNull
-    private String location;
+    @Builder.Default
+    private String location = "";
 
 }

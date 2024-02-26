@@ -35,24 +35,26 @@ public class Server extends ExtendableObject {
 
     /**
      * REQUIRED.
-     *
+     * <p>
      * A URL to the target host. This URL supports Server Variables and MAY be relative, to indicate that the host
      * location is relative to the location where the AsyncAPI document is being served. Variable substitutions will be
      * made when a variable is named in {brackets}.
      */
     @NotNull
     @JsonProperty
-    private String url;
+    @Builder.Default
+    private String url = "";
 
     /**
      * REQUIRED.
-     *
+     * <p>
      * The protocol this URL supports for connection. Supported protocol include, but are not limited to:
      * amqp, amqps, http, https, jms, kafka, kafka-secure, mqtt, secure-mqtt, stomp, stomps, ws, wss.
      */
     @NotNull
     @JsonProperty
-    private String protocol;
+    @Builder.Default
+    private String protocol = "";
 
     /**
      * The version of the protocol used for connection. For instance: AMQP 0.9.1, HTTP 2.0, Kafka 1.0.0, etc.
@@ -80,10 +82,10 @@ public class Server extends ExtendableObject {
      * A declaration of which security mechanisms can be used with this server. The list of values includes alternative
      * security requirement objects that can be used. Only one of the security requirement objects need to be satisfied
      * to authorize a connection or operation.
-     *
+     * <p>
      * Lists the required security schemes to execute this operation. The name used for each property MUST correspond
      * to a security scheme declared in the Security Schemes under the Components Object.
-     *
+     * <p>
      * When a list of Security Requirement Objects is defined on a Server object, only one of the Security Requirement
      * Objects in the list needs to be satisfied to authorize the connection.
      */

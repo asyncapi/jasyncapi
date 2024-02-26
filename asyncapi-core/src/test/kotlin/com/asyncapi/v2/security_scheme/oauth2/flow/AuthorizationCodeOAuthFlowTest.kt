@@ -6,14 +6,14 @@ class AuthorizationCodeOAuthFlowTest: SerDeTest<AuthorizationCodeOAuthFlow>() {
 
     override fun objectClass() = AuthorizationCodeOAuthFlow::class.java
 
-    override fun baseObjectJson() = "/json/security_scheme/oauth2/flow/authorizationCodeOAuthFlow.json"
+    override fun baseObjectJson() = "/json/v2/security_scheme/oauth2/flow/authorizationCodeOAuthFlow.json"
 
-    override fun extendedObjectJson() = "/json/security_scheme/oauth2/flow/authorizationCodeOAuthFlow - extended.json"
+    override fun extendedObjectJson() = "/json/v2/security_scheme/oauth2/flow/authorizationCodeOAuthFlow - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/security_scheme/oauth2/flow/authorizationCodeOAuthFlow - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/security_scheme/oauth2/flow/authorizationCodeOAuthFlow - wrongly extended.json"
 
     override fun build(): AuthorizationCodeOAuthFlow {
-        return AuthorizationCodeOAuthFlow.authorizationCodeOAuthFlowBuilder()
+        return AuthorizationCodeOAuthFlow.authorizationCodeBuilder()
                 .authorizationUrl("https://example.com/api/oauth/dialog")
                 .tokenUrl("https://example.com/api/oauth/token")
                 .refreshUrl("https://example.com/api/oauth/refresh")

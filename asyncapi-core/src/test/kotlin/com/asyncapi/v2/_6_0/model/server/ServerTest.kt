@@ -1,7 +1,7 @@
 package com.asyncapi.v2._6_0.model.server
 
+import com.asyncapi.v2.Reference
 import com.asyncapi.v2.SerDeTest
-import com.asyncapi.v2._6_0.model.Reference
 import com.asyncapi.v2._6_0.model.Tag
 import com.asyncapi.v2.binding.server.amqp1.AMQP1ServerBinding
 import com.asyncapi.v2.binding.server.anypointmq.AnypointMQServerBinding
@@ -12,6 +12,7 @@ import com.asyncapi.v2.binding.server.jms.JMSServerBinding
 import com.asyncapi.v2.binding.server.kafka.KafkaServerBinding
 import com.asyncapi.v2.binding.server.mercure.MercureServerBinding
 import com.asyncapi.v2.binding.server.mqtt.MQTTServerBinding
+import com.asyncapi.v2.binding.server.mqtt.MQTTServerLastWillConfiguration
 import com.asyncapi.v2.binding.server.mqtt5.MQTT5ServerBinding
 import com.asyncapi.v2.binding.server.nats.NATSServerBinding
 import com.asyncapi.v2.binding.server.pulsar.PulsarServerBinding
@@ -30,11 +31,11 @@ class ServerTest: SerDeTest<Server>() {
 
     override fun objectClass() = Server::class.java
 
-    override fun baseObjectJson() = "/json/2.6.0/model/server/server.json"
+    override fun baseObjectJson() = "/json/v2/2.6.0/model/server/server.json"
 
-    override fun extendedObjectJson() = "/json/2.6.0/model/server/server - extended.json"
+    override fun extendedObjectJson() = "/json/v2/2.6.0/model/server/server - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.6.0/model/server/server - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/2.6.0/model/server/server - wrongly extended.json"
 
     override fun build(): Server {
         return Server.builder()
@@ -93,7 +94,7 @@ class ServerTest: SerDeTest<Server>() {
                             MQTTServerBinding.builder()
                                     .clientId("guest")
                                     .cleanSession(true)
-                                    .lastWill(MQTTServerBinding.LastWillConfiguration(
+                                    .lastWill(MQTTServerLastWillConfiguration(
                                             "/last-wills",
                                             2,
                                             "Guest gone offline.",

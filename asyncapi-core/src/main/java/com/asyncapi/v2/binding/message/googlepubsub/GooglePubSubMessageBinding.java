@@ -1,6 +1,9 @@
 package com.asyncapi.v2.binding.message.googlepubsub;
 
 import com.asyncapi.v2.binding.message.MessageBinding;
+import com.fasterxml.jackson.annotation.JsonClassDescription;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,10 +12,10 @@ import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.Nullable;
 
 /**
+ * Describes Google Cloud Pub/Sub message binding.
+ * <p>
  * The Message Binding Object is used to describe the Google Cloud Pub/Sub specific <a href="https://cloud.google.com/pubsub/docs/reference/rest/v1/PubsubMessage">PubsubMessage</a> details, alongside with
  * pertintent parts of the Google Cloud Pub/Sub <a href="https://cloud.google.com/pubsub/docs/reference/rest/v1/projects.schemas#Schema">Schema</a> Object, with AsyncAPI.
- * <p>
- * Describes Google Cloud Pub/Sub message binding.
  *
  * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/googlepubsub#message-binding-object">Google Cloud Pub/Sub message binding</a>
@@ -23,12 +26,15 @@ import org.jetbrains.annotations.Nullable;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
+@JsonClassDescription("Describes Google Cloud Pub/Sub message binding.")
 public class GooglePubSubMessageBinding extends MessageBinding {
 
     /**
      * If non-empty, identifies related messages for which publish order should be respected (For more information, see <a href="https://cloud.google.com/pubsub/docs/ordering">ordering messages</a>.)
      */
     @Nullable
+    @JsonProperty("orderingKey")
+    @JsonPropertyDescription("If non-empty, identifies related messages for which publish order should be respected (For more information, see https://cloud.google.com/pubsub/docs/ordering messages")
     private String orderingKey;
 
     /**
@@ -36,46 +42,25 @@ public class GooglePubSubMessageBinding extends MessageBinding {
      * filter messages on the subscription.)
      */
     @Nullable
+    @JsonProperty("attributes")
+    @JsonPropertyDescription("Attributes for this message (If this field is empty, the message must contain non-empty data. This can be used to filter messages on the subscription.)")
     private Object attributes;
 
     /**
      * Describes the schema used to validate the payload of this message
      */
     @Nullable
-    private SchemaDefinition schema;
+    @JsonProperty("schema")
+    @JsonPropertyDescription("Describes the schema used to validate the payload of this message")
+    private GooglePubSubMessageSchemaDefinition schema;
 
     /**
-     * OPTIONAL, defaults to latest. The version of this binding.
+     * The version of this binding.
      */
     @Nullable
     @Builder.Default
+    @JsonProperty("bindingVersion")
+    @JsonPropertyDescription("The version of this binding.")
     private String bindingVersion = "0.1.0";
-
-    /**
-     * The Schema Definition Object is used to describe the Google Cloud Pub/Sub Schema Object with AsyncAPI.
-     * While some of this information could be, or is, described using native AsyncAPI, for consistency it makes sense to
-     * provide this information here at all times, especially for cases where AsyncAPI does not natively support describing
-     * payloads using a supported Google Cloud Pub/Sub schema format like Protobuf.
-     */
-    @Data
-    @Builder
-    @NoArgsConstructor
-    @AllArgsConstructor
-    @EqualsAndHashCode
-    public static class SchemaDefinition {
-
-        /**
-         * The name of the schema
-         */
-        @Nullable
-        private String name;
-
-        /**
-         * The type of the schema
-         */
-        @Nullable
-        private String type;
-
-    }
 
 }

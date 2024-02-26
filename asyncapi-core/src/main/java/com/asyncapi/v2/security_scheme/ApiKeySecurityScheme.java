@@ -17,7 +17,7 @@ import org.jetbrains.annotations.Nullable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper = true)
 public class ApiKeySecurityScheme extends SecurityScheme {
 
     /**
@@ -26,13 +26,12 @@ public class ApiKeySecurityScheme extends SecurityScheme {
      * The location of the API key.
      */
     @NotNull
-    private ApiKeyLocation in;
+    private ApiKeyLocation in = ApiKeyLocation.USER;
 
-    @Builder(builderMethodName = "apiKeySecuritySchemeBuilder")
-    public ApiKeySecurityScheme(@NotNull Type type,
-                                @Nullable String description,
+    @Builder(builderMethodName = "apiKeyBuilder")
+    public ApiKeySecurityScheme(@Nullable String description,
                                 @NotNull ApiKeyLocation in) {
-        super(type, description);
+        super(Type.API_KEY, description);
         this.in = in;
     }
 

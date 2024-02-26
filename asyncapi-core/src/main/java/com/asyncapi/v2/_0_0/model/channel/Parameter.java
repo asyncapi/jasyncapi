@@ -40,7 +40,7 @@ public class Parameter extends ExtendableObject {
 
     /**
      * A runtime expression that specifies the location of the parameter value.
-     *
+     * <p>
      * Even when a definition for the target field exists, it MUST NOT be used to validate this parameter but,
      * instead, the schema property MUST be used.
      */

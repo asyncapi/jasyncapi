@@ -27,9 +27,9 @@ public class ImplicitOAuthFlow extends OAuthFlow {
      * The authorization URL to be used for this flow. This MUST be in the form of a URL
      */
     @NotNull
-    private String authorizationUrl;
+    private String authorizationUrl = "";
 
-    @Builder(builderMethodName = "implicitOAuthFlowBuilder")
+    @Builder(builderMethodName = "implicitBuilder")
     public ImplicitOAuthFlow(@Nullable String refreshUrl,
                              @NotNull Map<String, String> scopes,
                              @NotNull String authorizationUrl) {

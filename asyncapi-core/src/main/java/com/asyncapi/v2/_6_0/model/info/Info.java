@@ -29,7 +29,8 @@ public class Info extends ExtendableObject {
      * The title of the application.
      */
     @NotNull
-    private String title;
+    @Builder.Default
+    private String title = "";
 
     /**
      * Required.
@@ -37,7 +38,8 @@ public class Info extends ExtendableObject {
      * Provides the version of the application API (not to be confused with the specification version).
      */
     @NotNull
-    private String version;
+    @Builder.Default
+    private String version = "";
 
     /**
      * A short description of the application. CommonMark syntax can be used for rich text representation.

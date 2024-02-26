@@ -1,6 +1,10 @@
 package com.asyncapi.v2.binding.channel.ws;
 
 import com.asyncapi.v2.binding.channel.ChannelBinding;
+import com.asyncapi.v2.schema.Schema;
+import com.fasterxml.jackson.annotation.JsonClassDescription;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,39 +29,42 @@ import org.jetbrains.annotations.Nullable;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
+@JsonClassDescription("Describes WebSockets channel binding.")
 public class WebSocketsChannelBinding extends ChannelBinding {
 
     /**
      * The HTTP method to use when establishing the connection. Its value MUST be either GET or POST.
      */
     @Nullable
-    private String method;
+    @JsonProperty("method")
+    @JsonPropertyDescription("The HTTP method to use when establishing the connection. Its value MUST be either GET or POST.")
+    private WebSocketsChannelMethod method;
 
     /**
-     * TODO: Schema object
      * A Schema object containing the definitions for each query parameter. This schema MUST be of type
      * object and have a properties key.
-     *
-     * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#schemaObject">Schema object</a>
      */
     @Nullable
-    private Object query;
+    @JsonProperty("query")
+    @JsonPropertyDescription("A Schema object containing the definitions for each query parameter. This schema MUST be of type object and have a properties key.")
+    private Schema query;
 
     /**
-     * TODO: Schema object
      * A Schema object containing the definitions of the HTTP headers to use when establishing the connection.
      * This schema MUST be of type object and have a properties key.
-     *
-     * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#schemaObject">Schema object</a>
      */
     @Nullable
-    private Object headers;
+    @JsonProperty("headers")
+    @JsonPropertyDescription("A Schema object containing the definitions of the HTTP headers to use when establishing the connection. This schema MUST be of type object and have a properties key.")
+    private Schema headers;
 
     /**
      * The version of this binding. If omitted, "latest" MUST be assumed.
      */
     @Nullable
     @Builder.Default
+    @JsonProperty("bindingVersion")
+    @JsonPropertyDescription("The version of this binding.")
     private String bindingVersion = "0.1.0";
 
 }

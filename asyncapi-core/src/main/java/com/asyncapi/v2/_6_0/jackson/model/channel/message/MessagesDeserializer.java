@@ -1,6 +1,6 @@
 package com.asyncapi.v2._6_0.jackson.model.channel.message;
 
-import com.asyncapi.v2._6_0.model.Reference;
+import com.asyncapi.v2.Reference;
 import com.asyncapi.v2._6_0.model.channel.message.Message;
 import com.asyncapi.v2.jackson.ListOfReferencesOrObjectsDeserializer;
 

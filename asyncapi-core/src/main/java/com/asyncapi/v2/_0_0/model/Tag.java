@@ -27,7 +27,8 @@ public class Tag extends ExtendableObject {
      * Required. The name of the tag.
      */
     @NotNull
-    private String name;
+    @Builder.Default
+    private String name = "";
 
     /**
      * A short description for the tag. CommonMark syntax can be used for rich text representation.

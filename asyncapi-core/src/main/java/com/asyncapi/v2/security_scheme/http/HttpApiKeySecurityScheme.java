@@ -18,7 +18,7 @@ import org.jetbrains.annotations.Nullable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper = true)
 public class HttpApiKeySecurityScheme extends SecurityScheme {
 
     /**
@@ -27,7 +27,7 @@ public class HttpApiKeySecurityScheme extends SecurityScheme {
      * The name of the header, query or cookie parameter to be used.
      */
     @NotNull
-    private String name;
+    private String name = "";
 
     /**
      * REQUIRED.
@@ -37,12 +37,11 @@ public class HttpApiKeySecurityScheme extends SecurityScheme {
     @Nullable
     private ApiKeyLocation in;
 
-    @Builder(builderMethodName = "httpApiKeySecuritySchemeBuilder")
-    public HttpApiKeySecurityScheme(@NotNull Type type,
-                                    @Nullable String description,
+    @Builder(builderMethodName = "httpApiKeyBuilder")
+    public HttpApiKeySecurityScheme(@Nullable String description,
                                     @NotNull String name,
                                     @Nullable ApiKeyLocation in) {
-        super(type, description);
+        super(Type.HTTP_API_KEY, description);
         this.name = name;
         this.in = in;
     }

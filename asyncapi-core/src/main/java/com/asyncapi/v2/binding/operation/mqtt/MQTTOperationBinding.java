@@ -1,6 +1,9 @@
 package com.asyncapi.v2.binding.operation.mqtt;
 
 import com.asyncapi.v2.binding.operation.OperationBinding;
+import com.fasterxml.jackson.annotation.JsonClassDescription;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,6 +25,7 @@ import org.jetbrains.annotations.Nullable;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
+@JsonClassDescription("Describes MQTT operation binding.")
 public class MQTTOperationBinding extends OperationBinding {
 
     /**
@@ -31,6 +35,16 @@ public class MQTTOperationBinding extends OperationBinding {
      * Applies to: publish, subscribe
      */
     @Nullable
+    @javax.validation.constraints.Min(
+            value = 0,
+            message = "QoS must be greater or equals to 0."
+    )
+    @javax.validation.constraints.Max(
+            value = 2,
+            message = "QoS must be lower or equals to 0."
+    )
+    @JsonProperty("qos")
+    @JsonPropertyDescription("Defines the Quality of Service (QoS) levels for the message flow between client and server. Its value MUST be either 0 (At most once delivery), 1 (At least once delivery), or 2 (Exactly once delivery).")
     private Integer qos;
 
     /**
@@ -39,6 +53,8 @@ public class MQTTOperationBinding extends OperationBinding {
      * Applies to: publish, subscribe
      */
     @Nullable
+    @JsonProperty("retain")
+    @JsonPropertyDescription("Whether the broker should retain the message or not.")
     private Boolean retain;
 
     /**
@@ -48,6 +64,8 @@ public class MQTTOperationBinding extends OperationBinding {
      */
     @Nullable
     @Builder.Default
+    @JsonProperty("bindingVersion")
+    @JsonPropertyDescription("The version of this binding.")
     private String bindingVersion = "0.1.0";
 
 }

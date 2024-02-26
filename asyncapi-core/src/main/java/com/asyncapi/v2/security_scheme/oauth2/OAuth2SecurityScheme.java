@@ -17,7 +17,7 @@ import org.jetbrains.annotations.Nullable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper = true)
 public class OAuth2SecurityScheme extends SecurityScheme {
 
     /**
@@ -26,13 +26,12 @@ public class OAuth2SecurityScheme extends SecurityScheme {
      * An object containing configuration information for the flow types supported.
      */
     @NotNull
-    private OAuthFlows flows;
+    private OAuthFlows flows = new OAuthFlows();
 
-    @Builder(builderMethodName = "oauth2SecuritySchemeBuilder")
-    public OAuth2SecurityScheme(@NotNull Type type,
-                                @Nullable String description,
+    @Builder(builderMethodName = "oauth2Builder")
+    public OAuth2SecurityScheme(@Nullable String description,
                                 @NotNull OAuthFlows flows) {
-        super(type, description);
+        super(Type.OAUTH2, description);
         this.flows = flows;
     }
 

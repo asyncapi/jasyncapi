@@ -1,9 +1,9 @@
 package com.asyncapi.v2._6_0.model.component
 
+import com.asyncapi.v2.Reference
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2.schema.Schema
 import com.asyncapi.v2.schema.Type
-import com.asyncapi.v2._6_0.model.Reference
 import com.asyncapi.v2._6_0.model.channel.ChannelItemTest
 import com.asyncapi.v2._6_0.model.channel.ParameterWithSchemaTest
 import com.asyncapi.v2._6_0.model.channel.ParameterWithReferenceToSchemaTest
@@ -29,11 +29,11 @@ class ComponentsTest: SerDeTest<Components>() {
 
     override fun objectClass() = Components::class.java
 
-    override fun baseObjectJson() = "/json/2.6.0/model/components/components.json"
+    override fun baseObjectJson() = "/json/v2/2.6.0/model/components/components.json"
 
-    override fun extendedObjectJson() = "/json/2.6.0/model/components/components - extended.json"
+    override fun extendedObjectJson() = "/json/v2/2.6.0/model/components/components - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.6.0/model/components/components - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/2.6.0/model/components/components - wrongly extended.json"
 
     override fun build(): Components {
         return Components.builder()

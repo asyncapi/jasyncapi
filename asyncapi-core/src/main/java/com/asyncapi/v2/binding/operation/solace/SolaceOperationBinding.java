@@ -1,6 +1,9 @@
 package com.asyncapi.v2.binding.operation.solace;
 
 import com.asyncapi.v2.binding.operation.OperationBinding;
+import com.fasterxml.jackson.annotation.JsonClassDescription;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,7 +11,6 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,20 +27,24 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
+@JsonClassDescription("Describes Solace operation binding.")
 public class SolaceOperationBinding extends OperationBinding {
 
     /**
      * List of destinations
      */
     @Nullable
-    @Builder.Default
-    private List<SolaceDestination> destinations = new ArrayList<>();
+    @JsonProperty("destinations")
+    @JsonPropertyDescription("List of destinations")
+    private List<SolaceOperationDestination> destinations;
 
     /**
-     * Version of the binding object (e.g. bindingVersion: 0.3.0)
+     * The version of this binding. (e.g. bindingVersion: 0.3.0)
      */
     @Nullable
     @Builder.Default
+    @JsonProperty("bindingVersion")
+    @JsonPropertyDescription("The version of this binding.")
     private String bindingVersion = "0.3.0";
 
 }

@@ -1,12 +1,14 @@
 package com.asyncapi.v2.binding.server.mqtt;
 
 import com.asyncapi.v2.binding.server.ServerBinding;
+import com.fasterxml.jackson.annotation.JsonClassDescription;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -23,66 +25,48 @@ import org.jetbrains.annotations.Nullable;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
+@JsonClassDescription("Describes MQTT server binding.")
 public class MQTTServerBinding extends ServerBinding {
 
     /**
      * The client identifier.
      */
     @Nullable
+    @JsonProperty("clientId")
+    @JsonPropertyDescription("The client identifier.")
     private String clientId;
 
     /**
      * Whether to create a persisten connection or not. When false, the connection will be persistent.
      */
-    private boolean cleanSession;
+    @Nullable
+    @JsonProperty("cleanSession")
+    @JsonPropertyDescription("Whether to create a persisten connection or not. When false, the connection will be persistent.")
+    private Boolean cleanSession;
 
     /**
      * Last Will and Testament configuration.
      */
     @Nullable
-    private LastWillConfiguration lastWill;
+    @JsonProperty("lastWill")
+    @JsonPropertyDescription("Last Will and Testament configuration.")
+    private MQTTServerLastWillConfiguration lastWill;
 
     /**
      * Interval in seconds of the longest period of time the broker and the client can endure without sending a message.
      */
-    private int keepAlive;
+    @Nullable
+    @JsonProperty("keepAlive")
+    @JsonPropertyDescription("Interval in seconds of the longest period of time the broker and the client can endure without sending a message.")
+    private Integer keepAlive;
 
     /**
      * The version of this binding. If omitted, "latest" MUST be assumed.
      */
     @Nullable
     @Builder.Default
+    @JsonProperty("bindingVersion")
+    @JsonPropertyDescription("The version of this binding.")
     private String bindingVersion = "0.1.0";
-
-    @Data
-    @EqualsAndHashCode
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class LastWillConfiguration {
-
-        /**
-         * The topic where the Last Will and Testament message will be sent.
-         */
-        @NotNull
-        private String topic;
-
-        /**
-         * Defines how hard the broker/client will try to ensure that the Last Will and Testament message is received.
-         * Its value MUST be either 0, 1 or 2.
-         */
-        private int qos;
-
-        /**
-         * Last Will message.
-         */
-        @Nullable
-        private String message;
-
-        /**
-         * Whether the broker should retain the Last Will and Testament message or not.
-         */
-        private boolean retain;
-
-    }
 
 }

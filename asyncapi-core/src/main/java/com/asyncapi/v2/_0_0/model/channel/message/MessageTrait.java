@@ -4,7 +4,7 @@ import com.asyncapi.v2.ExtendableObject;
 import com.asyncapi.v2._0_0.jackson.model.channel.message.MessageCorrelationIdDeserializer;
 import com.asyncapi.v2._0_0.jackson.model.channel.message.MessageHeadersDeserializer;
 import com.asyncapi.v2._0_0.model.ExternalDocumentation;
-import com.asyncapi.v2._0_0.model.Reference;
+import com.asyncapi.v2.Reference;
 import com.asyncapi.v2._0_0.model.Tag;
 import com.asyncapi.v2._0_0.model.channel.operation.OperationTrait;
 import com.asyncapi.v2.schema.Schema;
@@ -44,7 +44,7 @@ public class MessageTrait extends ExtendableObject {
     /**
      * Schema definition of the application headers. Schema MUST be of type "object".
      * It MUST NOT define the protocol headers.
-     *
+     * <p>
      * MUST BE:
      * <ul>
      *     <li>{@link Schema}</li>
@@ -57,7 +57,7 @@ public class MessageTrait extends ExtendableObject {
 
     /**
      * Definition of the correlation ID used for message tracing or matching.
-     *
+     * <p>
      * MUST BE:
      * <ul>
      *     <li>{@link CorrelationId}</li>

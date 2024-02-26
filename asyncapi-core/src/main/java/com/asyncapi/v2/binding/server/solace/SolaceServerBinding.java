@@ -1,6 +1,9 @@
 package com.asyncapi.v2.binding.server.solace;
 
 import com.asyncapi.v2.binding.server.ServerBinding;
+import com.fasterxml.jackson.annotation.JsonClassDescription;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,6 +23,7 @@ import org.jetbrains.annotations.Nullable;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
+@JsonClassDescription("Describes Solace server binding.")
 public class SolaceServerBinding extends ServerBinding {
 
     /**
@@ -28,6 +32,8 @@ public class SolaceServerBinding extends ServerBinding {
      * e.g. msgVpn: solace-broker-msg-vpn
      */
     @Nullable
+    @JsonProperty("msgVpn")
+    @JsonPropertyDescription("Message VPN of the Solace Broker")
     private String msgVpn;
 
     /**
@@ -35,6 +41,8 @@ public class SolaceServerBinding extends ServerBinding {
      */
     @Nullable
     @Builder.Default
+    @JsonProperty("bindingVersion")
+    @JsonPropertyDescription("The version of this binding.")
     private String bindingVersion = "0.3.0";
 
 }

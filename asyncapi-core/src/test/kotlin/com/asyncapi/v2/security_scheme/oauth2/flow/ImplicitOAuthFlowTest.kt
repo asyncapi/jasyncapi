@@ -6,14 +6,14 @@ class ImplicitOAuthFlowTest: SerDeTest<ImplicitOAuthFlow>() {
 
     override fun objectClass() = ImplicitOAuthFlow::class.java
 
-    override fun baseObjectJson() = "/json/security_scheme/oauth2/flow/implicitOAuthFlow.json"
+    override fun baseObjectJson() = "/json/v2/security_scheme/oauth2/flow/implicitOAuthFlow.json"
 
-    override fun extendedObjectJson() = "/json/security_scheme/oauth2/flow/implicitOAuthFlow - extended.json"
+    override fun extendedObjectJson() = "/json/v2/security_scheme/oauth2/flow/implicitOAuthFlow - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/security_scheme/oauth2/flow/implicitOAuthFlow - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/security_scheme/oauth2/flow/implicitOAuthFlow - wrongly extended.json"
 
     override fun build(): ImplicitOAuthFlow {
-        return ImplicitOAuthFlow.implicitOAuthFlowBuilder()
+        return ImplicitOAuthFlow.implicitBuilder()
                 .authorizationUrl("https://example.com/api/oauth/dialog")
                 .refreshUrl("https://example.com/api/oauth/refresh")
                 .scopes(mapOf(

@@ -17,7 +17,7 @@ import org.jetbrains.annotations.Nullable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper = true)
 public class HttpSecurityScheme extends SecurityScheme {
 
     /**
@@ -26,7 +26,7 @@ public class HttpSecurityScheme extends SecurityScheme {
      * The name of the HTTP Authorization scheme to be used in the <a href="https://tools.ietf.org/html/rfc7235#section-5.1">Authorization header as defined in RFC7235</a>.
      */
     @NotNull
-    private String scheme;
+    private String scheme = "";
 
     /**
      * A hint to the client to identify how the bearer token is formatted. Bearer tokens are usually generated
@@ -35,12 +35,11 @@ public class HttpSecurityScheme extends SecurityScheme {
     @Nullable
     private String bearerFormat;
 
-    @Builder(builderMethodName = "httpSecuritySchemeBuilder")
-    public HttpSecurityScheme(@NotNull Type type,
-                              @Nullable String description,
+    @Builder(builderMethodName = "httpBuilder")
+    public HttpSecurityScheme(@Nullable String description,
                               @NotNull String scheme,
                               @Nullable String bearerFormat) {
-        super(type, description);
+        super(Type.HTTP, description);
         this.scheme = scheme;
         this.bearerFormat = bearerFormat;
     }

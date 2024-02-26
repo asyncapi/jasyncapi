@@ -1,6 +1,9 @@
 package com.asyncapi.v2.binding.operation.kafka;
 
 import com.asyncapi.v2.binding.operation.OperationBinding;
+import com.asyncapi.v2.schema.Schema;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,22 +28,20 @@ import org.jetbrains.annotations.Nullable;
 public class KafkaOperationBinding extends OperationBinding {
 
     /**
-     * TODO: Schema
      * Id of the consumer group.
-     *
-     * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#schemaObject">Schema object</a>
      */
     @Nullable
-    private Object groupId;
+    @JsonProperty("groupId")
+    @JsonPropertyDescription("Id of the consumer group.")
+    private Schema groupId;
 
     /**
-     * TODO: Schema
      * Id of the consumer inside a consumer group.
-     *
-     * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#schemaObject">Schema object</a>
      */
     @Nullable
-    private Object clientId;
+    @JsonProperty("clientId")
+    @JsonPropertyDescription("Id of the consumer inside a consumer group.")
+    private Schema clientId;
 
     /**
      * The version of this binding. If omitted, "latest" MUST be assumed.
