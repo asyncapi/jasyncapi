@@ -6,7 +6,7 @@
 
     <groupId>com.asyncapi</groupId>
     <artifactId>asyncapi</artifactId>
-    <version>1.0.0-EAP-3-SNAPSHOT</version>
+    <version>1.0.0-EAP-3</version>
 
     <!-- Project Information -->
     <name>AsyncAPI</name>
@@ -38,7 +38,7 @@
     </licenses>
     <scm>
         <url>https://github.com/asyncapi/java-asyncapi</url>
-        <connection>scm:git:https://github.com/asyncapi/java-asyncapi.git</connection>
+        <connection>scm:git:https://github.com/asyncapi/jasyncapi.git</connection>
         <tag>HEAD</tag>
     </scm>
 
