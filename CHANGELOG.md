@@ -7,7 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0-EAP-3] - 2024-03-10
 
-https://github.com/asyncapi/jasyncapi/pull/137
+Kudos to:
+- https://github.com/jaydeepk
+- https://github.com/ctasada
+- https://github.com/guillaumelamirand
+- https://github.com/ivanalayan15
+- https://github.com/Crain-32
+- https://github.com/wrwks
+- https://github.com/dennis-brinley
 
 ### Added
 
