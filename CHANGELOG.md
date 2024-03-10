@@ -23,6 +23,8 @@ Kudos to:
 ### Changed
 
 - Reference was moved from `com.asyncapi.v2._6_0.model` to `com.asyncapi.v2`
+- 2.0.0:
+  - `Schema.multipleOf` type was changed to `Number`
 - 2.6.0:
   - Specification:
     - `AsyncAPI.servers` now can hold server objects and references
