@@ -269,7 +269,7 @@ public class Schema extends ExtendableObject {
      */
     @Nullable
     @JsonProperty
-    public Integer multipleOf;
+    public Number multipleOf;
 
     /**
      * The value of "maximum" MUST be a number, representing an inclusive upper limit for a numeric instance.
