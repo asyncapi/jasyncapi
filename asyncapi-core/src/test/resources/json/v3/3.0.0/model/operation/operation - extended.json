@@ -58,8 +58,8 @@
         "properties" : {
           "companyId" : {
             "description" : "The Id of the company.",
-            "minimum" : 1,
-            "type" : "number"
+            "type" : "number",
+            "minimum" : 1
           }
         },
         "additionalProperties" : false,
@@ -198,8 +198,8 @@
           "properties" : {
             "companyId" : {
               "description" : "The Id of the company.",
-              "minimum" : 1,
-              "type" : "number"
+              "type" : "number",
+              "minimum" : 1
             }
           },
           "additionalProperties" : false,
@@ -337,8 +337,8 @@
           "properties" : {
             "companyId" : {
               "description" : "The Id of the company.",
-              "minimum" : 1,
-              "type" : "number"
+              "type" : "number",
+              "minimum" : 1
             }
           },
           "additionalProperties" : false,

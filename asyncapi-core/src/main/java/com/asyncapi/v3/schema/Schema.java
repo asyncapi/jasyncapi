@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.*;
 import org.jetbrains.annotations.Nullable;
 
+import javax.validation.constraints.Min;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
@@ -137,6 +138,69 @@ public class Schema extends ExtendableObject {
     @JsonProperty("const")
     @JsonPropertyDescription("JSON Schema const value")
     public Object constValue;
+
+    /*
+        Validation Keywords for Numeric Instances (number and integer)
+     */
+
+    /**
+     * The value of "multipleOf" <b>MUST</b> be a number, strictly greater than 0.
+     * <p>
+     * A numeric instance is valid only if division by this keyword's value results in an integer.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.6.2.1">multipleOf</a>
+     */
+    @Nullable
+    @Min(
+            value = 1,
+            message = "The value of \"multipleOf\" MUST be a number, strictly greater than 0."
+    )
+    @JsonProperty("multipleOf")
+    public Number multipleOf;
+
+    /**
+     * The value of "maximum" <b>MUST</b> be a number, representing an inclusive upper limit for a numeric instance.
+     * <p>
+     * If the instance is a number, then this keyword validates only if the instance is less than or exactly equal to "maximum".
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.6.2.2">maximum</a>
+     */
+    @Nullable
+    @JsonProperty("maximum")
+    public BigDecimal maximum;
+
+    /**
+     * The value of "exclusiveMaximum" <b>MUST</b> be number, representing an exclusive upper limit for a numeric instance.
+     * <br>
+     * If the instance is a number, then the instance is valid only if it has a value strictly less than (not equal to) "exclusiveMaximum".
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.6.2.3">exclusiveMaximum</a>
+     */
+    @Nullable
+    @JsonProperty("exclusiveMaximum")
+    public BigDecimal exclusiveMaximum;
+
+    /**
+     * The value of "minimum" <b>MUST</b> be a number, representing an inclusive lower limit for a numeric instance.
+     * <br>
+     * If the instance is a number, then this keyword validates only if the instance is greater than or exactly equal to "minimum".
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.6.2.4">minimum</a>
+     */
+    @Nullable
+    @JsonProperty("minimum")
+    public BigDecimal minimum;
+
+    /**
+     * The value of "exclusiveMinimum" <b>MUST</b> be number, representing an exclusive lower limit for a numeric instance.
+     * <br>
+     * If the instance is a number, then the instance is valid only if it has a value strictly greater than (not equal to) "exclusiveMinimum".
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.6.2.5">exclusiveMinimum</a>
+     */
+    @Nullable
+    @JsonProperty("exclusiveMinimum")
+    public BigDecimal exclusiveMinimum;
 
     /*
         Schema Annotations
@@ -310,55 +374,6 @@ public class Schema extends ExtendableObject {
     /*
         Validation.
      */
-
-    /*
-        Validation Keywords for Numeric Instances (number and integer)
-     */
-
-    /**
-     * The value of "multipleOf" MUST be a number, strictly greater than 0.
-     * <br>
-     * A numeric instance is valid only if division by this keyword's value results in an integer.
-     */
-    @Nullable
-    @JsonProperty
-    public Number multipleOf;
-
-    /**
-     * The value of "maximum" MUST be a number, representing an inclusive upper limit for a numeric instance.
-     * <br>
-     * If the instance is a number, then this keyword validates only if the instance is less than or exactly equal to "maximum".
-     */
-    @Nullable
-    @JsonProperty
-    public BigDecimal maximum;
-
-    /**
-     * The value of "exclusiveMaximum" MUST be number, representing an exclusive upper limit for a numeric instance.
-     * <br>
-     * If the instance is a number, then the instance is valid only if it has a value strictly less than (not equal to) "exclusiveMaximum".
-     */
-    @Nullable
-    @JsonProperty
-    public BigDecimal exclusiveMaximum;
-
-    /**
-     * The value of "minimum" MUST be a number, representing an inclusive lower limit for a numeric instance.
-     * <br>
-     * If the instance is a number, then this keyword validates only if the instance is greater than or exactly equal to "minimum".
-     */
-    @Nullable
-    @JsonProperty
-    public BigDecimal minimum;
-
-    /**
-     * The value of "exclusiveMinimum" MUST be number, representing an exclusive lower limit for a numeric instance.
-     * <br>
-     * If the instance is a number, then the instance is valid only if it has a value strictly greater than (not equal to) "exclusiveMinimum".
-     */
-    @Nullable
-    @JsonProperty
-    public BigDecimal exclusiveMinimum;
 
     /*
         Validation Keywords for Strings
