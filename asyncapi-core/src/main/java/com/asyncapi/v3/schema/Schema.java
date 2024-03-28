@@ -257,6 +257,102 @@ public class Schema extends ExtendableObject {
     public String pattern;
 
     /*
+        Validation Keywords for Arrays
+     */
+
+    /**
+     * The value of "items" <b>MUST</b> be either a valid JSON Schema or an array of valid JSON Schemas.
+     * <p>
+     * This keyword determines how child instances validate for arrays, and does not directly validate the immediate instance itself.
+     * <p>
+     * If "items" is a schema, validation succeeds if all elements in the array successfully validate against that schema.
+     * <p>
+     * If "items" is an array of schemas, validation succeeds if each element of the instance validates against the schema at the same
+     * position, if any.
+     * <p>
+     * Omitting this keyword has the same behavior as an empty schema.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.6.4.1">items</a>
+     */
+    @Nullable
+    @JsonProperty("items")
+    @JsonDeserialize(using = SchemaItemsDeserializer.class)
+    public Object items;
+
+    /**
+     * The value of "additionalItems" <b>MUST</b> be a valid JSON Schema.
+     * <p>
+     * This keyword determines how child instances validate for arrays, and does not directly validate the immediate instance itself.
+     * <p>
+     * If "items" is an array of schemas, validation succeeds if every instance element at a position greater than the size of "items"
+     * validates against "additionalItems".
+     * <p>
+     * Otherwise, "additionalItems" MUST be ignored, as the "items" schema (possibly the default value of an empty schema) is applied
+     * to all elements.
+     * <p>
+     * Omitting this keyword has the same behavior as an empty schema.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.6.4.2">additionalItems</a>
+     */
+    @Nullable
+    @JsonProperty("additionalItems")
+    public Schema additionalItems;
+
+    /**
+     * The value of this keyword <b>MUST</b> be a non-negative integer.
+     * <p>
+     * An array instance is valid against "maxItems" if its size is less than, or equal to, the value of this keyword.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.6.4.3">maxItems</a>
+     */
+    @Nullable
+    @Min(
+            value = 0,
+            message = "The value of \"maxItems\" MUST be a non-negative integer."
+    )
+    @JsonProperty("maxItems")
+    public Integer maxItems;
+
+    /**
+     * The value of this keyword <b>MUST</b> be a non-negative integer.
+     * <p>
+     * An array instance is valid against "minItems" if its size is greater than, or equal to, the value of this keyword.
+     * <p>
+     * Omitting this keyword has the same behavior as a value of 0.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.6.4.4">minItems</a>
+     */
+    @Nullable
+    @JsonProperty("minItems")
+    public Integer minItems;
+
+    /**
+     * The value of this keyword <b>MUST</b> be a boolean.
+     * <p>
+     * If this keyword has boolean value false, the instance validates successfully.
+     * <p>
+     * If it has boolean value true, the instance validates successfully if all of its elements are unique.
+     * <p>
+     * Omitting this keyword has the same behavior as a value of false.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.6.4.5">uniqueItems</a>
+     */
+    @Nullable
+    @JsonProperty("uniqueItems")
+    public Boolean uniqueItems;
+
+    /**
+     * The value of this keyword <b>MUST</b> be a valid JSON Schema.
+     * <br>
+     * An array instance is valid against "contains" if at least one of its elements is valid against the given schema.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.6.4.6">contains</a>
+     */
+    @Nullable
+    @JsonProperty("contains")
+    public Schema contains;
+
+    /*
         Schema Annotations
 
         Schema validation is a useful mechanism for annotating instance data
@@ -428,83 +524,6 @@ public class Schema extends ExtendableObject {
     /*
         Validation.
      */
-
-    /*
-        Validation Keywords for Arrays
-     */
-
-    /**
-     * The value of "items" MUST be either a valid JSON Schema or an array of valid JSON Schemas.
-     * <br>
-     * This keyword determines how child instances validate for arrays, and does not directly validate the immediate instance itself.
-     * <br>
-     * If "items" is a schema, validation succeeds if all elements in the array successfully validate against that schema.
-     * <br>
-     * If "items" is an array of schemas, validation succeeds if each element of the instance validates against the schema at the same
-     * position, if any.
-     * <br>
-     * Omitting this keyword has the same behavior as an empty schema.
-     */
-    @Nullable
-    @JsonDeserialize(using = SchemaItemsDeserializer.class)
-    public Object items;
-
-    /**
-     * The value of "additionalItems" MUST be a valid JSON Schema.
-     * <br>
-     * This keyword determines how child instances validate for arrays, and does not directly validate the immediate instance itself.
-     * <br>
-     * If "items" is an array of schemas, validation succeeds if every instance element at a position greater than the size of "items"
-     * validates against "additionalItems".
-     * <br>
-     * Otherwise, "additionalItems" MUST be ignored, as the "items" schema (possibly the default value of an empty schema) is applied
-     * to all elements.
-     * <br>
-     * Omitting this keyword has the same behavior as an empty schema.
-     */
-    @Nullable
-    public Schema additionalItems;
-
-    /**
-     * The value of this keyword MUST be a non-negative integer.
-     * <br>
-     * An array instance is valid against "maxItems" if its size is less than, or equal to, the value of this keyword.
-     */
-    @Nullable
-    @JsonProperty
-    public Integer maxItems;
-
-    /**
-     * The value of this keyword MUST be a non-negative integer.
-     * <br>
-     * An array instance is valid against "minItems" if its size is greater than, or equal to, the value of this keyword.
-     * <br>
-     * Omitting this keyword has the same behavior as a value of 0.
-     */
-    @Nullable
-    @JsonProperty
-    public Integer minItems;
-
-    /**
-     * The value of this keyword MUST be a boolean.
-     * <br>
-     * If this keyword has boolean value false, the instance validates successfully.  If it has boolean value true,
-     * the instance validates successfully if all of its elements are unique.
-     * <br>
-     * Omitting this keyword has the same behavior as a value of false.
-     */
-    @Nullable
-    @JsonProperty
-    public Boolean uniqueItems;
-
-    /**
-     * The value of this keyword MUST be a valid JSON Schema.
-     * <br>
-     * An array instance is valid against "contains" if at least one of its elements is valid against the given schema.
-     */
-    @Nullable
-    @JsonProperty
-    public Schema contains;
 
     /*
         Validation Keywords for Objects
