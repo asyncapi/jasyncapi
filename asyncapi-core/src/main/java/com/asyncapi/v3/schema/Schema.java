@@ -5,6 +5,7 @@ import com.asyncapi.v3.ExtendableObject;
 import com.asyncapi.v3.jackson.schema.SchemasAdditionalPropertiesDeserializer;
 import com.asyncapi.v3._0_0.model.ExternalDocumentation;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.*;
 import org.jetbrains.annotations.Nullable;
@@ -29,7 +30,8 @@ import java.util.Map;
  * <br><br>
  * <b>New properties may appear in this class after community requests.</b>
  *
- * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0#schemaObject">AnyncAPI Schema Object</a>
+ * @see <a href="https://json-schema.org/draft-07/schema">Draft 07 JSON Schema</a>
+ * @see <a href="https://json-schema.org/draft-07/json-schema-validation">Draft 07 JSON Schema Validation</a>
  * @author Pavel Bodiachevskii
  */
 @Data
@@ -38,6 +40,44 @@ import java.util.Map;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class Schema extends ExtendableObject {
+
+    /**
+     * JSON Schema ID.
+     * <p>
+     * format: uri-reference
+     */
+    @Nullable
+    @JsonProperty("$id")
+    @JsonPropertyDescription("JSON Schema ID.")
+    public String id;
+
+    /**
+     * JSON Schema to use for validation.
+     * <p>
+     * format: uri
+     */
+    @Nullable
+    @JsonProperty("$schema")
+    @JsonPropertyDescription("JSON Schema to use for validation.")
+    public String schema;
+
+    /**
+     * Reference to JSON Schema definition.
+     * <p>
+     * format: uri-reference
+     */
+    @Nullable
+    @JsonProperty("$ref")
+    @JsonPropertyDescription("Reference to JSON Schema definition.")
+    private String ref;
+
+    /**
+     * JSON Schema comment.
+     */
+    @Nullable
+    @JsonProperty("$comment")
+    @JsonPropertyDescription("JSON Schema comment.")
+    private String comment;
 
     /*
         Schema Annotations
@@ -153,10 +193,6 @@ public class Schema extends ExtendableObject {
     @Nullable
     @JsonProperty
     public List<Object> examples;
-
-    @Nullable
-    @JsonProperty("$ref")
-    private String ref;
 
     /*
         String-Encoding Non-JSON Data
