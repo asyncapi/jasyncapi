@@ -1,22 +1,22 @@
 {
   "method" : "GET",
   "query" : {
-    "type" : "object",
     "properties" : {
       "ref" : {
         "description" : "Referral.",
         "type" : "string"
       }
-    }
+    },
+    "type" : "object"
   },
   "headers" : {
-    "type" : "object",
     "properties" : {
       "Authentication" : {
         "description" : "Authentication token",
         "type" : "string"
       }
-    }
+    },
+    "type" : "object"
   },
   "bindingVersion" : "0.1.0",
   "x-number" : 0,

@@ -49,16 +49,16 @@
       "type" : "request",
       "method" : "GET",
       "query" : {
-        "type" : "object",
         "required" : [ "companyId" ],
         "properties" : {
           "companyId" : {
             "description" : "The Id of the company.",
-            "type" : "number",
-            "minimum" : 1
+            "minimum" : 1,
+            "type" : "number"
           }
         },
-        "additionalProperties" : false
+        "additionalProperties" : false,
+        "type" : "object"
       },
       "bindingVersion" : "0.1.0"
     },

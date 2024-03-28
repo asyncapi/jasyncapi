@@ -80,6 +80,65 @@ public class Schema extends ExtendableObject {
     private String comment;
 
     /*
+        Validation Keywords for Any Instance Type
+     */
+
+    /**
+     * The value of this keyword <b>MUST</b> be either a string or an array.
+     * <p>
+     * If it is an array, elements of the array MUST be strings and MUST be unique.
+     * <p>
+     * String values MUST be one of the six primitive types:
+     * <ul>
+     *     <li>null</li>
+     *     <li>boolean</li>
+     *     <li>object</li>
+     *     <li>array</li>
+     *     <li>number</li>
+     *     <li>string</li>
+     * </ul>
+     * <p>
+     * or "integer" which matches any number with a zero fractional part.
+     * <p>
+     * An instance validates if and only if the instance is in any of the sets listed for this keyword.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.6.1.1">type</a>
+     */
+    @Nullable
+    @JsonProperty("type")
+    @JsonPropertyDescription("JSON Schema type.")
+    public Object type;
+
+    /**
+     * The value of this keyword <b>MUST</b> be an array.
+     * <p>
+     * This array <b>SHOULD</b> have at least one element. Elements in the array <b>SHOULD</b> be unique.
+     * <p>
+     * An instance validates successfully against this keyword if its value
+     * is equal to one of the elements in this keyword's array value.
+     * <br>
+     * Elements in the array might be of any value, including null.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.6.1.2">enum</a>
+     */
+    @Nullable
+    @JsonProperty("enum")
+    @JsonPropertyDescription("JSON Schema enum values.")
+    public List<Object> enumValue;
+
+    /**
+     * The value of this keyword <b>MAY</b> be of any type, including null.
+     * <p>
+     * An instance validates successfully against this keyword if its value is equal to the value of the keyword.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.6.1.3">const</a>
+     */
+    @Nullable
+    @JsonProperty("const")
+    @JsonPropertyDescription("JSON Schema const value")
+    public Object constValue;
+
+    /*
         Schema Annotations
 
         Schema validation is a useful mechanism for annotating instance data
@@ -251,44 +310,6 @@ public class Schema extends ExtendableObject {
     /*
         Validation.
      */
-
-    /*
-        Validation Keywords for Any Instance Type
-     */
-
-    /**
-     * The value of this keyword MUST be either a string or an array.  If it is an array, elements of the array MUST
-     * be strings and MUST be unique.
-     * <br>
-     * String values MUST be one of the six primitive types ("null", "boolean", "object", "array", "number", or "string"),
-     * or "integer" which matches any number with a zero fractional part.
-     * <br>
-     * An instance validates if and only if the instance is in any of the sets listed for this keyword.
-     *
-     */
-    @Nullable
-    @JsonProperty
-    public Object type;
-
-    /**
-     * The value of this keyword MUST be an array.  This array SHOULD have at least one element.  Elements in the array SHOULD be unique.
-     * <br>
-     * An instance validates successfully against this keyword if its value is equal to one of the elements in this keyword's array value.
-     * <br>
-     * Elements in the array might be of any value, including null.
-     */
-    @Nullable
-    @JsonProperty("enum")
-    public List<Object> enumValue;
-
-    /**
-     * The value of this keyword MAY be of any type, including null.
-     * <br>
-     * An instance validates successfully against this keyword if its value is equal to the value of the keyword.
-     */
-    @Nullable
-    @JsonProperty("const")
-    public Object constValue;
 
     /*
         Validation Keywords for Numeric Instances (number and integer)
