@@ -203,6 +203,60 @@ public class Schema extends ExtendableObject {
     public BigDecimal exclusiveMinimum;
 
     /*
+        Validation Keywords for Strings
+     */
+
+    /**
+     * The value of this keyword <b>MUST</b> be a non-negative integer.
+     * <p>
+     * A string instance is valid against this keyword if its length is less than, or equal to, the value of this keyword.
+     * <p>
+     * The length of a string instance is defined as the number of its characters as defined by <a href="https://tools.ietf.org/html/rfc7159">RFC 7159</a> [RFC7159].
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.6.3.1">maxLength</a>
+     */
+    @Nullable
+    @Min(
+            value = 0,
+            message = "The value of \"maxLength\" MUST be a non-negative integer."
+    )
+    @JsonProperty("maxLength")
+    public Integer maxLength;
+
+    /**
+     * The value of this keyword <b>MUST</b> be a non-negative integer.
+     * <p>
+     * A string instance is valid against this keyword if its length is greater than, or equal to, the value of this keyword.
+     * <p>
+     * The length of a string instance is defined as the number of its characters as defined by <a href="https://tools.ietf.org/html/rfc7159">RFC 7159</a> [RFC7159].
+     * <p>
+     * Omitting this keyword has the same behavior as a value of 0.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.6.3.2">minLength</a>
+     */
+    @Nullable
+    @Min(
+            value = 0,
+            message = "The value of \"minLength\" MUST be a non-negative integer."
+    )
+    @JsonProperty("minLength")
+    public Integer minLength;
+
+    /**
+     * The value of this keyword <b>MUST</b> be a string.
+     * <p>
+     * This string <b>SHOULD</b> be a valid regular expression, according to the ECMA 262 regular expression dialect.
+     * <p>
+     * A string instance is considered valid if the regular expression matches the instance successfully.
+     * Recall: regular expressions are not implicitly anchored.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.6.3.3">pattern</a>
+     */
+    @Nullable
+    @JsonProperty("pattern")
+    public String pattern;
+
+    /*
         Schema Annotations
 
         Schema validation is a useful mechanism for annotating instance data
@@ -374,45 +428,6 @@ public class Schema extends ExtendableObject {
     /*
         Validation.
      */
-
-    /*
-        Validation Keywords for Strings
-     */
-
-    /**
-     * The value of this keyword MUST be a non-negative integer.
-     * <br>
-     * A string instance is valid against this keyword if its length is less than, or equal to, the value of this keyword.
-     * <br>
-     * The length of a string instance is defined as the number of its characters as defined by <a href="https://tools.ietf.org/html/rfc7159">RFC 7159</a> [<a href="https://tools.ietf.org/html/rfc7159">RFC7159</a>].
-     */
-    @Nullable
-    @JsonProperty
-    public Integer maxLength;
-
-    /**
-     * The value of this keyword MUST be a non-negative integer.
-     * <br>
-     * A string instance is valid against this keyword if its length is greater than, or equal to, the value of this keyword.
-     * <br>
-     * The length of a string instance is defined as the number of its characters as defined by <a href="https://tools.ietf.org/html/rfc7159">RFC 7159</a> [<a href="https://tools.ietf.org/html/rfc7159">RFC7159</a>].
-     * <br>
-     * Omitting this keyword has the same behavior as a value of 0.
-     */
-    @Nullable
-    @JsonProperty
-    public Integer minLength;
-
-    /**
-     * The value of this keyword MUST be a string.  This string SHOULD be a valid regular expression, according
-     * to the ECMA 262 regular expression dialect.
-     * <br>
-     * A string instance is considered valid if the regular expression matches the instance successfully.
-     * Recall: regular expressions are not implicitly anchored.
-     */
-    @Nullable
-    @JsonProperty
-    public String pattern;
 
     /*
         Validation Keywords for Arrays
