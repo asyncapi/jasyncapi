@@ -2,6 +2,7 @@
   "type" : "request",
   "method" : "GET",
   "query" : {
+    "type" : "object",
     "required" : [ "companyId" ],
     "properties" : {
       "companyId" : {
@@ -10,8 +11,7 @@
         "minimum" : 1
       }
     },
-    "additionalProperties" : false,
-    "type" : "object"
+    "additionalProperties" : false
   },
   "bindingVersion" : "0.1.0",
   "x-number" : 0,

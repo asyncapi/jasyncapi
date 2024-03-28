@@ -1,12 +1,12 @@
 {
   "headers" : {
+    "type" : "object",
     "properties" : {
       "Content-Type" : {
         "type" : "string",
         "enum" : [ "application/json" ]
       }
-    },
-    "type" : "object"
+    }
   },
   "bindingVersion" : "0.1.0",
   "x-number" : 0,

@@ -353,6 +353,163 @@ public class Schema extends ExtendableObject {
     public Schema contains;
 
     /*
+        Validation Keywords for Objects
+     */
+
+    /**
+     * The value of this keyword <b>MUST</b> be a non-negative integer.
+     * <p>
+     * An object instance is valid against "maxProperties" if its number of properties is less than, or equal to,
+     * the value of this keyword.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.6.5.1">maxProperties</a>
+     */
+    @Nullable
+    @Min(
+            value = 0,
+            message = "The value of \"maxProperties\" MUST be a non-negative integer."
+    )
+    @JsonProperty("maxProperties")
+    public Integer maxProperties;
+
+    /**
+     * The value of this keyword <b>MUST</b> be a non-negative integer.
+     * <p>
+     * An object instance is valid against "minProperties" if its number of properties is greater than, or equal to,
+     * the value of this keyword.
+     * <p>
+     * Omitting this keyword has the same behavior as a value of 0.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.6.5.2">minProperties</a>
+     */
+    @Nullable
+    @Min(
+            value = 0,
+            message = "The value of \"minProperties\" MUST be a non-negative integer."
+    )
+    @JsonProperty("minProperties")
+    public Integer minProperties;
+
+    /**
+     * The value of this keyword <b>MUST</b> be an array. Elements of this array, if any, <b>MUST</b> be strings, and <b>MUST</b> be unique.
+     * <p>
+     * An object instance is valid against this keyword if every item in the array is the name of a property in the instance.
+     * <p>
+     * Omitting this keyword has the same behavior as an empty array.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.6.5.3">required</a>
+     */
+    @Nullable
+    @JsonProperty("required")
+    public List<String> required;
+
+    /**
+     * The value of "properties" <b>MUST</b> be an object. Each value of this object <b>MUST</b> be a valid JSON Schema.
+     * <p>
+     * This keyword determines how child instances validate for objects, and does not directly validate the immediate
+     * instance itself.
+     * <p>
+     * Validation succeeds if, for each name that appears in both the instance and as a name within this keyword's value,
+     * the child instance for that name successfully validates against the corresponding schema.
+     * <p>
+     * Omitting this keyword has the same behavior as an empty object.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.6.5.4">properties</a>
+     */
+    @Nullable
+    @JsonProperty("properties")
+    public Map<String, Schema> properties;
+
+    /**
+     * The value of "patternProperties" <b>MUST</b> be an object.
+     * <p>
+     * Each property name of this object <b>SHOULD</b> be a valid regular expression, according to the ECMA 262 regular expression dialect.
+     * <p>
+     * Each property value of this object <b>MUST</b> be a valid JSON Schema.
+     * <p>
+     * This keyword determines how child instances validate for objects, and does not directly validate the immediate
+     * instance itself.  Validation of the primitive instance type against this keyword always succeeds.
+     * <p>
+     * Validation succeeds if, for each instance name that matches any regular expressions that appear as a property name
+     * in this keyword's value, the child instance for that name successfully validates against each schema that corresponds
+     * to a matching regular expression.
+     * <p>
+     * Omitting this keyword has the same behavior as an empty object.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.6.5.5">patternProperties</a>
+     */
+    @Nullable
+    @JsonProperty("patternProperties")
+    public Map<String, Schema> patternProperties;
+
+    /**
+     * <font color="red"><b>This property has been overwritten by AsyncAPI Specification - maybe boolean value</b></font>
+     * <p>
+     * <p>
+     * The value of "additionalProperties" MUST be a valid JSON Schema.
+     * <p>
+     * This keyword determines how child instances validate for objects, and does not directly validate the immediate
+     * instance itself.
+     * <p>
+     * Validation with "additionalProperties" applies only to the child values of instance names that do not match any
+     * names in "properties", and do not match any regular expression in "patternProperties".
+     * <p>
+     * For all such properties, validation succeeds if the child instance validates against the "additionalProperties" schema.
+     * <p>
+     * Omitting this keyword has the same behavior as an empty schema.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.6.5.6">additionalProperties</a>
+     */
+    @Nullable
+    @JsonProperty("additionalProperties")
+    @JsonDeserialize(using = SchemasAdditionalPropertiesDeserializer.class)
+    public Object additionalProperties;
+
+    /**
+     * [CREF1] - This keyword may be split into two, with the variation that uses an array of property names rather than a
+     * subschema getting a new name.  The dual behavior is confusing and relatively difficult to implement.  In the previous
+     * draft, we proposed dropping the keyword altogether, or dropping one of its forms, but we received feedback in support of
+     * keeping it.  See issues #442 and #528 at https://github.com/json-schema-org/json-schema-spec/issues for further discussion.
+     * Further feedback is encouraged.
+     * <p>
+     * <p>
+     * <p>
+     * This keyword specifies rules that are evaluated if the instance is an object and contains a certain property.
+     * <p>
+     * This keyword's value <b>MUST</b> be an object. Each property specifies a dependency. Each dependency value <b>MUST</b> be an array
+     * or a valid JSON Schema.
+     * <p>
+     * If the dependency value is a subschema, and the dependency key is a property in the instance, the entire instance must validate
+     * against the dependency value.
+     * <p>
+     * If the dependency value is an array, each element in the array, if any, <b>MUST</b> be a string, and <b>MUST</b> be unique.
+     * <p>
+     * If the dependency key is a property in the instance, each of the items in the dependency value must be a property that exists in the instance.
+     * <p>
+     * Omitting this keyword has the same behavior as an empty object.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.6.5.7">dependencies</a>
+     */
+    @Nullable
+    @JsonProperty("dependencies")
+    public Object dependencies;
+
+    /**
+     * The value of "propertyNames" <b>MUST</b> be a valid JSON Schema.
+     * <p>
+     * If the instance is an object, this keyword validates if every property name in the instance validates against the provided schema.
+     * <p>
+     * Note the property name that the schema is testing will always be a string.
+     * <p>
+     * Omitting this keyword has the same behavior as an empty schema.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.6.5.8">propertyNames</a>
+     */
+    @Nullable
+    @JsonProperty("propertyNames")
+    public Schema propertyNames;
+
+    /*
         Schema Annotations
 
         Schema validation is a useful mechanism for annotating instance data
@@ -524,130 +681,6 @@ public class Schema extends ExtendableObject {
     /*
         Validation.
      */
-
-    /*
-        Validation Keywords for Objects
-     */
-
-    /**
-     * The value of this keyword MUST be a non-negative integer.
-     * <br>
-     * An object instance is valid against "maxProperties" if its number of properties is less than, or equal to,
-     * the value of this keyword.
-     */
-    @Nullable
-    @JsonProperty
-    public Integer maxProperties;
-
-    /**
-     * The value of this keyword MUST be a non-negative integer.
-     * <br><br>
-     * An object instance is valid against "minProperties" if its number of properties is greater than, or equal to,
-     * the value of this keyword.
-     * <br><br>
-     * Omitting this keyword has the same behavior as a value of 0.
-     */
-    @Nullable
-    @JsonProperty
-    public Integer minProperties;
-
-    /**
-     * The value of this keyword MUST be an array. Elements of this array, if any, MUST be strings, and MUST be unique.
-     * <br><br>
-     * An object instance is valid against this keyword if every item in the array is the name of a property in the instance.
-     * <br><br>
-     * Omitting this keyword has the same behavior as an empty array.
-     */
-    @Nullable
-    @JsonProperty
-    public List<String> required;
-
-    /**
-     * The value of "properties" MUST be an object. Each value of this object MUST be a valid JSON Schema.
-     * <br><br>
-     * This keyword determines how child instances validate for objects, and does not directly validate the immediate
-     * instance itself.
-     * <br><br>
-     * Validation succeeds if, for each name that appears in both the instance and as a name within this keyword's value,
-     * the child instance for that name successfully validates against the corresponding schema.
-     * <br><br>
-     * Omitting this keyword has the same behavior as an empty object.
-     */
-    @Nullable
-    @JsonProperty
-    public Map<String, Schema> properties;
-
-    /**
-     * The value of "patternProperties" MUST be an object.  Each property name of this object SHOULD be a valid regular
-     * expression, according to the ECMA 262 regular expression dialect.  Each property value of this object MUST be a
-     * valid JSON Schema.
-     * <br><br>
-     * This keyword determines how child instances validate for objects, and does not directly validate the immediate
-     * instance itself.  Validation of the primitive instance type against this keyword always succeeds.
-     * <br><br>
-     * Validation succeeds if, for each instance name that matches any regular expressions that appear as a property name
-     * in this keyword's value, the child instance for that name successfully validates against each schema that corresponds
-     * to a matching regular expression.
-     * <br><br>
-     * Omitting this keyword has the same behavior as an empty object.
-     */
-    @Nullable
-    @JsonProperty
-    public Map<String, Schema> patternProperties;
-
-    /**
-     * The value of "additionalProperties" MUST be a valid JSON Schema.
-     * <br><br>
-     * This keyword determines how child instances validate for objects, and does not directly validate the immediate
-     * instance itself.
-     * <br><br>
-     * Validation with "additionalProperties" applies only to the child values of instance names that do not match any
-     * names in "properties", and do not match any regular expression in "patternProperties".
-     * <br><br>
-     * For all such properties, validation succeeds if the child instance validates against the "additionalProperties" schema.
-     * <br><br>
-     * Omitting this keyword has the same behavior as an empty schema.
-     */
-    @Nullable
-    @JsonProperty
-    @JsonDeserialize(using = SchemasAdditionalPropertiesDeserializer.class)
-    public Object additionalProperties;
-
-    /**
-     * [[CREF1: This keyword may be split into two, with the variation that uses an array of property names rather than a
-     * subschema getting a new name.  The dual behavior is confusing and relatively difficult to implement.  In the previous
-     * draft, we proposed dropping the keyword altogether, or dropping one of its forms, but we received feedback in support of
-     * keeping it.  See issues #442 and #528 at https://github.com/json-schema-org/json-schema-spec/issues for further discussion.
-     * Further feedback is encouraged.]]
-     * <br><br>
-     * This keyword specifies rules that are evaluated if the instance is an object and contains a certain property.
-     * <br><br>
-     * This keyword's value MUST be an object.  Each property specifies a dependency.  Each dependency value MUST be an array
-     * or a valid JSON Schema.
-     * <br><br>
-     * If the dependency value is a subschema, and the dependency key is a property in the instance, the entire instance must validate
-     * against the dependency value.
-     * <br><br>
-     * If the dependency value is an array, each element in the array, if any, MUST be a string, and MUST be unique.  If the dependency
-     * key is a property in the instance, each of the items in the dependency value must be a property that exists in the instance.
-     * <br><br>
-     * Omitting this keyword has the same behavior as an empty object.
-     */
-    @Nullable
-    @JsonProperty
-    public Object dependencies;
-
-    /**
-     * The value of "propertyNames" MUST be a valid JSON Schema.
-     * <br><br>
-     * If the instance is an object, this keyword validates if every property name in the instance validates against the provided schema.
-     * Note the property name that the schema is testing will always be a string.
-     * <br><br>
-     * Omitting this keyword has the same behavior as an empty schema.
-     */
-    @Nullable
-    @JsonProperty
-    public Schema propertyNames;
 
     /*
         Keywords for Applying Subschemas Conditionally

@@ -1,12 +1,12 @@
 {
   "headers" : {
+    "type" : "object",
     "properties" : {
       "correlationId" : {
         "description" : "Correlation ID set by application",
         "type" : "string"
       }
-    },
-    "type" : "object"
+    }
   },
   "bindingVersion" : "0.0.1",
   "x-number" : 0,

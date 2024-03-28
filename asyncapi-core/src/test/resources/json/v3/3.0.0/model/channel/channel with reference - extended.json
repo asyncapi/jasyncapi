@@ -28,6 +28,7 @@
     },
     "message" : {
       "headers" : {
+        "type" : "object",
         "properties" : {
           "correlationId" : {
             "description" : "Correlation ID set by application",
@@ -37,17 +38,16 @@
             "description" : "Unique identifier for a given instance of the publishing application",
             "type" : "string"
           }
-        },
-        "type" : "object"
+        }
       },
       "payload" : {
+        "type" : "object",
         "properties" : {
           "metric" : {
             "description" : "Metric set by application",
             "type" : "string"
           }
-        },
-        "type" : "object"
+        }
       },
       "correlationId" : {
         "description" : "Default Correlation ID",
@@ -69,13 +69,13 @@
         },
         "anypointmq" : {
           "headers" : {
+            "type" : "object",
             "properties" : {
               "correlationId" : {
                 "description" : "Correlation ID set by application",
                 "type" : "string"
               }
-            },
-            "type" : "object"
+            }
           },
           "bindingVersion" : "0.0.1"
         },
@@ -88,13 +88,13 @@
         },
         "http" : {
           "headers" : {
+            "type" : "object",
             "properties" : {
               "Content-Type" : {
                 "type" : "string",
                 "enum" : [ "application/json" ]
               }
-            },
-            "type" : "object"
+            }
           },
           "bindingVersion" : "0.1.0"
         },
@@ -170,6 +170,7 @@
       } ],
       "traits" : [ {
         "headers" : {
+          "type" : "object",
           "properties" : {
             "correlationId" : {
               "description" : "Correlation ID set by application",
@@ -179,8 +180,7 @@
               "description" : "Unique identifier for a given instance of the publishing application",
               "type" : "string"
             }
-          },
-          "type" : "object"
+          }
         },
         "correlationId" : {
           "description" : "Default Correlation ID",
@@ -202,13 +202,13 @@
           },
           "anypointmq" : {
             "headers" : {
+              "type" : "object",
               "properties" : {
                 "correlationId" : {
                   "description" : "Correlation ID set by application",
                   "type" : "string"
                 }
-              },
-              "type" : "object"
+              }
             },
             "bindingVersion" : "0.0.1"
           },
@@ -221,13 +221,13 @@
           },
           "http" : {
             "headers" : {
+              "type" : "object",
               "properties" : {
                 "Content-Type" : {
                   "type" : "string",
                   "enum" : [ "application/json" ]
                 }
-              },
-              "type" : "object"
+              }
             },
             "bindingVersion" : "0.1.0"
           },
@@ -335,13 +335,13 @@
           },
           "anypointmq" : {
             "headers" : {
+              "type" : "object",
               "properties" : {
                 "correlationId" : {
                   "description" : "Correlation ID set by application",
                   "type" : "string"
                 }
-              },
-              "type" : "object"
+              }
             },
             "bindingVersion" : "0.0.1"
           },
@@ -354,13 +354,13 @@
           },
           "http" : {
             "headers" : {
+              "type" : "object",
               "properties" : {
                 "Content-Type" : {
                   "type" : "string",
                   "enum" : [ "application/json" ]
                 }
-              },
-              "type" : "object"
+              }
             },
             "bindingVersion" : "0.1.0"
           },
@@ -482,13 +482,13 @@
           },
           "anypointmq" : {
             "headers" : {
+              "type" : "object",
               "properties" : {
                 "correlationId" : {
                   "description" : "Correlation ID set by application",
                   "type" : "string"
                 }
-              },
-              "type" : "object"
+              }
             },
             "bindingVersion" : "0.0.1"
           },
@@ -501,13 +501,13 @@
           },
           "http" : {
             "headers" : {
+              "type" : "object",
               "properties" : {
                 "Content-Type" : {
                   "type" : "string",
                   "enum" : [ "application/json" ]
                 }
-              },
-              "type" : "object"
+              }
             },
             "bindingVersion" : "0.1.0"
           },
@@ -654,13 +654,13 @@
         },
         "anypointmq" : {
           "headers" : {
+            "type" : "object",
             "properties" : {
               "correlationId" : {
                 "description" : "Correlation ID set by application",
                 "type" : "string"
               }
-            },
-            "type" : "object"
+            }
           },
           "bindingVersion" : "0.0.1"
         },
@@ -673,13 +673,13 @@
         },
         "http" : {
           "headers" : {
+            "type" : "object",
             "properties" : {
               "Content-Type" : {
                 "type" : "string",
                 "enum" : [ "application/json" ]
               }
-            },
-            "type" : "object"
+            }
           },
           "bindingVersion" : "0.1.0"
         },
@@ -755,6 +755,7 @@
       } ],
       "traits" : [ {
         "headers" : {
+          "type" : "object",
           "properties" : {
             "correlationId" : {
               "description" : "Correlation ID set by application",
@@ -764,8 +765,7 @@
               "description" : "Unique identifier for a given instance of the publishing application",
               "type" : "string"
             }
-          },
-          "type" : "object"
+          }
         },
         "correlationId" : {
           "description" : "Default Correlation ID",
@@ -787,13 +787,13 @@
           },
           "anypointmq" : {
             "headers" : {
+              "type" : "object",
               "properties" : {
                 "correlationId" : {
                   "description" : "Correlation ID set by application",
                   "type" : "string"
                 }
-              },
-              "type" : "object"
+              }
             },
             "bindingVersion" : "0.0.1"
           },
@@ -806,13 +806,13 @@
           },
           "http" : {
             "headers" : {
+              "type" : "object",
               "properties" : {
                 "Content-Type" : {
                   "type" : "string",
                   "enum" : [ "application/json" ]
                 }
-              },
-              "type" : "object"
+              }
             },
             "bindingVersion" : "0.1.0"
           },
@@ -920,13 +920,13 @@
           },
           "anypointmq" : {
             "headers" : {
+              "type" : "object",
               "properties" : {
                 "correlationId" : {
                   "description" : "Correlation ID set by application",
                   "type" : "string"
                 }
-              },
-              "type" : "object"
+              }
             },
             "bindingVersion" : "0.0.1"
           },
@@ -939,13 +939,13 @@
           },
           "http" : {
             "headers" : {
+              "type" : "object",
               "properties" : {
                 "Content-Type" : {
                   "type" : "string",
                   "enum" : [ "application/json" ]
                 }
-              },
-              "type" : "object"
+              }
             },
             "bindingVersion" : "0.1.0"
           },
@@ -1067,13 +1067,13 @@
           },
           "anypointmq" : {
             "headers" : {
+              "type" : "object",
               "properties" : {
                 "correlationId" : {
                   "description" : "Correlation ID set by application",
                   "type" : "string"
                 }
-              },
-              "type" : "object"
+              }
             },
             "bindingVersion" : "0.0.1"
           },
@@ -1086,13 +1086,13 @@
           },
           "http" : {
             "headers" : {
+              "type" : "object",
               "properties" : {
                 "Content-Type" : {
                   "type" : "string",
                   "enum" : [ "application/json" ]
                 }
-              },
-              "type" : "object"
+              }
             },
             "bindingVersion" : "0.1.0"
           },
@@ -1218,13 +1218,13 @@
         },
         "anypointmq" : {
           "headers" : {
+            "type" : "object",
             "properties" : {
               "correlationId" : {
                 "description" : "Correlation ID set by application",
                 "type" : "string"
               }
-            },
-            "type" : "object"
+            }
           },
           "bindingVersion" : "0.0.1"
         },
@@ -1237,13 +1237,13 @@
         },
         "http" : {
           "headers" : {
+            "type" : "object",
             "properties" : {
               "Content-Type" : {
                 "type" : "string",
                 "enum" : [ "application/json" ]
               }
-            },
-            "type" : "object"
+            }
           },
           "bindingVersion" : "0.1.0"
         },
@@ -1319,6 +1319,7 @@
       } ],
       "traits" : [ {
         "headers" : {
+          "type" : "object",
           "properties" : {
             "correlationId" : {
               "description" : "Correlation ID set by application",
@@ -1328,8 +1329,7 @@
               "description" : "Unique identifier for a given instance of the publishing application",
               "type" : "string"
             }
-          },
-          "type" : "object"
+          }
         },
         "correlationId" : {
           "description" : "Default Correlation ID",
@@ -1351,13 +1351,13 @@
           },
           "anypointmq" : {
             "headers" : {
+              "type" : "object",
               "properties" : {
                 "correlationId" : {
                   "description" : "Correlation ID set by application",
                   "type" : "string"
                 }
-              },
-              "type" : "object"
+              }
             },
             "bindingVersion" : "0.0.1"
           },
@@ -1370,13 +1370,13 @@
           },
           "http" : {
             "headers" : {
+              "type" : "object",
               "properties" : {
                 "Content-Type" : {
                   "type" : "string",
                   "enum" : [ "application/json" ]
                 }
-              },
-              "type" : "object"
+              }
             },
             "bindingVersion" : "0.1.0"
           },
@@ -1484,13 +1484,13 @@
           },
           "anypointmq" : {
             "headers" : {
+              "type" : "object",
               "properties" : {
                 "correlationId" : {
                   "description" : "Correlation ID set by application",
                   "type" : "string"
                 }
-              },
-              "type" : "object"
+              }
             },
             "bindingVersion" : "0.0.1"
           },
@@ -1503,13 +1503,13 @@
           },
           "http" : {
             "headers" : {
+              "type" : "object",
               "properties" : {
                 "Content-Type" : {
                   "type" : "string",
                   "enum" : [ "application/json" ]
                 }
-              },
-              "type" : "object"
+              }
             },
             "bindingVersion" : "0.1.0"
           },
@@ -1631,13 +1631,13 @@
           },
           "anypointmq" : {
             "headers" : {
+              "type" : "object",
               "properties" : {
                 "correlationId" : {
                   "description" : "Correlation ID set by application",
                   "type" : "string"
                 }
-              },
-              "type" : "object"
+              }
             },
             "bindingVersion" : "0.0.1"
           },
@@ -1650,13 +1650,13 @@
           },
           "http" : {
             "headers" : {
+              "type" : "object",
               "properties" : {
                 "Content-Type" : {
                   "type" : "string",
                   "enum" : [ "application/json" ]
                 }
-              },
-              "type" : "object"
+              }
             },
             "bindingVersion" : "0.1.0"
           },
@@ -1874,22 +1874,22 @@
     "ws" : {
       "method" : "GET",
       "query" : {
+        "type" : "object",
         "properties" : {
           "ref" : {
             "description" : "Referral.",
             "type" : "string"
           }
-        },
-        "type" : "object"
+        }
       },
       "headers" : {
+        "type" : "object",
         "properties" : {
           "Authentication" : {
             "description" : "Authentication token",
             "type" : "string"
           }
-        },
-        "type" : "object"
+        }
       },
       "bindingVersion" : "0.1.0"
     }
