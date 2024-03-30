@@ -561,6 +561,43 @@ public class Schema extends ExtendableObject {
     public Schema elseValue;
 
     /*
+        String-Encoding Non-JSON Data
+     */
+
+    /**
+     * If the instance value is a string, this property defines that the string <b>SHOULD</b> be interpreted as binary data and
+     * decoded using the encoding named by this property. <a href="https://tools.ietf.org/html/rfc2045">RFC 2045</a>,
+     * Sec 6.1 [RFC2045] lists the possible values for this property.
+     * <p>
+     * The value of this property <b>MUST</b> be a string.
+     * <p>
+     * The value of this property <b>SHOULD</b> be ignored if the instance described is not a string.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.8.3">contentEncoding</a>
+     */
+    @Nullable
+    @JsonProperty
+    private String contentEncoding;
+
+    /**
+     * The value of this property must be a media type, as defined by <a href="https://tools.ietf.org/html/rfc2046">RFC 2046</a> [RFC2046].
+     * This property defines the media type of instances which this schema defines.
+     * <p>
+     * The value of this property <b>MUST</b> be a string.
+     * <p>
+     * The value of this property <b>SHOULD</b> be ignored if the instance described is not a string.
+     * <p>
+     * If the "contentEncoding" property is not present, but the instance value is a string, then the value of this property <b>SHOULD</b> specify a
+     * text document type, and the character set <b>SHOULD</b> be the character set into which the JSON string value was decoded (for which the default
+     * is Unicode).
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.8.4">contentMediaType</a>
+     */
+    @Nullable
+    @JsonProperty
+    private String contentMediaType;
+
+    /*
         Schema Annotations
 
         Schema validation is a useful mechanism for annotating instance data
@@ -674,60 +711,6 @@ public class Schema extends ExtendableObject {
     @Nullable
     @JsonProperty
     public List<Object> examples;
-
-    /*
-        String-Encoding Non-JSON Data
-
-        Foreword
-
-        Properties defined in this section indicate that an instance contains
-        non-JSON data encoded in a JSON string.  They describe the type of
-        content and how it is encoded.
-
-        These properties provide additional information required to interpret
-        JSON data as rich multimedia documents.
-
-        Implementation Requirements
-
-        The content keywords function as both annotations (Section 3.3) and
-        as assertions (Section 3.2).  While no special effort is required to
-        implement them as annotations conveying how applications can
-        interpret the data in the string, implementing validation of
-        conformance to the media type and encoding is non-trivial.
-
-        Implementations MAY support the "contentMediaType" and
-        "contentEncoding" keywords as validation assertions.  Should they
-        choose to do so, they SHOULD offer an option to disable validation
-        for these keywords.
-     */
-
-    /**
-     * If the instance value is a string, this property defines that the string SHOULD be interpreted as binary data and
-     * decoded using the encoding named by this property. <a href="https://tools.ietf.org/html/rfc2045">RFC 2045</a>, Sec 6.1 [<a href="https://tools.ietf.org/html/rfc2045">RFC2045</a>] lists the possible values for this property.
-     * <br><br>
-     * The value of this property MUST be a string.
-     * <br><br>
-     * The value of this property SHOULD be ignored if the instance described is not a string.
-     */
-    @Nullable
-    @JsonProperty
-    private String contentEncoding;
-
-    /**
-     * The value of this property must be a media type, as defined by <a href="https://tools.ietf.org/html/rfc2046">RFC 2046</a> [<a href="https://tools.ietf.org/html/rfc2046">RFC2046</a>]. This property defines the media
-     * type of instances which this schema defines.
-     * <br><br>
-     * The value of this property MUST be a string.
-     * <br><br>
-     * The value of this property SHOULD be ignored if the instance described is not a string.
-     * <br><br>
-     * If the "contentEncoding" property is not present, but the instance value is a string, then the value of this property SHOULD specify a
-     * text document type, and the character set SHOULD be the character set into which the JSON string value was decoded (for which the default
-     * is Unicode).
-     */
-    @Nullable
-    @JsonProperty
-    private String contentMediaType;
 
     /*
         Keywords for Applying Subschemas With Boolean Logic
