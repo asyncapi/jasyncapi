@@ -561,6 +561,63 @@ public class Schema extends ExtendableObject {
     public Schema elseValue;
 
     /*
+        Keywords for Applying Subschemas With Boolean Logic
+     */
+
+    /**
+     * This keyword's value <b>MUST</b> be a non-empty array.
+     * <p>
+     * Each item of the array <b>MUST</b> be a valid JSON Schema.
+     * <p>
+     * An instance validates successfully against this keyword if it validates successfully against all schemas defined
+     * by this keyword's value.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.6.7.1">allOf</a>
+     */
+    @Nullable
+    @JsonProperty("allOf")
+    public List<Schema> allOf;
+
+    /**
+     * This keyword's value <b>MUST</b> be a non-empty array.
+     * <p>
+     * Each item of the array <b>MUST</b> be a valid JSON Schema.
+     * <p>
+     * An instance validates successfully against this keyword if it validates successfully against at least one schema
+     * defined by this keyword's value.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.6.7.2">anyOf</a>
+     */
+    @Nullable
+    @JsonProperty("anyOf")
+    public List<Schema> anyOf;
+
+    /**
+     * This keyword's value <b>MUST</b> be a non-empty array.
+     * <p>
+     * Each item of the array <b>MUST</b> be a valid JSON Schema.
+     * <p>
+     * An instance validates successfully against this keyword if it validates successfully against exactly one schema
+     * defined by this keyword's value.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.6.7.3">oneOf</a>
+     */
+    @Nullable
+    @JsonProperty("oneOf")
+    public List<Schema> oneOf;
+
+    /**
+     * This keyword's value <b>MUST</b> be a valid JSON Schema.
+     * <p>
+     * An instance is valid against this keyword if it fails to validate successfully against the schema defined by this keyword.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.6.7.4">not</a>
+     */
+    @Nullable
+    @JsonProperty("not")
+    public Schema not;
+
+    /*
         String-Encoding Non-JSON Data
      */
 
@@ -750,49 +807,6 @@ public class Schema extends ExtendableObject {
     @Nullable
     @JsonProperty("examples")
     public List<Object> examples;
-
-    /*
-        Keywords for Applying Subschemas With Boolean Logic
-     */
-
-    /**
-     * This keyword's value MUST be a non-empty array.  Each item of the array MUST be a valid JSON Schema.
-     * <br><br>
-     * An instance validates successfully against this keyword if it validates successfully against all schemas defined
-     * by this keyword's value.
-     */
-    @Nullable
-    @JsonProperty
-    public List<Schema> allOf;
-
-    /**
-     * This keyword's value MUST be a non-empty array.  Each item of the array MUST be a valid JSON Schema.
-     * <br><br>
-     * An instance validates successfully against this keyword if it validates successfully against at least one schema
-     * defined by this keyword's value.
-     */
-    @Nullable
-    @JsonProperty
-    public List<Schema> anyOf;
-
-    /**
-     * This keyword's value MUST be a non-empty array.  Each item of the array MUST be a valid JSON Schema.
-     * <br><br>
-     * An instance validates successfully against this keyword if it validates successfully against exactly one schema
-     * defined by this keyword's value.
-     */
-    @Nullable
-    @JsonProperty
-    public List<Schema> oneOf;
-
-    /**
-     * This keyword's value MUST be a valid JSON Schema.
-     * <br><br>
-     * An instance is valid against this keyword if it fails to validate successfully against the schema defined by this keyword.
-     */
-    @Nullable
-    @JsonProperty
-    public Schema not;
 
     /*
         Semantic Validation With "format"
