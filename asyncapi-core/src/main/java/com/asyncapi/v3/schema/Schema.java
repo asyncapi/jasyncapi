@@ -649,7 +649,7 @@ public class Schema extends ExtendableObject {
      * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.8.3">contentEncoding</a>
      */
     @Nullable
-    @JsonProperty
+    @JsonProperty("contentEncoding")
     private String contentEncoding;
 
     /**
@@ -667,7 +667,7 @@ public class Schema extends ExtendableObject {
      * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.8.4">contentMediaType</a>
      */
     @Nullable
-    @JsonProperty
+    @JsonProperty("contentMediaType")
     private String contentMediaType;
 
     /*
