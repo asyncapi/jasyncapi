@@ -5,7 +5,7 @@ import lombok.*;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * The Multi Format Schema Object represents a schema definition. It differs from the {@link Schema} in that it supports
+ * The Multi Format Schema Object represents a schema definition. It differs from the {@link AsyncAPISchema} in that it supports
  * multiple schema formats or languages (e.g., JSON Schema, Avro, etc.).
  *
  * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#multiFormatSchemaObject">Multi Format Schema</a>
@@ -28,7 +28,7 @@ public class MultiFormatSchema extends ExtendableObject {
      * If schemaFormat is missing, it MUST default to application/vnd.aai.asyncapi+json;version={{asyncapi}}
      * where {{asyncapi}} matches the {@link com.asyncapi.v3._0_0.model.AsyncAPI#getAsyncapi()} version string.
      * <p>
-     * In such a case, this would make the Multi Format Schema Object equivalent to the {@link Schema}.
+     * In such a case, this would make the Multi Format Schema Object equivalent to the {@link AsyncAPISchema}.
      * <p>
      * When using {@link com.asyncapi.v3.Reference} within the {@link #getSchema()}, the schemaFormat of the resource being referenced MUST match
      * the schemaFormat of the {@link #getSchema()} that contains the initial reference.
@@ -54,7 +54,7 @@ public class MultiFormatSchema extends ExtendableObject {
      * <p>
      * Definition of the message payload.
      * <p>
-     * It can be of any type but defaults to {@link Schema}.
+     * It can be of any type but defaults to {@link AsyncAPISchema}.
      * <p>
      * It MUST match the schema format defined in {@link #getSchemaFormat()}, including the encoding type. E.g., Avro should be
      * inlined as either a YAML or JSON object instead of as a string to be parsed as YAML or JSON. Non-JSON-based

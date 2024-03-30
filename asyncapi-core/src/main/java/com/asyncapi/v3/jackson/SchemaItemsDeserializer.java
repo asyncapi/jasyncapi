@@ -1,6 +1,5 @@
 package com.asyncapi.v3.jackson;
 
-import com.asyncapi.v3.schema.Schema;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.DeserializationContext;
@@ -13,7 +12,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SchemaItemsDeserializer extends JsonDeserializer<Object> {
+public abstract class SchemaItemsDeserializer<Schema> extends JsonDeserializer<Object> {
+
+    abstract public Class<Schema> schemaClass();
 
     @Override
     public Object deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
@@ -39,7 +40,7 @@ public class SchemaItemsDeserializer extends JsonDeserializer<Object> {
 
     private Schema readAsSchema(JsonNode jsonNode, ObjectCodec objectCodec) throws IOException {
         try (JsonParser parser = jsonNode.traverse(objectCodec)) {
-            return parser.readValueAs(Schema.class);
+            return parser.readValueAs(schemaClass());
         }
     }
 

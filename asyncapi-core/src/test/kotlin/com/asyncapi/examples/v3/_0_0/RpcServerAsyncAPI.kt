@@ -14,7 +14,7 @@ import com.asyncapi.v3.binding.channel.amqp.AMQPChannelBinding
 import com.asyncapi.v3.binding.channel.amqp.AMQPChannelType
 import com.asyncapi.v3.binding.channel.amqp.queue.AMQPChannelQueueProperties
 import com.asyncapi.v3.binding.operation.amqp.AMQPOperationBinding
-import com.asyncapi.v3.schema.Schema
+import com.asyncapi.v3.schema.AsyncAPISchema
 
 class RpcServerAsyncAPI: AbstractExampleValidationTest() {
 
@@ -51,10 +51,10 @@ class RpcServerAsyncAPI: AbstractExampleValidationTest() {
                                         Pair("sendSumResult",
                                                 Message.builder()
                                                         .correlationId(CorrelationId(null, "\$message.header#/correlation_id"))
-                                                        .payload(Schema.builder()
+                                                        .payload(AsyncAPISchema.builder()
                                                                 .type("object")
                                                                 .properties(mapOf(
-                                                                        Pair("result", Schema.builder()
+                                                                        Pair("result", AsyncAPISchema.builder()
                                                                                 .type("number")
                                                                                 .examples(listOf(7))
                                                                                 .build()
@@ -88,12 +88,12 @@ class RpcServerAsyncAPI: AbstractExampleValidationTest() {
                                         Pair("sum",
                                                 Message.builder()
                                                         .correlationId(CorrelationId(null, "\$message.header#/correlation_id"))
-                                                        .payload(Schema.builder()
+                                                        .payload(AsyncAPISchema.builder()
                                                                 .type("object")
                                                                 .properties(mapOf(
-                                                                        Pair("numbers", Schema.builder()
+                                                                        Pair("numbers", AsyncAPISchema.builder()
                                                                                 .type("array")
-                                                                                .items(Schema.builder()
+                                                                                .items(AsyncAPISchema.builder()
                                                                                         .type("number")
                                                                                         .build()
                                                                                 )

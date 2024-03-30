@@ -19,7 +19,7 @@ import com.asyncapi.v3._0_0.model.operation.reply.OperationReplyTestWithReferenc
 import com.asyncapi.v3._0_0.model.server.ServerTest
 import com.asyncapi.v3._0_0.model.server.ServerVariableTest
 import com.asyncapi.v3.schema.MultiFormatSchema
-import com.asyncapi.v3.schema.Schema
+import com.asyncapi.v3.schema.AsyncAPISchema
 import com.asyncapi.v3.schema.Type
 import com.asyncapi.v3.security_scheme.ApiKeySecuritySchemeTest
 import com.asyncapi.v3.security_scheme.OpenIdConnectSecuritySchemeTest
@@ -49,11 +49,11 @@ class ComponentsTest: SerDeTest<Components>() {
          */
         return Components.builder()
                 .schemas(mapOf(
-                        Pair("Category", Schema.builder()
+                        Pair("Category", AsyncAPISchema.builder()
                                 .type(Type.OBJECT)
                                 .properties(mapOf(
-                                        Pair("id", Schema.builder().type(Type.INTEGER).format("int64").build()),
-                                        Pair("name", Schema.builder().type(Type.STRING).build())
+                                        Pair("id", AsyncAPISchema.builder().type(Type.INTEGER).format("int64").build()),
+                                        Pair("name", AsyncAPISchema.builder().type(Type.STRING).build())
                                 ))
                                 .build()
                         ),

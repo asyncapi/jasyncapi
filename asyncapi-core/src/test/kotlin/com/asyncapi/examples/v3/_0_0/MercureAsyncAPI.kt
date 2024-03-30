@@ -10,7 +10,7 @@ import com.asyncapi.v3._0_0.model.info.Info
 import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.server.Server
-import com.asyncapi.v3.schema.Schema
+import com.asyncapi.v3.schema.AsyncAPISchema
 
 class MercureAsyncAPI: AbstractExampleValidationTest() {
 
@@ -89,33 +89,33 @@ class MercureAsyncAPI: AbstractExampleValidationTest() {
                                 Message.builder()
                                         .summary("The content of a book resource.")
                                         .externalDocs(ExternalDocumentation(null, "https://schema.org/Book"))
-                                        .payload(Schema.builder()
+                                        .payload(AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("@id",
-                                                                Schema.builder()
+                                                                AsyncAPISchema.builder()
                                                                         .type("string")
                                                                         .format("iri-reference")
                                                                         .build()
                                                         ),
                                                         Pair("@type",
-                                                                Schema.builder()
+                                                                AsyncAPISchema.builder()
                                                                         .type("string")
                                                                         .format("iri-reference")
                                                                         .build()
                                                         ),
                                                         Pair("name",
-                                                                Schema.builder()
+                                                                AsyncAPISchema.builder()
                                                                         .type("string")
                                                                         .build()
                                                         ),
                                                         Pair("isbn",
-                                                                Schema.builder()
+                                                                AsyncAPISchema.builder()
                                                                         .type("string")
                                                                         .build()
                                                         ),
                                                         Pair("abstract",
-                                                                Schema.builder()
+                                                                AsyncAPISchema.builder()
                                                                         .type("string")
                                                                         .build()
                                                         )

@@ -10,7 +10,7 @@ import com.asyncapi.v3._0_0.model.info.Info
 import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.operation.reply.OperationReply
-import com.asyncapi.v3.schema.Schema
+import com.asyncapi.v3.schema.AsyncAPISchema
 
 class KrakenWebsocketRequestReplyMultipleChannelsAsyncAPI: AbstractExampleValidationTest() {
 
@@ -152,19 +152,19 @@ class KrakenWebsocketRequestReplyMultipleChannelsAsyncAPI: AbstractExampleValida
                         Pair("dummyCurrencyInfo", Message.builder()
                                 .summary("Dummy message with no real life details")
                                 .description("It is here in this example to showcase that there is an additional message that normally is of a complex structure. It represents actually currency exchange value to show a reply to operation receiveSubscribeRequest with more than one possible message.")
-                                .payload(Schema.builder()
+                                .payload(AsyncAPISchema.builder()
                                         .type("object")
                                         .properties(mapOf(
-                                                Pair("event", Schema.builder()
+                                                Pair("event", AsyncAPISchema.builder()
                                                         .type("string")
                                                         .constValue("currencyInfo")
                                                         .build()
                                                 ),
-                                                Pair("reqid", Schema.builder()
+                                                Pair("reqid", AsyncAPISchema.builder()
                                                         .ref("#/components/schemas/reqid")
                                                         .build()
                                                 ),
-                                                Pair("data", Schema.builder()
+                                                Pair("data", AsyncAPISchema.builder()
                                                         .type("object")
                                                         .build()
                                                 ),
@@ -246,15 +246,15 @@ class KrakenWebsocketRequestReplyMultipleChannelsAsyncAPI: AbstractExampleValida
                         ),
                 ))
                 .schemas(mapOf(
-                        Pair("ping", Schema.builder()
+                        Pair("ping", AsyncAPISchema.builder()
                                 .type("object")
                                 .properties(mapOf(
-                                        Pair("event", Schema.builder()
+                                        Pair("event", AsyncAPISchema.builder()
                                                 .type("string")
                                                 .constValue("ping")
                                                 .build()
                                         ),
-                                        Pair("reqid", Schema.builder()
+                                        Pair("reqid", AsyncAPISchema.builder()
                                                 .ref("#/components/schemas/reqid")
                                                 .build()
                                         )
@@ -262,10 +262,10 @@ class KrakenWebsocketRequestReplyMultipleChannelsAsyncAPI: AbstractExampleValida
                                 .required(listOf("event"))
                                 .build()
                         ),
-                        Pair("heartbeat", Schema.builder()
+                        Pair("heartbeat", AsyncAPISchema.builder()
                                 .type("object")
                                 .properties(mapOf(
-                                        Pair("event", Schema.builder()
+                                        Pair("event", AsyncAPISchema.builder()
                                                 .type("string")
                                                 .constValue("heartbeat")
                                                 .build()
@@ -273,92 +273,92 @@ class KrakenWebsocketRequestReplyMultipleChannelsAsyncAPI: AbstractExampleValida
                                 ))
                                 .build()
                         ),
-                        Pair("pong", Schema.builder()
+                        Pair("pong", AsyncAPISchema.builder()
                                 .type("object")
                                 .properties(mapOf(
-                                        Pair("event", Schema.builder()
+                                        Pair("event", AsyncAPISchema.builder()
                                                 .type("string")
                                                 .constValue("pong")
                                                 .build()
                                         ),
-                                        Pair("reqid", Schema.builder()
+                                        Pair("reqid", AsyncAPISchema.builder()
                                                 .ref("#/components/schemas/reqid")
                                                 .build()
                                         )
                                 ))
                                 .build()
                         ),
-                        Pair("systemStatus", Schema.builder()
+                        Pair("systemStatus", AsyncAPISchema.builder()
                                 .type("object")
                                 .properties(mapOf(
-                                        Pair("event", Schema.builder()
+                                        Pair("event", AsyncAPISchema.builder()
                                                 .type("string")
                                                 .constValue("systemStatus")
                                                 .build()
                                         ),
-                                        Pair("connectionID", Schema.builder()
+                                        Pair("connectionID", AsyncAPISchema.builder()
                                                 .type("integer")
                                                 .description("The ID of the connection")
                                                 .build()
                                         ),
-                                        Pair("status", Schema.builder()
+                                        Pair("status", AsyncAPISchema.builder()
                                                 .ref("#/components/schemas/status")
                                                 .build()
                                         ),
-                                        Pair("version", Schema.builder()
+                                        Pair("version", AsyncAPISchema.builder()
                                                 .type("string")
                                                 .build()
                                         )
                                 ))
                                 .build()
                         ),
-                        Pair("status", Schema.builder()
+                        Pair("status", AsyncAPISchema.builder()
                                 .type("string")
                                 .enumValue(listOf(
                                         "online", "maintenance", "cancel_only", "limit_only", "post_only"
                                 ))
                                 .build()
                         ),
-                        Pair("subscribe", Schema.builder()
+                        Pair("subscribe", AsyncAPISchema.builder()
                                 .type("object")
                                 .properties(mapOf(
-                                        Pair("event", Schema.builder()
+                                        Pair("event", AsyncAPISchema.builder()
                                                 .type("string")
                                                 .constValue("subscribe")
                                                 .build()
                                         ),
-                                        Pair("reqid", Schema.builder()
+                                        Pair("reqid", AsyncAPISchema.builder()
                                                 .ref("#/components/schemas/reqid")
                                                 .build()
                                         ),
-                                        Pair("pair", Schema.builder()
+                                        Pair("pair", AsyncAPISchema.builder()
                                                 .ref("#/components/schemas/pair")
                                                 .build()
                                         ),
-                                        Pair("subscription", Schema.builder()
+                                        Pair("subscription", AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
-                                                        Pair("depth", Schema.builder()
+                                                        Pair("depth", AsyncAPISchema.builder()
                                                                 .ref("#/components/schemas/depth")
                                                                 .build()
                                                         ),
-                                                        Pair("interval", Schema.builder()
+                                                        Pair("interval", AsyncAPISchema.builder()
                                                                 .ref("#/components/schemas/interval")
                                                                 .build()
                                                         ),
-                                                        Pair("name", Schema.builder()
+                                                        Pair("name", AsyncAPISchema.builder()
                                                                 .ref("#/components/schemas/name")
                                                                 .build()
                                                         ),
-                                                        Pair("ratecounter", Schema.builder()
+                                                        Pair("ratecounter", AsyncAPISchema.builder()
                                                                 .ref("#/components/schemas/ratecounter")
                                                                 .build()
                                                         ),
-                                                        Pair("snapshot", Schema.builder()
+                                                        Pair("snapshot", AsyncAPISchema.builder()
                                                                 .ref("#/components/schemas/snapshot")
                                                                 .build()
                                                         ),
-                                                        Pair("token", Schema.builder()
+                                                        Pair("token", AsyncAPISchema.builder()
                                                                 .ref("#/components/schemas/token")
                                                                 .build()
                                                         )
@@ -370,38 +370,38 @@ class KrakenWebsocketRequestReplyMultipleChannelsAsyncAPI: AbstractExampleValida
                                 .required(listOf("event"))
                                 .build()
                         ),
-                        Pair("unsubscribe", Schema.builder()
+                        Pair("unsubscribe", AsyncAPISchema.builder()
                                 .type("object")
                                 .properties(mapOf(
-                                        Pair("event", Schema.builder()
+                                        Pair("event", AsyncAPISchema.builder()
                                                 .type("string")
                                                 .constValue("unsubscribe")
                                                 .build()
                                         ),
-                                        Pair("reqid", Schema.builder()
+                                        Pair("reqid", AsyncAPISchema.builder()
                                                 .ref("#/components/schemas/reqid")
                                                 .build()
                                         ),
-                                        Pair("pair", Schema.builder()
+                                        Pair("pair", AsyncAPISchema.builder()
                                                 .ref("#/components/schemas/pair")
                                                 .build()
                                         ),
-                                        Pair("subscription", Schema.builder()
+                                        Pair("subscription", AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
-                                                        Pair("depth", Schema.builder()
+                                                        Pair("depth", AsyncAPISchema.builder()
                                                                 .ref("#/components/schemas/depth")
                                                                 .build()
                                                         ),
-                                                        Pair("interval", Schema.builder()
+                                                        Pair("interval", AsyncAPISchema.builder()
                                                                 .ref("#/components/schemas/interval")
                                                                 .build()
                                                         ),
-                                                        Pair("name", Schema.builder()
+                                                        Pair("name", AsyncAPISchema.builder()
                                                                 .ref("#/components/schemas/name")
                                                                 .build()
                                                         ),
-                                                        Pair("token", Schema.builder()
+                                                        Pair("token", AsyncAPISchema.builder()
                                                                 .ref("#/components/schemas/token")
                                                                 .build()
                                                         )
@@ -413,36 +413,36 @@ class KrakenWebsocketRequestReplyMultipleChannelsAsyncAPI: AbstractExampleValida
                                 .required(listOf("event"))
                                 .build()
                         ),
-                        Pair("subscriptionStatus", Schema.builder()
+                        Pair("subscriptionStatus", AsyncAPISchema.builder()
                                 .type("object")
                                 .oneOf(listOf(
-                                        Schema.builder().ref("#/components/schemas/subscriptionStatusError").build(),
-                                        Schema.builder().ref("#/components/schemas/subscriptionStatusSuccess").build()
+                                        AsyncAPISchema.builder().ref("#/components/schemas/subscriptionStatusError").build(),
+                                        AsyncAPISchema.builder().ref("#/components/schemas/subscriptionStatusSuccess").build()
                                 ))
                                 .build()
                         ),
-                        Pair("subscriptionStatusError", Schema.builder()
+                        Pair("subscriptionStatusError", AsyncAPISchema.builder()
                                 .allOf(listOf(
-                                        Schema.builder()
+                                        AsyncAPISchema.builder()
                                                 .properties(mapOf(
-                                                        Pair("errorMessage", Schema.builder().type("string").build())
+                                                        Pair("errorMessage", AsyncAPISchema.builder().type("string").build())
                                                 ))
                                                 .required(listOf("errorMessage"))
                                                 .build(),
-                                        Schema.builder().ref("#/components/schemas/subscriptionStatusCommon").build()
+                                        AsyncAPISchema.builder().ref("#/components/schemas/subscriptionStatusCommon").build()
                                 ))
                                 .build()
                         ),
-                        Pair("subscriptionStatusSuccess", Schema.builder()
+                        Pair("subscriptionStatusSuccess", AsyncAPISchema.builder()
                                 .allOf(listOf(
-                                        Schema.builder()
+                                        AsyncAPISchema.builder()
                                                 .properties(mapOf(
-                                                        Pair("channelID", Schema.builder()
+                                                        Pair("channelID", AsyncAPISchema.builder()
                                                                 .type("integer")
                                                                 .description("ChannelID on successful subscription, applicable to public messages only.")
                                                                 .build()
                                                         ),
-                                                        Pair("channelName", Schema.builder()
+                                                        Pair("channelName", AsyncAPISchema.builder()
                                                                 .type("string")
                                                                 .description("Channel Name on successful subscription. For payloads 'ohlc' and 'book', respective interval or depth will be added as suffix.")
                                                                 .build()
@@ -450,47 +450,47 @@ class KrakenWebsocketRequestReplyMultipleChannelsAsyncAPI: AbstractExampleValida
                                                 ))
                                                 .required(listOf("channelID", "channelName"))
                                                 .build(),
-                                        Schema.builder().ref("#/components/schemas/subscriptionStatusCommon").build()
+                                        AsyncAPISchema.builder().ref("#/components/schemas/subscriptionStatusCommon").build()
                                 ))
                                 .build()
                         ),
-                        Pair("subscriptionStatusCommon", Schema.builder()
+                        Pair("subscriptionStatusCommon", AsyncAPISchema.builder()
                                 .type("object")
                                 .required(listOf("event"))
                                 .properties(mapOf(
-                                        Pair("event", Schema.builder()
+                                        Pair("event", AsyncAPISchema.builder()
                                                 .type("string")
                                                 .constValue("subscriptionStatus")
                                                 .build()
                                         ),
-                                        Pair("reqid", Schema.builder()
+                                        Pair("reqid", AsyncAPISchema.builder()
                                                 .ref("#/components/schemas/reqid")
                                                 .build()
                                         ),
-                                        Pair("pair", Schema.builder()
+                                        Pair("pair", AsyncAPISchema.builder()
                                                 .ref("#/components/schemas/pair")
                                                 .build()
                                         ),
-                                        Pair("status", Schema.builder()
+                                        Pair("status", AsyncAPISchema.builder()
                                                 .ref("#/components/schemas/status")
                                                 .build()
                                         ),
-                                        Pair("subscription", Schema.builder()
+                                        Pair("subscription", AsyncAPISchema.builder()
                                                 .type("object")
                                                 .required(listOf("name"))
                                                 .properties(mapOf(
-                                                        Pair("depth", Schema.builder().ref("#/components/schemas/depth").build()),
-                                                        Pair("interval", Schema.builder().ref("#/components/schemas/interval").build()),
-                                                        Pair("maxratecount", Schema.builder().ref("#/components/schemas/maxratecount").build()),
-                                                        Pair("name", Schema.builder().ref("#/components/schemas/name").build()),
-                                                        Pair("token", Schema.builder().ref("#/components/schemas/token").build()),
+                                                        Pair("depth", AsyncAPISchema.builder().ref("#/components/schemas/depth").build()),
+                                                        Pair("interval", AsyncAPISchema.builder().ref("#/components/schemas/interval").build()),
+                                                        Pair("maxratecount", AsyncAPISchema.builder().ref("#/components/schemas/maxratecount").build()),
+                                                        Pair("name", AsyncAPISchema.builder().ref("#/components/schemas/name").build()),
+                                                        Pair("token", AsyncAPISchema.builder().ref("#/components/schemas/token").build()),
                                                 ))
                                                 .build()
                                         )
                                 ))
                                 .build()
                         ),
-                        Pair("interval", Schema.builder()
+                        Pair("interval", AsyncAPISchema.builder()
                                 .type("integer")
                                 .description("Time interval associated with ohlc subscription in minutes.")
                                 .defaultValue(1)
@@ -499,7 +499,7 @@ class KrakenWebsocketRequestReplyMultipleChannelsAsyncAPI: AbstractExampleValida
                                 ))
                                 .build()
                         ),
-                        Pair("name", Schema.builder()
+                        Pair("name", AsyncAPISchema.builder()
                                 .type("string")
                                 .description("The name of the channel you subscribe too.")
                                 .enumValue(listOf(
@@ -507,12 +507,12 @@ class KrakenWebsocketRequestReplyMultipleChannelsAsyncAPI: AbstractExampleValida
                                 ))
                                 .build()
                         ),
-                        Pair("token", Schema.builder()
+                        Pair("token", AsyncAPISchema.builder()
                                 .type("string")
                                 .description("base64-encoded authentication token for private-data endpoints.")
                                 .build()
                         ),
-                        Pair("depth", Schema.builder()
+                        Pair("depth", AsyncAPISchema.builder()
                                 .type("integer")
                                 .defaultValue(10)
                                 .description("Depth associated with book subscription in number of levels each side.")
@@ -521,32 +521,32 @@ class KrakenWebsocketRequestReplyMultipleChannelsAsyncAPI: AbstractExampleValida
                                 ))
                                 .build()
                         ),
-                        Pair("maxratecount", Schema.builder()
+                        Pair("maxratecount", AsyncAPISchema.builder()
                                 .type("integer")
                                 .description("Max rate-limit budget. Compare to the ratecounter field in the openOrders updates to check whether you are approaching the rate limit.")
                                 .build()
                         ),
-                        Pair("ratecounter", Schema.builder()
+                        Pair("ratecounter", AsyncAPISchema.builder()
                                 .type("boolean")
                                 .defaultValue(false)
                                 .description("Whether to send rate-limit counter in updates (supported only for openOrders subscriptions)")
                                 .build()
                         ),
-                        Pair("snapshot", Schema.builder()
+                        Pair("snapshot", AsyncAPISchema.builder()
                                 .type("boolean")
                                 .defaultValue(true)
                                 .description("Whether to send historical feed data snapshot upon subscription (supported only for ownTrades subscriptions)")
                                 .build()
                         ),
-                        Pair("reqid", Schema.builder()
+                        Pair("reqid", AsyncAPISchema.builder()
                                 .type("integer")
                                 .description("client originated ID reflected in response message.")
                                 .build()
                         ),
-                        Pair("pair", Schema.builder()
+                        Pair("pair", AsyncAPISchema.builder()
                                 .type("array")
                                 .description("Array of currency pairs.")
-                                .items(Schema.builder()
+                                .items(AsyncAPISchema.builder()
                                         .type("string")
                                         .description("Format of each pair is \"A/B\", where A and B are ISO 4217-A3 for standardized assets and popular unique symbol if not standardized.")
                                         .pattern("[A-Z\\s]+\\/[A-Z\\s]+")

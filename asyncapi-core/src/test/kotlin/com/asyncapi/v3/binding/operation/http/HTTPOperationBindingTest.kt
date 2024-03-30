@@ -1,7 +1,7 @@
 package com.asyncapi.v3.binding.operation.http
 
 import com.asyncapi.v3.SerDeTest
-import com.asyncapi.v3.schema.Schema
+import com.asyncapi.v3.schema.AsyncAPISchema
 import com.asyncapi.v3.schema.Type
 import java.math.BigDecimal
 
@@ -19,13 +19,13 @@ class HTTPOperationBindingTest: SerDeTest<HTTPOperationBinding>() {
         return HTTPOperationBinding.builder()
                 .type(HTTPOperationType.REQUEST)
                 .method(HTTPOperationMethod.GET)
-                .query(Schema.builder()
+                .query(AsyncAPISchema.builder()
                         .type(Type.OBJECT)
                         .required(listOf("companyId"))
                         .properties(mapOf(
                                 Pair(
                                         "companyId",
-                                        Schema.builder()
+                                        AsyncAPISchema.builder()
                                                 .type(Type.NUMBER)
                                                 .minimum(BigDecimal.ONE)
                                                 .description("The Id of the company.")

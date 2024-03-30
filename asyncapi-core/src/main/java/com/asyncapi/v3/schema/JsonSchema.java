@@ -1,12 +1,13 @@
 package com.asyncapi.v3.schema;
 
-import com.asyncapi.v3.jackson.SchemaItemsDeserializer;
-import com.asyncapi.v3.ExtendableObject;
-import com.asyncapi.v3.jackson.schema.SchemasAdditionalPropertiesDeserializer;
+import com.asyncapi.v3.jackson.schema.JsonSchemaItemsDeserializer;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.Nullable;
 
 import javax.validation.constraints.Min;
@@ -25,8 +26,7 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = true)
-public class Schema extends ExtendableObject {
+public class JsonSchema {
 
     /**
      * JSON Schema ID.
@@ -262,7 +262,7 @@ public class Schema extends ExtendableObject {
      */
     @Nullable
     @JsonProperty("items")
-    @JsonDeserialize(using = SchemaItemsDeserializer.class)
+    @JsonDeserialize(using = JsonSchemaItemsDeserializer.class)
     public Object items;
 
     /**
@@ -282,7 +282,7 @@ public class Schema extends ExtendableObject {
      */
     @Nullable
     @JsonProperty("additionalItems")
-    public Schema additionalItems;
+    public JsonSchema additionalItems;
 
     /**
      * The value of this keyword <b>MUST</b> be a non-negative integer.
@@ -336,7 +336,7 @@ public class Schema extends ExtendableObject {
      */
     @Nullable
     @JsonProperty("contains")
-    public Schema contains;
+    public JsonSchema contains;
 
     /*
         Validation Keywords for Objects
@@ -404,7 +404,7 @@ public class Schema extends ExtendableObject {
      */
     @Nullable
     @JsonProperty("properties")
-    public Map<String, Schema> properties;
+    public Map<String, JsonSchema> properties;
 
     /**
      * The value of "patternProperties" <b>MUST</b> be an object.
@@ -426,12 +426,9 @@ public class Schema extends ExtendableObject {
      */
     @Nullable
     @JsonProperty("patternProperties")
-    public Map<String, Schema> patternProperties;
+    public Map<String, JsonSchema> patternProperties;
 
     /**
-     * <font color="red"><b>This property has been overwritten by AsyncAPI Specification - maybe boolean value</b></font>
-     * <p>
-     * <p>
      * The value of "additionalProperties" MUST be a valid JSON Schema.
      * <p>
      * This keyword determines how child instances validate for objects, and does not directly validate the immediate
@@ -448,8 +445,7 @@ public class Schema extends ExtendableObject {
      */
     @Nullable
     @JsonProperty("additionalProperties")
-    @JsonDeserialize(using = SchemasAdditionalPropertiesDeserializer.class)
-    public Object additionalProperties;
+    public JsonSchema additionalProperties;
 
     /**
      * [CREF1] - This keyword may be split into two, with the variation that uses an array of property names rather than a
@@ -493,7 +489,7 @@ public class Schema extends ExtendableObject {
      */
     @Nullable
     @JsonProperty("propertyNames")
-    public Schema propertyNames;
+    public JsonSchema propertyNames;
 
     /*
         Keywords for Applying Subschemas Conditionally
@@ -516,7 +512,7 @@ public class Schema extends ExtendableObject {
      */
     @Nullable
     @JsonProperty("if")
-    public Schema ifValue;
+    public JsonSchema ifValue;
 
     /**
      * This keyword's value <b>MUST</b> be a valid JSON Schema.
@@ -530,7 +526,7 @@ public class Schema extends ExtendableObject {
      */
     @Nullable
     @JsonProperty("then")
-    public Schema thenValue;
+    public JsonSchema thenValue;
 
     /**
      * This keyword's value <b>MUST</b> be a valid JSON Schema.
@@ -544,7 +540,7 @@ public class Schema extends ExtendableObject {
      */
     @Nullable
     @JsonProperty("else")
-    public Schema elseValue;
+    public JsonSchema elseValue;
 
     /*
         Keywords for Applying Subschemas With Boolean Logic
@@ -562,7 +558,7 @@ public class Schema extends ExtendableObject {
      */
     @Nullable
     @JsonProperty("allOf")
-    public List<Schema> allOf;
+    public List<JsonSchema> allOf;
 
     /**
      * This keyword's value <b>MUST</b> be a non-empty array.
@@ -576,7 +572,7 @@ public class Schema extends ExtendableObject {
      */
     @Nullable
     @JsonProperty("anyOf")
-    public List<Schema> anyOf;
+    public List<JsonSchema> anyOf;
 
     /**
      * This keyword's value <b>MUST</b> be a non-empty array.
@@ -590,7 +586,7 @@ public class Schema extends ExtendableObject {
      */
     @Nullable
     @JsonProperty("oneOf")
-    public List<Schema> oneOf;
+    public List<JsonSchema> oneOf;
 
     /**
      * This keyword's value <b>MUST</b> be a valid JSON Schema.
@@ -601,7 +597,7 @@ public class Schema extends ExtendableObject {
      */
     @Nullable
     @JsonProperty("not")
-    public Schema not;
+    public JsonSchema not;
 
     /*
         Semantic Validation With "format"
@@ -688,7 +684,7 @@ public class Schema extends ExtendableObject {
      */
     @Nullable
     @JsonProperty("definitions")
-    private Map<String, Schema> definitions;
+    private Map<String, JsonSchema> definitions;
 
     /*
         Schema Annotations

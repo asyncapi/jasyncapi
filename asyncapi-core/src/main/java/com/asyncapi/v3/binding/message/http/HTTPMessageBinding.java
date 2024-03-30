@@ -1,6 +1,6 @@
 package com.asyncapi.v3.binding.message.http;
 
-import com.asyncapi.v3.schema.Schema;
+import com.asyncapi.v3.schema.AsyncAPISchema;
 import com.asyncapi.v3.binding.message.MessageBinding;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
@@ -30,7 +30,7 @@ public class HTTPMessageBinding extends MessageBinding {
     @Nullable
     @JsonProperty("headers")
     @JsonPropertyDescription("A Schema object containing the definitions for each query parameter. This schema MUST be of type object and have a properties key.")
-    private Schema headers;
+    private AsyncAPISchema headers;
 
     /**
      * The version of this binding.

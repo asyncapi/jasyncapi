@@ -7,7 +7,7 @@ import com.asyncapi.v3._0_0.model.component.Components
 import com.asyncapi.v3._0_0.model.info.Info
 import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
-import com.asyncapi.v3.schema.Schema
+import com.asyncapi.v3.schema.AsyncAPISchema
 
 class NotAsyncAPI: AbstractExampleValidationTest() {
 
@@ -58,12 +58,12 @@ class NotAsyncAPI: AbstractExampleValidationTest() {
                 ))
                 .schemas(mapOf(
                         Pair("testSchema",
-                                Schema.builder()
+                                AsyncAPISchema.builder()
                                         .type("object")
                                         .properties(mapOf(
                                                 Pair("key",
-                                                        Schema.builder()
-                                                                .not(Schema.builder().type("integer").build())
+                                                        AsyncAPISchema.builder()
+                                                                .not(AsyncAPISchema.builder().type("integer").build())
                                                                 .build()
                                                 )
                                         ))
