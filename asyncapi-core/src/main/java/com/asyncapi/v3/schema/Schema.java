@@ -633,117 +633,122 @@ public class Schema extends ExtendableObject {
 
     /*
         Schema Annotations
-
-        Schema validation is a useful mechanism for annotating instance data
-        with additional information.  The rules for determining when and how
-        annotations are associated with an instance are outlined in section
-        3.3.
-
-        These general-purpose annotation keywords provide commonly used
-        information for documentation and user interface display purposes.
-        They are not intended to form a comprehensive set of features.
-        Rather, additional vocabularies can be defined for more complex
-        annotation-based applications.
      */
 
     /**
-     * The value of these keyword MUST be a string.
-     * <br><br>
+     * The value of these keyword <b>MUST</b> be a string.
+     * <p>
      * This keywords can be used to decorate a user interface with information about the data produced by this user
      * interface.
-     * <br><br>
+     * <p>
      * A title will preferably be short
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.10.1">"title" and "description"</a>
      */
     @Nullable
-    @JsonProperty
+    @JsonProperty("title")
     public String title;
 
     /**
-     * The value of these keyword MUST be a string.
-     * <br><br>
-     * <b>This property definition was adjusted to the AsyncAPI Specification.</b>
-     * <a href="http://spec.commonmark.org/">CommonMark syntax can</a> be used for rich text representation.
-     * <br><br>
+     * The value of these keyword <b>MUST</b> be a string.
+     * <p>
      * This keywords can be used to decorate a user interface with information about the data produced by this user
      * interface.
-     * <br><br>
+     * <p>
      * A description will provide explanation about the purpose of the instance described by this schema.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.10.1">"title" and "description"</a>
      */
     @Nullable
-    @JsonProperty
+    @JsonProperty("description")
     public String description;
 
     /**
-     * There are no restrictions placed on the value of this keyword.  When multiple occurrences of this keyword are
-     * applicable to a single sub-instance, implementations SHOULD remove duplicates.
-     * <br><br>
+     * There are no restrictions placed on the value of this keyword.
+     * When multiple occurrences of this keyword are applicable to a single sub-instance,
+     * implementations <b>SHOULD</b> remove duplicates.
+     * <p>
      * This keyword can be used to supply a default JSON value associated with a particular schema.
-     * It is RECOMMENDED that a default value be valid against the associated schema.
-     * <br><br>
-     * <b>This property definition was adjusted to the AsyncAPI Specification.</b>
-     * The default value represents what would be assumed by the consumer of the input as the value of the schema if one
-     * is not provided. Unlike JSON Schema, the value MUST conform to the defined type for the Schema Object defined at
-     * the same level. For example, of type is <code>string</code>, then default can be <code>"foo"</code> but cannot be <code>1</code>.
+     * <p>
+     * It is <b>RECOMMENDED</b> that a default value be valid against the associated schema.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.10.2">"default"</a>
      */
     @Nullable
     @JsonProperty("default")
     public Object defaultValue;
 
     /**
-     * The value of this keyword MUST be a boolean. When multiple occurrences of this keyword are applicable to a
-     * single sub-instance, the resulting value MUST be true if any occurrence specifies a true value, and MUST be false otherwise.
-     * <br><br>
+     * The value of this keyword <b>MUST</b> be a boolean.
+     * <p>
+     * When multiple occurrences of this keyword are applicable to a single sub-instance,
+     * the resulting value <b>MUST</b> be true if any occurrence specifies a true value, and <b>MUST</b> be false otherwise.
+     * <p>
      * If "readOnly" has a value of boolean true, it indicates that the value of the instance is managed exclusively by the owning authority,
      * and attempts by an application to modify the value of this property are expected to be ignored or rejected by that owning authority.
-     * <br><br>
-     * An instance document that is marked as "readOnly for the entire document MAY be ignored if sent to the owning authority, or MAY
+     * <p>
+     * An instance document that is marked as "readOnly for the entire document <b>MAY</b> be ignored if sent to the owning authority, or <b>MAY</b>
      * result in an error, at the authority's discretion.
-     * <br><br>
+     * <p>
      * For example, "readOnly" would be used to mark a database-generated serial number as read-only, while "writeOnly" would be used to mark a
      * password input field.
-     * <br><br>
-     * This keyword can be used to assist in user interface instance generation. In particular, an application MAY choose to use a widget
+     * <p>
+     * This keyword can be used to assist in user interface instance generation. In particular, an application <b>MAY</b> choose to use a widget
      * that hides input values as they are typed for write-only fields.
-     * <br><br>
+     * <p>
      * Omitting this keyword has the same behavior as values of false.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.10.3">"readOnly" and "writeOnly"</a>
      */
     @Nullable
-    @JsonProperty
+    @JsonProperty("readOnly")
     public Boolean readOnly;
 
     /**
-     * The value of this keyword MUST be a boolean. When multiple occurrences of this keyword are applicable to a
-     * single sub-instance, the resulting value MUST be true if any occurrence specifies a true value, and MUST be false otherwise.
-     * <br><br>
+     * The value of this keyword <b>MUST</b> be a boolean.
+     * <p>
+     * When multiple occurrences of this keyword are applicable to a single sub-instance,
+     * the resulting value <b>MUST</b> be true if any occurrence specifies a true value, and <b>MUST</b> be false otherwise.
+     * <p>
      * If "writeOnly" has a value of boolean true, it indicates that the value is never present when the instance is retrieved from the owning
      * authority.  It can be present when sent to the owning authority to update or create the document (or the resource it represents), but it
      * will not be included in any updated or newly created version of the instance.
-     * <br><br>
-     * An instance document that is marked as "writeOnly" for the entire document MAY be returned as a blank document of some sort, or MAY
-     * produce an error upon retrieval, or have the retrieval request ignored, at the authority's discretion.
-     * <br><br>
-     * This keyword can be used to assist in user interface instance generation. In particular, an application MAY choose to use a widget
+     * <p>
+     * An instance document that is marked as "writeOnly" for the entire document <b>MAY</b> be returned as a blank document of some sort,
+     * or <b>MAY</b> produce an error upon retrieval, or have the retrieval request ignored, at the authority's discretion.
+     * <p>
+     * This keyword can be used to assist in user interface instance generation. In particular, an application <b>MAY</b> choose to use a widget
      * that hides input values as they are typed for write-only fields.
-     * <br><br>
+     * <p>
      * Omitting this keyword has the same behavior as values of false.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.10.3">"readOnly" and "writeOnly"</a>
      */
     @Nullable
-    @JsonProperty
+    @JsonProperty("writeOnly")
     public Boolean writeOnly;
 
     /**
-     * The value of this keyword MUST be an array.  There are no restrictions placed on the values within the array.
-     * When multiple occurrences of this keyword are applicable to a single sub-instance, implementations MUST provide
+     * The value of this keyword <b>MUST</b> be an array.
+     * <p>
+     * There are no restrictions placed on the values within the array.
+     * <p>
+     * When multiple occurrences of this keyword are applicable to a single sub-instance, implementations <b>MUST</b> provide
      * a flat array of all values rather than an array of arrays.
-     * <br><br>
+     * <p>
      * This keyword can be used to provide sample JSON values associated with a particular schema, for the purpose of
-     * illustrating usage. It is RECOMMENDED that these values be valid against the associated schema.
-     * <br><br>
-     * Implementations MAY use the value(s) of "default", if present, as an additional example.  If "examples" is absent,
-     * "default" MAY still be used in this manner.
+     * illustrating usage.
+     * <p>
+     * It is <b>RECOMMENDED</b> that these values be valid against the associated schema.
+     * <p>
+     * Implementations <b>MAY</b> use the value(s) of "default", if present, as an additional example.
+     * <p>
+     * If "examples" is absent, "default" <b>MAY</b> still be used in this manner.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.10.4">"examples"</a>
      */
     @Nullable
-    @JsonProperty
+    @JsonProperty("examples")
     public List<Object> examples;
 
     /*
