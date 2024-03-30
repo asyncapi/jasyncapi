@@ -807,31 +807,4 @@ public class Schema extends ExtendableObject {
     @JsonProperty
     public Object format;
 
-    /*
-        In addition to the JSON Schema fields, the following AsyncAPI vocabulary fields MAY be used for further schema documentation:
-     */
-    /**
-     * Adds support for polymorphism. The discriminator is the schema property name that is used to differentiate between
-     * other schema that inherit this schema.
-     * <br><br>
-     * The property name used MUST be defined at this schema and it MUST be in the <code>required</code> property list.
-     * When used, the value MUST be the name of this schema or any schema that inherits it. See <a href="https://www.asyncapi.com/docs/specifications/2.0.0#schemaComposition">Composition and Inheritance for more details</a>.
-     */
-    @Nullable
-    @JsonProperty
-    public String discriminator;
-    /**
-     * Additional external documentation for this schema.
-     */
-    @Nullable
-    @JsonProperty
-    public ExternalDocumentation externalDocs;
-
-    /**
-     * Specifies that a schema is deprecated and SHOULD be transitioned out of usage. Default value is <code>false</code>.
-     */
-    @Nullable
-    @JsonProperty
-    public Boolean deprecated;
-
 }
