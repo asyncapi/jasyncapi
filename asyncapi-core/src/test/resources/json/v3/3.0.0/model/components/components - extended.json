@@ -4,8 +4,8 @@
       "type" : "object",
       "properties" : {
         "id" : {
-          "format" : "int64",
-          "type" : "integer"
+          "type" : "integer",
+          "format" : "int64"
         },
         "name" : {
           "type" : "string"

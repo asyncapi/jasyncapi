@@ -794,17 +794,20 @@ public class Schema extends ExtendableObject {
     @JsonProperty
     public Schema not;
 
-    // Fields defined in AsyncAPI below
-
     /*
-        The following properties are taken from the JSON Schema definition but their definitions were adjusted to the AsyncAPI Specification.
+        Semantic Validation With "format"
      */
+
     /**
-     * See <a href ="https://www.asyncapi.com/docs/specifications/2.0.0#dataTypeFormat">Data Type Formats</a> for further details.
-     * While relying on JSON Schema's defined formats, the AsyncAPI Specification offers a few additional predefined formats.
+     * The "format" keyword functions as both an annotation (<a href="https://json-schema.org/draft-07/json-schema-validation#annotations">Section 3.3</a>) and as an assertion (<a href="https://json-schema.org/draft-07/json-schema-validation#assertions">Section 3.2</a>).
+     * <p>
+     * While no special effort is required to implement it as an annotation conveying semantic meaning,
+     * implementing validation is non-trivial.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.7">Semantic Validation With "format"</a>
      */
     @Nullable
-    @JsonProperty
-    public Object format;
+    @JsonProperty("format")
+    public String format;
 
 }
