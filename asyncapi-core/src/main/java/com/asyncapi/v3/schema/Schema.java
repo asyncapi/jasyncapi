@@ -598,6 +598,40 @@ public class Schema extends ExtendableObject {
     private String contentMediaType;
 
     /*
+        Schema Re-Use With "definitions"
+     */
+
+    /**
+     * The "definitions" keywords provides a standardized location for schema authors to inline re-usable JSON Schemas
+     * into a more general schema.
+     * <p>
+     * The keyword does not directly affect the validation result.
+     * <p>
+     * This keyword's value <b>MUST</b> be an object. Each member value of this object <b>MUST</b> be a valid JSON Schema.
+     * <p>
+     * Example:
+     * <pre>
+     * {
+     *   "type": "array",
+     *   "items": {
+     *     "$ref": "#/definitions/positiveInteger"
+     *   },
+     *   "definitions": {
+     *     "positiveInteger": {
+     *       "type": "integer",
+     *       "exclusiveMinimum": 0
+     *     }
+     *   }
+     * }
+     * </pre>
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.9">Schema Re-Use With "definitions"</a>
+     */
+    @Nullable
+    @JsonProperty("definitions")
+    private Map<String, Schema> definitions;
+
+    /*
         Schema Annotations
 
         Schema validation is a useful mechanism for annotating instance data
