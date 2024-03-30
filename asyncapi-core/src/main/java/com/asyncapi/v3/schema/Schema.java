@@ -3,7 +3,6 @@ package com.asyncapi.v3.schema;
 import com.asyncapi.v3.jackson.SchemaItemsDeserializer;
 import com.asyncapi.v3.ExtendableObject;
 import com.asyncapi.v3.jackson.schema.SchemasAdditionalPropertiesDeserializer;
-import com.asyncapi.v3._0_0.model.ExternalDocumentation;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -15,21 +14,8 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
-// TODO: Finish. Not all properties are present.
-// TODO: Write tests
-
 /**
- * The Schema Object allows the definition of input and output data types. These types can be objects,
- * but also primitives and arrays. This object is a superset of the <a href="http://json-schema.org/">JSON Schema Specification Draft 07</a>.
- * <br>
- * Further information about the properties can be found in <a href="https://tools.ietf.org/html/draft-handrews-json-schema-01">JSON Schema Core</a> and <a href="https://tools.ietf.org/html/draft-handrews-json-schema-validation-01">JSON Schema Validation</a>.
- * Unless stated otherwise, the property definitions follow the JSON Schema specification as referenced here.
- * <br><br>
- * The AsyncAPI Schema Object is a JSON Schema vocabulary which extends JSON Schema Core and Validation vocabularies.
- * As such, any keyword available for those vocabularies is by definition available in AsyncAPI, and will work the
- * exact same way, including but not limited to defined properties.
- * <br><br>
- * <b>New properties may appear in this class after community requests.</b>
+ * JSON Schema Draft 07
  *
  * @see <a href="https://json-schema.org/draft-07/schema">Draft 07 JSON Schema</a>
  * @see <a href="https://json-schema.org/draft-07/json-schema-validation">Draft 07 JSON Schema Validation</a>
