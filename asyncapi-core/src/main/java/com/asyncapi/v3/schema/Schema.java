@@ -510,6 +510,57 @@ public class Schema extends ExtendableObject {
     public Schema propertyNames;
 
     /*
+        Keywords for Applying Subschemas Conditionally
+     */
+
+    /**
+     * This keyword's value <b>MUST</b> be a valid JSON Schema.
+     * <p>
+     * This validation outcome of this keyword's subschema has no direct effect on the overall validation result.
+     * Rather, it controls which of the "then" or "else" keywords are evaluated.
+     * <p>
+     * Instances that successfully validate against this keyword's subschema <b>MUST</b> also be valid against the subschema
+     * value of the "then" keyword, if present.
+     * <p>
+     * Instances that fail to validate against this keyword's subschema <b>MUST</b> also be valid against the subschema value of
+     * the "else" keyword, if present.
+     * <p>
+     * If annotations (<a href="https://tools.ietf.org/html/draft-handrews-json-schema-validation-01#section-3.3">Section 3.3</a>) are being collected, they are collected from this keyword's subschema in the usual way,
+     * including when the keyword is present without either "then" or "else".
+     */
+    @Nullable
+    @JsonProperty("if")
+    public Schema ifValue;
+
+    /**
+     * This keyword's value <b>MUST</b> be a valid JSON Schema.
+     * <p>
+     * When "if" is present, and the instance successfully validates against its subschema, then valiation succeeds against
+     * this keyword if the instance also successfully validates against this keyword's subschema.
+     * <p>
+     * This keyword has no effect when "if" is absent, or when the instance fails to validate against its subschema.
+     * Implementations MUST NOT evaluate the instance against this keyword, for either validation or annotation collection
+     * purposes, in such cases.
+     */
+    @Nullable
+    @JsonProperty("then")
+    public Schema thenValue;
+
+    /**
+     * This keyword's value <b>MUST</b> be a valid JSON Schema.
+     * <p>
+     * When "if" is present, and the instance fails to validate against its subschema, then valiation succeeds against this
+     * keyword if the instance successfully validates against this keyword's subschema.
+     * <p>
+     * This keyword has no effect when "if" is absent, or when the instance successfully validates against its subschema.
+     * Implementations <b>MUST NOT</b> evaluate the instance against this keyword, for either validation or annotation collection
+     * purposes, in such cases.
+     */
+    @Nullable
+    @JsonProperty("else")
+    public Schema elseValue;
+
+    /*
         Schema Annotations
 
         Schema validation is a useful mechanism for annotating instance data
@@ -677,73 +728,6 @@ public class Schema extends ExtendableObject {
     @Nullable
     @JsonProperty
     private String contentMediaType;
-
-    /*
-        Validation.
-     */
-
-    /*
-        Keywords for Applying Subschemas Conditionally
-
-        These keywords work together to implement conditional application of
-        a subschema based on the outcome of another subschema.
-
-        These keywords MUST NOT interact with each other across subschema
-        boundaries.  In other words, an "if" in one branch of an "allOf" MUST
-        NOT have an impact on a "then" or "else" in another branch.
-
-        There is no default behavior for any of these keywords when they are
-        not present.  In particular, they MUST NOT be treated as if present
-        with an empty schema, and when "if" is not present, both "then" and
-        "else" MUST be entirely ignored.
-     */
-
-    /**
-     * This keyword's value MUST be a valid JSON Schema.
-     * <br><br>
-     * This validation outcome of this keyword's subschema has no direct effect on the overall validation result.
-     * Rather, it controls which of the "then" or "else" keywords are evaluated.
-     * <br><br>
-     * Instances that successfully validate against this keyword's subschema MUST also be valid against the subschema
-     * value of the "then" keyword, if present.
-     * <br><br>
-     * Instances that fail to validate against this keyword's subschema MUST also be valid against the subschema value of
-     * the "else" keyword, if present.
-     * <br><br>
-     * If annotations (<a href="https://tools.ietf.org/html/draft-handrews-json-schema-validation-01#section-3.3">Section 3.3</a>) are being collected, they are collected from this keyword's subschema in the usual way,
-     * including when the keyword is present without either "then" or "else".
-     */
-    @JsonProperty("if")
-    @Nullable
-    public Schema ifValue;
-
-    /**
-     * This keyword's value MUST be a valid JSON Schema.
-     * <br><br>
-     * When "if" is present, and the instance successfully validates against its subschema, then valiation succeeds against
-     * this keyword if the instance also successfully validates against this keyword's subschema.
-     * <br><br>
-     * This keyword has no effect when "if" is absent, or when the instance fails to validate against its subschema.
-     * Implementations MUST NOT evaluate the instance against this keyword, for either validation or annotation collection
-     * purposes, in such cases.
-     */
-    @JsonProperty("then")
-    @Nullable
-    public Schema thenValue;
-
-    /**
-     * This keyword's value MUST be a valid JSON Schema.
-     * <br><br>
-     * When "if" is present, and the instance fails to validate against its subschema, then valiation succeeds against this
-     * keyword if the instance successfully validates against this keyword's subschema.
-     * <br><br>
-     * This keyword has no effect when "if" is absent, or when the instance successfully validates against its subschema.
-     * Implementations MUST NOT evaluate the instance against this keyword, for either validation or annotation collection
-     * purposes, in such cases.
-     */
-    @JsonProperty("else")
-    @Nullable
-    public Schema elseValue;
 
     /*
         Keywords for Applying Subschemas With Boolean Logic
