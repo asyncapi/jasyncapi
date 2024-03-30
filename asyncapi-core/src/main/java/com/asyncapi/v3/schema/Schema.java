@@ -618,6 +618,22 @@ public class Schema extends ExtendableObject {
     public Schema not;
 
     /*
+        Semantic Validation With "format"
+     */
+
+    /**
+     * The "format" keyword functions as both an annotation (<a href="https://json-schema.org/draft-07/json-schema-validation#annotations">Section 3.3</a>) and as an assertion (<a href="https://json-schema.org/draft-07/json-schema-validation#assertions">Section 3.2</a>).
+     * <p>
+     * While no special effort is required to implement it as an annotation conveying semantic meaning,
+     * implementing validation is non-trivial.
+     *
+     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.7">Semantic Validation With "format"</a>
+     */
+    @Nullable
+    @JsonProperty("format")
+    public String format;
+
+    /*
         String-Encoding Non-JSON Data
      */
 
@@ -807,21 +823,5 @@ public class Schema extends ExtendableObject {
     @Nullable
     @JsonProperty("examples")
     public List<Object> examples;
-
-    /*
-        Semantic Validation With "format"
-     */
-
-    /**
-     * The "format" keyword functions as both an annotation (<a href="https://json-schema.org/draft-07/json-schema-validation#annotations">Section 3.3</a>) and as an assertion (<a href="https://json-schema.org/draft-07/json-schema-validation#assertions">Section 3.2</a>).
-     * <p>
-     * While no special effort is required to implement it as an annotation conveying semantic meaning,
-     * implementing validation is non-trivial.
-     *
-     * @see <a href="https://json-schema.org/draft-07/json-schema-validation#rfc.section.7">Semantic Validation With "format"</a>
-     */
-    @Nullable
-    @JsonProperty("format")
-    public String format;
 
 }
