@@ -1,0 +1,8 @@
+[
+    {
+        "const": {
+            "type": "string",
+            "const": "abc"
+        }
+    }
+]

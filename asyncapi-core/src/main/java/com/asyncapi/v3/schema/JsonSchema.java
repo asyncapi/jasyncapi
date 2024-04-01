@@ -1,6 +1,8 @@
 package com.asyncapi.v3.schema;
 
+import com.asyncapi.v3.jackson.schema.JsonSchemaAnyValueDeserializer;
 import com.asyncapi.v3.jackson.schema.JsonSchemaItemsDeserializer;
+import com.asyncapi.v3.jackson.schema.JsonSchemaPropertiesDeserializer;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -123,6 +125,7 @@ public class JsonSchema {
     @Nullable
     @JsonProperty("const")
     @JsonPropertyDescription("JSON Schema const value")
+    @JsonDeserialize(using = JsonSchemaAnyValueDeserializer.class)
     public Object constValue;
 
     /*
@@ -404,7 +407,8 @@ public class JsonSchema {
      */
     @Nullable
     @JsonProperty("properties")
-    public Map<String, JsonSchema> properties;
+    @JsonDeserialize(contentUsing = JsonSchemaPropertiesDeserializer.class)
+    public Map<String, Object> properties;
 
     /**
      * The value of "patternProperties" <b>MUST</b> be an object.
@@ -731,6 +735,7 @@ public class JsonSchema {
      */
     @Nullable
     @JsonProperty("default")
+    @JsonDeserialize(using = JsonSchemaAnyValueDeserializer.class)
     public Object defaultValue;
 
     /**

@@ -1,0 +1,8 @@
+[
+    {
+        "default": {
+            "type": "string",
+            "const": "abc"
+        }
+    }
+]
