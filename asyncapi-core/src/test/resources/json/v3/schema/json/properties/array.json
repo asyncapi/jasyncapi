@@ -1,0 +1,106 @@
+{
+    "const": [
+        {
+            "type": "string",
+            "const": "abc",
+            "examples": [
+                {
+                    "type": "string",
+                    "const": "abc"
+                },
+                42,
+                true,
+                "hello",
+                null,
+                [1, 2, 3,
+                    {
+                        "type": "string",
+                        "const": "abc",
+                        "examples": [
+                            {
+                                "type": "string",
+                                "const": "abc"
+                            },
+                            42,
+                            true,
+                            "hello",
+                            null,
+                            [1, 2, 3]
+                        ]
+                    }
+                ]
+            ]
+        }
+    ],
+    "default": [
+        {
+            "type": "string",
+            "const": "abc",
+            "examples": [
+                {
+                    "type": "string",
+                    "const": "abc"
+                },
+                42,
+                true,
+                "hello",
+                null,
+                [1, 2, 3,
+                    {
+                        "type": "string",
+                        "const": "abc",
+                        "examples": [
+                            {
+                                "type": "string",
+                                "const": "abc"
+                            },
+                            42,
+                            true,
+                            "hello",
+                            null,
+                            [1, 2, 3]
+                        ]
+                    }
+                ]
+            ]
+        }
+    ],
+    "examples": [
+        {
+            "type": "string",
+            "const": "abc",
+            "examples": [
+                {
+                    "type": "string",
+                    "const": "abc"
+                },
+                42,
+                true,
+                "hello",
+                null,
+                [1, 2, 3,
+                    {
+                        "type": "string",
+                        "const": "abc",
+                        "examples": [
+                            {
+                                "type": "string",
+                                "const": "abc"
+                            },
+                            42,
+                            true,
+                            "hello",
+                            null,
+                            [1, 2, 3]
+                        ]
+                    }
+                ]
+            ]
+        },
+        42,
+        true,
+        "hello",
+        null,
+        [1, 2, 3]
+    ]
+}

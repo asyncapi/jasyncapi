@@ -13,7 +13,7 @@ import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.server.Server
 import com.asyncapi.v3.binding.channel.ws.WebSocketsChannelBinding
-import com.asyncapi.v3.schema.Schema
+import com.asyncapi.v3.schema.AsyncAPISchema
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
@@ -139,7 +139,7 @@ class WebsocketGeminiAsyncAPI: AbstractExampleValidationTest() {
                                                         "ws",
                                                         WebSocketsChannelBinding.builder()
                                                                 .query(
-                                                                        Schema.builder()
+                                                                        AsyncAPISchema.builder()
                                                                                 .type("object")
                                                                                 .description(
                                                                                         "The semantics of entry type filtering is:\n" +
@@ -152,7 +152,7 @@ class WebsocketGeminiAsyncAPI: AbstractExampleValidationTest() {
                                                                                 .properties(mapOf(
                                                                                         Pair(
                                                                                                 "heartbeat",
-                                                                                                Schema.builder()
+                                                                                                AsyncAPISchema.builder()
                                                                                                         .type("boolean")
                                                                                                         .defaultValue(false)
                                                                                                         .description(
@@ -163,7 +163,7 @@ class WebsocketGeminiAsyncAPI: AbstractExampleValidationTest() {
                                                                                         ),
                                                                                         Pair(
                                                                                                 "top_of_book",
-                                                                                                Schema.builder()
+                                                                                                AsyncAPISchema.builder()
                                                                                                         .type("boolean")
                                                                                                         .defaultValue(false)
                                                                                                         .description(
@@ -175,7 +175,7 @@ class WebsocketGeminiAsyncAPI: AbstractExampleValidationTest() {
                                                                                         ),
                                                                                         Pair(
                                                                                                 "bids",
-                                                                                                Schema.builder()
+                                                                                                AsyncAPISchema.builder()
                                                                                                         .type("boolean")
                                                                                                         .defaultValue(true)
                                                                                                         .description("Include bids in change events")
@@ -183,7 +183,7 @@ class WebsocketGeminiAsyncAPI: AbstractExampleValidationTest() {
                                                                                         ),
                                                                                         Pair(
                                                                                                 "offers",
-                                                                                                Schema.builder()
+                                                                                                AsyncAPISchema.builder()
                                                                                                         .type("boolean")
                                                                                                         .defaultValue(true)
                                                                                                         .description("Include asks in change events")
@@ -191,7 +191,7 @@ class WebsocketGeminiAsyncAPI: AbstractExampleValidationTest() {
                                                                                         ),
                                                                                         Pair(
                                                                                                 "trades",
-                                                                                                Schema.builder()
+                                                                                                AsyncAPISchema.builder()
                                                                                                         .type("boolean")
                                                                                                         .defaultValue(true)
                                                                                                         .description("Include trade events")
@@ -199,7 +199,7 @@ class WebsocketGeminiAsyncAPI: AbstractExampleValidationTest() {
                                                                                         ),
                                                                                         Pair(
                                                                                                 "auctions",
-                                                                                                Schema.builder()
+                                                                                                AsyncAPISchema.builder()
                                                                                                         .type("boolean")
                                                                                                         .defaultValue(true)
                                                                                                         .description("Include auction events")
@@ -277,34 +277,34 @@ class WebsocketGeminiAsyncAPI: AbstractExampleValidationTest() {
                         )
                 ))
                 .schemas(mapOf(
-                        Pair("market", Schema.builder()
+                        Pair("market", AsyncAPISchema.builder()
                                 .type("object")
                                 .oneOf(listOf(
-                                        Schema.builder().ref("#/components/schemas/heartbeat").build(),
-                                        Schema.builder().ref("#/components/schemas/update").build(),
+                                        AsyncAPISchema.builder().ref("#/components/schemas/heartbeat").build(),
+                                        AsyncAPISchema.builder().ref("#/components/schemas/update").build(),
                                 ))
                                 .build()
                         ),
-                        Pair("heartbeat", Schema.builder()
+                        Pair("heartbeat", AsyncAPISchema.builder()
                                 .allOf(listOf(
-                                        Schema.builder()
+                                        AsyncAPISchema.builder()
                                                 .properties(mapOf(
-                                                        Pair("type", Schema.builder().type("string").constValue("heartbeat").build())
+                                                        Pair("type", AsyncAPISchema.builder().type("string").constValue("heartbeat").build())
                                                 ))
                                                 .required(listOf("type"))
                                                 .build(),
-                                        Schema.builder()
+                                        AsyncAPISchema.builder()
                                                 .ref("#/components/schemas/default")
                                                 .build(),
                                 ))
                                 .build()
                         ),
-                        Pair("update", Schema.builder()
+                        Pair("update", AsyncAPISchema.builder()
                                 .allOf(listOf(
-                                        Schema.builder()
+                                        AsyncAPISchema.builder()
                                                 .properties(mapOf(
-                                                        Pair("type", Schema.builder().type("string").constValue("update").build()),
-                                                        Pair("eventId", Schema.builder()
+                                                        Pair("type", AsyncAPISchema.builder().type("string").constValue("update").build()),
+                                                        Pair("eventId", AsyncAPISchema.builder()
                                                                 .type("integer")
                                                                 .description(
                                                                         "A monotonically increasing sequence number indicating when this " +
@@ -313,8 +313,8 @@ class WebsocketGeminiAsyncAPI: AbstractExampleValidationTest() {
                                                                 )
                                                                 .build()
                                                         ),
-                                                        Pair("events", Schema.builder().ref("#/components/schemas/events").build()),
-                                                        Pair("timestamp", Schema.builder()
+                                                        Pair("events", AsyncAPISchema.builder().ref("#/components/schemas/events").build()),
+                                                        Pair("timestamp", AsyncAPISchema.builder()
                                                                 .type("number")
                                                                 .description(
                                                                         "The timestamp in seconds for this group of events (included for " +
@@ -323,7 +323,7 @@ class WebsocketGeminiAsyncAPI: AbstractExampleValidationTest() {
                                                                 )
                                                                 .build()
                                                         ),
-                                                        Pair("timestampms", Schema.builder()
+                                                        Pair("timestampms", AsyncAPISchema.builder()
                                                                 .type("number")
                                                                 .description("The timestamp in milliseconds for this group of events.")
                                                                 .build()
@@ -331,18 +331,18 @@ class WebsocketGeminiAsyncAPI: AbstractExampleValidationTest() {
                                                 ))
                                                 .required(listOf("type", "eventId", "events", "timestamp", "timestampms"))
                                                 .build(),
-                                        Schema.builder().ref("#/components/schemas/default").build(),
+                                        AsyncAPISchema.builder().ref("#/components/schemas/default").build(),
                                 ))
                                 .build()
                         ),
-                        Pair("default", Schema.builder()
+                        Pair("default", AsyncAPISchema.builder()
                                 .type("object")
                                 .description(
                                         "This object is always part of the payload. In case of type=heartbeat, " +
                                         "these are the only fields.")
                                 .required(listOf("type", "socket_sequence"))
                                 .properties(mapOf(
-                                        Pair("socket_sequence", Schema.builder()
+                                        Pair("socket_sequence", AsyncAPISchema.builder()
                                                 .type("integer")
                                                 .description(
                                                         "zero-indexed monotonic increasing sequence number attached to each " +
@@ -357,30 +357,30 @@ class WebsocketGeminiAsyncAPI: AbstractExampleValidationTest() {
                                 ))
                                 .build()
                         ),
-                        Pair("events", Schema.builder()
+                        Pair("events", AsyncAPISchema.builder()
                                 .type("array")
                                 .description("Either a change to the order book, or the indication that a trade has occurred.")
-                                .items(Schema.builder()
+                                .items(AsyncAPISchema.builder()
                                         .type("object")
                                         .additionalProperties(false)
                                         .properties(mapOf(
-                                                Pair("type", Schema.builder()
+                                                Pair("type", AsyncAPISchema.builder()
                                                         .type("string")
                                                         .enumValue(listOf("trade", "change", "auction, block_trade"))
                                                         .build()
                                                 ),
-                                                Pair("price", Schema.builder()
+                                                Pair("price", AsyncAPISchema.builder()
                                                         .type("number")
                                                         .multipleOf(0.01)
                                                         .description("The price of this order book entry.")
                                                         .build()
                                                 ),
-                                                Pair("side", Schema.builder()
+                                                Pair("side", AsyncAPISchema.builder()
                                                         .type("string")
                                                         .enumValue(listOf("bid", "side"))
                                                         .build()
                                                 ),
-                                                Pair("reason", Schema.builder()
+                                                Pair("reason", AsyncAPISchema.builder()
                                                         .type("string")
                                                         .enumValue(listOf("place", "trade", "cancel", "initial"))
                                                         .description(
@@ -390,7 +390,7 @@ class WebsocketGeminiAsyncAPI: AbstractExampleValidationTest() {
                                                         )
                                                         .build()
                                                 ),
-                                                Pair("remaining", Schema.builder()
+                                                Pair("remaining", AsyncAPISchema.builder()
                                                         .type("number")
                                                         .description(
                                                                 "The quantity remaining at that price level after this change " +
@@ -399,7 +399,7 @@ class WebsocketGeminiAsyncAPI: AbstractExampleValidationTest() {
                                                         )
                                                         .build()
                                                 ),
-                                                Pair("delta", Schema.builder()
+                                                Pair("delta", AsyncAPISchema.builder()
                                                         .type("number")
                                                         .description(
                                                                 "The quantity changed. May be negative, if an order is filled or canceled. For initial messages, delta will equal remaining."

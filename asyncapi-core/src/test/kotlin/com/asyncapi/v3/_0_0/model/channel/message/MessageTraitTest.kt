@@ -4,7 +4,7 @@ import com.asyncapi.v3.Reference
 import com.asyncapi.v3.SerDeTest
 import com.asyncapi.v3._0_0.model.ExternalDocumentation
 import com.asyncapi.v3._0_0.model.Tag
-import com.asyncapi.v3.schema.Schema
+import com.asyncapi.v3.schema.AsyncAPISchema
 import com.asyncapi.v3.schema.MultiFormatSchema
 import com.asyncapi.v3.binding.message.amqp.AMQPMessageBindingTest
 import com.asyncapi.v3.binding.message.anypointmq.AnypointMQMessageBindingTest
@@ -26,19 +26,19 @@ class MessageTraitTestWithSchema: SerDeTest<MessageTrait>() {
 
     override fun build(): MessageTrait {
         return MessageTrait.builder()
-                .headers(Schema.builder()
+                .headers(AsyncAPISchema.builder()
                         .type("object")
                         .properties(mapOf(
                                 Pair(
                                         "correlationId",
-                                        Schema.builder()
+                                        AsyncAPISchema.builder()
                                                 .description("Correlation ID set by application")
                                                 .type("string")
                                                 .build()
                                 ),
                                 Pair(
                                         "applicationInstanceId",
-                                        Schema.builder()
+                                        AsyncAPISchema.builder()
                                                 .description("Unique identifier for a given instance of the publishing application")
                                                 .type("string")
                                                 .build()

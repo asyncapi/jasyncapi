@@ -37,8 +37,8 @@
         "type" : "object",
         "properties" : {
           "correlationId" : {
-            "description" : "Correlation ID set by application",
-            "type" : "string"
+            "type" : "string",
+            "description" : "Correlation ID set by application"
           }
         }
       },

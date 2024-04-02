@@ -13,7 +13,7 @@ import com.asyncapi.v3._0_0.model.server.Server
 import com.asyncapi.v3.binding.operation.http.HTTPOperationBinding
 import com.asyncapi.v3.binding.operation.http.HTTPOperationMethod
 import com.asyncapi.v3.schema.MultiFormatSchema
-import com.asyncapi.v3.schema.Schema
+import com.asyncapi.v3.schema.AsyncAPISchema
 import com.asyncapi.v3.security_scheme.http.HttpSecurityScheme
 
 class GitterStreamingAsyncAPI: AbstractExampleValidationTest() {
@@ -228,15 +228,15 @@ class GitterStreamingAsyncAPI: AbstractExampleValidationTest() {
                                 ))
                                 .bindings(mapOf(
                                         Pair("http", HTTPMessageBinding.builder()
-                                                .headers(Schema.builder()
+                                                .headers(AsyncAPISchema.builder()
                                                         .type("object")
                                                         .properties(mapOf(
-                                                                Pair("Transfer-Encoding", Schema.builder()
+                                                                Pair("Transfer-Encoding", AsyncAPISchema.builder()
                                                                         .type("string")
                                                                         .constValue("chunked")
                                                                         .build()
                                                                 ),
-                                                                Pair("Trailer", Schema.builder()
+                                                                Pair("Trailer", AsyncAPISchema.builder()
                                                                         .type("string")
                                                                         .constValue("\\r\\n")
                                                                         .build()
@@ -258,15 +258,15 @@ class GitterStreamingAsyncAPI: AbstractExampleValidationTest() {
                                 ))
                                 .bindings(mapOf(
                                         Pair("http", HTTPMessageBinding.builder()
-                                                .headers(Schema.builder()
+                                                .headers(AsyncAPISchema.builder()
                                                         .type("object")
                                                         .properties(mapOf(
-                                                                Pair("Transfer-Encoding", Schema.builder()
+                                                                Pair("Transfer-Encoding", AsyncAPISchema.builder()
                                                                         .type("string")
                                                                         .constValue("chunked")
                                                                         .build()
                                                                 ),
-                                                                Pair("Trailer", Schema.builder()
+                                                                Pair("Trailer", AsyncAPISchema.builder()
                                                                         .type("string")
                                                                         .constValue("\\r\\n")
                                                                         .build()

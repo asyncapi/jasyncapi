@@ -1,6 +1,6 @@
 package com.asyncapi.v3.binding.message.kafka;
 
-import com.asyncapi.v3.schema.Schema;
+import com.asyncapi.v3.schema.AsyncAPISchema;
 import com.asyncapi.v3.binding.message.MessageBinding;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
@@ -29,7 +29,7 @@ public class KafkaMessageBinding extends MessageBinding {
     @Nullable
     @JsonProperty("key")
     @JsonPropertyDescription("The message key.")
-    private Schema key;
+    private AsyncAPISchema key;
 
     /**
      * If a Schema Registry is used when performing this operation, tells where the id of schema is stored (e.g. header or payload).

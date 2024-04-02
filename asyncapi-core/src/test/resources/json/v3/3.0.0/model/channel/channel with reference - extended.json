@@ -31,12 +31,12 @@
         "type" : "object",
         "properties" : {
           "correlationId" : {
-            "description" : "Correlation ID set by application",
-            "type" : "string"
+            "type" : "string",
+            "description" : "Correlation ID set by application"
           },
           "applicationInstanceId" : {
-            "description" : "Unique identifier for a given instance of the publishing application",
-            "type" : "string"
+            "type" : "string",
+            "description" : "Unique identifier for a given instance of the publishing application"
           }
         }
       },
@@ -44,8 +44,8 @@
         "type" : "object",
         "properties" : {
           "metric" : {
-            "description" : "Metric set by application",
-            "type" : "string"
+            "type" : "string",
+            "description" : "Metric set by application"
           }
         }
       },
@@ -72,8 +72,8 @@
             "type" : "object",
             "properties" : {
               "correlationId" : {
-                "description" : "Correlation ID set by application",
-                "type" : "string"
+                "type" : "string",
+                "description" : "Correlation ID set by application"
               }
             }
           },
@@ -173,12 +173,12 @@
           "type" : "object",
           "properties" : {
             "correlationId" : {
-              "description" : "Correlation ID set by application",
-              "type" : "string"
+              "type" : "string",
+              "description" : "Correlation ID set by application"
             },
             "applicationInstanceId" : {
-              "description" : "Unique identifier for a given instance of the publishing application",
-              "type" : "string"
+              "type" : "string",
+              "description" : "Unique identifier for a given instance of the publishing application"
             }
           }
         },
@@ -205,8 +205,8 @@
               "type" : "object",
               "properties" : {
                 "correlationId" : {
-                  "description" : "Correlation ID set by application",
-                  "type" : "string"
+                  "type" : "string",
+                  "description" : "Correlation ID set by application"
                 }
               }
             },
@@ -338,8 +338,8 @@
               "type" : "object",
               "properties" : {
                 "correlationId" : {
-                  "description" : "Correlation ID set by application",
-                  "type" : "string"
+                  "type" : "string",
+                  "description" : "Correlation ID set by application"
                 }
               }
             },
@@ -485,8 +485,8 @@
               "type" : "object",
               "properties" : {
                 "correlationId" : {
-                  "description" : "Correlation ID set by application",
-                  "type" : "string"
+                  "type" : "string",
+                  "description" : "Correlation ID set by application"
                 }
               }
             },
@@ -657,8 +657,8 @@
             "type" : "object",
             "properties" : {
               "correlationId" : {
-                "description" : "Correlation ID set by application",
-                "type" : "string"
+                "type" : "string",
+                "description" : "Correlation ID set by application"
               }
             }
           },
@@ -758,12 +758,12 @@
           "type" : "object",
           "properties" : {
             "correlationId" : {
-              "description" : "Correlation ID set by application",
-              "type" : "string"
+              "type" : "string",
+              "description" : "Correlation ID set by application"
             },
             "applicationInstanceId" : {
-              "description" : "Unique identifier for a given instance of the publishing application",
-              "type" : "string"
+              "type" : "string",
+              "description" : "Unique identifier for a given instance of the publishing application"
             }
           }
         },
@@ -790,8 +790,8 @@
               "type" : "object",
               "properties" : {
                 "correlationId" : {
-                  "description" : "Correlation ID set by application",
-                  "type" : "string"
+                  "type" : "string",
+                  "description" : "Correlation ID set by application"
                 }
               }
             },
@@ -923,8 +923,8 @@
               "type" : "object",
               "properties" : {
                 "correlationId" : {
-                  "description" : "Correlation ID set by application",
-                  "type" : "string"
+                  "type" : "string",
+                  "description" : "Correlation ID set by application"
                 }
               }
             },
@@ -1070,8 +1070,8 @@
               "type" : "object",
               "properties" : {
                 "correlationId" : {
-                  "description" : "Correlation ID set by application",
-                  "type" : "string"
+                  "type" : "string",
+                  "description" : "Correlation ID set by application"
                 }
               }
             },
@@ -1221,8 +1221,8 @@
             "type" : "object",
             "properties" : {
               "correlationId" : {
-                "description" : "Correlation ID set by application",
-                "type" : "string"
+                "type" : "string",
+                "description" : "Correlation ID set by application"
               }
             }
           },
@@ -1322,12 +1322,12 @@
           "type" : "object",
           "properties" : {
             "correlationId" : {
-              "description" : "Correlation ID set by application",
-              "type" : "string"
+              "type" : "string",
+              "description" : "Correlation ID set by application"
             },
             "applicationInstanceId" : {
-              "description" : "Unique identifier for a given instance of the publishing application",
-              "type" : "string"
+              "type" : "string",
+              "description" : "Unique identifier for a given instance of the publishing application"
             }
           }
         },
@@ -1354,8 +1354,8 @@
               "type" : "object",
               "properties" : {
                 "correlationId" : {
-                  "description" : "Correlation ID set by application",
-                  "type" : "string"
+                  "type" : "string",
+                  "description" : "Correlation ID set by application"
                 }
               }
             },
@@ -1487,8 +1487,8 @@
               "type" : "object",
               "properties" : {
                 "correlationId" : {
-                  "description" : "Correlation ID set by application",
-                  "type" : "string"
+                  "type" : "string",
+                  "description" : "Correlation ID set by application"
                 }
               }
             },
@@ -1634,8 +1634,8 @@
               "type" : "object",
               "properties" : {
                 "correlationId" : {
-                  "description" : "Correlation ID set by application",
-                  "type" : "string"
+                  "type" : "string",
+                  "description" : "Correlation ID set by application"
                 }
               }
             },
@@ -1877,8 +1877,8 @@
         "type" : "object",
         "properties" : {
           "ref" : {
-            "description" : "Referral.",
-            "type" : "string"
+            "type" : "string",
+            "description" : "Referral."
           }
         }
       },
@@ -1886,8 +1886,8 @@
         "type" : "object",
         "properties" : {
           "Authentication" : {
-            "description" : "Authentication token",
-            "type" : "string"
+            "type" : "string",
+            "description" : "Authentication token"
           }
         }
       },

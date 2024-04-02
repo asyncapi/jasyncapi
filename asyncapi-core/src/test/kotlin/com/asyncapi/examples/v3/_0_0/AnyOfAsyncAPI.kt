@@ -7,7 +7,7 @@ import com.asyncapi.v3._0_0.model.component.Components
 import com.asyncapi.v3._0_0.model.info.Info
 import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
-import com.asyncapi.v3.schema.Schema
+import com.asyncapi.v3.schema.AsyncAPISchema
 
 class AnyOfAsyncAPI: AbstractExampleValidationTest() {
     override fun specificationLocation(): String = "/examples/v3.0.0/anyof-asyncapi.yml"
@@ -51,10 +51,10 @@ class AnyOfAsyncAPI: AbstractExampleValidationTest() {
                 .messages(mapOf(
                         Pair("testMessages",
                                 Message.builder()
-                                        .payload(Schema.builder()
+                                        .payload(AsyncAPISchema.builder()
                                                 .anyOf(listOf(
-                                                        Schema.builder().ref("#/components/schemas/objectWithKey").build(),
-                                                        Schema.builder().ref("#/components/schemas/objectWithKey2").build()
+                                                        AsyncAPISchema.builder().ref("#/components/schemas/objectWithKey").build(),
+                                                        AsyncAPISchema.builder().ref("#/components/schemas/objectWithKey2").build()
                                                 ))
                                                 .build()
                                         )
@@ -63,11 +63,11 @@ class AnyOfAsyncAPI: AbstractExampleValidationTest() {
                 ))
                 .schemas(mapOf(
                         Pair("objectWithKey",
-                                Schema.builder()
+                                AsyncAPISchema.builder()
                                         .type("object")
                                         .properties(mapOf(
                                                 Pair("key",
-                                                        Schema.builder()
+                                                        AsyncAPISchema.builder()
                                                                 .type("string")
                                                                 .additionalProperties(false)
                                                                 .build()
@@ -76,11 +76,11 @@ class AnyOfAsyncAPI: AbstractExampleValidationTest() {
                                         .build()
                         ),
                         Pair("objectWithKey2",
-                                Schema.builder()
+                                AsyncAPISchema.builder()
                                         .type("object")
                                         .properties(mapOf(
                                                 Pair("key2",
-                                                        Schema.builder()
+                                                        AsyncAPISchema.builder()
                                                                 .type("string")
                                                                 .build()
                                                 )

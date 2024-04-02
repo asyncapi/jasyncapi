@@ -1,6 +1,6 @@
 package com.asyncapi.v3.binding.operation.http;
 
-import com.asyncapi.v3.schema.Schema;
+import com.asyncapi.v3.schema.AsyncAPISchema;
 import com.asyncapi.v3.binding.operation.OperationBinding;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
@@ -52,7 +52,7 @@ public class HTTPOperationBinding extends OperationBinding {
     @Nullable
     @JsonProperty("query")
     @JsonPropertyDescription("A Schema object containing the definitions for each query parameter. This schema MUST be of type object and have a properties key.")
-    private Schema query;
+    private AsyncAPISchema query;
 
     /**
      * The version of this binding. If omitted, "latest" MUST be assumed.
