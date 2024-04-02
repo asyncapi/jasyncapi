@@ -1,15 +1,12 @@
 package com.asyncapi.v3.schema.json
 
+import com.asyncapi.v3.schema.AsyncAPISchema
 import com.asyncapi.v3.schema.JsonSchema
-import com.asyncapi.v3.schema.ReadSchemaTest
+import com.asyncapi.v3.schema.SchemaProvider
 
-class EnumeratedValuesTest: ReadSchemaTest<JsonSchema>() {
+class EnumeratedValuesTest: SchemaProvider {
 
-    override fun schemaClass() = JsonSchema::class.java
-
-    override fun schemaToReadPath() = "/json/v3/schema/json/enumerated-values.schema.json"
-
-    override fun buildSchema(): JsonSchema {
+    override fun jsonSchema(): JsonSchema {
         return JsonSchema.builder()
                 .id("https://example.com/enumerated-values.schema.json")
                 .schema("http://json-schema.org/draft-07/schema#")
@@ -17,6 +14,23 @@ class EnumeratedValuesTest: ReadSchemaTest<JsonSchema>() {
                 .type("object")
                 .properties(mapOf(
                         Pair("data", JsonSchema.builder()
+                                .enumValue(listOf(
+                                        42, true, "hello", null, listOf(1, 2, 3)
+                                ))
+                                .build()
+                        )
+                ))
+                .build()
+    }
+
+    override fun asyncAPISchema(): AsyncAPISchema {
+        return AsyncAPISchema.builder()
+                .id("https://example.com/enumerated-values.schema.json")
+                .schema("http://json-schema.org/draft-07/schema#")
+                .title("Enumerated Values")
+                .type("object")
+                .properties(mapOf(
+                        Pair("data", AsyncAPISchema.builder()
                                 .enumValue(listOf(
                                         42, true, "hello", null, listOf(1, 2, 3)
                                 ))

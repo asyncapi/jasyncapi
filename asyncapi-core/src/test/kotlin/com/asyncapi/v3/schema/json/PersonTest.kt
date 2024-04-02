@@ -1,16 +1,13 @@
 package com.asyncapi.v3.schema.json
 
+import com.asyncapi.v3.schema.AsyncAPISchema
 import com.asyncapi.v3.schema.JsonSchema
-import com.asyncapi.v3.schema.ReadSchemaTest
+import com.asyncapi.v3.schema.SchemaProvider
 import java.math.BigDecimal
 
-class PersonTest: ReadSchemaTest<JsonSchema>() {
+class PersonTest: SchemaProvider {
 
-    override fun schemaClass() = JsonSchema::class.java
-
-    override fun schemaToReadPath() = "/json/v3/schema/json/person.schema.json"
-
-    override fun buildSchema(): JsonSchema {
+    override fun jsonSchema(): JsonSchema {
         return JsonSchema.builder()
                 .id("https://example.com/person.schema.json")
                 .schema("http://json-schema.org/draft-07/schema#")
@@ -28,6 +25,33 @@ class PersonTest: ReadSchemaTest<JsonSchema>() {
                                 .build()
                         ),
                         Pair("age", JsonSchema.builder()
+                                .type("integer")
+                                .description("Age in years which must be equal to or greater than zero.")
+                                .minimum(BigDecimal.ZERO)
+                                .build()
+                        )
+                ))
+                .build()
+    }
+
+    override fun asyncAPISchema(): AsyncAPISchema {
+        return AsyncAPISchema.builder()
+                .id("https://example.com/person.schema.json")
+                .schema("http://json-schema.org/draft-07/schema#")
+                .title("Person")
+                .type("object")
+                .properties(mapOf(
+                        Pair("firstName", AsyncAPISchema.builder()
+                                .type("string")
+                                .description("The person's first name.")
+                                .build()
+                        ),
+                        Pair("lastName", AsyncAPISchema.builder()
+                                .type("string")
+                                .description("The person's last name.")
+                                .build()
+                        ),
+                        Pair("age", AsyncAPISchema.builder()
                                 .type("integer")
                                 .description("Age in years which must be equal to or greater than zero.")
                                 .minimum(BigDecimal.ZERO)

@@ -3,6 +3,7 @@ package com.asyncapi.v3.schema;
 import com.asyncapi.v3.ExtendableObject;
 import com.asyncapi.v3._0_0.jackson.model.ExternalDocumentationDeserializer;
 import com.asyncapi.v3.jackson.schema.AsyncAPISchemaAdditionalPropertiesDeserializer;
+import com.asyncapi.v3.jackson.schema.AsyncAPISchemaAnyValueDeserializer;
 import com.asyncapi.v3.jackson.schema.AsyncAPISchemaItemsDeserializer;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
@@ -139,6 +140,7 @@ public class AsyncAPISchema extends ExtendableObject {
     @Nullable
     @JsonProperty("const")
     @JsonPropertyDescription("JSON Schema const value")
+    @JsonDeserialize(using = AsyncAPISchemaAnyValueDeserializer.class)
     public Object constValue;
 
     /*
@@ -420,7 +422,8 @@ public class AsyncAPISchema extends ExtendableObject {
      */
     @Nullable
     @JsonProperty("properties")
-    public Map<String, AsyncAPISchema> properties;
+    @JsonDeserialize(contentUsing = AsyncAPISchemaAdditionalPropertiesDeserializer.class)
+    public Map<String, Object> properties;
 
     /**
      * The value of "patternProperties" <b>MUST</b> be an object.
@@ -751,6 +754,7 @@ public class AsyncAPISchema extends ExtendableObject {
      */
     @Nullable
     @JsonProperty("default")
+    @JsonDeserialize(using = AsyncAPISchemaAnyValueDeserializer.class)
     public Object defaultValue;
 
     /**
@@ -824,6 +828,7 @@ public class AsyncAPISchema extends ExtendableObject {
      */
     @Nullable
     @JsonProperty("examples")
+    @JsonDeserialize(contentUsing = AsyncAPISchemaAnyValueDeserializer.class)
     public List<Object> examples;
 
     /*

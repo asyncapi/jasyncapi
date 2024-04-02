@@ -809,6 +809,7 @@ public class JsonSchema {
      */
     @Nullable
     @JsonProperty("examples")
+    @JsonDeserialize(contentUsing = JsonSchemaAnyValueDeserializer.class)
     public List<Object> examples;
 
 }

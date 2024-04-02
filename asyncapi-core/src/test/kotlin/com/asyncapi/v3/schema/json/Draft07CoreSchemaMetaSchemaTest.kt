@@ -1,23 +1,13 @@
 package com.asyncapi.v3.schema.json
 
-import com.asyncapi.v3.ClasspathUtils
+import com.asyncapi.v3.schema.AsyncAPISchema
 import com.asyncapi.v3.schema.JsonSchema
-import com.fasterxml.jackson.annotation.JsonInclude
-import com.fasterxml.jackson.databind.ObjectMapper
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.Test
+import com.asyncapi.v3.schema.SchemaProvider
 import java.math.BigDecimal
 
-class Draft07CoreSchemaMetaSchemaTest {
+class Draft07CoreSchemaMetaSchemaTest: SchemaProvider {
 
-    private val objectMapper = ObjectMapper().setSerializationInclusion(JsonInclude.Include.NON_NULL)
-
-    fun baseObjectJson() = "/json/v3/schema/json/draft-07-core-schema-meta-schema.json"
-
-    fun objectClass() = JsonSchema::class.java
-
-    fun build(): JsonSchema {
+    override fun jsonSchema(): JsonSchema {
         return JsonSchema.builder()
                 .schema("http://json-schema.org/draft-07/schema#")
                 .id("http://json-schema.org/draft-07/schema#")
@@ -278,15 +268,265 @@ class Draft07CoreSchemaMetaSchemaTest {
                 .build()
     }
 
-    @Test
-    @DisplayName("Compare hand crafted object with parsed json")
-    fun compareObjectWithParsedJson() {
-        val model = ClasspathUtils.readAsString(baseObjectJson())
-
-        Assertions.assertEquals(
-                objectMapper.readValue(model, objectClass()),
-                build()
-        )
+    override fun asyncAPISchema(): AsyncAPISchema {
+        return AsyncAPISchema.builder()
+                .schema("http://json-schema.org/draft-07/schema#")
+                .id("http://json-schema.org/draft-07/schema#")
+                .title("Core schema meta-schema")
+                .definitions(mapOf(
+                        Pair("schemaArray", AsyncAPISchema.builder()
+                                .type("array")
+                                .minItems(1)
+                                .items(AsyncAPISchema.builder().ref("#").build())
+                                .build()
+                        ),
+                        Pair("nonNegativeInteger", AsyncAPISchema.builder()
+                                .type("integer")
+                                .minimum(BigDecimal.ZERO)
+                                .build()
+                        ),
+                        Pair("nonNegativeIntegerDefault0", AsyncAPISchema.builder()
+                                .allOf(listOf(
+                                        AsyncAPISchema.builder().ref("#/definitions/nonNegativeInteger").build(),
+                                        AsyncAPISchema.builder().defaultValue(0).build()
+                                ))
+                                .build()
+                        ),
+                        Pair("simpleTypes", AsyncAPISchema.builder()
+                                .enumValue(listOf(
+                                        "array",
+                                        "boolean",
+                                        "integer",
+                                        "null",
+                                        "number",
+                                        "object",
+                                        "string"
+                                ))
+                                .build()
+                        ),
+                        Pair("stringArray", AsyncAPISchema.builder()
+                                .type("array")
+                                .items(AsyncAPISchema.builder().type("string").build())
+                                .uniqueItems(true)
+                                .defaultValue(emptyList<String>())
+                                .build()
+                        )
+                ))
+                .type(listOf("object", "boolean"))
+                .properties(mapOf(
+                        Pair("\$id", AsyncAPISchema.builder()
+                                .type("string")
+                                .format("uri-reference")
+                                .build()
+                        ),
+                        Pair("\$schema", AsyncAPISchema.builder()
+                                .type("string")
+                                .format("uri")
+                                .build()
+                        ),
+                        Pair("\$ref", AsyncAPISchema.builder()
+                                .type("string")
+                                .format("uri-reference")
+                                .build()
+                        ),
+                        Pair("\$comment", AsyncAPISchema.builder()
+                                .type("string")
+                                .build()
+                        ),
+                        Pair("title", AsyncAPISchema.builder()
+                                .type("string")
+                                .build()
+                        ),
+                        Pair("description", AsyncAPISchema.builder()
+                                .type("string")
+                                .build()
+                        ),
+                        Pair("default", true),
+                        Pair("readOnly", AsyncAPISchema.builder()
+                                .type("boolean")
+                                .defaultValue(false)
+                                .build()
+                        ),
+                        Pair("writeOnly", AsyncAPISchema.builder()
+                                .type("boolean")
+                                .defaultValue(false)
+                                .build()
+                        ),
+                        Pair("examples", AsyncAPISchema.builder()
+                                .type("array")
+                                .items(true)
+                                .build()
+                        ),
+                        Pair("multipleOf", AsyncAPISchema.builder()
+                                .type("number")
+                                .exclusiveMinimum(BigDecimal.ZERO)
+                                .build()
+                        ),
+                        Pair("maximum", AsyncAPISchema.builder()
+                                .type("number")
+                                .build()
+                        ),
+                        Pair("exclusiveMaximum", AsyncAPISchema.builder()
+                                .type("number")
+                                .build()
+                        ),
+                        Pair("minimum", AsyncAPISchema.builder()
+                                .type("number")
+                                .build()
+                        ),
+                        Pair("exclusiveMinimum", AsyncAPISchema.builder()
+                                .type("number")
+                                .build()
+                        ),
+                        Pair("maxLength", AsyncAPISchema.builder()
+                                .ref("#/definitions/nonNegativeInteger")
+                                .build()
+                        ),
+                        Pair("minLength", AsyncAPISchema.builder()
+                                .ref("#/definitions/nonNegativeIntegerDefault0")
+                                .build()
+                        ),
+                        Pair("pattern", AsyncAPISchema.builder()
+                                .type("string")
+                                .format("regex")
+                                .build()
+                        ),
+                        Pair("additionalItems", AsyncAPISchema.builder()
+                                .ref("#")
+                                .build()
+                        ),
+                        Pair("items", AsyncAPISchema.builder()
+                                .anyOf(listOf(
+                                        AsyncAPISchema.builder().ref("#").build(),
+                                        AsyncAPISchema.builder().ref("#/definitions/schemaArray").build(),
+                                ))
+                                .defaultValue(true)
+                                .build()
+                        ),
+                        Pair("maxItems", AsyncAPISchema.builder()
+                                .ref("#/definitions/nonNegativeInteger")
+                                .build()
+                        ),
+                        Pair("minItems", AsyncAPISchema.builder()
+                                .ref("#/definitions/nonNegativeIntegerDefault0")
+                                .build()
+                        ),
+                        Pair("uniqueItems", AsyncAPISchema.builder()
+                                .type("boolean")
+                                .defaultValue(false)
+                                .build()
+                        ),
+                        Pair("contains", AsyncAPISchema.builder()
+                                .ref("#")
+                                .build()
+                        ),
+                        Pair("maxProperties", AsyncAPISchema.builder()
+                                .ref("#/definitions/nonNegativeInteger")
+                                .build()
+                        ),
+                        Pair("minProperties", AsyncAPISchema.builder()
+                                .ref("#/definitions/nonNegativeIntegerDefault0")
+                                .build()
+                        ),
+                        Pair("required", AsyncAPISchema.builder()
+                                .ref("#/definitions/stringArray")
+                                .build()
+                        ),
+                        Pair("additionalProperties", AsyncAPISchema.builder()
+                                .ref("#")
+                                .build()
+                        ),
+                        Pair("definitions", AsyncAPISchema.builder()
+                                .type("object")
+                                .additionalProperties(AsyncAPISchema.builder().ref("#").build())
+                                .defaultValue(AsyncAPISchema())
+                                .build()
+                        ),
+                        Pair("properties", AsyncAPISchema.builder()
+                                .type("object")
+                                .additionalProperties(AsyncAPISchema.builder().ref("#").build())
+                                .defaultValue(AsyncAPISchema())
+                                .build()
+                        ),
+                        Pair("patternProperties", AsyncAPISchema.builder()
+                                .type("object")
+                                .additionalProperties(AsyncAPISchema.builder().ref("#").build())
+                                .propertyNames(AsyncAPISchema.builder().format("regex").build())
+                                .defaultValue(AsyncAPISchema())
+                                .build()
+                        ),
+                        Pair("dependencies", AsyncAPISchema.builder()
+                                .type("object")
+                                .additionalProperties(AsyncAPISchema.builder().anyOf(listOf(
+                                        AsyncAPISchema.builder().ref("#").build(),
+                                        AsyncAPISchema.builder().ref("#/definitions/stringArray").build(),
+                                )).build())
+                                .build()
+                        ),
+                        Pair("propertyNames", AsyncAPISchema.builder().ref("#").build()),
+                        Pair("const", true),
+                        Pair("enum", AsyncAPISchema.builder()
+                                .type("array")
+                                .items(true)
+                                .minItems(1)
+                                .uniqueItems(true)
+                                .build()
+                        ),
+                        Pair("type", AsyncAPISchema.builder()
+                                .anyOf(listOf(
+                                        AsyncAPISchema.builder().ref("#/definitions/simpleTypes").build(),
+                                        AsyncAPISchema.builder()
+                                                .type("array")
+                                                .items(AsyncAPISchema.builder().ref("#/definitions/simpleTypes").build())
+                                                .minItems(1)
+                                                .uniqueItems(true)
+                                                .build()
+                                ))
+                                .build()
+                        ),
+                        Pair("format", AsyncAPISchema.builder()
+                                .type("string")
+                                .build()
+                        ),
+                        Pair("contentMediaType", AsyncAPISchema.builder()
+                                .type("string")
+                                .build()
+                        ),
+                        Pair("contentEncoding", AsyncAPISchema.builder()
+                                .type("string")
+                                .build()
+                        ),
+                        Pair("if", AsyncAPISchema.builder()
+                                .ref("#")
+                                .build()
+                        ),
+                        Pair("then", AsyncAPISchema.builder()
+                                .ref("#")
+                                .build()
+                        ),
+                        Pair("else", AsyncAPISchema.builder()
+                                .ref("#")
+                                .build()
+                        ),
+                        Pair("allOf", AsyncAPISchema.builder()
+                                .ref("#/definitions/schemaArray")
+                                .build()
+                        ),
+                        Pair("anyOf", AsyncAPISchema.builder()
+                                .ref("#/definitions/schemaArray")
+                                .build()
+                        ),
+                        Pair("oneOf", AsyncAPISchema.builder()
+                                .ref("#/definitions/schemaArray")
+                                .build()
+                        ),
+                        Pair("not", AsyncAPISchema.builder()
+                                .ref("#")
+                                .build()
+                        ),
+                ))
+                .defaultValue(true)
+                .build()
     }
 
 }
