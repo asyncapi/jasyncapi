@@ -1,0 +1,7 @@
+{
+    "name": "animal",
+    "namespace": "http://example.com/schema/sample",
+    "prefix": "sample",
+    "attribute": true,
+    "wrapped": true
+}
