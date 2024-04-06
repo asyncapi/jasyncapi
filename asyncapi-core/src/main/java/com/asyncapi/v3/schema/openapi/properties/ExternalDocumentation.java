@@ -1,11 +1,8 @@
-package com.asyncapi.v3.schema.openapi;
+package com.asyncapi.v3.schema.openapi.properties;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -22,7 +19,8 @@ import org.jetbrains.annotations.Nullable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ExternalDocumentation {
+@EqualsAndHashCode(callSuper = true)
+public class ExternalDocumentation extends Extensions {
 
     /**
      * A short description of the target documentation.

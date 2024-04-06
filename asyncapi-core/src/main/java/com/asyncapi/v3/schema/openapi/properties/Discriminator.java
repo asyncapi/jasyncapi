@@ -1,4 +1,4 @@
-package com.asyncapi.v3.schema.openapi;
+package com.asyncapi.v3.schema.openapi.properties;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;

@@ -1,4 +1,5 @@
 {
     "description": "Find more info here",
-    "url": "https://example.com"
+    "url": "https://example.com",
+    "x-extension-property": "value"
 }

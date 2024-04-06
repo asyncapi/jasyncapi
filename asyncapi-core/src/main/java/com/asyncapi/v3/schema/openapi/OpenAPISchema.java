@@ -2,12 +2,13 @@ package com.asyncapi.v3.schema.openapi;
 
 import com.asyncapi.v3.jackson.schema.openapi.OpenAPISchemaAdditionalPropertiesDeserializer;
 import com.asyncapi.v3.jackson.schema.openapi.OpenAPISchemaAnyValueDeserializer;
+import com.asyncapi.v3.schema.openapi.properties.Discriminator;
+import com.asyncapi.v3.schema.openapi.properties.Extensions;
+import com.asyncapi.v3.schema.openapi.properties.ExternalDocumentation;
+import com.asyncapi.v3.schema.openapi.properties.XML;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.jetbrains.annotations.Nullable;
 
 import java.math.BigDecimal;
@@ -34,7 +35,8 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class OpenAPISchema {
+@EqualsAndHashCode(callSuper = true)
+public class OpenAPISchema extends Extensions {
 
     /**
      * Schema name.

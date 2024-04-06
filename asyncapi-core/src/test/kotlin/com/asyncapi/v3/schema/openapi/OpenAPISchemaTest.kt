@@ -2,8 +2,7 @@ package com.asyncapi.v3.schema.openapi
 
 import com.asyncapi.v3.ClasspathUtils
 import com.asyncapi.v3.schema.SchemaProvider
-import com.asyncapi.v3.schema.openapi.properties.ExampleEnumDefaultArrayTest
-import com.asyncapi.v3.schema.openapi.properties.ExampleEnumDefaultNullTest
+import com.asyncapi.v3.schema.openapi.properties.*
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Assertions
@@ -79,10 +78,13 @@ class OpenAPISchemaTest {
     class XMLs: ArgumentsProvider {
 
         override fun provideArguments(context: ExtensionContext?): Stream<out Arguments> {
+            val extendedXML = XML(
+                "animal", "http://example.com/schema/sample", "sample", true, true
+            )
+            extendedXML.extensions = mapOf(Pair("x-extension-property", "value"))
+
             return Stream.of(
-                    Arguments.of("/json/v3/schema/openapi/xml.json", XML(
-                            "animal", "http://example.com/schema/sample", "sample", true, true
-                    )),
+                    Arguments.of("/json/v3/schema/openapi/xml.json", extendedXML),
                     Arguments.of("/json/v3/schema/openapi/xml-attribute.json", XML.builder().attribute(true).build()),
                     Arguments.of("/json/v3/schema/openapi/xml-name-replacement.json", XML.builder().name("animal").build()),
                     Arguments.of("/json/v3/schema/openapi/xml-prefix-and-namespace.json", XML.builder()
@@ -115,10 +117,11 @@ class OpenAPISchemaTest {
     class ExternalDocumentations: ArgumentsProvider {
 
         override fun provideArguments(context: ExtensionContext?): Stream<out Arguments> {
+            val extendedExternalDocumentation = ExternalDocumentation("Find more info here", "https://example.com")
+            extendedExternalDocumentation.extensions = mapOf(Pair("x-extension-property", "value"))
+
             return Stream.of(
-                Arguments.of("/json/v3/schema/openapi/externaldocumentation.json", ExternalDocumentation(
-                    "Find more info here", "https://example.com"
-                )),
+                Arguments.of("/json/v3/schema/openapi/externaldocumentation.json", extendedExternalDocumentation),
                 Arguments.of("/json/v3/schema/openapi/externaldocumentation-url.json", ExternalDocumentation(
                     null, "https://example.com"
                 )),

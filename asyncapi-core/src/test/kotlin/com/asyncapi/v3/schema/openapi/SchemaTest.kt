@@ -1,12 +1,15 @@
 package com.asyncapi.v3.schema.openapi
 
 import com.asyncapi.v3.schema.SchemaProvider
+import com.asyncapi.v3.schema.openapi.properties.Discriminator
+import com.asyncapi.v3.schema.openapi.properties.ExternalDocumentation
+import com.asyncapi.v3.schema.openapi.properties.XML
 import java.math.BigDecimal
 
 class SchemaTest: SchemaProvider {
 
     override fun openAPISchema(): OpenAPISchema {
-        return OpenAPISchema.builder()
+        val schema = OpenAPISchema.builder()
             .name("schema name")
             .title("schema title")
             .multipleOf(BigDecimal(2.5))
@@ -163,6 +166,9 @@ class SchemaTest: SchemaProvider {
                 )
             ))
             .build()
+        schema.extensions = mapOf(Pair("x-extension-property", "value"))
+
+        return schema
     }
 
 }
