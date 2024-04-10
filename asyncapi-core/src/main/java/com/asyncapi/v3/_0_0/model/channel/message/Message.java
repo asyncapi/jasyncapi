@@ -11,6 +11,7 @@ import com.asyncapi.v3._0_0.jackson.model.channel.message.MessagePayloadDeserial
 import com.asyncapi.v3._0_0.model.ExternalDocumentation;
 import com.asyncapi.v3._0_0.model.Tag;
 import com.asyncapi.v3.jackson.binding.message.MessageBindingsDeserializer;
+import com.asyncapi.v3.schema.multiformat.MultiFormatSchema;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.*;
 import org.jetbrains.annotations.Nullable;
@@ -46,7 +47,7 @@ public class Message extends ExtendableObject {
      * MUST BE:
      * <ul>
      *     <li>{@link com.asyncapi.v3.schema.AsyncAPISchema}</li>
-     *     <li>{@link com.asyncapi.v3.schema.MultiFormatSchema}</li>
+     *     <li>{@link MultiFormatSchema}</li>
      *     <li>{@link com.asyncapi.v3.Reference}</li>
      * </ul>
      */
@@ -63,7 +64,7 @@ public class Message extends ExtendableObject {
      * MUST BE:
      * <ul>
      *     <li>{@link com.asyncapi.v3.schema.AsyncAPISchema}</li>
-     *     <li>{@link com.asyncapi.v3.schema.MultiFormatSchema}</li>
+     *     <li>{@link MultiFormatSchema}</li>
      *     <li>{@link com.asyncapi.v3.Reference}</li>
      * </ul>
      */

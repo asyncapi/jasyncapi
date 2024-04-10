@@ -4,8 +4,6 @@ import com.asyncapi.v3.Reference
 import com.asyncapi.v3.SerDeTest
 import com.asyncapi.v3._0_0.model.ExternalDocumentation
 import com.asyncapi.v3._0_0.model.Tag
-import com.asyncapi.v3.schema.AsyncAPISchema
-import com.asyncapi.v3.schema.MultiFormatSchema
 import com.asyncapi.v3.binding.message.amqp.AMQPMessageBindingTest
 import com.asyncapi.v3.binding.message.anypointmq.AnypointMQMessageBindingTest
 import com.asyncapi.v3.binding.message.googlepubsub.GooglePubSubMessageBindingTest
@@ -13,6 +11,8 @@ import com.asyncapi.v3.binding.message.http.HTTPMessageBindingTest
 import com.asyncapi.v3.binding.message.ibmmq.IBMMQMessageBindingTest
 import com.asyncapi.v3.binding.message.kafka.KafkaMessageBindingTest
 import com.asyncapi.v3.binding.message.mqtt.MQTTMessageBindingTest
+import com.asyncapi.v3.schema.AsyncAPISchema
+import com.asyncapi.v3.schema.multiformat.AsyncAPIFormatSchema
 
 class MessageTestWithSchema: SerDeTest<Message>() {
 
@@ -180,43 +180,37 @@ class MessageTestWithMultiFormatSchema: SerDeTest<Message>() {
 
     override fun build(): Message {
         return Message.builder()
-                .headers(MultiFormatSchema.builder()
-                        .schemaFormat("application/vnd.aai.asyncapi+json;version=3.0.0")
-                        .schema(linkedMapOf(
-                                Pair("type", "object"),
-                                Pair("properties", mapOf(
-                                        Pair(
-                                                "correlationId",
-                                                mapOf(
-                                                        Pair("description", "Correlation ID set by application"),
-                                                        Pair("type", "string")
-                                                )
+                .headers(AsyncAPIFormatSchema(
+                        "application/vnd.aai.asyncapi+json;version=3.0.0",
+                        AsyncAPISchema.builder()
+                                .type("object")
+                                .properties(mapOf(
+                                        Pair("correlationId", AsyncAPISchema.builder()
+                                                .type("string")
+                                                .description("Correlation ID set by application")
+                                                .build()
                                         ),
-                                        Pair(
-                                                "applicationInstanceId",
-                                                mapOf(
-                                                        Pair("description", "Unique identifier for a given instance of the publishing application"),
-                                                        Pair("type", "string")
-                                                )
+                                        Pair("applicationInstanceId", AsyncAPISchema.builder()
+                                                .type("string")
+                                                .description("Unique identifier for a given instance of the publishing application")
+                                                .build()
                                         )
                                 ))
-                        )).build()
-                )
-                .payload(MultiFormatSchema.builder()
-                        .schemaFormat("application/vnd.aai.asyncapi+json;version=3.0.0")
-                        .schema(linkedMapOf(
-                                Pair("type", "object"),
-                                Pair("properties", mapOf(
-                                        Pair(
-                                                "metric",
-                                                mapOf(
-                                                        Pair("description", "Metric set by application"),
-                                                        Pair("type", "string")
-                                                )
+                                .build()
+                ))
+                .payload(AsyncAPIFormatSchema(
+                        "application/vnd.aai.asyncapi+json;version=3.0.0",
+                        AsyncAPISchema.builder()
+                                .type("object")
+                                .properties(mapOf(
+                                        Pair("metric", AsyncAPISchema.builder()
+                                                .type("string")
+                                                .description("Metric set by application")
+                                                .build()
                                         )
                                 ))
-                        )).build()
-                )
+                                .build()
+                ))
                 .correlationId(Reference("#/components/messages/message-correlation-id"))
                 .contentType("application/json")
                 .name("UserSignup")

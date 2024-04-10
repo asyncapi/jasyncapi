@@ -5289,7 +5289,7 @@
         }
       },
       "Tag": {
-        "schemaFormat": "application/json",
+        "schemaFormat": "application/schema+json;version=draft-07",
         "schema": {
           "type": "object",
           "properties": {

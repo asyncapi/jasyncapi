@@ -23,7 +23,7 @@ import com.asyncapi.v3.jackson.binding.channel.ChannelBindingsDeserializer;
 import com.asyncapi.v3.jackson.binding.message.MessageBindingsDeserializer;
 import com.asyncapi.v3.jackson.binding.operation.OperationBindingsDeserializer;
 import com.asyncapi.v3.jackson.binding.server.ServerBindingsDeserializer;
-import com.asyncapi.v3.schema.MultiFormatSchema;
+import com.asyncapi.v3.schema.multiformat.MultiFormatSchema;
 import com.asyncapi.v3.schema.AsyncAPISchema;
 import com.asyncapi.v3.security_scheme.SecurityScheme;
 import com.asyncapi.v3.ExtendableObject;

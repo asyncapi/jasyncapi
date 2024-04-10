@@ -5,6 +5,7 @@ import com.asyncapi.v3._0_0.jackson.model.ExternalDocumentationDeserializer;
 import com.asyncapi.v3.jackson.schema.AsyncAPISchemaAdditionalPropertiesDeserializer;
 import com.asyncapi.v3.jackson.schema.AsyncAPISchemaAnyValueDeserializer;
 import com.asyncapi.v3.jackson.schema.AsyncAPISchemaItemsDeserializer;
+import com.asyncapi.v3.schema.multiformat.MultiFormatSchema;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
