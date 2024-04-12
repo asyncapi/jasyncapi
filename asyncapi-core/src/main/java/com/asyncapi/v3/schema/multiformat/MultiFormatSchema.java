@@ -33,7 +33,16 @@ import org.jetbrains.annotations.NotNull;
         @JsonSubTypes.Type(value = OpenAPIFormatSchema.class, names = {
                 "application/vnd.oai.openapi;version=3.0.0",
                 "application/vnd.oai.openapi+json;version=3.0.0",
-                "application/vnd.oai.openapi+yaml;version=3.0.0"
+                "application/vnd.oai.openapi+yaml;version=3.0.0",
+                "application/vnd.oai.openapi;version=3.0.1",
+                "application/vnd.oai.openapi+json;version=3.0.1",
+                "application/vnd.oai.openapi+yaml;version=3.0.1",
+                "application/vnd.oai.openapi;version=3.0.2",
+                "application/vnd.oai.openapi+json;version=3.0.2",
+                "application/vnd.oai.openapi+yaml;version=3.0.2",
+                "application/vnd.oai.openapi;version=3.0.3",
+                "application/vnd.oai.openapi+json;version=3.0.3",
+                "application/vnd.oai.openapi+yaml;version=3.0.3"
         }),
         @JsonSubTypes.Type(value = AsyncAPIFormatSchema.class, names = {
                 "application/vnd.aai.asyncapi;version=2.0.0",

@@ -4,6 +4,10 @@ import com.asyncapi.v3.ClasspathUtils
 import com.asyncapi.v3.schema.SchemaProvider
 import com.asyncapi.v3.schema.json.*
 import com.asyncapi.v3.schema.openapi.SchemaTest
+import com.asyncapi.v3.schema.multiformat.openapi.OpenAPIFormatSchemaV3_0_0Test
+import com.asyncapi.v3.schema.multiformat.openapi.OpenAPIFormatSchemaV3_0_1Test
+import com.asyncapi.v3.schema.multiformat.openapi.OpenAPIFormatSchemaV3_0_2Test
+import com.asyncapi.v3.schema.multiformat.openapi.OpenAPIFormatSchemaV3_0_3Test
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
@@ -257,17 +261,21 @@ class MultiFormatSchemaTest {
     @Nested
     inner class OpenAPISchema {
 
-        @ArgumentsSource(OpenAPISchemasJsonFormat::class)
-        @ParameterizedTest(name = "Read: {0}")
-        fun json(schemaToCompareWith: String, schemaProvider: SchemaProvider) {
-            compareSchemas(schemaToCompareWith, OpenAPIFormatSchema::class.java, schemaProvider.openAPIFormatSchemaJson())
-        }
+        @Nested
+        @DisplayName("3.0.0")
+        inner class V3_0_0: OpenAPIFormatSchemaV3_0_0Test()
 
-        @ArgumentsSource(OpenAPISchemasYamlFormat::class)
-        @ParameterizedTest(name = "Read: {0}")
-        fun yaml(schemaToCompareWith: String, schemaProvider: SchemaProvider) {
-            compareSchemas(schemaToCompareWith, OpenAPIFormatSchema::class.java, schemaProvider.openAPIFormatSchemaYaml())
-        }
+        @Nested
+        @DisplayName("3.0.1")
+        inner class V3_0_1: OpenAPIFormatSchemaV3_0_1Test()
+
+        @Nested
+        @DisplayName("3.0.2")
+        inner class V3_0_2: OpenAPIFormatSchemaV3_0_2Test()
+
+        @Nested
+        @DisplayName("3.0.3")
+        inner class V3_0_3: OpenAPIFormatSchemaV3_0_3Test()
 
     }
 
@@ -554,26 +562,6 @@ class MultiFormatSchemaTest {
                 Arguments.of("/json/v3/schema/multiformat/asyncapi/3.0.0/enumerated-values.schema.yaml", EnumeratedValuesTest()),
                 Arguments.of("/json/v3/schema/multiformat/asyncapi/3.0.0/person.schema.yaml", PersonTest()),
                 Arguments.of("/json/v3/schema/multiformat/asyncapi/3.0.0/regex-pattern.schema.yaml", RegexPatternTest())
-            )
-        }
-
-    }
-
-    class OpenAPISchemasJsonFormat: ArgumentsProvider {
-
-        override fun provideArguments(context: ExtensionContext?): Stream<out Arguments> {
-            return Stream.of(
-                Arguments.of("/json/v3/schema/multiformat/openapi/schema.json", SchemaTest()),
-            )
-        }
-
-    }
-
-    class OpenAPISchemasYamlFormat: ArgumentsProvider {
-
-        override fun provideArguments(context: ExtensionContext?): Stream<out Arguments> {
-            return Stream.of(
-                Arguments.of("/json/v3/schema/multiformat/openapi/schema.yaml", SchemaTest()),
             )
         }
 
