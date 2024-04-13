@@ -9,7 +9,11 @@ import java.util.List;
 /**
  * @see <a href="https://avro.apache.org/docs/1.9.0/spec.html#Arrays">Arrays</a>
  */
-public class AvroFixedSchema {
+public class AvroFixedSchema extends AvroSchema {
+
+    public AvroFixedSchema() {
+        super(AvroSchemaType.FIXED);
+    }
 
     @NotNull
     @JsonProperty("name")

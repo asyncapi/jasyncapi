@@ -6,7 +6,11 @@ import org.jetbrains.annotations.NotNull;
 /**
  * @see <a href="https://avro.apache.org/docs/1.9.0/spec.html#Arrays">Arrays</a>
  */
-public class AvroArraySchema {
+public class AvroArraySchema extends AvroSchema {
+
+    public AvroArraySchema() {
+        super(AvroSchemaType.ARRAY);
+    }
 
     @NotNull
     @JsonProperty("items")

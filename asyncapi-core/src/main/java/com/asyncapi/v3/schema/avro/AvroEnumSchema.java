@@ -12,7 +12,11 @@ import java.util.List;
  *
  * @see <a href="https://avro.apache.org/docs/1.9.0/spec.html#Enums">Enums</a>
  */
-public class AvroEnumSchema {
+public class AvroEnumSchema extends AvroSchema {
+
+    public AvroEnumSchema() {
+        super(AvroSchemaType.ENUM);
+    }
 
     @NotNull
     @JsonProperty("name")
