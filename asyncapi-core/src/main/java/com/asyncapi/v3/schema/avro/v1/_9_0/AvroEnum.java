@@ -1,6 +1,6 @@
-package com.asyncapi.v3.schema.avro;
+package com.asyncapi.v3.schema.avro.v1._9_0;
 
-import com.asyncapi.v3.schema.avro.jackson.AvroRecordFieldSchemaTypeDeserializer;
+import com.asyncapi.v3.schema.avro.v1._9_0.jackson.AvroTypeDeserializer;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Builder;
@@ -19,14 +19,14 @@ import java.util.List;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class AvroEnumSchema extends AvroSchema {
+public class AvroEnum extends Avro {
 
-    public AvroEnumSchema() {
-        super(AvroSchemaType.ENUM);
+    public AvroEnum() {
+        super(AvroType.ENUM);
     }
 
     @Builder(builderMethodName = "enumBuilder")
-    public AvroEnumSchema(
+    public AvroEnum(
             @NotNull String name,
             @Nullable String namespace,
             @Nullable String doc,
@@ -34,7 +34,7 @@ public class AvroEnumSchema extends AvroSchema {
             @Nullable List<@NotNull String> aliases,
             @Nullable Object defaultValue
     ) {
-        super(AvroSchemaType.ENUM);
+        super(AvroType.ENUM);
 
         this.name = name;
         this.namespace = namespace;
@@ -85,7 +85,7 @@ public class AvroEnumSchema extends AvroSchema {
      */
     @Nullable
     @JsonProperty("default")
-    @JsonDeserialize(using = AvroRecordFieldSchemaTypeDeserializer.class)
+    @JsonDeserialize(using = AvroTypeDeserializer.class)
     private Object defaultValue;
 
 }

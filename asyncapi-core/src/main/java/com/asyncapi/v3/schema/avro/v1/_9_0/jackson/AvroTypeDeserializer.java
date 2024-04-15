@@ -1,7 +1,7 @@
-package com.asyncapi.v3.schema.avro.jackson;
+package com.asyncapi.v3.schema.avro.v1._9_0.jackson;
 
-import com.asyncapi.v3.schema.avro.AvroSchema;
-import com.asyncapi.v3.schema.avro.AvroSchemaType;
+import com.asyncapi.v3.schema.avro.v1._9_0.Avro;
+import com.asyncapi.v3.schema.avro.v1._9_0.AvroType;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.ObjectCodec;
@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AvroRecordFieldSchemaTypeDeserializer extends JsonDeserializer<Object> {
+public class AvroTypeDeserializer extends JsonDeserializer<Object> {
 
     @Override
     final public Object deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
@@ -37,9 +37,9 @@ public class AvroRecordFieldSchemaTypeDeserializer extends JsonDeserializer<Obje
                 case NUMBER:
                     return jsonParser.readValueAs(Number.class);
                 case OBJECT:
-                    return jsonParser.readValueAs(AvroSchema.class);
+                    return jsonParser.readValueAs(Avro.class);
                 case STRING:
-                    return jsonParser.readValueAs(AvroSchemaType.class);
+                    return jsonParser.readValueAs(AvroType.class);
                 case BINARY:
                 case POJO:
                 case MISSING:

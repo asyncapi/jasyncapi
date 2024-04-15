@@ -1,4 +1,4 @@
-package com.asyncapi.v3.schema.avro;
+package com.asyncapi.v3.schema.avro.v1._9_0;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;

@@ -1,4 +1,4 @@
-package com.asyncapi.v3.schema.avro;
+package com.asyncapi.v3.schema.avro.v1._9_0;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
@@ -26,26 +26,26 @@ import org.jetbrains.annotations.Nullable;
         visible = true
 )
 @JsonSubTypes({
-        @JsonSubTypes.Type(value = AvroSchema.class, names = {
+        @JsonSubTypes.Type(value = Avro.class, names = {
                 "null", "boolean", "int", "long", "float", "double", "bytes", "string"
         }),
-        @JsonSubTypes.Type(value = AvroRecordSchema.class, names = {"record", "error"}),
-        @JsonSubTypes.Type(value = AvroArraySchema.class, name = "array"),
-        @JsonSubTypes.Type(value = AvroMapSchema.class, name = "map"),
-        @JsonSubTypes.Type(value = AvroEnumSchema.class, name = "enum"),
-        @JsonSubTypes.Type(value = AvroFixedSchema.class, name = "fixed"),
+        @JsonSubTypes.Type(value = AvroRecord.class, names = {"record", "error"}),
+        @JsonSubTypes.Type(value = AvroArray.class, name = "array"),
+        @JsonSubTypes.Type(value = AvroMap.class, name = "map"),
+        @JsonSubTypes.Type(value = AvroEnum.class, name = "enum"),
+        @JsonSubTypes.Type(value = AvroFixed.class, name = "fixed"),
 })
-public class AvroSchema extends AvroMetadata {
+public class Avro extends AvroMetadata {
 
-    public AvroSchema(@NotNull AvroSchemaType avroSchemaType) {
-        this.type = avroSchemaType;
+    public Avro(@NotNull AvroType avroType) {
+        this.type = avroType;
     }
 
     /**
      * Avro Schema type.
      */
     @NotNull
-    private AvroSchemaType type;
+    private AvroType type;
 
     @Nullable
     private Integer scale;

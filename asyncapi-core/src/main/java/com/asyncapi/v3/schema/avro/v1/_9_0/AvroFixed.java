@@ -1,4 +1,4 @@
-package com.asyncapi.v3.schema.avro;
+package com.asyncapi.v3.schema.avro.v1._9_0;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
@@ -14,20 +14,20 @@ import java.util.List;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class AvroFixedSchema extends AvroSchema {
+public class AvroFixed extends Avro {
 
-    public AvroFixedSchema() {
-        super(AvroSchemaType.FIXED);
+    public AvroFixed() {
+        super(AvroType.FIXED);
     }
 
     @Builder(builderMethodName = "fixedBuilder")
-    public AvroFixedSchema(
+    public AvroFixed(
             @NotNull String name,
             @Nullable String namespace,
             @Nullable List<@NotNull String> aliases,
             @NotNull Integer size
     ) {
-        super(AvroSchemaType.FIXED);
+        super(AvroType.FIXED);
 
         this.name = name;
         this.namespace = namespace;

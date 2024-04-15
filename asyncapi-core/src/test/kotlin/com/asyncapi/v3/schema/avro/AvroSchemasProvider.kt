@@ -1,29 +1,31 @@
 package com.asyncapi.v3.schema.avro
 
+import com.asyncapi.v3.schema.avro.v1._9_0.*
+
 class AvroSchemasProvider {
 
-    fun applicationEventTest(): AvroRecordSchema {
-        return AvroRecordSchema.recordBuilder()
+    fun applicationEventTest(): AvroRecord {
+        return AvroRecord.recordBuilder()
             .name("ApplicationEvent")
             .namespace("model")
             .doc("")
             .fields(listOf(
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("applicationId")
-                    .type(AvroSchemaType.STRING)
+                    .type(AvroType.STRING)
                     .doc("Application ID")
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("status")
-                    .type(AvroSchemaType.STRING)
+                    .type(AvroType.STRING)
                     .doc("Application Status")
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("documents")
                     // TODO: union type
                     .type(listOf(
-                        AvroSchemaType.NULL,
-                        AvroArraySchema("model.DocumentInfo")
+                        AvroType.NULL,
+                        AvroArray("model.DocumentInfo")
                     ))
                     .doc("")
                     .defaultValue(null)
@@ -32,43 +34,43 @@ class AvroSchemasProvider {
             .build()
     }
 
-    fun documentInfo(): AvroRecordSchema {
-        return AvroRecordSchema.recordBuilder()
+    fun documentInfo(): AvroRecord {
+        return AvroRecord.recordBuilder()
             .name("DocumentInfo")
             .namespace("model")
             .doc("")
             .fields(listOf(
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("documentId")
-                    .type(AvroSchemaType.STRING)
+                    .type(AvroType.STRING)
                     .doc("Document ID")
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("filePath")
-                    .type(AvroSchemaType.STRING)
+                    .type(AvroType.STRING)
                     .doc("Document Path")
                     .build()
             ))
             .build()
     }
 
-    fun fooBar(): AvroRecordSchema {
-        return AvroRecordSchema.recordBuilder()
+    fun fooBar(): AvroRecord {
+        return AvroRecord.recordBuilder()
             .name("Bar")
             .namespace("foo")
             .fields(listOf(
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("title")
-                    .type(AvroSchemaType.STRING)
+                    .type(AvroType.STRING)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("created_at")
                     // TODO: union type
                     .type(listOf(
-                        AvroSchemaType.NULL,
-                        AvroSchema.builder()
-                            .type(AvroSchemaType.LONG)
-                            .logicalType(AvroSchema.LogicalType.TIMESTAMP_MILLIS)
+                        AvroType.NULL,
+                        Avro.builder()
+                            .type(AvroType.LONG)
+                            .logicalType(Avro.LogicalType.TIMESTAMP_MILLIS)
                             .build()
                     ))
                     .build()
@@ -76,203 +78,206 @@ class AvroSchemasProvider {
             .build()
     }
 
-    fun fullRecordV1(): AvroRecordSchema {
-        return AvroRecordSchema.recordBuilder()
+    fun fullRecordV1(): AvroRecord {
+        return AvroRecord.recordBuilder()
             .name("FullRecordV1")
             .namespace("org.apache.avro.specific.test")
             .doc("Test schema changes: this is the 'old' schema the SpecificRecord expects to see")
             .fields(listOf(
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("b")
-                    .type(AvroSchemaType.BOOLEAN)
+                    .type(AvroType.BOOLEAN)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("i32")
-                    .type(AvroSchemaType.INT)
+                    .type(AvroType.INT)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("i64")
-                    .type(AvroSchemaType.LONG)
+                    .type(AvroType.LONG)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("f32")
-                    .type(AvroSchemaType.FLOAT)
+                    .type(AvroType.FLOAT)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("f64")
-                    .type(AvroSchemaType.DOUBLE)
+                    .type(AvroType.DOUBLE)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("s")
                     // TODO: union type
                     .type(listOf(
-                        AvroSchemaType.NULL, AvroSchemaType.STRING
+                        AvroType.NULL, AvroType.STRING
                     ))
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("h")
                     // TODO: union type
                     .type(listOf(
-                        AvroSchemaType.NULL, AvroSchemaType.STRING
+                        AvroType.NULL, AvroType.STRING
                     ))
                     .build()
             ))
             .build()
     }
 
-    fun fullRecordV2(): AvroRecordSchema {
-        return AvroRecordSchema.recordBuilder()
+    fun fullRecordV2(): AvroRecord {
+        return AvroRecord.recordBuilder()
             .name("FullRecordV2")
             .namespace("org.apache.avro.specific.test")
             .doc("Test schema changes: this is the 'new' schema actually used to write data")
             .fields(listOf(
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("b")
-                    .type(AvroSchemaType.BOOLEAN)
+                    .type(AvroType.BOOLEAN)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("i64")
-                    .type(AvroSchemaType.INT)
+                    .type(AvroType.INT)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("i32")
-                    .type(AvroSchemaType.INT)
+                    .type(AvroType.INT)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("f64")
-                    .type(AvroSchemaType.LONG)
+                    .type(AvroType.LONG)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("f32")
                     // TODO: union type
                     .type(listOf(
-                        AvroSchemaType.FLOAT, AvroSchemaType.NULL
+                        AvroType.FLOAT, AvroType.NULL
                     ))
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("newfield")
-                    .type(AvroSchemaType.STRING)
+                    .type(AvroType.STRING)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("h")
-                    .type(AvroSchemaType.BYTES)
+                    .type(AvroType.BYTES)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("myMap")
-                    .type(AvroMapSchema(AvroSchemaType.STRING))
+                    .type(AvroMap(AvroType.STRING))
                     .build()
             ))
             .build()
     }
 
-    fun logicalUUID(): AvroRecordSchema {
-        return AvroRecordSchema.recordBuilder()
+    fun logicalUUID(): AvroRecord {
+        return AvroRecord.recordBuilder()
             .name("Action")
             .namespace("schema.common")
             .fields(listOf(
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("name")
-                    .type(AvroSchemaType.STRING)
+                    .type(AvroType.STRING)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("guid")
-                    .type(AvroSchema.builder()
-                        .type(AvroSchemaType.STRING)
-                        .logicalType(AvroSchema.LogicalType.UUID)
+                    .type(
+                        Avro.builder()
+                        .type(AvroType.STRING)
+                        .logicalType(Avro.LogicalType.UUID)
                         .build()
                     )
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("time")
-                    .type(AvroSchema.builder()
-                        .type(AvroSchemaType.LONG)
-                        .logicalType(AvroSchema.LogicalType.TIMESTAMP_MILLIS)
+                    .type(
+                        Avro.builder()
+                        .type(AvroType.LONG)
+                        .logicalType(Avro.LogicalType.TIMESTAMP_MILLIS)
                         .build()
                     )
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("requestId")
                     // TODO: union type
                     .type(listOf(
-                        AvroSchemaType.NULL, AvroSchemaType.STRING
+                        AvroType.NULL, AvroType.STRING
                     ))
                     .build()
             ))
             .build()
     }
 
-    fun logicalTypesWithMultipleFields(): AvroRecordSchema {
-        return AvroRecordSchema.recordBuilder()
+    fun logicalTypesWithMultipleFields(): AvroRecord {
+        return AvroRecord.recordBuilder()
             .name("Action")
             .namespace("schema.common")
             .fields(listOf(
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("name")
-                    .type(AvroSchemaType.STRING)
+                    .type(AvroType.STRING)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("uuid")
-                    .type(AvroSchemaType.STRING)
+                    .type(AvroType.STRING)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("time")
-                    .type(AvroSchema.builder()
-                        .type(AvroSchemaType.LONG)
-                        .logicalType(AvroSchema.LogicalType.TIMESTAMP_MILLIS)
+                    .type(
+                        Avro.builder()
+                        .type(AvroType.LONG)
+                        .logicalType(Avro.LogicalType.TIMESTAMP_MILLIS)
                         .build()
                     )
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("requestId")
                     // TODO: union type
                     .type(listOf(
-                        AvroSchemaType.NULL, AvroSchemaType.STRING
+                        AvroType.NULL, AvroType.STRING
                     ))
                     .build()
             ))
             .build()
     }
 
-    fun myResponse(): AvroRecordSchema {
-        return AvroRecordSchema.recordBuilder()
+    fun myResponse(): AvroRecord {
+        return AvroRecord.recordBuilder()
             .name("MyResponse")
             .namespace("model")
             .doc("")
             .fields(listOf(
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("isSuccessful")
                     .doc("Indicator for successful or unsuccessful call")
-                    .type(AvroSchemaType.BOOLEAN)
+                    .type(AvroType.BOOLEAN)
                     .build()
             ))
             .build()
     }
 
-    fun regressionErrorFieldInRecord(): AvroRecordSchema {
-        return AvroRecordSchema.recordBuilder()
+    fun regressionErrorFieldInRecord(): AvroRecord {
+        return AvroRecord.recordBuilder()
             .name("RecordWithErrorField")
             .namespace("org.apache.avro.specific.test")
             .doc("With custom coders in Avro 1.9, previously successful records with error fields now fail to compile.")
             .fields(listOf(
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("s")
                     // TODO: union type
                     .type(listOf(
-                        AvroSchemaType.NULL, AvroSchemaType.STRING
+                        AvroType.NULL, AvroType.STRING
                     ))
                     .defaultValue(null)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("e")
                     // TODO: union type
                     .type(listOf(
-                        AvroSchemaType.NULL, AvroRecordSchema.recordBuilder()
-                            .type(AvroSchemaType.ERROR)
+                        AvroType.NULL, AvroRecord.recordBuilder()
+                            .type(AvroType.ERROR)
                             .name("TestError")
                             .fields(listOf(
-                                AvroRecordFieldSchema.builder()
+                                AvroRecordField.builder()
                                     .name("message")
-                                    .type(AvroSchemaType.STRING)
+                                    .type(AvroType.STRING)
                                     .build()
                             ))
                             .build()
@@ -283,49 +288,50 @@ class AvroSchemasProvider {
             .build()
     }
 
-    fun schemaLocation(): AvroRecordSchema {
-        val lat = AvroRecordFieldSchema.builder()
+    fun schemaLocation(): AvroRecord {
+        val lat = AvroRecordField.builder()
             .name("lat")
-            .type(AvroSchemaType.FLOAT)
+            .type(AvroType.FLOAT)
             .build()
         lat.metadata = mapOf(Pair("field-id", 1))
 
-        val long = AvroRecordFieldSchema.builder()
+        val long = AvroRecordField.builder()
             .name("long")
-            .type(listOf(AvroSchemaType.NULL, AvroSchemaType.FLOAT))
+            .type(listOf(AvroType.NULL, AvroType.FLOAT))
             .defaultValue(null)
             .build()
         long.metadata = mapOf(Pair("field-id", 2))
 
-        return AvroRecordSchema.recordBuilder()
+        return AvroRecord.recordBuilder()
             .name("r7")
             .fields(listOf(lat, long))
             .build()
     }
 
-    fun schemaLocationRead(): AvroRecordSchema {
-        return AvroRecordSchema.recordBuilder()
+    fun schemaLocationRead(): AvroRecord {
+        return AvroRecord.recordBuilder()
             .name("table")
             .fields(listOf(
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("location")
                     // TODO: union type
-                    .type(listOf(AvroSchemaType.NULL, AvroMapSchema.mapBuilder()
+                    .type(listOf(
+                        AvroType.NULL, AvroMap.mapBuilder()
                         // TODO: union type
                         .values(listOf(
-                            AvroSchemaType.NULL,
-                            AvroRecordSchema.recordBuilder()
+                            AvroType.NULL,
+                            AvroRecord.recordBuilder()
                                 .name("r7")
                                 .fields(listOf(
-                                    AvroRecordFieldSchema.builder()
+                                    AvroRecordField.builder()
                                         .name("lat")
-                                        .type(AvroSchemaType.FLOAT)
+                                        .type(AvroType.FLOAT)
                                         .metadata(mapOf(Pair("field-id", 1)))
                                         .build(),
-                                    AvroRecordFieldSchema.builder()
+                                    AvroRecordField.builder()
                                         .name("long_r2")
                                         // TODO: union type
-                                        .type(listOf(AvroSchemaType.NULL, AvroSchemaType.FLOAT))
+                                        .type(listOf(AvroType.NULL, AvroType.FLOAT))
                                         .defaultValue(null)
                                         .metadata(mapOf(Pair("field-id", 2)))
                                         .build()
@@ -345,29 +351,30 @@ class AvroSchemasProvider {
             .build()
     }
 
-    fun schemaLocationWrite(): AvroRecordSchema {
-        return AvroRecordSchema.recordBuilder()
+    fun schemaLocationWrite(): AvroRecord {
+        return AvroRecord.recordBuilder()
             .name("table")
             .fields(listOf(
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("location")
                     // TODO: union type
-                    .type(listOf(AvroSchemaType.NULL, AvroMapSchema.mapBuilder()
+                    .type(listOf(
+                        AvroType.NULL, AvroMap.mapBuilder()
                         // TODO: union type
                         .values(listOf(
-                            AvroSchemaType.NULL,
-                            AvroRecordSchema.recordBuilder()
+                            AvroType.NULL,
+                            AvroRecord.recordBuilder()
                                 .name("r7")
                                 .fields(listOf(
-                                    AvroRecordFieldSchema.builder()
+                                    AvroRecordField.builder()
                                         .name("lat")
-                                        .type(AvroSchemaType.FLOAT)
+                                        .type(AvroType.FLOAT)
                                         .metadata(mapOf(Pair("field-id", 1)))
                                         .build(),
-                                    AvroRecordFieldSchema.builder()
+                                    AvroRecordField.builder()
                                         .name("long")
                                         // TODO: union type
-                                        .type(listOf(AvroSchemaType.NULL, AvroSchemaType.FLOAT))
+                                        .type(listOf(AvroType.NULL, AvroType.FLOAT))
                                         .defaultValue(null)
                                         .metadata(mapOf(Pair("field-id", 2)))
                                         .build()
@@ -387,357 +394,380 @@ class AvroSchemasProvider {
             .build()
     }
 
-    fun schemaBuilder(): AvroRecordSchema {
-        return AvroRecordSchema.recordBuilder()
+    fun schemaBuilder(): AvroRecord {
+        return AvroRecord.recordBuilder()
             .name("recordAll")
             .fields(listOf(
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("requiredBoolean")
-                    .type(AvroSchemaType.BOOLEAN)
+                    .type(AvroType.BOOLEAN)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("requiredBooleanWithDefault")
-                    .type(AvroSchemaType.BOOLEAN)
+                    .type(AvroType.BOOLEAN)
                     .defaultValue(true)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("optionalBoolean")
                     // TODO: union type
-                    .type(listOf(AvroSchemaType.NULL, AvroSchemaType.BOOLEAN))
+                    .type(listOf(AvroType.NULL, AvroType.BOOLEAN))
                     .defaultValue(null)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("optionalBooleanWithDefault")
                     // TODO: union type
-                    .type(listOf(AvroSchemaType.BOOLEAN, AvroSchemaType.NULL))
+                    .type(listOf(AvroType.BOOLEAN, AvroType.NULL))
                     .defaultValue(true)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("requiredInt")
-                    .type(AvroSchemaType.INT)
+                    .type(AvroType.INT)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("optionalInt")
                     // TODO: union type
-                    .type(listOf(AvroSchemaType.NULL, AvroSchemaType.INT))
+                    .type(listOf(AvroType.NULL, AvroType.INT))
                     .defaultValue(null)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("optionalIntWithDefault")
                     // TODO: union type
-                    .type(listOf(AvroSchemaType.INT, AvroSchemaType.NULL))
+                    .type(listOf(AvroType.INT, AvroType.NULL))
                     .defaultValue(1)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("requiredLong")
-                    .type(AvroSchemaType.LONG)
+                    .type(AvroType.LONG)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("optionalLong")
                     // TODO: union type
-                    .type(listOf(AvroSchemaType.NULL, AvroSchemaType.LONG))
+                    .type(listOf(AvroType.NULL, AvroType.LONG))
                     .defaultValue(null)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("optionalLongWithDefault")
                     // TODO: union type
-                    .type(listOf(AvroSchemaType.LONG, AvroSchemaType.NULL))
+                    .type(listOf(AvroType.LONG, AvroType.NULL))
                     .defaultValue(1)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("requiredFloat")
-                    .type(AvroSchemaType.FLOAT)
+                    .type(AvroType.FLOAT)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("optionalFloat")
                     // TODO: union type
-                    .type(listOf(AvroSchemaType.NULL, AvroSchemaType.FLOAT))
+                    .type(listOf(AvroType.NULL, AvroType.FLOAT))
                     .defaultValue(null)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("optionalFloatWithDefault")
                     // TODO: union type
-                    .type(listOf(AvroSchemaType.FLOAT, AvroSchemaType.NULL))
+                    .type(listOf(AvroType.FLOAT, AvroType.NULL))
                     .defaultValue(1.0)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("requiredDouble")
-                    .type(AvroSchemaType.DOUBLE)
+                    .type(AvroType.DOUBLE)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("optionalDouble")
                     // TODO: union type
-                    .type(listOf(AvroSchemaType.NULL, AvroSchemaType.DOUBLE))
+                    .type(listOf(AvroType.NULL, AvroType.DOUBLE))
                     .defaultValue(null)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("optionalDoubleWithDefault")
                     // TODO: union type
-                    .type(listOf(AvroSchemaType.DOUBLE, AvroSchemaType.NULL))
+                    .type(listOf(AvroType.DOUBLE, AvroType.NULL))
                     .defaultValue(1.0)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("requiredBytes")
-                    .type(AvroSchemaType.BYTES)
+                    .type(AvroType.BYTES)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("optionalBytes")
                     // TODO: union type
-                    .type(listOf(AvroSchemaType.NULL, AvroSchemaType.BYTES))
+                    .type(listOf(AvroType.NULL, AvroType.BYTES))
                     .defaultValue(null)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("optionalBytesWithDefault")
                     // TODO: union type
-                    .type(listOf(AvroSchemaType.BYTES, AvroSchemaType.NULL))
+                    .type(listOf(AvroType.BYTES, AvroType.NULL))
                     .defaultValue("A")
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("requiredString")
-                    .type(AvroSchemaType.STRING)
+                    .type(AvroType.STRING)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("optionalString")
                     // TODO: union type
-                    .type(listOf(AvroSchemaType.NULL, AvroSchemaType.STRING))
+                    .type(listOf(AvroType.NULL, AvroType.STRING))
                     .defaultValue(null)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("optionalStringWithDefault")
                     // TODO: union type
-                    .type(listOf(AvroSchemaType.STRING, AvroSchemaType.NULL))
+                    .type(listOf(AvroType.STRING, AvroType.NULL))
                     .defaultValue("a")
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("requiredRecord")
-                    .type(AvroRecordSchema.recordBuilder()
+                    .type(
+                        AvroRecord.recordBuilder()
                         .name("nestedRequiredRecord")
-                        .fields(listOf(AvroRecordFieldSchema.builder()
+                        .fields(listOf(
+                            AvroRecordField.builder()
                             .name("nestedRequiredBoolean")
-                            .type(AvroSchemaType.BOOLEAN)
+                            .type(AvroType.BOOLEAN)
                             .build())
                         )
                         .build()
                     )
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("optionalRecord")
                     // TODO: union type
-                    .type(listOf(AvroSchemaType.NULL, AvroRecordSchema.recordBuilder()
+                    .type(listOf(
+                        AvroType.NULL, AvroRecord.recordBuilder()
                         .name("nestedOptionalRecord")
-                        .fields(listOf(AvroRecordFieldSchema.builder()
+                        .fields(listOf(
+                            AvroRecordField.builder()
                             .name("nestedRequiredBoolean")
-                            .type(AvroSchemaType.BOOLEAN)
+                            .type(AvroType.BOOLEAN)
                             .build())
                         )
                         .build()
                     ))
                     .defaultValue(null)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("optionalRecordWithDefault")
                     // TODO: union type
-                    .type(listOf(AvroRecordSchema.recordBuilder()
+                    .type(listOf(
+                        AvroRecord.recordBuilder()
                         .name("nestedOptionalRecordWithDefault")
-                        .fields(listOf(AvroRecordFieldSchema.builder()
+                        .fields(listOf(
+                            AvroRecordField.builder()
                             .name("nestedRequiredBoolean")
-                            .type(AvroSchemaType.BOOLEAN)
+                            .type(AvroType.BOOLEAN)
                             .build())
                         )
-                        .build(), AvroSchemaType.NULL
+                        .build(), AvroType.NULL
                     ))
                     .defaultValue(mapOf(Pair("nestedRequiredBoolean", true)))
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("requiredEnum")
-                    .type(AvroEnumSchema.enumBuilder()
+                    .type(
+                        AvroEnum.enumBuilder()
                         .name("requiredEnum")
                         .symbols(listOf("a", "b"))
                         .build()
                     )
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("optionalEnum")
                     // TODO: union type
-                    .type(listOf(AvroSchemaType.NULL, AvroEnumSchema.enumBuilder()
+                    .type(listOf(
+                        AvroType.NULL, AvroEnum.enumBuilder()
                         .name("optionalEnum")
                         .symbols(listOf("a", "b"))
                         .build()
                     ))
                     .defaultValue(null)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("optionalEnumWithDefault")
                     // TODO: union type
-                    .type(listOf(AvroEnumSchema.enumBuilder()
+                    .type(listOf(
+                        AvroEnum.enumBuilder()
                         .name("optionalEnumWithDefault")
                         .symbols(listOf("a", "b"))
-                        .build(), AvroSchemaType.NULL,
+                        .build(), AvroType.NULL,
                     ))
                     .defaultValue("b")
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("requiredArray")
-                    .type(AvroArraySchema.arrayBuilder()
-                        .items(AvroSchemaType.STRING)
+                    .type(
+                        AvroArray.arrayBuilder()
+                        .items(AvroType.STRING)
                         .build()
                     )
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("optionalArray")
                     // TODO: union type
-                    .type(listOf(AvroSchemaType.NULL, AvroArraySchema.arrayBuilder()
-                        .items(AvroSchemaType.STRING)
+                    .type(listOf(
+                        AvroType.NULL, AvroArray.arrayBuilder()
+                        .items(AvroType.STRING)
                         .build()
                     ))
                     .defaultValue(null)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("optionalArrayWithDefault")
                     // TODO: union type
-                    .type(listOf(AvroArraySchema.arrayBuilder()
-                        .items(AvroSchemaType.STRING)
-                        .build(), AvroSchemaType.NULL
+                    .type(listOf(
+                        AvroArray.arrayBuilder()
+                        .items(AvroType.STRING)
+                        .build(), AvroType.NULL
                     ))
                     .defaultValue(listOf("a"))
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("requiredMap")
-                    .type(AvroMapSchema.mapBuilder()
-                        .values(AvroSchemaType.STRING)
+                    .type(
+                        AvroMap.mapBuilder()
+                        .values(AvroType.STRING)
                         .build()
                     )
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("optionalMap")
                     // TODO: union type
-                    .type(listOf(AvroSchemaType.NULL, AvroMapSchema.mapBuilder()
-                        .values(AvroSchemaType.STRING)
+                    .type(listOf(
+                        AvroType.NULL, AvroMap.mapBuilder()
+                        .values(AvroType.STRING)
                         .build()
                     ))
                     .defaultValue(null)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("optionalMapWithDefault")
                     // TODO: union type
-                    .type(listOf(AvroMapSchema.mapBuilder()
-                        .values(AvroSchemaType.STRING)
-                        .build(), AvroSchemaType.NULL
+                    .type(listOf(
+                        AvroMap.mapBuilder()
+                        .values(AvroType.STRING)
+                        .build(), AvroType.NULL
                     ))
                     .defaultValue(mapOf(Pair("a", "b")))
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("requiredFixed")
-                    .type(AvroFixedSchema.fixedBuilder()
+                    .type(
+                        AvroFixed.fixedBuilder()
                         .name("requiredFixed")
                         .size(1)
                         .build()
                     )
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("optionalFixed")
                     // TODO: union type
-                    .type(listOf(AvroSchemaType.NULL, AvroFixedSchema.fixedBuilder()
+                    .type(listOf(
+                        AvroType.NULL, AvroFixed.fixedBuilder()
                         .name("optionalFixed")
                         .size(1)
                         .build()
                     ))
                     .defaultValue(null)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("optionalFixedWithDefault")
                     // TODO: union type
-                    .type(listOf(AvroFixedSchema.fixedBuilder()
+                    .type(listOf(
+                        AvroFixed.fixedBuilder()
                         .name("optionalFixedWithDefault")
                         .size(1)
-                        .build(), AvroSchemaType.NULL
+                        .build(), AvroType.NULL
                     ))
                     .defaultValue("A")
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("unionType")
-                    .type(listOf(AvroSchemaType.LONG, AvroSchemaType.NULL))
+                    .type(listOf(AvroType.LONG, AvroType.NULL))
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("unionBooleanWithDefault")
-                    .type(listOf(AvroSchemaType.BOOLEAN, AvroSchemaType.INT))
+                    .type(listOf(AvroType.BOOLEAN, AvroType.INT))
                     .defaultValue(true)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("unionIntWithDefault")
-                    .type(listOf(AvroSchemaType.INT, AvroSchemaType.NULL))
+                    .type(listOf(AvroType.INT, AvroType.NULL))
                     .defaultValue(1)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("unionLongWithDefault")
-                    .type(listOf(AvroSchemaType.LONG, AvroSchemaType.INT))
+                    .type(listOf(AvroType.LONG, AvroType.INT))
                     .defaultValue(1)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("unionFloatWithDefault")
-                    .type(listOf(AvroSchemaType.FLOAT, AvroSchemaType.INT))
+                    .type(listOf(AvroType.FLOAT, AvroType.INT))
                     .defaultValue(1.0)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("unionDoubleWithDefault")
-                    .type(listOf(AvroSchemaType.DOUBLE, AvroSchemaType.INT))
+                    .type(listOf(AvroType.DOUBLE, AvroType.INT))
                     .defaultValue(1.0)
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("unionBytesWithDefault")
-                    .type(listOf(AvroSchemaType.BYTES, AvroSchemaType.INT))
+                    .type(listOf(AvroType.BYTES, AvroType.INT))
                     .defaultValue("A")
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("unionStringWithDefault")
-                    .type(listOf(AvroSchemaType.STRING, AvroSchemaType.INT))
+                    .type(listOf(AvroType.STRING, AvroType.INT))
                     .defaultValue("a")
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("unionRecordWithDefault")
-                    .type(listOf(AvroRecordSchema.recordBuilder()
+                    .type(listOf(
+                        AvroRecord.recordBuilder()
                         .name("nestedUnionRecordWithDefault")
                         .fields(listOf(
-                            AvroRecordFieldSchema.builder()
+                            AvroRecordField.builder()
                                 .name("nestedRequiredBoolean")
-                                .type(AvroSchemaType.BOOLEAN)
+                                .type(AvroType.BOOLEAN)
                                 .build()
                         ))
-                        .build(), AvroSchemaType.INT
+                        .build(), AvroType.INT
                     ))
                     .defaultValue(mapOf(Pair("nestedRequiredBoolean", true)))
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("unionEnumWithDefault")
-                    .type(listOf(AvroEnumSchema.enumBuilder()
+                    .type(listOf(
+                        AvroEnum.enumBuilder()
                         .name("nestedUnionEnumWithDefault")
                         .symbols(listOf("a", "b"))
-                        .build(), AvroSchemaType.INT
+                        .build(), AvroType.INT
                     ))
                     .defaultValue("b")
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("unionArrayWithDefault")
-                    .type(listOf(AvroArraySchema.arrayBuilder()
-                        .items(AvroSchemaType.STRING)
-                        .build(), AvroSchemaType.INT
+                    .type(listOf(
+                        AvroArray.arrayBuilder()
+                        .items(AvroType.STRING)
+                        .build(), AvroType.INT
                     ))
                     .defaultValue(listOf("a"))
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("unionMapWithDefault")
-                    .type(listOf(AvroMapSchema.mapBuilder()
-                        .values(AvroSchemaType.STRING)
-                        .build(), AvroSchemaType.INT
+                    .type(listOf(
+                        AvroMap.mapBuilder()
+                        .values(AvroType.STRING)
+                        .build(), AvroType.INT
                     ))
                     .defaultValue(mapOf(Pair("a", "b")))
                     .build(),
-                AvroRecordFieldSchema.builder()
+                AvroRecordField.builder()
                     .name("unionFixedWithDefault")
-                    .type(listOf(AvroFixedSchema.fixedBuilder()
+                    .type(listOf(
+                        AvroFixed.fixedBuilder()
                         .name("nestedUnionFixedWithDefault")
                         .size(1)
-                        .build(), AvroSchemaType.INT
+                        .build(), AvroType.INT
                     ))
                     .defaultValue("A")
                     .build(),

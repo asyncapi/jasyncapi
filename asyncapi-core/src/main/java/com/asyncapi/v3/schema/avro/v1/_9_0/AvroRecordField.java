@@ -1,6 +1,6 @@
-package com.asyncapi.v3.schema.avro;
+package com.asyncapi.v3.schema.avro.v1._9_0;
 
-import com.asyncapi.v3.schema.avro.jackson.AvroRecordFieldSchemaTypeDeserializer;
+import com.asyncapi.v3.schema.avro.v1._9_0.jackson.AvroTypeDeserializer;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Builder;
@@ -21,14 +21,14 @@ import java.util.Map;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class AvroRecordFieldSchema extends AvroMetadata {
+public class AvroRecordField extends AvroMetadata {
 
-    public AvroRecordFieldSchema() {
-        this.type = AvroSchemaType.RECORD;
+    public AvroRecordField() {
+        this.type = AvroType.RECORD;
     }
 
     @Builder
-    public AvroRecordFieldSchema(
+    public AvroRecordField(
             @NotNull Object type,
             @NotNull String name,
             @Nullable Order order,
@@ -51,7 +51,7 @@ public class AvroRecordFieldSchema extends AvroMetadata {
      */
     @NotNull
     @JsonProperty("type")
-    @JsonDeserialize(using = AvroRecordFieldSchemaTypeDeserializer.class)
+    @JsonDeserialize(using = AvroTypeDeserializer.class)
     private Object type;
 
     /**

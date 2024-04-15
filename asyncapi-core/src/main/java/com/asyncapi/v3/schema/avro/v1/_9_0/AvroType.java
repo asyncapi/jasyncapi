@@ -1,8 +1,7 @@
-package com.asyncapi.v3.schema.avro;
+package com.asyncapi.v3.schema.avro.v1._9_0;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * Apache Avro Schema types.
@@ -12,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
  * @see <a href="https://avro.apache.org/docs/1.9.0/spec.html#schema_primitive">Avro Schema Primitive Types</a>
  * @see <a href="https://avro.apache.org/docs/1.9.0/spec.html#schema_complex">Avro Schema Complex Types</a>
  */
-public enum AvroSchemaType {
+public enum AvroType {
 
     /*
         Primitive Types.

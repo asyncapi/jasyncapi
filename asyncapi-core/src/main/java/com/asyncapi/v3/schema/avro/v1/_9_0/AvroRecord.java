@@ -1,4 +1,4 @@
-package com.asyncapi.v3.schema.avro;
+package com.asyncapi.v3.schema.avro.v1._9_0;
 
 import lombok.*;
 import org.jetbrains.annotations.NotNull;
@@ -16,25 +16,25 @@ import java.util.List;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class AvroRecordSchema extends AvroSchema {
+public class AvroRecord extends Avro {
 
-    public AvroRecordSchema() {
-        super(AvroSchemaType.RECORD);
+    public AvroRecord() {
+        super(AvroType.RECORD);
     }
 
     @Builder(builderMethodName = "recordBuilder")
-    public AvroRecordSchema(
-            @Nullable AvroSchemaType type,
+    public AvroRecord(
+            @Nullable AvroType type,
             @NotNull  String name,
             @Nullable String namespace,
             @Nullable String doc,
             @Nullable List<@NotNull String> aliases,
-            @NotNull  List<@NotNull AvroRecordFieldSchema> fields
+            @NotNull  List<@NotNull AvroRecordField> fields
     ) {
-        if (AvroSchemaType.RECORD.equals(type) || AvroSchemaType.ERROR.equals(type)) {
+        if (AvroType.RECORD.equals(type) || AvroType.ERROR.equals(type)) {
             super.setType(type);
         } else {
-            super.setType(AvroSchemaType.RECORD);
+            super.setType(AvroType.RECORD);
         }
 
         this.name      = name;
@@ -72,16 +72,16 @@ public class AvroRecordSchema extends AvroSchema {
      * A JSON array, listing fields (required).
      */
     @NotNull
-    private List<@NotNull AvroRecordFieldSchema> fields = Collections.emptyList();
+    private List<@NotNull AvroRecordField> fields = Collections.emptyList();
 
     @NotNull
     @Override
-    public AvroSchemaType getType() {
-        return AvroSchemaType.RECORD;
+    public AvroType getType() {
+        return AvroType.RECORD;
     }
 
-    public void setType(@NotNull AvroSchemaType type) {
-        super.setType(AvroSchemaType.RECORD);
+    public void setType(@NotNull AvroType type) {
+        super.setType(AvroType.RECORD);
     }
 
 }

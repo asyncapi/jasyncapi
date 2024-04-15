@@ -1,6 +1,6 @@
-package com.asyncapi.v3.schema.avro;
+package com.asyncapi.v3.schema.avro.v1._9_0;
 
-import com.asyncapi.v3.schema.avro.jackson.AvroRecordFieldSchemaTypeDeserializer;
+import com.asyncapi.v3.schema.avro.v1._9_0.jackson.AvroTypeDeserializer;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Builder;
@@ -16,35 +16,35 @@ import java.util.Map;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class AvroMapSchema extends AvroSchema {
+public class AvroMap extends Avro {
 
-    public AvroMapSchema() {
-        super(AvroSchemaType.MAP);
+    public AvroMap() {
+        super(AvroType.MAP);
     }
 
-    public AvroMapSchema(@NotNull Object values) {
+    public AvroMap(@NotNull Object values) {
         this.values = values;
     }
 
     @Builder(builderMethodName = "mapBuilder")
-    public AvroMapSchema(@NotNull Object values, @Nullable Map<String, Object> metadata) {
+    public AvroMap(@NotNull Object values, @Nullable Map<String, Object> metadata) {
         this.values = values;
         this.metadata = metadata;
     }
 
     @NotNull
     @JsonProperty("values")
-    @JsonDeserialize(using = AvroRecordFieldSchemaTypeDeserializer.class)
+    @JsonDeserialize(using = AvroTypeDeserializer.class)
     private Object values;
 
     @NotNull
     @Override
-    public AvroSchemaType getType() {
-        return AvroSchemaType.MAP;
+    public AvroType getType() {
+        return AvroType.MAP;
     }
 
-    public void setType(@NotNull AvroSchemaType type) {
-        super.setType(AvroSchemaType.MAP);
+    public void setType(@NotNull AvroType type) {
+        super.setType(AvroType.MAP);
     }
 
 }

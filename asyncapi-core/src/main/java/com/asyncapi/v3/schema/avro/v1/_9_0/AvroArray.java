@@ -1,6 +1,6 @@
-package com.asyncapi.v3.schema.avro;
+package com.asyncapi.v3.schema.avro.v1._9_0;
 
-import com.asyncapi.v3.schema.avro.jackson.AvroRecordFieldSchemaTypeDeserializer;
+import com.asyncapi.v3.schema.avro.v1._9_0.jackson.AvroTypeDeserializer;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Builder;
@@ -13,33 +13,33 @@ import org.jetbrains.annotations.NotNull;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class AvroArraySchema extends AvroSchema {
+public class AvroArray extends Avro {
 
-    public AvroArraySchema() {
-        super(AvroSchemaType.ARRAY);
+    public AvroArray() {
+        super(AvroType.ARRAY);
     }
 
     @Builder(builderMethodName = "arrayBuilder")
-    public AvroArraySchema(
+    public AvroArray(
             @NotNull Object items
     ) {
-        super(AvroSchemaType.ARRAY);
+        super(AvroType.ARRAY);
         this.items = items;
     }
 
     @NotNull
     @JsonProperty("items")
-    @JsonDeserialize(using = AvroRecordFieldSchemaTypeDeserializer.class)
+    @JsonDeserialize(using = AvroTypeDeserializer.class)
     private Object items;
 
     @NotNull
     @Override
-    public AvroSchemaType getType() {
-        return AvroSchemaType.ARRAY;
+    public AvroType getType() {
+        return AvroType.ARRAY;
     }
 
-    public void setType(@NotNull AvroSchemaType type) {
-        super.setType(AvroSchemaType.ARRAY);
+    public void setType(@NotNull AvroType type) {
+        super.setType(AvroType.ARRAY);
     }
 
 }

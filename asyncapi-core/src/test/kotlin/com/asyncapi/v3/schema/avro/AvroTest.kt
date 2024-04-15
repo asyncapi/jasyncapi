@@ -1,6 +1,7 @@
 package com.asyncapi.v3.schema.avro
 
 import com.asyncapi.v3.ClasspathUtils
+import com.asyncapi.v3.schema.avro.v1._9_0.Avro
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
@@ -16,10 +17,10 @@ class AvroSchemaTest {
 
     fun compareSchemas(
         schemaToCheckPath: String,
-        schemaToCheck: AvroSchema
+        schemaToCheck: Avro
     ) {
         val schemaAsJson = ClasspathUtils.readAsString(schemaToCheckPath)
-        val schema = objectMapper.readValue(schemaAsJson, AvroSchema::class.java)
+        val schema = objectMapper.readValue(schemaAsJson, Avro::class.java)
 
         Assertions.assertEquals(schema, schemaToCheck)
     }
@@ -28,17 +29,17 @@ class AvroSchemaTest {
         .setSerializationInclusion(JsonInclude.Include.NON_NULL)
         .findAndRegisterModules()
 
-    @ArgumentsSource(Avro::class)
+    @ArgumentsSource(AvroSchemas::class)
     @ParameterizedTest(name = "Read: {0}")
-    fun read(schemaToCheckPath: String, avroSchema: AvroSchema) {
+    fun read(schemaToCheckPath: String, avroSchema: Avro) {
         compareSchemas(schemaToCheckPath, avroSchema)
     }
 
-    class Avro: ArgumentsProvider {
+    class AvroSchemas: ArgumentsProvider {
 
         override fun provideArguments(context: ExtensionContext?): Stream<out Arguments> {
             return Stream.of(
-//                Arguments.of("/json/v3/schema/avro/ApplicationEvent.avsc", AvroSchemasProvider().applicationEventTest()), // TODO: fix - Cannot deserialize value of type `com.asyncapi.v3.schema.avro.AvroSchemaType` from String "model.DocumentInfo"
+//                Arguments.of("/json/v3/schema/avro/ApplicationEvent.avsc", AvroSchemasProvider().applicationEventTest()), // TODO: fix - Cannot deserialize value of type `com.asyncapi.v3.schema.avro.v1._9_0.AvroSchemaType` from String "model.DocumentInfo"
                 Arguments.of("/json/v3/schema/avro/DocumentInfo.avsc", AvroSchemasProvider().documentInfo()),
                 Arguments.of("/json/v3/schema/avro/foo.Bar.avsc", AvroSchemasProvider().fooBar()),
                 Arguments.of("/json/v3/schema/avro/full_record_v1.avsc", AvroSchemasProvider().fullRecordV1()),
