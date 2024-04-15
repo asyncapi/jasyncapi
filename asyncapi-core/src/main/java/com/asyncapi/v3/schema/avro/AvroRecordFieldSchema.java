@@ -1,11 +1,16 @@
 package com.asyncapi.v3.schema.avro;
 
+import com.asyncapi.v3.schema.avro.jackson.AvroRecordFieldSchemaTypeDeserializer;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Avro Record Field.
@@ -14,10 +19,31 @@ import java.util.List;
  * @version 3.0.0
  * @see <a href="https://avro.apache.org/docs/1.9.0/spec.html#schema_record">Avro Record</a>
  */
-public class AvroRecordFieldSchema extends AvroSchema {
+@Data
+@EqualsAndHashCode(callSuper = true)
+public class AvroRecordFieldSchema extends AvroMetadata {
 
     public AvroRecordFieldSchema() {
-        super(AvroSchemaType.RECORD);
+        this.type = AvroSchemaType.RECORD;
+    }
+
+    @Builder
+    public AvroRecordFieldSchema(
+            @NotNull Object type,
+            @NotNull String name,
+            @Nullable Order order,
+            @Nullable String doc,
+            @Nullable List<@NotNull String> aliases,
+            @Nullable Object defaultValue,
+            @Nullable Map<String, Object> metadata
+    ) {
+        this.type = type;
+        this.name = name;
+        this.order = order == null ? Order.ASCENDING : order ;
+        this.doc = doc;
+        this.aliases = aliases;
+        this.defaultValue = defaultValue;
+        this.metadata = metadata;
     }
 
     /**
@@ -25,6 +51,7 @@ public class AvroRecordFieldSchema extends AvroSchema {
      */
     @NotNull
     @JsonProperty("type")
+    @JsonDeserialize(using = AvroRecordFieldSchemaTypeDeserializer.class)
     private Object type;
 
     /**
@@ -37,8 +64,22 @@ public class AvroRecordFieldSchema extends AvroSchema {
     /**
      * Specifies how this field impacts sort ordering of this record (optional).
      */
-    @Nullable("order")
+    @Nullable
+    @JsonProperty("order")
     private Order order = Order.ASCENDING;
+
+    @NotNull
+    public Order getOrder() {
+        if (order == null) {
+            setOrder(Order.ASCENDING);
+        }
+
+        return order;
+    }
+
+    public void setOrder(@NotNull Order order) {
+        this.order = order;
+    }
 
     /**
      * A JSON string providing documentation to the user of this schema (optional).
