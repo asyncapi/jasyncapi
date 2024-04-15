@@ -57,6 +57,9 @@ public enum AvroSchemaType {
     @JsonProperty("record")
     RECORD,
 
+    @JsonProperty("error")
+    ERROR,
+
     @JsonProperty("enum")
     ENUM,
 
