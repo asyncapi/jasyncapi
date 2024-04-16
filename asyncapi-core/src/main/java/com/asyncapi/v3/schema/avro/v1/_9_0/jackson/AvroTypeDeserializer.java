@@ -2,6 +2,7 @@ package com.asyncapi.v3.schema.avro.v1._9_0.jackson;
 
 import com.asyncapi.v3.schema.avro.v1._9_0.Avro;
 import com.asyncapi.v3.schema.avro.v1._9_0.AvroType;
+import com.asyncapi.v3.schema.avro.v1._9_0.AvroUnion;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.ObjectCodec;
@@ -12,8 +13,6 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.JsonNodeType;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class AvroTypeDeserializer extends JsonDeserializer<Object> {
 
@@ -31,7 +30,7 @@ public class AvroTypeDeserializer extends JsonDeserializer<Object> {
 
             switch (nodeType) {
                 case ARRAY:
-                    return readAsList((ArrayNode) jsonNode, objectCodec);
+                    return readAsUnion((ArrayNode) jsonNode, objectCodec);
                 case BOOLEAN:
                     return jsonNode.asBoolean();
                 case NUMBER:
@@ -51,13 +50,13 @@ public class AvroTypeDeserializer extends JsonDeserializer<Object> {
         }
     }
 
-    private List<Object> readAsList(ArrayNode arrayNode, ObjectCodec objectCodec) throws IOException {
-        List<Object> list = new ArrayList<>();
+    private AvroUnion readAsUnion(ArrayNode arrayNode, ObjectCodec objectCodec) throws IOException {
+        AvroUnion avroUnion = new AvroUnion();
         for (JsonNode childNode : arrayNode) {
-            list.add(chooseKnownPojo(childNode, objectCodec));
+            avroUnion.add(chooseKnownPojo(childNode, objectCodec));
         }
 
-        return list;
+        return avroUnion;
     }
 
 }

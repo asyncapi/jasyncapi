@@ -27,8 +27,13 @@ public class AvroMap extends Avro {
     }
 
     @Builder(builderMethodName = "mapBuilder")
-    public AvroMap(@NotNull Object values, @Nullable Map<String, Object> metadata) {
+    public AvroMap(
+            @NotNull Object values,
+            @Nullable Map<String, Object> defaultValue,
+            @Nullable Map<String, Object> metadata
+    ) {
         this.values = values;
+        this.defaultValue = defaultValue;
         this.metadata = metadata;
     }
 
@@ -36,6 +41,10 @@ public class AvroMap extends Avro {
     @JsonProperty("values")
     @JsonDeserialize(using = AvroTypeDeserializer.class)
     private Object values;
+
+    @Nullable
+    @JsonProperty("default")
+    private Map<String, Object> defaultValue;
 
     @NotNull
     @Override

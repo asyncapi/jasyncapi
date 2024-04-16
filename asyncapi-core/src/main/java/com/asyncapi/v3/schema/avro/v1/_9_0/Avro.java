@@ -23,6 +23,7 @@ import org.jetbrains.annotations.Nullable;
         use = JsonTypeInfo.Id.NAME,
         include = JsonTypeInfo.As.EXISTING_PROPERTY,
         property = "type",
+        defaultImpl = AvroUnion.class,
         visible = true
 )
 @JsonSubTypes({
@@ -64,6 +65,9 @@ public class Avro extends AvroMetadata {
 
         @JsonProperty("decimal")
         DECIMAL,
+
+        @JsonProperty("big-decimal")
+        BIG_DECIMAL,
 
         @JsonProperty("uuid")
         UUID,
