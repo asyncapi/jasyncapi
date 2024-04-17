@@ -1,0 +1,10 @@
+schemaFormat: application/vnd.apache.avro+yaml;version=1.11.1
+schema:
+  namespace: model
+  type: record
+  doc: ''
+  name: MyResponse
+  fields:
+    - name: isSuccessful
+      type: boolean
+      doc: Indicator for successful or unsuccessful call

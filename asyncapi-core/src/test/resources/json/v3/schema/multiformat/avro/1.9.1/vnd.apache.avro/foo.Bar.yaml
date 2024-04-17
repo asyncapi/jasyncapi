@@ -1,0 +1,13 @@
+schemaFormat: application/vnd.apache.avro;version=1.9.1
+schema:
+  fields:
+    - name: title
+      type: string
+    - name: created_at
+      type:
+        - 'null'
+        - logicalType: timestamp-millis
+          type: long
+  name: Bar
+  namespace: foo
+  type: record

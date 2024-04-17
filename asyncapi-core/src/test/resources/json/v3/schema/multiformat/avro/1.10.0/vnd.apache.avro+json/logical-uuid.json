@@ -1,0 +1,33 @@
+{
+  "schemaFormat": "application/vnd.apache.avro+json;version=1.10.0",
+  "schema": {
+    "namespace": "schema.common",
+    "type": "record",
+    "name": "Action",
+    "fields": [
+      {
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "name": "guid",
+        "type": { "type": "string", "logicalType": "uuid" }
+      },
+      {
+        "name": "time",
+        "type": {
+          "type": "long",
+          "logicalType": "timestamp-millis"
+        }
+      },
+      {
+        "name": "requestId",
+        "type": [
+          "null",
+          "string"
+        ],
+        "default": null
+      }
+    ]
+  }
+}

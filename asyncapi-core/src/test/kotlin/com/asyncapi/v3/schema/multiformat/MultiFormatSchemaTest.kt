@@ -1,6 +1,7 @@
 package com.asyncapi.v3.schema.multiformat
 
 import com.asyncapi.v3.schema.multiformat.asyncapi.*
+import com.asyncapi.v3.schema.multiformat.avro.*
 import com.asyncapi.v3.schema.multiformat.json.JsonFormatSchemaTest
 import com.asyncapi.v3.schema.multiformat.openapi.OpenAPIFormatSchemaV3_0_0Test
 import com.asyncapi.v3.schema.multiformat.openapi.OpenAPIFormatSchemaV3_0_1Test
@@ -57,6 +58,43 @@ class MultiFormatSchemaTest {
         @Nested
         @DisplayName("MultiFormatSchema without schemaFormat is AsyncAPI Schema")
         inner class WithoutSchemaFormat: WithoutSchemaFormatTest()
+
+    }
+
+    @Nested
+    inner class AvroSchema {
+
+        @Nested
+        @DisplayName("1.9.0")
+        inner class V1_9_0: AvroFormatSchemaV1_9_0Test()
+
+        @Nested
+        @DisplayName("1.9.1")
+        inner class V1_9_1: AvroFormatSchemaV1_9_1Test()
+
+        @Nested
+        @DisplayName("1.9.2")
+        inner class V1_9_2: AvroFormatSchemaV1_9_2Test()
+
+        @Nested
+        @DisplayName("1.10.0")
+        inner class V1_10_0: AvroFormatSchemaV1_10_0Test()
+
+        @Nested
+        @DisplayName("1.10.1")
+        inner class V1_10_1: AvroFormatSchemaV1_10_1Test()
+
+        @Nested
+        @DisplayName("1.10.2")
+        inner class V1_10_2: AvroFormatSchemaV1_10_2Test()
+
+        @Nested
+        @DisplayName("1.11.0")
+        inner class V1_11_0: AvroFormatSchemaV1_11_0Test()
+
+        @Nested
+        @DisplayName("1.11.1")
+        inner class V1_11_1: AvroFormatSchemaV1_11_1Test()
 
     }
 

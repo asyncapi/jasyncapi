@@ -1,0 +1,12 @@
+schemaFormat: application/vnd.apache.avro+yaml;version=1.9.0
+schema:
+  type: record
+  name: SimpleRecord
+  fields:
+    - name: value
+      type: int
+    - name: nullableValue
+      type:
+        - 'null'
+        - int
+      doc: doc

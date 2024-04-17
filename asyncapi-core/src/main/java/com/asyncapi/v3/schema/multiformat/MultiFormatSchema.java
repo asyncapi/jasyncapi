@@ -69,6 +69,32 @@ import org.jetbrains.annotations.NotNull;
                 "application/vnd.aai.asyncapi;version=3.0.0",
                 "application/vnd.aai.asyncapi+json;version=3.0.0",
                 "application/vnd.aai.asyncapi+yaml;version=3.0.0"
+        }),
+        @JsonSubTypes.Type(value = AvroFormatSchema.class, names = {
+                "application/vnd.apache.avro;version=1.9.0",
+                "application/vnd.apache.avro+json;version=1.9.0",
+                "application/vnd.apache.avro+yaml;version=1.9.0",
+                "application/vnd.apache.avro;version=1.9.1",
+                "application/vnd.apache.avro+json;version=1.9.1",
+                "application/vnd.apache.avro+yaml;version=1.9.1",
+                "application/vnd.apache.avro;version=1.9.2",
+                "application/vnd.apache.avro+json;version=1.9.2",
+                "application/vnd.apache.avro+yaml;version=1.9.2",
+                "application/vnd.apache.avro;version=1.10.0",
+                "application/vnd.apache.avro+json;version=1.10.0",
+                "application/vnd.apache.avro+yaml;version=1.10.0",
+                "application/vnd.apache.avro;version=1.10.1",
+                "application/vnd.apache.avro+json;version=1.10.1",
+                "application/vnd.apache.avro+yaml;version=1.10.1",
+                "application/vnd.apache.avro;version=1.10.2",
+                "application/vnd.apache.avro+json;version=1.10.2",
+                "application/vnd.apache.avro+yaml;version=1.10.2",
+                "application/vnd.apache.avro;version=1.11.0",
+                "application/vnd.apache.avro+json;version=1.11.0",
+                "application/vnd.apache.avro+yaml;version=1.11.0",
+                "application/vnd.apache.avro;version=1.11.1",
+                "application/vnd.apache.avro+json;version=1.11.1",
+                "application/vnd.apache.avro+yaml;version=1.11.1"
         })
 })
 @EqualsAndHashCode(callSuper = true)
