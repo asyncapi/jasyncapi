@@ -48,11 +48,11 @@ public class AvroArray extends Avro {
 
     @NotNull
     @Override
-    public AvroType getType() {
+    public String getType() {
         return AvroType.ARRAY;
     }
 
-    public void setType(@NotNull AvroType type) {
+    public void setType(@NotNull String type) {
         super.setType(AvroType.ARRAY);
     }
 

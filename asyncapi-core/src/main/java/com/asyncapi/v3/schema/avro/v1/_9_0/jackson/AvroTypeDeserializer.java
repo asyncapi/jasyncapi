@@ -38,7 +38,7 @@ public class AvroTypeDeserializer extends JsonDeserializer<Object> {
                 case OBJECT:
                     return jsonParser.readValueAs(Avro.class);
                 case STRING:
-                    return jsonParser.readValueAs(AvroType.class);
+                    return jsonParser.readValueAs(String.class);
                 case BINARY:
                 case POJO:
                 case MISSING:

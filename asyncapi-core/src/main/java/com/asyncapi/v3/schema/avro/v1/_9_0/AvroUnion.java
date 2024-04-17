@@ -4,6 +4,7 @@ import com.asyncapi.v3.schema.avro.v1._9_0.jackson.AvroTypeDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 
 /**
@@ -37,6 +38,11 @@ public class AvroUnion extends LinkedList<Object> {
 
     public AvroUnion() {
         super();
+    }
+
+    public AvroUnion(@NotNull Object ...variant) {
+        super();
+        addAll(Arrays.asList(variant));
     }
 
     public AvroUnion(@NotNull Object variantA, @NotNull Object variantB) {

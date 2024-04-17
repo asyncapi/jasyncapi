@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyDescription;
  * @see <a href="https://avro.apache.org/docs/1.9.0/spec.html#schema_primitive">Avro Schema Primitive Types</a>
  * @see <a href="https://avro.apache.org/docs/1.9.0/spec.html#schema_complex">Avro Schema Complex Types</a>
  */
-public enum AvroType {
+public class AvroType {
 
     /*
         Primitive Types.
@@ -19,59 +19,59 @@ public enum AvroType {
 
     @JsonProperty("null")
     @JsonPropertyDescription("no value")
-    NULL,
+    public static final String NULL = "null";
 
     @JsonProperty("boolean")
     @JsonPropertyDescription("a binary value")
-    BOOLEAN,
+    public static final String BOOLEAN = "boolean";
 
     @JsonProperty("int")
     @JsonPropertyDescription("32-bit signed integer")
-    INT,
+    public static final String INT = "int";
 
     @JsonProperty("long")
     @JsonPropertyDescription("64-bit signed integer")
-    LONG,
+    public static final String LONG = "long";
 
     @JsonProperty("float")
     @JsonPropertyDescription("single precision (32-bit) IEEE 754 floating-point number")
-    FLOAT,
+    public static final String FLOAT = "float";
 
     @JsonProperty("double")
     @JsonPropertyDescription("double precision (64-bit) IEEE 754 floating-point number")
-    DOUBLE,
+    public static final String DOUBLE = "double";
 
     @JsonProperty("bytes")
     @JsonPropertyDescription("sequence of 8-bit unsigned bytes")
-    BYTES,
+    public static final String BYTES = "bytes";
 
     @JsonProperty("string")
     @JsonPropertyDescription("unicode character sequence")
-    STRING,
+    public static final String STRING = "string";
 
     /*
         Complex Types.
      */
 
     @JsonProperty("record")
-    RECORD,
+    public static final String RECORD = "record";
 
     @JsonProperty("error")
-    ERROR,
+    public static final String ERROR = "error";
 
     @JsonProperty("enum")
-    ENUM,
+    public static final String ENUM = "enum";
 
     @JsonProperty("array")
-    ARRAY,
+    public static final String ARRAY = "array";
 
     @JsonProperty("map")
-    MAP,
+    public static final String MAP = "map";
 
     @JsonProperty("unions")
-    UNIONS,
+    public static final String UNIONS = "unions";
 
     @JsonProperty("fixed")
-    FIXED;
+    public static final String FIXED = "fixed";
 
 }

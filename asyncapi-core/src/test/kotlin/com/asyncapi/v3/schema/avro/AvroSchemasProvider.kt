@@ -1,6 +1,7 @@
 package com.asyncapi.v3.schema.avro
 
 import com.asyncapi.v3.schema.avro.v1._9_0.*
+import com.asyncapi.v3.schema.avro.v1._9_0.Avro.LogicalType
 
 class AvroSchemasProvider {
 
@@ -868,6 +869,39 @@ class AvroSchemasProvider {
                 ))
                 .build()
         )
+    }
+
+    fun unionAndFixedFields(): AvroRecord {
+        return AvroRecord.recordBuilder()
+            .name("UnionAndFixedFields")
+            .doc("Schema for UnionAndFixedFields designed to trigger fixed compiler warnings in generated code")
+            .namespace("org.apache.avro.specific")
+            .fields(listOf(
+                AvroRecordField.builder()
+                    .name("u")
+                    .type(AvroUnion(
+                        AvroType.BOOLEAN, AvroType.INT, AvroType.LONG, AvroType.FLOAT, AvroType.STRING
+                    ))
+                    .build(),
+                AvroRecordField.builder()
+                    .name("l")
+                    .type(AvroUnion(
+                        AvroType.STRING, Avro.builder()
+                            .type(AvroType.LONG)
+                            .logicalType(LogicalType.TIMESTAMP_MILLIS)
+                            .build()
+                    ))
+                    .build(),
+                AvroRecordField.builder()
+                    .name("f")
+                    .type(AvroFixed.fixedBuilder()
+                        .name("md5")
+                        .size(16)
+                        .build()
+                    )
+                    .build()
+            ))
+            .build()
     }
 
 }

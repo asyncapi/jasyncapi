@@ -41,7 +41,7 @@ class AvroSchemaTest {
 
         override fun provideArguments(context: ExtensionContext?): Stream<out Arguments> {
             return Stream.of(
-//                Arguments.of("/json/v3/schema/avro/ApplicationEvent.avsc", AvroSchemasProvider().applicationEventTest()), // TODO: fix - Cannot deserialize value of type `com.asyncapi.v3.schema.avro.v1._9_0.AvroSchemaType` from String "model.DocumentInfo"
+                Arguments.of("/json/v3/schema/avro/ApplicationEvent.avsc", Avro::class.java, AvroSchemasProvider().applicationEventTest()),
                 Arguments.of("/json/v3/schema/avro/DocumentInfo.avsc", Avro::class.java, AvroSchemasProvider().documentInfo()),
                 Arguments.of("/json/v3/schema/avro/foo.Bar.avsc", Avro::class.java,  AvroSchemasProvider().fooBar()),
                 Arguments.of("/json/v3/schema/avro/full_record_v1.avsc", Avro::class.java,  AvroSchemasProvider().fullRecordV1()),
@@ -58,6 +58,7 @@ class AvroSchemaTest {
                 Arguments.of("/json/v3/schema/avro/TestRecordWithLogicalTypes.avsc", Avro::class.java,  AvroSchemasProvider().testRecordWithLogicalTypes()),
                 Arguments.of("/json/v3/schema/avro/TestRecordWithMapsAndArrays.avsc", Avro::class.java,  AvroSchemasProvider().testRecordWithMapsAndArrays()),
                 Arguments.of("/json/v3/schema/avro/TestUnionRecord.avsc", AvroUnion::class.java,  AvroSchemasProvider().testUnionRecord()),
+                Arguments.of("/json/v3/schema/avro/union_and_fixed_fields.avsc", Avro::class.java,  AvroSchemasProvider().unionAndFixedFields()),
             )
         }
 

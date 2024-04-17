@@ -24,7 +24,7 @@ public class AvroRecord extends Avro {
 
     @Builder(builderMethodName = "recordBuilder")
     public AvroRecord(
-            @Nullable AvroType type,
+            @Nullable String type,
             @NotNull  String name,
             @Nullable String namespace,
             @Nullable String doc,
@@ -76,11 +76,11 @@ public class AvroRecord extends Avro {
 
     @NotNull
     @Override
-    public AvroType getType() {
+    public String getType() {
         return AvroType.RECORD;
     }
 
-    public void setType(@NotNull AvroType type) {
+    public void setType(@NotNull String type) {
         super.setType(AvroType.RECORD);
     }
 

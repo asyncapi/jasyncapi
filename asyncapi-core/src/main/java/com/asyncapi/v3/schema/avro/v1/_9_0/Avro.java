@@ -28,17 +28,18 @@ import org.jetbrains.annotations.Nullable;
 )
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Avro.class, names = {
-                "null", "boolean", "int", "long", "float", "double", "bytes", "string"
+                AvroType.NULL, AvroType.BOOLEAN, AvroType.INT, AvroType.LONG,
+                AvroType.FLOAT, AvroType.DOUBLE, AvroType.BYTES, AvroType.STRING
         }),
-        @JsonSubTypes.Type(value = AvroRecord.class, names = {"record", "error"}),
-        @JsonSubTypes.Type(value = AvroArray.class, name = "array"),
-        @JsonSubTypes.Type(value = AvroMap.class, name = "map"),
-        @JsonSubTypes.Type(value = AvroEnum.class, name = "enum"),
-        @JsonSubTypes.Type(value = AvroFixed.class, name = "fixed"),
+        @JsonSubTypes.Type(value = AvroRecord.class, names = {AvroType.RECORD, AvroType.ERROR}),
+        @JsonSubTypes.Type(value = AvroArray.class, name = AvroType.ARRAY),
+        @JsonSubTypes.Type(value = AvroMap.class, name = AvroType.MAP),
+        @JsonSubTypes.Type(value = AvroEnum.class, name = AvroType.ENUM),
+        @JsonSubTypes.Type(value = AvroFixed.class, name = AvroType.FIXED),
 })
 public class Avro extends AvroMetadata {
 
-    public Avro(@NotNull AvroType avroType) {
+    public Avro(@NotNull String avroType) {
         this.type = avroType;
     }
 
@@ -46,7 +47,7 @@ public class Avro extends AvroMetadata {
      * Avro Schema type.
      */
     @NotNull
-    private AvroType type;
+    private String type;
 
     @Nullable
     private Integer scale;
@@ -59,36 +60,36 @@ public class Avro extends AvroMetadata {
     private Integer precision;
 
     @Nullable
-    private LogicalType logicalType;
+    private String logicalType;
 
-    public enum LogicalType {
+    public static class LogicalType {
 
         @JsonProperty("decimal")
-        DECIMAL,
+        public static final String DECIMAL = "decimal";
 
         @JsonProperty("big-decimal")
-        BIG_DECIMAL,
+        public static final String BIG_DECIMAL = "big-decimal";
 
         @JsonProperty("uuid")
-        UUID,
+        public static final String UUID = "uuid";
 
         @JsonProperty("date")
-        DATE,
+        public static final String DATE = "date";
 
         @JsonProperty("time-millis")
-        TIME_MILLIS,
+        public static final String TIME_MILLIS = "time-millis";
 
         @JsonProperty("time-micros")
-        TIME_MICROS,
+        public static final String TIME_MICROS = "time-micros";
 
         @JsonProperty("timestamp-millis")
-        TIMESTAMP_MILLIS,
+        public static final String TIMESTAMP_MILLIS = "timestamp-millis";
 
         @JsonProperty("timestamp-micros")
-        TIMESTAMP_MICROS,
+        public static final String TIMESTAMP_MICROS = "timestamp-micros";
 
         @JsonProperty("duration")
-        DURATION
+        public static final String DURATION = "duration";
 
     }
 
