@@ -19,13 +19,13 @@ import java.util.Map;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class AvroEnum extends Avro {
+public class AvroSchemaEnum extends AvroSchema {
 
-    public AvroEnum() {
-        super(AvroType.ENUM);
+    public AvroSchemaEnum() {
+        super(AvroSchemaType.ENUM);
     }
 
-    public AvroEnum(
+    public AvroSchemaEnum(
             @NotNull String name,
             @Nullable String namespace,
             @Nullable String doc,
@@ -34,7 +34,7 @@ public class AvroEnum extends Avro {
             @Nullable Object defaultValue,
             @Nullable Map<String, Object> metadata
     ) {
-        super(AvroType.ENUM);
+        super(AvroSchemaType.ENUM);
 
         this.name = name;
         this.namespace = namespace;
@@ -45,8 +45,8 @@ public class AvroEnum extends Avro {
         this.metadata = metadata;
     }
 
-    public AvroEnum(@NotNull Builder builder) {
-        super(AvroType.ENUM);
+    public AvroSchemaEnum(@NotNull Builder builder) {
+        super(AvroSchemaType.ENUM);
 
         this.name = builder.name;
         this.namespace = builder.namespace;
@@ -104,18 +104,18 @@ public class AvroEnum extends Avro {
     @NotNull
     @Override
     public String getType() {
-        return AvroType.ENUM;
+        return AvroSchemaType.ENUM;
     }
 
     public void setType(@NotNull String type) {
-        super.setType(AvroType.ENUM);
+        super.setType(AvroSchemaType.ENUM);
     }
 
     public static Builder builder() {
         return new Builder();
     }
 
-    public static class Builder extends Avro.Builder<AvroEnum, Builder> {
+    public static class Builder extends AvroSchema.Builder<AvroSchemaEnum, Builder> {
 
         @NotNull
         private String name = "";
@@ -179,8 +179,8 @@ public class AvroEnum extends Avro {
 
         @NotNull
         @Override
-        public AvroEnum build() {
-            return new AvroEnum(this);
+        public AvroSchemaEnum build() {
+            return new AvroSchemaEnum(this);
         }
 
     }

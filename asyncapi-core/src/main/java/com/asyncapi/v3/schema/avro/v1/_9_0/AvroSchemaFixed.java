@@ -14,20 +14,20 @@ import java.util.Map;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class AvroFixed extends Avro {
+public class AvroSchemaFixed extends AvroSchema {
 
-    public AvroFixed() {
-        super(AvroType.FIXED);
+    public AvroSchemaFixed() {
+        super(AvroSchemaType.FIXED);
     }
 
-    public AvroFixed(
+    public AvroSchemaFixed(
             @NotNull String name,
             @Nullable String namespace,
             @Nullable List<@NotNull String> aliases,
             @NotNull Integer size,
             @Nullable Map<String, Object> metadata
     ) {
-        super(AvroType.FIXED);
+        super(AvroSchemaType.FIXED);
 
         this.name = name;
         this.namespace = namespace;
@@ -36,8 +36,8 @@ public class AvroFixed extends Avro {
         this.metadata = metadata;
     }
 
-    public AvroFixed(@NotNull Builder builder) {
-        super(AvroType.FIXED);
+    public AvroSchemaFixed(@NotNull Builder builder) {
+        super(AvroSchemaType.FIXED);
 
         this.name = builder.name;
         this.namespace = builder.namespace;
@@ -72,18 +72,18 @@ public class AvroFixed extends Avro {
     @NotNull
     @Override
     public String getType() {
-        return AvroType.FIXED;
+        return AvroSchemaType.FIXED;
     }
 
     public void setType(@NotNull String type) {
-        super.setType(AvroType.FIXED);
+        super.setType(AvroSchemaType.FIXED);
     }
 
     public static Builder builder() {
         return new Builder();
     }
 
-    public static class Builder extends Avro.Builder<AvroFixed, Builder> {
+    public static class Builder extends AvroSchema.Builder<AvroSchemaFixed, Builder> {
 
         @NotNull
         private String name = "";
@@ -129,8 +129,8 @@ public class AvroFixed extends Avro {
 
         @NotNull
         @Override
-        public AvroFixed build() {
-            return new AvroFixed(this);
+        public AvroSchemaFixed build() {
+            return new AvroSchemaFixed(this);
         }
 
     }

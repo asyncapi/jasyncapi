@@ -34,18 +34,18 @@ import java.util.LinkedList;
  * @see <a href="https://avro.apache.org/docs/1.9.0/spec.html#schema_record">Record</a>
  */
 @JsonDeserialize(contentUsing = AvroTypeDeserializer.class)
-public class AvroUnion extends LinkedList<Object> {
+public class AvroSchemaUnion extends LinkedList<Object> {
 
-    public AvroUnion() {
+    public AvroSchemaUnion() {
         super();
     }
 
-    public AvroUnion(@NotNull Object ...variant) {
+    public AvroSchemaUnion(@NotNull Object ...variant) {
         super();
         addAll(Arrays.asList(variant));
     }
 
-    public AvroUnion(@NotNull Object variantA, @NotNull Object variantB) {
+    public AvroSchemaUnion(@NotNull Object variantA, @NotNull Object variantB) {
         super();
         add(0, variantA);
         add(1, variantB);

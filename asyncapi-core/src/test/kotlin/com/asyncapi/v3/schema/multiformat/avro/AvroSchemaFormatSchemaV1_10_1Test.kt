@@ -1,8 +1,6 @@
 package com.asyncapi.v3.schema.multiformat.avro
 
 import com.asyncapi.v3.schema.avro.AvroSchemasProvider
-import com.asyncapi.v3.schema.avro.v1._9_0.Avro
-import com.asyncapi.v3.schema.avro.v1._9_0.AvroUnion
 import com.asyncapi.v3.schema.multiformat.AvroFormatSchema
 import org.junit.jupiter.api.extension.ExtensionContext
 import org.junit.jupiter.params.ParameterizedTest

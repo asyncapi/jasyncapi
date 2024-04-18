@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyDescription;
  * @see <a href="https://avro.apache.org/docs/1.9.0/spec.html#schema_primitive">Avro Schema Primitive Types</a>
  * @see <a href="https://avro.apache.org/docs/1.9.0/spec.html#schema_complex">Avro Schema Complex Types</a>
  */
-public class AvroType {
+public class AvroSchemaType {
 
     /*
         Primitive Types.

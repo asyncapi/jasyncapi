@@ -23,31 +23,31 @@ import java.util.Map;
         use = JsonTypeInfo.Id.NAME,
         include = JsonTypeInfo.As.EXISTING_PROPERTY,
         property = "type",
-        defaultImpl = AvroUnion.class,
+        defaultImpl = AvroSchemaUnion.class,
         visible = true
 )
 @JsonSubTypes({
-        @JsonSubTypes.Type(value = Avro.class, names = {
-                AvroType.NULL, AvroType.BOOLEAN, AvroType.INT, AvroType.LONG,
-                AvroType.FLOAT, AvroType.DOUBLE, AvroType.BYTES, AvroType.STRING
+        @JsonSubTypes.Type(value = AvroSchema.class, names = {
+                AvroSchemaType.NULL, AvroSchemaType.BOOLEAN, AvroSchemaType.INT, AvroSchemaType.LONG,
+                AvroSchemaType.FLOAT, AvroSchemaType.DOUBLE, AvroSchemaType.BYTES, AvroSchemaType.STRING
         }),
-        @JsonSubTypes.Type(value = AvroRecord.class, names = {AvroType.RECORD, AvroType.ERROR}),
-        @JsonSubTypes.Type(value = AvroArray.class, name = AvroType.ARRAY),
-        @JsonSubTypes.Type(value = AvroMap.class, name = AvroType.MAP),
-        @JsonSubTypes.Type(value = AvroEnum.class, name = AvroType.ENUM),
-        @JsonSubTypes.Type(value = AvroFixed.class, name = AvroType.FIXED),
+        @JsonSubTypes.Type(value = AvroSchemaRecord.class, names = {AvroSchemaType.RECORD, AvroSchemaType.ERROR}),
+        @JsonSubTypes.Type(value = AvroSchemaArray.class, name = AvroSchemaType.ARRAY),
+        @JsonSubTypes.Type(value = AvroSchemaMap.class, name = AvroSchemaType.MAP),
+        @JsonSubTypes.Type(value = AvroSchemaEnum.class, name = AvroSchemaType.ENUM),
+        @JsonSubTypes.Type(value = AvroSchemaFixed.class, name = AvroSchemaType.FIXED),
 })
-public class Avro extends AvroMetadata {
+public class AvroSchema extends AvroSchemaMetadata {
 
-    public Avro() {
-        this.type = AvroType.NULL;
+    public AvroSchema() {
+        this.type = AvroSchemaType.NULL;
     }
 
-    public Avro(@NotNull String avroType) {
+    public AvroSchema(@NotNull String avroType) {
         this.type = avroType;
     }
 
-    public Avro(@NotNull Builder<?, ?> builder) {
+    public AvroSchema(@NotNull Builder<?, ?> builder) {
         this.type = builder.type;
         this.scale = builder.scale;
         this.precision = builder.precision;
@@ -86,18 +86,18 @@ public class Avro extends AvroMetadata {
 
             @NotNull
             @Override
-            public Avro build() {
-                return new Avro(this);
+            public AvroSchema build() {
+                return new AvroSchema(this);
             }
 
         };
 
     }
 
-    public static abstract class Builder<AvroSchemaVariant extends Avro, BuilderVariant extends Builder<AvroSchemaVariant, BuilderVariant>> {
+    public static abstract class Builder<AvroSchemaVariant extends AvroSchema, BuilderVariant extends Builder<AvroSchemaVariant, BuilderVariant>> {
 
         @NotNull
-        protected String type = AvroType.NULL;
+        protected String type = AvroSchemaType.NULL;
 
         @Nullable
         private Integer scale;

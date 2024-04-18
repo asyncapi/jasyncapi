@@ -11,11 +11,11 @@ import java.util.Map;
 
 @Data
 @JsonIgnoreProperties({"metadata"})
-public class AvroMetadata {
+public class AvroSchemaMetadata {
 
-    public AvroMetadata() {}
+    public AvroSchemaMetadata() {}
 
-    public AvroMetadata(@Nullable Map<String, Object> metadata) {
+    public AvroSchemaMetadata(@Nullable Map<String, Object> metadata) {
         this.metadata = metadata;
     }
 

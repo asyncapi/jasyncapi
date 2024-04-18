@@ -20,13 +20,13 @@ import java.util.Map;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class AvroRecordField extends AvroMetadata {
+public class AvroSchemaRecordField extends AvroSchemaMetadata {
 
-    public AvroRecordField() {
-        this.type = AvroType.RECORD;
+    public AvroSchemaRecordField() {
+        this.type = AvroSchemaType.RECORD;
     }
 
-    public AvroRecordField(
+    public AvroSchemaRecordField(
             @NotNull Object type,
             @NotNull String name,
             @Nullable Order order,
@@ -44,7 +44,7 @@ public class AvroRecordField extends AvroMetadata {
         this.metadata = metadata;
     }
 
-    public AvroRecordField(@NotNull Builder builder) {
+    public AvroSchemaRecordField(@NotNull Builder builder) {
         this.type = builder.type;
         this.name = builder.name;
         this.order = builder.order ;
@@ -210,7 +210,7 @@ public class AvroRecordField extends AvroMetadata {
     public static class Builder {
 
         @NotNull
-        private Object type = AvroType.RECORD;
+        private Object type = AvroSchemaType.RECORD;
 
         @NotNull
         private String name = "";
@@ -272,8 +272,8 @@ public class AvroRecordField extends AvroMetadata {
             return this;
         }
 
-        public AvroRecordField build() {
-            return new AvroRecordField(this);
+        public AvroSchemaRecordField build() {
+            return new AvroSchemaRecordField(this);
         }
 
     }

@@ -9,83 +9,84 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Collections;
-import java.util.List;
 import java.util.Map;
 
 /**
- * @see <a href="https://avro.apache.org/docs/1.9.0/spec.html#Arrays">Arrays</a>
+ * @see <a href="https://avro.apache.org/docs/1.9.0/spec.html#Maps">Maps</a>
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class AvroArray extends Avro {
+public class AvroSchemaMap extends AvroSchema {
 
-    public AvroArray() {
-        super(AvroType.ARRAY);
+    public AvroSchemaMap() {
+        super(AvroSchemaType.MAP);
     }
 
-    public AvroArray(@NotNull Object items) {
-        super(AvroType.ARRAY);
-        this.items = items;
+    public AvroSchemaMap(@NotNull Object values) {
+        super(AvroSchemaType.MAP);
+
+        this.values = values;
     }
 
-    public AvroArray(
-            @NotNull Object items,
-            @Nullable List<Object> defaultValue,
+    public AvroSchemaMap(
+            @NotNull Object values,
+            @Nullable Map<String, Object> defaultValue,
             @Nullable Map<String, Object> metadata
     ) {
-        super(AvroType.ARRAY);
-        this.items = items;
+        super(AvroSchemaType.MAP);
+
+        this.values = values;
         this.defaultValue = defaultValue;
         this.metadata = metadata;
     }
 
-    public AvroArray(@NotNull Builder builder) {
-        super(AvroType.ARRAY);
+    public AvroSchemaMap(@NotNull Builder builder) {
+        super(AvroSchemaType.MAP);
 
-        this.items = builder.items;
+        this.values = builder.values;
         this.defaultValue = builder.defaultValue;
         this.metadata = builder.metadata;
     }
 
     @NotNull
-    @JsonProperty("items")
+    @JsonProperty("values")
     @JsonDeserialize(using = AvroTypeDeserializer.class)
-    private Object items;
+    private Object values;
 
     @Nullable
     @JsonProperty("default")
-    private List<Object> defaultValue;
+    private Map<String, Object> defaultValue;
 
     @NotNull
     @Override
     public String getType() {
-        return AvroType.ARRAY;
+        return AvroSchemaType.MAP;
     }
 
     public void setType(@NotNull String type) {
-        super.setType(AvroType.ARRAY);
+        super.setType(AvroSchemaType.MAP);
     }
 
     public static Builder builder() {
         return new Builder();
     }
 
-    public static class Builder extends Avro.Builder<AvroArray, Builder> {
+    public static class Builder extends AvroSchema.Builder<AvroSchemaMap, Builder> {
 
         @NotNull
-        private Object items = Collections.emptyList();
+        private Object values = Collections.<String, Object>emptyMap();
 
         @Nullable
-        private List<Object> defaultValue;
+        private Map<String, Object> defaultValue;
 
         @NotNull
-        public Builder items(@NotNull Object items) {
-            this.items = items;
+        public Builder values(@NotNull Object values) {
+            this.values = values;
             return this;
         }
 
         @NotNull
-        public Builder defaultValue(@NotNull List<Object> defaultValue) {
+        public Builder defaultValue(@Nullable Map<String, Object> defaultValue) {
             this.defaultValue = defaultValue;
             return this;
         }
@@ -98,8 +99,8 @@ public class AvroArray extends Avro {
 
         @NotNull
         @Override
-        public AvroArray build() {
-            return new AvroArray(this);
+        public AvroSchemaMap build() {
+            return new AvroSchemaMap(this);
         }
 
     }

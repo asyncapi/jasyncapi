@@ -17,24 +17,24 @@ import java.util.List;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class AvroRecord extends Avro {
+public class AvroSchemaRecord extends AvroSchema {
 
-    public AvroRecord() {
-        super(AvroType.RECORD);
+    public AvroSchemaRecord() {
+        super(AvroSchemaType.RECORD);
     }
 
-    public AvroRecord(
+    public AvroSchemaRecord(
             @Nullable String type,
             @NotNull  String name,
             @Nullable String namespace,
             @Nullable String doc,
             @Nullable List<@NotNull String> aliases,
-            @NotNull  List<@NotNull AvroRecordField> fields
+            @NotNull  List<@NotNull AvroSchemaRecordField> fields
     ) {
-        super(AvroType.RECORD);
+        super(AvroSchemaType.RECORD);
 
-        if (AvroType.ERROR.equals(type)) {
-            super.setType(AvroType.RECORD);
+        if (AvroSchemaType.ERROR.equals(type)) {
+            super.setType(AvroSchemaType.RECORD);
         }
 
         this.name      = name;
@@ -44,11 +44,11 @@ public class AvroRecord extends Avro {
         this.fields    = fields;
     }
 
-    public AvroRecord(@NotNull Builder builder) {
-        super(AvroType.RECORD);
+    public AvroSchemaRecord(@NotNull Builder builder) {
+        super(AvroSchemaType.RECORD);
 
-        if (AvroType.ERROR.equals(builder.type)) {
-            super.setType(AvroType.RECORD);
+        if (AvroSchemaType.ERROR.equals(builder.type)) {
+            super.setType(AvroSchemaType.RECORD);
         }
 
         this.name      = builder.name;
@@ -86,16 +86,16 @@ public class AvroRecord extends Avro {
      * A JSON array, listing fields (required).
      */
     @NotNull
-    private List<@NotNull AvroRecordField> fields = Collections.emptyList();
+    private List<@NotNull AvroSchemaRecordField> fields = Collections.emptyList();
 
     @NotNull
     @Override
     public String getType() {
-        return AvroType.RECORD;
+        return AvroSchemaType.RECORD;
     }
 
     public void setType(@NotNull String type) {
-        super.setType(AvroType.RECORD);
+        super.setType(AvroSchemaType.RECORD);
     }
 
     @NotNull
@@ -103,7 +103,7 @@ public class AvroRecord extends Avro {
         return new Builder();
     }
 
-    public static class Builder extends Avro.Builder<Avro, Builder> {
+    public static class Builder extends AvroSchema.Builder<AvroSchema, Builder> {
 
         @NotNull
         private String name = "";
@@ -121,7 +121,7 @@ public class AvroRecord extends Avro {
         private List<@NotNull String> aliases;
 
         @NotNull
-        private List<@NotNull AvroRecordField> fields = Collections.emptyList();
+        private List<@NotNull AvroSchemaRecordField> fields = Collections.emptyList();
 
         @NotNull
         public Builder name(@NotNull String name) {
@@ -154,7 +154,7 @@ public class AvroRecord extends Avro {
         }
 
         @NotNull
-        public Builder fields(@NotNull List<@NotNull AvroRecordField> fields) {
+        public Builder fields(@NotNull List<@NotNull AvroSchemaRecordField> fields) {
             this.fields = fields;
             return this;
         }
@@ -166,8 +166,8 @@ public class AvroRecord extends Avro {
         }
 
         @Override
-        public @NotNull AvroRecord build() {
-            return new AvroRecord(this);
+        public @NotNull AvroSchemaRecord build() {
+            return new AvroSchemaRecord(this);
         }
 
     }
