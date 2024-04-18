@@ -1,6 +1,7 @@
 package com.asyncapi.v3.schema.avro.v1._9_0;
 
-import lombok.*;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -22,7 +23,6 @@ public class AvroRecord extends Avro {
         super(AvroType.RECORD);
     }
 
-    @Builder(builderMethodName = "recordBuilder")
     public AvroRecord(
             @Nullable String type,
             @NotNull  String name,
@@ -31,9 +31,9 @@ public class AvroRecord extends Avro {
             @Nullable List<@NotNull String> aliases,
             @NotNull  List<@NotNull AvroRecordField> fields
     ) {
-        if (AvroType.RECORD.equals(type) || AvroType.ERROR.equals(type)) {
-            super.setType(type);
-        } else {
+        super(AvroType.RECORD);
+
+        if (AvroType.ERROR.equals(type)) {
             super.setType(AvroType.RECORD);
         }
 
@@ -42,6 +42,20 @@ public class AvroRecord extends Avro {
         this.doc       = doc;
         this.aliases   = aliases;
         this.fields    = fields;
+    }
+
+    public AvroRecord(@NotNull Builder builder) {
+        super(AvroType.RECORD);
+
+        if (AvroType.ERROR.equals(builder.type)) {
+            super.setType(AvroType.RECORD);
+        }
+
+        this.name      = builder.name;
+        this.namespace = builder.namespace;
+        this.doc       = builder.doc;
+        this.aliases   = builder.aliases;
+        this.fields    = builder.fields;
     }
 
     /**
@@ -82,6 +96,80 @@ public class AvroRecord extends Avro {
 
     public void setType(@NotNull String type) {
         super.setType(AvroType.RECORD);
+    }
+
+    @NotNull
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public static class Builder extends Avro.Builder<Avro, Builder> {
+
+        @NotNull
+        private String name = "";
+
+        @Nullable
+        private String namespace;
+
+        @Nullable
+        private String doc;
+
+        @NotNull
+        private List<@NotNull String> symbols = Collections.emptyList();
+
+        @Nullable
+        private List<@NotNull String> aliases;
+
+        @NotNull
+        private List<@NotNull AvroRecordField> fields = Collections.emptyList();
+
+        @NotNull
+        public Builder name(@NotNull String name) {
+            this.name = name;
+            return this;
+        }
+
+        @NotNull
+        public Builder namespace(@Nullable String namespace) {
+            this.namespace = namespace;
+            return this;
+        }
+
+        @NotNull
+        public Builder doc(@Nullable String doc) {
+            this.doc = doc;
+            return this;
+        }
+
+        @NotNull
+        public Builder symbols(@NotNull List<@NotNull String> symbols) {
+            this.symbols = symbols;
+            return this;
+        }
+
+        @NotNull
+        public Builder aliases(@NotNull List<@NotNull String> aliases) {
+            this.aliases = aliases;
+            return this;
+        }
+
+        @NotNull
+        public Builder fields(@NotNull List<@NotNull AvroRecordField> fields) {
+            this.fields = fields;
+            return this;
+        }
+
+        @NotNull
+        @Override
+        protected Builder getThis() {
+            return this;
+        }
+
+        @Override
+        public @NotNull AvroRecord build() {
+            return new AvroRecord(this);
+        }
+
     }
 
 }

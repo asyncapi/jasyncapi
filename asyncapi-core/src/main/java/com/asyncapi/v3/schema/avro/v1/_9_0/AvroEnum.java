@@ -3,7 +3,6 @@ package com.asyncapi.v3.schema.avro.v1._9_0;
 import com.asyncapi.v3.schema.avro.v1._9_0.jackson.AvroTypeDeserializer;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.jetbrains.annotations.NotNull;
@@ -11,6 +10,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Avro Enum Schema
@@ -25,14 +25,14 @@ public class AvroEnum extends Avro {
         super(AvroType.ENUM);
     }
 
-    @Builder(builderMethodName = "enumBuilder")
     public AvroEnum(
             @NotNull String name,
             @Nullable String namespace,
             @Nullable String doc,
             @NotNull List<@NotNull String> symbols,
             @Nullable List<@NotNull String> aliases,
-            @Nullable Object defaultValue
+            @Nullable Object defaultValue,
+            @Nullable Map<String, Object> metadata
     ) {
         super(AvroType.ENUM);
 
@@ -42,6 +42,19 @@ public class AvroEnum extends Avro {
         this.symbols = symbols;
         this.aliases = aliases;
         this.defaultValue = defaultValue;
+        this.metadata = metadata;
+    }
+
+    public AvroEnum(@NotNull Builder builder) {
+        super(AvroType.ENUM);
+
+        this.name = builder.name;
+        this.namespace = builder.namespace;
+        this.doc = builder.doc;
+        this.symbols = builder.symbols;
+        this.aliases = builder.aliases;
+        this.defaultValue = builder.defaultValue;
+        this.metadata = builder.metadata;
     }
 
     @NotNull
@@ -87,5 +100,89 @@ public class AvroEnum extends Avro {
     @JsonProperty("default")
     @JsonDeserialize(using = AvroTypeDeserializer.class)
     private Object defaultValue;
+
+    @NotNull
+    @Override
+    public String getType() {
+        return AvroType.ENUM;
+    }
+
+    public void setType(@NotNull String type) {
+        super.setType(AvroType.ENUM);
+    }
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public static class Builder extends Avro.Builder<AvroEnum, Builder> {
+
+        @NotNull
+        private String name = "";
+
+        @Nullable
+        private String namespace;
+
+        @Nullable
+        private String doc;
+
+        @NotNull
+        private List<@NotNull String> symbols = Collections.emptyList();
+
+        @Nullable
+        private List<@NotNull String> aliases;
+
+        @Nullable
+        private Object defaultValue;
+
+        @NotNull
+        public Builder name(@NotNull String name) {
+            this.name = name;
+            return this;
+        }
+
+        @NotNull
+        public Builder namespace(@Nullable String namespace) {
+            this.namespace = namespace;
+            return this;
+        }
+
+        @NotNull
+        public Builder doc(@Nullable String doc) {
+            this.doc = doc;
+            return this;
+        }
+
+        @NotNull
+        public Builder symbols(@NotNull List<@NotNull String> symbols) {
+            this.symbols = symbols;
+            return this;
+        }
+
+        @NotNull
+        public Builder aliases(@NotNull List<@NotNull String> aliases) {
+            this.aliases = aliases;
+            return this;
+        }
+
+        @NotNull
+        public Builder defaultValue(@Nullable Object defaultValue) {
+            this.defaultValue = defaultValue;
+            return this;
+        }
+
+        @NotNull
+        @Override
+        protected Builder getThis() {
+            return this;
+        }
+
+        @NotNull
+        @Override
+        public AvroEnum build() {
+            return new AvroEnum(this);
+        }
+
+    }
 
 }

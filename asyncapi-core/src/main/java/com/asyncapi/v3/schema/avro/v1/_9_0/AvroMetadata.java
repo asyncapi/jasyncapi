@@ -3,19 +3,21 @@ package com.asyncapi.v3.schema.avro.v1._9_0;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @JsonIgnoreProperties({"metadata"})
 public class AvroMetadata {
+
+    public AvroMetadata() {}
+
+    public AvroMetadata(@Nullable Map<String, Object> metadata) {
+        this.metadata = metadata;
+    }
 
     @Nullable
     @JsonAnyGetter

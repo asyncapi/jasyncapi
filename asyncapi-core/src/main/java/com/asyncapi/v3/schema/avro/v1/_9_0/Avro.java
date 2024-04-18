@@ -3,9 +3,12 @@ package com.asyncapi.v3.schema.avro.v1._9_0;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import lombok.*;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Map;
 
 /**
  * Apache Avro Schema.
@@ -15,9 +18,6 @@ import org.jetbrains.annotations.Nullable;
  * @see <a href="https://avro.apache.org/docs/1.9.0/spec.html">Avro Specification</a>
  */
 @Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
@@ -39,8 +39,20 @@ import org.jetbrains.annotations.Nullable;
 })
 public class Avro extends AvroMetadata {
 
+    public Avro() {
+        this.type = AvroType.NULL;
+    }
+
     public Avro(@NotNull String avroType) {
         this.type = avroType;
+    }
+
+    public Avro(@NotNull Builder<?, ?> builder) {
+        this.type = builder.type;
+        this.scale = builder.scale;
+        this.precision = builder.precision;
+        this.logicalType = builder.logicalType;
+        super.metadata = builder.metadata;
     }
 
     /**
@@ -61,6 +73,81 @@ public class Avro extends AvroMetadata {
 
     @Nullable
     private String logicalType;
+
+    public static Builder<?, ?> builder() {
+
+        return new Builder() {
+
+            @NotNull
+            @Override
+            protected Builder getThis() {
+                return this;
+            }
+
+            @NotNull
+            @Override
+            public Avro build() {
+                return new Avro(this);
+            }
+
+        };
+
+    }
+
+    public static abstract class Builder<AvroSchemaVariant extends Avro, BuilderVariant extends Builder<AvroSchemaVariant, BuilderVariant>> {
+
+        @NotNull
+        protected String type = AvroType.NULL;
+
+        @Nullable
+        private Integer scale;
+
+        @Nullable
+        private Integer precision;
+
+        @Nullable
+        private String logicalType;
+
+        @Nullable
+        protected Map<String, Object> metadata;
+
+        @NotNull
+        public BuilderVariant type(@NotNull String type) {
+            this.type = type;
+            return getThis();
+        }
+
+        @NotNull
+        public BuilderVariant scale(@Nullable Integer scale) {
+            this.scale = scale;
+            return getThis();
+        }
+
+        @NotNull
+        public BuilderVariant precision(@Nullable Integer precision) {
+            this.precision = precision;
+            return getThis();
+        }
+
+        @NotNull
+        public BuilderVariant logicalType(@Nullable String logicalType) {
+            this.logicalType = logicalType;
+            return getThis();
+        }
+
+        @NotNull
+        public BuilderVariant metadata(@Nullable Map<String, Object> metadata) {
+            this.metadata = metadata;
+            return getThis();
+        }
+
+        @NotNull
+        protected abstract BuilderVariant getThis();
+
+        @NotNull
+        public abstract AvroSchemaVariant build();
+
+    }
 
     public static class LogicalType {
 

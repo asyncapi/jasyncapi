@@ -3,7 +3,6 @@ package com.asyncapi.v3.schema.avro.v1._9_0;
 import com.asyncapi.v3.schema.avro.v1._9_0.jackson.AvroTypeDeserializer;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.jetbrains.annotations.NotNull;
@@ -27,7 +26,6 @@ public class AvroRecordField extends AvroMetadata {
         this.type = AvroType.RECORD;
     }
 
-    @Builder
     public AvroRecordField(
             @NotNull Object type,
             @NotNull String name,
@@ -44,6 +42,16 @@ public class AvroRecordField extends AvroMetadata {
         this.aliases = aliases;
         this.defaultValue = defaultValue;
         this.metadata = metadata;
+    }
+
+    public AvroRecordField(@NotNull Builder builder) {
+        this.type = builder.type;
+        this.name = builder.name;
+        this.order = builder.order ;
+        this.doc = builder.doc;
+        this.aliases = builder.aliases;
+        this.defaultValue = builder.defaultValue;
+        this.metadata = builder.metadata;
     }
 
     /**
@@ -192,6 +200,81 @@ public class AvroRecordField extends AvroMetadata {
 
         @JsonProperty("ignore")
         IGNORE
+
+    }
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public static class Builder {
+
+        @NotNull
+        private Object type = AvroType.RECORD;
+
+        @NotNull
+        private String name = "";
+
+        @Nullable
+        private Order order = Order.ASCENDING;
+
+        @Nullable
+        private String doc;
+
+        @Nullable
+        private List<@NotNull String> aliases;
+
+        @Nullable
+        private Object defaultValue;
+
+        @Nullable
+        private Map<String, Object> metadata;
+
+        @NotNull
+        public Builder type(@NotNull Object type) {
+            this.type = type;
+            return this;
+        }
+
+        @NotNull
+        public Builder name(@NotNull String name) {
+            this.name = name;
+            return this;
+        }
+
+        @NotNull
+        public Builder order(@Nullable Order order) {
+            this.order = order == null ? Order.ASCENDING : order;
+            return this;
+        }
+
+        @NotNull
+        public Builder doc(@Nullable String doc) {
+            this.doc = doc;
+            return this;
+        }
+
+        @NotNull
+        public Builder aliases(@Nullable List<@NotNull String> aliases) {
+            this.aliases = aliases;
+            return this;
+        }
+
+        @NotNull
+        public Builder defaultValue(@Nullable Object defaultValue) {
+            this.defaultValue = defaultValue;
+            return this;
+        }
+
+        @NotNull
+        public Builder metadata(@Nullable Map<String, Object> metadata) {
+            this.metadata = metadata;
+            return this;
+        }
+
+        public AvroRecordField build() {
+            return new AvroRecordField(this);
+        }
 
     }
 
