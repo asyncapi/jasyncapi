@@ -1,6 +1,5 @@
 package com.asyncapi.v3.schema.avro.v1._9_0;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.Data;
@@ -146,37 +145,6 @@ public class AvroSchema extends AvroSchemaMetadata {
 
         @NotNull
         public abstract AvroSchemaVariant build();
-
-    }
-
-    public static class LogicalType {
-
-        @JsonProperty("decimal")
-        public static final String DECIMAL = "decimal";
-
-        @JsonProperty("big-decimal")
-        public static final String BIG_DECIMAL = "big-decimal";
-
-        @JsonProperty("uuid")
-        public static final String UUID = "uuid";
-
-        @JsonProperty("date")
-        public static final String DATE = "date";
-
-        @JsonProperty("time-millis")
-        public static final String TIME_MILLIS = "time-millis";
-
-        @JsonProperty("time-micros")
-        public static final String TIME_MICROS = "time-micros";
-
-        @JsonProperty("timestamp-millis")
-        public static final String TIMESTAMP_MILLIS = "timestamp-millis";
-
-        @JsonProperty("timestamp-micros")
-        public static final String TIMESTAMP_MICROS = "timestamp-micros";
-
-        @JsonProperty("duration")
-        public static final String DURATION = "duration";
 
     }
 

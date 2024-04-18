@@ -1,7 +1,8 @@
 package com.asyncapi.v3.schema.avro
 
 import com.asyncapi.v3.schema.avro.v1._9_0.*
-import com.asyncapi.v3.schema.avro.v1._9_0.AvroSchema.LogicalType
+import com.asyncapi.v3.schema.avro.v1._9_0.AvroSchemaLogicalType
+import com.asyncapi.v3.schema.avro.v1._9_0.AvroSchemaType
 
 class AvroSchemasProvider {
 
@@ -72,7 +73,7 @@ class AvroSchemasProvider {
                             AvroSchemaType.NULL,
                             AvroSchema.builder()
                                 .type(AvroSchemaType.LONG)
-                                .logicalType(LogicalType.TIMESTAMP_MILLIS)
+                                .logicalType(AvroSchemaLogicalType.TIMESTAMP_MILLIS)
                                 .build()
                         )
                     )
@@ -187,7 +188,7 @@ class AvroSchemasProvider {
                     .type(
                         AvroSchema.builder()
                         .type(AvroSchemaType.STRING)
-                        .logicalType(AvroSchema.LogicalType.UUID)
+                        .logicalType(AvroSchemaLogicalType.UUID)
                         .build()
                     )
                     .build(),
@@ -196,7 +197,7 @@ class AvroSchemasProvider {
                     .type(
                         AvroSchema.builder()
                         .type(AvroSchemaType.LONG)
-                        .logicalType(AvroSchema.LogicalType.TIMESTAMP_MILLIS)
+                        .logicalType(AvroSchemaLogicalType.TIMESTAMP_MILLIS)
                         .build()
                     )
                     .build(),
@@ -230,7 +231,7 @@ class AvroSchemasProvider {
                     .type(
                         AvroSchema.builder()
                         .type(AvroSchemaType.LONG)
-                        .logicalType(AvroSchema.LogicalType.TIMESTAMP_MILLIS)
+                        .logicalType(AvroSchemaLogicalType.TIMESTAMP_MILLIS)
                         .build()
                     )
                     .build(),
@@ -930,7 +931,7 @@ class AvroSchemasProvider {
                     .type(
                         AvroSchema.builder()
                         .type(AvroSchemaType.INT)
-                        .logicalType(AvroSchema.LogicalType.DATE)
+                        .logicalType(AvroSchemaLogicalType.DATE)
                         .build()
                     )
                     .name("d")
@@ -939,7 +940,7 @@ class AvroSchemasProvider {
                     .type(
                         AvroSchema.builder()
                         .type(AvroSchemaType.INT)
-                        .logicalType(AvroSchema.LogicalType.TIME_MILLIS)
+                        .logicalType(AvroSchemaLogicalType.TIME_MILLIS)
                         .build()
                     )
                     .name("t")
@@ -948,7 +949,7 @@ class AvroSchemasProvider {
                     .type(
                         AvroSchema.builder()
                         .type(AvroSchemaType.LONG)
-                        .logicalType(AvroSchema.LogicalType.TIMESTAMP_MILLIS)
+                        .logicalType(AvroSchemaLogicalType.TIMESTAMP_MILLIS)
                         .build()
                     )
                     .name("ts")
@@ -957,7 +958,7 @@ class AvroSchemasProvider {
                     .type(
                         AvroSchema.builder()
                         .type(AvroSchemaType.BYTES)
-                        .logicalType(AvroSchema.LogicalType.BIG_DECIMAL)
+                        .logicalType(AvroSchemaLogicalType.BIG_DECIMAL)
                         .build()
                     )
                     .name("bd")
@@ -1008,7 +1009,7 @@ class AvroSchemasProvider {
                                     AvroSchemaType.NULL,
                                     AvroSchema.builder()
                                         .type(AvroSchemaType.BYTES)
-                                        .logicalType(LogicalType.DECIMAL)
+                                        .logicalType(AvroSchemaLogicalType.DECIMAL)
                                         .precision(31)
                                         .scale(8)
                                         .build()
@@ -1046,7 +1047,7 @@ class AvroSchemasProvider {
                         AvroSchemaUnion(
                             AvroSchemaType.STRING, AvroSchema.builder()
                                 .type(AvroSchemaType.LONG)
-                                .logicalType(LogicalType.TIMESTAMP_MILLIS)
+                                .logicalType(AvroSchemaLogicalType.TIMESTAMP_MILLIS)
                                 .build()
                         )
                     )
