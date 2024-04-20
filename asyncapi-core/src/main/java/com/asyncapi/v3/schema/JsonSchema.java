@@ -457,9 +457,9 @@ public class JsonSchema {
      * draft, we proposed dropping the keyword altogether, or dropping one of its forms, but we received feedback in support of
      * keeping it.  See issues #442 and #528 at https://github.com/json-schema-org/json-schema-spec/issues for further discussion.
      * Further feedback is encouraged.
-     * <p>
-     * <p>
-     * <p>
+     * <br>
+     * <br>
+     * <br>
      * This keyword specifies rules that are evaluated if the instance is an object and contains a certain property.
      * <p>
      * This keyword's value <b>MUST</b> be an object. Each property specifies a dependency. Each dependency value <b>MUST</b> be an array

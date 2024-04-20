@@ -46,7 +46,7 @@ public class XML extends Extensions {
     public String namespace;
 
     /**
-     * The prefix to be used for the {@link #getName()}.
+     * The prefix to be used for the {@link #name}.
      *
      * @see <a href="https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md#fixed-fields-22">XML Fixed Fields: prefix</a>
      */

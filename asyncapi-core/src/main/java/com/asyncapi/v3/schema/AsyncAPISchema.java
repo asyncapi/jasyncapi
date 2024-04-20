@@ -26,8 +26,8 @@ import java.util.Map;
  * <p>
  * The empty schema (which allows any instance to validate) MAY be represented by the boolean value true
  * and a schema which allows no instance to validate MAY be represented by the boolean value false.
- * <p>
- * <p>
+ * <br>
+ * <br>
  * Further information about the properties can be found in <a href="https://tools.ietf.org/html/draft-handrews-json-schema-01">JSON Schema Core</a> and <a href="https://tools.ietf.org/html/draft-handrews-json-schema-validation-01">JSON Schema Validation</a>.
  * <p>
  * Unless stated otherwise, the property definitions follow the JSON Schema specification as referenced here.
@@ -37,7 +37,7 @@ import java.util.Map;
  * @author Pavel Bodiachevskii
  * @version 3.0.0
  * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#schemaObject">Schema Object</a>
- * @see <a href=https://www.asyncapi.com/docs/reference/specification/v3.0.0#multiFormatSchemaObject">Multi Format Schema Object</a>
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#multiFormatSchemaObject">Multi Format Schema Object</a>
  */
 @Data
 @Builder
@@ -449,10 +449,7 @@ public class AsyncAPISchema extends ExtendableObject {
     public Map<String, AsyncAPISchema> patternProperties;
 
     /**
-     * <font color="red"><b>This property has been overwritten by AsyncAPI Specification - maybe boolean value</b></font>
-     * <p>
-     * <p>
-     * The value of "additionalProperties" MUST be a valid JSON Schema.
+     * The value of "additionalProperties" <b>MUST</b> be a valid JSON Schema or boolean
      * <p>
      * This keyword determines how child instances validate for objects, and does not directly validate the immediate
      * instance itself.
@@ -477,9 +474,9 @@ public class AsyncAPISchema extends ExtendableObject {
      * draft, we proposed dropping the keyword altogether, or dropping one of its forms, but we received feedback in support of
      * keeping it.  See issues #442 and #528 at https://github.com/json-schema-org/json-schema-spec/issues for further discussion.
      * Further feedback is encouraged.
-     * <p>
-     * <p>
-     * <p>
+     * <br>
+     * <br>
+     * <br>
      * This keyword specifies rules that are evaluated if the instance is an object and contains a certain property.
      * <p>
      * This keyword's value <b>MUST</b> be an object. Each property specifies a dependency. Each dependency value <b>MUST</b> be an array

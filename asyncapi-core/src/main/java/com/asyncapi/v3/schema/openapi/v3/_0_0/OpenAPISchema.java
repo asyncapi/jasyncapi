@@ -109,30 +109,28 @@ public class OpenAPISchema extends Extensions {
 
     /**
      * The word “exclusive” in {@link #exclusiveMinimum} and {@link #exclusiveMaximum} means the corresponding boundary is excluded:
-     * <pre>
-     *     <table>
-     *         <tr>
-     *             <th>Keyword</th>
-     *             <th>Description</th>
-     *         </tr>
-     *         <tr>
-     *             <td>exclusiveMinimum: false or not included</th>
-     *             <td>value ≥ minimum</th>
-     *         </tr>
-     *         <tr>
-     *             <td>exclusiveMinimum: true</th>
-     *             <td>value > minimum</th>
-     *         </tr>
-     *         <tr>
-     *             <td>exclusiveMaximum: false or not included</th>
-     *             <td>value ≤ maximum</th>
-     *         </tr>
-     *         <tr>
-     *             <td>exclusiveMaximum: true</th>
-     *             <td>value < maximum</th>
-     *         </tr>
-     *     </table>
-     * </pre>
+     * <table summary="exclusive description">
+     *     <tr>
+     *         <th>Keyword</th>
+     *         <th>Description</th>
+     *     </tr>
+     *     <tr>
+     *         <td>exclusiveMinimum: false or not included</td>
+     *         <td>value ≥ minimum</td>
+     *     </tr>
+     *     <tr>
+     *         <td>exclusiveMinimum: true</td>
+     *         <td>value &gt; minimum</td>
+     *     </tr>
+     *     <tr>
+     *         <td>exclusiveMaximum: false or not included</td>
+     *         <td>value ≤ maximum</td>
+     *     </tr>
+     *     <tr>
+     *         <td>exclusiveMaximum: true</td>
+     *         <td>value &lt; maximum</td>
+     *     </tr>
+     * </table>
      *
      * @see <a href="https://swagger.io/docs/specification/data-models/data-types/#range">range</a>
      */
@@ -168,30 +166,28 @@ public class OpenAPISchema extends Extensions {
 
     /**
      * The word “exclusive” in {@link #exclusiveMinimum} and {@link #exclusiveMaximum} means the corresponding boundary is excluded:
-     * <pre>
-     *     <table>
-     *         <tr>
-     *             <th>Keyword</th>
-     *             <th>Description</th>
-     *         </tr>
-     *         <tr>
-     *             <td>exclusiveMinimum: false or not included</th>
-     *             <td>value ≥ minimum</th>
-     *         </tr>
-     *         <tr>
-     *             <td>exclusiveMinimum: true</th>
-     *             <td>value > minimum</th>
-     *         </tr>
-     *         <tr>
-     *             <td>exclusiveMaximum: false or not included</th>
-     *             <td>value ≤ maximum</th>
-     *         </tr>
-     *         <tr>
-     *             <td>exclusiveMaximum: true</th>
-     *             <td>value < maximum</th>
-     *         </tr>
-     *     </table>
-     * </pre>
+     * <table summary="exclusive description">
+     *     <tr>
+     *         <th>Keyword</th>
+     *         <th>Description</th>
+     *     </tr>
+     *     <tr>
+     *         <td>exclusiveMinimum: false or not included</td>
+     *         <td>value ≥ minimum</td>
+     *     </tr>
+     *     <tr>
+     *         <td>exclusiveMinimum: true</td>
+     *         <td>value &gt; minimum</td>
+     *     </tr>
+     *     <tr>
+     *         <td>exclusiveMaximum: false or not included</td>
+     *         <td>value ≤ maximum</td>
+     *     </tr>
+     *     <tr>
+     *         <td>exclusiveMaximum: true</td>
+     *         <td>value &lt; maximum</td>
+     *     </tr>
+     * </table>
      *
      * @see <a href="https://swagger.io/docs/specification/data-models/data-types/#range">range</a>
      */
@@ -839,7 +835,7 @@ public class OpenAPISchema extends Extensions {
      * }</pre>
      *
      * — is represented in the following way in JSON and XML:
-     * <br/>
+     * <br>
      * <b>JSON</b>
      * <pre>{@code
      * {
