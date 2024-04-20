@@ -1,8 +1,8 @@
 package com.asyncapi.v3._0_0.jackson.model.channel.message;
 
 import com.asyncapi.v3.Reference;
-import com.asyncapi.v3.schema.Schema;
-import com.asyncapi.v3.schema.MultiFormatSchema;
+import com.asyncapi.v3.schema.AsyncAPISchema;
+import com.asyncapi.v3.schema.multiformat.MultiFormatSchema;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.ObjectCodec;
@@ -56,14 +56,14 @@ public class MessageHeadersDeserializer extends JsonDeserializer<Object> {
             if (ref != null) {
                 return jsonParser.readValueAs(Reference.class);
             } else {
-                return jsonParser.readValueAs(Schema.class);
+                return jsonParser.readValueAs(AsyncAPISchema.class);
             }
         }
     }
 
     private Object readAsObject(JsonNode jsonNode, ObjectCodec objectCodec) throws IOException {
         try (JsonParser jsonParser = jsonNode.traverse(objectCodec)) {
-            return jsonParser.readValueAs(Schema.class);
+            return jsonParser.readValueAs(AsyncAPISchema.class);
         }
     }
 

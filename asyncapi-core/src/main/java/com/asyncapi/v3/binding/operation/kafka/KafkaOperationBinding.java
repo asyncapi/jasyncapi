@@ -1,6 +1,6 @@
 package com.asyncapi.v3.binding.operation.kafka;
 
-import com.asyncapi.v3.schema.Schema;
+import com.asyncapi.v3.schema.AsyncAPISchema;
 import com.asyncapi.v3.binding.operation.OperationBinding;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
@@ -29,7 +29,7 @@ public class KafkaOperationBinding extends OperationBinding {
     @Nullable
     @JsonProperty("groupId")
     @JsonPropertyDescription("Id of the consumer group.")
-    private Schema groupId;
+    private AsyncAPISchema groupId;
 
     /**
      * Id of the consumer inside a consumer group.
@@ -37,7 +37,7 @@ public class KafkaOperationBinding extends OperationBinding {
     @Nullable
     @JsonProperty("clientId")
     @JsonPropertyDescription("Id of the consumer inside a consumer group.")
-    private Schema clientId;
+    private AsyncAPISchema clientId;
 
     /**
      * The version of this binding. If omitted, "latest" MUST be assumed.

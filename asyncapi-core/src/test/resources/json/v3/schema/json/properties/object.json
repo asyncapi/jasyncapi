@@ -1,0 +1,16 @@
+{
+    "const": {
+        "type": "string",
+        "const": "abc"
+    },
+    "default": {
+        "type": "string",
+        "const": "abc"
+    },
+    "examples": [
+        {
+            "type": "string",
+            "const": "abc"
+        }
+    ]
+}

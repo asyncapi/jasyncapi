@@ -19,8 +19,8 @@ import com.asyncapi.v3.binding.channel.kafka.KafkaChannelTopicCleanupPolicy
 import com.asyncapi.v3.binding.channel.kafka.KafkaChannelTopicConfiguration
 import com.asyncapi.v3.binding.operation.kafka.KafkaOperationBinding
 import com.asyncapi.v3.binding.server.kafka.KafkaServerBinding
-import com.asyncapi.v3.schema.MultiFormatSchema
-import com.asyncapi.v3.schema.Schema
+import com.asyncapi.v3.schema.AsyncAPISchema
+import com.asyncapi.v3.schema.multiformat.AvroFormatSchema
 import com.asyncapi.v3.security_scheme.SecurityScheme
 
 class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
@@ -168,7 +168,7 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
 
     override fun expectedOperations(): Map<String, Any> {
         val receiveACostingRequestKafkaBinding = KafkaOperationBinding.builder()
-                .groupId(Schema.builder()
+                .groupId(AsyncAPISchema.builder()
                         .type("string")
                         .description("The groupId must be prefixed by your `svc` account, deliver by the Adeo Kafka team. This `svc` must have the write access to the topic.\n")
                         .build()
@@ -238,22 +238,22 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
                                         Tag.builder().name("costing").build()
                                 ))
                                 .correlationId(Reference("#/components/correlationIds/costingCorrelationId"))
-                                .headers(Schema.builder()
+                                .headers(AsyncAPISchema.builder()
                                         .type("object")
                                         .required(listOf(
                                                 "REQUESTER_ID", "REQUESTER_CODE", "REQUEST_ID", "REPLY_TOPIC"
                                         ))
                                         .properties(mapOf(
-                                                Pair("REQUEST_ID", Schema.builder().ref("#/components/schemas/RequestId").build()),
-                                                Pair("REPLY_TOPIC", Schema.builder().ref("#/components/schemas/ReplyTopic").build()),
-                                                Pair("REQUESTER_ID", Schema.builder().ref("#/components/schemas/RequesterId").build()),
-                                                Pair("REQUESTER_CODE", Schema.builder().ref("#/components/schemas/RequesterCode").build()),
+                                                Pair("REQUEST_ID", AsyncAPISchema.builder().ref("#/components/schemas/RequestId").build()),
+                                                Pair("REPLY_TOPIC", AsyncAPISchema.builder().ref("#/components/schemas/ReplyTopic").build()),
+                                                Pair("REQUESTER_ID", AsyncAPISchema.builder().ref("#/components/schemas/RequesterId").build()),
+                                                Pair("REQUESTER_CODE", AsyncAPISchema.builder().ref("#/components/schemas/RequesterCode").build()),
                                         ))
                                         .build()
                                 )
-                                .payload(MultiFormatSchema(
+                                .payload(AvroFormatSchema(
                                         "application/vnd.apache.avro;version=1.9.0",
-                                        mapOf(Pair("\$ref", "https://www.asyncapi.com/resources/casestudies/adeo/CostingRequestPayload.avsc"))
+                                        Reference("https://www.asyncapi.com/resources/casestudies/adeo/CostingRequestPayload.avsc")
                                 ))
                                 .build()
                         ),
@@ -267,18 +267,18 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
                                         Tag.builder().name("costing").build()
                                 ))
                                 .correlationId(Reference("#/components/correlationIds/costingCorrelationId"))
-                                .headers(Schema.builder()
+                                .headers(AsyncAPISchema.builder()
                                         .type("object")
                                         .properties(mapOf(
-                                                Pair("CALCULATION_ID", Schema.builder().ref("#/components/schemas/MessageId").build()),
-                                                Pair("CORRELATION_ID", Schema.builder().ref("#/components/schemas/CorrelationId").build()),
-                                                Pair("REQUEST_TIMESTAMP", Schema.builder()
+                                                Pair("CALCULATION_ID", AsyncAPISchema.builder().ref("#/components/schemas/MessageId").build()),
+                                                Pair("CORRELATION_ID", AsyncAPISchema.builder().ref("#/components/schemas/CorrelationId").build()),
+                                                Pair("REQUEST_TIMESTAMP", AsyncAPISchema.builder()
                                                         .type("string")
                                                         .format("date-time")
                                                         .description("Timestamp of the costing request")
                                                         .build()
                                                 ),
-                                                Pair("CALCULATION_TIMESTAMP", Schema.builder()
+                                                Pair("CALCULATION_TIMESTAMP", AsyncAPISchema.builder()
                                                         .type("string")
                                                         .format("date-time")
                                                         .description("Technical timestamp for the costing calculation")
@@ -287,34 +287,34 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
                                         ))
                                         .build()
                                 )
-                                .payload(MultiFormatSchema(
+                                .payload(AvroFormatSchema(
                                         "application/vnd.apache.avro;version=1.9.0",
-                                        mapOf(Pair("\$ref", "https://www.asyncapi.com/resources/casestudies/adeo/CostingResponsePayload.avsc"))
+                                        Reference("https://www.asyncapi.com/resources/casestudies/adeo/CostingResponsePayload.avsc")
                                 ))
                                 .build()
                         )
                 ))
                 .schemas(mapOf(
-                        Pair("RequesterId", Schema.builder()
+                        Pair("RequesterId", AsyncAPISchema.builder()
                                 .type("string")
                                 .description("The Costing requester service account used to produce costing request.")
                                 .examples(listOf("svc-ecollect-app"))
                                 .build()
                         ),
-                        Pair("RequesterCode", Schema.builder()
+                        Pair("RequesterCode", AsyncAPISchema.builder()
                                 .type("string")
                                 .description("The Costing requester code (generally the BU Code). The requester code is useful to get the dedicated context (tenant).")
                                 .examples(listOf(1))
                                 .build()
                         ),
-                        Pair("MessageId", Schema.builder()
+                        Pair("MessageId", AsyncAPISchema.builder()
                                 .type("string")
                                 .format("uuid")
                                 .description("A unique Message ID.")
                                 .examples(listOf("1fa6ef40-8f47-40a8-8cf6-f8607d0066ef"))
                                 .build()
                         ),
-                        Pair("RequestId", Schema.builder()
+                        Pair("RequestId", AsyncAPISchema.builder()
                                 .type("string")
                                 .format("uuid")
                                 .description("A unique Request ID needed to define a `CORRELATION_ID` for exchanges, " +
@@ -322,7 +322,7 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
                                 .examples(listOf("1fa6ef40-8f47-40a8-8cf6-f8607d0066ef"))
                                 .build()
                         ),
-                        Pair("CorrelationId", Schema.builder()
+                        Pair("CorrelationId", AsyncAPISchema.builder()
                                 .type("string")
                                 .format("uuid")
                                 .description("A unique Correlation ID defined from the `REQUEST_ID` or the " +
@@ -330,13 +330,13 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
                                 .examples(listOf("1fa6ef40-8f47-40a8-8cf6-f8607d0066ef"))
                                 .build()
                         ),
-                        Pair("BuCode", Schema.builder()
+                        Pair("BuCode", AsyncAPISchema.builder()
                                 .type("string")
                                 .description("The Business Unit code for which data are applicable.")
                                 .examples(listOf(1))
                                 .build()
                         ),
-                        Pair("ReplyTopic", Schema.builder()
+                        Pair("ReplyTopic", AsyncAPISchema.builder()
                                 .type("string")
                                 .description("The Kafka topic where to send the Costing Response. This is required for " +
                                         "the [Return Address EIP " +
@@ -345,19 +345,19 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
                                 .examples(listOf("adeo-case-study-COSTING-RESPONSE-V1"))
                                 .build()
                         ),
-                        Pair("ErrorStep", Schema.builder()
+                        Pair("ErrorStep", AsyncAPISchema.builder()
                                 .type("string")
                                 .description("The woker that has thrown the error.\n")
                                 .examples(listOf("EXPOSE_RESULT"))
                                 .build()
                         ),
-                        Pair("ErrorMessage", Schema.builder()
+                        Pair("ErrorMessage", AsyncAPISchema.builder()
                                 .type("string")
                                 .description("The error message describing the error.\n")
                                 .examples(listOf("Error message"))
                                 .build()
                         ),
-                        Pair("ErrorCode", Schema.builder()
+                        Pair("ErrorCode", AsyncAPISchema.builder()
                                 .type("string")
                                 .description("The error code.\n")
                                 .examples(listOf("CURRENCY_NOT_FOUND"))

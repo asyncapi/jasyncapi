@@ -4,8 +4,8 @@
     "type" : "object",
     "properties" : {
       "ref" : {
-        "description" : "Referral.",
-        "type" : "string"
+        "type" : "string",
+        "description" : "Referral."
       }
     }
   },
@@ -13,8 +13,8 @@
     "type" : "object",
     "properties" : {
       "Authentication" : {
-        "description" : "Authentication token",
-        "type" : "string"
+        "type" : "string",
+        "description" : "Authentication token"
       }
     }
   },

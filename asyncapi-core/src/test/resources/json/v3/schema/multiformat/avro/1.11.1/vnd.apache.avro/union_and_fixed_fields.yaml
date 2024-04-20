@@ -1,0 +1,26 @@
+schemaFormat: application/vnd.apache.avro;version=1.11.1
+schema:
+  type: record
+  name: UnionAndFixedFields
+  doc: >-
+    Schema for UnionAndFixedFields designed to trigger fixed compiler warnings
+    in generated code
+  namespace: org.apache.avro.specific
+  fields:
+    - name: u
+      type:
+        - boolean
+        - int
+        - long
+        - float
+        - string
+    - name: l
+      type:
+        - string
+        - type: long
+          logicalType: timestamp-millis
+    - name: f
+      type:
+        type: fixed
+        size: 16
+        name: md5

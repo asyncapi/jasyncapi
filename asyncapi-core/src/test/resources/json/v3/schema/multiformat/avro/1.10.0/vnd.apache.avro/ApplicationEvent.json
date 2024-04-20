@@ -1,0 +1,33 @@
+{
+  "schemaFormat": "application/vnd.apache.avro;version=1.10.0",
+  "schema": {
+    "namespace": "model",
+    "type": "record",
+    "doc": "",
+    "name": "ApplicationEvent",
+    "fields": [
+      {
+        "name": "applicationId",
+        "type": "string",
+        "doc": "Application ID"
+      },
+      {
+        "name": "status",
+        "type": "string",
+        "doc": "Application Status"
+      },
+      {
+        "name": "documents",
+        "type": [
+          "null",
+          {
+            "type": "array",
+            "items": "model.DocumentInfo"
+          }
+        ],
+        "doc": "",
+        "default": null
+      }
+    ]
+  }
+}

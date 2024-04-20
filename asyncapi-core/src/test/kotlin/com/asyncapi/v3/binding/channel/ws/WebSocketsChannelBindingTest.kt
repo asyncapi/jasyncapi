@@ -1,7 +1,7 @@
 package com.asyncapi.v3.binding.channel.ws
 
 import com.asyncapi.v3.SerDeTest
-import com.asyncapi.v3.schema.Schema
+import com.asyncapi.v3.schema.AsyncAPISchema
 import com.asyncapi.v3.schema.Type
 
 /**
@@ -21,12 +21,12 @@ class WebSocketsChannelBindingTest: SerDeTest<WebSocketsChannelBinding>() {
     override fun build(): WebSocketsChannelBinding {
         return WebSocketsChannelBinding.builder()
                 .method(WebSocketsChannelMethod.GET)
-                .query(Schema.builder()
+                .query(AsyncAPISchema.builder()
                         .type(Type.OBJECT)
                         .properties(mapOf(
                                 Pair(
                                         "ref",
-                                        Schema.builder()
+                                        AsyncAPISchema.builder()
                                                 .type(Type.STRING)
                                                 .description("Referral.")
                                                 .build()
@@ -34,12 +34,12 @@ class WebSocketsChannelBindingTest: SerDeTest<WebSocketsChannelBinding>() {
                         ))
                         .build()
                 )
-                .headers(Schema.builder()
+                .headers(AsyncAPISchema.builder()
                         .type(Type.OBJECT)
                         .properties(mapOf(
                                 Pair(
                                         "Authentication",
-                                        Schema.builder()
+                                        AsyncAPISchema.builder()
                                                 .type(Type.STRING)
                                                 .description("Authentication token")
                                                 .build()

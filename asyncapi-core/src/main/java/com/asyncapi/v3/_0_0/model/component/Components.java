@@ -23,8 +23,8 @@ import com.asyncapi.v3.jackson.binding.channel.ChannelBindingsDeserializer;
 import com.asyncapi.v3.jackson.binding.message.MessageBindingsDeserializer;
 import com.asyncapi.v3.jackson.binding.operation.OperationBindingsDeserializer;
 import com.asyncapi.v3.jackson.binding.server.ServerBindingsDeserializer;
-import com.asyncapi.v3.schema.MultiFormatSchema;
-import com.asyncapi.v3.schema.Schema;
+import com.asyncapi.v3.schema.multiformat.MultiFormatSchema;
+import com.asyncapi.v3.schema.AsyncAPISchema;
 import com.asyncapi.v3.security_scheme.SecurityScheme;
 import com.asyncapi.v3.ExtendableObject;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -52,12 +52,12 @@ public class Components extends ExtendableObject {
     /**
      * An object to hold reusable Schema Object.
      * <p>
-     * If this is a {@link Schema}, then the schemaFormat will be assumed to be "application/vnd.aai.asyncapi+json;version=asyncapi"
+     * If this is a {@link AsyncAPISchema}, then the schemaFormat will be assumed to be "application/vnd.aai.asyncapi+json;version=asyncapi"
      * where the version is equal to the AsyncAPI Version String.
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link Schema}</li>
+     *     <li>{@link AsyncAPISchema}</li>
      *     <li>{@link MultiFormatSchema}</li>
      *     <li>{@link Reference}</li>
      * </ul>

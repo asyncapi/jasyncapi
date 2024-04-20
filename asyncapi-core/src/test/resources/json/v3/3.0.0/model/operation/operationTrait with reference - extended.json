@@ -53,9 +53,9 @@
         "required" : [ "companyId" ],
         "properties" : {
           "companyId" : {
-            "description" : "The Id of the company.",
             "type" : "number",
-            "minimum" : 1
+            "minimum" : 1,
+            "description" : "The Id of the company."
           }
         },
         "additionalProperties" : false

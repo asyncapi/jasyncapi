@@ -1,0 +1,146 @@
+schemaFormat: application/vnd.oai.openapi+yaml;version=3.0.0
+schema:
+    name: schema name
+    title: schema title
+    multipleOf: 2.5
+    maximum: 100
+    exclusiveMaximum: true
+    minimum: 0
+    exclusiveMinimum: true
+    maxLength: 3
+    minLength: 20
+    pattern: '^\d{3}-\d{2}-\d{4}$'
+    maxItems: 10
+    minItems: 1
+    uniqueItems: true
+    maxProperties: 10
+    minProperties: 2
+    required:
+        - id
+        - username
+    type: object
+    allOf:
+        - $ref: '#/components/schemas/Pet'
+        - type: object
+          properties:
+              hunts:
+                  type: boolean
+              age:
+                  type: integer
+    anyOf:
+        - $ref: '#/components/schemas/PetByAge'
+        - name: Pet by age
+          type: object
+          properties:
+              age:
+                  type: integer
+              nickname:
+                  type: string
+        - $ref: '#/components/schemas/PetByType'
+        - name: Pet by type
+          type: object
+          properties:
+              pet_type:
+                  type: string
+                  enum:
+                      - Cat
+                      - Dog
+              hunts:
+                  type: boolean
+          required:
+              - pet_type
+    oneOf:
+        - $ref: '#/components/schemas/PetByAge'
+        - name: Pet by age
+          type: object
+          properties:
+              age:
+                  type: integer
+              nickname:
+                  type: string
+        - $ref: '#/components/schemas/PetByType'
+        - name: Pet by type
+          type: object
+          properties:
+              pet_type:
+                  type: string
+                  enum:
+                      - Cat
+                      - Dog
+              hunts:
+                  type: boolean
+          required:
+              - pet_type
+    not:
+        name: Pet by type
+        type: object
+        properties:
+            pet_type:
+                type: string
+                enum:
+                    - Cat
+                    - Dog
+            hunts:
+                type: boolean
+        required:
+            - pet_type
+    properties:
+        pet_type:
+            type: string
+            enum:
+                - Cat
+                - Dog
+                - Owl
+        hunts:
+            type: boolean
+    additionalProperties:
+        properties:
+            pet_type:
+                type: string
+                enum:
+                    - Cat
+                    - Dog
+                    - Owl
+                additionalProperties: false
+        additionalProperties:
+            properties:
+                hunts:
+                    type: boolean
+    description: schema description
+    format: uri
+    $ref: '#/components/example/ref'
+    nullable: true
+    readOnly: true
+    writeOnly: true
+    example:
+        type: string
+        enum:
+            - approved
+            - pending
+            - closed
+            - new
+        example: approved
+    externalDocs:
+        description: external docs description
+        url: 'https://example.docs/this'
+    deprecated: true
+    xml:
+        name: animal
+        namespace: 'http://example.com/schema/sample'
+        prefix: sample
+        attribute: true
+        wrapped: true
+    enum:
+        - asc
+        - desc
+        - null
+    default:
+        - asc
+        - desc
+        - null
+    discriminator:
+        propertyName: pet_type
+        mapping:
+            dog: '#/components/schemas/Dog'
+            monster: 'https://gigantic-server.com/schemas/Monster/schema.json'
+    x-extension-property: value

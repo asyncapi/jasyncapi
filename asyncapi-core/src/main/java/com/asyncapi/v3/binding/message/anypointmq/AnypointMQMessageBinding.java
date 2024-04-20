@@ -1,6 +1,6 @@
 package com.asyncapi.v3.binding.message.anypointmq;
 
-import com.asyncapi.v3.schema.Schema;
+import com.asyncapi.v3.schema.AsyncAPISchema;
 import com.asyncapi.v3.binding.message.MessageBinding;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -31,7 +31,7 @@ public class AnypointMQMessageBinding extends MessageBinding {
     @Nullable
     @JsonProperty("headers")
     @JsonPropertyDescription("A Schema object containing the definitions for Anypoint MQ-specific headers (so-called protocol headers). This schema MUST be of type object and have a properties key. Examples of Anypoint MQ protocol headers are messageId and messageGroupId.")
-    private Schema headers;
+    private AsyncAPISchema headers;
 
     /**
      * The version of this binding.

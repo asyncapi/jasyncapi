@@ -1,0 +1,28 @@
+schemaFormat: application/vnd.aai.asyncapi;version=2.5.0
+schema:
+    $id: 'https://example.com/conditional-validation-if-else.schema.json'
+    $schema: 'http://json-schema.org/draft-07/schema#'
+    title: Conditional Validation with If-Else
+    type: object
+    properties:
+        isMember:
+            type: boolean
+        membershipNumber:
+            type: string
+    required:
+        - isMember
+    if:
+        properties:
+            isMember:
+                const: true
+    then:
+        properties:
+            membershipNumber:
+                type: string
+                minLength: 10
+                maxLength: 10
+    else:
+        properties:
+            membershipNumber:
+                type: string
+                minLength: 15

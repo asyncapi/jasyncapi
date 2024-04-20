@@ -27,8 +27,8 @@
         "type" : "object",
         "properties" : {
           "correlationId" : {
-            "description" : "Correlation ID set by application",
-            "type" : "string"
+            "type" : "string",
+            "description" : "Correlation ID set by application"
           }
         }
       },
@@ -128,12 +128,12 @@
       "type" : "object",
       "properties" : {
         "correlationId" : {
-          "description" : "Correlation ID set by application",
-          "type" : "string"
+          "type" : "string",
+          "description" : "Correlation ID set by application"
         },
         "applicationInstanceId" : {
-          "description" : "Unique identifier for a given instance of the publishing application",
-          "type" : "string"
+          "type" : "string",
+          "description" : "Unique identifier for a given instance of the publishing application"
         }
       }
     },
@@ -160,8 +160,8 @@
           "type" : "object",
           "properties" : {
             "correlationId" : {
-              "description" : "Correlation ID set by application",
-              "type" : "string"
+              "type" : "string",
+              "description" : "Correlation ID set by application"
             }
           }
         },
@@ -293,8 +293,8 @@
           "type" : "object",
           "properties" : {
             "correlationId" : {
-              "description" : "Correlation ID set by application",
-              "type" : "string"
+              "type" : "string",
+              "description" : "Correlation ID set by application"
             }
           }
         },
@@ -408,12 +408,12 @@
         "type" : "object",
         "properties" : {
           "correlationId" : {
-            "description" : "Correlation ID set by application",
-            "type" : "string"
+            "type" : "string",
+            "description" : "Correlation ID set by application"
           },
           "applicationInstanceId" : {
-            "description" : "Unique identifier for a given instance of the publishing application",
-            "type" : "string"
+            "type" : "string",
+            "description" : "Unique identifier for a given instance of the publishing application"
           }
         }
       }
@@ -440,8 +440,8 @@
           "type" : "object",
           "properties" : {
             "correlationId" : {
-              "description" : "Correlation ID set by application",
-              "type" : "string"
+              "type" : "string",
+              "description" : "Correlation ID set by application"
             }
           }
         },

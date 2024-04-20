@@ -7,7 +7,7 @@ import com.asyncapi.v3._0_0.model.component.Components
 import com.asyncapi.v3._0_0.model.info.Info
 import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
-import com.asyncapi.v3.schema.Schema
+import com.asyncapi.v3.schema.AsyncAPISchema
 
 class OneOfAsyncAPI: AbstractExampleValidationTest() {
 
@@ -71,10 +71,10 @@ class OneOfAsyncAPI: AbstractExampleValidationTest() {
                 .messages(mapOf(
                         Pair("testMessages",
                                 Message.builder()
-                                        .payload(Schema.builder()
+                                        .payload(AsyncAPISchema.builder()
                                                 .oneOf(listOf(
-                                                        Schema.builder().ref("#/components/schemas/objectWithKey").build(),
-                                                        Schema.builder().ref("#/components/schemas/objectWithKey2").build()
+                                                        AsyncAPISchema.builder().ref("#/components/schemas/objectWithKey").build(),
+                                                        AsyncAPISchema.builder().ref("#/components/schemas/objectWithKey2").build()
                                                 ))
                                                 .build()
                                         )
@@ -93,18 +93,18 @@ class OneOfAsyncAPI: AbstractExampleValidationTest() {
                 ))
                 .schemas(mapOf(
                         Pair("objectWithKey",
-                                Schema.builder()
+                                AsyncAPISchema.builder()
                                         .type("object")
                                         .properties(mapOf(
-                                                Pair("key", Schema.builder().type("string").build())
+                                                Pair("key", AsyncAPISchema.builder().type("string").build())
                                         ))
                                         .build()
                         ),
                         Pair("objectWithKey2",
-                                Schema.builder()
+                                AsyncAPISchema.builder()
                                         .type("object")
                                         .properties(mapOf(
-                                                Pair("key2", Schema.builder().type("string").build())
+                                                Pair("key2", AsyncAPISchema.builder().type("string").build())
                                         ))
                                         .build()
                         )

@@ -1,7 +1,7 @@
 package com.asyncapi.v3.binding.message.kafka
 
 import com.asyncapi.v3.SerDeTest
-import com.asyncapi.v3.schema.Schema
+import com.asyncapi.v3.schema.AsyncAPISchema
 import com.asyncapi.v3.schema.Type
 
 class KafkaMessageBindingTest: SerDeTest<KafkaMessageBinding>() {
@@ -16,7 +16,7 @@ class KafkaMessageBindingTest: SerDeTest<KafkaMessageBinding>() {
 
     override fun build(): KafkaMessageBinding {
         return KafkaMessageBinding.builder()
-                .key(Schema.builder()
+                .key(AsyncAPISchema.builder()
                         .type(Type.STRING)
                         .enumValue(listOf("myKey"))
                         .build())

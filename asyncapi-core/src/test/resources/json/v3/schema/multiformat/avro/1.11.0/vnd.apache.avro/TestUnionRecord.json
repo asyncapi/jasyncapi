@@ -1,0 +1,26 @@
+{
+  "schemaFormat": "application/vnd.apache.avro;version=1.11.0",
+  "schema": [
+    "null",
+    {
+      "namespace": "org.apache.avro.specific",
+      "type": "record",
+      "name": "TestUnionRecord",
+      "fields": [
+        {
+          "name": "amount",
+          "type": [
+            "null",
+            {
+              "type": "bytes",
+              "logicalType": "decimal",
+              "precision": 31,
+              "scale": 8
+            }
+          ],
+          "default": null
+        }
+      ]
+    }
+  ]
+}

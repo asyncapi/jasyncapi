@@ -11,6 +11,7 @@ import com.asyncapi.v3._0_0.jackson.model.channel.message.MessagePayloadDeserial
 import com.asyncapi.v3._0_0.model.ExternalDocumentation;
 import com.asyncapi.v3._0_0.model.Tag;
 import com.asyncapi.v3.jackson.binding.message.MessageBindingsDeserializer;
+import com.asyncapi.v3.schema.multiformat.MultiFormatSchema;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.*;
 import org.jetbrains.annotations.Nullable;
@@ -39,14 +40,14 @@ public class Message extends ExtendableObject {
      * <p>
      * It MUST NOT define the protocol headers.
      * <p>
-     * If this is a {@link com.asyncapi.v3.schema.Schema}, then the schemaFormat will be assumed to
+     * If this is a {@link com.asyncapi.v3.schema.AsyncAPISchema}, then the schemaFormat will be assumed to
      * be "application/vnd.aai.asyncapi+json;version=asyncapi" where the version
      * is equal to the AsyncAPI Version String.
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v3.schema.Schema}</li>
-     *     <li>{@link com.asyncapi.v3.schema.MultiFormatSchema}</li>
+     *     <li>{@link com.asyncapi.v3.schema.AsyncAPISchema}</li>
+     *     <li>{@link MultiFormatSchema}</li>
      *     <li>{@link com.asyncapi.v3.Reference}</li>
      * </ul>
      */
@@ -57,13 +58,13 @@ public class Message extends ExtendableObject {
     /**
      * Definition of the message payload.
      * <p>
-     * If this is a {@link com.asyncapi.v3.schema.Schema}, then the schemaFormat will be assumed to be
+     * If this is a {@link com.asyncapi.v3.schema.AsyncAPISchema}, then the schemaFormat will be assumed to be
      * "application/vnd.aai.asyncapi+json;version=asyncapi" where the version is equal to the AsyncAPI Version String.
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v3.schema.Schema}</li>
-     *     <li>{@link com.asyncapi.v3.schema.MultiFormatSchema}</li>
+     *     <li>{@link com.asyncapi.v3.schema.AsyncAPISchema}</li>
+     *     <li>{@link MultiFormatSchema}</li>
      *     <li>{@link com.asyncapi.v3.Reference}</li>
      * </ul>
      */

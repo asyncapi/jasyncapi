@@ -12,7 +12,7 @@ import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.server.Server
 import com.asyncapi.v3._0_0.model.server.ServerVariable
-import com.asyncapi.v3.schema.Schema
+import com.asyncapi.v3.schema.AsyncAPISchema
 import java.math.BigDecimal
 
 class ApplicationHeadersAsyncAPI: AbstractExampleValidationTest() {
@@ -95,13 +95,13 @@ class ApplicationHeadersAsyncAPI: AbstractExampleValidationTest() {
                                         .summary("Inform about environmental lighting conditions of a particular streetlight.")
                                         .correlationId(CorrelationId(null, "\$message.header#/MQMD/CorrelId"))
                                         .contentType("application/json")
-                                        .headers(Schema.builder()
+                                        .headers(AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
-                                                        Pair("MQMD", Schema.builder()
+                                                        Pair("MQMD", AsyncAPISchema.builder()
                                                                 .type("object")
                                                                 .properties(mapOf(
-                                                                        Pair("CorrelId", Schema.builder()
+                                                                        Pair("CorrelId", AsyncAPISchema.builder()
                                                                                 .type("string")
                                                                                 .minLength(24)
                                                                                 .maxLength(24)
@@ -111,7 +111,7 @@ class ApplicationHeadersAsyncAPI: AbstractExampleValidationTest() {
                                                                 ))
                                                                 .build()
                                                         ),
-                                                        Pair("applicationInstanceId", Schema.builder().ref("#/components/schemas/applicationInstanceId").build())
+                                                        Pair("applicationInstanceId", AsyncAPISchema.builder().ref("#/components/schemas/applicationInstanceId").build())
                                                 ))
                                                 .build()
                                         )
@@ -121,29 +121,29 @@ class ApplicationHeadersAsyncAPI: AbstractExampleValidationTest() {
                 ))
                 .schemas(mapOf(
                         Pair("lightMeasuredPayload",
-                                Schema.builder()
+                                AsyncAPISchema.builder()
                                         .type("object")
                                         .properties(mapOf(
                                                 Pair("lumens",
-                                                        Schema.builder()
+                                                        AsyncAPISchema.builder()
                                                                 .type("integer")
                                                                 .minimum(BigDecimal.ZERO)
                                                                 .description("Light intensity measured in lumens.")
                                                                 .build()
                                                 ),
-                                                Pair("sentAt", Schema.builder().ref("#/components/schemas/sentAt").build())
+                                                Pair("sentAt", AsyncAPISchema.builder().ref("#/components/schemas/sentAt").build())
                                         ))
                                         .build()
                         ),
                         Pair("sentAt",
-                                Schema.builder()
+                                AsyncAPISchema.builder()
                                         .type("string")
                                         .format("date-time")
                                         .description("Date and time when the message was sent.")
                                         .build()
                         ),
                         Pair("applicationInstanceId",
-                                Schema.builder()
+                                AsyncAPISchema.builder()
                                         .type("string")
                                         .description("Unique identifier for a given instance of the publishing application")
                                         .build()

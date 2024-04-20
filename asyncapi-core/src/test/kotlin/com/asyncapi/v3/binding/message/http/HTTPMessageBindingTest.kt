@@ -1,7 +1,7 @@
 package com.asyncapi.v3.binding.message.http
 
 import com.asyncapi.v3.SerDeTest
-import com.asyncapi.v3.schema.Schema
+import com.asyncapi.v3.schema.AsyncAPISchema
 import com.asyncapi.v3.schema.Type
 
 class HTTPMessageBindingTest: SerDeTest<HTTPMessageBinding>() {
@@ -16,12 +16,12 @@ class HTTPMessageBindingTest: SerDeTest<HTTPMessageBinding>() {
 
     override fun build(): HTTPMessageBinding {
         return HTTPMessageBinding.builder()
-                .headers(Schema.builder()
+                .headers(AsyncAPISchema.builder()
                         .type(Type.OBJECT)
                         .properties(mapOf(
                                 Pair(
                                         "Content-Type",
-                                        Schema.builder()
+                                        AsyncAPISchema.builder()
                                                 .type(Type.STRING)
                                                 .enumValue(listOf("application/json"))
                                                 .build()

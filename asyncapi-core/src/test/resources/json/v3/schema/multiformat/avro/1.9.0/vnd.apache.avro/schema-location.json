@@ -1,0 +1,17 @@
+{
+    "schemaFormat": "application/vnd.apache.avro;version=1.9.0",
+    "schema": {
+        "type": "record",
+        "name": "r7",
+        "fields": [{
+            "name": "lat",
+            "type": "float",
+            "field-id": 1
+        }, {
+            "name": "long",
+            "type": ["null", "float"],
+            "default": null,
+            "field-id": 2
+        }]
+    }
+}

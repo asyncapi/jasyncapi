@@ -1,6 +1,6 @@
 package com.asyncapi.v3.binding.channel.ws;
 
-import com.asyncapi.v3.schema.Schema;
+import com.asyncapi.v3.schema.AsyncAPISchema;
 import com.asyncapi.v3.binding.channel.ChannelBinding;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -43,7 +43,7 @@ public class WebSocketsChannelBinding extends ChannelBinding {
     @Nullable
     @JsonProperty("query")
     @JsonPropertyDescription("A Schema object containing the definitions for each query parameter. This schema MUST be of type object and have a properties key.")
-    private Schema query;
+    private AsyncAPISchema query;
 
     /**
      * A Schema object containing the definitions of the HTTP headers to use when establishing the connection.
@@ -52,7 +52,7 @@ public class WebSocketsChannelBinding extends ChannelBinding {
     @Nullable
     @JsonProperty("headers")
     @JsonPropertyDescription("A Schema object containing the definitions of the HTTP headers to use when establishing the connection. This schema MUST be of type object and have a properties key.")
-    private Schema headers;
+    private AsyncAPISchema headers;
 
     /**
      * The version of this binding. If omitted, "latest" MUST be assumed.

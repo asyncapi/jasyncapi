@@ -1,8 +1,8 @@
 package com.asyncapi.v3._0_0.jackson.model.component;
 
 import com.asyncapi.v3.Reference;
-import com.asyncapi.v3.schema.MultiFormatSchema;
-import com.asyncapi.v3.schema.Schema;
+import com.asyncapi.v3.schema.multiformat.MultiFormatSchema;
+import com.asyncapi.v3.schema.AsyncAPISchema;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.ObjectCodec;
@@ -17,8 +17,8 @@ import java.util.Map;
 
 public class ComponentsSchemasDeserializer extends JsonDeserializer<Object> {
 
-    public Class<Schema> objectTypeClass() {
-        return Schema.class;
+    public Class<AsyncAPISchema> objectTypeClass() {
+        return AsyncAPISchema.class;
     }
 
     public Class<?> referenceClass() {

@@ -7,7 +7,7 @@ import com.asyncapi.v3._0_0.model.component.Components
 import com.asyncapi.v3._0_0.model.info.Info
 import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
-import com.asyncapi.v3.schema.Schema
+import com.asyncapi.v3.schema.AsyncAPISchema
 
 class SimpleAsyncAPI: AbstractExampleValidationTest() {
 
@@ -55,17 +55,17 @@ class SimpleAsyncAPI: AbstractExampleValidationTest() {
                 .messages(mapOf(
                         Pair("UserSignedUp",
                                 Message.builder()
-                                        .payload(Schema.builder()
+                                        .payload(AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("displayName",
-                                                                Schema.builder()
+                                                                AsyncAPISchema.builder()
                                                                         .type("string")
                                                                         .description("Name of the user")
                                                                         .build()
                                                         ),
                                                         Pair("email",
-                                                                Schema.builder()
+                                                                AsyncAPISchema.builder()
                                                                         .type("string")
                                                                         .format("email")
                                                                         .description("Email of the user")

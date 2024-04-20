@@ -13,7 +13,7 @@ import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.server.Server
 import com.asyncapi.v3._0_0.model.server.ServerVariable
-import com.asyncapi.v3.schema.Schema
+import com.asyncapi.v3.schema.AsyncAPISchema
 import com.asyncapi.v3.security_scheme.OpenIdConnectSecurityScheme
 import com.asyncapi.v3.security_scheme.oauth2.OAuth2SecurityScheme
 import com.asyncapi.v3.security_scheme.oauth2.OAuthFlows
@@ -187,18 +187,18 @@ class CorrelationIdAsyncAPI: AbstractExampleValidationTest() {
                 ))
                 .schemas(mapOf(
                         Pair("lightMeasuredPayload",
-                                Schema.builder()
+                                AsyncAPISchema.builder()
                                         .type("object")
                                         .properties(mapOf(
                                                 Pair("lumens",
-                                                        Schema.builder()
+                                                        AsyncAPISchema.builder()
                                                                 .type("integer")
                                                                 .minimum(BigDecimal.ZERO)
                                                                 .description("Light intensity measured in lumens.")
                                                                 .build()
                                                 ),
                                                 Pair("sentAt",
-                                                        Schema.builder()
+                                                        AsyncAPISchema.builder()
                                                                 .ref("#/components/schemas/sentAt")
                                                                 .build()
                                                 )
@@ -206,11 +206,11 @@ class CorrelationIdAsyncAPI: AbstractExampleValidationTest() {
                                         .build()
                         ),
                         Pair("dimLightPayload",
-                                Schema.builder()
+                                AsyncAPISchema.builder()
                                         .type("object")
                                         .properties(mapOf(
                                                 Pair("percentage",
-                                                        Schema.builder()
+                                                        AsyncAPISchema.builder()
                                                                 .type("integer")
                                                                 .minimum(BigDecimal.ZERO)
                                                                 .maximum(BigDecimal.valueOf(100))
@@ -218,7 +218,7 @@ class CorrelationIdAsyncAPI: AbstractExampleValidationTest() {
                                                                 .build()
                                                 ),
                                                 Pair("sentAt",
-                                                        Schema.builder()
+                                                        AsyncAPISchema.builder()
                                                                 .ref("#/components/schemas/sentAt")
                                                                 .build()
                                                 )
@@ -226,7 +226,7 @@ class CorrelationIdAsyncAPI: AbstractExampleValidationTest() {
                                         .build()
                         ),
                         Pair("sentAt",
-                                Schema.builder()
+                                AsyncAPISchema.builder()
                                         .type("string")
                                         .format("date-time")
                                         .description("Date and time when the message was sent.")

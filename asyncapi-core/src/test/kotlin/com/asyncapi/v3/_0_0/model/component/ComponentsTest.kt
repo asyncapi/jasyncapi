@@ -18,9 +18,10 @@ import com.asyncapi.v3._0_0.model.operation.reply.OperationReplyTest
 import com.asyncapi.v3._0_0.model.operation.reply.OperationReplyTestWithReference
 import com.asyncapi.v3._0_0.model.server.ServerTest
 import com.asyncapi.v3._0_0.model.server.ServerVariableTest
-import com.asyncapi.v3.schema.MultiFormatSchema
-import com.asyncapi.v3.schema.Schema
+import com.asyncapi.v3.schema.AsyncAPISchema
+import com.asyncapi.v3.schema.JsonSchema
 import com.asyncapi.v3.schema.Type
+import com.asyncapi.v3.schema.multiformat.JsonFormatSchema
 import com.asyncapi.v3.security_scheme.ApiKeySecuritySchemeTest
 import com.asyncapi.v3.security_scheme.OpenIdConnectSecuritySchemeTest
 import com.asyncapi.v3.security_scheme.http.HttpApiKeySecuritySchemeTest
@@ -49,32 +50,31 @@ class ComponentsTest: SerDeTest<Components>() {
          */
         return Components.builder()
                 .schemas(mapOf(
-                        Pair("Category", Schema.builder()
+                        Pair("Category", AsyncAPISchema.builder()
                                 .type(Type.OBJECT)
                                 .properties(mapOf(
-                                        Pair("id", Schema.builder().type(Type.INTEGER).format("int64").build()),
-                                        Pair("name", Schema.builder().type(Type.STRING).build())
+                                        Pair("id", AsyncAPISchema.builder().type(Type.INTEGER).format("int64").build()),
+                                        Pair("name", AsyncAPISchema.builder().type(Type.STRING).build())
                                 ))
                                 .build()
                         ),
-                        Pair(
-                                "Tag",
-                                MultiFormatSchema.builder()
-                                        .schemaFormat("application/json")
-                                        .schema(mapOf(
-                                                Pair("type", "object"),
-                                                Pair("properties", mapOf(
-                                                        Pair("id", mapOf(
-                                                                Pair("type", "integer"),
-                                                                Pair("format", "int64")
-                                                        )),
-                                                        Pair("name", mapOf(
-                                                                Pair("type", "string")
-                                                        ))
-                                                ))
+                        Pair("Tag", JsonFormatSchema(
+                                "application/schema+json;version=draft-07",
+                                JsonSchema.builder()
+                                        .type("object")
+                                        .properties(mapOf(
+                                                Pair("id", JsonSchema.builder()
+                                                        .type("integer")
+                                                        .format("int64")
+                                                        .build()
+                                                ),
+                                                Pair("name", JsonSchema.builder()
+                                                        .type("string")
+                                                        .build()
+                                                )
                                         ))
                                         .build()
-                        ),
+                        )),
                         Pair("User", Reference("#/components/schemas/user"))
                 ))
                 .servers(mapOf(
