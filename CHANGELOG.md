@@ -5,7 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0-EAP-3] - TBA
+## [1.0.0-RC] - 2024-04-20
+
+### Added
+
+- OpenAPI Schema: 3.0.0, 3.0.1, 3.0.2, 3.0.3
+- Avro Schema: 1.9.0, 1.9.1, 1.9.2, 1.10.0, 1.10.1, 1.10.2, 1.11.0, 1.11.1
+- JsonSchema: Draft-07
+
+### Changed
+
+- MultiFormatSchema can hold AsyncAPI, OpenAPI, Avro and Json Schemas
+- Schema was divided to AsyncAPISchema and JsonSchema
 
 ## [1.0.0-EAP-3] - 2024-03-10
 
