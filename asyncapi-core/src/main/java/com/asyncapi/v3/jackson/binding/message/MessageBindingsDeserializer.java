@@ -19,7 +19,7 @@ import com.asyncapi.v3.binding.message.sns.SNSMessageBinding;
 import com.asyncapi.v3.binding.message.solace.SolaceMessageBinding;
 import com.asyncapi.v3.binding.message.sqs.SQSMessageBinding;
 import com.asyncapi.v3.binding.message.stomp.STOMPMessageBinding;
-import com.asyncapi.v3.binding.message.ws.WebSocketsMessageBinding;
+import com.asyncapi.bindings.websockets.v0._1_0.message.WebSocketsMessageBinding;
 import com.asyncapi.v3.jackson.BindingsMapDeserializer;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.ObjectCodec;

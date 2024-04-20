@@ -1,4 +1,4 @@
-package com.asyncapi.v3.binding.message.ws;
+package com.asyncapi.bindings.websockets.v0._1_0.message;
 
 import com.asyncapi.v3.binding.message.MessageBinding;
 import lombok.Data;
@@ -6,7 +6,9 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
- * This class MUST NOT contain any properties. Its name is reserved for future use.
+ * This class <b>MUST NOT</b> contain any properties.
+ * <p>
+ * Its name is reserved for future use.
  * <p>
  * Describes WebSockets message binding.
  *

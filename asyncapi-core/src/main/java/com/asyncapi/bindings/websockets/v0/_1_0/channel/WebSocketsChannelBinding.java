@@ -1,7 +1,7 @@
-package com.asyncapi.v3.binding.channel.ws;
+package com.asyncapi.bindings.websockets.v0._1_0.channel;
 
+import com.asyncapi.bindings.ChannelBinding;
 import com.asyncapi.v3.schema.AsyncAPISchema;
-import com.asyncapi.v3.binding.channel.ChannelBinding;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;

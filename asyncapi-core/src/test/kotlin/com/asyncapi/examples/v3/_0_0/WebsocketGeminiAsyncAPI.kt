@@ -12,7 +12,7 @@ import com.asyncapi.v3._0_0.model.info.Contact
 import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.server.Server
-import com.asyncapi.v3.binding.channel.ws.WebSocketsChannelBinding
+import com.asyncapi.bindings.websockets.v0._1_0.channel.WebSocketsChannelBinding
 import com.asyncapi.v3.schema.AsyncAPISchema
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
