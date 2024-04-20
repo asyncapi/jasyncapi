@@ -1,5 +1,6 @@
 package com.asyncapi.v3.schema.avro.v1._9_0.jackson;
 
+import com.asyncapi.v3.Reference;
 import com.asyncapi.v3.schema.avro.v1._9_0.AvroSchema;
 import com.asyncapi.v3.schema.avro.v1._9_0.AvroSchemaUnion;
 import com.fasterxml.jackson.core.JsonParser;
@@ -10,6 +11,7 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.JsonNodeType;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import java.io.IOException;
 
@@ -31,7 +33,7 @@ public class AvroSchemaDeserializer extends JsonDeserializer<Object> {
                 case ARRAY:
                     return readAsUnion((ArrayNode) jsonNode, objectCodec);
                 case OBJECT:
-                    return jsonParser.readValueAs(AvroSchema.class);
+                    return readAvroSchema((ObjectNode) jsonNode, objectCodec);
                 case STRING:
                     return jsonParser.readValueAs(String.class);
                 case BOOLEAN:
@@ -54,6 +56,16 @@ public class AvroSchemaDeserializer extends JsonDeserializer<Object> {
         }
 
         return avroSchemaUnion;
+    }
+
+    private Object readAvroSchema(ObjectNode objectNode, ObjectCodec objectCodec) throws IOException {
+        try (JsonParser jsonParser = objectNode.traverse(objectCodec)) {
+            if (objectNode.size() == 1 && objectNode.has("$ref")) {
+                return jsonParser.readValueAs(Reference.class);
+            }
+
+            return jsonParser.readValueAs(AvroSchema.class);
+        }
     }
 
 }

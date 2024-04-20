@@ -33,11 +33,29 @@ public class AvroFormatSchema extends MultiFormatSchema<Object> {
         super(schemaFormat(schemaFormat), schema);
     }
 
+    /**
+     * Schema <b>MUST</b> be one of:
+     * <ul>
+     *     <li>{@link com.asyncapi.v3.schema.avro.v1._9_0.AvroSchema}</li>
+     *     <li>{@link com.asyncapi.v3.schema.avro.v1._9_0.AvroSchemaUnion}</li>
+     *     <li>{@link com.asyncapi.v3.Reference}</li>
+     * </ul>
+     *
+     * @param schema Avro Schema or Reference
+     */
     @Override
     public void setSchema(@NotNull Object schema) {
         super.setSchema(schema);
     }
 
+    /**
+     * Schema:
+     * <ul>
+     *     <li>{@link com.asyncapi.v3.schema.avro.v1._9_0.AvroSchema}</li>
+     *     <li>{@link com.asyncapi.v3.schema.avro.v1._9_0.AvroSchemaUnion}</li>
+     *     <li>{@link com.asyncapi.v3.Reference}</li>
+     * </ul>
+     */
     @NotNull
     public Object getSchema() {
         return super.getSchema();

@@ -19,12 +19,10 @@ import com.asyncapi.v3.binding.channel.kafka.KafkaChannelTopicCleanupPolicy
 import com.asyncapi.v3.binding.channel.kafka.KafkaChannelTopicConfiguration
 import com.asyncapi.v3.binding.operation.kafka.KafkaOperationBinding
 import com.asyncapi.v3.binding.server.kafka.KafkaServerBinding
-import com.asyncapi.v3.schema.multiformat.MultiFormatSchema
 import com.asyncapi.v3.schema.AsyncAPISchema
+import com.asyncapi.v3.schema.multiformat.AvroFormatSchema
 import com.asyncapi.v3.security_scheme.SecurityScheme
-import org.junit.jupiter.api.Disabled
 
-@Disabled("Implement Avro Schema")
 class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
 
     override fun specificationLocation(): String = "/examples/v3.0.0/adeo-kafka-request-reply-asyncapi.yml"
@@ -253,9 +251,9 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
                                         ))
                                         .build()
                                 )
-                                .payload(MultiFormatSchema(
+                                .payload(AvroFormatSchema(
                                         "application/vnd.apache.avro;version=1.9.0",
-                                        mapOf(Pair("\$ref", "https://www.asyncapi.com/resources/casestudies/adeo/CostingRequestPayload.avsc"))
+                                        Reference("https://www.asyncapi.com/resources/casestudies/adeo/CostingRequestPayload.avsc")
                                 ))
                                 .build()
                         ),
@@ -289,9 +287,9 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
                                         ))
                                         .build()
                                 )
-                                .payload(MultiFormatSchema(
+                                .payload(AvroFormatSchema(
                                         "application/vnd.apache.avro;version=1.9.0",
-                                        mapOf(Pair("\$ref", "https://www.asyncapi.com/resources/casestudies/adeo/CostingResponsePayload.avsc"))
+                                        Reference("https://www.asyncapi.com/resources/casestudies/adeo/CostingResponsePayload.avsc")
                                 ))
                                 .build()
                         )
