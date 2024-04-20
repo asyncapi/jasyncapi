@@ -47,6 +47,9 @@ public class AvroSchemaArray extends AvroSchema {
         this.metadata = builder.metadata;
     }
 
+    /**
+     * The schema of the array's items.
+     */
     @NotNull
     @JsonProperty("items")
     @JsonDeserialize(using = AvroTypeDeserializer.class)

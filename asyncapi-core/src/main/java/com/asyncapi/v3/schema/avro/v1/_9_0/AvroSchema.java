@@ -1,5 +1,6 @@
 package com.asyncapi.v3.schema.avro.v1._9_0;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.Data;
@@ -58,19 +59,49 @@ public class AvroSchema extends AvroSchemaMetadata {
      * Avro Schema type.
      */
     @NotNull
+    @JsonProperty("type")
     private String type;
 
+    /**
+     * A JSON integer representing the scale (optional).
+     * <p>
+     * If not specified the scale is 0.
+     */
     @Nullable
+    @JsonProperty("scale")
     private Integer scale;
 
     /*
-        Type: bytes, fixed
+        Type: bytes, fixed, decimal
      */
 
+    /**
+     * A JSON integer representing the (maximum) precision of decimals stored in this type (required).
+     */
     @Nullable
+    @JsonProperty("precision")
     private Integer precision;
 
+    /**
+     * A logical type is an Avro primitive or complex type with extra attributes to represent a derived type.
+     * <p>
+     * The attribute logicalType must always be present for a logical type, and is a string with the name of one
+     * of the logical types listed later in this section. Other attributes may be defined for particular logical types.
+     * <p>
+     * <p>
+     * A logical type is always serialized using its underlying Avro type so that values are encoded in exactly the same
+     * way as the equivalent Avro type that does not have a logicalType attribute. Language implementations may choose to
+     * represent logical types with an appropriate native type, although this is not required.
+     * <p>
+     * Language implementations must ignore unknown logical types when reading, and should use the underlying Avro type.
+     * <p>
+     * If a logical type is invalid, for example a decimal with scale greater than its precision, then implementations
+     * should ignore the logical type and use the underlying Avro type.
+     *
+     * @see <a href="https://avro.apache.org/docs/1.9.0/spec.html#Logical+Types">Logical Types</a>
+     */
     @Nullable
+    @JsonProperty("logicalType")
     private String logicalType;
 
     public static Builder<?, ?> builder() {

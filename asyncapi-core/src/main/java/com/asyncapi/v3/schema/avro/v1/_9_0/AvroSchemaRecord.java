@@ -1,5 +1,6 @@
 package com.asyncapi.v3.schema.avro.v1._9_0;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.jetbrains.annotations.NotNull;
@@ -62,30 +63,35 @@ public class AvroSchemaRecord extends AvroSchema {
      * A JSON string providing the name of the record (required).
      */
     @NotNull
+    @JsonProperty("name")
     private String name = "";
 
     /**
      * A JSON string that qualifies the name.
      */
     @Nullable
+    @JsonProperty("namespace")
     private String namespace;
 
     /**
      * A JSON string providing documentation to the user of this schema (optional).
      */
     @Nullable
+    @JsonProperty("doc")
     private String doc;
 
     /**
      * A JSON array of strings, providing alternate names for this record (optional).
      */
     @Nullable
+    @JsonProperty("aliases")
     private List<@NotNull String> aliases;
 
     /**
      * A JSON array, listing fields (required).
      */
     @NotNull
+    @JsonProperty("fields")
     private List<@NotNull AvroSchemaRecordField> fields = Collections.emptyList();
 
     @NotNull
@@ -114,9 +120,6 @@ public class AvroSchemaRecord extends AvroSchema {
         @Nullable
         private String doc;
 
-        @NotNull
-        private List<@NotNull String> symbols = Collections.emptyList();
-
         @Nullable
         private List<@NotNull String> aliases;
 
@@ -138,12 +141,6 @@ public class AvroSchemaRecord extends AvroSchema {
         @NotNull
         public Builder doc(@Nullable String doc) {
             this.doc = doc;
-            return this;
-        }
-
-        @NotNull
-        public Builder symbols(@NotNull List<@NotNull String> symbols) {
-            this.symbols = symbols;
             return this;
         }
 

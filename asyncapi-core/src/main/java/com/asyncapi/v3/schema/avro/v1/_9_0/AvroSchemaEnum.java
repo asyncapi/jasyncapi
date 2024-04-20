@@ -69,6 +69,7 @@ public class AvroSchemaEnum extends AvroSchema {
      * A JSON string providing documentation to the user of this schema (optional).
      */
     @Nullable
+    @JsonProperty("doc")
     private String doc;
 
     /**
@@ -79,6 +80,7 @@ public class AvroSchemaEnum extends AvroSchema {
      *  Every symbol must match the regular expression [A-Za-z_][A-Za-z0-9_]* (the same requirement as for <a href="https://avro.apache.org/docs/1.9.0/spec.html#names">names</a>).
      */
     @NotNull
+    @JsonProperty("symbols")
     private List<@NotNull String> symbols = Collections.emptyList();
 
     /**

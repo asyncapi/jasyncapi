@@ -61,12 +61,14 @@ public class AvroSchemaFixed extends AvroSchema {
      * A JSON array of strings, providing alternate names for this record (optional).
      */
     @Nullable
+    @JsonProperty("aliases")
     private List<@NotNull String> aliases;
 
     /**
      * An integer, specifying the number of bytes per value (required).
      */
     @NotNull
+    @JsonProperty("size")
     private Integer size;
 
     @NotNull
