@@ -1,9 +1,9 @@
-package com.asyncapi.v3.schema.openapi
+package com.asyncapi.v3.schema.openapi.v3._0_0
 
 import com.asyncapi.v3.schema.SchemaProvider
-import com.asyncapi.v3.schema.openapi.properties.Discriminator
-import com.asyncapi.v3.schema.openapi.properties.ExternalDocumentation
-import com.asyncapi.v3.schema.openapi.properties.XML
+import com.asyncapi.v3.schema.openapi.v3._0_0.properties.Discriminator
+import com.asyncapi.v3.schema.openapi.v3._0_0.properties.ExternalDocumentation
+import com.asyncapi.v3.schema.openapi.v3._0_0.properties.XML
 import java.math.BigDecimal
 
 class SchemaTest: SchemaProvider {

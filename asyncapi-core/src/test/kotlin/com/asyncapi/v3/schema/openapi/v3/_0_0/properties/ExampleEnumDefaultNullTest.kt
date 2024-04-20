@@ -1,7 +1,7 @@
-package com.asyncapi.v3.schema.openapi.properties
+package com.asyncapi.v3.schema.openapi.v3._0_0.properties
 
 import com.asyncapi.v3.schema.SchemaProvider
-import com.asyncapi.v3.schema.openapi.OpenAPISchema
+import com.asyncapi.v3.schema.openapi.v3._0_0.OpenAPISchema
 
 class ExampleEnumDefaultNullTest: SchemaProvider {
 

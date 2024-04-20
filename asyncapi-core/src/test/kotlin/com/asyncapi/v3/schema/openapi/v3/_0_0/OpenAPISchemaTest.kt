@@ -1,8 +1,8 @@
-package com.asyncapi.v3.schema.openapi
+package com.asyncapi.v3.schema.openapi.v3._0_0
 
 import com.asyncapi.v3.ClasspathUtils
 import com.asyncapi.v3.schema.SchemaProvider
-import com.asyncapi.v3.schema.openapi.properties.*
+import com.asyncapi.v3.schema.openapi.v3._0_0.properties.*
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Assertions
