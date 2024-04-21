@@ -1,6 +1,6 @@
 package com.asyncapi.v3.binding.server.mqtt5;
 
-import com.asyncapi.v3.binding.server.ServerBinding;
+import com.asyncapi.bindings.ServerBinding;
 import lombok.*;
 
 /**

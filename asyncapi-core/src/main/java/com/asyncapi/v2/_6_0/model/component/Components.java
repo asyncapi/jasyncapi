@@ -14,7 +14,7 @@ import com.asyncapi.v2._6_0.model.channel.ChannelItem;
 import com.asyncapi.bindings.ChannelBinding;
 import com.asyncapi.bindings.MessageBinding;
 import com.asyncapi.bindings.OperationBinding;
-import com.asyncapi.v2.binding.server.ServerBinding;
+import com.asyncapi.bindings.ServerBinding;
 import com.asyncapi.v2.jackson.binding.channel.ChannelBindingsDeserializer;
 import com.asyncapi.v2.jackson.binding.message.MessageBindingsDeserializer;
 import com.asyncapi.v2.jackson.binding.operation.OperationBindingsDeserializer;

@@ -1,6 +1,6 @@
 package com.asyncapi.v2.binding.server.anypointmq;
 
-import com.asyncapi.v2.binding.server.ServerBinding;
+import com.asyncapi.bindings.ServerBinding;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

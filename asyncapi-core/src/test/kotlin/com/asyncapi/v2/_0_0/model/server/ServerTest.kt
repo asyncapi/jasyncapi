@@ -1,7 +1,7 @@
 package com.asyncapi.v2._0_0.model.server
 
 import com.asyncapi.v2.SerDeTest
-import com.asyncapi.v2.binding.server.ServerBinding
+import com.asyncapi.bindings.ServerBinding
 import com.asyncapi.v2.binding.server.amqp1.AMQP1ServerBinding
 import com.asyncapi.v2.binding.server.anypointmq.AnypointMQServerBinding
 import com.asyncapi.v2.binding.server.googlepubsub.GooglePubSubServerBinding

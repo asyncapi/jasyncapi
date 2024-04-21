@@ -2,7 +2,7 @@ package com.asyncapi.v3._0_0.model.server;
 
 import com.asyncapi.v3.jackson.binding.server.ServerBindingsDeserializer;
 import com.asyncapi.v3._0_0.jackson.model.server.ServerVariablesDeserializer;
-import com.asyncapi.v3.binding.server.ServerBinding;
+import com.asyncapi.bindings.ServerBinding;
 import com.asyncapi.ExtendableObject;
 import com.asyncapi.v3.Reference;
 import com.asyncapi.v3._0_0.jackson.model.ExternalDocumentationDeserializer;
