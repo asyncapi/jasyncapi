@@ -11,10 +11,11 @@ import org.jetbrains.annotations.Nullable;
 /**
  * Describes WebSockets channel binding.
  * <p>
- * When using WebSockets, the channel represents the connection. Unlike other protocols that support multiple virtual
- * channels (topics, routing keys, etc.) per connection, WebSockets doesn't support virtual channels or, put it another
- * way, there's only one channel and its characteristics are strongly related to the protocol used for the handshake,
- * i.e., HTTP.
+ * When using WebSockets, the channel represents the connection.
+ * <p>
+ * Unlike other protocols that support multiple virtual channels (topics, routing keys, etc.) per connection,
+ * WebSockets doesn't support virtual channels or, put it another way, there's only one channel and its characteristics
+ * are strongly related to the protocol used for the handshake, i.e., HTTP.
  *
  * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/websockets#channel-binding-object">WebSockets channel binding</a>
@@ -29,7 +30,9 @@ import org.jetbrains.annotations.Nullable;
 public class WebSocketsChannelBinding extends ChannelBinding {
 
     /**
-     * The HTTP method to use when establishing the connection. Its value MUST be either GET or POST.
+     * The HTTP method to use when establishing the connection.
+     * <p>
+     * Its value <b>MUST</b> be either GET or POST.
      */
     @Nullable
     @JsonProperty("method")
@@ -37,8 +40,9 @@ public class WebSocketsChannelBinding extends ChannelBinding {
     private WebSocketsChannelMethod method;
 
     /**
-     * A Schema object containing the definitions for each query parameter. This schema MUST be of type
-     * object and have a properties key.
+     * A Schema object containing the definitions for each query parameter.
+     * <p>
+     * This schema <b>MUST</b> be of type object and have a properties key.
      */
     @Nullable
     @JsonProperty("query")
@@ -47,7 +51,8 @@ public class WebSocketsChannelBinding extends ChannelBinding {
 
     /**
      * A Schema object containing the definitions of the HTTP headers to use when establishing the connection.
-     * This schema MUST be of type object and have a properties key.
+     * <p>
+     * This schema <b>MUST</b> be of type object and have a properties key.
      */
     @Nullable
     @JsonProperty("headers")
@@ -55,7 +60,7 @@ public class WebSocketsChannelBinding extends ChannelBinding {
     private AsyncAPISchema headers;
 
     /**
-     * The version of this binding. If omitted, "latest" MUST be assumed.
+     * The version of this binding. If omitted, "latest" <b>MUST</b> be assumed.
      */
     @Nullable
     @Builder.Default
