@@ -1,4 +1,4 @@
-package com.asyncapi.v2.binding.message.redis;
+package com.asyncapi.bindings.redis.v0._1_0.message;
 
 import com.asyncapi.bindings.MessageBinding;
 import lombok.Data;

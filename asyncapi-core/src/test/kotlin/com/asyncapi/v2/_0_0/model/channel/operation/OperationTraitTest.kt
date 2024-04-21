@@ -16,7 +16,7 @@ import com.asyncapi.v2.binding.operation.mqtt.MQTTOperationBindingTest
 import com.asyncapi.v2.binding.operation.mqtt5.MQTT5OperationBinding
 import com.asyncapi.v2.binding.operation.nats.NATSOperationBindingTest
 import com.asyncapi.v2.binding.operation.pulsar.PulsarOperationBinding
-import com.asyncapi.v2.binding.operation.redis.RedisOperationBinding
+import com.asyncapi.bindings.redis.v0._1_0.operation.RedisOperationBinding
 import com.asyncapi.bindings.sns.v0._1_0.operation.SNSOperationBinding
 import com.asyncapi.v2.binding.operation.solace.SolaceOperationBindingTest
 import com.asyncapi.bindings.sqs.v0._1_0.operation.SQSOperationBinding

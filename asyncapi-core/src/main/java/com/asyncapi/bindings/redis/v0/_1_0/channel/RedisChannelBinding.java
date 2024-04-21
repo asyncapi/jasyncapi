@@ -1,4 +1,4 @@
-package com.asyncapi.v2.binding.channel.redis;
+package com.asyncapi.bindings.redis.v0._1_0.channel;
 
 import com.asyncapi.bindings.ChannelBinding;
 import lombok.Data;

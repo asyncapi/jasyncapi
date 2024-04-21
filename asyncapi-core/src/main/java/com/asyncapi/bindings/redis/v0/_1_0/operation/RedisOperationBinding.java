@@ -1,4 +1,4 @@
-package com.asyncapi.v2.binding.operation.redis;
+package com.asyncapi.bindings.redis.v0._1_0.operation;
 
 import com.asyncapi.bindings.OperationBinding;
 import lombok.Data;

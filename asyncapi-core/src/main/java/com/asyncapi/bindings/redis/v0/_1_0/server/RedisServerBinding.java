@@ -1,4 +1,4 @@
-package com.asyncapi.v2.binding.server.redis;
+package com.asyncapi.bindings.redis.v0._1_0.server;
 
 import com.asyncapi.bindings.ServerBinding;
 import lombok.Data;
