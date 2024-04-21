@@ -1,14 +1,10 @@
-package com.asyncapi.v2.binding.operation.nats;
+package com.asyncapi.bindings.nats.v0._1_0.operation;
 
 import com.asyncapi.bindings.OperationBinding;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.jetbrains.annotations.Nullable;
 
 /**

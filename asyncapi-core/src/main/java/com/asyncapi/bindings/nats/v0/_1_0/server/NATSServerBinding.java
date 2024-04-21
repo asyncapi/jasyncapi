@@ -1,4 +1,4 @@
-package com.asyncapi.v3.binding.server.nats;
+package com.asyncapi.bindings.nats.v0._1_0.server;
 
 import com.asyncapi.bindings.ServerBinding;
 import lombok.Data;

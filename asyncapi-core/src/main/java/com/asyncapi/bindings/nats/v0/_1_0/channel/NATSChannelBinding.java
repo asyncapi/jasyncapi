@@ -1,4 +1,4 @@
-package com.asyncapi.v3.binding.channel.nats;
+package com.asyncapi.bindings.nats.v0._1_0.channel;
 
 import com.asyncapi.bindings.ChannelBinding;
 import lombok.Data;

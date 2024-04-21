@@ -12,7 +12,7 @@ import com.asyncapi.v2.binding.channel.kafka.KafkaChannelBinding;
 import com.asyncapi.v2.binding.channel.mercure.MercureChannelBinding;
 import com.asyncapi.v2.binding.channel.mqtt.MQTTChannelBinding;
 import com.asyncapi.v2.binding.channel.mqtt5.MQTT5ChannelBinding;
-import com.asyncapi.v2.binding.channel.nats.NATSChannelBinding;
+import com.asyncapi.bindings.nats.v0._1_0.channel.NATSChannelBinding;
 import com.asyncapi.bindings.pulsar.v0._1_0.channel.PulsarChannelBinding;
 import com.asyncapi.bindings.redis.v0._1_0.channel.RedisChannelBinding;
 import com.asyncapi.bindings.sns.v0._1_0.channel.SNSChannelBinding;
