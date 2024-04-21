@@ -1,6 +1,7 @@
 package com.asyncapi.v3.binding.server.solace
 
 import com.asyncapi.v3.SerDeTest
+import com.asyncapi.bindings.solace.v0._3_0.server.SolaceServerBinding
 
 /**
  * @version 3.0.0

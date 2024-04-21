@@ -17,7 +17,7 @@ import com.asyncapi.v2.binding.server.nats.NATSServerBinding
 import com.asyncapi.v2.binding.server.pulsar.PulsarServerBinding
 import com.asyncapi.v2.binding.server.redis.RedisServerBinding
 import com.asyncapi.v2.binding.server.sns.SNSServerBinding
-import com.asyncapi.v2.binding.server.solace.SolaceServerBinding
+import com.asyncapi.bindings.solace.v0._3_0.server.SolaceServerBinding
 import com.asyncapi.bindings.sqs.v0._1_0.server.SQSServerBinding
 import com.asyncapi.bindings.stomp.v0._1_0.server.STOMPServerBinding
 import com.asyncapi.bindings.websockets.v0._1_0.server.WebSocketsServerBinding

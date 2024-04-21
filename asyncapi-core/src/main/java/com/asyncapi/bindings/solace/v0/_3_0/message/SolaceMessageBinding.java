@@ -1,4 +1,4 @@
-package com.asyncapi.v2.binding.message.solace;
+package com.asyncapi.bindings.solace.v0._3_0.message;
 
 import com.asyncapi.bindings.MessageBinding;
 import lombok.Builder;

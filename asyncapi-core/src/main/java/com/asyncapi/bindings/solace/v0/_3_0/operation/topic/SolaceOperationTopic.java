@@ -1,4 +1,4 @@
-package com.asyncapi.v3.binding.operation.solace.topic;
+package com.asyncapi.bindings.solace.v0._3_0.operation.topic;
 
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;

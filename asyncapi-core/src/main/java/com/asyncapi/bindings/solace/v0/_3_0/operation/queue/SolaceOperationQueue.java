@@ -1,4 +1,4 @@
-package com.asyncapi.v2.binding.operation.solace.queue;
+package com.asyncapi.bindings.solace.v0._3_0.operation.queue;
 
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;

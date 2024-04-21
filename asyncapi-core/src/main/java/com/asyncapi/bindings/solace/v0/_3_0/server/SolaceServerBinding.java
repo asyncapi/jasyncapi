@@ -1,4 +1,4 @@
-package com.asyncapi.v3.binding.server.solace;
+package com.asyncapi.bindings.solace.v0._3_0.server;
 
 import com.asyncapi.bindings.ServerBinding;
 import com.fasterxml.jackson.annotation.JsonClassDescription;

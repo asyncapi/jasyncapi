@@ -1,7 +1,7 @@
-package com.asyncapi.v3.binding.operation.solace;
+package com.asyncapi.bindings.solace.v0._3_0.operation;
 
-import com.asyncapi.v3.binding.operation.solace.queue.SolaceOperationQueue;
-import com.asyncapi.v3.binding.operation.solace.topic.SolaceOperationTopic;
+import com.asyncapi.bindings.solace.v0._3_0.operation.queue.SolaceOperationQueue;
+import com.asyncapi.bindings.solace.v0._3_0.operation.topic.SolaceOperationTopic;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;

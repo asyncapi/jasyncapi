@@ -1,8 +1,10 @@
 package com.asyncapi.v2.binding.operation.solace
 
 import com.asyncapi.v2.SerDeTest
-import com.asyncapi.v2.binding.operation.solace.queue.SolaceOperationQueue
-import com.asyncapi.v2.binding.operation.solace.topic.SolaceOperationTopic
+import com.asyncapi.bindings.solace.v0._3_0.operation.SolaceOperationBinding
+import com.asyncapi.bindings.solace.v0._3_0.operation.SolaceOperationDestination
+import com.asyncapi.bindings.solace.v0._3_0.operation.queue.SolaceOperationQueue
+import com.asyncapi.bindings.solace.v0._3_0.operation.topic.SolaceOperationTopic
 
 class SolaceOperationBindingTest: SerDeTest<SolaceOperationBinding>() {
 
