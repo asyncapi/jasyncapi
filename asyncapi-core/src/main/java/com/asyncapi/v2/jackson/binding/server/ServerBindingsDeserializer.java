@@ -13,7 +13,7 @@ import com.asyncapi.v2.binding.server.mercure.MercureServerBinding;
 import com.asyncapi.v2.binding.server.mqtt.MQTTServerBinding;
 import com.asyncapi.v2.binding.server.mqtt5.MQTT5ServerBinding;
 import com.asyncapi.v2.binding.server.nats.NATSServerBinding;
-import com.asyncapi.v2.binding.server.pulsar.PulsarServerBinding;
+import com.asyncapi.bindings.pulsar.v0._1_0.server.PulsarServerBinding;
 import com.asyncapi.bindings.redis.v0._1_0.server.RedisServerBinding;
 import com.asyncapi.bindings.sns.v0._1_0.server.SNSServerBinding;
 import com.asyncapi.bindings.solace.v0._3_0.server.SolaceServerBinding;

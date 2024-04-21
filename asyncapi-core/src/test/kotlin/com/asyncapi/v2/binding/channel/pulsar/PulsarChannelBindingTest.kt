@@ -1,6 +1,9 @@
 package com.asyncapi.v2.binding.channel.pulsar
 
 import com.asyncapi.v2.SerDeTest
+import com.asyncapi.bindings.pulsar.v0._1_0.channel.PulsarChannelBinding
+import com.asyncapi.bindings.pulsar.v0._1_0.channel.PulsarChannelPersistence
+import com.asyncapi.bindings.pulsar.v0._1_0.channel.PulsarChannelRetentionDefinition
 
 class PulsarChannelBindingTest: SerDeTest<PulsarChannelBinding>() {
 

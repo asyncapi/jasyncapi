@@ -13,7 +13,7 @@ import com.asyncapi.v2.binding.message.mercure.MercureMessageBinding;
 import com.asyncapi.v2.binding.message.mqtt.MQTTMessageBinding;
 import com.asyncapi.v2.binding.message.mqtt5.MQTT5MessageBinding;
 import com.asyncapi.v2.binding.message.nats.NATSMessageBinding;
-import com.asyncapi.v2.binding.message.pulsar.PulsarMessageBinding;
+import com.asyncapi.bindings.pulsar.v0._1_0.message.PulsarMessageBinding;
 import com.asyncapi.bindings.redis.v0._1_0.message.RedisMessageBinding;
 import com.asyncapi.bindings.sns.v0._1_0.message.SNSMessageBinding;
 import com.asyncapi.bindings.solace.v0._3_0.message.SolaceMessageBinding;

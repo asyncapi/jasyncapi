@@ -1,4 +1,4 @@
-package com.asyncapi.v3.binding.server.pulsar;
+package com.asyncapi.bindings.pulsar.v0._1_0.server;
 
 import com.asyncapi.bindings.ServerBinding;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
