@@ -1,4 +1,4 @@
-package com.asyncapi.v3.binding.server.mqtt;
+package com.asyncapi.bindings.mqtt.v0._1_0.server;
 
 import com.asyncapi.bindings.ServerBinding;
 import com.fasterxml.jackson.annotation.JsonClassDescription;

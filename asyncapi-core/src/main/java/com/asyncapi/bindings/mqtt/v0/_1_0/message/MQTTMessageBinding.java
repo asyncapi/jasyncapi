@@ -1,13 +1,9 @@
-package com.asyncapi.v2.binding.message.mqtt;
+package com.asyncapi.bindings.mqtt.v0._1_0.message;
 
 import com.asyncapi.bindings.MessageBinding;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.jetbrains.annotations.Nullable;
 
 /**

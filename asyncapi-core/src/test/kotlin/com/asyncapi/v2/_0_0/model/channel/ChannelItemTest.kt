@@ -14,7 +14,7 @@ import com.asyncapi.v2.binding.channel.ibmmq.IBMMQChannelBindingTest
 import com.asyncapi.v2.binding.channel.jms.JMSChannelBinding
 import com.asyncapi.v2.binding.channel.kafka.KafkaChannelBindingTest
 import com.asyncapi.v2.binding.channel.mercure.MercureChannelBinding
-import com.asyncapi.v2.binding.channel.mqtt.MQTTChannelBinding
+import com.asyncapi.bindings.mqtt.v0._1_0.channel.MQTTChannelBinding
 import com.asyncapi.bindings.mqtt5.v0._2_0.channel.MQTT5ChannelBinding
 import com.asyncapi.bindings.nats.v0._1_0.channel.NATSChannelBinding
 import com.asyncapi.v2.binding.channel.pulsar.PulsarChannelBindingTest

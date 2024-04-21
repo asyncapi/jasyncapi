@@ -10,7 +10,7 @@ import com.asyncapi.v3.binding.server.ibmmq.IBMMQServerBinding;
 import com.asyncapi.v3.binding.server.jms.JMSServerBinding;
 import com.asyncapi.v3.binding.server.kafka.KafkaServerBinding;
 import com.asyncapi.v3.binding.server.mercure.MercureServerBinding;
-import com.asyncapi.v3.binding.server.mqtt.MQTTServerBinding;
+import com.asyncapi.bindings.mqtt.v0._1_0.server.MQTTServerBinding;
 import com.asyncapi.bindings.mqtt5.v0._2_0.server.MQTT5ServerBinding;
 import com.asyncapi.bindings.nats.v0._1_0.server.NATSServerBinding;
 import com.asyncapi.bindings.pulsar.v0._1_0.server.PulsarServerBinding;

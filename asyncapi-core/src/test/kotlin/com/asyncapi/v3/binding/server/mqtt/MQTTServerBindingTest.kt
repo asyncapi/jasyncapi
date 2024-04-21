@@ -1,6 +1,8 @@
 package com.asyncapi.v3.binding.server.mqtt
 
 import com.asyncapi.v3.SerDeTest
+import com.asyncapi.bindings.mqtt.v0._1_0.server.MQTTServerBinding
+import com.asyncapi.bindings.mqtt.v0._1_0.server.MQTTServerLastWillConfiguration
 
 /**
  * @version 3.0.0

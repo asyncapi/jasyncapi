@@ -16,7 +16,7 @@ import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.operation.OperationTrait
 import com.asyncapi.v3._0_0.model.server.Server
 import com.asyncapi.v3._0_0.model.server.ServerVariable
-import com.asyncapi.v3.binding.operation.mqtt.MQTTOperationBinding
+import com.asyncapi.bindings.mqtt.v0._1_0.operation.MQTTOperationBinding
 import com.asyncapi.v3.schema.AsyncAPISchema
 import com.asyncapi.v3.security_scheme.oauth2.OAuth2SecurityScheme
 import com.asyncapi.v3.security_scheme.oauth2.OAuthFlows
