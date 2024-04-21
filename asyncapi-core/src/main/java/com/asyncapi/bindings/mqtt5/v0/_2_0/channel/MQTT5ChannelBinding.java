@@ -1,4 +1,4 @@
-package com.asyncapi.v2.binding.channel.mqtt5;
+package com.asyncapi.bindings.mqtt5.v0._2_0.channel;
 
 import com.asyncapi.bindings.ChannelBinding;
 import lombok.Data;

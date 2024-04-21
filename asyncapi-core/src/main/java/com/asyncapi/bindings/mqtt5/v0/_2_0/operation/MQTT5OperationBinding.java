@@ -1,4 +1,4 @@
-package com.asyncapi.v3.binding.operation.mqtt5;
+package com.asyncapi.bindings.mqtt5.v0._2_0.operation;
 
 import com.asyncapi.bindings.OperationBinding;
 import lombok.Data;

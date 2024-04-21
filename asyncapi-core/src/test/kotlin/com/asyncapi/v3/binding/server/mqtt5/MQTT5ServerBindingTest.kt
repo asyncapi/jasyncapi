@@ -1,6 +1,7 @@
 package com.asyncapi.v3.binding.server.mqtt5
 
 import com.asyncapi.v3.SerDeTest
+import com.asyncapi.bindings.mqtt5.v0._2_0.server.MQTT5ServerBinding
 
 /**
  * @version 3.0.0

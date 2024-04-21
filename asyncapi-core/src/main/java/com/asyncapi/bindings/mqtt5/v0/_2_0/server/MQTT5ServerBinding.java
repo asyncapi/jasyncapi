@@ -1,11 +1,7 @@
-package com.asyncapi.v2.binding.server.mqtt5;
+package com.asyncapi.bindings.mqtt5.v0._2_0.server;
 
 import com.asyncapi.bindings.ServerBinding;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 /**
  * Describes MQTT 5 server binding.
