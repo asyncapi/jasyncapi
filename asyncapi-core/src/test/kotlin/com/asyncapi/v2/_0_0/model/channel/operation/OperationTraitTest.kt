@@ -21,7 +21,7 @@ import com.asyncapi.v2.binding.operation.sns.SNSOperationBinding
 import com.asyncapi.v2.binding.operation.solace.SolaceOperationBindingTest
 import com.asyncapi.v2.binding.operation.sqs.SQSOperationBinding
 import com.asyncapi.bindings.stomp.v0._1_0.operation.STOMPOperationBinding
-import com.asyncapi.v2.binding.operation.ws.WebSocketsOperationBinding
+import com.asyncapi.bindings.websockets.v0._1_0.operation.WebSocketsOperationBinding
 
 /**
  * @author Pavel Bodiachevskii

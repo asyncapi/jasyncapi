@@ -24,7 +24,7 @@ import com.asyncapi.v2.binding.message.sns.SNSMessageBinding
 import com.asyncapi.v2.binding.message.solace.SolaceMessageBinding
 import com.asyncapi.v2.binding.message.sqs.SQSMessageBinding
 import com.asyncapi.bindings.stomp.v0._1_0.message.STOMPMessageBinding
-import com.asyncapi.v2.binding.message.ws.WebSocketsMessageBinding
+import com.asyncapi.bindings.websockets.v0._1_0.message.WebSocketsMessageBinding
 
 /**
  * @author Pavel Bodiachevskii
