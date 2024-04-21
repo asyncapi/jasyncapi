@@ -1,6 +1,6 @@
 package com.asyncapi.v3.binding.operation.jms;
 
-import com.asyncapi.v3.binding.operation.OperationBinding;
+import com.asyncapi.bindings.OperationBinding;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

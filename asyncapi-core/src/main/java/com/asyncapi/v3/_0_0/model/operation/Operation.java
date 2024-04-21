@@ -9,7 +9,7 @@ import com.asyncapi.v3._0_0.jackson.model.operation.reply.OperationReplyDeserial
 import com.asyncapi.v3._0_0.model.ExternalDocumentation;
 import com.asyncapi.v3._0_0.model.Tag;
 import com.asyncapi.v3._0_0.model.operation.reply.OperationReply;
-import com.asyncapi.v3.binding.operation.OperationBinding;
+import com.asyncapi.bindings.OperationBinding;
 import com.asyncapi.v3.jackson.binding.operation.OperationBindingsDeserializer;
 import com.asyncapi.v3.jackson.security_scheme.SecuritySchemesDeserializer;
 import com.asyncapi.v3.security_scheme.SecurityScheme;

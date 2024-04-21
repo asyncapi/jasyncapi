@@ -1,7 +1,7 @@
 package com.asyncapi.v3.binding.operation.http;
 
 import com.asyncapi.v3.schema.AsyncAPISchema;
-import com.asyncapi.v3.binding.operation.OperationBinding;
+import com.asyncapi.bindings.OperationBinding;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import lombok.*;

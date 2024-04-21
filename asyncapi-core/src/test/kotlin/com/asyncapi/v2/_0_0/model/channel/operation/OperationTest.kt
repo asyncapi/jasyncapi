@@ -5,7 +5,7 @@ import com.asyncapi.v2._0_0.model.ExternalDocumentation
 import com.asyncapi.v2.Reference
 import com.asyncapi.v2._0_0.model.Tag
 import com.asyncapi.v2._0_0.model.channel.message.MessageTest
-import com.asyncapi.v2.binding.operation.OperationBinding
+import com.asyncapi.bindings.OperationBinding
 import com.asyncapi.v2.binding.operation.amqp.AMQPOperationBindingTest
 import com.asyncapi.v2.binding.operation.amqp1.AMQP1OperationBinding
 import com.asyncapi.v2.binding.operation.anypointmq.AnypointMQOperationBinding

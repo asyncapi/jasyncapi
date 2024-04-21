@@ -5,7 +5,7 @@ import com.asyncapi.v2._6_0.jackson.model.channel.operation.OperationMessageDese
 import com.asyncapi.v2._6_0.jackson.model.channel.operation.OperationTraitsDeserializer;
 import com.asyncapi.v2._6_0.model.ExternalDocumentation;
 import com.asyncapi.v2._6_0.model.Tag;
-import com.asyncapi.v2.binding.operation.OperationBinding;
+import com.asyncapi.bindings.OperationBinding;
 import com.asyncapi.v2.jackson.binding.operation.OperationBindingsDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;

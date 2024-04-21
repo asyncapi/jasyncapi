@@ -1,6 +1,6 @@
 package com.asyncapi.v2.binding.operation.pulsar;
 
-import com.asyncapi.v2.binding.operation.OperationBinding;
+import com.asyncapi.bindings.OperationBinding;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

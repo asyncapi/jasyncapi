@@ -1,6 +1,6 @@
 package com.asyncapi.v3.binding.operation.ibmmq;
 
-import com.asyncapi.v3.binding.operation.OperationBinding;
+import com.asyncapi.bindings.OperationBinding;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
