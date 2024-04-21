@@ -9,8 +9,9 @@ import com.asyncapi.v2._0_0.model.component.Components
 import com.asyncapi.v2._0_0.model.info.Contact
 import com.asyncapi.v2._0_0.model.info.Info
 import com.asyncapi.v2._0_0.model.server.Server
-import com.asyncapi.v2.binding.channel.ws.WebSocketsChannelBinding
+import com.asyncapi.bindings.websockets.v0._1_0.channel.WebSocketsChannelBinding
 import com.asyncapi.v2.schema.Schema
+import com.asyncapi.v3.schema.AsyncAPISchema
 
 class WebsocketGemini: AbstractExampleValidationTest() {
 
@@ -133,7 +134,7 @@ class WebsocketGemini: AbstractExampleValidationTest() {
                                                         "ws",
                                                         WebSocketsChannelBinding.builder()
                                                                 .query(
-                                                                        Schema.builder()
+                                                                        AsyncAPISchema.builder()
                                                                                 .type("object")
                                                                                 .description(
                                                                                         "The semantics of entry type filtering is:\n" +
@@ -146,7 +147,7 @@ class WebsocketGemini: AbstractExampleValidationTest() {
                                                                                 .properties(mapOf(
                                                                                         Pair(
                                                                                                 "heartbeat",
-                                                                                                Schema.builder()
+                                                                                                AsyncAPISchema.builder()
                                                                                                         .type("boolean")
                                                                                                         .defaultValue(false)
                                                                                                         .description(
@@ -157,7 +158,7 @@ class WebsocketGemini: AbstractExampleValidationTest() {
                                                                                         ),
                                                                                         Pair(
                                                                                                 "top_of_book",
-                                                                                                Schema.builder()
+                                                                                                AsyncAPISchema.builder()
                                                                                                         .type("boolean")
                                                                                                         .defaultValue(false)
                                                                                                         .description(
@@ -169,7 +170,7 @@ class WebsocketGemini: AbstractExampleValidationTest() {
                                                                                         ),
                                                                                         Pair(
                                                                                                 "bids",
-                                                                                                Schema.builder()
+                                                                                                AsyncAPISchema.builder()
                                                                                                         .type("boolean")
                                                                                                         .defaultValue(true)
                                                                                                         .description("Include bids in change events")
@@ -177,7 +178,7 @@ class WebsocketGemini: AbstractExampleValidationTest() {
                                                                                         ),
                                                                                         Pair(
                                                                                                 "offers",
-                                                                                                Schema.builder()
+                                                                                                AsyncAPISchema.builder()
                                                                                                         .type("boolean")
                                                                                                         .defaultValue(true)
                                                                                                         .description("Include asks in change events")
@@ -185,7 +186,7 @@ class WebsocketGemini: AbstractExampleValidationTest() {
                                                                                         ),
                                                                                         Pair(
                                                                                                 "trades",
-                                                                                                Schema.builder()
+                                                                                                AsyncAPISchema.builder()
                                                                                                         .type("boolean")
                                                                                                         .defaultValue(true)
                                                                                                         .description("Include trade events")
@@ -193,7 +194,7 @@ class WebsocketGemini: AbstractExampleValidationTest() {
                                                                                         ),
                                                                                         Pair(
                                                                                                 "auctions",
-                                                                                                Schema.builder()
+                                                                                                AsyncAPISchema.builder()
                                                                                                         .type("boolean")
                                                                                                         .defaultValue(true)
                                                                                                         .description("Include auction events")
