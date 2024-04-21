@@ -18,7 +18,7 @@ import com.asyncapi.v2.binding.operation.redis.RedisOperationBinding;
 import com.asyncapi.v2.binding.operation.sns.SNSOperationBinding;
 import com.asyncapi.v2.binding.operation.solace.SolaceOperationBinding;
 import com.asyncapi.v2.binding.operation.sqs.SQSOperationBinding;
-import com.asyncapi.v2.binding.operation.stomp.STOMPOperationBinding;
+import com.asyncapi.bindings.stomp.v0._1_0.operation.STOMPOperationBinding;
 import com.asyncapi.v2.binding.operation.ws.WebSocketsOperationBinding;
 import com.asyncapi.v2.jackson.BindingsMapDeserializer;
 import com.fasterxml.jackson.core.JsonParser;

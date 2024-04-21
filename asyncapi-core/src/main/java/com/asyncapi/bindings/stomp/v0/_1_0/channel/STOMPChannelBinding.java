@@ -1,4 +1,4 @@
-package com.asyncapi.v2.binding.channel.stomp;
+package com.asyncapi.bindings.stomp.v0._1_0.channel;
 
 import com.asyncapi.bindings.ChannelBinding;
 import lombok.Data;
@@ -6,7 +6,9 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
- * This class MUST NOT contain any properties. Its name is reserved for future use.
+ * This class <b>MUST NOT</b> contain any properties.
+ * <p>
+ * Its name is reserved for future use.
  * <p>
  * Describes STOMP channel binding.
  *

@@ -21,7 +21,7 @@ import com.asyncapi.v3.binding.server.redis.RedisServerBinding
 import com.asyncapi.v3.binding.server.sns.SNSServerBinding
 import com.asyncapi.v3.binding.server.solace.SolaceServerBinding
 import com.asyncapi.v3.binding.server.sqs.SQSServerBinding
-import com.asyncapi.v3.binding.server.stomp.STOMPServerBinding
+import com.asyncapi.bindings.stomp.v0._1_0.server.STOMPServerBinding
 import com.asyncapi.bindings.websockets.v0._1_0.server.WebSocketsServerBinding
 import com.asyncapi.v3.security_scheme.ApiKeySecuritySchemeTest
 import com.asyncapi.v3.security_scheme.http.HttpSecuritySchemeBearerTest
