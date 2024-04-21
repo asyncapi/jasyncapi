@@ -1,4 +1,4 @@
-package com.asyncapi.v2.binding.channel.sqs;
+package com.asyncapi.bindings.sqs.v0._1_0.channel;
 
 import com.asyncapi.bindings.ChannelBinding;
 import lombok.Data;
@@ -6,7 +6,9 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
- * This class MUST NOT contain any properties. Its name is reserved for future use.
+ * This class <b>MUST NOT</b> contain any properties.
+ * <p>
+ * Its name is reserved for future use.
  * <p>
  * Describes SQS channel binding.
  *

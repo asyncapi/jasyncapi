@@ -17,7 +17,7 @@ import com.asyncapi.v2.binding.channel.pulsar.PulsarChannelBinding;
 import com.asyncapi.v2.binding.channel.redis.RedisChannelBinding;
 import com.asyncapi.v2.binding.channel.sns.SNSChannelBinding;
 import com.asyncapi.v2.binding.channel.solace.SolaceChannelBinding;
-import com.asyncapi.v2.binding.channel.sqs.SQSChannelBinding;
+import com.asyncapi.bindings.sqs.v0._1_0.channel.SQSChannelBinding;
 import com.asyncapi.bindings.stomp.v0._1_0.channel.STOMPChannelBinding;
 import com.asyncapi.bindings.websockets.v0._1_0.channel.WebSocketsChannelBinding;
 import com.asyncapi.v2.jackson.BindingsMapDeserializer;
