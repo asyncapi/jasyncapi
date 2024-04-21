@@ -1,6 +1,6 @@
 package com.asyncapi.v2._6_0.model.channel;
 
-import com.asyncapi.v2.ExtendableObject;
+import com.asyncapi.ExtendableObject;
 import com.asyncapi.v2._6_0.jackson.model.schema.SchemaDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;

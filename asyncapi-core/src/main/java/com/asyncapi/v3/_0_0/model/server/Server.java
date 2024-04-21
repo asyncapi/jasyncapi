@@ -3,7 +3,7 @@ package com.asyncapi.v3._0_0.model.server;
 import com.asyncapi.v3.jackson.binding.server.ServerBindingsDeserializer;
 import com.asyncapi.v3._0_0.jackson.model.server.ServerVariablesDeserializer;
 import com.asyncapi.v3.binding.server.ServerBinding;
-import com.asyncapi.v3.ExtendableObject;
+import com.asyncapi.ExtendableObject;
 import com.asyncapi.v3.Reference;
 import com.asyncapi.v3._0_0.jackson.model.ExternalDocumentationDeserializer;
 import com.asyncapi.v3._0_0.jackson.model.TagsDeserializer;

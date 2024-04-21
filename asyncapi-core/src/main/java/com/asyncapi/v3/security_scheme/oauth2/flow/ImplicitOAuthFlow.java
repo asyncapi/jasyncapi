@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * Configuration for the OAuth Implicit flow
  * <p>
- * This object MAY be extended with {@link com.asyncapi.v3.ExtendableObject}.
+ * This object MAY be extended with {@link com.asyncapi.ExtendableObject}.
  *
  * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#oauthFlowObject">OAuth Flow</a>
  * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#specificationExtensions">Specification Extensions</a>

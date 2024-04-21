@@ -1,6 +1,6 @@
 package com.asyncapi.v3.security_scheme.oauth2.flow;
 
-import com.asyncapi.v3.ExtendableObject;
+import com.asyncapi.ExtendableObject;
 import lombok.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

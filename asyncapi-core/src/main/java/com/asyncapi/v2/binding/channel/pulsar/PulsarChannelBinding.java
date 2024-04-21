@@ -1,6 +1,6 @@
 package com.asyncapi.v2.binding.channel.pulsar;
 
-import com.asyncapi.v2.binding.channel.ChannelBinding;
+import com.asyncapi.bindings.ChannelBinding;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;

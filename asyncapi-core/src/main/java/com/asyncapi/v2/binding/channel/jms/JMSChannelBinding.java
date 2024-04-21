@@ -1,6 +1,6 @@
 package com.asyncapi.v2.binding.channel.jms;
 
-import com.asyncapi.v2.binding.channel.ChannelBinding;
+import com.asyncapi.bindings.ChannelBinding;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

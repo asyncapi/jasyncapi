@@ -1,6 +1,6 @@
 package com.asyncapi.v2.binding.channel.solace;
 
-import com.asyncapi.v2.binding.channel.ChannelBinding;
+import com.asyncapi.bindings.ChannelBinding;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

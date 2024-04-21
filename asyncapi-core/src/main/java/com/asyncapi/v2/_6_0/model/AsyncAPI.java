@@ -1,6 +1,6 @@
 package com.asyncapi.v2._6_0.model;
 
-import com.asyncapi.v2.ExtendableObject;
+import com.asyncapi.ExtendableObject;
 import com.asyncapi.v2._6_0.jackson.model.server.ServersDeserializer;
 import com.asyncapi.v2._6_0.model.channel.ChannelItem;
 import com.asyncapi.v2._6_0.model.component.Components;

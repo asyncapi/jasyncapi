@@ -1,6 +1,6 @@
 package com.asyncapi.v3._0_0.model.operation.reply;
 
-import com.asyncapi.v3.ExtendableObject;
+import com.asyncapi.ExtendableObject;
 import lombok.*;
 import org.jetbrains.annotations.Nullable;
 

@@ -1,6 +1,6 @@
 package com.asyncapi.v2._6_0.model.server;
 
-import com.asyncapi.v2.ExtendableObject;
+import com.asyncapi.ExtendableObject;
 import com.asyncapi.v2._6_0.jackson.model.server.ServerVariablesDeserializer;
 import com.asyncapi.v2._6_0.model.Tag;
 import com.asyncapi.v2.binding.server.ServerBinding;

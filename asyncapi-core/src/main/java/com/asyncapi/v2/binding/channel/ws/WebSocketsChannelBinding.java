@@ -1,6 +1,6 @@
 package com.asyncapi.v2.binding.channel.ws;
 
-import com.asyncapi.v2.binding.channel.ChannelBinding;
+import com.asyncapi.bindings.ChannelBinding;
 import com.asyncapi.v2.schema.Schema;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;

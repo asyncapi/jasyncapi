@@ -1,6 +1,6 @@
 package com.asyncapi.v3._0_0.model.operation.reply;
 
-import com.asyncapi.v3.ExtendableObject;
+import com.asyncapi.ExtendableObject;
 import com.asyncapi.v3.Reference;
 import com.asyncapi.v3._0_0.jackson.model.operation.reply.OperationReplyAddressDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;

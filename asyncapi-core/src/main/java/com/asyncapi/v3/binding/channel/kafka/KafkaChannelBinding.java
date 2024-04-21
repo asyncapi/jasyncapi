@@ -1,6 +1,6 @@
 package com.asyncapi.v3.binding.channel.kafka;
 
-import com.asyncapi.v3.binding.channel.ChannelBinding;
+import com.asyncapi.bindings.ChannelBinding;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;

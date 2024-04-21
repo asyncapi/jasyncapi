@@ -1,6 +1,6 @@
 package com.asyncapi.v2._0_0.model.channel.operation;
 
-import com.asyncapi.v2.ExtendableObject;
+import com.asyncapi.ExtendableObject;
 import com.asyncapi.v2._0_0.jackson.model.channel.operation.OperationMessageDeserializer;
 import com.asyncapi.v2._0_0.jackson.model.channel.operation.OperationTraitsDeserializer;
 import com.asyncapi.v2._0_0.model.ExternalDocumentation;

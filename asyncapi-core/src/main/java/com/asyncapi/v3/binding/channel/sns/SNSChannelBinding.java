@@ -1,6 +1,6 @@
 package com.asyncapi.v3.binding.channel.sns;
 
-import com.asyncapi.v3.binding.channel.ChannelBinding;
+import com.asyncapi.bindings.ChannelBinding;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

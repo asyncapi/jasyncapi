@@ -1,5 +1,6 @@
 package com.asyncapi.v2
 
+import com.asyncapi.ExtendableObject
 import com.fasterxml.jackson.databind.JsonMappingException
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Assertions

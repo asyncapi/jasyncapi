@@ -1,6 +1,6 @@
 package com.asyncapi.v2._6_0.model.component;
 
-import com.asyncapi.v2.ExtendableObject;
+import com.asyncapi.ExtendableObject;
 import com.asyncapi.v2._6_0.jackson.model.component.ComponentsCorrelationIdsDeserializer;
 import com.asyncapi.v2._6_0.jackson.model.component.ComponentsMessageTraitsDeserializer;
 import com.asyncapi.v2._6_0.jackson.model.component.ComponentsMessagesDeserializer;
@@ -11,7 +11,7 @@ import com.asyncapi.v2._6_0.jackson.model.component.ComponentsSecuritySchemesDes
 import com.asyncapi.v2._6_0.jackson.model.component.ComponentsServerVariablesDeserializer;
 import com.asyncapi.v2._6_0.jackson.model.component.ComponentsServersDeserializer;
 import com.asyncapi.v2._6_0.model.channel.ChannelItem;
-import com.asyncapi.v2.binding.channel.ChannelBinding;
+import com.asyncapi.bindings.ChannelBinding;
 import com.asyncapi.v2.binding.message.MessageBinding;
 import com.asyncapi.v2.binding.operation.OperationBinding;
 import com.asyncapi.v2.binding.server.ServerBinding;

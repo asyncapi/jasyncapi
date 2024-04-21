@@ -1,6 +1,6 @@
 package com.asyncapi.v2.binding.server;
 
-import com.asyncapi.v2.ExtendableObject;
+import com.asyncapi.ExtendableObject;
 import lombok.EqualsAndHashCode;
 
 /**

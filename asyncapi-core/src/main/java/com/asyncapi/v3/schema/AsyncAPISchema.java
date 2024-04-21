@@ -1,6 +1,6 @@
 package com.asyncapi.v3.schema;
 
-import com.asyncapi.v3.ExtendableObject;
+import com.asyncapi.ExtendableObject;
 import com.asyncapi.v3._0_0.jackson.model.ExternalDocumentationDeserializer;
 import com.asyncapi.v3.jackson.schema.AsyncAPISchemaAdditionalPropertiesDeserializer;
 import com.asyncapi.v3.jackson.schema.AsyncAPISchemaAnyValueDeserializer;

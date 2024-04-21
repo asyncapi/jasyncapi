@@ -1,6 +1,6 @@
 package com.asyncapi.v3.binding.channel.amqp;
 
-import com.asyncapi.v3.binding.channel.ChannelBinding;
+import com.asyncapi.bindings.ChannelBinding;
 import com.asyncapi.v3.binding.channel.amqp.exchange.AMQPChannelExchangeProperties;
 import com.asyncapi.v3.binding.channel.amqp.queue.AMQPChannelQueueProperties;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
