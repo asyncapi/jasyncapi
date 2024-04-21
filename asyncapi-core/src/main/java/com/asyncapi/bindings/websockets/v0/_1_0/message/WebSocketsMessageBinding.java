@@ -1,6 +1,6 @@
 package com.asyncapi.bindings.websockets.v0._1_0.message;
 
-import com.asyncapi.v3.binding.message.MessageBinding;
+import com.asyncapi.bindings.MessageBinding;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

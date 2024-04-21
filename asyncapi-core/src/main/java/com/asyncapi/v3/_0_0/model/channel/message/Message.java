@@ -123,7 +123,7 @@ public class Message extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v3.binding.message.MessageBinding}</li>
+     *     <li>{@link com.asyncapi.bindings.MessageBinding}</li>
      *     <li>{@link com.asyncapi.v3.Reference}</li>
      * </ul>
      */

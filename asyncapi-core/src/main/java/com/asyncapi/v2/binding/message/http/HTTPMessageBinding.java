@@ -1,6 +1,6 @@
 package com.asyncapi.v2.binding.message.http;
 
-import com.asyncapi.v2.binding.message.MessageBinding;
+import com.asyncapi.bindings.MessageBinding;
 import com.asyncapi.v2.schema.Schema;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;

@@ -1,6 +1,6 @@
 package com.asyncapi.v3.binding.message.sns;
 
-import com.asyncapi.v3.binding.message.MessageBinding;
+import com.asyncapi.bindings.MessageBinding;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

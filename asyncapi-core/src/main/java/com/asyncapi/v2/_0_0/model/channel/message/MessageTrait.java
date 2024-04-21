@@ -8,7 +8,7 @@ import com.asyncapi.v2.Reference;
 import com.asyncapi.v2._0_0.model.Tag;
 import com.asyncapi.v2._0_0.model.channel.operation.OperationTrait;
 import com.asyncapi.v2.schema.Schema;
-import com.asyncapi.v2.binding.message.MessageBinding;
+import com.asyncapi.bindings.MessageBinding;
 import com.asyncapi.v2.jackson.binding.message.MessageBindingsDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;

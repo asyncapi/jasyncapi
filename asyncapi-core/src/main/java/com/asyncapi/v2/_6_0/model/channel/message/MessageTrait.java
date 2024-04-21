@@ -5,7 +5,7 @@ import com.asyncapi.v2._6_0.jackson.model.channel.message.MessageCorrelationIdDe
 import com.asyncapi.v2._6_0.jackson.model.channel.message.MessageHeadersDeserializer;
 import com.asyncapi.v2._6_0.model.ExternalDocumentation;
 import com.asyncapi.v2._6_0.model.Tag;
-import com.asyncapi.v2.binding.message.MessageBinding;
+import com.asyncapi.bindings.MessageBinding;
 import com.asyncapi.v2.jackson.binding.message.MessageBindingsDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;

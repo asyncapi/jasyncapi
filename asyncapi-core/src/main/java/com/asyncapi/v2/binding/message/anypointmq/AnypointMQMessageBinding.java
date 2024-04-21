@@ -1,6 +1,6 @@
 package com.asyncapi.v2.binding.message.anypointmq;
 
-import com.asyncapi.v2.binding.message.MessageBinding;
+import com.asyncapi.bindings.MessageBinding;
 import com.asyncapi.v2.schema.Schema;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;

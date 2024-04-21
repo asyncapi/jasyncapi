@@ -16,7 +16,7 @@ import com.asyncapi.v3._0_0.model.operation.reply.OperationReplyAddress;
 import com.asyncapi.v3._0_0.model.server.Server;
 import com.asyncapi.v3._0_0.model.server.ServerVariable;
 import com.asyncapi.bindings.ChannelBinding;
-import com.asyncapi.v3.binding.message.MessageBinding;
+import com.asyncapi.bindings.MessageBinding;
 import com.asyncapi.v3.binding.operation.OperationBinding;
 import com.asyncapi.v3.binding.server.ServerBinding;
 import com.asyncapi.v3.jackson.binding.channel.ChannelBindingsDeserializer;
