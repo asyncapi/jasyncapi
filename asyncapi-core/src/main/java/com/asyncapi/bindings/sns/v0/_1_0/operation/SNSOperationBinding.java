@@ -1,4 +1,4 @@
-package com.asyncapi.v2.binding.operation.sns;
+package com.asyncapi.bindings.sns.v0._1_0.operation;
 
 import com.asyncapi.bindings.OperationBinding;
 import lombok.Data;

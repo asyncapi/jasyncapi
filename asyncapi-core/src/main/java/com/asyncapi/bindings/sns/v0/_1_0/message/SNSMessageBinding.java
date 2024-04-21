@@ -1,4 +1,4 @@
-package com.asyncapi.v3.binding.message.sns;
+package com.asyncapi.bindings.sns.v0._1_0.message;
 
 import com.asyncapi.bindings.MessageBinding;
 import lombok.Data;

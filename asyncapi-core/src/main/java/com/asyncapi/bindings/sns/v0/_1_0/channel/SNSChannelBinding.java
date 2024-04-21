@@ -1,4 +1,4 @@
-package com.asyncapi.v3.binding.channel.sns;
+package com.asyncapi.bindings.sns.v0._1_0.channel;
 
 import com.asyncapi.bindings.ChannelBinding;
 import lombok.Data;
