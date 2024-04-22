@@ -8,7 +8,7 @@ import com.asyncapi.v2.schema.Schema
 import com.asyncapi.bindings.MessageBinding
 import com.asyncapi.bindings.amqp.v0._2_0.message.AMQPMessageBindingTest
 import com.asyncapi.bindings.amqp1.v0._1_0.message.AMQP1MessageBinding
-import com.asyncapi.v2.binding.message.anypointmq.AnypointMQMessageBindingTest
+import com.asyncapi.bindings.anypointmq.v0._0_1.message.AnypointMQMessageBindingTest
 import com.asyncapi.v2.binding.message.googlepubsub.GooglePubSubMessageBindingTest
 import com.asyncapi.v2.binding.message.http.HTTPMessageBindingTest
 import com.asyncapi.v2.binding.message.ibmmq.IBMMQMessageBindingTest

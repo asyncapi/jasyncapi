@@ -1,19 +1,18 @@
-package com.asyncapi.v2.binding.message.anypointmq
+package com.asyncapi.bindings.anypointmq.v0._0_1.message
 
-import com.asyncapi.bindings.anypointmq.v0._0_1.message.AnypointMQMessageBinding
-import com.asyncapi.v2.SerDeTest
-import com.asyncapi.v2.schema.Type
+import com.asyncapi.v3.SerDeTest
 import com.asyncapi.v3.schema.AsyncAPISchema
+import com.asyncapi.v3.schema.Type
 
 class AnypointMQMessageBindingTest: SerDeTest<AnypointMQMessageBinding>() {
 
     override fun objectClass() = AnypointMQMessageBinding::class.java
 
-    override fun baseObjectJson() = "/json/v2/binding/message/anypointmq/anypointMQMessageBinding.json"
+    override fun baseObjectJson() = "/json/v3/binding/message/anypointmq/anypointMQMessageBinding.json"
 
-    override fun extendedObjectJson() = "/json/v2/binding/message/anypointmq/anypointMQMessageBinding - extended.json"
+    override fun extendedObjectJson() = "/json/v3/binding/message/anypointmq/anypointMQMessageBinding - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/v2/binding/message/anypointmq/anypointMQMessageBinding - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v3/binding/message/anypointmq/anypointMQMessageBinding - wrongly extended.json"
 
     override fun build(): AnypointMQMessageBinding {
         return AnypointMQMessageBinding.builder()

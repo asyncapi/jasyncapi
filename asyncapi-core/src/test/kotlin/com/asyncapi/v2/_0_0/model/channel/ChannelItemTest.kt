@@ -7,7 +7,7 @@ import com.asyncapi.v2.schema.Schema
 import com.asyncapi.bindings.ChannelBinding
 import com.asyncapi.bindings.amqp.v0._2_0.channel.AMQPChannelBindingTest
 import com.asyncapi.bindings.amqp1.v0._1_0.channel.AMQP1ChannelBinding
-import com.asyncapi.v2.binding.channel.anypointmq.AnypointMQChannelBindingTest
+import com.asyncapi.bindings.anypointmq.v0._0_1.channel.AnypointMQChannelBindingTest
 import com.asyncapi.v2.binding.channel.googlepubsub.GooglePubSubChannelBindingTest
 import com.asyncapi.bindings.http.v0._1_0.channel.HTTPChannelBinding
 import com.asyncapi.v2.binding.channel.ibmmq.IBMMQChannelBindingTest
