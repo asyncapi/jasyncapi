@@ -4,7 +4,7 @@ import com.asyncapi.Reference
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._6_0.model.ExternalDocumentation
 import com.asyncapi.v2._6_0.model.Tag
-import com.asyncapi.v2.binding.operation.amqp.AMQPOperationBindingTest
+import com.asyncapi.bindings.amqp.v0._2_0.operation.AMQPOperationBindingTest
 import com.asyncapi.v2.binding.operation.http.HTTPOperationBindingTest
 import com.asyncapi.v2.binding.operation.kafka.KafkaOperationBindingTest
 import com.asyncapi.v2.binding.operation.mqtt.MQTTOperationBindingTest

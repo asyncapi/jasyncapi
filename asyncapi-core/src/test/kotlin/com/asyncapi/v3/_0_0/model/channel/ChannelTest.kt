@@ -8,7 +8,7 @@ import com.asyncapi.v3._0_0.model.TagTestWithReferenceToExternalDocs
 import com.asyncapi.v3._0_0.model.channel.message.MessageTestWithMultiFormatSchema
 import com.asyncapi.v3._0_0.model.channel.message.MessageTestWithReference
 import com.asyncapi.v3._0_0.model.channel.message.MessageTestWithSchema
-import com.asyncapi.v3.binding.channel.amqp.AMQPChannelBindingTest
+import com.asyncapi.bindings.amqp.v0._2_0.channel.AMQPChannelBindingTest
 import com.asyncapi.v3.binding.channel.anypointmq.AnypointMQChannelBindingTest
 import com.asyncapi.v3.binding.channel.googlepubsub.GooglePubSubChannelBindingTest
 import com.asyncapi.v3.binding.channel.ibmmq.IBMMQChannelBindingTest

@@ -1,17 +1,16 @@
-package com.asyncapi.v2.binding.operation.amqp
+package com.asyncapi.bindings.amqp.v0._2_0.operation
 
-import com.asyncapi.v2.SerDeTest
-import com.asyncapi.bindings.amqp.v0._2_0.operation.AMQPOperationBinding
+import com.asyncapi.v3.SerDeTest
 
 class AMQPOperationBindingTest: SerDeTest<AMQPOperationBinding>() {
 
     override fun objectClass() = AMQPOperationBinding::class.java
 
-    override fun baseObjectJson() = "/json/v2/binding/operation/amqp/amqpOperationBinding.json"
+    override fun baseObjectJson() = "/json/v3/binding/operation/amqp/amqpOperationBinding.json"
 
-    override fun extendedObjectJson() = "/json/v2/binding/operation/amqp/amqpOperationBinding - extended.json"
+    override fun extendedObjectJson() = "/json/v3/binding/operation/amqp/amqpOperationBinding - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/v2/binding/operation/amqp/amqpOperationBinding - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v3/binding/operation/amqp/amqpOperationBinding - wrongly extended.json"
 
     override fun build(): AMQPOperationBinding {
         return AMQPOperationBinding.builder()

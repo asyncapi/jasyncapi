@@ -5,7 +5,7 @@ import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._6_0.model.channel.operation.OperationWithMessageTest
 import com.asyncapi.v2._6_0.model.channel.operation.OperationWithOneOfMessageTest
 import com.asyncapi.v2.schema.Schema
-import com.asyncapi.v2.binding.channel.amqp.AMQPChannelBindingTest
+import com.asyncapi.bindings.amqp.v0._2_0.channel.AMQPChannelBindingTest
 import com.asyncapi.v2.binding.channel.anypointmq.AnypointMQChannelBindingTest
 import com.asyncapi.v2.binding.channel.googlepubsub.GooglePubSubChannelBindingTest
 import com.asyncapi.v2.binding.channel.ibmmq.IBMMQChannelBindingTest

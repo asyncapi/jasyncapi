@@ -3,7 +3,7 @@ package com.asyncapi.v2._0_0.model.channel.operation
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._0_0.model.ExternalDocumentation
 import com.asyncapi.v2._0_0.model.Tag
-import com.asyncapi.v2.binding.operation.amqp.AMQPOperationBindingTest
+import com.asyncapi.bindings.amqp.v0._2_0.operation.AMQPOperationBindingTest
 import com.asyncapi.bindings.amqp1.v0._1_0.operation.AMQP1OperationBinding
 import com.asyncapi.bindings.anypointmq.v0._0_1.operation.AnypointMQOperationBinding
 import com.asyncapi.bindings.googlepubsub.v0._1_0.operation.GooglePubSubOperationBinding

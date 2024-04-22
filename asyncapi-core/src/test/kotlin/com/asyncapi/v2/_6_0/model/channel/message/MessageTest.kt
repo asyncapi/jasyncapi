@@ -5,7 +5,7 @@ import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._6_0.model.ExternalDocumentation
 import com.asyncapi.v2._6_0.model.Tag
 import com.asyncapi.v2.schema.Schema
-import com.asyncapi.v2.binding.message.amqp.AMQPMessageBindingTest
+import com.asyncapi.bindings.amqp.v0._2_0.message.AMQPMessageBindingTest
 import com.asyncapi.v2.binding.message.anypointmq.AnypointMQMessageBindingTest
 import com.asyncapi.v2.binding.message.googlepubsub.GooglePubSubMessageBindingTest
 import com.asyncapi.v2.binding.message.http.HTTPMessageBindingTest

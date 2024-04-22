@@ -1,6 +1,6 @@
 package com.asyncapi.v3._0_0.model.operation
 
-import com.asyncapi.v3.binding.operation.amqp.AMQPOperationBindingTest
+import com.asyncapi.bindings.amqp.v0._2_0.operation.AMQPOperationBindingTest
 import com.asyncapi.v3.binding.operation.http.HTTPOperationBindingTest
 import com.asyncapi.v3.binding.operation.kafka.KafkaOperationBindingTest
 import com.asyncapi.v3.binding.operation.mqtt.MQTTOperationBindingTest
