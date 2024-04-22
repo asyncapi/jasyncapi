@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.v3.Reference
+import com.asyncapi.Reference
 import com.asyncapi.v3._0_0.model.Tag
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.Parameter
@@ -69,7 +69,7 @@ class StreetlightsKafkaAsyncAPI: AbstractExampleValidationTest() {
                         .protocol("kafka-secure")
                         .description("Test broker secured with X509")
                         .security(listOf(
-                                Reference("#/components/securitySchemes/certs")
+                            Reference("#/components/securitySchemes/certs")
                         ))
                         .tags(listOf(
                                 Tag.builder()
@@ -95,30 +95,46 @@ class StreetlightsKafkaAsyncAPI: AbstractExampleValidationTest() {
                 Pair("lightingMeasured",
                         Channel.builder()
                                 .address("smartylighting.streetlights.1.0.event.{streetlightId}.lighting.measured")
-                                .messages(mapOf(Pair("lightMeasured", Reference("#/components/messages/lightMeasured"))))
+                                .messages(mapOf(Pair("lightMeasured",
+                                    Reference("#/components/messages/lightMeasured")
+                                )))
                                 .description("The topic on which measured values may be produced and consumed.")
-                                .parameters(mapOf(Pair("streetlightId", Reference("#/components/parameters/streetlightId"))))
+                                .parameters(mapOf(Pair("streetlightId",
+                                    Reference("#/components/parameters/streetlightId")
+                                )))
                                 .build()
                 ),
                 Pair("lightTurnOn",
                         Channel.builder()
                                 .address("smartylighting.streetlights.1.0.action.{streetlightId}.turn.on")
-                                .messages(mapOf(Pair("turnOn", Reference("#/components/messages/turnOnOff"))))
-                                .parameters(mapOf(Pair("streetlightId", Reference("#/components/parameters/streetlightId"))))
+                                .messages(mapOf(Pair("turnOn",
+                                    Reference("#/components/messages/turnOnOff")
+                                )))
+                                .parameters(mapOf(Pair("streetlightId",
+                                    Reference("#/components/parameters/streetlightId")
+                                )))
                                 .build()
                 ),
                 Pair("lightTurnOff",
                         Channel.builder()
                                 .address("smartylighting.streetlights.1.0.action.{streetlightId}.turn.off")
-                                .messages(mapOf(Pair("turnOff", Reference("#/components/messages/turnOnOff"))))
-                                .parameters(mapOf(Pair("streetlightId", Reference("#/components/parameters/streetlightId"))))
+                                .messages(mapOf(Pair("turnOff",
+                                    Reference("#/components/messages/turnOnOff")
+                                )))
+                                .parameters(mapOf(Pair("streetlightId",
+                                    Reference("#/components/parameters/streetlightId")
+                                )))
                                 .build()
                 ),
                 Pair("lightsDim",
                         Channel.builder()
                                 .address("smartylighting.streetlights.1.0.action.{streetlightId}.dim")
-                                .messages(mapOf(Pair("dimLight", Reference("#/components/messages/dimLight"))))
-                                .parameters(mapOf(Pair("streetlightId", Reference("#/components/parameters/streetlightId"))))
+                                .messages(mapOf(Pair("dimLight",
+                                    Reference("#/components/messages/dimLight")
+                                )))
+                                .parameters(mapOf(Pair("streetlightId",
+                                    Reference("#/components/parameters/streetlightId")
+                                )))
                                 .build()
                 )
         )

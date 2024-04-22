@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.v3.Reference
+import com.asyncapi.Reference
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.Parameter
 import com.asyncapi.v3._0_0.model.channel.message.CorrelationId
@@ -60,10 +60,14 @@ class ApplicationHeadersAsyncAPI: AbstractExampleValidationTest() {
                         Channel.builder()
                                 .address("smartylighting/streetlights/1/0/event/{streetlightId}/lighting/measured")
                                 .messages(mapOf(
-                                        Pair("lightMeasured", Reference("#/components/messages/lightMeasured"))
+                                        Pair("lightMeasured",
+                                            Reference("#/components/messages/lightMeasured")
+                                        )
                                 ))
                                 .parameters(mapOf(
-                                        Pair("streetlightId", Reference("#/components/parameters/streetlightId"))
+                                        Pair("streetlightId",
+                                            Reference("#/components/parameters/streetlightId")
+                                        )
                                 ))
                                 .build()
                 )
@@ -78,7 +82,7 @@ class ApplicationHeadersAsyncAPI: AbstractExampleValidationTest() {
                                 .channel(Reference("#/channels/lightingMeasured"))
                                 .summary("Inform about environmental lighting conditions of a particular streetlight.")
                                 .messages(listOf(
-                                        Reference("#/channels/lightingMeasured/messages/lightMeasured")
+                                    Reference("#/channels/lightingMeasured/messages/lightMeasured")
                                 ))
                                 .build()
                 )

@@ -1,6 +1,6 @@
 package com.asyncapi.v3._0_0.jackson.model.channel.message;
 
-import com.asyncapi.v3.Reference;
+import com.asyncapi.Reference;
 import com.asyncapi.v3.schema.multiformat.MultiFormatSchema;
 import com.asyncapi.v3.schema.AsyncAPISchema;
 import com.fasterxml.jackson.core.JsonParser;

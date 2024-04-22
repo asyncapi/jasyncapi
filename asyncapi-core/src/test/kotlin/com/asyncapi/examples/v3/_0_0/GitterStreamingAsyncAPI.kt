@@ -1,7 +1,7 @@
 package com.asyncapi.examples.v3._0_0
 
 import com.asyncapi.bindings.http.v0._1_0.message.HTTPMessageBinding
-import com.asyncapi.v3.Reference
+import com.asyncapi.Reference
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.Parameter
 import com.asyncapi.v3._0_0.model.channel.message.Message
@@ -39,7 +39,7 @@ class GitterStreamingAsyncAPI: AbstractExampleValidationTest() {
                                 .protocol("https")
                                 .protocolVersion("1.1")
                                 .security(listOf(
-                                        Reference("#/components/securitySchemes/httpBearerToken")
+                                    Reference("#/components/securitySchemes/httpBearerToken")
                                 ))
                                 .build()
                 )
@@ -52,8 +52,12 @@ class GitterStreamingAsyncAPI: AbstractExampleValidationTest() {
                         Channel.builder()
                                 .address("/rooms/{roomId}/{resource}")
                                 .messages(mapOf(
-                                        Pair("chatMessage", Reference("#/components/messages/chatMessage")),
-                                        Pair("heartbeat", Reference("#/components/messages/heartbeat"))
+                                        Pair("chatMessage",
+                                            Reference("#/components/messages/chatMessage")
+                                        ),
+                                        Pair("heartbeat",
+                                            Reference("#/components/messages/heartbeat")
+                                        )
                                 ))
                                 .parameters(mapOf(
                                         Pair("roomId", Parameter.builder()
@@ -83,8 +87,8 @@ class GitterStreamingAsyncAPI: AbstractExampleValidationTest() {
                                 )
                         ))
                         .messages(listOf(
-                                Reference("#/channels/rooms/messages/chatMessage"),
-                                Reference("#/channels/rooms/messages/heartbeat")
+                            Reference("#/channels/rooms/messages/chatMessage"),
+                            Reference("#/channels/rooms/messages/heartbeat")
                         ))
                         .build()
                 )

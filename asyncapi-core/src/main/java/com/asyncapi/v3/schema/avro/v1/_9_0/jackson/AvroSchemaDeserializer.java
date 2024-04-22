@@ -1,6 +1,6 @@
 package com.asyncapi.v3.schema.avro.v1._9_0.jackson;
 
-import com.asyncapi.v3.Reference;
+import com.asyncapi.Reference;
 import com.asyncapi.v3.schema.avro.v1._9_0.AvroSchema;
 import com.asyncapi.v3.schema.avro.v1._9_0.AvroSchemaUnion;
 import com.fasterxml.jackson.core.JsonParser;

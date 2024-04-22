@@ -1,15 +1,13 @@
 package com.asyncapi.v3._0_0.model.operation;
 
 import com.asyncapi.ExtendableObject;
-import com.asyncapi.v3.Reference;
+import com.asyncapi.Reference;
 import com.asyncapi.v3._0_0.jackson.model.ExternalDocumentationDeserializer;
 import com.asyncapi.v3._0_0.jackson.model.TagsDeserializer;
-import com.asyncapi.v3._0_0.jackson.model.operation.reply.OperationReplyDeserializer;
 import com.asyncapi.v3._0_0.model.ExternalDocumentation;
 import com.asyncapi.v3._0_0.model.Tag;
-import com.asyncapi.v3._0_0.model.operation.reply.OperationReply;
 import com.asyncapi.bindings.OperationBinding;
-import com.asyncapi.v3.jackson.binding.operation.OperationBindingsDeserializer;
+import com.asyncapi.bindings.OperationBindingsDeserializer;
 import com.asyncapi.v3.jackson.security_scheme.SecuritySchemesDeserializer;
 import com.asyncapi.v3.security_scheme.SecurityScheme;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;

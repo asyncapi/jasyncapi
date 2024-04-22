@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.v3.Reference
+import com.asyncapi.Reference
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.Parameter
 import com.asyncapi.v3._0_0.model.channel.message.CorrelationId
@@ -136,7 +136,7 @@ class RpcClientAsyncAPI: AbstractExampleValidationTest() {
                                         )
                                 ))
                                 .messages(listOf(
-                                        Reference("#/channels/queue/messages/receiveSumResult")
+                                    Reference("#/channels/queue/messages/receiveSumResult")
                                 ))
                                 .build()
                 ),
@@ -152,7 +152,7 @@ class RpcClientAsyncAPI: AbstractExampleValidationTest() {
                                         )
                                 ))
                                 .messages(listOf(
-                                        Reference("#/channels/rpc_queue/messages/requestSum")
+                                    Reference("#/channels/rpc_queue/messages/requestSum")
                                 ))
                                 .build()
                 )

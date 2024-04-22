@@ -1,7 +1,7 @@
 package com.asyncapi.v3._0_0.model.component;
 
 import com.asyncapi.v3._0_0.jackson.model.component.*;
-import com.asyncapi.v3.Reference;
+import com.asyncapi.Reference;
 import com.asyncapi.v3._0_0.model.ExternalDocumentation;
 import com.asyncapi.v3._0_0.model.Tag;
 import com.asyncapi.v3._0_0.model.channel.Channel;
@@ -19,10 +19,10 @@ import com.asyncapi.bindings.ChannelBinding;
 import com.asyncapi.bindings.MessageBinding;
 import com.asyncapi.bindings.OperationBinding;
 import com.asyncapi.bindings.ServerBinding;
-import com.asyncapi.v3.jackson.binding.channel.ChannelBindingsDeserializer;
-import com.asyncapi.v3.jackson.binding.message.MessageBindingsDeserializer;
-import com.asyncapi.v3.jackson.binding.operation.OperationBindingsDeserializer;
-import com.asyncapi.v3.jackson.binding.server.ServerBindingsDeserializer;
+import com.asyncapi.bindings.ChannelBindingsDeserializer;
+import com.asyncapi.bindings.MessageBindingsDeserializer;
+import com.asyncapi.bindings.OperationBindingsDeserializer;
+import com.asyncapi.bindings.ServerBindingsDeserializer;
 import com.asyncapi.v3.schema.multiformat.MultiFormatSchema;
 import com.asyncapi.v3.schema.AsyncAPISchema;
 import com.asyncapi.v3.security_scheme.SecurityScheme;

@@ -1,5 +1,6 @@
 package com.asyncapi.v3.schema.multiformat;
 
+import com.asyncapi.Reference;
 import com.asyncapi.v3.schema.AsyncAPISchema;
 import com.asyncapi.v3.schema.avro.v1._9_0.jackson.AvroSchemaDeserializer;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -38,7 +39,7 @@ public class AvroFormatSchema extends MultiFormatSchema<Object> {
      * <ul>
      *     <li>{@link com.asyncapi.v3.schema.avro.v1._9_0.AvroSchema}</li>
      *     <li>{@link com.asyncapi.v3.schema.avro.v1._9_0.AvroSchemaUnion}</li>
-     *     <li>{@link com.asyncapi.v3.Reference}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      *
      * @param schema Avro Schema or Reference
@@ -53,7 +54,7 @@ public class AvroFormatSchema extends MultiFormatSchema<Object> {
      * <ul>
      *     <li>{@link com.asyncapi.v3.schema.avro.v1._9_0.AvroSchema}</li>
      *     <li>{@link com.asyncapi.v3.schema.avro.v1._9_0.AvroSchemaUnion}</li>
-     *     <li>{@link com.asyncapi.v3.Reference}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @NotNull

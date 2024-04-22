@@ -1,6 +1,6 @@
 package com.asyncapi.v3._0_0.model
 
-import com.asyncapi.v3.Reference
+import com.asyncapi.Reference
 import com.asyncapi.v3.SerDeTest
 
 /**
@@ -20,7 +20,7 @@ class TagTestWithReferenceToExternalDocs: SerDeTest<Tag>() {
         return Tag(
                 "user",
                 "User-related messages",
-                Reference("#/components/external-doc")
+            Reference("#/components/external-doc")
         )
     }
 

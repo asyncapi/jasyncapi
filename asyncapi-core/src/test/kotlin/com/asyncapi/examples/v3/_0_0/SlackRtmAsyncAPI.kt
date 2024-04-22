@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.v3.Reference
+import com.asyncapi.Reference
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.message.Message
 import com.asyncapi.v3._0_0.model.component.Components
@@ -33,7 +33,7 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                                 .protocol("https")
                                 .protocolVersion("1.1")
                                 .security(listOf(
-                                        Reference("#/components/securitySchemes/token")
+                                    Reference("#/components/securitySchemes/token")
                                 ))
                                 .build()
                 )
@@ -46,53 +46,147 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Channel.builder()
                                 .address("/")
                                 .messages(mapOf(
-                                        Pair("outgoingMessage", Reference("#/components/messages/outgoingMessage")),
-                                        Pair("hello", Reference("#/components/messages/hello")),
-                                        Pair("connectionError", Reference("#/components/messages/connectionError")),
-                                        Pair("accountsChanged", Reference("#/components/messages/accountsChanged")),
-                                        Pair("botAdded", Reference("#/components/messages/botAdded")),
-                                        Pair("botChanged", Reference("#/components/messages/botChanged")),
-                                        Pair("channelArchive", Reference("#/components/messages/channelArchive")),
-                                        Pair("channelCreated", Reference("#/components/messages/channelCreated")),
-                                        Pair("channelDeleted", Reference("#/components/messages/channelDeleted")),
-                                        Pair("channelHistoryChanged", Reference("#/components/messages/channelHistoryChanged")),
-                                        Pair("channelJoined", Reference("#/components/messages/channelJoined")),
-                                        Pair("channelLeft", Reference("#/components/messages/channelLeft")),
-                                        Pair("channelMarked", Reference("#/components/messages/channelMarked")),
-                                        Pair("channelRename", Reference("#/components/messages/channelRename")),
-                                        Pair("channelUnarchive", Reference("#/components/messages/channelUnarchive")),
-                                        Pair("commandsChanged", Reference("#/components/messages/commandsChanged")),
-                                        Pair("dndUpdated", Reference("#/components/messages/dndUpdated")),
-                                        Pair("dndUpdatedUser", Reference("#/components/messages/dndUpdatedUser")),
-                                        Pair("emailDomainChanged", Reference("#/components/messages/emailDomainChanged")),
-                                        Pair("emojiRemoved", Reference("#/components/messages/emojiRemoved")),
-                                        Pair("emojiAdded", Reference("#/components/messages/emojiAdded")),
-                                        Pair("fileChange", Reference("#/components/messages/fileChange")),
-                                        Pair("fileCommentAdded", Reference("#/components/messages/fileCommentAdded")),
-                                        Pair("fileCommentDeleted", Reference("#/components/messages/fileCommentDeleted")),
-                                        Pair("fileCommentEdited", Reference("#/components/messages/fileCommentEdited")),
-                                        Pair("fileCreated", Reference("#/components/messages/fileCreated")),
-                                        Pair("fileDeleted", Reference("#/components/messages/fileDeleted")),
-                                        Pair("filePublic", Reference("#/components/messages/filePublic")),
-                                        Pair("fileShared", Reference("#/components/messages/fileShared")),
-                                        Pair("fileUnshared", Reference("#/components/messages/fileUnshared")),
-                                        Pair("goodbye", Reference("#/components/messages/goodbye")),
-                                        Pair("groupArchive", Reference("#/components/messages/groupArchive")),
-                                        Pair("groupClose", Reference("#/components/messages/groupClose")),
-                                        Pair("groupHistoryChanged", Reference("#/components/messages/groupHistoryChanged")),
-                                        Pair("groupJoined", Reference("#/components/messages/groupJoined")),
-                                        Pair("groupLeft", Reference("#/components/messages/groupLeft")),
-                                        Pair("groupMarked", Reference("#/components/messages/groupMarked")),
-                                        Pair("groupOpen", Reference("#/components/messages/groupOpen")),
-                                        Pair("groupRename", Reference("#/components/messages/groupRename")),
-                                        Pair("groupUnarchive", Reference("#/components/messages/groupUnarchive")),
-                                        Pair("imClose", Reference("#/components/messages/imClose")),
-                                        Pair("imCreated", Reference("#/components/messages/imCreated")),
-                                        Pair("imMarked", Reference("#/components/messages/imMarked")),
-                                        Pair("imOpen", Reference("#/components/messages/imOpen")),
-                                        Pair("manualPresenceChange", Reference("#/components/messages/manualPresenceChange")),
-                                        Pair("memberJoinedChannel", Reference("#/components/messages/memberJoinedChannel")),
-                                        Pair("message", Reference("#/components/messages/message")),
+                                        Pair("outgoingMessage",
+                                            Reference("#/components/messages/outgoingMessage")
+                                        ),
+                                        Pair("hello",
+                                            Reference("#/components/messages/hello")
+                                        ),
+                                        Pair("connectionError",
+                                            Reference("#/components/messages/connectionError")
+                                        ),
+                                        Pair("accountsChanged",
+                                            Reference("#/components/messages/accountsChanged")
+                                        ),
+                                        Pair("botAdded",
+                                            Reference("#/components/messages/botAdded")
+                                        ),
+                                        Pair("botChanged",
+                                            Reference("#/components/messages/botChanged")
+                                        ),
+                                        Pair("channelArchive",
+                                            Reference("#/components/messages/channelArchive")
+                                        ),
+                                        Pair("channelCreated",
+                                            Reference("#/components/messages/channelCreated")
+                                        ),
+                                        Pair("channelDeleted",
+                                            Reference("#/components/messages/channelDeleted")
+                                        ),
+                                        Pair("channelHistoryChanged",
+                                            Reference("#/components/messages/channelHistoryChanged")
+                                        ),
+                                        Pair("channelJoined",
+                                            Reference("#/components/messages/channelJoined")
+                                        ),
+                                        Pair("channelLeft",
+                                            Reference("#/components/messages/channelLeft")
+                                        ),
+                                        Pair("channelMarked",
+                                            Reference("#/components/messages/channelMarked")
+                                        ),
+                                        Pair("channelRename",
+                                            Reference("#/components/messages/channelRename")
+                                        ),
+                                        Pair("channelUnarchive",
+                                            Reference("#/components/messages/channelUnarchive")
+                                        ),
+                                        Pair("commandsChanged",
+                                            Reference("#/components/messages/commandsChanged")
+                                        ),
+                                        Pair("dndUpdated",
+                                            Reference("#/components/messages/dndUpdated")
+                                        ),
+                                        Pair("dndUpdatedUser",
+                                            Reference("#/components/messages/dndUpdatedUser")
+                                        ),
+                                        Pair("emailDomainChanged",
+                                            Reference("#/components/messages/emailDomainChanged")
+                                        ),
+                                        Pair("emojiRemoved",
+                                            Reference("#/components/messages/emojiRemoved")
+                                        ),
+                                        Pair("emojiAdded",
+                                            Reference("#/components/messages/emojiAdded")
+                                        ),
+                                        Pair("fileChange",
+                                            Reference("#/components/messages/fileChange")
+                                        ),
+                                        Pair("fileCommentAdded",
+                                            Reference("#/components/messages/fileCommentAdded")
+                                        ),
+                                        Pair("fileCommentDeleted",
+                                            Reference("#/components/messages/fileCommentDeleted")
+                                        ),
+                                        Pair("fileCommentEdited",
+                                            Reference("#/components/messages/fileCommentEdited")
+                                        ),
+                                        Pair("fileCreated",
+                                            Reference("#/components/messages/fileCreated")
+                                        ),
+                                        Pair("fileDeleted",
+                                            Reference("#/components/messages/fileDeleted")
+                                        ),
+                                        Pair("filePublic",
+                                            Reference("#/components/messages/filePublic")
+                                        ),
+                                        Pair("fileShared",
+                                            Reference("#/components/messages/fileShared")
+                                        ),
+                                        Pair("fileUnshared",
+                                            Reference("#/components/messages/fileUnshared")
+                                        ),
+                                        Pair("goodbye",
+                                            Reference("#/components/messages/goodbye")
+                                        ),
+                                        Pair("groupArchive",
+                                            Reference("#/components/messages/groupArchive")
+                                        ),
+                                        Pair("groupClose",
+                                            Reference("#/components/messages/groupClose")
+                                        ),
+                                        Pair("groupHistoryChanged",
+                                            Reference("#/components/messages/groupHistoryChanged")
+                                        ),
+                                        Pair("groupJoined",
+                                            Reference("#/components/messages/groupJoined")
+                                        ),
+                                        Pair("groupLeft",
+                                            Reference("#/components/messages/groupLeft")
+                                        ),
+                                        Pair("groupMarked",
+                                            Reference("#/components/messages/groupMarked")
+                                        ),
+                                        Pair("groupOpen",
+                                            Reference("#/components/messages/groupOpen")
+                                        ),
+                                        Pair("groupRename",
+                                            Reference("#/components/messages/groupRename")
+                                        ),
+                                        Pair("groupUnarchive",
+                                            Reference("#/components/messages/groupUnarchive")
+                                        ),
+                                        Pair("imClose",
+                                            Reference("#/components/messages/imClose")
+                                        ),
+                                        Pair("imCreated",
+                                            Reference("#/components/messages/imCreated")
+                                        ),
+                                        Pair("imMarked",
+                                            Reference("#/components/messages/imMarked")
+                                        ),
+                                        Pair("imOpen",
+                                            Reference("#/components/messages/imOpen")
+                                        ),
+                                        Pair("manualPresenceChange",
+                                            Reference("#/components/messages/manualPresenceChange")
+                                        ),
+                                        Pair("memberJoinedChannel",
+                                            Reference("#/components/messages/memberJoinedChannel")
+                                        ),
+                                        Pair("message",
+                                            Reference("#/components/messages/message")
+                                        ),
                                 ))
                                 .build()
                 )
@@ -106,7 +200,7 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                                 .action(OperationAction.RECEIVE)
                                 .channel(Reference("#/channels/root"))
                                 .messages(listOf(
-                                        Reference("#/channels/root/messages/outgoingMessage")
+                                    Reference("#/channels/root/messages/outgoingMessage")
                                 ))
                                 .build()
                 ),
@@ -115,52 +209,52 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                                 .action(OperationAction.SEND)
                                 .channel(Reference("#/channels/root"))
                                 .messages(listOf(
-                                        Reference("#/channels/root/messages/hello"),
-                                        Reference("#/channels/root/messages/connectionError"),
-                                        Reference("#/channels/root/messages/accountsChanged"),
-                                        Reference("#/channels/root/messages/botAdded"),
-                                        Reference("#/channels/root/messages/botChanged"),
-                                        Reference("#/channels/root/messages/channelArchive"),
-                                        Reference("#/channels/root/messages/channelCreated"),
-                                        Reference("#/channels/root/messages/channelDeleted"),
-                                        Reference("#/channels/root/messages/channelHistoryChanged"),
-                                        Reference("#/channels/root/messages/channelJoined"),
-                                        Reference("#/channels/root/messages/channelLeft"),
-                                        Reference("#/channels/root/messages/channelMarked"),
-                                        Reference("#/channels/root/messages/channelRename"),
-                                        Reference("#/channels/root/messages/channelUnarchive"),
-                                        Reference("#/channels/root/messages/commandsChanged"),
-                                        Reference("#/channels/root/messages/dndUpdated"),
-                                        Reference("#/channels/root/messages/dndUpdatedUser"),
-                                        Reference("#/channels/root/messages/emailDomainChanged"),
-                                        Reference("#/channels/root/messages/emojiRemoved"),
-                                        Reference("#/channels/root/messages/emojiAdded"),
-                                        Reference("#/channels/root/messages/fileChange"),
-                                        Reference("#/channels/root/messages/fileCommentAdded"),
-                                        Reference("#/channels/root/messages/fileCommentDeleted"),
-                                        Reference("#/channels/root/messages/fileCommentEdited"),
-                                        Reference("#/channels/root/messages/fileCreated"),
-                                        Reference("#/channels/root/messages/fileDeleted"),
-                                        Reference("#/channels/root/messages/filePublic"),
-                                        Reference("#/channels/root/messages/fileShared"),
-                                        Reference("#/channels/root/messages/fileUnshared"),
-                                        Reference("#/channels/root/messages/goodbye"),
-                                        Reference("#/channels/root/messages/groupArchive"),
-                                        Reference("#/channels/root/messages/groupClose"),
-                                        Reference("#/channels/root/messages/groupHistoryChanged"),
-                                        Reference("#/channels/root/messages/groupJoined"),
-                                        Reference("#/channels/root/messages/groupLeft"),
-                                        Reference("#/channels/root/messages/groupMarked"),
-                                        Reference("#/channels/root/messages/groupOpen"),
-                                        Reference("#/channels/root/messages/groupRename"),
-                                        Reference("#/channels/root/messages/groupUnarchive"),
-                                        Reference("#/channels/root/messages/imClose"),
-                                        Reference("#/channels/root/messages/imCreated"),
-                                        Reference("#/channels/root/messages/imMarked"),
-                                        Reference("#/channels/root/messages/imOpen"),
-                                        Reference("#/channels/root/messages/manualPresenceChange"),
-                                        Reference("#/channels/root/messages/memberJoinedChannel"),
-                                        Reference("#/channels/root/messages/message"),
+                                    Reference("#/channels/root/messages/hello"),
+                                    Reference("#/channels/root/messages/connectionError"),
+                                    Reference("#/channels/root/messages/accountsChanged"),
+                                    Reference("#/channels/root/messages/botAdded"),
+                                    Reference("#/channels/root/messages/botChanged"),
+                                    Reference("#/channels/root/messages/channelArchive"),
+                                    Reference("#/channels/root/messages/channelCreated"),
+                                    Reference("#/channels/root/messages/channelDeleted"),
+                                    Reference("#/channels/root/messages/channelHistoryChanged"),
+                                    Reference("#/channels/root/messages/channelJoined"),
+                                    Reference("#/channels/root/messages/channelLeft"),
+                                    Reference("#/channels/root/messages/channelMarked"),
+                                    Reference("#/channels/root/messages/channelRename"),
+                                    Reference("#/channels/root/messages/channelUnarchive"),
+                                    Reference("#/channels/root/messages/commandsChanged"),
+                                    Reference("#/channels/root/messages/dndUpdated"),
+                                    Reference("#/channels/root/messages/dndUpdatedUser"),
+                                    Reference("#/channels/root/messages/emailDomainChanged"),
+                                    Reference("#/channels/root/messages/emojiRemoved"),
+                                    Reference("#/channels/root/messages/emojiAdded"),
+                                    Reference("#/channels/root/messages/fileChange"),
+                                    Reference("#/channels/root/messages/fileCommentAdded"),
+                                    Reference("#/channels/root/messages/fileCommentDeleted"),
+                                    Reference("#/channels/root/messages/fileCommentEdited"),
+                                    Reference("#/channels/root/messages/fileCreated"),
+                                    Reference("#/channels/root/messages/fileDeleted"),
+                                    Reference("#/channels/root/messages/filePublic"),
+                                    Reference("#/channels/root/messages/fileShared"),
+                                    Reference("#/channels/root/messages/fileUnshared"),
+                                    Reference("#/channels/root/messages/goodbye"),
+                                    Reference("#/channels/root/messages/groupArchive"),
+                                    Reference("#/channels/root/messages/groupClose"),
+                                    Reference("#/channels/root/messages/groupHistoryChanged"),
+                                    Reference("#/channels/root/messages/groupJoined"),
+                                    Reference("#/channels/root/messages/groupLeft"),
+                                    Reference("#/channels/root/messages/groupMarked"),
+                                    Reference("#/channels/root/messages/groupOpen"),
+                                    Reference("#/channels/root/messages/groupRename"),
+                                    Reference("#/channels/root/messages/groupUnarchive"),
+                                    Reference("#/channels/root/messages/imClose"),
+                                    Reference("#/channels/root/messages/imCreated"),
+                                    Reference("#/channels/root/messages/imMarked"),
+                                    Reference("#/channels/root/messages/imOpen"),
+                                    Reference("#/channels/root/messages/manualPresenceChange"),
+                                    Reference("#/channels/root/messages/memberJoinedChannel"),
+                                    Reference("#/channels/root/messages/message"),
                                 ))
                                 .build()
                 )

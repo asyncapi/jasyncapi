@@ -1,6 +1,7 @@
 package com.asyncapi.v3.schema.multiformat;
 
 import com.asyncapi.ExtendableObject;
+import com.asyncapi.Reference;
 import com.asyncapi.v3.schema.AsyncAPISchema;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -124,7 +125,7 @@ public class MultiFormatSchema<Schema> extends ExtendableObject {
      * <p>
      * In such a case, this would make the Multi Format Schema Object equivalent to the {@link AsyncAPISchema}.
      * <p>
-     * When using {@link com.asyncapi.v3.Reference} within the {@link #getSchema()}, the schemaFormat of the resource being referenced MUST match
+     * When using {@link Reference} within the {@link #getSchema()}, the schemaFormat of the resource being referenced MUST match
      * the schemaFormat of the {@link #getSchema()} that contains the initial reference.
      * <p>
      * For example, if you reference Avro schema, then schemaFormat of referencing resource and the resource being reference MUST match.
@@ -135,7 +136,7 @@ public class MultiFormatSchema<Schema> extends ExtendableObject {
      * A custom value MUST NOT refer to one of the schema formats listed in the table.
      * <p>
      * <p>
-     * When using {@link com.asyncapi.v3.Reference} within the {@link #getSchema()}, the schemaFormat of the referenced resource MUST
+     * When using {@link Reference} within the {@link #getSchema()}, the schemaFormat of the referenced resource MUST
      * match the schemaFormat of the schema containing the reference.
      *
      * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#multiFormatSchemaFormatTable">Schema formats table</a>

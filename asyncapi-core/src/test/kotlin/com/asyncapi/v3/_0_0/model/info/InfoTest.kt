@@ -1,6 +1,6 @@
 package com.asyncapi.v3._0_0.model.info
 
-import com.asyncapi.v3.Reference
+import com.asyncapi.Reference
 import com.asyncapi.v3.SerDeTest
 import com.asyncapi.v3._0_0.model.ExternalDocumentationTest
 import com.asyncapi.v3._0_0.model.TagTest
@@ -52,7 +52,7 @@ class InfoTestWithReferences: SerDeTest<Info>() {
                 ContactTest().build(),
                 LicenseTest().build(),
                 listOf(Reference("#/components/schemas/tag")),
-                Reference("#/components/schemas/externalDoc"),
+            Reference("#/components/schemas/externalDoc"),
         )
     }
 

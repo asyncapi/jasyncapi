@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.v3.Reference
+import com.asyncapi.Reference
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.Parameter
 import com.asyncapi.v3._0_0.model.channel.message.Message
@@ -85,34 +85,50 @@ class StreetlightsOperationSecurityAsyncAPI: AbstractExampleValidationTest() {
                 Pair("lightingMeasured",
                         Channel.builder()
                                 .address("smartylighting.streetlights.1.0.event.{streetlightId}.lighting.measured")
-                                .messages(mapOf(Pair("lightMeasured", Reference("#/components/messages/lightMeasured"))))
+                                .messages(mapOf(Pair("lightMeasured",
+                                    Reference("#/components/messages/lightMeasured")
+                                )))
                                 .description("The topic on which measured values may be produced and consumed.")
                                 .servers(listOf(Reference("#/servers/test")))
-                                .parameters(mapOf(Pair("streetlightId", Reference("#/components/parameters/streetlightId"))))
+                                .parameters(mapOf(Pair("streetlightId",
+                                    Reference("#/components/parameters/streetlightId")
+                                )))
                                 .build()
                 ),
                 Pair("lightTurnOn",
                         Channel.builder()
                                 .address("smartylighting.streetlights.1.0.action.{streetlightId}.turn.on")
-                                .messages(mapOf(Pair("turnOn", Reference("#/components/messages/turnOnOff"))))
+                                .messages(mapOf(Pair("turnOn",
+                                    Reference("#/components/messages/turnOnOff")
+                                )))
                                 .servers(listOf(Reference("#/servers/test_oauth")))
-                                .parameters(mapOf(Pair("streetlightId", Reference("#/components/parameters/streetlightId"))))
+                                .parameters(mapOf(Pair("streetlightId",
+                                    Reference("#/components/parameters/streetlightId")
+                                )))
                                 .build()
                 ),
                 Pair("lightTurnOff",
                         Channel.builder()
                                 .address("smartylighting.streetlights.1.0.action.{streetlightId}.turn.off")
-                                .messages(mapOf(Pair("turnOff", Reference("#/components/messages/turnOnOff"))))
+                                .messages(mapOf(Pair("turnOff",
+                                    Reference("#/components/messages/turnOnOff")
+                                )))
                                 .servers(listOf(Reference("#/servers/test_oauth")))
-                                .parameters(mapOf(Pair("streetlightId", Reference("#/components/parameters/streetlightId"))))
+                                .parameters(mapOf(Pair("streetlightId",
+                                    Reference("#/components/parameters/streetlightId")
+                                )))
                                 .build()
                 ),
                 Pair("lightsDim",
                         Channel.builder()
                                 .address("smartylighting.streetlights.1.0.action.{streetlightId}.dim")
-                                .messages(mapOf(Pair("dimLight", Reference("#/components/messages/dimLight"))))
+                                .messages(mapOf(Pair("dimLight",
+                                    Reference("#/components/messages/dimLight")
+                                )))
                                 .servers(listOf(Reference("#/servers/test_oauth")))
-                                .parameters(mapOf(Pair("streetlightId", Reference("#/components/parameters/streetlightId"))))
+                                .parameters(mapOf(Pair("streetlightId",
+                                    Reference("#/components/parameters/streetlightId")
+                                )))
                                 .build()
                 )
         )

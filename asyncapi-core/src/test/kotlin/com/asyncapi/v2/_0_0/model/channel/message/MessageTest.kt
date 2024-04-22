@@ -2,7 +2,7 @@ package com.asyncapi.v2._0_0.model.channel.message
 
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._0_0.model.ExternalDocumentation
-import com.asyncapi.v2.Reference
+import com.asyncapi.Reference
 import com.asyncapi.v2._0_0.model.Tag
 import com.asyncapi.v2.schema.Schema
 import com.asyncapi.bindings.MessageBinding

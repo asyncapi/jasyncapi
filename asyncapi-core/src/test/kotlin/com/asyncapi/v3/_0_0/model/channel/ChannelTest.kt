@@ -1,6 +1,6 @@
 package com.asyncapi.v3._0_0.model.channel
 
-import com.asyncapi.v3.Reference
+import com.asyncapi.Reference
 import com.asyncapi.v3.SerDeTest
 import com.asyncapi.v3._0_0.model.ExternalDocumentationTest
 import com.asyncapi.v3._0_0.model.TagTest
@@ -33,16 +33,20 @@ class ChannelTest: SerDeTest<Channel>() {
                 .summary("messages about user events.")
                 .description("This channel is used to exchange messages about users signing up")
                 .servers(listOf(
-                        Reference("#/components/servers/1"),
-                        Reference("#/components/servers/2"),
-                        Reference("#/components/servers/3")
+                    Reference("#/components/servers/1"),
+                    Reference("#/components/servers/2"),
+                    Reference("#/components/servers/3")
                 ))
                 .parameters(mapOf(
                         Pair("userId", ParameterTest().build()),
-                        Pair("userStatus", Reference("#/components/parameters/user-status"))
+                        Pair("userStatus",
+                            Reference("#/components/parameters/user-status")
+                        )
                 ))
                 .messages(mapOf(
-                        Pair("changeStatus", Reference("#/components/parameters/user-status")),
+                        Pair("changeStatus",
+                            Reference("#/components/parameters/user-status")
+                        ),
                         Pair("message", MessageTestWithSchema().build()),
                         Pair("message 2", MessageTestWithMultiFormatSchema().build()),
                         Pair("message with reference", MessageTestWithReference().build()),
@@ -51,7 +55,7 @@ class ChannelTest: SerDeTest<Channel>() {
                 .tags(listOf(
                         TagTest().build(),
                         TagTestWithReferenceToExternalDocs().build(),
-                        Reference("#/components/tag")
+                    Reference("#/components/tag")
                 ))
                 .externalDocs(ExternalDocumentationTest().build())
                 .build()
@@ -102,16 +106,20 @@ class ChannelTestWithReference: SerDeTest<Channel>() {
                 .summary("messages about user events.")
                 .description("This channel is used to exchange messages about users signing up")
                 .servers(listOf(
-                        Reference("#/components/servers/1"),
-                        Reference("#/components/servers/2"),
-                        Reference("#/components/servers/3")
+                    Reference("#/components/servers/1"),
+                    Reference("#/components/servers/2"),
+                    Reference("#/components/servers/3")
                 ))
                 .parameters(mapOf(
                         Pair("userId", ParameterTest().build()),
-                        Pair("userStatus", Reference("#/components/parameters/user-status"))
+                        Pair("userStatus",
+                            Reference("#/components/parameters/user-status")
+                        )
                 ))
                 .messages(mapOf(
-                        Pair("changeStatus", Reference("#/components/parameters/user-status")),
+                        Pair("changeStatus",
+                            Reference("#/components/parameters/user-status")
+                        ),
                         Pair("message", MessageTestWithSchema().build()),
                         Pair("message 2", MessageTestWithMultiFormatSchema().build()),
                         Pair("message with reference", MessageTestWithReference().build()),
@@ -120,7 +128,7 @@ class ChannelTestWithReference: SerDeTest<Channel>() {
                 .tags(listOf(
                         TagTest().build(),
                         TagTestWithReferenceToExternalDocs().build(),
-                        Reference("#/components/tag")
+                    Reference("#/components/tag")
                 ))
                 .externalDocs(Reference("#/components/external-doc"))
                 .build()

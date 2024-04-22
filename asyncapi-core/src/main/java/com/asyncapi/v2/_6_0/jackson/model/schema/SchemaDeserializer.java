@@ -1,6 +1,6 @@
 package com.asyncapi.v2._6_0.jackson.model.schema;
 
-import com.asyncapi.v2.Reference;
+import com.asyncapi.Reference;
 import com.asyncapi.v2.schema.Schema;
 import com.asyncapi.v2.jackson.ReferenceOrObjectDeserializer;
 

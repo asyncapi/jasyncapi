@@ -1,4 +1,4 @@
-package com.asyncapi.v3;
+package com.asyncapi;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

@@ -1,6 +1,6 @@
 package com.asyncapi.v3._0_0.model
 
-import com.asyncapi.v3.Reference
+import com.asyncapi.Reference
 import com.asyncapi.v3.SerDeTest
 import com.asyncapi.v3._0_0.model.channel.ChannelTest
 import com.asyncapi.v3._0_0.model.channel.ChannelTestWithReference
@@ -43,7 +43,9 @@ class AsyncAPITest: SerDeTest<AsyncAPI>() {
                 mapOf(
                         Pair("operation 1", OperationTest().build()),
                         Pair("operation 2", OperationTestWithReference().build()),
-                        Pair("operation 3", Reference("#/components/operations/operation"))
+                        Pair("operation 3",
+                            Reference("#/components/operations/operation")
+                        )
                 ),
                 ComponentsTest().build()
         )

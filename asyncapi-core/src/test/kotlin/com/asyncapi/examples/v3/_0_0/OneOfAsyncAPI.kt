@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.v3.Reference
+import com.asyncapi.Reference
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.message.Message
 import com.asyncapi.v3._0_0.model.component.Components
@@ -28,7 +28,9 @@ class OneOfAsyncAPI: AbstractExampleValidationTest() {
                         Channel.builder()
                                 .address("test")
                                 .messages(mapOf(
-                                        Pair("testMessages", Reference("#/components/messages/testMessages"))
+                                        Pair("testMessages",
+                                            Reference("#/components/messages/testMessages")
+                                        )
                                 ))
                                 .build()
                 ),
@@ -36,8 +38,16 @@ class OneOfAsyncAPI: AbstractExampleValidationTest() {
                         Channel.builder()
                                 .address("test2")
                                 .messages(mapOf(
-                                        Pair("objectWithKey", Message.builder().payload(Reference("#/components/schemas/objectWithKey")).build()),
-                                        Pair("objectWithKey2", Message.builder().payload(Reference("#/components/schemas/objectWithKey2")).build())
+                                        Pair("objectWithKey", Message.builder().payload(
+                                            Reference(
+                                                "#/components/schemas/objectWithKey"
+                                            )
+                                        ).build()),
+                                        Pair("objectWithKey2", Message.builder().payload(
+                                            Reference(
+                                                "#/components/schemas/objectWithKey2"
+                                            )
+                                        ).build())
                                 ))
                                 .build()
                 )
@@ -58,8 +68,8 @@ class OneOfAsyncAPI: AbstractExampleValidationTest() {
                                 .action(OperationAction.SEND)
                                 .channel(Reference("#/channels/test2"))
                                 .messages(listOf(
-                                        Reference("#/channels/test2/messages/objectWithKey"),
-                                        Reference("#/channels/test2/messages/objectWithKey2")
+                                    Reference("#/channels/test2/messages/objectWithKey"),
+                                    Reference("#/channels/test2/messages/objectWithKey2")
                                 ))
                                 .build()
                 )

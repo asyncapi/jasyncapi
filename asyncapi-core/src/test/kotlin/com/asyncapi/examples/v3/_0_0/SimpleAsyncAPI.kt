@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.v3.Reference
+import com.asyncapi.Reference
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.message.Message
 import com.asyncapi.v3._0_0.model.component.Components
@@ -29,7 +29,9 @@ class SimpleAsyncAPI: AbstractExampleValidationTest() {
                         Channel.builder()
                                 .address("user/signedup")
                                 .messages(mapOf(
-                                        Pair("UserSignedUp", Reference("#/components/messages/UserSignedUp"))
+                                        Pair("UserSignedUp",
+                                            Reference("#/components/messages/UserSignedUp")
+                                        )
                                 ))
                                 .build()
                 )
@@ -43,7 +45,7 @@ class SimpleAsyncAPI: AbstractExampleValidationTest() {
                                 .action(OperationAction.SEND)
                                 .channel(Reference("#/channels/userSignedup"))
                                 .messages(listOf(
-                                        Reference("#/channels/userSignedup/messages/UserSignedUp")
+                                    Reference("#/channels/userSignedup/messages/UserSignedUp")
                                 ))
                                 .build()
                 )

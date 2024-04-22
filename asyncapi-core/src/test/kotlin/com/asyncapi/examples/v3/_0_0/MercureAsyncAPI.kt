@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.v3.Reference
+import com.asyncapi.Reference
 import com.asyncapi.v3._0_0.model.ExternalDocumentation
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.Parameter
@@ -44,7 +44,9 @@ class MercureAsyncAPI: AbstractExampleValidationTest() {
                         Channel.builder()
                                 .address("https://example.com/books/{id}")
                                 .messages(mapOf(
-                                        Pair("book", Reference("#/components/messages/book"))
+                                        Pair("book",
+                                            Reference("#/components/messages/book")
+                                        )
                                 ))
                                 .description(
                                         "Every time a resource of type `http://schema.org/Book` is created or " +
@@ -66,7 +68,7 @@ class MercureAsyncAPI: AbstractExampleValidationTest() {
                                 .action(OperationAction.RECEIVE)
                                 .channel(Reference("#/channels/books"))
                                 .messages(listOf(
-                                        Reference("#/channels/books/messages/book")
+                                    Reference("#/channels/books/messages/book")
                                 ))
                                 .build()
                 ),
@@ -75,7 +77,7 @@ class MercureAsyncAPI: AbstractExampleValidationTest() {
                                 .action(OperationAction.SEND)
                                 .channel(Reference("#/channels/books"))
                                 .messages(listOf(
-                                        Reference("#/channels/books/messages/book")
+                                    Reference("#/channels/books/messages/book")
                                 ))
                                 .build()
                 )

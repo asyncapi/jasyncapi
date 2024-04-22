@@ -2,7 +2,7 @@ package com.asyncapi.examples.v3._0_0
 
 import com.asyncapi.v3.security_scheme.ApiKeySecurityScheme
 import com.asyncapi.v3.security_scheme.OpenIdConnectSecurityScheme
-import com.asyncapi.v3.Reference
+import com.asyncapi.Reference
 import com.asyncapi.v3._0_0.model.Tag
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.Parameter
@@ -66,7 +66,7 @@ class StreetlightsMQTTAsyncAPI: AbstractExampleValidationTest() {
                                         )
                                 ))
                                 .security(listOf(
-                                        Reference("#/components/securitySchemes/apiKey"),
+                                    Reference("#/components/securitySchemes/apiKey"),
                                         OAuth2SecurityScheme(
                                                 "Flows to support OAuth 2.0",
                                                 OAuthFlows(
@@ -110,7 +110,7 @@ class StreetlightsMQTTAsyncAPI: AbstractExampleValidationTest() {
                                                 ),
                                                 listOf("streetlights:on", "streetlights:off", "streetlights:dim")
                                         ),
-                                        Reference("#/components/securitySchemes/openIdConnectWellKnown")
+                                    Reference("#/components/securitySchemes/openIdConnectWellKnown")
                                 ))
                                 .tags(listOf(
                                         Tag("env:production", "This environment is meant for production use case", null),
@@ -128,11 +128,15 @@ class StreetlightsMQTTAsyncAPI: AbstractExampleValidationTest() {
                         Channel.builder()
                                 .address("smartylighting/streetlights/1/0/event/{streetlightId}/lighting/measured")
                                 .messages(mapOf(
-                                        Pair("lightMeasured", Reference("#/components/messages/lightMeasured"))
+                                        Pair("lightMeasured",
+                                            Reference("#/components/messages/lightMeasured")
+                                        )
                                 ))
                                 .description("The topic on which measured values may be produced and consumed.")
                                 .parameters(mapOf(
-                                        Pair("streetlightId", Reference("#/components/parameters/streetlightId"))
+                                        Pair("streetlightId",
+                                            Reference("#/components/parameters/streetlightId")
+                                        )
                                 ))
                                 .build()
                 ),
@@ -140,10 +144,14 @@ class StreetlightsMQTTAsyncAPI: AbstractExampleValidationTest() {
                         Channel.builder()
                                 .address("smartylighting/streetlights/1/0/action/{streetlightId}/turn/on")
                                 .messages(mapOf(
-                                        Pair("turnOn", Reference("#/components/messages/turnOnOff"))
+                                        Pair("turnOn",
+                                            Reference("#/components/messages/turnOnOff")
+                                        )
                                 ))
                                 .parameters(mapOf(
-                                        Pair("streetlightId", Reference("#/components/parameters/streetlightId"))
+                                        Pair("streetlightId",
+                                            Reference("#/components/parameters/streetlightId")
+                                        )
                                 ))
                                 .build()
                 ),
@@ -151,10 +159,14 @@ class StreetlightsMQTTAsyncAPI: AbstractExampleValidationTest() {
                         Channel.builder()
                                 .address("smartylighting/streetlights/1/0/action/{streetlightId}/turn/off")
                                 .messages(mapOf(
-                                        Pair("turnOff", Reference("#/components/messages/turnOnOff"))
+                                        Pair("turnOff",
+                                            Reference("#/components/messages/turnOnOff")
+                                        )
                                 ))
                                 .parameters(mapOf(
-                                        Pair("streetlightId", Reference("#/components/parameters/streetlightId"))
+                                        Pair("streetlightId",
+                                            Reference("#/components/parameters/streetlightId")
+                                        )
                                 ))
                                 .build()
                 ),
@@ -162,10 +174,14 @@ class StreetlightsMQTTAsyncAPI: AbstractExampleValidationTest() {
                         Channel.builder()
                                 .address("smartylighting/streetlights/1/0/action/{streetlightId}/dim")
                                 .messages(mapOf(
-                                        Pair("dimLight", Reference("#/components/messages/dimLight"))
+                                        Pair("dimLight",
+                                            Reference("#/components/messages/dimLight")
+                                        )
                                 ))
                                 .parameters(mapOf(
-                                        Pair("streetlightId", Reference("#/components/parameters/streetlightId"))
+                                        Pair("streetlightId",
+                                            Reference("#/components/parameters/streetlightId")
+                                        )
                                 ))
                                 .build()
                 )

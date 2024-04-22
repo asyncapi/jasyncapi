@@ -76,7 +76,7 @@ public class AsyncAPI extends ExtendableObject {
      * MUST BE:
      * <ul>
      *     <li>{@link Server}</li>
-     *     <li>{@link com.asyncapi.v2.Reference}</li>
+     *     <li>{@link com.asyncapi.Reference}</li>
      * </ul>
      */
     @Nullable

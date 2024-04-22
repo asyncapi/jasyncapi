@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.v3.Reference
+import com.asyncapi.Reference
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.message.CorrelationId
 import com.asyncapi.v3._0_0.model.channel.message.Message
@@ -45,14 +45,30 @@ class KrakenWebsocketRequestReplyMessageFilterInReplyAsyncAPI: AbstractExampleVa
                         Channel.builder()
                                 .address("/")
                                 .messages(mapOf(
-                                        Pair("ping", Reference("#/components/messages/ping")),
-                                        Pair("pong", Reference("#/components/messages/pong")),
-                                        Pair("heartbeat", Reference("#/components/messages/heartbeat")),
-                                        Pair("systemStatus", Reference("#/components/messages/systemStatus")),
-                                        Pair("subscriptionStatus", Reference("#/components/messages/subscriptionStatus")),
-                                        Pair("subscribe", Reference("#/components/messages/subscribe")),
-                                        Pair("unsubscribe", Reference("#/components/messages/unsubscribe")),
-                                        Pair("dummyCurrencyInfo", Reference("#/components/messages/dummyCurrencyInfo")),
+                                        Pair("ping",
+                                            Reference("#/components/messages/ping")
+                                        ),
+                                        Pair("pong",
+                                            Reference("#/components/messages/pong")
+                                        ),
+                                        Pair("heartbeat",
+                                            Reference("#/components/messages/heartbeat")
+                                        ),
+                                        Pair("systemStatus",
+                                            Reference("#/components/messages/systemStatus")
+                                        ),
+                                        Pair("subscriptionStatus",
+                                            Reference("#/components/messages/subscriptionStatus")
+                                        ),
+                                        Pair("subscribe",
+                                            Reference("#/components/messages/subscribe")
+                                        ),
+                                        Pair("unsubscribe",
+                                            Reference("#/components/messages/unsubscribe")
+                                        ),
+                                        Pair("dummyCurrencyInfo",
+                                            Reference("#/components/messages/dummyCurrencyInfo")
+                                        ),
                                 ))
                                 .build()
                 )
@@ -66,7 +82,7 @@ class KrakenWebsocketRequestReplyMessageFilterInReplyAsyncAPI: AbstractExampleVa
                         .channel(Reference("#/channels/currencyExchange"))
                         .reply(OperationReply(
                                 null,
-                                Reference("#/channels/currencyExchange"),
+                            Reference("#/channels/currencyExchange"),
                                 listOf(Reference("#/channels/currencyExchange/messages/pong"))
                         ))
                         .messages(listOf(Reference("#/channels/currencyExchange/messages/ping")))
@@ -89,10 +105,10 @@ class KrakenWebsocketRequestReplyMessageFilterInReplyAsyncAPI: AbstractExampleVa
                         .channel(Reference("#/channels/currencyExchange"))
                         .reply(OperationReply(
                                 null,
-                                Reference("#/channels/currencyExchange"),
+                            Reference("#/channels/currencyExchange"),
                                 listOf(
-                                        Reference("#/channels/currencyExchange/messages/subscriptionStatus"),
-                                        Reference("#/channels/currencyExchange/messages/dummyCurrencyInfo")
+                                    Reference("#/channels/currencyExchange/messages/subscriptionStatus"),
+                                    Reference("#/channels/currencyExchange/messages/dummyCurrencyInfo")
                                 )
                         ))
                         .messages(listOf(Reference("#/channels/currencyExchange/messages/subscribe")))
@@ -103,9 +119,9 @@ class KrakenWebsocketRequestReplyMessageFilterInReplyAsyncAPI: AbstractExampleVa
                         .channel(Reference("#/channels/currencyExchange"))
                         .reply(OperationReply(
                                 null,
-                                Reference("#/channels/currencyExchange"),
+                            Reference("#/channels/currencyExchange"),
                                 listOf(
-                                        Reference("#/channels/currencyExchange/messages/subscriptionStatus")
+                                    Reference("#/channels/currencyExchange/messages/subscriptionStatus")
                                 )
                         ))
                         .messages(listOf(Reference("#/channels/currencyExchange/messages/unsubscribe")))

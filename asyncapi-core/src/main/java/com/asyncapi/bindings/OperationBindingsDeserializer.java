@@ -1,6 +1,5 @@
-package com.asyncapi.v2.jackson.binding.operation;
+package com.asyncapi.bindings;
 
-import com.asyncapi.v2.Reference;
 import com.asyncapi.bindings.amqp.v0._2_0.operation.AMQPOperationBinding;
 import com.asyncapi.bindings.amqp1.v0._1_0.operation.AMQP1OperationBinding;
 import com.asyncapi.bindings.anypointmq.v0._0_1.operation.AnypointMQOperationBinding;
@@ -20,7 +19,7 @@ import com.asyncapi.bindings.solace.v0._3_0.operation.SolaceOperationBinding;
 import com.asyncapi.bindings.sqs.v0._1_0.operation.SQSOperationBinding;
 import com.asyncapi.bindings.stomp.v0._1_0.operation.STOMPOperationBinding;
 import com.asyncapi.bindings.websockets.v0._1_0.operation.WebSocketsOperationBinding;
-import com.asyncapi.v2.jackson.BindingsMapDeserializer;
+import com.asyncapi.Reference;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -30,7 +29,7 @@ import java.io.IOException;
 /**
  * Serializes operation bindings map.
  *
- * @version 2.6.0
+ * @version 3.0.0
  * @author Pavel Bodiachevskii
  */
 public class OperationBindingsDeserializer extends BindingsMapDeserializer {

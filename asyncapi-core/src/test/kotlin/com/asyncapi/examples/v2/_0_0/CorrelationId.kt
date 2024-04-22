@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v2._0_0
 
-import com.asyncapi.v2.Reference
+import com.asyncapi.Reference
 import com.asyncapi.v2._0_0.model.channel.ChannelItem
 import com.asyncapi.v2._0_0.model.channel.Parameter
 import com.asyncapi.v2._0_0.model.channel.message.CorrelationId

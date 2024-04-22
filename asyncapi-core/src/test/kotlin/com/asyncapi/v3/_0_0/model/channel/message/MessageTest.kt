@@ -1,6 +1,6 @@
 package com.asyncapi.v3._0_0.model.channel.message
 
-import com.asyncapi.v3.Reference
+import com.asyncapi.Reference
 import com.asyncapi.v3.SerDeTest
 import com.asyncapi.v3._0_0.model.ExternalDocumentation
 import com.asyncapi.v3._0_0.model.Tag
@@ -133,7 +133,7 @@ class MessageTestWithReference: SerDeTest<Message>() {
                         Tag("user", null, null),
                         Tag("signup", null, null),
                         Tag("register", null, null),
-                        Reference("#/components/tags/tag")
+                    Reference("#/components/tags/tag")
                 ))
                 .externalDocs(Reference("#/components/externalDocs/external-doc"))
                 .bindings(mapOf(
@@ -145,7 +145,9 @@ class MessageTestWithReference: SerDeTest<Message>() {
                         Pair("ibmmq", IBMMQMessageBindingTest().build()),
                         Pair("jms", Reference("#/components/messageBindings/jms")),
                         Pair("kafka", KafkaMessageBindingTest().build()),
-                        Pair("mercure", Reference("#/components/messageBindings/mercure")),
+                        Pair("mercure",
+                            Reference("#/components/messageBindings/mercure")
+                        ),
                         Pair("mqtt", MQTTMessageBindingTest().build()),
                         Pair("mqtt5", Reference("#/components/messageBindings/mqtt5")),
                         Pair("nats", Reference("#/components/messageBindings/nats")),
@@ -221,7 +223,7 @@ class MessageTestWithMultiFormatSchema: SerDeTest<Message>() {
                         Tag("user", null, null),
                         Tag("signup", null, null),
                         Tag("register", null, null),
-                        Reference("#/components/tags/tag")
+                    Reference("#/components/tags/tag")
                 ))
                 .externalDocs(Reference("#/components/externalDocs/external-doc"))
                 .bindings(mapOf(
@@ -233,7 +235,9 @@ class MessageTestWithMultiFormatSchema: SerDeTest<Message>() {
                         Pair("ibmmq", IBMMQMessageBindingTest().build()),
                         Pair("jms", Reference("#/components/messageBindings/jms")),
                         Pair("kafka", KafkaMessageBindingTest().build()),
-                        Pair("mercure", Reference("#/components/messageBindings/mercure")),
+                        Pair("mercure",
+                            Reference("#/components/messageBindings/mercure")
+                        ),
                         Pair("mqtt", MQTTMessageBindingTest().build()),
                         Pair("mqtt5", Reference("#/components/messageBindings/mqtt5")),
                         Pair("nats", Reference("#/components/messageBindings/nats")),

@@ -1,6 +1,5 @@
-package com.asyncapi.v2.jackson.binding.message;
+package com.asyncapi.bindings;
 
-import com.asyncapi.v2.Reference;
 import com.asyncapi.bindings.amqp.v0._2_0.message.AMQPMessageBinding;
 import com.asyncapi.bindings.amqp1.v0._1_0.message.AMQP1MessageBinding;
 import com.asyncapi.bindings.anypointmq.v0._0_1.message.AnypointMQMessageBinding;
@@ -20,7 +19,7 @@ import com.asyncapi.bindings.solace.v0._3_0.message.SolaceMessageBinding;
 import com.asyncapi.bindings.sqs.v0._1_0.message.SQSMessageBinding;
 import com.asyncapi.bindings.stomp.v0._1_0.message.STOMPMessageBinding;
 import com.asyncapi.bindings.websockets.v0._1_0.message.WebSocketsMessageBinding;
-import com.asyncapi.v2.jackson.BindingsMapDeserializer;
+import com.asyncapi.Reference;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.JsonNode;

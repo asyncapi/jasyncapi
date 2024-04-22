@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.v3.Reference
+import com.asyncapi.Reference
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.message.Message
 import com.asyncapi.v3._0_0.model.component.Components
@@ -28,7 +28,9 @@ class NotAsyncAPI: AbstractExampleValidationTest() {
                         Channel.builder()
                                 .address("test")
                                 .messages(mapOf(
-                                        Pair("testMessages", Reference("#/components/messages/testMessages"))
+                                        Pair("testMessages",
+                                            Reference("#/components/messages/testMessages")
+                                        )
                                 ))
                                 .build()
                 )

@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.v3.Reference
+import com.asyncapi.Reference
 import com.asyncapi.v3._0_0.model.Tag
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.Parameter
@@ -118,7 +118,9 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
                         )
                         .parameters(mapOf(
                                 Pair("env", Reference("#/components/parameters/Env")),
-                                Pair("version", Reference("#/components/parameters/Version"))
+                                Pair("version",
+                                    Reference("#/components/parameters/Version")
+                                )
                         ))
                         .bindings(mapOf(
                                 Pair("kafka", KafkaChannelBinding.builder()
@@ -133,7 +135,9 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
                                 )
                         ))
                         .messages(mapOf(
-                                Pair("CostingRequest", Reference("#/components/messages/costingRequestV1"))
+                                Pair("CostingRequest",
+                                    Reference("#/components/messages/costingRequestV1")
+                                )
                         ))
                         .build()
                 ),
@@ -159,7 +163,9 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
                         ))
                         .tags(listOf(Tag.builder().name("costing").build()))
                         .messages(mapOf(
-                                Pair("costingResponse", Reference("#/components/messages/costingResponse"))
+                                Pair("costingResponse",
+                                    Reference("#/components/messages/costingResponse")
+                                )
                         ))
                         .build()
                 )
@@ -253,7 +259,7 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
                                 )
                                 .payload(AvroFormatSchema(
                                         "application/vnd.apache.avro;version=1.9.0",
-                                        Reference("https://www.asyncapi.com/resources/casestudies/adeo/CostingRequestPayload.avsc")
+                                    Reference("https://www.asyncapi.com/resources/casestudies/adeo/CostingRequestPayload.avsc")
                                 ))
                                 .build()
                         ),
@@ -289,7 +295,7 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
                                 )
                                 .payload(AvroFormatSchema(
                                         "application/vnd.apache.avro;version=1.9.0",
-                                        Reference("https://www.asyncapi.com/resources/casestudies/adeo/CostingResponsePayload.avsc")
+                                    Reference("https://www.asyncapi.com/resources/casestudies/adeo/CostingResponsePayload.avsc")
                                 ))
                                 .build()
                         )

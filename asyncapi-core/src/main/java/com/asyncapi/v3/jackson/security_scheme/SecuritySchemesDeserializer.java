@@ -1,6 +1,6 @@
 package com.asyncapi.v3.jackson.security_scheme;
 
-import com.asyncapi.v3.Reference;
+import com.asyncapi.Reference;
 import com.asyncapi.v3.jackson.ListOfReferencesOrObjectsDeserializer;
 import com.asyncapi.v3.security_scheme.SecurityScheme;
 

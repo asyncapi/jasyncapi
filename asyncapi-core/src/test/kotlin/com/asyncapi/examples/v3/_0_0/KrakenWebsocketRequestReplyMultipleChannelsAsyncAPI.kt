@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.v3.Reference
+import com.asyncapi.Reference
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.message.CorrelationId
 import com.asyncapi.v3._0_0.model.channel.message.Message
@@ -45,7 +45,9 @@ class KrakenWebsocketRequestReplyMultipleChannelsAsyncAPI: AbstractExampleValida
                         Channel.builder()
                                 .address("/")
                                 .messages(mapOf(
-                                        Pair("ping", Reference("#/components/messages/ping")),
+                                        Pair("ping",
+                                            Reference("#/components/messages/ping")
+                                        ),
                                 ))
                                 .build()
                 ),
@@ -53,7 +55,9 @@ class KrakenWebsocketRequestReplyMultipleChannelsAsyncAPI: AbstractExampleValida
                         Channel.builder()
                                 .address("/")
                                 .messages(mapOf(
-                                        Pair("pong", Reference("#/components/messages/pong")),
+                                        Pair("pong",
+                                            Reference("#/components/messages/pong")
+                                        ),
                                 ))
                                 .build()
                 ),
@@ -61,7 +65,9 @@ class KrakenWebsocketRequestReplyMultipleChannelsAsyncAPI: AbstractExampleValida
                         Channel.builder()
                                 .address("/")
                                 .messages(mapOf(
-                                        Pair("heartbeat", Reference("#/components/messages/heartbeat")),
+                                        Pair("heartbeat",
+                                            Reference("#/components/messages/heartbeat")
+                                        ),
                                 ))
                                 .build()
                 ),
@@ -69,7 +75,9 @@ class KrakenWebsocketRequestReplyMultipleChannelsAsyncAPI: AbstractExampleValida
                         Channel.builder()
                                 .address("/")
                                 .messages(mapOf(
-                                        Pair("systemStatus", Reference("#/components/messages/systemStatus")),
+                                        Pair("systemStatus",
+                                            Reference("#/components/messages/systemStatus")
+                                        ),
                                 ))
                                 .build()
                 ),
@@ -77,8 +85,12 @@ class KrakenWebsocketRequestReplyMultipleChannelsAsyncAPI: AbstractExampleValida
                         Channel.builder()
                                 .address("/")
                                 .messages(mapOf(
-                                        Pair("subscriptionStatus", Reference("#/components/messages/subscriptionStatus")),
-                                        Pair("dummyCurrencyInfo", Reference("#/components/messages/dummyCurrencyInfo")),
+                                        Pair("subscriptionStatus",
+                                            Reference("#/components/messages/subscriptionStatus")
+                                        ),
+                                        Pair("dummyCurrencyInfo",
+                                            Reference("#/components/messages/dummyCurrencyInfo")
+                                        ),
                                 ))
                                 .build()
                 ),
@@ -86,7 +98,9 @@ class KrakenWebsocketRequestReplyMultipleChannelsAsyncAPI: AbstractExampleValida
                         Channel.builder()
                                 .address("/")
                                 .messages(mapOf(
-                                        Pair("subscribe", Reference("#/components/messages/subscribe")),
+                                        Pair("subscribe",
+                                            Reference("#/components/messages/subscribe")
+                                        ),
                                 ))
                                 .build()
                 ),
@@ -94,7 +108,9 @@ class KrakenWebsocketRequestReplyMultipleChannelsAsyncAPI: AbstractExampleValida
                         Channel.builder()
                                 .address("/")
                                 .messages(mapOf(
-                                        Pair("unsubscribe", Reference("#/components/messages/unsubscribe")),
+                                        Pair("unsubscribe",
+                                            Reference("#/components/messages/unsubscribe")
+                                        ),
                                 ))
                                 .build()
                 )
@@ -108,7 +124,7 @@ class KrakenWebsocketRequestReplyMultipleChannelsAsyncAPI: AbstractExampleValida
                         .channel(Reference("#/channels/ping"))
                         .reply(OperationReply(
                                 null,
-                                Reference("#/channels/pong"),
+                            Reference("#/channels/pong"),
                                 null
                         ))
                         .build()
@@ -128,7 +144,7 @@ class KrakenWebsocketRequestReplyMultipleChannelsAsyncAPI: AbstractExampleValida
                         .channel(Reference("#/channels/subscribe"))
                         .reply(OperationReply(
                                 null,
-                                Reference("#/channels/currencyInfo"),
+                            Reference("#/channels/currencyInfo"),
                                 null
                         ))
                         .build()
@@ -138,7 +154,7 @@ class KrakenWebsocketRequestReplyMultipleChannelsAsyncAPI: AbstractExampleValida
                         .channel(Reference("#/channels/unsubscribe"))
                         .reply(OperationReply(
                                 null,
-                                Reference("#/channels/currencyInfo"),
+                            Reference("#/channels/currencyInfo"),
                                 listOf(Reference("#/channels/currencyInfo/messages/subscriptionStatus"))
                         ))
                         .build()

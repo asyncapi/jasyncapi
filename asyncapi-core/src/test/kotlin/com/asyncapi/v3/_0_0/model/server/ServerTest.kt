@@ -1,6 +1,6 @@
 package com.asyncapi.v3._0_0.model.server
 
-import com.asyncapi.v3.Reference
+import com.asyncapi.Reference
 import com.asyncapi.v3.SerDeTest
 import com.asyncapi.v3._0_0.model.ExternalDocumentationTest
 import com.asyncapi.v3._0_0.model.Tag
@@ -58,7 +58,9 @@ class ServerTest: SerDeTest<Server>() {
                                 .enumValues(listOf("8883", "8884"))
                                 .defaultValue("8883")
                                 .build()),
-                        Pair("basePath", Reference("#/components/serverVariables/basePath"))
+                        Pair("basePath",
+                            Reference("#/components/serverVariables/basePath")
+                        )
                 ))
                 .security(listOf(
                         ApiKeySecuritySchemeTest().build(),
@@ -171,16 +173,18 @@ class ServerTestWithReference: SerDeTest<Server>() {
                                 .enumValues(listOf("8883", "8884"))
                                 .defaultValue("8883")
                                 .build()),
-                        Pair("basePath", Reference("#/components/serverVariables/basePath"))
+                        Pair("basePath",
+                            Reference("#/components/serverVariables/basePath")
+                        )
                 ))
                 .security(listOf(
                         ApiKeySecuritySchemeTest().build(),
                         HttpSecuritySchemeBearerTest().build(),
-                        Reference("#/components/securitySchemes/openId")
+                    Reference("#/components/securitySchemes/openId")
                 ))
                 .tags(listOf(
                         Tag("env:staging", "This environment is a replica of the production environment", null),
-                        Reference("#/components/tags/tag_name")
+                    Reference("#/components/tags/tag_name")
                 ))
                 .externalDocs(Reference("#/components/externalDocs/externalDoc"))
                 .bindings(bindings())

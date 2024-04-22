@@ -1,7 +1,7 @@
 package com.asyncapi.v3._0_0.model;
 
 import com.asyncapi.ExtendableObject;
-import com.asyncapi.v3.Reference;
+import com.asyncapi.Reference;
 import com.asyncapi.v3._0_0.jackson.model.channel.ChannelsDeserializer;
 import com.asyncapi.v3._0_0.jackson.model.operation.OperationsDeserializer;
 import com.asyncapi.v3._0_0.jackson.model.server.ServersDeserializer;
