@@ -1,6 +1,8 @@
 package com.asyncapi.v3.binding.channel.anypointmq
 
 import com.asyncapi.v3.SerDeTest
+import com.asyncapi.bindings.anypointmq.v0._0_1.channel.AnypointMQChannelBinding
+import com.asyncapi.bindings.anypointmq.v0._0_1.channel.AnypointMQChannelDestinationType
 
 /**
  * @version 3.0.0

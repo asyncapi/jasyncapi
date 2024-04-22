@@ -1,6 +1,7 @@
 package com.asyncapi.v3.binding.operation.amqp
 
 import com.asyncapi.v3.SerDeTest
+import com.asyncapi.bindings.amqp.v0._2_0.operation.AMQPOperationBinding
 
 class AMQPOperationBindingTest: SerDeTest<AMQPOperationBinding>() {
 

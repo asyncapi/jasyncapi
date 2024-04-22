@@ -3,6 +3,9 @@ package com.asyncapi.v3.binding.operation.http
 import com.asyncapi.v3.SerDeTest
 import com.asyncapi.v3.schema.AsyncAPISchema
 import com.asyncapi.v3.schema.Type
+import com.asyncapi.bindings.http.v0._1_0.operation.HTTPOperationBinding
+import com.asyncapi.bindings.http.v0._1_0.operation.HTTPOperationType
+import com.asyncapi.bindings.http.v0._1_0.operation.HTTPOperationMethod
 import java.math.BigDecimal
 
 class HTTPOperationBindingTest: SerDeTest<HTTPOperationBinding>() {

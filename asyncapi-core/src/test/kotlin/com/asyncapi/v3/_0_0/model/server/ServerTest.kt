@@ -4,14 +4,14 @@ import com.asyncapi.v3.Reference
 import com.asyncapi.v3.SerDeTest
 import com.asyncapi.v3._0_0.model.ExternalDocumentationTest
 import com.asyncapi.v3._0_0.model.Tag
-import com.asyncapi.v3.binding.server.amqp1.AMQP1ServerBinding
-import com.asyncapi.v3.binding.server.anypointmq.AnypointMQServerBinding
-import com.asyncapi.v3.binding.server.googlepubsub.GooglePubSubServerBinding
-import com.asyncapi.v3.binding.server.http.HTTPServerBinding
-import com.asyncapi.v3.binding.server.ibmmq.IBMMQServerBinding
-import com.asyncapi.v3.binding.server.jms.JMSServerBinding
-import com.asyncapi.v3.binding.server.kafka.KafkaServerBinding
-import com.asyncapi.v3.binding.server.mercure.MercureServerBinding
+import com.asyncapi.bindings.amqp1.v0._1_0.server.AMQP1ServerBinding
+import com.asyncapi.bindings.anypointmq.v0._0_1.server.AnypointMQServerBinding
+import com.asyncapi.bindings.googlepubsub.v0._1_0.server.GooglePubSubServerBinding
+import com.asyncapi.bindings.http.v0._1_0.server.HTTPServerBinding
+import com.asyncapi.bindings.ibmmq.v0._1_0.server.IBMMQServerBinding
+import com.asyncapi.bindings.jms.v0._0_1.server.JMSServerBinding
+import com.asyncapi.bindings.kafka.v0._4_0.server.KafkaServerBinding
+import com.asyncapi.bindings.mercure.v0._1_0.server.MercureServerBinding
 import com.asyncapi.bindings.mqtt.v0._1_0.server.MQTTServerBinding
 import com.asyncapi.bindings.mqtt.v0._1_0.server.MQTTServerLastWillConfiguration
 import com.asyncapi.bindings.mqtt5.v0._2_0.server.MQTT5ServerBinding
@@ -96,7 +96,9 @@ class ServerTest: SerDeTest<Server>() {
                                     .schemaRegistryVendor("confluent")
                                     .build()
                     ),
-                    Pair("mercure", MercureServerBinding()),
+                    Pair("mercure",
+                            MercureServerBinding()
+                    ),
                     Pair(
                             "mqtt",
                             MQTTServerBinding.builder()
@@ -209,7 +211,9 @@ class ServerTestWithReference: SerDeTest<Server>() {
                                     .schemaRegistryVendor("confluent")
                                     .build()
                     ),
-                    Pair("mercure", MercureServerBinding()),
+                    Pair("mercure",
+                            MercureServerBinding()
+                    ),
                     Pair(
                             "mqtt",
                             MQTTServerBinding.builder()

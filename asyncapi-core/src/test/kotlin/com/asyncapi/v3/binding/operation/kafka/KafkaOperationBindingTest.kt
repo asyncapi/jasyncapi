@@ -3,6 +3,7 @@ package com.asyncapi.v3.binding.operation.kafka
 import com.asyncapi.v3.SerDeTest
 import com.asyncapi.v3.schema.AsyncAPISchema
 import com.asyncapi.v3.schema.Type
+import com.asyncapi.bindings.kafka.v0._4_0.operation.KafkaOperationBinding
 
 class KafkaOperationBindingTest: SerDeTest<KafkaOperationBinding>() {
 

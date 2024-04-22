@@ -1,9 +1,11 @@
 package com.asyncapi.v2.binding.channel.amqp
 
 import com.asyncapi.v2.SerDeTest
-import com.asyncapi.v2.binding.channel.amqp.exchange.AMQPChannelExchangeProperties
-import com.asyncapi.v2.binding.channel.amqp.exchange.AMQPChannelExchangeType
-import com.asyncapi.v2.binding.channel.amqp.queue.AMQPChannelQueueProperties
+import com.asyncapi.bindings.amqp.v0._2_0.channel.AMQPChannelBinding
+import com.asyncapi.bindings.amqp.v0._2_0.channel.AMQPChannelType
+import com.asyncapi.bindings.amqp.v0._2_0.channel.exchange.AMQPChannelExchangeProperties
+import com.asyncapi.bindings.amqp.v0._2_0.channel.exchange.AMQPChannelExchangeType
+import com.asyncapi.bindings.amqp.v0._2_0.channel.queue.AMQPChannelQueueProperties
 
 /**
  * @version 2.6.0

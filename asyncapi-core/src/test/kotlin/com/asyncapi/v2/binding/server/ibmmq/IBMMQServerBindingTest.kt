@@ -1,6 +1,7 @@
 package com.asyncapi.v2.binding.server.ibmmq
 
 import com.asyncapi.v2.SerDeTest
+import com.asyncapi.bindings.ibmmq.v0._1_0.server.IBMMQServerBinding
 
 /**
  * @version 2.6.0

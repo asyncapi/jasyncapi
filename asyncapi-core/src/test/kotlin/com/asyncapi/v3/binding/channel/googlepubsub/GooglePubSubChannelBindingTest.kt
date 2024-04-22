@@ -1,6 +1,9 @@
 package com.asyncapi.v3.binding.channel.googlepubsub
 
 import com.asyncapi.v3.SerDeTest
+import com.asyncapi.bindings.googlepubsub.v0._1_0.channel.GooglePubSubChannelBinding
+import com.asyncapi.bindings.googlepubsub.v0._1_0.channel.GooglePubSubChannelMessageStoragePolicy
+import com.asyncapi.bindings.googlepubsub.v0._1_0.channel.GooglePubSubChannelSchemaSettings
 
 class GooglePubSubChannelBindingTest: SerDeTest<GooglePubSubChannelBinding>() {
 

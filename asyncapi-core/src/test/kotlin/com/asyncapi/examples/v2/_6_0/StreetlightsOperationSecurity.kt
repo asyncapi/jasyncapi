@@ -12,12 +12,13 @@ import com.asyncapi.v2._6_0.model.component.Components
 import com.asyncapi.v2._6_0.model.info.Info
 import com.asyncapi.v2._6_0.model.info.License
 import com.asyncapi.v2._6_0.model.server.Server
-import com.asyncapi.v2.binding.operation.kafka.KafkaOperationBinding
+import com.asyncapi.bindings.kafka.v0._4_0.operation.KafkaOperationBinding
 import com.asyncapi.v2.schema.Schema
 import com.asyncapi.v2.security_scheme.SecurityScheme
 import com.asyncapi.v2.security_scheme.oauth2.OAuth2SecurityScheme
 import com.asyncapi.v2.security_scheme.oauth2.OAuthFlows
 import com.asyncapi.v2.security_scheme.oauth2.flow.ClientCredentialsOAuthFlow
+import com.asyncapi.v3.schema.AsyncAPISchema
 import java.math.BigDecimal
 
 class StreetlightsOperationSecurity: AbstractExampleValidationTest() {
@@ -272,7 +273,7 @@ class StreetlightsOperationSecurity: AbstractExampleValidationTest() {
                                 OperationTrait.builder()
                                         .bindings(mapOf(
                                                 Pair("kafka", KafkaOperationBinding.builder()
-                                                        .clientId(Schema.builder()
+                                                        .clientId(AsyncAPISchema.builder()
                                                                 .type("string")
                                                                 .enumValue(listOf("my-app-id"))
                                                                 .build()

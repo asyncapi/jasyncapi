@@ -1,6 +1,7 @@
 package com.asyncapi.v2.binding.server.kafka
 
 import com.asyncapi.v2.SerDeTest
+import com.asyncapi.bindings.kafka.v0._4_0.server.KafkaServerBinding
 
 /**
  * @version 2.6.0

@@ -1,6 +1,9 @@
 package com.asyncapi.v3.binding.channel.kafka
 
 import com.asyncapi.v3.SerDeTest
+import com.asyncapi.bindings.kafka.v0._4_0.channel.KafkaChannelBinding
+import com.asyncapi.bindings.kafka.v0._4_0.channel.KafkaChannelTopicCleanupPolicy
+import com.asyncapi.bindings.kafka.v0._4_0.channel.KafkaChannelTopicConfiguration
 
 /**
  * @version 3.0.0

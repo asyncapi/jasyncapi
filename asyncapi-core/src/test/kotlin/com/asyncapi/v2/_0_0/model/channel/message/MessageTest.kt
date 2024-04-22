@@ -7,14 +7,14 @@ import com.asyncapi.v2._0_0.model.Tag
 import com.asyncapi.v2.schema.Schema
 import com.asyncapi.bindings.MessageBinding
 import com.asyncapi.v2.binding.message.amqp.AMQPMessageBindingTest
-import com.asyncapi.v2.binding.message.amqp1.AMQP1MessageBinding
+import com.asyncapi.bindings.amqp1.v0._1_0.message.AMQP1MessageBinding
 import com.asyncapi.v2.binding.message.anypointmq.AnypointMQMessageBindingTest
 import com.asyncapi.v2.binding.message.googlepubsub.GooglePubSubMessageBindingTest
 import com.asyncapi.v2.binding.message.http.HTTPMessageBindingTest
 import com.asyncapi.v2.binding.message.ibmmq.IBMMQMessageBindingTest
-import com.asyncapi.v2.binding.message.jms.JMSMessageBinding
+import com.asyncapi.bindings.jms.v0._0_1.message.JMSMessageBinding
 import com.asyncapi.v2.binding.message.kafka.KafkaMessageBindingTest
-import com.asyncapi.v2.binding.message.mercure.MercureMessageBinding
+import com.asyncapi.bindings.mercure.v0._1_0.message.MercureMessageBinding
 import com.asyncapi.v2.binding.message.mqtt.MQTTMessageBindingTest
 import com.asyncapi.bindings.mqtt5.v0._2_0.message.MQTT5MessageBinding
 import com.asyncapi.bindings.nats.v0._1_0.message.NATSMessageBinding

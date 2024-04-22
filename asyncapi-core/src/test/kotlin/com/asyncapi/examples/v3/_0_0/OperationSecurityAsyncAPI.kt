@@ -7,8 +7,8 @@ import com.asyncapi.v3._0_0.model.component.Components
 import com.asyncapi.v3._0_0.model.info.Info
 import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
-import com.asyncapi.v3.binding.operation.http.HTTPOperationBinding
-import com.asyncapi.v3.binding.operation.http.HTTPOperationMethod
+import com.asyncapi.bindings.http.v0._1_0.operation.HTTPOperationBinding
+import com.asyncapi.bindings.http.v0._1_0.operation.HTTPOperationMethod
 import com.asyncapi.v3.schema.AsyncAPISchema
 import com.asyncapi.v3.security_scheme.oauth2.OAuth2SecurityScheme
 import com.asyncapi.v3.security_scheme.oauth2.OAuthFlows

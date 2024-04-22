@@ -1,15 +1,15 @@
 package com.asyncapi.v2.jackson.binding.channel;
 
 import com.asyncapi.v2.Reference;
-import com.asyncapi.v2.binding.channel.amqp.AMQPChannelBinding;
-import com.asyncapi.v2.binding.channel.amqp1.AMQP1ChannelBinding;
-import com.asyncapi.v2.binding.channel.anypointmq.AnypointMQChannelBinding;
-import com.asyncapi.v2.binding.channel.googlepubsub.GooglePubSubChannelBinding;
-import com.asyncapi.v2.binding.channel.http.HTTPChannelBinding;
-import com.asyncapi.v2.binding.channel.ibmmq.IBMMQChannelBinding;
-import com.asyncapi.v2.binding.channel.jms.JMSChannelBinding;
-import com.asyncapi.v2.binding.channel.kafka.KafkaChannelBinding;
-import com.asyncapi.v2.binding.channel.mercure.MercureChannelBinding;
+import com.asyncapi.bindings.amqp.v0._2_0.channel.AMQPChannelBinding;
+import com.asyncapi.bindings.amqp1.v0._1_0.channel.AMQP1ChannelBinding;
+import com.asyncapi.bindings.anypointmq.v0._0_1.channel.AnypointMQChannelBinding;
+import com.asyncapi.bindings.googlepubsub.v0._1_0.channel.GooglePubSubChannelBinding;
+import com.asyncapi.bindings.http.v0._1_0.channel.HTTPChannelBinding;
+import com.asyncapi.bindings.ibmmq.v0._1_0.channel.IBMMQChannelBinding;
+import com.asyncapi.bindings.jms.v0._0_1.channel.JMSChannelBinding;
+import com.asyncapi.bindings.kafka.v0._4_0.channel.KafkaChannelBinding;
+import com.asyncapi.bindings.mercure.v0._1_0.channel.MercureChannelBinding;
 import com.asyncapi.bindings.mqtt.v0._1_0.channel.MQTTChannelBinding;
 import com.asyncapi.bindings.mqtt5.v0._2_0.channel.MQTT5ChannelBinding;
 import com.asyncapi.bindings.nats.v0._1_0.channel.NATSChannelBinding;

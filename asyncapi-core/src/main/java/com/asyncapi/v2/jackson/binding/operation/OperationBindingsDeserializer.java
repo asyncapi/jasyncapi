@@ -1,15 +1,15 @@
 package com.asyncapi.v2.jackson.binding.operation;
 
 import com.asyncapi.v2.Reference;
-import com.asyncapi.v2.binding.operation.amqp.AMQPOperationBinding;
-import com.asyncapi.v2.binding.operation.amqp1.AMQP1OperationBinding;
-import com.asyncapi.v2.binding.operation.anypointmq.AnypointMQOperationBinding;
-import com.asyncapi.v2.binding.operation.googlepubsub.GooglePubSubOperationBinding;
-import com.asyncapi.v2.binding.operation.http.HTTPOperationBinding;
-import com.asyncapi.v2.binding.operation.ibmmq.IBMMQOperationBinding;
-import com.asyncapi.v2.binding.operation.jms.JMSOperationBinding;
-import com.asyncapi.v2.binding.operation.kafka.KafkaOperationBinding;
-import com.asyncapi.v2.binding.operation.mercure.MercureOperationBinding;
+import com.asyncapi.bindings.amqp.v0._2_0.operation.AMQPOperationBinding;
+import com.asyncapi.bindings.amqp1.v0._1_0.operation.AMQP1OperationBinding;
+import com.asyncapi.bindings.anypointmq.v0._0_1.operation.AnypointMQOperationBinding;
+import com.asyncapi.bindings.googlepubsub.v0._1_0.operation.GooglePubSubOperationBinding;
+import com.asyncapi.bindings.http.v0._1_0.operation.HTTPOperationBinding;
+import com.asyncapi.bindings.ibmmq.v0._1_0.operation.IBMMQOperationBinding;
+import com.asyncapi.bindings.jms.v0._0_1.operation.JMSOperationBinding;
+import com.asyncapi.bindings.kafka.v0._4_0.operation.KafkaOperationBinding;
+import com.asyncapi.bindings.mercure.v0._1_0.operation.MercureOperationBinding;
 import com.asyncapi.bindings.mqtt.v0._1_0.operation.MQTTOperationBinding;
 import com.asyncapi.bindings.mqtt5.v0._2_0.operation.MQTT5OperationBinding;
 import com.asyncapi.bindings.nats.v0._1_0.operation.NATSOperationBinding;

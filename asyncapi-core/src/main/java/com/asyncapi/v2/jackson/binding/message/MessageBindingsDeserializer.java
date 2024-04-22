@@ -1,15 +1,15 @@
 package com.asyncapi.v2.jackson.binding.message;
 
 import com.asyncapi.v2.Reference;
-import com.asyncapi.v2.binding.message.amqp.AMQPMessageBinding;
-import com.asyncapi.v2.binding.message.amqp1.AMQP1MessageBinding;
-import com.asyncapi.v2.binding.message.anypointmq.AnypointMQMessageBinding;
-import com.asyncapi.v2.binding.message.googlepubsub.GooglePubSubMessageBinding;
-import com.asyncapi.v2.binding.message.http.HTTPMessageBinding;
-import com.asyncapi.v2.binding.message.ibmmq.IBMMQMessageBinding;
-import com.asyncapi.v2.binding.message.jms.JMSMessageBinding;
-import com.asyncapi.v2.binding.message.kafka.KafkaMessageBinding;
-import com.asyncapi.v2.binding.message.mercure.MercureMessageBinding;
+import com.asyncapi.bindings.amqp.v0._2_0.message.AMQPMessageBinding;
+import com.asyncapi.bindings.amqp1.v0._1_0.message.AMQP1MessageBinding;
+import com.asyncapi.bindings.anypointmq.v0._0_1.message.AnypointMQMessageBinding;
+import com.asyncapi.bindings.googlepubsub.v0._1_0.message.GooglePubSubMessageBinding;
+import com.asyncapi.bindings.http.v0._1_0.message.HTTPMessageBinding;
+import com.asyncapi.bindings.ibmmq.v0._1_0.message.IBMMQMessageBinding;
+import com.asyncapi.bindings.jms.v0._0_1.message.JMSMessageBinding;
+import com.asyncapi.bindings.kafka.v0._4_0.message.KafkaMessageBinding;
+import com.asyncapi.bindings.mercure.v0._1_0.message.MercureMessageBinding;
 import com.asyncapi.bindings.mqtt.v0._1_0.message.MQTTMessageBinding;
 import com.asyncapi.bindings.mqtt5.v0._2_0.message.MQTT5MessageBinding;
 import com.asyncapi.bindings.nats.v0._1_0.message.NATSMessageBinding;

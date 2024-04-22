@@ -8,11 +8,12 @@ import com.asyncapi.v2._0_0.model.channel.operation.Operation
 import com.asyncapi.v2._0_0.model.component.Components
 import com.asyncapi.v2._0_0.model.info.Info
 import com.asyncapi.v2._0_0.model.server.Server
-import com.asyncapi.v2.binding.message.http.HTTPMessageBinding
-import com.asyncapi.v2.binding.operation.http.HTTPOperationBinding
-import com.asyncapi.v2.binding.operation.http.HTTPOperationType
+import com.asyncapi.bindings.http.v0._1_0.message.HTTPMessageBinding
+import com.asyncapi.bindings.http.v0._1_0.operation.HTTPOperationBinding
+import com.asyncapi.bindings.http.v0._1_0.operation.HTTPOperationType
 import com.asyncapi.v2.schema.Schema
 import com.asyncapi.v2.security_scheme.http.HttpSecurityScheme
+import com.asyncapi.v3.schema.AsyncAPISchema
 
 class GitterStreaming: AbstractExampleValidationTest() {
 
@@ -248,15 +249,15 @@ class GitterStreaming: AbstractExampleValidationTest() {
                                 )
                                 .bindings(mapOf(
                                         Pair("http", HTTPMessageBinding.builder()
-                                                .headers(Schema.builder()
+                                                .headers(AsyncAPISchema.builder()
                                                         .type("object")
                                                         .properties(mapOf(
-                                                                Pair("Transfer-Encoding", Schema.builder()
+                                                                Pair("Transfer-Encoding", AsyncAPISchema.builder()
                                                                         .type("string")
                                                                         .constValue("chunked")
                                                                         .build()
                                                                 ),
-                                                                Pair("Trailer", Schema.builder()
+                                                                Pair("Trailer", AsyncAPISchema.builder()
                                                                         .type("string")
                                                                         .constValue("\\r\\n")
                                                                         .build()
@@ -278,15 +279,15 @@ class GitterStreaming: AbstractExampleValidationTest() {
                                 )
                                 .bindings(mapOf(
                                         Pair("http", HTTPMessageBinding.builder()
-                                                .headers(Schema.builder()
+                                                .headers(AsyncAPISchema.builder()
                                                         .type("object")
                                                         .properties(mapOf(
-                                                                Pair("Transfer-Encoding", Schema.builder()
+                                                                Pair("Transfer-Encoding", AsyncAPISchema.builder()
                                                                         .type("string")
                                                                         .constValue("chunked")
                                                                         .build()
                                                                 ),
-                                                                Pair("Trailer", Schema.builder()
+                                                                Pair("Trailer", AsyncAPISchema.builder()
                                                                         .type("string")
                                                                         .constValue("\\r\\n")
                                                                         .build()

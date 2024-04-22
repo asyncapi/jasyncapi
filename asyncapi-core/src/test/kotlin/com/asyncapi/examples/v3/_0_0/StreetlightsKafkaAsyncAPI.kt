@@ -13,7 +13,7 @@ import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.operation.OperationTrait
 import com.asyncapi.v3._0_0.model.server.Server
-import com.asyncapi.v3.binding.operation.kafka.KafkaOperationBinding
+import com.asyncapi.bindings.kafka.v0._4_0.operation.KafkaOperationBinding
 import com.asyncapi.v3.schema.AsyncAPISchema
 import com.asyncapi.v3.security_scheme.SecurityScheme
 import java.math.BigDecimal

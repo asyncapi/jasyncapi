@@ -6,9 +6,9 @@ import com.asyncapi.v2._6_0.model.channel.message.Message
 import com.asyncapi.v2._6_0.model.channel.operation.Operation
 import com.asyncapi.v2._6_0.model.component.Components
 import com.asyncapi.v2._6_0.model.info.Info
-import com.asyncapi.v2.binding.operation.http.HTTPOperationBinding
-import com.asyncapi.v2.binding.operation.http.HTTPOperationMethod
-import com.asyncapi.v2.binding.operation.http.HTTPOperationType
+import com.asyncapi.bindings.http.v0._1_0.operation.HTTPOperationBinding
+import com.asyncapi.bindings.http.v0._1_0.operation.HTTPOperationMethod
+import com.asyncapi.bindings.http.v0._1_0.operation.HTTPOperationType
 import com.asyncapi.v2.schema.Schema
 import com.asyncapi.v2.security_scheme.oauth2.OAuthFlows
 import com.asyncapi.v2.security_scheme.oauth2.OAuth2SecurityScheme

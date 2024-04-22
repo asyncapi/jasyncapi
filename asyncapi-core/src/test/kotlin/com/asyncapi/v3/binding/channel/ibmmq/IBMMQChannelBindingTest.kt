@@ -1,6 +1,10 @@
 package com.asyncapi.v3.binding.channel.ibmmq
 
 import com.asyncapi.v3.SerDeTest
+import com.asyncapi.bindings.ibmmq.v0._1_0.channel.IBMMQChannelBinding
+import com.asyncapi.bindings.ibmmq.v0._1_0.channel.IBMMQChannelDestinationType
+import com.asyncapi.bindings.ibmmq.v0._1_0.channel.IBMMQChannelQueueProperties
+import com.asyncapi.bindings.ibmmq.v0._1_0.channel.IBMMQChannelTopicProperties
 
 class IBMMQChannelBindingTest: SerDeTest<IBMMQChannelBinding>() {
 

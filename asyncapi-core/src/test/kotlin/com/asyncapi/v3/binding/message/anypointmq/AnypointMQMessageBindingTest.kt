@@ -3,6 +3,7 @@ package com.asyncapi.v3.binding.message.anypointmq
 import com.asyncapi.v3.SerDeTest
 import com.asyncapi.v3.schema.AsyncAPISchema
 import com.asyncapi.v3.schema.Type
+import com.asyncapi.bindings.anypointmq.v0._0_1.message.AnypointMQMessageBinding
 
 class AnypointMQMessageBindingTest: SerDeTest<AnypointMQMessageBinding>() {
 

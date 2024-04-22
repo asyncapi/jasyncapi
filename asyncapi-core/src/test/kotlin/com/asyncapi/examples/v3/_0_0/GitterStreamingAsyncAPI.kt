@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.v3.binding.message.http.HTTPMessageBinding
+import com.asyncapi.bindings.http.v0._1_0.message.HTTPMessageBinding
 import com.asyncapi.v3.Reference
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.Parameter
@@ -10,8 +10,8 @@ import com.asyncapi.v3._0_0.model.info.Info
 import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.server.Server
-import com.asyncapi.v3.binding.operation.http.HTTPOperationBinding
-import com.asyncapi.v3.binding.operation.http.HTTPOperationMethod
+import com.asyncapi.bindings.http.v0._1_0.operation.HTTPOperationBinding
+import com.asyncapi.bindings.http.v0._1_0.operation.HTTPOperationMethod
 import com.asyncapi.v3.schema.AsyncAPISchema
 import com.asyncapi.v3.schema.JsonSchema
 import com.asyncapi.v3.schema.multiformat.JsonFormatSchema
