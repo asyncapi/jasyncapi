@@ -1,4 +1,5 @@
 {
+  "bindingVersion" : "0.1.0",
   "destinationType" : "topic",
   "queue" : {
     "objectName" : "message",
@@ -12,7 +13,6 @@
     "lastMsgRetained" : true
   },
   "maxMsgLength" : 1024,
-  "bindingVersion" : "0.1.0",
   "x-number" : 0,
   "x-string" : "",
   "x-object" : {

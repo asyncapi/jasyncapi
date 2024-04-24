@@ -1,9 +1,8 @@
 package com.asyncapi.bindings.websockets.v0._1_0.operation;
 
-import com.asyncapi.bindings.OperationBinding;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * This class <b>MUST NOT</b> contain any properties.
@@ -17,7 +16,21 @@ import lombok.NoArgsConstructor;
  * @author Pavel Bodiachevskii
  */
 @Data
-@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class WebSocketsOperationBinding extends OperationBinding {
+public class WebSocketsOperationBinding extends com.asyncapi.bindings.websockets.WebSocketsOperationBinding {
+
+    public WebSocketsOperationBinding() {
+        this.setBindingVersion("0.1.0");
+    }
+
+    @Override
+    public String getBindingVersion() {
+        return "0.1.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.1.0");
+    }
+
 }

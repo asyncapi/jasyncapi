@@ -60,14 +60,15 @@
       "description" : "A longer description",
       "bindings" : {
         "amqp" : {
+          "bindingVersion" : "0.2.0",
           "contentEncoding" : "gzip",
-          "messageType" : "user.signup",
-          "bindingVersion" : "0.2.0"
+          "messageType" : "user.signup"
         },
         "amqp1" : {
           "$ref" : "#/components/messageBindings/amqp1"
         },
         "anypointmq" : {
+          "bindingVersion" : "0.0.1",
           "headers" : {
             "type" : "object",
             "properties" : {
@@ -76,17 +77,17 @@
                 "description" : "Correlation ID set by application"
               }
             }
-          },
-          "bindingVersion" : "0.0.1"
+          }
         },
         "googlepubsub" : {
+          "bindingVersion" : "0.1.0",
           "schema" : {
             "name" : "projects/your-project/schemas/message-avro",
             "type" : "avro"
-          },
-          "bindingVersion" : "0.1.0"
+          }
         },
         "http" : {
+          "bindingVersion" : "0.1.0",
           "headers" : {
             "type" : "object",
             "properties" : {
@@ -95,28 +96,27 @@
                 "enum" : [ "application/json" ]
               }
             }
-          },
-          "bindingVersion" : "0.1.0"
+          }
         },
         "ibmmq" : {
+          "bindingVersion" : "0.1.0",
           "type" : "jms",
           "headers" : "Content-Type: application/json",
           "description" : "JMS stream message",
-          "expiry" : 0,
-          "bindingVersion" : "0.1.0"
+          "expiry" : 0
         },
         "jms" : {
           "$ref" : "#/components/messageBindings/jms"
         },
         "kafka" : {
+          "bindingVersion" : "0.4.0",
           "key" : {
             "type" : "string",
             "enum" : [ "myKey" ]
           },
           "schemaIdLocation" : "payload",
           "schemaIdPayloadEncoding" : "apicurio-new",
-          "schemaLookupStrategy" : "TopicIdStrategy",
-          "bindingVersion" : "0.4.0"
+          "schemaLookupStrategy" : "TopicIdStrategy"
         },
         "mercure" : {
           "$ref" : "#/components/messageBindings/mercure"
@@ -193,14 +193,15 @@
         "description" : "A longer description",
         "bindings" : {
           "amqp" : {
+            "bindingVersion" : "0.2.0",
             "contentEncoding" : "gzip",
-            "messageType" : "user.signup",
-            "bindingVersion" : "0.2.0"
+            "messageType" : "user.signup"
           },
           "amqp1" : {
             "$ref" : "#/components/messageBindings/amqp1"
           },
           "anypointmq" : {
+            "bindingVersion" : "0.0.1",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -209,17 +210,17 @@
                   "description" : "Correlation ID set by application"
                 }
               }
-            },
-            "bindingVersion" : "0.0.1"
+            }
           },
           "googlepubsub" : {
+            "bindingVersion" : "0.1.0",
             "schema" : {
               "name" : "projects/your-project/schemas/message-avro",
               "type" : "avro"
-            },
-            "bindingVersion" : "0.1.0"
+            }
           },
           "http" : {
+            "bindingVersion" : "0.1.0",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -228,28 +229,27 @@
                   "enum" : [ "application/json" ]
                 }
               }
-            },
-            "bindingVersion" : "0.1.0"
+            }
           },
           "ibmmq" : {
+            "bindingVersion" : "0.1.0",
             "type" : "jms",
             "headers" : "Content-Type: application/json",
             "description" : "JMS stream message",
-            "expiry" : 0,
-            "bindingVersion" : "0.1.0"
+            "expiry" : 0
           },
           "jms" : {
             "$ref" : "#/components/messageBindings/jms"
           },
           "kafka" : {
+            "bindingVersion" : "0.4.0",
             "key" : {
               "type" : "string",
               "enum" : [ "myKey" ]
             },
             "schemaIdLocation" : "payload",
             "schemaIdPayloadEncoding" : "apicurio-new",
-            "schemaLookupStrategy" : "TopicIdStrategy",
-            "bindingVersion" : "0.4.0"
+            "schemaLookupStrategy" : "TopicIdStrategy"
           },
           "mercure" : {
             "$ref" : "#/components/messageBindings/mercure"
@@ -326,14 +326,15 @@
         "description" : "A longer description",
         "bindings" : {
           "amqp" : {
+            "bindingVersion" : "0.2.0",
             "contentEncoding" : "gzip",
-            "messageType" : "user.signup",
-            "bindingVersion" : "0.2.0"
+            "messageType" : "user.signup"
           },
           "amqp1" : {
             "$ref" : "#/components/messageBindings/amqp1"
           },
           "anypointmq" : {
+            "bindingVersion" : "0.0.1",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -342,17 +343,17 @@
                   "description" : "Correlation ID set by application"
                 }
               }
-            },
-            "bindingVersion" : "0.0.1"
+            }
           },
           "googlepubsub" : {
+            "bindingVersion" : "0.1.0",
             "schema" : {
               "name" : "projects/your-project/schemas/message-avro",
               "type" : "avro"
-            },
-            "bindingVersion" : "0.1.0"
+            }
           },
           "http" : {
+            "bindingVersion" : "0.1.0",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -361,28 +362,27 @@
                   "enum" : [ "application/json" ]
                 }
               }
-            },
-            "bindingVersion" : "0.1.0"
+            }
           },
           "ibmmq" : {
+            "bindingVersion" : "0.1.0",
             "type" : "jms",
             "headers" : "Content-Type: application/json",
             "description" : "JMS stream message",
-            "expiry" : 0,
-            "bindingVersion" : "0.1.0"
+            "expiry" : 0
           },
           "jms" : {
             "$ref" : "#/components/messageBindings/jms"
           },
           "kafka" : {
+            "bindingVersion" : "0.4.0",
             "key" : {
               "type" : "string",
               "enum" : [ "myKey" ]
             },
             "schemaIdLocation" : "payload",
             "schemaIdPayloadEncoding" : "apicurio-new",
-            "schemaLookupStrategy" : "TopicIdStrategy",
-            "bindingVersion" : "0.4.0"
+            "schemaLookupStrategy" : "TopicIdStrategy"
           },
           "mercure" : {
             "$ref" : "#/components/messageBindings/mercure"
@@ -473,14 +473,15 @@
         "description" : "A longer description",
         "bindings" : {
           "amqp" : {
+            "bindingVersion" : "0.2.0",
             "contentEncoding" : "gzip",
-            "messageType" : "user.signup",
-            "bindingVersion" : "0.2.0"
+            "messageType" : "user.signup"
           },
           "amqp1" : {
             "$ref" : "#/components/messageBindings/amqp1"
           },
           "anypointmq" : {
+            "bindingVersion" : "0.0.1",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -489,17 +490,17 @@
                   "description" : "Correlation ID set by application"
                 }
               }
-            },
-            "bindingVersion" : "0.0.1"
+            }
           },
           "googlepubsub" : {
+            "bindingVersion" : "0.1.0",
             "schema" : {
               "name" : "projects/your-project/schemas/message-avro",
               "type" : "avro"
-            },
-            "bindingVersion" : "0.1.0"
+            }
           },
           "http" : {
+            "bindingVersion" : "0.1.0",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -508,28 +509,27 @@
                   "enum" : [ "application/json" ]
                 }
               }
-            },
-            "bindingVersion" : "0.1.0"
+            }
           },
           "ibmmq" : {
+            "bindingVersion" : "0.1.0",
             "type" : "jms",
             "headers" : "Content-Type: application/json",
             "description" : "JMS stream message",
-            "expiry" : 0,
-            "bindingVersion" : "0.1.0"
+            "expiry" : 0
           },
           "jms" : {
             "$ref" : "#/components/messageBindings/jms"
           },
           "kafka" : {
+            "bindingVersion" : "0.4.0",
             "key" : {
               "type" : "string",
               "enum" : [ "myKey" ]
             },
             "schemaIdLocation" : "payload",
             "schemaIdPayloadEncoding" : "apicurio-new",
-            "schemaLookupStrategy" : "TopicIdStrategy",
-            "bindingVersion" : "0.4.0"
+            "schemaLookupStrategy" : "TopicIdStrategy"
           },
           "mercure" : {
             "$ref" : "#/components/messageBindings/mercure"
@@ -645,14 +645,15 @@
       "description" : "A longer description",
       "bindings" : {
         "amqp" : {
+          "bindingVersion" : "0.2.0",
           "contentEncoding" : "gzip",
-          "messageType" : "user.signup",
-          "bindingVersion" : "0.2.0"
+          "messageType" : "user.signup"
         },
         "amqp1" : {
           "$ref" : "#/components/messageBindings/amqp1"
         },
         "anypointmq" : {
+          "bindingVersion" : "0.0.1",
           "headers" : {
             "type" : "object",
             "properties" : {
@@ -661,17 +662,17 @@
                 "description" : "Correlation ID set by application"
               }
             }
-          },
-          "bindingVersion" : "0.0.1"
+          }
         },
         "googlepubsub" : {
+          "bindingVersion" : "0.1.0",
           "schema" : {
             "name" : "projects/your-project/schemas/message-avro",
             "type" : "avro"
-          },
-          "bindingVersion" : "0.1.0"
+          }
         },
         "http" : {
+          "bindingVersion" : "0.1.0",
           "headers" : {
             "type" : "object",
             "properties" : {
@@ -680,28 +681,27 @@
                 "enum" : [ "application/json" ]
               }
             }
-          },
-          "bindingVersion" : "0.1.0"
+          }
         },
         "ibmmq" : {
+          "bindingVersion" : "0.1.0",
           "type" : "jms",
           "headers" : "Content-Type: application/json",
           "description" : "JMS stream message",
-          "expiry" : 0,
-          "bindingVersion" : "0.1.0"
+          "expiry" : 0
         },
         "jms" : {
           "$ref" : "#/components/messageBindings/jms"
         },
         "kafka" : {
+          "bindingVersion" : "0.4.0",
           "key" : {
             "type" : "string",
             "enum" : [ "myKey" ]
           },
           "schemaIdLocation" : "payload",
           "schemaIdPayloadEncoding" : "apicurio-new",
-          "schemaLookupStrategy" : "TopicIdStrategy",
-          "bindingVersion" : "0.4.0"
+          "schemaLookupStrategy" : "TopicIdStrategy"
         },
         "mercure" : {
           "$ref" : "#/components/messageBindings/mercure"
@@ -778,14 +778,15 @@
         "description" : "A longer description",
         "bindings" : {
           "amqp" : {
+            "bindingVersion" : "0.2.0",
             "contentEncoding" : "gzip",
-            "messageType" : "user.signup",
-            "bindingVersion" : "0.2.0"
+            "messageType" : "user.signup"
           },
           "amqp1" : {
             "$ref" : "#/components/messageBindings/amqp1"
           },
           "anypointmq" : {
+            "bindingVersion" : "0.0.1",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -794,17 +795,17 @@
                   "description" : "Correlation ID set by application"
                 }
               }
-            },
-            "bindingVersion" : "0.0.1"
+            }
           },
           "googlepubsub" : {
+            "bindingVersion" : "0.1.0",
             "schema" : {
               "name" : "projects/your-project/schemas/message-avro",
               "type" : "avro"
-            },
-            "bindingVersion" : "0.1.0"
+            }
           },
           "http" : {
+            "bindingVersion" : "0.1.0",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -813,28 +814,27 @@
                   "enum" : [ "application/json" ]
                 }
               }
-            },
-            "bindingVersion" : "0.1.0"
+            }
           },
           "ibmmq" : {
+            "bindingVersion" : "0.1.0",
             "type" : "jms",
             "headers" : "Content-Type: application/json",
             "description" : "JMS stream message",
-            "expiry" : 0,
-            "bindingVersion" : "0.1.0"
+            "expiry" : 0
           },
           "jms" : {
             "$ref" : "#/components/messageBindings/jms"
           },
           "kafka" : {
+            "bindingVersion" : "0.4.0",
             "key" : {
               "type" : "string",
               "enum" : [ "myKey" ]
             },
             "schemaIdLocation" : "payload",
             "schemaIdPayloadEncoding" : "apicurio-new",
-            "schemaLookupStrategy" : "TopicIdStrategy",
-            "bindingVersion" : "0.4.0"
+            "schemaLookupStrategy" : "TopicIdStrategy"
           },
           "mercure" : {
             "$ref" : "#/components/messageBindings/mercure"
@@ -911,14 +911,15 @@
         "description" : "A longer description",
         "bindings" : {
           "amqp" : {
+            "bindingVersion" : "0.2.0",
             "contentEncoding" : "gzip",
-            "messageType" : "user.signup",
-            "bindingVersion" : "0.2.0"
+            "messageType" : "user.signup"
           },
           "amqp1" : {
             "$ref" : "#/components/messageBindings/amqp1"
           },
           "anypointmq" : {
+            "bindingVersion" : "0.0.1",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -927,17 +928,17 @@
                   "description" : "Correlation ID set by application"
                 }
               }
-            },
-            "bindingVersion" : "0.0.1"
+            }
           },
           "googlepubsub" : {
+            "bindingVersion" : "0.1.0",
             "schema" : {
               "name" : "projects/your-project/schemas/message-avro",
               "type" : "avro"
-            },
-            "bindingVersion" : "0.1.0"
+            }
           },
           "http" : {
+            "bindingVersion" : "0.1.0",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -946,28 +947,27 @@
                   "enum" : [ "application/json" ]
                 }
               }
-            },
-            "bindingVersion" : "0.1.0"
+            }
           },
           "ibmmq" : {
+            "bindingVersion" : "0.1.0",
             "type" : "jms",
             "headers" : "Content-Type: application/json",
             "description" : "JMS stream message",
-            "expiry" : 0,
-            "bindingVersion" : "0.1.0"
+            "expiry" : 0
           },
           "jms" : {
             "$ref" : "#/components/messageBindings/jms"
           },
           "kafka" : {
+            "bindingVersion" : "0.4.0",
             "key" : {
               "type" : "string",
               "enum" : [ "myKey" ]
             },
             "schemaIdLocation" : "payload",
             "schemaIdPayloadEncoding" : "apicurio-new",
-            "schemaLookupStrategy" : "TopicIdStrategy",
-            "bindingVersion" : "0.4.0"
+            "schemaLookupStrategy" : "TopicIdStrategy"
           },
           "mercure" : {
             "$ref" : "#/components/messageBindings/mercure"
@@ -1058,14 +1058,15 @@
         "description" : "A longer description",
         "bindings" : {
           "amqp" : {
+            "bindingVersion" : "0.2.0",
             "contentEncoding" : "gzip",
-            "messageType" : "user.signup",
-            "bindingVersion" : "0.2.0"
+            "messageType" : "user.signup"
           },
           "amqp1" : {
             "$ref" : "#/components/messageBindings/amqp1"
           },
           "anypointmq" : {
+            "bindingVersion" : "0.0.1",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -1074,17 +1075,17 @@
                   "description" : "Correlation ID set by application"
                 }
               }
-            },
-            "bindingVersion" : "0.0.1"
+            }
           },
           "googlepubsub" : {
+            "bindingVersion" : "0.1.0",
             "schema" : {
               "name" : "projects/your-project/schemas/message-avro",
               "type" : "avro"
-            },
-            "bindingVersion" : "0.1.0"
+            }
           },
           "http" : {
+            "bindingVersion" : "0.1.0",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -1093,28 +1094,27 @@
                   "enum" : [ "application/json" ]
                 }
               }
-            },
-            "bindingVersion" : "0.1.0"
+            }
           },
           "ibmmq" : {
+            "bindingVersion" : "0.1.0",
             "type" : "jms",
             "headers" : "Content-Type: application/json",
             "description" : "JMS stream message",
-            "expiry" : 0,
-            "bindingVersion" : "0.1.0"
+            "expiry" : 0
           },
           "jms" : {
             "$ref" : "#/components/messageBindings/jms"
           },
           "kafka" : {
+            "bindingVersion" : "0.4.0",
             "key" : {
               "type" : "string",
               "enum" : [ "myKey" ]
             },
             "schemaIdLocation" : "payload",
             "schemaIdPayloadEncoding" : "apicurio-new",
-            "schemaLookupStrategy" : "TopicIdStrategy",
-            "bindingVersion" : "0.4.0"
+            "schemaLookupStrategy" : "TopicIdStrategy"
           },
           "mercure" : {
             "$ref" : "#/components/messageBindings/mercure"
@@ -1209,14 +1209,15 @@
       "description" : "A longer description",
       "bindings" : {
         "amqp" : {
+          "bindingVersion" : "0.2.0",
           "contentEncoding" : "gzip",
-          "messageType" : "user.signup",
-          "bindingVersion" : "0.2.0"
+          "messageType" : "user.signup"
         },
         "amqp1" : {
           "$ref" : "#/components/messageBindings/amqp1"
         },
         "anypointmq" : {
+          "bindingVersion" : "0.0.1",
           "headers" : {
             "type" : "object",
             "properties" : {
@@ -1225,17 +1226,17 @@
                 "description" : "Correlation ID set by application"
               }
             }
-          },
-          "bindingVersion" : "0.0.1"
+          }
         },
         "googlepubsub" : {
+          "bindingVersion" : "0.1.0",
           "schema" : {
             "name" : "projects/your-project/schemas/message-avro",
             "type" : "avro"
-          },
-          "bindingVersion" : "0.1.0"
+          }
         },
         "http" : {
+          "bindingVersion" : "0.1.0",
           "headers" : {
             "type" : "object",
             "properties" : {
@@ -1244,28 +1245,27 @@
                 "enum" : [ "application/json" ]
               }
             }
-          },
-          "bindingVersion" : "0.1.0"
+          }
         },
         "ibmmq" : {
+          "bindingVersion" : "0.1.0",
           "type" : "jms",
           "headers" : "Content-Type: application/json",
           "description" : "JMS stream message",
-          "expiry" : 0,
-          "bindingVersion" : "0.1.0"
+          "expiry" : 0
         },
         "jms" : {
           "$ref" : "#/components/messageBindings/jms"
         },
         "kafka" : {
+          "bindingVersion" : "0.4.0",
           "key" : {
             "type" : "string",
             "enum" : [ "myKey" ]
           },
           "schemaIdLocation" : "payload",
           "schemaIdPayloadEncoding" : "apicurio-new",
-          "schemaLookupStrategy" : "TopicIdStrategy",
-          "bindingVersion" : "0.4.0"
+          "schemaLookupStrategy" : "TopicIdStrategy"
         },
         "mercure" : {
           "$ref" : "#/components/messageBindings/mercure"
@@ -1342,14 +1342,15 @@
         "description" : "A longer description",
         "bindings" : {
           "amqp" : {
+            "bindingVersion" : "0.2.0",
             "contentEncoding" : "gzip",
-            "messageType" : "user.signup",
-            "bindingVersion" : "0.2.0"
+            "messageType" : "user.signup"
           },
           "amqp1" : {
             "$ref" : "#/components/messageBindings/amqp1"
           },
           "anypointmq" : {
+            "bindingVersion" : "0.0.1",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -1358,17 +1359,17 @@
                   "description" : "Correlation ID set by application"
                 }
               }
-            },
-            "bindingVersion" : "0.0.1"
+            }
           },
           "googlepubsub" : {
+            "bindingVersion" : "0.1.0",
             "schema" : {
               "name" : "projects/your-project/schemas/message-avro",
               "type" : "avro"
-            },
-            "bindingVersion" : "0.1.0"
+            }
           },
           "http" : {
+            "bindingVersion" : "0.1.0",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -1377,28 +1378,27 @@
                   "enum" : [ "application/json" ]
                 }
               }
-            },
-            "bindingVersion" : "0.1.0"
+            }
           },
           "ibmmq" : {
+            "bindingVersion" : "0.1.0",
             "type" : "jms",
             "headers" : "Content-Type: application/json",
             "description" : "JMS stream message",
-            "expiry" : 0,
-            "bindingVersion" : "0.1.0"
+            "expiry" : 0
           },
           "jms" : {
             "$ref" : "#/components/messageBindings/jms"
           },
           "kafka" : {
+            "bindingVersion" : "0.4.0",
             "key" : {
               "type" : "string",
               "enum" : [ "myKey" ]
             },
             "schemaIdLocation" : "payload",
             "schemaIdPayloadEncoding" : "apicurio-new",
-            "schemaLookupStrategy" : "TopicIdStrategy",
-            "bindingVersion" : "0.4.0"
+            "schemaLookupStrategy" : "TopicIdStrategy"
           },
           "mercure" : {
             "$ref" : "#/components/messageBindings/mercure"
@@ -1475,14 +1475,15 @@
         "description" : "A longer description",
         "bindings" : {
           "amqp" : {
+            "bindingVersion" : "0.2.0",
             "contentEncoding" : "gzip",
-            "messageType" : "user.signup",
-            "bindingVersion" : "0.2.0"
+            "messageType" : "user.signup"
           },
           "amqp1" : {
             "$ref" : "#/components/messageBindings/amqp1"
           },
           "anypointmq" : {
+            "bindingVersion" : "0.0.1",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -1491,17 +1492,17 @@
                   "description" : "Correlation ID set by application"
                 }
               }
-            },
-            "bindingVersion" : "0.0.1"
+            }
           },
           "googlepubsub" : {
+            "bindingVersion" : "0.1.0",
             "schema" : {
               "name" : "projects/your-project/schemas/message-avro",
               "type" : "avro"
-            },
-            "bindingVersion" : "0.1.0"
+            }
           },
           "http" : {
+            "bindingVersion" : "0.1.0",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -1510,28 +1511,27 @@
                   "enum" : [ "application/json" ]
                 }
               }
-            },
-            "bindingVersion" : "0.1.0"
+            }
           },
           "ibmmq" : {
+            "bindingVersion" : "0.1.0",
             "type" : "jms",
             "headers" : "Content-Type: application/json",
             "description" : "JMS stream message",
-            "expiry" : 0,
-            "bindingVersion" : "0.1.0"
+            "expiry" : 0
           },
           "jms" : {
             "$ref" : "#/components/messageBindings/jms"
           },
           "kafka" : {
+            "bindingVersion" : "0.4.0",
             "key" : {
               "type" : "string",
               "enum" : [ "myKey" ]
             },
             "schemaIdLocation" : "payload",
             "schemaIdPayloadEncoding" : "apicurio-new",
-            "schemaLookupStrategy" : "TopicIdStrategy",
-            "bindingVersion" : "0.4.0"
+            "schemaLookupStrategy" : "TopicIdStrategy"
           },
           "mercure" : {
             "$ref" : "#/components/messageBindings/mercure"
@@ -1622,14 +1622,15 @@
         "description" : "A longer description",
         "bindings" : {
           "amqp" : {
+            "bindingVersion" : "0.2.0",
             "contentEncoding" : "gzip",
-            "messageType" : "user.signup",
-            "bindingVersion" : "0.2.0"
+            "messageType" : "user.signup"
           },
           "amqp1" : {
             "$ref" : "#/components/messageBindings/amqp1"
           },
           "anypointmq" : {
+            "bindingVersion" : "0.0.1",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -1638,17 +1639,17 @@
                   "description" : "Correlation ID set by application"
                 }
               }
-            },
-            "bindingVersion" : "0.0.1"
+            }
           },
           "googlepubsub" : {
+            "bindingVersion" : "0.1.0",
             "schema" : {
               "name" : "projects/your-project/schemas/message-avro",
               "type" : "avro"
-            },
-            "bindingVersion" : "0.1.0"
+            }
           },
           "http" : {
+            "bindingVersion" : "0.1.0",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -1657,28 +1658,27 @@
                   "enum" : [ "application/json" ]
                 }
               }
-            },
-            "bindingVersion" : "0.1.0"
+            }
           },
           "ibmmq" : {
+            "bindingVersion" : "0.1.0",
             "type" : "jms",
             "headers" : "Content-Type: application/json",
             "description" : "JMS stream message",
-            "expiry" : 0,
-            "bindingVersion" : "0.1.0"
+            "expiry" : 0
           },
           "jms" : {
             "$ref" : "#/components/messageBindings/jms"
           },
           "kafka" : {
+            "bindingVersion" : "0.4.0",
             "key" : {
               "type" : "string",
               "enum" : [ "myKey" ]
             },
             "schemaIdLocation" : "payload",
             "schemaIdPayloadEncoding" : "apicurio-new",
-            "schemaLookupStrategy" : "TopicIdStrategy",
-            "bindingVersion" : "0.4.0"
+            "schemaLookupStrategy" : "TopicIdStrategy"
           },
           "mercure" : {
             "$ref" : "#/components/messageBindings/mercure"
@@ -1759,6 +1759,7 @@
   },
   "bindings" : {
     "amqp" : {
+      "bindingVersion" : "0.2.0",
       "is" : "routingKey",
       "exchange" : {
         "name" : "myExchange",
@@ -1773,18 +1774,18 @@
         "exclusive" : true,
         "autoDelete" : false,
         "vhost" : "/"
-      },
-      "bindingVersion" : "0.2.0"
+      }
     },
     "amqp1" : {
       "$ref" : "#/components/channelBindings/amqp1"
     },
     "anypointmq" : {
+      "bindingVersion" : "0.0.1",
       "destination" : "user-signup-exchg",
-      "destinationType" : "exchange",
-      "bindingVersion" : "0.0.1"
+      "destinationType" : "exchange"
     },
     "googlepubsub" : {
+      "bindingVersion" : "0.1.0",
       "topic" : "projects/your-project/topics/topic-proto-schema",
       "messageRetentionDuration" : "86400s",
       "messageStoragePolicy" : {
@@ -1793,13 +1794,13 @@
       "schemaSettings" : {
         "encoding" : "binary",
         "name" : "projects/your-project/schemas/message-proto"
-      },
-      "bindingVersion" : "0.1.0"
+      }
     },
     "http" : {
       "$ref" : "#/components/channelBindings/http"
     },
     "ibmmq" : {
+      "bindingVersion" : "0.1.0",
       "destinationType" : "topic",
       "queue" : {
         "objectName" : "message",
@@ -1812,8 +1813,7 @@
         "durablePermitted" : true,
         "lastMsgRetained" : true
       },
-      "maxMsgLength" : 1024,
-      "bindingVersion" : "0.1.0"
+      "maxMsgLength" : 1024
     },
     "jms" : {
       "$ref" : "#/components/channelBindings/jms"
@@ -1844,6 +1844,7 @@
       "$ref" : "#/components/channelBindings/nats"
     },
     "pulsar" : {
+      "bindingVersion" : "0.1.0",
       "namespace" : "staging",
       "persistence" : "persistent",
       "compaction" : 1000,
@@ -1853,8 +1854,7 @@
         "size" : 1000
       },
       "ttl" : 360,
-      "deduplication" : false,
-      "bindingVersion" : "0.1.0"
+      "deduplication" : false
     },
     "redis" : {
       "$ref" : "#/components/channelBindings/redis"
@@ -1872,6 +1872,7 @@
       "$ref" : "#/components/channelBindings/stomp"
     },
     "ws" : {
+      "bindingVersion" : "0.1.0",
       "method" : "GET",
       "query" : {
         "type" : "object",
@@ -1890,8 +1891,7 @@
             "description" : "Authentication token"
           }
         }
-      },
-      "bindingVersion" : "0.1.0"
+      }
     }
   },
   "tags" : [ {

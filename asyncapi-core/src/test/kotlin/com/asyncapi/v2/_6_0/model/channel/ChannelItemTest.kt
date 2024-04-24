@@ -11,7 +11,7 @@ import com.asyncapi.bindings.googlepubsub.v0._1_0.channel.GooglePubSubChannelBin
 import com.asyncapi.bindings.ibmmq.v0._1_0.channel.IBMMQChannelBindingTest
 import com.asyncapi.bindings.kafka.v0._4_0.channel.KafkaChannelBindingTest
 import com.asyncapi.bindings.pulsar.v0._1_0.channel.PulsarChannelBindingTest
-import com.asyncapi.bindings.websockets.v0._1_0.channel.WebSocketsChannelBindingTest
+import com.asyncapi.bindings.websockets.v0._1_0.WebSocketsBindingProvider
 
 class ChannelItemTest: SerDeTest<ChannelItem>() {
 
@@ -62,7 +62,7 @@ class ChannelItemTest: SerDeTest<ChannelItem>() {
                     Pair("solace", Reference("#/components/channelBindings/solace")),
                     Pair("sqs", Reference("#/components/channelBindings/sqs")),
                     Pair("stomp", Reference("#/components/channelBindings/stomp")),
-                    Pair("ws", WebSocketsChannelBindingTest().build())
+                    Pair("ws", WebSocketsBindingProvider.channel())
             )
         }
     }

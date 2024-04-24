@@ -1,4 +1,5 @@
 {
+  "bindingVersion" : "0.3.0",
   "destinations" : [ {
     "destinationType" : "queue",
     "deliveryMode" : "persistent",
@@ -20,7 +21,6 @@
       "topicSubscriptions" : [ "person/*/updated" ]
     }
   } ],
-  "bindingVersion" : "0.3.0",
   "x-number" : 0,
   "x-string" : "",
   "x-object" : {

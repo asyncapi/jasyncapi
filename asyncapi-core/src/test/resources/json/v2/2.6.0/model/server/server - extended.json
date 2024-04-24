@@ -6,13 +6,9 @@
   "variables" : {
     "username" : {
       "description" : "This value is assigned by the service provider, in this example `gigantic-server.com`",
-      "examples" : null,
-      "enum" : null,
       "default" : "demo"
     },
     "port" : {
-      "description" : null,
-      "examples" : null,
       "enum" : [ "8883", "8884" ],
       "default" : "8883"
     },
@@ -25,8 +21,7 @@
   } ],
   "tags" : [ {
     "name" : "env:staging",
-    "description" : "This environment is a replica of the production environment",
-    "externalDocs" : null
+    "description" : "This environment is a replica of the production environment"
   } ],
   "bindings" : {
     "amqp" : {
@@ -37,21 +32,22 @@
     "googlepubsub" : { },
     "http" : { },
     "ibmmq" : {
+      "bindingVersion" : "0.1.0",
       "groupId" : "PRODCLSTR1",
       "ccdtQueueManagerName" : "*",
       "cipherSpec" : "ANY_TLS12_OR_HIGHER",
       "multiEndpointServer" : false,
-      "heartBeatInterval" : 300,
-      "bindingVersion" : "0.1.0"
+      "heartBeatInterval" : 300
     },
     "jms" : { },
     "kafka" : {
+      "bindingVersion" : "0.4.0",
       "schemaRegistryUrl" : "https://my-schema-registry.com",
-      "schemaRegistryVendor" : "confluent",
-      "bindingVersion" : "0.4.0"
+      "schemaRegistryVendor" : "confluent"
     },
     "mercure" : { },
     "mqtt" : {
+      "bindingVersion" : "0.1.0",
       "clientId" : "guest",
       "cleanSession" : true,
       "lastWill" : {
@@ -60,8 +56,7 @@
         "message" : "Guest gone offline.",
         "retain" : false
       },
-      "keepAlive" : 60,
-      "bindingVersion" : "0.1.0"
+      "keepAlive" : 60
     },
     "mqtt5" : {
       "sessionExpiryInterval" : 60,
@@ -69,18 +64,20 @@
     },
     "nats" : { },
     "pulsar" : {
-      "tenant" : "contoso",
-      "bindingVersion" : "0.1.0"
+      "bindingVersion" : "0.1.0",
+      "tenant" : "contoso"
     },
     "redis" : { },
     "sns" : { },
     "solace" : {
-      "msgVpn" : "solace.private.net",
-      "bindingVersion" : "0.3.0"
+      "bindingVersion" : "0.3.0",
+      "msgVpn" : "solace.private.net"
     },
     "sqs" : { },
     "stomp" : { },
-    "ws" : { }
+    "ws" : {
+      "bindingVersion" : "0.1.0"
+    }
   },
   "x-number" : 0,
   "x-string" : "",

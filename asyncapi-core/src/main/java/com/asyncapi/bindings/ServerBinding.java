@@ -1,7 +1,10 @@
 package com.asyncapi.bindings;
 
 import com.asyncapi.ExtendableObject;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Describes protocol-specific definition for a server.
@@ -13,6 +16,17 @@ import lombok.EqualsAndHashCode;
  * @author Pavel Bodiachevskii
  * @version 3.0.0
  */
+@Data
 @EqualsAndHashCode(callSuper = true)
 public class ServerBinding extends ExtendableObject {
+
+    /**
+     * The version of this binding.
+     * <p>
+     * If omitted, 'latest' <b>MUST</b> be assumed.
+     */
+    @Nullable
+    @JsonProperty("bindingVersion")
+    private String bindingVersion;
+
 }

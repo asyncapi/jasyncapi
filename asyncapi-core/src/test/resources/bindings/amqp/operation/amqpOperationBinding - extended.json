@@ -1,4 +1,5 @@
 {
+  "bindingVersion" : "0.2.0",
   "expiration" : 100000,
   "userId" : "guest",
   "cc" : [ "user.logs" ],
@@ -9,7 +10,6 @@
   "replyTo" : "user.signedup",
   "timestamp" : true,
   "ack" : false,
-  "bindingVersion" : "0.2.0",
   "x-number" : 0,
   "x-string" : "",
   "x-object" : {

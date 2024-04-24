@@ -1,4 +1,5 @@
 {
+  "bindingVersion" : "0.1.0",
   "method" : "GET",
   "query" : {
     "type" : "object",
@@ -18,7 +19,6 @@
       }
     }
   },
-  "bindingVersion" : "0.1.0",
   "x-number" : 0,
   "x-string" : "",
   "x-object" : {

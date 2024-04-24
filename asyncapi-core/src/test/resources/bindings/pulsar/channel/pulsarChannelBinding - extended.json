@@ -1,4 +1,5 @@
 {
+  "bindingVersion" : "0.1.0",
   "namespace" : "staging",
   "persistence" : "persistent",
   "compaction" : 1000,
@@ -9,7 +10,6 @@
   },
   "ttl" : 360,
   "deduplication" : false,
-  "bindingVersion" : "0.1.0",
   "x-number" : 0,
   "x-string" : "",
   "x-object" : {
