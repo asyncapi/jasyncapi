@@ -1,9 +1,5 @@
 package com.asyncapi.bindings.stomp;
 
-import com.asyncapi.bindings.stomp._1_0.channel.STOMPChannelBindingTest;
-import com.asyncapi.bindings.stomp._1_0.message.STOMPMessageBindingTest;
-import com.asyncapi.bindings.stomp._1_0.operation.STOMPOperationBindingTest;
-import com.asyncapi.bindings.stomp._1_0.server.STOMPServerBindingTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 
@@ -15,19 +11,19 @@ public abstract class STOMPTest {
 
         @Nested
         @DisplayName("channel")
-        class Channel extends com.asyncapi.bindings.stomp.latest.channel.STOMPChannelBindingTest {}
+        class Channel extends com.asyncapi.bindings.stomp.unknownversion.channel.STOMPChannelBindingTest {}
 
         @Nested
         @DisplayName("message")
-        class Message extends com.asyncapi.bindings.stomp.latest.message.STOMPMessageBindingTest {}
+        class Message extends com.asyncapi.bindings.stomp.unknownversion.message.STOMPMessageBindingTest {}
 
         @Nested
         @DisplayName("operation")
-        class Operation extends com.asyncapi.bindings.stomp.latest.operation.STOMPOperationBindingTest {}
+        class Operation extends com.asyncapi.bindings.stomp.unknownversion.operation.STOMPOperationBindingTest {}
 
         @Nested
         @DisplayName("server")
-        class Server extends com.asyncapi.bindings.stomp.latest.server.STOMPServerBindingTest {}
+        class Server extends com.asyncapi.bindings.stomp.unknownversion.server.STOMPServerBindingTest {}
 
     }
 
@@ -81,19 +77,19 @@ public abstract class STOMPTest {
 
         @Nested
         @DisplayName("channel")
-        class Channel extends STOMPChannelBindingTest {}
+        class Channel extends com.asyncapi.bindings.stomp.v0._1_0.channel.STOMPChannelBindingTest {}
 
         @Nested
         @DisplayName("message")
-        class Message extends STOMPMessageBindingTest {}
+        class Message extends com.asyncapi.bindings.stomp.v0._1_0.message.STOMPMessageBindingTest {}
 
         @Nested
         @DisplayName("operation")
-        class Operation extends STOMPOperationBindingTest {}
+        class Operation extends com.asyncapi.bindings.stomp.v0._1_0.operation.STOMPOperationBindingTest {}
 
         @Nested
         @DisplayName("server")
-        class Server extends STOMPServerBindingTest {}
+        class Server extends com.asyncapi.bindings.stomp.v0._1_0.server.STOMPServerBindingTest {}
 
     }
 

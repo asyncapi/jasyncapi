@@ -1,4 +1,4 @@
-package com.asyncapi.bindings.stomp._1_0;
+package com.asyncapi.bindings.stomp.v0._1_0;
 
 import com.asyncapi.bindings.stomp.v0._1_0.channel.STOMPChannelBinding;
 import com.asyncapi.bindings.stomp.v0._1_0.message.STOMPMessageBinding;

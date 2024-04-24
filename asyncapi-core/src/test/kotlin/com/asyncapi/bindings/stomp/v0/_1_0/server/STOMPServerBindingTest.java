@@ -1,4 +1,4 @@
-package com.asyncapi.bindings.stomp.latest.server;
+package com.asyncapi.bindings.stomp.v0._1_0.server;
 
 import com.asyncapi.bindings.stomp.v0._1_0.server.STOMPServerBinding;
 import com.asyncapi.v3.SerDeTest;
@@ -15,19 +15,19 @@ public abstract class STOMPServerBindingTest extends SerDeTest<STOMPServerBindin
     @NotNull
     @Override
     protected String baseObjectJson() {
-        return "/bindings/default implementation/latest/server/binding.json";
+        return "/bindings/default implementation/0.1.0/server/binding.json";
     }
 
     @NotNull
     @Override
     protected String extendedObjectJson() {
-        return "/bindings/default implementation/latest/server/binding - extended.json";
+        return "/bindings/default implementation/0.1.0/server/binding - extended.json";
     }
 
     @NotNull
     @Override
     protected String wronglyExtendedObjectJson() {
-        return "/bindings/default implementation/latest/server/binding - wrongly extended.json";
+        return "/bindings/default implementation/0.1.0/server/binding - wrongly extended.json";
     }
 
     @NotNull

@@ -1,40 +1,39 @@
 package com.asyncapi.bindings.stomp.unknownversion.server;
 
-import com.asyncapi.ExtendableObject;
-import com.asyncapi.bindings.websockets.v0._1_0.server.WebSocketsServerBinding;
+import com.asyncapi.bindings.stomp.v0._1_0.server.STOMPServerBinding;
 import com.asyncapi.v3.SerDeTest;
 import org.jetbrains.annotations.NotNull;
 
-public abstract class STOMPServerBindingTest extends SerDeTest<WebSocketsServerBinding> {
+public abstract class STOMPServerBindingTest extends SerDeTest<STOMPServerBinding> {
 
     @NotNull
     @Override
-    protected Class<WebSocketsServerBinding> objectClass() {
-        return WebSocketsServerBinding.class;
+    protected Class<STOMPServerBinding> objectClass() {
+        return STOMPServerBinding.class;
     }
 
     @NotNull
     @Override
     protected String baseObjectJson() {
-        return "/bindings/websockets/without version/server/webSocketsServerBinding.json";
+        return "/bindings/default implementation/without version/server/binding.json";
     }
 
     @NotNull
     @Override
     protected String extendedObjectJson() {
-        return "/bindings/websockets/without version/server/webSocketsServerBinding - extended.json";
+        return "/bindings/default implementation/without version/server/binding - extended.json";
     }
 
     @NotNull
     @Override
     protected String wronglyExtendedObjectJson() {
-        return "/bindings/websockets/without version/server/webSocketsServerBinding - wrongly extended.json";
+        return "/bindings/default implementation/without version/server/binding - wrongly extended.json";
     }
 
     @NotNull
     @Override
-    public ExtendableObject build() {
-        return new WebSocketsServerBinding();
+    public STOMPServerBinding build() {
+        return new STOMPServerBinding();
     }
 
 }

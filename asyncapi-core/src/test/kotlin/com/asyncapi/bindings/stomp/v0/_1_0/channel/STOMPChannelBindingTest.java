@@ -1,7 +1,6 @@
-package com.asyncapi.bindings.stomp._1_0.channel;
+package com.asyncapi.bindings.stomp.v0._1_0.channel;
 
-import com.asyncapi.bindings.stomp._1_0.STOMPBindingProvider;
-import com.asyncapi.bindings.stomp.v0._1_0.channel.STOMPChannelBinding;
+import com.asyncapi.bindings.stomp.v0._1_0.STOMPBindingProvider;
 import com.asyncapi.v3.SerDeTest;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Nested;
@@ -18,19 +17,19 @@ public abstract class STOMPChannelBindingTest extends SerDeTest<STOMPChannelBind
     @NotNull
     @Override
     protected String baseObjectJson() {
-        return "/bindings/stomp/0.1.0/channel/binding.json";
+        return "/bindings/default implementation/0.1.0/channel/binding.json";
     }
 
     @NotNull
     @Override
     protected String extendedObjectJson() {
-        return "/bindings/stomp/0.1.0/channel/binding - extended.json";
+        return "/bindings/default implementation/0.1.0/channel/binding - extended.json";
     }
 
     @NotNull
     @Override
     protected String wronglyExtendedObjectJson() {
-        return "/bindings/stomp/0.1.0/channel/binding - wrongly extended.json";
+        return "/bindings/default implementation/0.1.0/channel/binding - wrongly extended.json";
     }
 
     @NotNull
