@@ -84,7 +84,9 @@
       "bindingVersion" : "0.1.0",
       "tenant" : "contoso"
     },
-    "redis" : { },
+    "redis" : {
+      "bindingVersion" : "0.1.0"
+    },
     "sns" : { },
     "solace" : {
       "bindingVersion" : "0.3.0",

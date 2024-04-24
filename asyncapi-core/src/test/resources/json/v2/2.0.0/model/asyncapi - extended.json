@@ -77,7 +77,9 @@
           "bindingVersion" : "0.1.0",
           "tenant" : "contoso"
         },
-        "redis" : { },
+        "redis" : {
+          "bindingVersion" : "0.1.0"
+        },
         "sns" : { },
         "solace" : {
           "bindingVersion" : "0.3.0",
@@ -171,7 +173,9 @@
             "queue" : "messages"
           },
           "pulsar" : { },
-          "redis" : { },
+          "redis" : {
+            "bindingVersion" : "0.1.0"
+          },
           "sns" : { },
           "solace" : {
             "bindingVersion" : "0.3.0",
@@ -282,7 +286,9 @@
               "queue" : "messages"
             },
             "pulsar" : { },
-            "redis" : { },
+            "redis" : {
+              "bindingVersion" : "0.1.0"
+            },
             "sns" : { },
             "solace" : {
               "bindingVersion" : "0.3.0",
@@ -396,7 +402,9 @@
             "queue" : "messages"
           },
           "pulsar" : { },
-          "redis" : { },
+          "redis" : {
+            "bindingVersion" : "0.1.0"
+          },
           "sns" : { },
           "solace" : {
             "bindingVersion" : "0.3.0",
@@ -507,7 +515,9 @@
               "queue" : "messages"
             },
             "pulsar" : { },
-            "redis" : { },
+            "redis" : {
+              "bindingVersion" : "0.1.0"
+            },
             "sns" : { },
             "solace" : {
               "bindingVersion" : "0.3.0",
@@ -651,7 +661,9 @@
             "mqtt5" : { },
             "nats" : { },
             "pulsar" : { },
-            "redis" : { },
+            "redis" : {
+              "bindingVersion" : "0.1.0"
+            },
             "sns" : { },
             "solace" : { },
             "sqs" : { },
@@ -775,7 +787,9 @@
           "ttl" : 360,
           "deduplication" : false
         },
-        "redis" : { },
+        "redis" : {
+          "bindingVersion" : "0.1.0"
+        },
         "sns" : { },
         "solace" : { },
         "sqs" : { },
@@ -947,7 +961,9 @@
           "mqtt5" : { },
           "nats" : { },
           "pulsar" : { },
-          "redis" : { },
+          "redis" : {
+            "bindingVersion" : "0.1.0"
+          },
           "sns" : { },
           "solace" : { },
           "sqs" : { },
@@ -1166,7 +1182,9 @@
             "queue" : "messages"
           },
           "pulsar" : { },
-          "redis" : { },
+          "redis" : {
+            "bindingVersion" : "0.1.0"
+          },
           "sns" : { },
           "solace" : {
             "bindingVersion" : "0.3.0",
@@ -1301,7 +1319,9 @@
           "mqtt5" : { },
           "nats" : { },
           "pulsar" : { },
-          "redis" : { },
+          "redis" : {
+            "bindingVersion" : "0.1.0"
+          },
           "sns" : { },
           "solace" : { },
           "sqs" : { },
@@ -1369,7 +1389,9 @@
         "bindingVersion" : "0.1.0",
         "tenant" : "contoso"
       },
-      "redis" : { },
+      "redis" : {
+        "bindingVersion" : "0.1.0"
+      },
       "sns" : { },
       "solace" : {
         "bindingVersion" : "0.3.0",
@@ -1468,7 +1490,9 @@
         "ttl" : 360,
         "deduplication" : false
       },
-      "redis" : { },
+      "redis" : {
+        "bindingVersion" : "0.1.0"
+      },
       "sns" : { },
       "solace" : { },
       "sqs" : { },
@@ -1557,7 +1581,9 @@
         "queue" : "messages"
       },
       "pulsar" : { },
-      "redis" : { },
+      "redis" : {
+        "bindingVersion" : "0.1.0"
+      },
       "sns" : { },
       "solace" : {
         "bindingVersion" : "0.3.0",
@@ -1654,7 +1680,9 @@
       "mqtt5" : { },
       "nats" : { },
       "pulsar" : { },
-      "redis" : { },
+      "redis" : {
+        "bindingVersion" : "0.1.0"
+      },
       "sns" : { },
       "solace" : { },
       "sqs" : { },
