@@ -10,11 +10,11 @@ class IBMMQServerBindingTest: SerDeTest<IBMMQServerBinding>() {
 
     override fun objectClass() = IBMMQServerBinding::class.java
 
-    override fun baseObjectJson() = "/json/v3/binding/server/ibmmq/ibmmqServerBinding.json"
+    override fun baseObjectJson() = "/bindings/ibmmq/server/ibmmqServerBinding.json"
 
-    override fun extendedObjectJson() = "/json/v3/binding/server/ibmmq/ibmmqServerBinding - extended.json"
+    override fun extendedObjectJson() = "/bindings/ibmmq/server/ibmmqServerBinding - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/v3/binding/server/ibmmq/ibmmqServerBinding - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/bindings/ibmmq/server/ibmmqServerBinding - wrongly extended.json"
 
     override fun build(): IBMMQServerBinding {
         return IBMMQServerBinding.builder()

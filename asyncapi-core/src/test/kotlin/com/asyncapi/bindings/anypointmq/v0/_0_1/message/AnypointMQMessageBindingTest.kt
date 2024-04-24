@@ -8,11 +8,11 @@ class AnypointMQMessageBindingTest: SerDeTest<AnypointMQMessageBinding>() {
 
     override fun objectClass() = AnypointMQMessageBinding::class.java
 
-    override fun baseObjectJson() = "/json/v3/binding/message/anypointmq/anypointMQMessageBinding.json"
+    override fun baseObjectJson() = "/bindings/anypointmq/message/anypointMQMessageBinding.json"
 
-    override fun extendedObjectJson() = "/json/v3/binding/message/anypointmq/anypointMQMessageBinding - extended.json"
+    override fun extendedObjectJson() = "/bindings/anypointmq/message/anypointMQMessageBinding - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/v3/binding/message/anypointmq/anypointMQMessageBinding - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/bindings/anypointmq/message/anypointMQMessageBinding - wrongly extended.json"
 
     override fun build(): AnypointMQMessageBinding {
         return AnypointMQMessageBinding.builder()

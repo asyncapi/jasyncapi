@@ -6,11 +6,11 @@ class IBMMQChannelBindingTest: SerDeTest<IBMMQChannelBinding>() {
 
     override fun objectClass() = IBMMQChannelBinding::class.java
 
-    override fun baseObjectJson() = "/json/v3/binding/channel/ibmmq/ibmMQChannelBinding.json"
+    override fun baseObjectJson() = "/bindings/ibmmq/channel/ibmMQChannelBinding.json"
 
-    override fun extendedObjectJson() = "/json/v3/binding/channel/ibmmq/ibmMQChannelBinding - extended.json"
+    override fun extendedObjectJson() = "/bindings/ibmmq/channel/ibmMQChannelBinding - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/v3/binding/channel/ibmmq/ibmMQChannelBinding - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/bindings/ibmmq/channel/ibmMQChannelBinding - wrongly extended.json"
 
     override fun build(): IBMMQChannelBinding {
         return IBMMQChannelBinding.builder()

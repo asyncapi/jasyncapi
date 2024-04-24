@@ -10,11 +10,11 @@ class PulsarServerBindingTest: SerDeTest<PulsarServerBinding>() {
 
     override fun objectClass() = PulsarServerBinding::class.java
 
-    override fun baseObjectJson() = "/json/v3/binding/server/pulsar/pulsarServerBinding.json"
+    override fun baseObjectJson() = "/bindings/pulsar/server/pulsarServerBinding.json"
 
-    override fun extendedObjectJson() = "/json/v3/binding/server/pulsar/pulsarServerBinding - extended.json"
+    override fun extendedObjectJson() = "/bindings/pulsar/server/pulsarServerBinding - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/v3/binding/server/pulsar/pulsarServerBinding - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/bindings/pulsar/server/pulsarServerBinding - wrongly extended.json"
 
     override fun build(): PulsarServerBinding {
         return PulsarServerBinding.builder()

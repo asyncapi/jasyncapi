@@ -6,11 +6,11 @@ class GooglePubSubMessageBindingTest: SerDeTest<GooglePubSubMessageBinding>() {
 
     override fun objectClass() = GooglePubSubMessageBinding::class.java
 
-    override fun baseObjectJson() = "/json/v3/binding/message/googlepubsub/googlePubSubMessageBinding.json"
+    override fun baseObjectJson() = "/bindings/googlepubsub/message/googlePubSubMessageBinding.json"
 
-    override fun extendedObjectJson() = "/json/v3/binding/message/googlepubsub/googlePubSubMessageBinding - extended.json"
+    override fun extendedObjectJson() = "/bindings/googlepubsub/message/googlePubSubMessageBinding - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/v3/binding/message/googlepubsub/googlePubSubMessageBinding - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/bindings/googlepubsub/message/googlePubSubMessageBinding - wrongly extended.json"
 
     override fun build(): GooglePubSubMessageBinding {
         return GooglePubSubMessageBinding.builder()

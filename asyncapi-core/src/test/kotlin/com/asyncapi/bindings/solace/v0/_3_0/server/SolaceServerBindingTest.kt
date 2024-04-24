@@ -10,11 +10,11 @@ class SolaceServerBindingTest: SerDeTest<SolaceServerBinding>() {
 
     override fun objectClass() = SolaceServerBinding::class.java
 
-    override fun baseObjectJson() = "/json/v3/binding/server/solace/solaceServerBinding.json"
+    override fun baseObjectJson() = "/bindings/solace/server/solaceServerBinding.json"
 
-    override fun extendedObjectJson() = "/json/v3/binding/server/solace/solaceServerBinding - extended.json"
+    override fun extendedObjectJson() = "/bindings/solace/server/solaceServerBinding - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/v3/binding/server/solace/solaceServerBinding - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/bindings/solace/server/solaceServerBinding - wrongly extended.json"
 
     override fun build(): SolaceServerBinding {
         return SolaceServerBinding.builder()

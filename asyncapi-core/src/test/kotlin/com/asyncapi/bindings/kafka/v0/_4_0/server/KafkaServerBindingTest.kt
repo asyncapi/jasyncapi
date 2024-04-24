@@ -10,11 +10,11 @@ class KafkaServerBindingTest: SerDeTest<KafkaServerBinding>() {
 
     override fun objectClass() = KafkaServerBinding::class.java
 
-    override fun baseObjectJson() = "/json/v3/binding/server/kafka/kafkaServerBinding.json"
+    override fun baseObjectJson() = "/bindings/kafka/server/kafkaServerBinding.json"
 
-    override fun extendedObjectJson() = "/json/v3/binding/server/kafka/kafkaServerBinding - extended.json"
+    override fun extendedObjectJson() = "/bindings/kafka/server/kafkaServerBinding - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/v3/binding/server/kafka/kafkaServerBinding - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/bindings/kafka/server/kafkaServerBinding - wrongly extended.json"
 
     override fun build(): KafkaServerBinding {
         return KafkaServerBinding.builder()

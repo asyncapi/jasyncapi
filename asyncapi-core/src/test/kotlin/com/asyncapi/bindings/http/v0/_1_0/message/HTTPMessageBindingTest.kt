@@ -8,11 +8,11 @@ class HTTPMessageBindingTest: SerDeTest<HTTPMessageBinding>() {
 
     override fun objectClass() = HTTPMessageBinding::class.java
 
-    override fun baseObjectJson() = "/json/v3/binding/message/http/httpMessageBinding.json"
+    override fun baseObjectJson() = "/bindings/http/message/httpMessageBinding.json"
 
-    override fun extendedObjectJson() = "/json/v3/binding/message/http/httpMessageBinding - extended.json"
+    override fun extendedObjectJson() = "/bindings/http/message/httpMessageBinding - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/v3/binding/message/http/httpMessageBinding - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/bindings/http/message/httpMessageBinding - wrongly extended.json"
 
     override fun build(): HTTPMessageBinding {
         return HTTPMessageBinding.builder()

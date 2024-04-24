@@ -6,11 +6,11 @@ class AMQPMessageBindingTest: SerDeTest<AMQPMessageBinding>() {
 
     override fun objectClass() = AMQPMessageBinding::class.java
 
-    override fun baseObjectJson() = "/json/v3/binding/message/amqp/amqpMessageBinding.json"
+    override fun baseObjectJson() = "/bindings/amqp/message/amqpMessageBinding.json"
 
-    override fun extendedObjectJson() = "/json/v3/binding/message/amqp/amqpMessageBinding - extended.json"
+    override fun extendedObjectJson() = "/bindings/amqp/message/amqpMessageBinding - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/v3/binding/message/amqp/amqpMessageBinding - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/bindings/amqp/message/amqpMessageBinding - wrongly extended.json"
 
     override fun build(): AMQPMessageBinding {
         return AMQPMessageBinding.builder()
