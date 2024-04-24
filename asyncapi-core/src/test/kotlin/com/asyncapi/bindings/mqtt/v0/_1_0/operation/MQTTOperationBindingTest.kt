@@ -1,7 +1,6 @@
-package com.asyncapi.v3.binding.operation.mqtt
+package com.asyncapi.bindings.mqtt.v0._1_0.operation
 
 import com.asyncapi.v3.SerDeTest
-import com.asyncapi.bindings.mqtt.v0._1_0.operation.MQTTOperationBinding
 
 class MQTTOperationBindingTest: SerDeTest<MQTTOperationBinding>() {
 

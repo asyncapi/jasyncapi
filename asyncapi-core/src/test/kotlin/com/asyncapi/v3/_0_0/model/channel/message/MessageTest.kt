@@ -10,7 +10,7 @@ import com.asyncapi.bindings.googlepubsub.v0._1_0.message.GooglePubSubMessageBin
 import com.asyncapi.bindings.http.v0._1_0.message.HTTPMessageBindingTest
 import com.asyncapi.bindings.ibmmq.v0._1_0.message.IBMMQMessageBindingTest
 import com.asyncapi.bindings.kafka.v0._4_0.message.KafkaMessageBindingTest
-import com.asyncapi.v3.binding.message.mqtt.MQTTMessageBindingTest
+import com.asyncapi.bindings.mqtt.v0._1_0.message.MQTTMessageBindingTest
 import com.asyncapi.v3.schema.AsyncAPISchema
 import com.asyncapi.v3.schema.multiformat.AsyncAPIFormatSchema
 

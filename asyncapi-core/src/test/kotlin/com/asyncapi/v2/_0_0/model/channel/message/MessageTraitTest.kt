@@ -13,7 +13,7 @@ import com.asyncapi.bindings.ibmmq.v0._1_0.message.IBMMQMessageBindingTest
 import com.asyncapi.bindings.jms.v0._0_1.message.JMSMessageBinding
 import com.asyncapi.bindings.kafka.v0._4_0.message.KafkaMessageBindingTest
 import com.asyncapi.bindings.mercure.v0._1_0.message.MercureMessageBinding
-import com.asyncapi.v2.binding.message.mqtt.MQTTMessageBindingTest
+import com.asyncapi.bindings.mqtt.v0._1_0.message.MQTTMessageBindingTest
 import com.asyncapi.bindings.mqtt5.v0._2_0.message.MQTT5MessageBinding
 import com.asyncapi.bindings.nats.v0._1_0.message.NATSMessageBinding
 import com.asyncapi.bindings.pulsar.v0._1_0.message.PulsarMessageBinding
