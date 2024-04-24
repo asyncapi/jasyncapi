@@ -18,7 +18,7 @@ import com.asyncapi.bindings.nats.v0._1_0.operation.NATSOperationBindingTest
 import com.asyncapi.bindings.pulsar.v0._1_0.operation.PulsarOperationBinding
 import com.asyncapi.bindings.redis.v0._1_0.operation.RedisOperationBinding
 import com.asyncapi.bindings.sns.v0._1_0.operation.SNSOperationBinding
-import com.asyncapi.v2.binding.operation.solace.SolaceOperationBindingTest
+import com.asyncapi.bindings.solace.v0._3_0.operation.SolaceOperationBindingTest
 import com.asyncapi.bindings.sqs.v0._1_0.operation.SQSOperationBinding
 import com.asyncapi.bindings.stomp.v0._1_0.operation.STOMPOperationBinding
 import com.asyncapi.bindings.websockets.v0._1_0.operation.WebSocketsOperationBinding
