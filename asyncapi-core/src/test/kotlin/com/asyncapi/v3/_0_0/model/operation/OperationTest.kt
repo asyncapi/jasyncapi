@@ -4,7 +4,7 @@ import com.asyncapi.bindings.amqp.v0._2_0.operation.AMQPOperationBindingTest
 import com.asyncapi.bindings.http.v0._1_0.operation.HTTPOperationBindingTest
 import com.asyncapi.bindings.kafka.v0._4_0.operation.KafkaOperationBindingTest
 import com.asyncapi.bindings.mqtt.v0._1_0.operation.MQTTOperationBindingTest
-import com.asyncapi.v3.binding.operation.nats.NATSOperationBindingTest
+import com.asyncapi.bindings.nats.v0._1_0.operation.NATSOperationBindingTest
 import com.asyncapi.v3.binding.operation.solace.SolaceOperationBindingTest
 import com.asyncapi.Reference
 import com.asyncapi.v3.SerDeTest

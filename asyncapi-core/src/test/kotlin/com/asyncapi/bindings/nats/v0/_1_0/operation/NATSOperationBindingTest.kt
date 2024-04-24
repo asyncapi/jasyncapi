@@ -1,7 +1,6 @@
-package com.asyncapi.v3.binding.operation.nats
+package com.asyncapi.bindings.nats.v0._1_0.operation
 
 import com.asyncapi.v3.SerDeTest
-import com.asyncapi.bindings.nats.v0._1_0.operation.NATSOperationBinding
 
 class NATSOperationBindingTest: SerDeTest<NATSOperationBinding>() {
 

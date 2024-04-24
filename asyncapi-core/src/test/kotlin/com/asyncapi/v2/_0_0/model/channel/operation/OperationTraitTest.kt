@@ -14,7 +14,7 @@ import com.asyncapi.bindings.kafka.v0._4_0.operation.KafkaOperationBindingTest
 import com.asyncapi.bindings.mercure.v0._1_0.operation.MercureOperationBinding
 import com.asyncapi.bindings.mqtt.v0._1_0.operation.MQTTOperationBindingTest
 import com.asyncapi.bindings.mqtt5.v0._2_0.operation.MQTT5OperationBinding
-import com.asyncapi.v2.binding.operation.nats.NATSOperationBindingTest
+import com.asyncapi.bindings.nats.v0._1_0.operation.NATSOperationBindingTest
 import com.asyncapi.bindings.pulsar.v0._1_0.operation.PulsarOperationBinding
 import com.asyncapi.bindings.redis.v0._1_0.operation.RedisOperationBinding
 import com.asyncapi.bindings.sns.v0._1_0.operation.SNSOperationBinding
