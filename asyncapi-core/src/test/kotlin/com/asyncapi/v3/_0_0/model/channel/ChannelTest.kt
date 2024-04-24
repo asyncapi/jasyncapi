@@ -13,7 +13,7 @@ import com.asyncapi.bindings.anypointmq.v0._0_1.channel.AnypointMQChannelBinding
 import com.asyncapi.bindings.googlepubsub.v0._1_0.channel.GooglePubSubChannelBindingTest
 import com.asyncapi.bindings.ibmmq.v0._1_0.channel.IBMMQChannelBindingTest
 import com.asyncapi.bindings.kafka.v0._4_0.channel.KafkaChannelBindingTest
-import com.asyncapi.v3.binding.channel.pulsar.PulsarChannelBindingTest
+import com.asyncapi.bindings.pulsar.v0._1_0.channel.PulsarChannelBindingTest
 import com.asyncapi.v3.binding.channel.ws.WebSocketsChannelBindingTest
 
 class ChannelTest: SerDeTest<Channel>() {

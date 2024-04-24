@@ -1,7 +1,6 @@
-package com.asyncapi.v3.binding.server.pulsar
+package com.asyncapi.bindings.pulsar.v0._1_0.server
 
 import com.asyncapi.v3.SerDeTest
-import com.asyncapi.bindings.pulsar.v0._1_0.server.PulsarServerBinding
 
 /**
  * @version 3.0.0
