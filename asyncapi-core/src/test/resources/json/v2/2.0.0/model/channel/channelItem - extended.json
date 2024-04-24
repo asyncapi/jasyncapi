@@ -102,7 +102,9 @@
         } ]
       },
       "sqs" : { },
-      "stomp" : { },
+      "stomp" : {
+        "bindingVersion" : "0.1.0"
+      },
       "ws" : {
         "bindingVersion" : "0.1.0"
       }
@@ -211,7 +213,9 @@
           } ]
         },
         "sqs" : { },
-        "stomp" : { },
+        "stomp" : {
+          "bindingVersion" : "0.1.0"
+        },
         "ws" : {
           "bindingVersion" : "0.1.0"
         }
@@ -323,7 +327,9 @@
         } ]
       },
       "sqs" : { },
-      "stomp" : { },
+      "stomp" : {
+        "bindingVersion" : "0.1.0"
+      },
       "ws" : {
         "bindingVersion" : "0.1.0"
       }
@@ -432,7 +438,9 @@
           } ]
         },
         "sqs" : { },
-        "stomp" : { },
+        "stomp" : {
+          "bindingVersion" : "0.1.0"
+        },
         "ws" : {
           "bindingVersion" : "0.1.0"
         }
@@ -551,7 +559,9 @@
         "sns" : { },
         "solace" : { },
         "sqs" : { },
-        "stomp" : { },
+        "stomp" : {
+          "bindingVersion" : "0.1.0"
+        },
         "ws" : {
           "bindingVersion" : "0.1.0"
         }
@@ -673,7 +683,9 @@
     "sns" : { },
     "solace" : { },
     "sqs" : { },
-    "stomp" : { },
+    "stomp" : {
+      "bindingVersion" : "0.1.0"
+    },
     "ws" : {
       "bindingVersion" : "0.1.0",
       "method" : "GET",

@@ -4,6 +4,7 @@ import com.asyncapi.bindings.OperationBinding;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * This class <b>MUST NOT</b> contain any properties.
@@ -17,7 +18,21 @@ import lombok.NoArgsConstructor;
  * @author Pavel Bodiachevskii
  */
 @Data
-@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class STOMPOperationBinding extends OperationBinding {
+public class STOMPOperationBinding extends com.asyncapi.bindings.stomp.STOMPOperationBinding {
+
+    public STOMPOperationBinding() {
+        this.setBindingVersion("0.1.0");
+    }
+
+    @Override
+    public String getBindingVersion() {
+        return "0.1.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.1.0");
+    }
+
 }

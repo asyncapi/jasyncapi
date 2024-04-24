@@ -122,7 +122,9 @@
           "msgVpn" : "solace.private.net"
         },
         "sqs" : { },
-        "stomp" : { },
+        "stomp" : {
+          "bindingVersion" : "0.1.0"
+        },
         "ws" : {
           "bindingVersion" : "0.1.0"
         }
@@ -7537,7 +7539,9 @@
       "msgVpn" : "solace.private.net"
     },
     "sqs" : { },
-    "stomp" : { },
+    "stomp" : {
+      "bindingVersion" : "0.1.0"
+    },
     "ws" : {
       "bindingVersion" : "0.1.0"
     }
