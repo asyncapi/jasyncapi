@@ -1,9 +1,6 @@
-package com.asyncapi.v3.binding.message.googlepubsub
+package com.asyncapi.bindings.googlepubsub.v0._1_0.message
 
 import com.asyncapi.v3.SerDeTest
-import com.asyncapi.bindings.googlepubsub.v0._1_0.message.GooglePubSubMessageBinding
-import com.asyncapi.bindings.googlepubsub.v0._1_0.message.GooglePubSubMessageSchemaDefinition
-import com.asyncapi.bindings.googlepubsub.v0._1_0.message.GooglePubSubMessageSchemaDefinitionType
 
 class GooglePubSubMessageBindingTest: SerDeTest<GooglePubSubMessageBinding>() {
 

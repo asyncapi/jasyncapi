@@ -10,7 +10,7 @@ import com.asyncapi.v3._0_0.model.channel.message.MessageTestWithReference
 import com.asyncapi.v3._0_0.model.channel.message.MessageTestWithSchema
 import com.asyncapi.bindings.amqp.v0._2_0.channel.AMQPChannelBindingTest
 import com.asyncapi.bindings.anypointmq.v0._0_1.channel.AnypointMQChannelBindingTest
-import com.asyncapi.v3.binding.channel.googlepubsub.GooglePubSubChannelBindingTest
+import com.asyncapi.bindings.googlepubsub.v0._1_0.channel.GooglePubSubChannelBindingTest
 import com.asyncapi.v3.binding.channel.ibmmq.IBMMQChannelBindingTest
 import com.asyncapi.v3.binding.channel.kafka.KafkaChannelBindingTest
 import com.asyncapi.v3.binding.channel.pulsar.PulsarChannelBindingTest

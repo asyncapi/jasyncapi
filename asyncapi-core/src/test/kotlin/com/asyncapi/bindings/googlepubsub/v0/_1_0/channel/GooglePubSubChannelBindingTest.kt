@@ -1,19 +1,16 @@
-package com.asyncapi.v2.binding.channel.googlepubsub
+package com.asyncapi.bindings.googlepubsub.v0._1_0.channel
 
-import com.asyncapi.v2.SerDeTest
-import com.asyncapi.bindings.googlepubsub.v0._1_0.channel.GooglePubSubChannelBinding
-import com.asyncapi.bindings.googlepubsub.v0._1_0.channel.GooglePubSubChannelMessageStoragePolicy
-import com.asyncapi.bindings.googlepubsub.v0._1_0.channel.GooglePubSubChannelSchemaSettings
+import com.asyncapi.v3.SerDeTest
 
 class GooglePubSubChannelBindingTest: SerDeTest<GooglePubSubChannelBinding>() {
 
     override fun objectClass() = GooglePubSubChannelBinding::class.java
 
-    override fun baseObjectJson() = "/json/v2/binding/channel/googlepubsub/googlePubSubChannelBinding.json"
+    override fun baseObjectJson() = "/json/v3/binding/channel/googlepubsub/googlePubSubChannelBinding.json"
 
-    override fun extendedObjectJson() = "/json/v2/binding/channel/googlepubsub/googlePubSubChannelBinding - extended.json"
+    override fun extendedObjectJson() = "/json/v3/binding/channel/googlepubsub/googlePubSubChannelBinding - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/v2/binding/channel/googlepubsub/googlePubSubChannelBinding - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v3/binding/channel/googlepubsub/googlePubSubChannelBinding - wrongly extended.json"
 
     override fun build(): GooglePubSubChannelBinding {
        return GooglePubSubChannelBinding.builder()
