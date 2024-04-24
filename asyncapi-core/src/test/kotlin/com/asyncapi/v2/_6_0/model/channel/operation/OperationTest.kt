@@ -8,7 +8,7 @@ import com.asyncapi.v2._6_0.model.channel.message.MessageTest
 import com.asyncapi.v2._6_0.model.channel.message.OneOfMessages
 import com.asyncapi.bindings.amqp.v0._2_0.operation.AMQPOperationBindingTest
 import com.asyncapi.v2.binding.operation.http.HTTPOperationBindingTest
-import com.asyncapi.v2.binding.operation.kafka.KafkaOperationBindingTest
+import com.asyncapi.bindings.kafka.v0._4_0.operation.KafkaOperationBindingTest
 import com.asyncapi.v2.binding.operation.mqtt.MQTTOperationBindingTest
 import com.asyncapi.v2.binding.operation.nats.NATSOperationBindingTest
 import com.asyncapi.v2.binding.operation.solace.SolaceOperationBindingTest

@@ -1,23 +1,20 @@
-package com.asyncapi.v2.binding.channel.kafka
+package com.asyncapi.bindings.kafka.v0._4_0.channel
 
-import com.asyncapi.v2.SerDeTest
-import com.asyncapi.bindings.kafka.v0._4_0.channel.KafkaChannelBinding
-import com.asyncapi.bindings.kafka.v0._4_0.channel.KafkaChannelTopicConfiguration
-import com.asyncapi.bindings.kafka.v0._4_0.channel.KafkaChannelTopicCleanupPolicy
+import com.asyncapi.v3.SerDeTest
 
 /**
- * @version 2.6.0
+ * @version 3.0.0
  * @author Pavel Bodiachevskii
  */
 class KafkaChannelBindingTest: SerDeTest<KafkaChannelBinding>() {
 
     override fun objectClass() = KafkaChannelBinding::class.java
 
-    override fun baseObjectJson() = "/json/v2/binding/channel/kafka/kafkaChannelBinding.json"
+    override fun baseObjectJson() = "/json/v3/binding/channel/kafka/kafkaChannelBinding.json"
 
-    override fun extendedObjectJson() = "/json/v2/binding/channel/kafka/kafkaChannelBinding - extended.json"
+    override fun extendedObjectJson() = "/json/v3/binding/channel/kafka/kafkaChannelBinding - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/v2/binding/channel/kafka/kafkaChannelBinding - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v3/binding/channel/kafka/kafkaChannelBinding - wrongly extended.json"
 
     override fun build(): KafkaChannelBinding {
         return KafkaChannelBinding.builder()

@@ -12,7 +12,7 @@ import com.asyncapi.bindings.googlepubsub.v0._1_0.channel.GooglePubSubChannelBin
 import com.asyncapi.bindings.http.v0._1_0.channel.HTTPChannelBinding
 import com.asyncapi.bindings.ibmmq.v0._1_0.channel.IBMMQChannelBindingTest
 import com.asyncapi.bindings.jms.v0._0_1.channel.JMSChannelBinding
-import com.asyncapi.v2.binding.channel.kafka.KafkaChannelBindingTest
+import com.asyncapi.bindings.kafka.v0._4_0.channel.KafkaChannelBindingTest
 import com.asyncapi.bindings.mercure.v0._1_0.channel.MercureChannelBinding
 import com.asyncapi.bindings.mqtt.v0._1_0.channel.MQTTChannelBinding
 import com.asyncapi.bindings.mqtt5.v0._2_0.channel.MQTT5ChannelBinding

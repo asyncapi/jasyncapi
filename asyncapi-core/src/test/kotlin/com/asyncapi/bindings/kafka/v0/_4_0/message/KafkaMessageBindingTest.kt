@@ -1,10 +1,8 @@
-package com.asyncapi.v3.binding.message.kafka
+package com.asyncapi.bindings.kafka.v0._4_0.message
 
 import com.asyncapi.v3.SerDeTest
 import com.asyncapi.v3.schema.AsyncAPISchema
 import com.asyncapi.v3.schema.Type
-import com.asyncapi.bindings.kafka.v0._4_0.message.KafkaMessageBinding
-import com.asyncapi.bindings.kafka.v0._4_0.message.KafkaMessageSchemaIdLocation
 
 class KafkaMessageBindingTest: SerDeTest<KafkaMessageBinding>() {
 

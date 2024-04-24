@@ -13,7 +13,7 @@ import com.asyncapi.bindings.googlepubsub.v0._1_0.message.GooglePubSubMessageBin
 import com.asyncapi.v2.binding.message.http.HTTPMessageBindingTest
 import com.asyncapi.bindings.ibmmq.v0._1_0.message.IBMMQMessageBindingTest
 import com.asyncapi.bindings.jms.v0._0_1.message.JMSMessageBinding
-import com.asyncapi.v2.binding.message.kafka.KafkaMessageBindingTest
+import com.asyncapi.bindings.kafka.v0._4_0.message.KafkaMessageBindingTest
 import com.asyncapi.bindings.mercure.v0._1_0.message.MercureMessageBinding
 import com.asyncapi.v2.binding.message.mqtt.MQTTMessageBindingTest
 import com.asyncapi.bindings.mqtt5.v0._2_0.message.MQTT5MessageBinding
