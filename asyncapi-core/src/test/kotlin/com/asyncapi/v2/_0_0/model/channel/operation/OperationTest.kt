@@ -10,7 +10,7 @@ import com.asyncapi.bindings.amqp.v0._2_0.operation.AMQPOperationBindingTest
 import com.asyncapi.bindings.amqp1.v0._1_0.operation.AMQP1OperationBinding
 import com.asyncapi.bindings.anypointmq.v0._0_1.operation.AnypointMQOperationBinding
 import com.asyncapi.bindings.googlepubsub.v0._1_0.operation.GooglePubSubOperationBinding
-import com.asyncapi.v2.binding.operation.http.HTTPOperationBindingTest
+import com.asyncapi.bindings.http.v0._1_0.operation.HTTPOperationBindingTest
 import com.asyncapi.bindings.ibmmq.v0._1_0.operation.IBMMQOperationBinding
 import com.asyncapi.bindings.jms.v0._0_1.operation.JMSOperationBinding
 import com.asyncapi.bindings.kafka.v0._4_0.operation.KafkaOperationBindingTest
