@@ -1,8 +1,6 @@
-package com.asyncapi.v3.binding.message.ibmmq
+package com.asyncapi.bindings.ibmmq.v0._1_0.message
 
 import com.asyncapi.v3.SerDeTest
-import com.asyncapi.bindings.ibmmq.v0._1_0.message.IBMMQMessageBinding
-import com.asyncapi.bindings.ibmmq.v0._1_0.message.IBMMQMessageType
 
 class IBMMQMessageBindingTest: SerDeTest<IBMMQMessageBinding>() {
 

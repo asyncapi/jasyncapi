@@ -9,7 +9,7 @@ import com.asyncapi.bindings.amqp.v0._2_0.message.AMQPMessageBindingTest
 import com.asyncapi.bindings.anypointmq.v0._0_1.message.AnypointMQMessageBindingTest
 import com.asyncapi.bindings.googlepubsub.v0._1_0.message.GooglePubSubMessageBindingTest
 import com.asyncapi.v2.binding.message.http.HTTPMessageBindingTest
-import com.asyncapi.v2.binding.message.ibmmq.IBMMQMessageBindingTest
+import com.asyncapi.bindings.ibmmq.v0._1_0.message.IBMMQMessageBindingTest
 import com.asyncapi.v2.binding.message.kafka.KafkaMessageBindingTest
 import com.asyncapi.v2.binding.message.mqtt.MQTTMessageBindingTest
 
