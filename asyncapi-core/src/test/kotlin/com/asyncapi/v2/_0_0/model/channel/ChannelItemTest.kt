@@ -23,7 +23,7 @@ import com.asyncapi.bindings.sns.v0._1_0.channel.SNSChannelBinding
 import com.asyncapi.bindings.solace.v0._3_0.channel.SolaceChannelBinding
 import com.asyncapi.bindings.sqs.v0._1_0.channel.SQSChannelBinding
 import com.asyncapi.bindings.stomp.v0._1_0.channel.STOMPChannelBinding
-import com.asyncapi.v2.binding.channel.ws.WebSocketsChannelBindingTest
+import com.asyncapi.bindings.websockets.v0._1_0.channel.WebSocketsChannelBindingTest
 
 class ChannelItemTest: SerDeTest<ChannelItem>() {
 

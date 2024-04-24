@@ -1,10 +1,8 @@
-package com.asyncapi.v3.binding.channel.ws
+package com.asyncapi.bindings.websockets.v0._1_0.channel
 
 import com.asyncapi.v3.SerDeTest
 import com.asyncapi.v3.schema.AsyncAPISchema
 import com.asyncapi.v3.schema.Type
-import com.asyncapi.bindings.websockets.v0._1_0.channel.WebSocketsChannelBinding;
-import com.asyncapi.bindings.websockets.v0._1_0.channel.WebSocketsChannelMethod
 
 
 /**

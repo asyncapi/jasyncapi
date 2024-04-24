@@ -11,7 +11,7 @@ import com.asyncapi.bindings.googlepubsub.v0._1_0.channel.GooglePubSubChannelBin
 import com.asyncapi.bindings.ibmmq.v0._1_0.channel.IBMMQChannelBindingTest
 import com.asyncapi.bindings.kafka.v0._4_0.channel.KafkaChannelBindingTest
 import com.asyncapi.bindings.pulsar.v0._1_0.channel.PulsarChannelBindingTest
-import com.asyncapi.v2.binding.channel.ws.WebSocketsChannelBindingTest
+import com.asyncapi.bindings.websockets.v0._1_0.channel.WebSocketsChannelBindingTest
 
 class ChannelItemTest: SerDeTest<ChannelItem>() {
 
