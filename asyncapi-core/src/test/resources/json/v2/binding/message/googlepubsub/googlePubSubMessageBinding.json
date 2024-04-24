@@ -1,7 +1,0 @@
-{
-  "schema": {
-    "name": "projects/your-project/schemas/message-avro",
-    "type": "avro"
-  },
-  "bindingVersion": "0.1.0"
-}
