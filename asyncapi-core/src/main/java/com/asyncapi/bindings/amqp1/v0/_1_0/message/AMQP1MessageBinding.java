@@ -1,9 +1,9 @@
 package com.asyncapi.bindings.amqp1.v0._1_0.message;
 
-import com.asyncapi.bindings.MessageBinding;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * This class MUST NOT contain any properties. Its name is reserved for future use.
@@ -17,5 +17,16 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class AMQP1MessageBinding extends MessageBinding {
+public class AMQP1MessageBinding extends com.asyncapi.bindings.amqp1.AMQP1MessageBinding {
+
+    @Override
+    public String getBindingVersion() {
+        return "0.1.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.1.0");
+    }
+
 }

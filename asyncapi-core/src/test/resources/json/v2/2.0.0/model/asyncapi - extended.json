@@ -37,7 +37,9 @@
         "mqttBroker" : [ ]
       } ],
       "bindings" : {
-        "amqp1" : { },
+        "amqp1" : {
+          "bindingVersion" : "0.1.0"
+        },
         "anypointmq" : { },
         "googlepubsub" : { },
         "http" : { },
@@ -128,7 +130,9 @@
             "timestamp" : true,
             "ack" : false
           },
-          "amqp1" : { },
+          "amqp1" : {
+            "bindingVersion" : "0.1.0"
+          },
           "anypointmq" : { },
           "googlepubsub" : { },
           "http" : {
@@ -241,7 +245,9 @@
               "timestamp" : true,
               "ack" : false
             },
-            "amqp1" : { },
+            "amqp1" : {
+              "bindingVersion" : "0.1.0"
+            },
             "anypointmq" : { },
             "googlepubsub" : { },
             "http" : {
@@ -357,7 +363,9 @@
             "timestamp" : true,
             "ack" : false
           },
-          "amqp1" : { },
+          "amqp1" : {
+            "bindingVersion" : "0.1.0"
+          },
           "anypointmq" : { },
           "googlepubsub" : { },
           "http" : {
@@ -470,7 +478,9 @@
               "timestamp" : true,
               "ack" : false
             },
-            "amqp1" : { },
+            "amqp1" : {
+              "bindingVersion" : "0.1.0"
+            },
             "anypointmq" : { },
             "googlepubsub" : { },
             "http" : {
@@ -604,7 +614,9 @@
               "contentEncoding" : "gzip",
               "messageType" : "user.signup"
             },
-            "amqp1" : { },
+            "amqp1" : {
+              "bindingVersion" : "0.1.0"
+            },
             "anypointmq" : {
               "bindingVersion" : "0.0.1",
               "headers" : {
@@ -721,7 +733,9 @@
             "vhost" : "/"
           }
         },
-        "amqp1" : { },
+        "amqp1" : {
+          "bindingVersion" : "0.1.0"
+        },
         "anypointmq" : {
           "bindingVersion" : "0.0.1",
           "destination" : "user-signup-exchg",
@@ -904,7 +918,9 @@
             "contentEncoding" : "gzip",
             "messageType" : "user.signup"
           },
-          "amqp1" : { },
+          "amqp1" : {
+            "bindingVersion" : "0.1.0"
+          },
           "anypointmq" : {
             "bindingVersion" : "0.0.1",
             "headers" : {
@@ -1137,7 +1153,9 @@
             "timestamp" : true,
             "ack" : false
           },
-          "amqp1" : { },
+          "amqp1" : {
+            "bindingVersion" : "0.1.0"
+          },
           "anypointmq" : { },
           "googlepubsub" : { },
           "http" : {
@@ -1262,7 +1280,9 @@
             "contentEncoding" : "gzip",
             "messageType" : "user.signup"
           },
-          "amqp1" : { },
+          "amqp1" : {
+            "bindingVersion" : "0.1.0"
+          },
           "anypointmq" : {
             "bindingVersion" : "0.0.1",
             "headers" : {
@@ -1349,7 +1369,9 @@
       }
     },
     "serverBindings" : {
-      "amqp1" : { },
+      "amqp1" : {
+        "bindingVersion" : "0.1.0"
+      },
       "anypointmq" : { },
       "googlepubsub" : { },
       "http" : { },
@@ -1424,7 +1446,9 @@
           "vhost" : "/"
         }
       },
-      "amqp1" : { },
+      "amqp1" : {
+        "bindingVersion" : "0.1.0"
+      },
       "anypointmq" : {
         "bindingVersion" : "0.0.1",
         "destination" : "user-signup-exchg",
@@ -1536,7 +1560,9 @@
         "timestamp" : true,
         "ack" : false
       },
-      "amqp1" : { },
+      "amqp1" : {
+        "bindingVersion" : "0.1.0"
+      },
       "anypointmq" : { },
       "googlepubsub" : { },
       "http" : {
@@ -1623,7 +1649,9 @@
         "contentEncoding" : "gzip",
         "messageType" : "user.signup"
       },
-      "amqp1" : { },
+      "amqp1" : {
+        "bindingVersion" : "0.1.0"
+      },
       "anypointmq" : {
         "bindingVersion" : "0.0.1",
         "headers" : {

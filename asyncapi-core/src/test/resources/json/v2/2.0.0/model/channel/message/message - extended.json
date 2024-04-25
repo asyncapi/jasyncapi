@@ -50,7 +50,9 @@
       "contentEncoding" : "gzip",
       "messageType" : "user.signup"
     },
-    "amqp1" : { },
+    "amqp1" : {
+      "bindingVersion" : "0.1.0"
+    },
     "anypointmq" : {
       "bindingVersion" : "0.0.1",
       "headers" : {

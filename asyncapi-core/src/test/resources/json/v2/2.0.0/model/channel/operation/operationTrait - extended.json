@@ -28,7 +28,9 @@
       "timestamp" : true,
       "ack" : false
     },
-    "amqp1" : { },
+    "amqp1" : {
+      "bindingVersion" : "0.1.0"
+    },
     "anypointmq" : { },
     "googlepubsub" : { },
     "http" : {
