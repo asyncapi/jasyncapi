@@ -6,7 +6,7 @@ import com.asyncapi.v2._6_0.model.ExternalDocumentation
 import com.asyncapi.v2._6_0.model.Tag
 import com.asyncapi.v2.schema.Schema
 import com.asyncapi.bindings.amqp.AMQPV0_2_0Test
-import com.asyncapi.bindings.anypointmq.v0._0_1.message.AnypointMQMessageBindingTest
+import com.asyncapi.bindings.anypointmq.AnypointMQV0_0_1Test
 import com.asyncapi.bindings.googlepubsub.v0._1_0.message.GooglePubSubMessageBindingTest
 import com.asyncapi.bindings.http.v0._1_0.message.HTTPMessageBindingTest
 import com.asyncapi.bindings.ibmmq.v0._1_0.message.IBMMQMessageBindingTest
@@ -62,7 +62,7 @@ class MessageTraitTest: SerDeTest<MessageTrait>() {
                 .bindings(mapOf(
                         Pair("amqp", AMQPV0_2_0Test.messageBinding()),
                         Pair("amqp1", Reference("#/components/messageBindings/amqp1")),
-                        Pair("anypointmq", AnypointMQMessageBindingTest().build()),
+                        Pair("anypointmq", AnypointMQV0_0_1Test.messageBinding()),
                         Pair("googlepubsub", GooglePubSubMessageBindingTest().build()),
                         Pair("http", HTTPMessageBindingTest().build()),
                         Pair("ibmmq", IBMMQMessageBindingTest().build()),

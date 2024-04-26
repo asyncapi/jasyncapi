@@ -2,7 +2,7 @@ package com.asyncapi.bindings;
 
 import com.asyncapi.bindings.amqp.AMQPOperationBinding;
 import com.asyncapi.bindings.amqp1.v0._1_0.operation.AMQP1OperationBinding;
-import com.asyncapi.bindings.anypointmq.v0._0_1.operation.AnypointMQOperationBinding;
+import com.asyncapi.bindings.anypointmq.AnypointMQOperationBinding;
 import com.asyncapi.bindings.googlepubsub.v0._1_0.operation.GooglePubSubOperationBinding;
 import com.asyncapi.bindings.http.v0._1_0.operation.HTTPOperationBinding;
 import com.asyncapi.bindings.ibmmq.v0._1_0.operation.IBMMQOperationBinding;

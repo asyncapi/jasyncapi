@@ -2,7 +2,7 @@ package com.asyncapi.bindings;
 
 import com.asyncapi.bindings.amqp.AMQPServerBinding;
 import com.asyncapi.bindings.amqp1.v0._1_0.server.AMQP1ServerBinding;
-import com.asyncapi.bindings.anypointmq.v0._0_1.server.AnypointMQServerBinding;
+import com.asyncapi.bindings.anypointmq.AnypointMQServerBinding;
 import com.asyncapi.bindings.googlepubsub.v0._1_0.server.GooglePubSubServerBinding;
 import com.asyncapi.bindings.http.v0._1_0.server.HTTPServerBinding;
 import com.asyncapi.bindings.ibmmq.v0._1_0.server.IBMMQServerBinding;

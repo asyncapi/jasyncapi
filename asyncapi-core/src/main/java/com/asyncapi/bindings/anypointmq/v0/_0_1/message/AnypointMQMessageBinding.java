@@ -1,6 +1,5 @@
 package com.asyncapi.bindings.anypointmq.v0._0_1.message;
 
-import com.asyncapi.bindings.MessageBinding;
 import com.asyncapi.v3.schema.AsyncAPISchema;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,7 +20,7 @@ import org.jetbrains.annotations.Nullable;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonClassDescription("Describes Anypoint MQ message binding.")
-public class AnypointMQMessageBinding extends MessageBinding {
+public class AnypointMQMessageBinding extends com.asyncapi.bindings.anypointmq.AnypointMQMessageBinding {
 
     /**
      * A Schema object containing the definitions for Anypoint MQ-specific headers (so-called protocol headers).
@@ -33,13 +32,14 @@ public class AnypointMQMessageBinding extends MessageBinding {
     @JsonPropertyDescription("A Schema object containing the definitions for Anypoint MQ-specific headers (so-called protocol headers). This schema MUST be of type object and have a properties key. Examples of Anypoint MQ protocol headers are messageId and messageGroupId.")
     private AsyncAPISchema headers;
 
-    /**
-     * The version of this binding.
-     */
-    @Nullable
-    @Builder.Default
-    @JsonProperty(value = "bindingVersion")
-    @JsonPropertyDescription("The version of this binding.")
-    private String bindingVersion = "0.0.1";
+    @Override
+    public String getBindingVersion() {
+        return "0.0.1";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.0.1");
+    }
 
 }
