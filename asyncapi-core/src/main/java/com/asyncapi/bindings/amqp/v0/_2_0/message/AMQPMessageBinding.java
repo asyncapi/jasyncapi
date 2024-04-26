@@ -1,6 +1,5 @@
 package com.asyncapi.bindings.amqp.v0._2_0.message;
 
-import com.asyncapi.bindings.MessageBinding;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
@@ -22,7 +21,7 @@ import org.jetbrains.annotations.Nullable;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonClassDescription("Describes AMQP 0-9-1 message binding.")
-public class AMQPMessageBinding extends MessageBinding {
+public class AMQPMessageBinding extends com.asyncapi.bindings.amqp.AMQPMessageBinding {
 
     /**
      * A MIME encoding for the message content.
@@ -40,13 +39,14 @@ public class AMQPMessageBinding extends MessageBinding {
     @JsonPropertyDescription("Application-specific message type.")
     private String messageType;
 
-    /**
-     * The version of this binding. If omitted, "latest" MUST be assumed.
-     */
-    @Nullable
-    @Builder.Default
-    @JsonProperty(value = "bindingVersion")
-    @JsonPropertyDescription("The version of this binding.")
-    private String bindingVersion = "0.2.0";
+    @Override
+    public String getBindingVersion() {
+        return "0.2.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.2.0");
+    }
 
 }

@@ -8,7 +8,7 @@ import com.asyncapi.v3._0_0.model.TagTestWithReferenceToExternalDocs
 import com.asyncapi.v3._0_0.model.channel.message.MessageTestWithMultiFormatSchema
 import com.asyncapi.v3._0_0.model.channel.message.MessageTestWithReference
 import com.asyncapi.v3._0_0.model.channel.message.MessageTestWithSchema
-import com.asyncapi.bindings.amqp.v0._2_0.channel.AMQPChannelBindingTest
+import com.asyncapi.bindings.amqp.AMQPV0_2_0Test
 import com.asyncapi.bindings.anypointmq.v0._0_1.channel.AnypointMQChannelBindingTest
 import com.asyncapi.bindings.googlepubsub.v0._1_0.channel.GooglePubSubChannelBindingTest
 import com.asyncapi.bindings.ibmmq.v0._1_0.channel.IBMMQChannelBindingTest
@@ -64,7 +64,7 @@ class ChannelTest: SerDeTest<Channel>() {
     companion object {
         fun bindings(): Map<String, Any> {
             return mapOf(
-                    Pair("amqp", AMQPChannelBindingTest().build()),
+                    Pair("amqp", AMQPV0_2_0Test.channelBinding()),
                     Pair("amqp1", Reference("#/components/channelBindings/amqp1")),
                     Pair("anypointmq", AnypointMQChannelBindingTest().build()),
                     Pair("googlepubsub", GooglePubSubChannelBindingTest().build()),
@@ -137,7 +137,7 @@ class ChannelTestWithReference: SerDeTest<Channel>() {
     companion object {
         fun bindings(): Map<String, Any> {
             return mapOf(
-                    Pair("amqp", AMQPChannelBindingTest().build()),
+                    Pair("amqp", AMQPV0_2_0Test.channelBinding()),
                     Pair("amqp1", Reference("#/components/channelBindings/amqp1")),
                     Pair("anypointmq", AnypointMQChannelBindingTest().build()),
                     Pair("googlepubsub", GooglePubSubChannelBindingTest().build()),

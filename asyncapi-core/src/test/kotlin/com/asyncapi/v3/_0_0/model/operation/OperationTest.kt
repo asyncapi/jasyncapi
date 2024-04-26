@@ -1,6 +1,6 @@
 package com.asyncapi.v3._0_0.model.operation
 
-import com.asyncapi.bindings.amqp.v0._2_0.operation.AMQPOperationBindingTest
+import com.asyncapi.bindings.amqp.AMQPV0_2_0Test
 import com.asyncapi.bindings.http.v0._1_0.operation.HTTPOperationBindingTest
 import com.asyncapi.bindings.kafka.v0._4_0.operation.KafkaOperationBindingTest
 import com.asyncapi.bindings.mqtt.v0._1_0.operation.MQTTOperationBindingTest
@@ -63,7 +63,7 @@ class OperationTest: SerDeTest<Operation>() {
     companion object {
         fun bindings(): Map<String, Any> {
             return mapOf(
-                    Pair("amqp", AMQPOperationBindingTest().build()),
+                    Pair("amqp", AMQPV0_2_0Test.operationBinding()),
                     Pair("amqp1", Reference("#/components/operationBindings/amqp1")),
                     Pair("anypointmq",
                         Reference("#/components/operationBindings/anypointmq")
@@ -121,7 +121,7 @@ class OperationTestWithReference: SerDeTest<Operation>() {
                 ))
                 .externalDocs(Reference("#/components/externalDocs/external-doc"))
                 .bindings(mapOf(
-                        Pair("amqp", AMQPOperationBindingTest().build()),
+                        Pair("amqp", AMQPV0_2_0Test.operationBinding()),
                         Pair("amqp1", Reference("#/components/operationBindings/amqp1")),
                         Pair("anypointmq",
                             Reference("#/components/operationBindings/anypointmq")

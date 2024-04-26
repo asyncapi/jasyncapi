@@ -5,7 +5,7 @@ import com.asyncapi.v3.SerDeTest
 import com.asyncapi.v3._0_0.model.ExternalDocumentation
 import com.asyncapi.v3._0_0.model.Tag
 import com.asyncapi.v3.schema.AsyncAPISchema
-import com.asyncapi.bindings.amqp.v0._2_0.message.AMQPMessageBindingTest
+import com.asyncapi.bindings.amqp.AMQPV0_2_0Test
 import com.asyncapi.bindings.anypointmq.v0._0_1.message.AnypointMQMessageBindingTest
 import com.asyncapi.bindings.googlepubsub.v0._1_0.message.GooglePubSubMessageBindingTest
 import com.asyncapi.bindings.http.v0._1_0.message.HTTPMessageBindingTest
@@ -59,7 +59,7 @@ class MessageTraitTestWithSchema: SerDeTest<MessageTrait>() {
                 ))
                 .externalDocs(ExternalDocumentation("User sign up rules", "messages/sign-up-rules"))
                 .bindings(mapOf(
-                        Pair("amqp", AMQPMessageBindingTest().build()),
+                        Pair("amqp", AMQPV0_2_0Test.messageBinding()),
                         Pair("amqp1", Reference("#/components/messageBindings/amqp1")),
                         Pair("anypointmq", AnypointMQMessageBindingTest().build()),
                         Pair("googlepubsub", GooglePubSubMessageBindingTest().build()),
@@ -114,7 +114,7 @@ class MessageTraitTestWithReference: SerDeTest<MessageTrait>() {
                 ))
                 .externalDocs(Reference("#/components/externalDocs/external-doc"))
                 .bindings(mapOf(
-                        Pair("amqp", AMQPMessageBindingTest().build()),
+                        Pair("amqp", AMQPV0_2_0Test.messageBinding()),
                         Pair("amqp1", Reference("#/components/messageBindings/amqp1")),
                         Pair("anypointmq", AnypointMQMessageBindingTest().build()),
                         Pair("googlepubsub", GooglePubSubMessageBindingTest().build()),
@@ -186,7 +186,7 @@ class MessageTraitTestWithMultiFormatSchema: SerDeTest<MessageTrait>() {
                 ))
                 .externalDocs(Reference("#/components/externalDocs/external-doc"))
                 .bindings(mapOf(
-                        Pair("amqp", AMQPMessageBindingTest().build()),
+                        Pair("amqp", AMQPV0_2_0Test.messageBinding()),
                         Pair("amqp1", Reference("#/components/messageBindings/amqp1")),
                         Pair("anypointmq", AnypointMQMessageBindingTest().build()),
                         Pair("googlepubsub", GooglePubSubMessageBindingTest().build()),

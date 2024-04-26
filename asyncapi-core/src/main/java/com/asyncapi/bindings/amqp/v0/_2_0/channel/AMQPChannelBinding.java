@@ -1,6 +1,5 @@
 package com.asyncapi.bindings.amqp.v0._2_0.channel;
 
-import com.asyncapi.bindings.ChannelBinding;
 import com.asyncapi.bindings.amqp.v0._2_0.channel.exchange.AMQPChannelExchangeProperties;
 import com.asyncapi.bindings.amqp.v0._2_0.channel.queue.AMQPChannelQueueProperties;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
@@ -25,7 +24,7 @@ import org.jetbrains.annotations.Nullable;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonClassDescription("Describes AMQP 0-9-1 channel binding.")
-public class AMQPChannelBinding extends ChannelBinding {
+public class AMQPChannelBinding extends com.asyncapi.bindings.amqp.AMQPChannelBinding {
 
     /**
      * Defines what type of channel is it. Can be either queue or routingKey (default).
@@ -53,10 +52,14 @@ public class AMQPChannelBinding extends ChannelBinding {
     @JsonPropertyDescription("When is=queue, this object defines the queue properties.")
     private AMQPChannelQueueProperties queue;
 
-    @Nullable
-    @Builder.Default
-    @JsonProperty(value = "bindingVersion")
-    @JsonPropertyDescription("The version of this binding.")
-    private final String bindingVersion = "0.2.0";
+    @Override
+    public String getBindingVersion() {
+        return "0.2.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.2.0");
+    }
 
 }

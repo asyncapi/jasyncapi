@@ -1,0 +1,18 @@
+{
+  "bindingVersion" : "0.1.0",
+  "expiration" : 100000,
+  "userId" : "guest",
+  "cc" : [ "user.logs" ],
+  "priority" : 10,
+  "deliveryMode" : 2,
+  "mandatory" : false,
+  "bcc" : [ "external.audit" ],
+  "replyTo" : "user.signedup",
+  "timestamp" : true,
+  "ack" : false,
+  "x-number" : 0,
+  "x-string" : "",
+  "x-object" : {
+    "property" : { }
+  }
+}

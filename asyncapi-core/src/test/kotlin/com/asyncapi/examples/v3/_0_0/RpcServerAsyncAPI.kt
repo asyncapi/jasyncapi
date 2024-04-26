@@ -10,10 +10,10 @@ import com.asyncapi.v3._0_0.model.info.Info
 import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.server.Server
-import com.asyncapi.bindings.amqp.v0._2_0.channel.AMQPChannelBinding
-import com.asyncapi.bindings.amqp.v0._2_0.channel.AMQPChannelType
-import com.asyncapi.bindings.amqp.v0._2_0.channel.queue.AMQPChannelQueueProperties
-import com.asyncapi.bindings.amqp.v0._2_0.operation.AMQPOperationBinding
+import com.asyncapi.bindings.amqp.v0._3_0.channel.AMQPChannelBinding
+import com.asyncapi.bindings.amqp.v0._3_0.channel.AMQPChannelType
+import com.asyncapi.bindings.amqp.v0._3_0.channel.queue.AMQPChannelQueueProperties
+import com.asyncapi.bindings.amqp.v0._3_0.operation.AMQPOperationBinding
 import com.asyncapi.v3.schema.AsyncAPISchema
 
 class RpcServerAsyncAPI: AbstractExampleValidationTest() {

@@ -1,6 +1,6 @@
 package com.asyncapi.bindings;
 
-import com.asyncapi.bindings.amqp.v0._2_0.server.AMQPServerBinding;
+import com.asyncapi.bindings.amqp.AMQPServerBinding;
 import com.asyncapi.bindings.amqp1.v0._1_0.server.AMQP1ServerBinding;
 import com.asyncapi.bindings.anypointmq.v0._0_1.server.AnypointMQServerBinding;
 import com.asyncapi.bindings.googlepubsub.v0._1_0.server.GooglePubSubServerBinding;

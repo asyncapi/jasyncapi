@@ -5,7 +5,7 @@ import com.asyncapi.v2._0_0.model.channel.operation.OperationWithMessageTest
 import com.asyncapi.v2._0_0.model.channel.operation.OperationWithReferenceToMessageTest
 import com.asyncapi.v2.schema.Schema
 import com.asyncapi.bindings.ChannelBinding
-import com.asyncapi.bindings.amqp.v0._2_0.channel.AMQPChannelBindingTest
+import com.asyncapi.bindings.amqp.AMQPV0_2_0Test
 import com.asyncapi.bindings.amqp1.v0._1_0.channel.AMQP1ChannelBinding
 import com.asyncapi.bindings.anypointmq.v0._0_1.channel.AnypointMQChannelBindingTest
 import com.asyncapi.bindings.googlepubsub.v0._1_0.channel.GooglePubSubChannelBindingTest
@@ -55,7 +55,7 @@ class ChannelItemTest: SerDeTest<ChannelItem>() {
     companion object {
         fun bindings(): Map<String, ChannelBinding> {
             return mapOf(
-                    Pair("amqp", AMQPChannelBindingTest().build()),
+                    Pair("amqp", AMQPV0_2_0Test.channelBinding()),
                     Pair("amqp1", AMQP1ChannelBinding()),
                     Pair("anypointmq", AnypointMQChannelBindingTest().build()),
                     Pair("googlepubsub", GooglePubSubChannelBindingTest().build()),

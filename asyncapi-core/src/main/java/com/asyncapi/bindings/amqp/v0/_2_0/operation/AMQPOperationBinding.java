@@ -1,6 +1,5 @@
 package com.asyncapi.bindings.amqp.v0._2_0.operation;
 
-import com.asyncapi.bindings.OperationBinding;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
@@ -24,7 +23,7 @@ import java.util.List;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonClassDescription("Describes AMQP 0-9-1 operation binding.")
-public class AMQPOperationBinding extends OperationBinding {
+public class AMQPOperationBinding extends com.asyncapi.bindings.amqp.AMQPOperationBinding {
 
     /**
      * TTL (Time-To-Live) for the message. It MUST be greater than or equal to zero.
@@ -138,13 +137,14 @@ public class AMQPOperationBinding extends OperationBinding {
     @JsonPropertyDescription("Whether the consumer should ack the message or not.")
     private Boolean ack;
 
-    /**
-     * The version of this binding. If omitted, "latest" MUST be assumed.
-     */
-    @Nullable
-    @Builder.Default
-    @JsonProperty(value = "bindingVersion")
-    @JsonPropertyDescription("The version of this binding.")
-    private String bindingVersion = "0.2.0";
+    @Override
+    public String getBindingVersion() {
+        return "0.2.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.2.0");
+    }
 
 }

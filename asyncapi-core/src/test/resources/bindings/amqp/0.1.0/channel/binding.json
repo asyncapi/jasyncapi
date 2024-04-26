@@ -1,0 +1,16 @@
+{
+  "is": "routingKey",
+  "queue": {
+    "name": "my-queue-name",
+    "durable": true,
+    "exclusive": true,
+    "autoDelete": false
+  },
+  "exchange": {
+    "name": "myExchange",
+    "type": "topic",
+    "durable": true,
+    "autoDelete": false
+  },
+  "bindingVersion": "0.1.0"
+}

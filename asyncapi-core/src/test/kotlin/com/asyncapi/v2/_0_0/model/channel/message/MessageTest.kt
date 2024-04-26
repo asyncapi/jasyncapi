@@ -6,7 +6,7 @@ import com.asyncapi.Reference
 import com.asyncapi.v2._0_0.model.Tag
 import com.asyncapi.v2.schema.Schema
 import com.asyncapi.bindings.MessageBinding
-import com.asyncapi.bindings.amqp.v0._2_0.message.AMQPMessageBindingTest
+import com.asyncapi.bindings.amqp.AMQPV0_2_0Test
 import com.asyncapi.bindings.amqp1.v0._1_0.message.AMQP1MessageBinding
 import com.asyncapi.bindings.anypointmq.v0._0_1.message.AnypointMQMessageBindingTest
 import com.asyncapi.bindings.googlepubsub.v0._1_0.message.GooglePubSubMessageBindingTest
@@ -114,7 +114,7 @@ class MessageTest: SerDeTest<Message>() {
     companion object {
         fun bindings(): Map<String, MessageBinding> {
             return mapOf(
-                    Pair("amqp", AMQPMessageBindingTest().build()),
+                    Pair("amqp", AMQPV0_2_0Test.messageBinding()),
                     Pair("amqp1", AMQP1MessageBinding()),
                     Pair("anypointmq", AnypointMQMessageBindingTest().build()),
                     Pair("googlepubsub", GooglePubSubMessageBindingTest().build()),
