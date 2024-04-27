@@ -34,7 +34,6 @@
     "anypointmq" : { },
     "googlepubsub" : { },
     "http" : {
-      "type" : "request",
       "method" : "GET",
       "query" : {
         "type" : "object",
@@ -48,7 +47,7 @@
         },
         "additionalProperties" : false
       },
-      "bindingVersion" : "0.1.0"
+      "bindingVersion" : "0.3.0"
     },
     "ibmmq" : { },
     "jms" : { },
@@ -153,7 +152,6 @@
         "anypointmq": {},
         "googlepubsub": {},
         "http": {
-          "type": "request",
           "method": "GET",
           "query": {
             "type": "object",
@@ -169,7 +167,7 @@
             },
             "additionalProperties": false
           },
-          "bindingVersion": "0.1.0"
+          "bindingVersion": "0.3.0"
         },
         "ibmmq": {},
         "jms": {},

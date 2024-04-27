@@ -38,8 +38,7 @@
       "bindingVersion" : "0.2.0"
     },
     "http" : {
-      "bindingVersion" : "0.1.0",
-      "type" : "request",
+      "bindingVersion" : "0.3.0",
       "method" : "GET",
       "query" : {
         "type" : "object",
@@ -157,8 +156,7 @@
         "bindingVersion" : "0.2.0"
       },
       "http" : {
-        "bindingVersion" : "0.1.0",
-        "type" : "request",
+        "bindingVersion" : "0.3.0",
         "method" : "GET",
         "query" : {
           "type" : "object",
@@ -310,7 +308,7 @@
         }
       },
       "http" : {
-        "bindingVersion" : "0.1.0",
+        "bindingVersion" : "0.3.0",
         "headers" : {
           "type" : "object",
           "properties" : {
@@ -319,7 +317,8 @@
               "enum" : [ "application/json" ]
             }
           }
-        }
+        },
+        "statusCode" : 200
       },
       "ibmmq" : {
         "bindingVersion" : "0.1.0",

@@ -1,17 +1,16 @@
 package com.asyncapi.examples.v2._0_0
 
 import com.asyncapi.Reference
+import com.asyncapi.bindings.http.v0._3_0.operation.HTTPOperationBinding
+import com.asyncapi.bindings.http.v0._3_0.operation.HTTPOperationMethod
 import com.asyncapi.v2._0_0.model.channel.ChannelItem
 import com.asyncapi.v2._0_0.model.channel.message.Message
 import com.asyncapi.v2._0_0.model.channel.operation.Operation
 import com.asyncapi.v2._0_0.model.component.Components
 import com.asyncapi.v2._0_0.model.info.Info
-import com.asyncapi.bindings.http.v0._1_0.operation.HTTPOperationBinding
-import com.asyncapi.bindings.http.v0._1_0.operation.HTTPOperationMethod
-import com.asyncapi.bindings.http.v0._1_0.operation.HTTPOperationType
 import com.asyncapi.v2.schema.Schema
-import com.asyncapi.v2.security_scheme.oauth2.OAuthFlows
 import com.asyncapi.v2.security_scheme.oauth2.OAuth2SecurityScheme
+import com.asyncapi.v2.security_scheme.oauth2.OAuthFlows
 import com.asyncapi.v2.security_scheme.oauth2.flow.ClientCredentialsOAuthFlow
 
 class OperationSecurity: AbstractExampleValidationTest() {
@@ -36,7 +35,6 @@ class OperationSecurity: AbstractExampleValidationTest() {
                                 .message(Reference("#/components/messages/message"))
                                 .bindings(mapOf(
                                         Pair("http", HTTPOperationBinding.builder()
-                                                .type(HTTPOperationType.REQUEST)
                                                 .method(HTTPOperationMethod.POST)
                                                 .build())
                                 ))

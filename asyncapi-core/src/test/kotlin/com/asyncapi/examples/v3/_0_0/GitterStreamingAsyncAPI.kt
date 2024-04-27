@@ -1,7 +1,9 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.bindings.http.v0._1_0.message.HTTPMessageBinding
 import com.asyncapi.Reference
+import com.asyncapi.bindings.http.v0._3_0.message.HTTPMessageBinding
+import com.asyncapi.bindings.http.v0._3_0.operation.HTTPOperationBinding
+import com.asyncapi.bindings.http.v0._3_0.operation.HTTPOperationMethod
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.Parameter
 import com.asyncapi.v3._0_0.model.channel.message.Message
@@ -10,8 +12,6 @@ import com.asyncapi.v3._0_0.model.info.Info
 import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.server.Server
-import com.asyncapi.bindings.http.v0._1_0.operation.HTTPOperationBinding
-import com.asyncapi.bindings.http.v0._1_0.operation.HTTPOperationMethod
 import com.asyncapi.v3.schema.AsyncAPISchema
 import com.asyncapi.v3.schema.JsonSchema
 import com.asyncapi.v3.schema.multiformat.JsonFormatSchema
@@ -274,7 +274,9 @@ class GitterStreamingAsyncAPI: AbstractExampleValidationTest() {
                                                                         .build()
                                                                 )
                                                         ))
-                                                        .build())
+                                                        .build()
+                                                )
+                                                .statusCode(200)
                                                 .build()
                                         )
                                 ))
@@ -304,7 +306,9 @@ class GitterStreamingAsyncAPI: AbstractExampleValidationTest() {
                                                                         .build()
                                                                 )
                                                         ))
-                                                        .build())
+                                                        .build()
+                                                )
+                                                .statusCode(200)
                                                 .build()
                                         )
                                 ))

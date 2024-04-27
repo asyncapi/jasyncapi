@@ -4,7 +4,7 @@ import com.asyncapi.bindings.amqp.AMQPOperationBinding;
 import com.asyncapi.bindings.amqp1.v0._1_0.operation.AMQP1OperationBinding;
 import com.asyncapi.bindings.anypointmq.AnypointMQOperationBinding;
 import com.asyncapi.bindings.googlepubsub.GooglePubSubOperationBinding;
-import com.asyncapi.bindings.http.v0._1_0.operation.HTTPOperationBinding;
+import com.asyncapi.bindings.http.HTTPOperationBinding;
 import com.asyncapi.bindings.ibmmq.v0._1_0.operation.IBMMQOperationBinding;
 import com.asyncapi.bindings.jms.v0._0_1.operation.JMSOperationBinding;
 import com.asyncapi.bindings.kafka.v0._4_0.operation.KafkaOperationBinding;

@@ -87,7 +87,7 @@
           }
         },
         "http" : {
-          "bindingVersion" : "0.1.0",
+          "bindingVersion" : "0.3.0",
           "headers" : {
             "type" : "object",
             "properties" : {
@@ -96,7 +96,8 @@
                 "enum" : [ "application/json" ]
               }
             }
-          }
+          },
+          "statusCode" : 200
         },
         "ibmmq" : {
           "bindingVersion" : "0.1.0",
@@ -220,7 +221,7 @@
             }
           },
           "http" : {
-            "bindingVersion" : "0.1.0",
+            "bindingVersion" : "0.3.0",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -229,7 +230,8 @@
                   "enum" : [ "application/json" ]
                 }
               }
-            }
+            },
+            "statusCode" : 200
           },
           "ibmmq" : {
             "bindingVersion" : "0.1.0",
@@ -353,7 +355,7 @@
             }
           },
           "http" : {
-            "bindingVersion" : "0.1.0",
+            "bindingVersion" : "0.3.0",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -362,7 +364,8 @@
                   "enum" : [ "application/json" ]
                 }
               }
-            }
+            },
+            "statusCode" : 200
           },
           "ibmmq" : {
             "bindingVersion" : "0.1.0",
@@ -500,7 +503,7 @@
             }
           },
           "http" : {
-            "bindingVersion" : "0.1.0",
+            "bindingVersion" : "0.3.0",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -509,7 +512,8 @@
                   "enum" : [ "application/json" ]
                 }
               }
-            }
+            },
+            "statusCode" : 200
           },
           "ibmmq" : {
             "bindingVersion" : "0.1.0",
@@ -672,7 +676,7 @@
           }
         },
         "http" : {
-          "bindingVersion" : "0.1.0",
+          "bindingVersion" : "0.3.0",
           "headers" : {
             "type" : "object",
             "properties" : {
@@ -681,7 +685,8 @@
                 "enum" : [ "application/json" ]
               }
             }
-          }
+          },
+          "statusCode" : 200
         },
         "ibmmq" : {
           "bindingVersion" : "0.1.0",
@@ -805,7 +810,7 @@
             }
           },
           "http" : {
-            "bindingVersion" : "0.1.0",
+            "bindingVersion" : "0.3.0",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -814,7 +819,8 @@
                   "enum" : [ "application/json" ]
                 }
               }
-            }
+            },
+            "statusCode" : 200
           },
           "ibmmq" : {
             "bindingVersion" : "0.1.0",
@@ -938,7 +944,7 @@
             }
           },
           "http" : {
-            "bindingVersion" : "0.1.0",
+            "bindingVersion" : "0.3.0",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -947,7 +953,8 @@
                   "enum" : [ "application/json" ]
                 }
               }
-            }
+            },
+            "statusCode" : 200
           },
           "ibmmq" : {
             "bindingVersion" : "0.1.0",
@@ -1085,7 +1092,7 @@
             }
           },
           "http" : {
-            "bindingVersion" : "0.1.0",
+            "bindingVersion" : "0.3.0",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -1094,7 +1101,8 @@
                   "enum" : [ "application/json" ]
                 }
               }
-            }
+            },
+            "statusCode" : 200
           },
           "ibmmq" : {
             "bindingVersion" : "0.1.0",
@@ -1236,7 +1244,7 @@
           }
         },
         "http" : {
-          "bindingVersion" : "0.1.0",
+          "bindingVersion" : "0.3.0",
           "headers" : {
             "type" : "object",
             "properties" : {
@@ -1245,7 +1253,8 @@
                 "enum" : [ "application/json" ]
               }
             }
-          }
+          },
+          "statusCode" : 200
         },
         "ibmmq" : {
           "bindingVersion" : "0.1.0",
@@ -1369,7 +1378,7 @@
             }
           },
           "http" : {
-            "bindingVersion" : "0.1.0",
+            "bindingVersion" : "0.3.0",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -1378,7 +1387,8 @@
                   "enum" : [ "application/json" ]
                 }
               }
-            }
+            },
+            "statusCode" : 200
           },
           "ibmmq" : {
             "bindingVersion" : "0.1.0",
@@ -1502,7 +1512,7 @@
             }
           },
           "http" : {
-            "bindingVersion" : "0.1.0",
+            "bindingVersion" : "0.3.0",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -1511,7 +1521,8 @@
                   "enum" : [ "application/json" ]
                 }
               }
-            }
+            },
+            "statusCode" : 200
           },
           "ibmmq" : {
             "bindingVersion" : "0.1.0",
@@ -1649,7 +1660,7 @@
             }
           },
           "http" : {
-            "bindingVersion" : "0.1.0",
+            "bindingVersion" : "0.3.0",
             "headers" : {
               "type" : "object",
               "properties" : {
@@ -1658,7 +1669,8 @@
                   "enum" : [ "application/json" ]
                 }
               }
-            }
+            },
+            "statusCode" : 200
           },
           "ibmmq" : {
             "bindingVersion" : "0.1.0",

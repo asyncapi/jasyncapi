@@ -9,9 +9,8 @@ import com.asyncapi.v2._6_0.model.channel.operation.Operation
 import com.asyncapi.v2._6_0.model.component.Components
 import com.asyncapi.v2._6_0.model.info.Info
 import com.asyncapi.v2._6_0.model.server.Server
-import com.asyncapi.bindings.http.v0._1_0.message.HTTPMessageBinding
-import com.asyncapi.bindings.http.v0._1_0.operation.HTTPOperationBinding
-import com.asyncapi.bindings.http.v0._1_0.operation.HTTPOperationType
+import com.asyncapi.bindings.http.v0._3_0.message.HTTPMessageBinding
+import com.asyncapi.bindings.http.v0._3_0.operation.HTTPOperationBinding
 import com.asyncapi.v2.schema.Schema
 import com.asyncapi.v2.security_scheme.http.HttpSecurityScheme
 import com.asyncapi.v3.schema.AsyncAPISchema
@@ -69,7 +68,6 @@ class GitterStreaming: AbstractExampleValidationTest() {
                         .subscribe(Operation.builder()
                                 .bindings(mapOf(
                                         Pair("http", HTTPOperationBinding.builder()
-                                                .type(HTTPOperationType.RESPONSE)
                                                 .build()
                                         )
                                 ))

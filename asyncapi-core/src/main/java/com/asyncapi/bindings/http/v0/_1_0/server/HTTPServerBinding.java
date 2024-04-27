@@ -1,9 +1,9 @@
 package com.asyncapi.bindings.http.v0._1_0.server;
 
-import com.asyncapi.bindings.ServerBinding;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * This class MUST NOT contain any properties. Its name is reserved for future use.
@@ -17,5 +17,16 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class HTTPServerBinding extends ServerBinding {
+public class HTTPServerBinding extends com.asyncapi.bindings.http.HTTPServerBinding {
+
+    @Override
+    public String getBindingVersion() {
+        return "0.1.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.1.0");
+    }
+
 }

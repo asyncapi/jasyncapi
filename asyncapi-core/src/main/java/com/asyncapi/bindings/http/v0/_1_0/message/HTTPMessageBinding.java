@@ -1,6 +1,5 @@
 package com.asyncapi.bindings.http.v0._1_0.message;
 
-import com.asyncapi.bindings.MessageBinding;
 import com.asyncapi.v3.schema.AsyncAPISchema;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
@@ -21,7 +20,7 @@ import org.jetbrains.annotations.Nullable;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class HTTPMessageBinding extends MessageBinding {
+public class HTTPMessageBinding extends com.asyncapi.bindings.http.HTTPMessageBinding {
 
     /**
      * A Schema object containing the definitions for each query parameter. This schema MUST be of type object
@@ -32,13 +31,14 @@ public class HTTPMessageBinding extends MessageBinding {
     @JsonPropertyDescription("A Schema object containing the definitions for each query parameter. This schema MUST be of type object and have a properties key.")
     private AsyncAPISchema headers;
 
-    /**
-     * The version of this binding.
-     */
-    @Nullable
-    @Builder.Default
-    @JsonProperty("bindingVersion")
-    @JsonPropertyDescription("The version of this binding.")
-    private String bindingVersion = "0.1.0";
+    @Override
+    public String getBindingVersion() {
+        return "0.1.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.1.0");
+    }
 
 }

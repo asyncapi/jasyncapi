@@ -12,7 +12,6 @@ channels:
         $ref: '#/components/messages/message'
       bindings:
         http:
-          type: request
           method: POST
 components:
   messages:

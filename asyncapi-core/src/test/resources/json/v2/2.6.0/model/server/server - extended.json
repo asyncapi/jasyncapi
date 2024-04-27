@@ -36,7 +36,9 @@
     "googlepubsub" : {
       "bindingVersion" : "0.2.0"
     },
-    "http" : { },
+    "http" : {
+      "bindingVersion" : "0.3.0"
+    },
     "ibmmq" : {
       "bindingVersion" : "0.1.0",
       "groupId" : "PRODCLSTR1",

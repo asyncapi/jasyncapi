@@ -30,8 +30,7 @@ channels:
             - events
     subscribe:
       bindings:
-        http:
-          type: response
+        http: {}
       message:
         oneOf:
           - $ref: '#/components/messages/chatMessage'

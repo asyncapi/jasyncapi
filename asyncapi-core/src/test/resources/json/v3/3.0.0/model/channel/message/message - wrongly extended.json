@@ -79,7 +79,8 @@
           }
         }
       },
-      "bindingVersion": "0.1.0"
+      "statusCode" : 200,
+      "bindingVersion": "0.3.0"
     },
     "ibmmq": {
       "type": "jms",
@@ -228,7 +229,8 @@
               }
             }
           },
-          "bindingVersion": "0.1.0"
+          "statusCode" : 200,
+          "bindingVersion": "0.3.0"
         },
         "ibmmq": {
           "type": "jms",
@@ -366,7 +368,8 @@
               }
             }
           },
-          "bindingVersion": "0.1.0"
+          "statusCode" : 200,
+          "bindingVersion": "0.3.0"
         },
         "ibmmq": {
           "type": "jms",
@@ -517,7 +520,8 @@
               }
             }
           },
-          "bindingVersion": "0.1.0"
+          "statusCode" : 200,
+          "bindingVersion": "0.3.0"
         },
         "ibmmq": {
           "type": "jms",

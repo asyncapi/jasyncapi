@@ -1,14 +1,14 @@
 package com.asyncapi.examples.v3._0_0
 
 import com.asyncapi.Reference
+import com.asyncapi.bindings.http.v0._3_0.operation.HTTPOperationBinding
+import com.asyncapi.bindings.http.v0._3_0.operation.HTTPOperationMethod
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.message.Message
 import com.asyncapi.v3._0_0.model.component.Components
 import com.asyncapi.v3._0_0.model.info.Info
 import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
-import com.asyncapi.bindings.http.v0._1_0.operation.HTTPOperationBinding
-import com.asyncapi.bindings.http.v0._1_0.operation.HTTPOperationMethod
 import com.asyncapi.v3.schema.AsyncAPISchema
 import com.asyncapi.v3.security_scheme.oauth2.OAuth2SecurityScheme
 import com.asyncapi.v3.security_scheme.oauth2.OAuthFlows

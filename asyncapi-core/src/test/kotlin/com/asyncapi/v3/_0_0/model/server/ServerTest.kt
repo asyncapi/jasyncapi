@@ -7,7 +7,7 @@ import com.asyncapi.v3._0_0.model.Tag
 import com.asyncapi.bindings.amqp1.v0._1_0.server.AMQP1ServerBinding
 import com.asyncapi.bindings.anypointmq.v0._0_1.server.AnypointMQServerBinding
 import com.asyncapi.bindings.googlepubsub.GooglePubSubV0_2_0Test
-import com.asyncapi.bindings.http.v0._1_0.server.HTTPServerBinding
+import com.asyncapi.bindings.http.HTTPV0_3_0Test
 import com.asyncapi.bindings.ibmmq.v0._1_0.server.IBMMQServerBinding
 import com.asyncapi.bindings.jms.v0._0_1.server.JMSServerBinding
 import com.asyncapi.bindings.kafka.v0._4_0.server.KafkaServerBinding
@@ -82,7 +82,7 @@ class ServerTest: SerDeTest<Server>() {
                     Pair("amqp1", AMQP1ServerBinding()),
                     Pair("anypointmq", AnypointMQServerBinding()),
                     Pair("googlepubsub", GooglePubSubV0_2_0Test.serverBinding()),
-                    Pair("http", HTTPServerBinding()),
+                    Pair("http", HTTPV0_3_0Test.serverBinding()),
                     Pair(
                             "ibmmq",
                             IBMMQServerBinding.builder()
@@ -199,7 +199,7 @@ class ServerTestWithReference: SerDeTest<Server>() {
                     Pair("amqp1", AMQP1ServerBinding()),
                     Pair("anypointmq", AnypointMQServerBinding()),
                     Pair("googlepubsub", GooglePubSubV0_2_0Test.serverBinding()),
-                    Pair("http", HTTPServerBinding()),
+                    Pair("http", HTTPV0_3_0Test.serverBinding()),
                     Pair(
                             "ibmmq",
                             IBMMQServerBinding.builder()

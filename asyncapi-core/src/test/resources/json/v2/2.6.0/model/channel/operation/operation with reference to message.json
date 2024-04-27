@@ -51,7 +51,6 @@
       "$ref": "#/components/operationBindings/googlepubsub"
     },
     "http": {
-      "type": "request",
       "method": "GET",
       "query": {
         "type": "object",
@@ -67,7 +66,7 @@
         },
         "additionalProperties": false
       },
-      "bindingVersion": "0.1.0"
+      "bindingVersion": "0.3.0"
     },
     "ibmmq": {
       "$ref": "#/components/operationBindings/ibmmq"
@@ -212,7 +211,6 @@
           "$ref": "#/components/operationBindings/googlepubsub"
         },
         "http": {
-          "type": "request",
           "method": "GET",
           "query": {
             "type": "object",
@@ -228,7 +226,7 @@
             },
             "additionalProperties": false
           },
-          "bindingVersion": "0.1.0"
+          "bindingVersion": "0.3.0"
         },
         "ibmmq": {
           "$ref": "#/components/operationBindings/ibmmq"

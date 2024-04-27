@@ -50,8 +50,7 @@
       "$ref" : "#/components/operationBindings/googlepubsub"
     },
     "http" : {
-      "bindingVersion" : "0.1.0",
-      "type" : "request",
+      "bindingVersion" : "0.3.0",
       "method" : "GET",
       "query" : {
         "type" : "object",
@@ -190,8 +189,7 @@
         "$ref" : "#/components/operationBindings/googlepubsub"
       },
       "http" : {
-        "bindingVersion" : "0.1.0",
-        "type" : "request",
+        "bindingVersion" : "0.3.0",
         "method" : "GET",
         "query" : {
           "type" : "object",
@@ -329,8 +327,7 @@
         "$ref" : "#/components/operationBindings/googlepubsub"
       },
       "http" : {
-        "bindingVersion" : "0.1.0",
-        "type" : "request",
+        "bindingVersion" : "0.3.0",
         "method" : "GET",
         "query" : {
           "type" : "object",
