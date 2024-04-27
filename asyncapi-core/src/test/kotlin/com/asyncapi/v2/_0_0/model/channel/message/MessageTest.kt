@@ -11,7 +11,7 @@ import com.asyncapi.bindings.amqp1.v0._1_0.message.AMQP1MessageBinding
 import com.asyncapi.bindings.anypointmq.AnypointMQV0_0_1Test
 import com.asyncapi.bindings.googlepubsub.GooglePubSubV0_1_0Test
 import com.asyncapi.bindings.http.HTTPV0_3_0Test
-import com.asyncapi.bindings.ibmmq.v0._1_0.message.IBMMQMessageBindingTest
+import com.asyncapi.bindings.ibmmq.IBMMQV0_1_0Test
 import com.asyncapi.bindings.jms.v0._0_1.message.JMSMessageBinding
 import com.asyncapi.bindings.kafka.v0._4_0.message.KafkaMessageBindingTest
 import com.asyncapi.bindings.mercure.v0._1_0.message.MercureMessageBinding
@@ -119,7 +119,7 @@ class MessageTest: SerDeTest<Message>() {
                     Pair("anypointmq", AnypointMQV0_0_1Test.messageBinding()),
                     Pair("googlepubsub", GooglePubSubV0_1_0Test.messageBinding()),
                     Pair("http", HTTPV0_3_0Test.messageBinding()),
-                    Pair("ibmmq", IBMMQMessageBindingTest().build()),
+                    Pair("ibmmq", IBMMQV0_1_0Test.messageBinding()),
                     Pair("jms", JMSMessageBinding()),
                     Pair("kafka", KafkaMessageBindingTest().build()),
                     Pair("mercure", MercureMessageBinding()),

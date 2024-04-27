@@ -1,0 +1,16 @@
+{
+  "destinationType": "topic",
+  "queue": {
+    "objectName": "message",
+    "isPartitioned": false,
+    "exclusive": true
+  },
+  "topic": {
+    "string": "messages",
+    "objectName": "message",
+    "durablePermitted": true,
+    "lastMsgRetained": true
+  },
+  "maxMsgLength": 1024,
+  "bindingVersion": "latest"
+}

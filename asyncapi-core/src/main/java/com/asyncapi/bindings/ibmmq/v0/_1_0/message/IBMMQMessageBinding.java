@@ -22,7 +22,7 @@ import org.jetbrains.annotations.Nullable;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonClassDescription("Describes IBM MQ message binding.")
-public class IBMMQMessageBinding extends MessageBinding {
+public class IBMMQMessageBinding extends com.asyncapi.bindings.ibmmq.IBMMQMessageBinding {
 
     /**
      * The type of the message.
@@ -77,13 +77,14 @@ public class IBMMQMessageBinding extends MessageBinding {
     @JsonPropertyDescription("The recommended setting the client should use for the TTL (Time-To-Live) of the message. This is a period of time expressed in milliseconds and set by the application that puts the message. 'expiry' values are API dependant e.g., MQI and JMS use different units of time and default values for 'unlimited'. General information on IBM MQ message expiry can be found on this [page](https://www.ibm.com/docs/en/ibm-mq/9.2?topic=mqmd-expiry-mqlong) in the IBM MQ Knowledge Center.")
     private Integer expiry = 0;
 
-    /**
-     * The version of this binding.
-     */
-    @Nullable
-    @Builder.Default
-    @JsonProperty("bindingVersion")
-    @JsonPropertyDescription("The version of this binding.")
-    private String bindingVersion = "0.1.0";
+    @Override
+    public String getBindingVersion() {
+        return "0.1.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.1.0");
+    }
 
 }

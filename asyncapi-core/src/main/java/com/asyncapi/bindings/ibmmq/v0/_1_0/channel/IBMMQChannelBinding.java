@@ -22,7 +22,7 @@ import org.jetbrains.annotations.Nullable;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonClassDescription("Describes IBM MQ channel binding.")
-public class IBMMQChannelBinding extends ChannelBinding {
+public class IBMMQChannelBinding extends com.asyncapi.bindings.ibmmq.IBMMQChannelBinding {
 
     /**
      * Defines the type of AsyncAPI channel.
@@ -77,12 +77,14 @@ public class IBMMQChannelBinding extends ChannelBinding {
     @JsonPropertyDescription("The maximum length of the physical message (in bytes) accepted by the Topic or Queue. Messages produced that are greater in size than this value may fail to be delivered. More information on the maximum message length can be found on this [page](https://www.ibm.com/support/knowledgecenter/SSFKSJ_latest/com.ibm.mq.ref.dev.doc/q097520_.html) in the IBM MQ Knowledge Center.")
     private Integer maxMsgLength;
 
-    /**
-     * The version of this binding.
-     */
-    @Builder.Default
-    @JsonProperty("bindingVersion")
-    @JsonPropertyDescription("The version of this binding.")
-    private String bindingVersion = "0.1.0";
+    @Override
+    public String getBindingVersion() {
+        return "0.1.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.1.0");
+    }
 
 }

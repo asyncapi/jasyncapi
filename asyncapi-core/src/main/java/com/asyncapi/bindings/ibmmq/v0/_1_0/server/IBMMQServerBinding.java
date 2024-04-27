@@ -23,7 +23,7 @@ import org.jetbrains.annotations.Nullable;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonClassDescription("Describes IBM MQ server binding.")
-public class IBMMQServerBinding extends ServerBinding {
+public class IBMMQServerBinding extends com.asyncapi.bindings.ibmmq.IBMMQServerBinding {
 
     /**
      * Defines a logical group of IBM MQ server objects. This is necessary to specify multi-endpoint configurations used
@@ -91,12 +91,14 @@ public class IBMMQServerBinding extends ServerBinding {
     @JsonPropertyDescription("The recommended value (in seconds) for the heartbeat sent to the queue manager during periods of inactivity. A value of zero means that no heart beats are sent. A value of 1 means that the client will use the value defined by the queue manager.")
     private int heartBeatInterval = 300;
 
-    /**
-     * The version of this binding.
-     */
-    @Builder.Default
-    @JsonProperty("bindingVersion")
-    @JsonPropertyDescription("The version of this binding.")
-    private String bindingVersion = "0.1.0";
+    @Override
+    public String getBindingVersion() {
+        return "0.1.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.1.0");
+    }
 
 }

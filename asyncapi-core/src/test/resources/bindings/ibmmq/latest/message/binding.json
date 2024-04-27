@@ -1,0 +1,7 @@
+{
+  "type": "jms",
+  "description": "JMS stream message",
+  "headers": "Content-Type: application/json",
+  "expiry": 0,
+  "bindingVersion": "latest"
+}

@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Describes IBM MQ operation binding.
@@ -19,5 +20,16 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class IBMMQOperationBinding extends OperationBinding {
+public class IBMMQOperationBinding extends com.asyncapi.bindings.ibmmq.IBMMQOperationBinding {
+
+    @Override
+    public String getBindingVersion() {
+        return "0.1.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.1.0");
+    }
+
 }

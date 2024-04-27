@@ -55,7 +55,9 @@
           "additionalProperties" : false
         }
       },
-      "ibmmq" : { },
+      "ibmmq" : {
+        "bindingVersion" : "0.1.0"
+      },
       "jms" : { },
       "kafka" : {
         "bindingVersion" : "0.4.0",
@@ -173,7 +175,9 @@
             "additionalProperties" : false
           }
         },
-        "ibmmq" : { },
+        "ibmmq" : {
+          "bindingVersion" : "0.1.0"
+        },
         "jms" : { },
         "kafka" : {
           "bindingVersion" : "0.4.0",
@@ -294,7 +298,9 @@
           "additionalProperties" : false
         }
       },
-      "ibmmq" : { },
+      "ibmmq" : {
+        "bindingVersion" : "0.1.0"
+      },
       "jms" : { },
       "kafka" : {
         "bindingVersion" : "0.4.0",
@@ -412,7 +418,9 @@
             "additionalProperties" : false
           }
         },
-        "ibmmq" : { },
+        "ibmmq" : {
+          "bindingVersion" : "0.1.0"
+        },
         "jms" : { },
         "kafka" : {
           "bindingVersion" : "0.4.0",

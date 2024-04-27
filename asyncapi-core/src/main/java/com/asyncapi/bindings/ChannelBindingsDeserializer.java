@@ -5,7 +5,7 @@ import com.asyncapi.bindings.amqp1.v0._1_0.channel.AMQP1ChannelBinding;
 import com.asyncapi.bindings.anypointmq.AnypointMQChannelBinding;
 import com.asyncapi.bindings.googlepubsub.GooglePubSubChannelBinding;
 import com.asyncapi.bindings.http.HTTPChannelBinding;
-import com.asyncapi.bindings.ibmmq.v0._1_0.channel.IBMMQChannelBinding;
+import com.asyncapi.bindings.ibmmq.IBMMQChannelBinding;
 import com.asyncapi.bindings.jms.v0._0_1.channel.JMSChannelBinding;
 import com.asyncapi.bindings.kafka.v0._4_0.channel.KafkaChannelBinding;
 import com.asyncapi.bindings.mercure.v0._1_0.channel.MercureChannelBinding;
