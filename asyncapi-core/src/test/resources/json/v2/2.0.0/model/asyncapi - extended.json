@@ -66,7 +66,9 @@
           "schemaRegistryUrl" : "https://my-schema-registry.com",
           "schemaRegistryVendor" : "confluent"
         },
-        "mercure" : { },
+        "mercure" : {
+          "bindingVersion" : "0.1.0"
+        },
         "mqtt" : {
           "bindingVersion" : "0.1.0",
           "clientId" : "guest",
@@ -181,7 +183,9 @@
               "enum" : [ "myClientId" ]
             }
           },
-          "mercure" : { },
+          "mercure" : {
+            "bindingVersion" : "0.1.0"
+          },
           "mqtt" : {
             "bindingVersion" : "0.1.0",
             "qos" : 2,
@@ -303,7 +307,9 @@
                 "enum" : [ "myClientId" ]
               }
             },
-            "mercure" : { },
+            "mercure" : {
+              "bindingVersion" : "0.1.0"
+            },
             "mqtt" : {
               "bindingVersion" : "0.1.0",
               "qos" : 2,
@@ -428,7 +434,9 @@
               "enum" : [ "myClientId" ]
             }
           },
-          "mercure" : { },
+          "mercure" : {
+            "bindingVersion" : "0.1.0"
+          },
           "mqtt" : {
             "bindingVersion" : "0.1.0",
             "qos" : 2,
@@ -550,7 +558,9 @@
                 "enum" : [ "myClientId" ]
               }
             },
-            "mercure" : { },
+            "mercure" : {
+              "bindingVersion" : "0.1.0"
+            },
             "mqtt" : {
               "bindingVersion" : "0.1.0",
               "qos" : 2,
@@ -706,7 +716,9 @@
               "schemaIdPayloadEncoding" : "apicurio-new",
               "schemaLookupStrategy" : "TopicIdStrategy"
             },
-            "mercure" : { },
+            "mercure" : {
+              "bindingVersion" : "0.1.0"
+            },
             "mqtt" : {
               "bindingVersion" : "0.1.0"
             },
@@ -828,7 +840,9 @@
             "max.message.bytes" : 1048588
           }
         },
-        "mercure" : { },
+        "mercure" : {
+          "bindingVersion" : "0.1.0"
+        },
         "mqtt" : { },
         "mqtt5" : { },
         "nats" : { },
@@ -1017,7 +1031,9 @@
             "schemaIdPayloadEncoding" : "apicurio-new",
             "schemaLookupStrategy" : "TopicIdStrategy"
           },
-          "mercure" : { },
+          "mercure" : {
+            "bindingVersion" : "0.1.0"
+          },
           "mqtt" : {
             "bindingVersion" : "0.1.0"
           },
@@ -1242,7 +1258,9 @@
               "enum" : [ "myClientId" ]
             }
           },
-          "mercure" : { },
+          "mercure" : {
+            "bindingVersion" : "0.1.0"
+          },
           "mqtt" : {
             "bindingVersion" : "0.1.0",
             "qos" : 2,
@@ -1389,7 +1407,9 @@
             "schemaIdPayloadEncoding" : "apicurio-new",
             "schemaLookupStrategy" : "TopicIdStrategy"
           },
-          "mercure" : { },
+          "mercure" : {
+            "bindingVersion" : "0.1.0"
+          },
           "mqtt" : {
             "bindingVersion" : "0.1.0"
           },
@@ -1455,7 +1475,9 @@
         "schemaRegistryUrl" : "https://my-schema-registry.com",
         "schemaRegistryVendor" : "confluent"
       },
-      "mercure" : { },
+      "mercure" : {
+        "bindingVersion" : "0.1.0"
+      },
       "mqtt" : {
         "bindingVersion" : "0.1.0",
         "clientId" : "guest",
@@ -1567,7 +1589,9 @@
           "max.message.bytes" : 1048588
         }
       },
-      "mercure" : { },
+      "mercure" : {
+        "bindingVersion" : "0.1.0"
+      },
       "mqtt" : { },
       "mqtt5" : { },
       "nats" : { },
@@ -1672,7 +1696,9 @@
           "enum" : [ "myClientId" ]
         }
       },
-      "mercure" : { },
+      "mercure" : {
+        "bindingVersion" : "0.1.0"
+      },
       "mqtt" : {
         "bindingVersion" : "0.1.0",
         "qos" : 2,
@@ -1781,7 +1807,9 @@
         "schemaIdPayloadEncoding" : "apicurio-new",
         "schemaLookupStrategy" : "TopicIdStrategy"
       },
-      "mercure" : { },
+      "mercure" : {
+        "bindingVersion" : "0.1.0"
+      },
       "mqtt" : {
         "bindingVersion" : "0.1.0"
       },

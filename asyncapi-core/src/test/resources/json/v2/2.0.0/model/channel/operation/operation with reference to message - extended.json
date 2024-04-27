@@ -70,7 +70,9 @@
         "enum" : [ "myClientId" ]
       }
     },
-    "mercure" : { },
+    "mercure" : {
+      "bindingVersion" : "0.1.0"
+    },
     "mqtt" : {
       "bindingVersion" : "0.1.0",
       "qos" : 2,
@@ -192,7 +194,9 @@
           "enum" : [ "myClientId" ]
         }
       },
-      "mercure" : { },
+      "mercure" : {
+        "bindingVersion" : "0.1.0"
+      },
       "mqtt" : {
         "bindingVersion" : "0.1.0",
         "qos" : 2,

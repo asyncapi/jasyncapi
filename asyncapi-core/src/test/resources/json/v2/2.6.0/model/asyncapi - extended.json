@@ -75,7 +75,9 @@
           "schemaRegistryUrl" : "https://my-schema-registry.com",
           "schemaRegistryVendor" : "confluent"
         },
-        "mercure" : { },
+        "mercure" : {
+          "bindingVersion" : "0.1.0"
+        },
         "mqtt" : {
           "bindingVersion" : "0.1.0",
           "clientId" : "guest",
@@ -1228,7 +1230,9 @@
             "schemaRegistryUrl" : "https://my-schema-registry.com",
             "schemaRegistryVendor" : "confluent"
           },
-          "mercure" : { },
+          "mercure" : {
+            "bindingVersion" : "0.1.0"
+          },
           "mqtt" : {
             "bindingVersion" : "0.1.0",
             "clientId" : "guest",
@@ -2914,7 +2918,9 @@
         "schemaRegistryUrl" : "https://my-schema-registry.com",
         "schemaRegistryVendor" : "confluent"
       },
-      "mercure" : { },
+      "mercure" : {
+        "bindingVersion" : "0.1.0"
+      },
       "mqtt" : {
         "bindingVersion" : "0.1.0",
         "clientId" : "guest",

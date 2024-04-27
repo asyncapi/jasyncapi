@@ -8,7 +8,7 @@ import com.asyncapi.bindings.http.HTTPOperationBinding;
 import com.asyncapi.bindings.ibmmq.IBMMQOperationBinding;
 import com.asyncapi.bindings.jms.JMSOperationBinding;
 import com.asyncapi.bindings.kafka.v0._4_0.operation.KafkaOperationBinding;
-import com.asyncapi.bindings.mercure.v0._1_0.operation.MercureOperationBinding;
+import com.asyncapi.bindings.mercure.MercureOperationBinding;
 import com.asyncapi.bindings.mqtt.v0._1_0.operation.MQTTOperationBinding;
 import com.asyncapi.bindings.mqtt5.v0._2_0.operation.MQTT5OperationBinding;
 import com.asyncapi.bindings.nats.v0._1_0.operation.NATSOperationBinding;

@@ -72,7 +72,9 @@
           "enum" : [ "myClientId" ]
         }
       },
-      "mercure" : { },
+      "mercure" : {
+        "bindingVersion" : "0.1.0"
+      },
       "mqtt" : {
         "bindingVersion" : "0.1.0",
         "qos" : 2,
@@ -194,7 +196,9 @@
             "enum" : [ "myClientId" ]
           }
         },
-        "mercure" : { },
+        "mercure" : {
+          "bindingVersion" : "0.1.0"
+        },
         "mqtt" : {
           "bindingVersion" : "0.1.0",
           "qos" : 2,
@@ -319,7 +323,9 @@
           "enum" : [ "myClientId" ]
         }
       },
-      "mercure" : { },
+      "mercure" : {
+        "bindingVersion" : "0.1.0"
+      },
       "mqtt" : {
         "bindingVersion" : "0.1.0",
         "qos" : 2,
@@ -441,7 +447,9 @@
             "enum" : [ "myClientId" ]
           }
         },
-        "mercure" : { },
+        "mercure" : {
+          "bindingVersion" : "0.1.0"
+        },
         "mqtt" : {
           "bindingVersion" : "0.1.0",
           "qos" : 2,
@@ -597,7 +605,9 @@
           "schemaIdPayloadEncoding" : "apicurio-new",
           "schemaLookupStrategy" : "TopicIdStrategy"
         },
-        "mercure" : { },
+        "mercure" : {
+          "bindingVersion" : "0.1.0"
+        },
         "mqtt" : {
           "bindingVersion" : "0.1.0"
         },
@@ -719,7 +729,9 @@
         "max.message.bytes" : 1048588
       }
     },
-    "mercure" : { },
+    "mercure" : {
+      "bindingVersion" : "0.1.0"
+    },
     "mqtt" : { },
     "mqtt5" : { },
     "nats" : { },

@@ -94,7 +94,9 @@
       "schemaIdPayloadEncoding" : "apicurio-new",
       "schemaLookupStrategy" : "TopicIdStrategy"
     },
-    "mercure" : { },
+    "mercure" : {
+      "bindingVersion" : "0.1.0"
+    },
     "mqtt" : {
       "bindingVersion" : "0.1.0"
     },
