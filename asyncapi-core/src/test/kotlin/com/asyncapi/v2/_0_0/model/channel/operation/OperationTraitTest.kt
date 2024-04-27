@@ -6,7 +6,7 @@ import com.asyncapi.v2._0_0.model.Tag
 import com.asyncapi.bindings.amqp.AMQPV0_2_0Test
 import com.asyncapi.bindings.amqp1.v0._1_0.operation.AMQP1OperationBinding
 import com.asyncapi.bindings.anypointmq.v0._0_1.operation.AnypointMQOperationBinding
-import com.asyncapi.bindings.googlepubsub.v0._1_0.operation.GooglePubSubOperationBinding
+import com.asyncapi.bindings.googlepubsub.GooglePubSubV0_2_0Test
 import com.asyncapi.bindings.http.v0._1_0.operation.HTTPOperationBindingTest
 import com.asyncapi.bindings.ibmmq.v0._1_0.operation.IBMMQOperationBinding
 import com.asyncapi.bindings.jms.v0._0_1.operation.JMSOperationBinding
@@ -53,7 +53,7 @@ class OperationTraitTest: SerDeTest<OperationTrait>() {
                         Pair("amqp", AMQPV0_2_0Test.operationBinding()),
                         Pair("amqp1", AMQP1OperationBinding()),
                         Pair("anypointmq", AnypointMQOperationBinding()),
-                        Pair("googlepubsub", GooglePubSubOperationBinding()),
+                        Pair("googlepubsub", GooglePubSubV0_2_0Test.operationBinding()),
                         Pair("http", HTTPOperationBindingTest().build()),
                         Pair("ibmmq", IBMMQOperationBinding()),
                         Pair("jms", JMSOperationBinding()),

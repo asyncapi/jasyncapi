@@ -3,7 +3,7 @@ package com.asyncapi.bindings;
 import com.asyncapi.bindings.amqp.AMQPMessageBinding;
 import com.asyncapi.bindings.amqp1.v0._1_0.message.AMQP1MessageBinding;
 import com.asyncapi.bindings.anypointmq.AnypointMQMessageBinding;
-import com.asyncapi.bindings.googlepubsub.v0._1_0.message.GooglePubSubMessageBinding;
+import com.asyncapi.bindings.googlepubsub.GooglePubSubMessageBinding;
 import com.asyncapi.bindings.http.v0._1_0.message.HTTPMessageBinding;
 import com.asyncapi.bindings.ibmmq.v0._1_0.message.IBMMQMessageBinding;
 import com.asyncapi.bindings.jms.v0._0_1.message.JMSMessageBinding;

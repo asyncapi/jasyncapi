@@ -1,0 +1,12 @@
+{
+  "schema": {
+    "name": "projects/your-project/schemas/message-avro"
+  },
+  "bindingVersion": "0.2.0",
+  "x-number": 0,
+  "x-string": "",
+  "x-object": {
+    "property": {}
+  },
+  "ext-number": 1
+}

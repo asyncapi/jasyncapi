@@ -33,8 +33,12 @@
       "amqp1" : {
         "bindingVersion" : "0.1.0"
       },
-      "anypointmq" : { },
-      "googlepubsub" : { },
+      "anypointmq" : {
+        "bindingVersion" : "0.0.1"
+      },
+      "googlepubsub" : {
+        "bindingVersion" : "0.2.0"
+      },
       "http" : {
         "bindingVersion" : "0.1.0",
         "type" : "request",
@@ -148,8 +152,12 @@
         "amqp1" : {
           "bindingVersion" : "0.1.0"
         },
-        "anypointmq" : { },
-        "googlepubsub" : { },
+        "anypointmq" : {
+          "bindingVersion" : "0.0.1"
+        },
+        "googlepubsub" : {
+          "bindingVersion" : "0.2.0"
+        },
         "http" : {
           "bindingVersion" : "0.1.0",
           "type" : "request",
@@ -266,8 +274,12 @@
       "amqp1" : {
         "bindingVersion" : "0.1.0"
       },
-      "anypointmq" : { },
-      "googlepubsub" : { },
+      "anypointmq" : {
+        "bindingVersion" : "0.0.1"
+      },
+      "googlepubsub" : {
+        "bindingVersion" : "0.2.0"
+      },
       "http" : {
         "bindingVersion" : "0.1.0",
         "type" : "request",
@@ -381,8 +393,12 @@
         "amqp1" : {
           "bindingVersion" : "0.1.0"
         },
-        "anypointmq" : { },
-        "googlepubsub" : { },
+        "anypointmq" : {
+          "bindingVersion" : "0.0.1"
+        },
+        "googlepubsub" : {
+          "bindingVersion" : "0.2.0"
+        },
         "http" : {
           "bindingVersion" : "0.1.0",
           "type" : "request",

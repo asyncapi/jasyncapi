@@ -1,6 +1,5 @@
 package com.asyncapi.bindings.googlepubsub.v0._1_0.message;
 
-import com.asyncapi.bindings.MessageBinding;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
@@ -23,7 +22,7 @@ import org.jetbrains.annotations.Nullable;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonClassDescription("Describes Google Cloud Pub/Sub message binding.")
-public class GooglePubSubMessageBinding extends MessageBinding {
+public class GooglePubSubMessageBinding extends com.asyncapi.bindings.googlepubsub.GooglePubSubMessageBinding {
 
     /**
      * If non-empty, identifies related messages for which publish order should be respected (For more information, see <a href="https://cloud.google.com/pubsub/docs/ordering">ordering messages</a>.)
@@ -50,13 +49,14 @@ public class GooglePubSubMessageBinding extends MessageBinding {
     @JsonPropertyDescription("Describes the schema used to validate the payload of this message")
     private GooglePubSubMessageSchemaDefinition schema;
 
-    /**
-     * The version of this binding.
-     */
-    @Nullable
-    @Builder.Default
-    @JsonProperty("bindingVersion")
-    @JsonPropertyDescription("The version of this binding.")
-    private String bindingVersion = "0.1.0";
+    @Override
+    public String getBindingVersion() {
+        return "0.1.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.1.0");
+    }
 
 }

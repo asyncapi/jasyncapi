@@ -1,6 +1,5 @@
 package com.asyncapi.bindings.googlepubsub.v0._1_0.channel;
 
-import com.asyncapi.bindings.ChannelBinding;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
@@ -25,7 +24,7 @@ import java.util.Map;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonClassDescription("Describes Google Cloud Pub/Sub channel binding.")
-public class GooglePubSubChannelBinding extends ChannelBinding {
+public class GooglePubSubChannelBinding extends com.asyncapi.bindings.googlepubsub.GooglePubSubChannelBinding {
 
     /**
      * The Google Cloud Pub/Sub Topic name.
@@ -71,13 +70,14 @@ public class GooglePubSubChannelBinding extends ChannelBinding {
     @JsonPropertyDescription("Settings for validating messages published against a schema")
     private GooglePubSubChannelSchemaSettings schemaSettings = new GooglePubSubChannelSchemaSettings();
 
-    /**
-     * The version of this binding.
-     */
-    @Nullable
-    @Builder.Default
-    @JsonProperty(value = "bindingVersion")
-    @JsonPropertyDescription("The version of this binding.")
-    private String bindingVersion = "0.1.0";
+    @Override
+    public String getBindingVersion() {
+        return "0.1.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.1.0");
+    }
 
 }

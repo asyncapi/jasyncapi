@@ -4,7 +4,7 @@ import com.asyncapi.v2.SerDeTest
 import com.asyncapi.bindings.ServerBinding
 import com.asyncapi.bindings.amqp1.v0._1_0.server.AMQP1ServerBinding
 import com.asyncapi.bindings.anypointmq.v0._0_1.server.AnypointMQServerBinding
-import com.asyncapi.bindings.googlepubsub.v0._1_0.server.GooglePubSubServerBinding
+import com.asyncapi.bindings.googlepubsub.GooglePubSubV0_2_0Test
 import com.asyncapi.bindings.http.v0._1_0.server.HTTPServerBinding
 import com.asyncapi.bindings.ibmmq.v0._1_0.server.IBMMQServerBinding
 import com.asyncapi.bindings.jms.v0._0_1.server.JMSServerBinding
@@ -64,7 +64,7 @@ class ServerTest: SerDeTest<Server>() {
             return mapOf(
                     Pair("amqp1", AMQP1ServerBinding()),
                     Pair("anypointmq", AnypointMQServerBinding()),
-                    Pair("googlepubsub", GooglePubSubServerBinding()),
+                    Pair("googlepubsub", GooglePubSubV0_2_0Test.serverBinding()),
                     Pair("http", HTTPServerBinding()),
                     Pair(
                             "ibmmq",
