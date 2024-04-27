@@ -1,9 +1,9 @@
 package com.asyncapi.bindings.jms.v0._0_1.message;
 
-import com.asyncapi.bindings.MessageBinding;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import com.asyncapi.v3.schema.AsyncAPISchema;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.*;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * This class MUST NOT contain any properties. Its name is reserved for future use.
@@ -15,7 +15,31 @@ import lombok.NoArgsConstructor;
  * @author Pavel Bodiachevskii
  */
 @Data
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class JMSMessageBinding extends MessageBinding {
+public class JMSMessageBinding extends com.asyncapi.bindings.jms.JMSMessageBinding {
+
+    /**
+     * A Schema object containing the definitions for JMS headers (protocol headers).
+     * <p>
+     * This schema <b>MUST</b> be of type 'object' and have a 'properties' key.
+     * <p>
+     * Examples of JMS protocol headers are 'JMSMessageID', 'JMSTimestamp', and 'JMSCorrelationID'.
+     */
+    @Nullable
+    @JsonProperty("headers")
+    public AsyncAPISchema headers;
+
+    @Override
+    public String getBindingVersion() {
+        return "0.0.1";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.0.1");
+    }
+
 }

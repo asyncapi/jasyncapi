@@ -1,0 +1,5 @@
+{
+  "destination": "user-signed-up",
+  "destinationType": "fifo-queue",
+  "bindingVersion": "without version"
+}

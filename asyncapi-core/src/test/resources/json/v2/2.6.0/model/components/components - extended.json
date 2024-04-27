@@ -78,7 +78,10 @@
           "multiEndpointServer" : false,
           "heartBeatInterval" : 300
         },
-        "jms" : { },
+        "jms" : {
+          "bindingVersion" : "0.0.1",
+          "jmsConnectionFactory" : ""
+        },
         "kafka" : {
           "bindingVersion" : "0.4.0",
           "schemaRegistryUrl" : "https://my-schema-registry.com",
@@ -1761,7 +1764,10 @@
       "multiEndpointServer" : false,
       "heartBeatInterval" : 300
     },
-    "jms" : { },
+    "jms" : {
+      "bindingVersion" : "0.0.1",
+      "jmsConnectionFactory" : ""
+    },
     "kafka" : {
       "bindingVersion" : "0.4.0",
       "schemaRegistryUrl" : "https://my-schema-registry.com",

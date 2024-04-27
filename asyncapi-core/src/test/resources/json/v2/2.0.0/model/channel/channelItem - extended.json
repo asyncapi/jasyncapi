@@ -58,7 +58,9 @@
       "ibmmq" : {
         "bindingVersion" : "0.1.0"
       },
-      "jms" : { },
+      "jms" : {
+        "bindingVersion" : "0.0.1"
+      },
       "kafka" : {
         "bindingVersion" : "0.4.0",
         "groupId" : {
@@ -178,7 +180,9 @@
         "ibmmq" : {
           "bindingVersion" : "0.1.0"
         },
-        "jms" : { },
+        "jms" : {
+          "bindingVersion" : "0.0.1"
+        },
         "kafka" : {
           "bindingVersion" : "0.4.0",
           "groupId" : {
@@ -301,7 +305,9 @@
       "ibmmq" : {
         "bindingVersion" : "0.1.0"
       },
-      "jms" : { },
+      "jms" : {
+        "bindingVersion" : "0.0.1"
+      },
       "kafka" : {
         "bindingVersion" : "0.4.0",
         "groupId" : {
@@ -421,7 +427,9 @@
         "ibmmq" : {
           "bindingVersion" : "0.1.0"
         },
-        "jms" : { },
+        "jms" : {
+          "bindingVersion" : "0.0.1"
+        },
         "kafka" : {
           "bindingVersion" : "0.4.0",
           "groupId" : {
@@ -576,7 +584,9 @@
           "description" : "JMS stream message",
           "expiry" : 0
         },
-        "jms" : { },
+        "jms" : {
+          "bindingVersion" : "0.0.1"
+        },
         "kafka" : {
           "bindingVersion" : "0.4.0",
           "key" : {
@@ -693,7 +703,9 @@
       },
       "maxMsgLength" : 1024
     },
-    "jms" : { },
+    "jms" : {
+      "bindingVersion" : "0.0.1"
+    },
     "kafka" : {
       "bindingVersion" : "0.4.0",
       "topic" : "my-specific-topic-name",

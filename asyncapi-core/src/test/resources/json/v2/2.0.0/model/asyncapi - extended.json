@@ -57,7 +57,10 @@
           "multiEndpointServer" : false,
           "heartBeatInterval" : 300
         },
-        "jms" : { },
+        "jms" : {
+          "bindingVersion" : "0.0.1",
+          "jmsConnectionFactory" : ""
+        },
         "kafka" : {
           "bindingVersion" : "0.4.0",
           "schemaRegistryUrl" : "https://my-schema-registry.com",
@@ -164,7 +167,9 @@
           "ibmmq" : {
             "bindingVersion" : "0.1.0"
           },
-          "jms" : { },
+          "jms" : {
+            "bindingVersion" : "0.0.1"
+          },
           "kafka" : {
             "bindingVersion" : "0.4.0",
             "groupId" : {
@@ -284,7 +289,9 @@
             "ibmmq" : {
               "bindingVersion" : "0.1.0"
             },
-            "jms" : { },
+            "jms" : {
+              "bindingVersion" : "0.0.1"
+            },
             "kafka" : {
               "bindingVersion" : "0.4.0",
               "groupId" : {
@@ -407,7 +414,9 @@
           "ibmmq" : {
             "bindingVersion" : "0.1.0"
           },
-          "jms" : { },
+          "jms" : {
+            "bindingVersion" : "0.0.1"
+          },
           "kafka" : {
             "bindingVersion" : "0.4.0",
             "groupId" : {
@@ -527,7 +536,9 @@
             "ibmmq" : {
               "bindingVersion" : "0.1.0"
             },
-            "jms" : { },
+            "jms" : {
+              "bindingVersion" : "0.0.1"
+            },
             "kafka" : {
               "bindingVersion" : "0.4.0",
               "groupId" : {
@@ -682,7 +693,9 @@
               "description" : "JMS stream message",
               "expiry" : 0
             },
-            "jms" : { },
+            "jms" : {
+              "bindingVersion" : "0.0.1"
+            },
             "kafka" : {
               "bindingVersion" : "0.4.0",
               "key" : {
@@ -799,7 +812,9 @@
           },
           "maxMsgLength" : 1024
         },
-        "jms" : { },
+        "jms" : {
+          "bindingVersion" : "0.0.1"
+        },
         "kafka" : {
           "bindingVersion" : "0.4.0",
           "topic" : "my-specific-topic-name",
@@ -989,7 +1004,9 @@
             "description" : "JMS stream message",
             "expiry" : 0
           },
-          "jms" : { },
+          "jms" : {
+            "bindingVersion" : "0.0.1"
+          },
           "kafka" : {
             "bindingVersion" : "0.4.0",
             "key" : {
@@ -1211,7 +1228,9 @@
           "ibmmq" : {
             "bindingVersion" : "0.1.0"
           },
-          "jms" : { },
+          "jms" : {
+            "bindingVersion" : "0.0.1"
+          },
           "kafka" : {
             "bindingVersion" : "0.4.0",
             "groupId" : {
@@ -1357,7 +1376,9 @@
             "description" : "JMS stream message",
             "expiry" : 0
           },
-          "jms" : { },
+          "jms" : {
+            "bindingVersion" : "0.0.1"
+          },
           "kafka" : {
             "bindingVersion" : "0.4.0",
             "key" : {
@@ -1425,7 +1446,10 @@
         "multiEndpointServer" : false,
         "heartBeatInterval" : 300
       },
-      "jms" : { },
+      "jms" : {
+        "bindingVersion" : "0.0.1",
+        "jmsConnectionFactory" : ""
+      },
       "kafka" : {
         "bindingVersion" : "0.4.0",
         "schemaRegistryUrl" : "https://my-schema-registry.com",
@@ -1527,7 +1551,9 @@
         },
         "maxMsgLength" : 1024
       },
-      "jms" : { },
+      "jms" : {
+        "bindingVersion" : "0.0.1"
+      },
       "kafka" : {
         "bindingVersion" : "0.4.0",
         "topic" : "my-specific-topic-name",
@@ -1632,7 +1658,9 @@
       "ibmmq" : {
         "bindingVersion" : "0.1.0"
       },
-      "jms" : { },
+      "jms" : {
+        "bindingVersion" : "0.0.1"
+      },
       "kafka" : {
         "bindingVersion" : "0.4.0",
         "groupId" : {
@@ -1740,7 +1768,9 @@
         "description" : "JMS stream message",
         "expiry" : 0
       },
-      "jms" : { },
+      "jms" : {
+        "bindingVersion" : "0.0.1"
+      },
       "kafka" : {
         "bindingVersion" : "0.4.0",
         "key" : {

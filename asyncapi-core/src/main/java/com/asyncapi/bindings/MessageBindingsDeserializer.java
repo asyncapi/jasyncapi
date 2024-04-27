@@ -6,7 +6,7 @@ import com.asyncapi.bindings.anypointmq.AnypointMQMessageBinding;
 import com.asyncapi.bindings.googlepubsub.GooglePubSubMessageBinding;
 import com.asyncapi.bindings.http.HTTPMessageBinding;
 import com.asyncapi.bindings.ibmmq.IBMMQMessageBinding;
-import com.asyncapi.bindings.jms.v0._0_1.message.JMSMessageBinding;
+import com.asyncapi.bindings.jms.JMSMessageBinding;
 import com.asyncapi.bindings.kafka.v0._4_0.message.KafkaMessageBinding;
 import com.asyncapi.bindings.mercure.v0._1_0.message.MercureMessageBinding;
 import com.asyncapi.bindings.mqtt.v0._1_0.message.MQTTMessageBinding;
