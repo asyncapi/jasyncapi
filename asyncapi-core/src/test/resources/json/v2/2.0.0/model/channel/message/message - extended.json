@@ -115,7 +115,9 @@
     "nats" : {
       "bindingVersion" : "0.1.0"
     },
-    "pulsar" : { },
+    "pulsar" : {
+      "bindingVersion" : "0.1.0"
+    },
     "redis" : {
       "bindingVersion" : "0.1.0"
     },

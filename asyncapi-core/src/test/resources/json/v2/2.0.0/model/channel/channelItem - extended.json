@@ -85,7 +85,9 @@
         "bindingVersion" : "0.1.0",
         "queue" : "messages"
       },
-      "pulsar" : { },
+      "pulsar" : {
+        "bindingVersion" : "0.1.0"
+      },
       "redis" : {
         "bindingVersion" : "0.1.0"
       },
@@ -209,7 +211,9 @@
           "bindingVersion" : "0.1.0",
           "queue" : "messages"
         },
-        "pulsar" : { },
+        "pulsar" : {
+          "bindingVersion" : "0.1.0"
+        },
         "redis" : {
           "bindingVersion" : "0.1.0"
         },
@@ -336,7 +340,9 @@
         "bindingVersion" : "0.1.0",
         "queue" : "messages"
       },
-      "pulsar" : { },
+      "pulsar" : {
+        "bindingVersion" : "0.1.0"
+      },
       "redis" : {
         "bindingVersion" : "0.1.0"
       },
@@ -460,7 +466,9 @@
           "bindingVersion" : "0.1.0",
           "queue" : "messages"
         },
-        "pulsar" : { },
+        "pulsar" : {
+          "bindingVersion" : "0.1.0"
+        },
         "redis" : {
           "bindingVersion" : "0.1.0"
         },
@@ -615,7 +623,9 @@
         "nats" : {
           "bindingVersion" : "0.1.0"
         },
-        "pulsar" : { },
+        "pulsar" : {
+          "bindingVersion" : "0.1.0"
+        },
         "redis" : {
           "bindingVersion" : "0.1.0"
         },

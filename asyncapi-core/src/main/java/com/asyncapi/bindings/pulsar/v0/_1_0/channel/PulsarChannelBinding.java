@@ -1,6 +1,5 @@
 package com.asyncapi.bindings.pulsar.v0._1_0.channel;
 
-import com.asyncapi.bindings.ChannelBinding;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
@@ -23,7 +22,7 @@ import java.util.List;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonClassDescription("Describes Pulsar channel binding.")
-public class PulsarChannelBinding extends ChannelBinding {
+public class PulsarChannelBinding extends com.asyncapi.bindings.pulsar.PulsarChannelBinding {
 
     /**
      * The namespace the channel is associated with.
@@ -89,13 +88,14 @@ public class PulsarChannelBinding extends ChannelBinding {
     @JsonPropertyDescription("Message deduplication. When true, it ensures that each message produced on Pulsar topics is persisted to disk only once.")
     private Boolean deduplication;
 
-    /**
-     * The version of this binding. If omitted, "latest" MUST be assumed.
-     */
-    @Nullable
-    @Builder.Default
-    @JsonProperty("bindingVersion")
-    @JsonPropertyDescription("The version of this binding.")
-    private String bindingVersion = "0.1.0";
+    @Override
+    public String getBindingVersion() {
+        return "0.1.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.1.0");
+    }
 
 }

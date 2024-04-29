@@ -17,7 +17,7 @@ import com.asyncapi.bindings.mercure.v0._1_0.channel.MercureChannelBinding
 import com.asyncapi.bindings.mqtt.v0._1_0.channel.MQTTChannelBinding
 import com.asyncapi.bindings.mqtt5.v0._2_0.channel.MQTT5ChannelBinding
 import com.asyncapi.bindings.nats.v0._1_0.channel.NATSChannelBinding
-import com.asyncapi.bindings.pulsar.v0._1_0.channel.PulsarChannelBindingTest
+import com.asyncapi.bindings.pulsar.PulsarV0_1_0Test
 import com.asyncapi.bindings.redis.v0._1_0.channel.RedisChannelBinding
 import com.asyncapi.bindings.sns.v0._1_0.channel.SNSChannelBinding
 import com.asyncapi.bindings.solace.v0._3_0.channel.SolaceChannelBinding
@@ -67,7 +67,7 @@ class ChannelItemTest: SerDeTest<ChannelItem>() {
                     Pair("mqtt", MQTTChannelBinding()),
                     Pair("mqtt5", MQTT5ChannelBinding()),
                     Pair("nats", NATSChannelBinding()),
-                    Pair("pulsar", PulsarChannelBindingTest().build()),
+                    Pair("pulsar", PulsarV0_1_0Test.channelBinding()),
                     Pair("redis", RedisChannelBinding()),
                     Pair("sns", SNSChannelBinding()),
                     Pair("solace", SolaceChannelBinding()),

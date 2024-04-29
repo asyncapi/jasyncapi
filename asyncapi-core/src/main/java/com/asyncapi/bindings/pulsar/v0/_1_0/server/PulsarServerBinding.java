@@ -1,6 +1,5 @@
 package com.asyncapi.bindings.pulsar.v0._1_0.server;
 
-import com.asyncapi.bindings.ServerBinding;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
@@ -20,7 +19,7 @@ import org.jetbrains.annotations.Nullable;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonClassDescription("Describes Pulsar server binding.")
-public class PulsarServerBinding extends ServerBinding {
+public class PulsarServerBinding extends com.asyncapi.bindings.pulsar.PulsarServerBinding {
 
     /**
      * The pulsar tenant. If omitted, "public" MUST be assumed.
@@ -31,13 +30,14 @@ public class PulsarServerBinding extends ServerBinding {
     @JsonPropertyDescription("The pulsar tenant. If omitted, \"public\" MUST be assumed.")
     private String tenant = "public";
 
-    /**
-     * The version of this binding.
-     */
-    @Nullable
-    @Builder.Default
-    @JsonProperty("bindingVersion")
-    @JsonPropertyDescription("The version of this binding.")
-    private String bindingVersion = "0.1.0";
+    @Override
+    public String getBindingVersion() {
+        return "0.1.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.1.0");
+    }
 
 }

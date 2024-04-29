@@ -10,7 +10,7 @@ import com.asyncapi.bindings.anypointmq.AnypointMQV0_0_1Test
 import com.asyncapi.bindings.googlepubsub.GooglePubSubV0_1_0Test
 import com.asyncapi.bindings.ibmmq.IBMMQV0_1_0Test
 import com.asyncapi.bindings.kafka.v0._4_0.channel.KafkaChannelBindingTest
-import com.asyncapi.bindings.pulsar.v0._1_0.channel.PulsarChannelBindingTest
+import com.asyncapi.bindings.pulsar.PulsarV0_1_0Test
 import com.asyncapi.bindings.websockets.v0._1_0.WebSocketsBindingProvider
 
 class ChannelItemTest: SerDeTest<ChannelItem>() {
@@ -56,7 +56,7 @@ class ChannelItemTest: SerDeTest<ChannelItem>() {
                     Pair("mqtt", Reference("#/components/channelBindings/mqtt")),
                     Pair("mqtt5", Reference("#/components/channelBindings/mqtt5")),
                     Pair("nats", Reference("#/components/channelBindings/nats")),
-                    Pair("pulsar", PulsarChannelBindingTest().build()),
+                    Pair("pulsar", PulsarV0_1_0Test.channelBinding()),
                     Pair("redis", Reference("#/components/channelBindings/redis")),
                     Pair("sns", Reference("#/components/channelBindings/sns")),
                     Pair("solace", Reference("#/components/channelBindings/solace")),

@@ -1,10 +1,10 @@
 package com.asyncapi.bindings.pulsar.v0._1_0.message;
 
-import com.asyncapi.bindings.MessageBinding;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Describes Pulsar message binding.
@@ -19,5 +19,16 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class PulsarMessageBinding extends MessageBinding {
+public class PulsarMessageBinding extends com.asyncapi.bindings.pulsar.PulsarMessageBinding {
+
+    @Override
+    public String getBindingVersion() {
+        return "0.1.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.1.0");
+    }
+
 }

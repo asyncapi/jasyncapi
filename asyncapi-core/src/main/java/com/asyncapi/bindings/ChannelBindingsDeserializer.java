@@ -12,7 +12,7 @@ import com.asyncapi.bindings.mercure.MercureChannelBinding;
 import com.asyncapi.bindings.mqtt.v0._1_0.channel.MQTTChannelBinding;
 import com.asyncapi.bindings.mqtt5.v0._2_0.channel.MQTT5ChannelBinding;
 import com.asyncapi.bindings.nats.NATSChannelBinding;
-import com.asyncapi.bindings.pulsar.v0._1_0.channel.PulsarChannelBinding;
+import com.asyncapi.bindings.pulsar.PulsarChannelBinding;
 import com.asyncapi.bindings.redis.v0._1_0.channel.RedisChannelBinding;
 import com.asyncapi.bindings.sns.v0._1_0.channel.SNSChannelBinding;
 import com.asyncapi.bindings.solace.v0._3_0.channel.SolaceChannelBinding;
