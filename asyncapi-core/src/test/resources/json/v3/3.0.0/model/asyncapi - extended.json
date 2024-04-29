@@ -121,7 +121,9 @@
           "sessionExpiryInterval" : 60,
           "bindingVersion" : "0.2.0"
         },
-        "nats" : { },
+        "nats" : {
+          "bindingVersion" : "0.1.0"
+        },
         "pulsar" : {
           "bindingVersion" : "0.1.0",
           "tenant" : "contoso"
@@ -237,7 +239,9 @@
           "sessionExpiryInterval" : 60,
           "bindingVersion" : "0.2.0"
         },
-        "nats" : { },
+        "nats" : {
+          "bindingVersion" : "0.1.0"
+        },
         "pulsar" : {
           "bindingVersion" : "0.1.0",
           "tenant" : "contoso"
@@ -5135,7 +5139,9 @@
             "sessionExpiryInterval" : 60,
             "bindingVersion" : "0.2.0"
           },
-          "nats" : { },
+          "nats" : {
+            "bindingVersion" : "0.1.0"
+          },
           "pulsar" : {
             "bindingVersion" : "0.1.0",
             "tenant" : "contoso"
@@ -12598,7 +12604,9 @@
         "sessionExpiryInterval" : 60,
         "bindingVersion" : "0.2.0"
       },
-      "nats" : { },
+      "nats" : {
+        "bindingVersion" : "0.1.0"
+      },
       "pulsar" : {
         "bindingVersion" : "0.1.0",
         "tenant" : "contoso"

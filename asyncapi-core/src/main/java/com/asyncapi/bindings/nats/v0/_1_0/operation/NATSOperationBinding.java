@@ -20,7 +20,7 @@ import org.jetbrains.annotations.Nullable;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonClassDescription("Describes NATS operation binding.")
-public class NATSOperationBinding extends OperationBinding {
+public class NATSOperationBinding extends com.asyncapi.bindings.nats.NATSOperationBinding {
 
     /**
      * Defines the name of the queue to use. It MUST NOT exceed 255 characters.
@@ -34,13 +34,14 @@ public class NATSOperationBinding extends OperationBinding {
     @JsonPropertyDescription("Defines the name of the queue to use. It MUST NOT exceed 255 characters.")
     private String queue;
 
-    /**
-     * The version of this binding. If omitted, "latest" MUST be assumed.
-     */
-    @Nullable
-    @Builder.Default
-    @JsonProperty("bindingVersion")
-    @JsonPropertyDescription("The version of this binding.")
-    private String bindingVersion = "0.1.0";
+    @Override
+    public String getBindingVersion() {
+        return "0.1.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.1.0");
+    }
 
 }

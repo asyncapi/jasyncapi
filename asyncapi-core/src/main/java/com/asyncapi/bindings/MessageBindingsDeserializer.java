@@ -11,7 +11,7 @@ import com.asyncapi.bindings.kafka.v0._4_0.message.KafkaMessageBinding;
 import com.asyncapi.bindings.mercure.MercureMessageBinding;
 import com.asyncapi.bindings.mqtt.v0._1_0.message.MQTTMessageBinding;
 import com.asyncapi.bindings.mqtt5.v0._2_0.message.MQTT5MessageBinding;
-import com.asyncapi.bindings.nats.v0._1_0.message.NATSMessageBinding;
+import com.asyncapi.bindings.nats.NATSMessageBinding;
 import com.asyncapi.bindings.pulsar.v0._1_0.message.PulsarMessageBinding;
 import com.asyncapi.bindings.redis.v0._1_0.message.RedisMessageBinding;
 import com.asyncapi.bindings.sns.v0._1_0.message.SNSMessageBinding;

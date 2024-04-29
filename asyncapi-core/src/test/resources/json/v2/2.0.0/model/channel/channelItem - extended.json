@@ -612,7 +612,9 @@
           "bindingVersion" : "0.1.0"
         },
         "mqtt5" : { },
-        "nats" : { },
+        "nats" : {
+          "bindingVersion" : "0.1.0"
+        },
         "pulsar" : { },
         "redis" : {
           "bindingVersion" : "0.1.0"
@@ -734,7 +736,9 @@
     },
     "mqtt" : { },
     "mqtt5" : { },
-    "nats" : { },
+    "nats" : {
+      "bindingVersion" : "0.1.0"
+    },
     "pulsar" : {
       "bindingVersion" : "0.1.0",
       "namespace" : "staging",

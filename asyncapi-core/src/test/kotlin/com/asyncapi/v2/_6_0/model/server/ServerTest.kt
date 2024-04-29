@@ -14,7 +14,7 @@ import com.asyncapi.bindings.mercure.v0._1_0.server.MercureServerBinding
 import com.asyncapi.bindings.mqtt.v0._1_0.server.MQTTServerBinding
 import com.asyncapi.bindings.mqtt.v0._1_0.server.MQTTServerLastWillConfiguration
 import com.asyncapi.bindings.mqtt5.v0._2_0.server.MQTT5ServerBinding
-import com.asyncapi.bindings.nats.v0._1_0.server.NATSServerBinding
+import com.asyncapi.bindings.nats.NATSV0_1_0Test
 import com.asyncapi.bindings.pulsar.v0._1_0.server.PulsarServerBinding
 import com.asyncapi.bindings.redis.v0._1_0.server.RedisServerBinding
 import com.asyncapi.bindings.sns.v0._1_0.server.SNSServerBinding
@@ -109,7 +109,7 @@ class ServerTest: SerDeTest<Server>() {
                                     .sessionExpiryInterval(60)
                                     .build()
                     ),
-                    Pair("nats", NATSServerBinding()),
+                    Pair("nats", NATSV0_1_0Test.serverBinding()),
                     Pair(
                             "pulsar",
                             PulsarServerBinding.builder()

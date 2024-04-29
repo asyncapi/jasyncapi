@@ -85,7 +85,9 @@
           "sessionExpiryInterval" : 60,
           "bindingVersion" : "0.2.0"
         },
-        "nats" : { },
+        "nats" : {
+          "bindingVersion" : "0.1.0"
+        },
         "pulsar" : {
           "bindingVersion" : "0.1.0",
           "tenant" : "contoso"
@@ -723,7 +725,9 @@
               "bindingVersion" : "0.1.0"
             },
             "mqtt5" : { },
-            "nats" : { },
+            "nats" : {
+              "bindingVersion" : "0.1.0"
+            },
             "pulsar" : { },
             "redis" : {
               "bindingVersion" : "0.1.0"
@@ -845,7 +849,9 @@
         },
         "mqtt" : { },
         "mqtt5" : { },
-        "nats" : { },
+        "nats" : {
+          "bindingVersion" : "0.1.0"
+        },
         "pulsar" : {
           "bindingVersion" : "0.1.0",
           "namespace" : "staging",
@@ -1038,7 +1044,9 @@
             "bindingVersion" : "0.1.0"
           },
           "mqtt5" : { },
-          "nats" : { },
+          "nats" : {
+            "bindingVersion" : "0.1.0"
+          },
           "pulsar" : { },
           "redis" : {
             "bindingVersion" : "0.1.0"
@@ -1414,7 +1422,9 @@
             "bindingVersion" : "0.1.0"
           },
           "mqtt5" : { },
-          "nats" : { },
+          "nats" : {
+            "bindingVersion" : "0.1.0"
+          },
           "pulsar" : { },
           "redis" : {
             "bindingVersion" : "0.1.0"
@@ -1494,7 +1504,9 @@
         "sessionExpiryInterval" : 60,
         "bindingVersion" : "0.2.0"
       },
-      "nats" : { },
+      "nats" : {
+        "bindingVersion" : "0.1.0"
+      },
       "pulsar" : {
         "bindingVersion" : "0.1.0",
         "tenant" : "contoso"
@@ -1594,7 +1606,9 @@
       },
       "mqtt" : { },
       "mqtt5" : { },
-      "nats" : { },
+      "nats" : {
+        "bindingVersion" : "0.1.0"
+      },
       "pulsar" : {
         "bindingVersion" : "0.1.0",
         "namespace" : "staging",
@@ -1814,7 +1828,9 @@
         "bindingVersion" : "0.1.0"
       },
       "mqtt5" : { },
-      "nats" : { },
+      "nats" : {
+        "bindingVersion" : "0.1.0"
+      },
       "pulsar" : { },
       "redis" : {
         "bindingVersion" : "0.1.0"
