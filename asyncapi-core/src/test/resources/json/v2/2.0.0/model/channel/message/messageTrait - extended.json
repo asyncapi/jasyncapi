@@ -112,7 +112,9 @@
     },
     "sns" : { },
     "solace" : { },
-    "sqs" : { },
+    "sqs" : {
+      "bindingVersion" : "0.1.0"
+    },
     "stomp" : {
       "bindingVersion" : "0.1.0"
     },

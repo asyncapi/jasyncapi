@@ -4,6 +4,7 @@ import com.asyncapi.bindings.ChannelBinding;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * This class <b>MUST NOT</b> contain any properties.
@@ -19,5 +20,16 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class SQSChannelBinding extends ChannelBinding {
+public class SQSChannelBinding extends com.asyncapi.bindings.sqs.SQSChannelBinding {
+
+    @Override
+    public String getBindingVersion() {
+        return "0.1.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.1.0");
+    }
+
 }

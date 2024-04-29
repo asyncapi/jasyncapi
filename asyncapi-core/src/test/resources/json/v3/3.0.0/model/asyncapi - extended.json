@@ -136,7 +136,9 @@
           "bindingVersion" : "0.3.0",
           "msgVpn" : "solace.private.net"
         },
-        "sqs" : { },
+        "sqs" : {
+          "bindingVersion" : "0.1.0"
+        },
         "stomp" : {
           "bindingVersion" : "0.1.0"
         },
@@ -254,7 +256,9 @@
           "bindingVersion" : "0.3.0",
           "msgVpn" : "solace.private.net"
         },
-        "sqs" : { },
+        "sqs" : {
+          "bindingVersion" : "0.1.0"
+        },
         "stomp" : {
           "bindingVersion" : "0.1.0"
         },
@@ -5154,7 +5158,9 @@
             "bindingVersion" : "0.3.0",
             "msgVpn" : "solace.private.net"
           },
-          "sqs" : { },
+          "sqs" : {
+            "bindingVersion" : "0.1.0"
+          },
           "stomp" : {
             "bindingVersion" : "0.1.0"
           },
@@ -12619,7 +12625,9 @@
         "bindingVersion" : "0.3.0",
         "msgVpn" : "solace.private.net"
       },
-      "sqs" : { },
+      "sqs" : {
+        "bindingVersion" : "0.1.0"
+      },
       "stomp" : {
         "bindingVersion" : "0.1.0"
       },
