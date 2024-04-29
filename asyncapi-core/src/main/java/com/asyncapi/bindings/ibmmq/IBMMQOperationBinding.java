@@ -28,4 +28,4 @@ import lombok.EqualsAndHashCode;
         }),
 })
 @EqualsAndHashCode(callSuper = true)
-public class IBMMQOperationBinding extends OperationBinding {}
+public abstract class IBMMQOperationBinding extends OperationBinding {}

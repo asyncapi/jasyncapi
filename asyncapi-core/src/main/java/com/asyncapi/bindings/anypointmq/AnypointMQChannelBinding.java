@@ -26,4 +26,4 @@ import lombok.EqualsAndHashCode;
         }),
 })
 @EqualsAndHashCode(callSuper = true)
-public class AnypointMQChannelBinding extends ChannelBinding {}
+public abstract class AnypointMQChannelBinding extends ChannelBinding {}

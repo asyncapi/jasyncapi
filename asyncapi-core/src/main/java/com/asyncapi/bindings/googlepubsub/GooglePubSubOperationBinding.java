@@ -26,4 +26,4 @@ import lombok.EqualsAndHashCode;
         }),
 })
 @EqualsAndHashCode(callSuper = true)
-public class GooglePubSubOperationBinding extends OperationBinding {}
+public abstract class GooglePubSubOperationBinding extends OperationBinding {}

@@ -28,4 +28,4 @@ import lombok.EqualsAndHashCode;
         }),
 })
 @EqualsAndHashCode(callSuper = true)
-public class IBMMQMessageBinding extends MessageBinding {}
+public abstract class IBMMQMessageBinding extends MessageBinding {}

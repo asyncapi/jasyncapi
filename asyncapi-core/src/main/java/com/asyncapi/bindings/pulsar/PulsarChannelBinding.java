@@ -26,4 +26,4 @@ import lombok.EqualsAndHashCode;
         }),
 })
 @EqualsAndHashCode(callSuper = true)
-public class PulsarChannelBinding extends ChannelBinding {}
+public abstract class PulsarChannelBinding extends ChannelBinding {}

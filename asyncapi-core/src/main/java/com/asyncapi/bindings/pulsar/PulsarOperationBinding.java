@@ -28,4 +28,4 @@ import lombok.EqualsAndHashCode;
         }),
 })
 @EqualsAndHashCode(callSuper = true)
-public class PulsarOperationBinding extends OperationBinding {}
+public abstract class PulsarOperationBinding extends OperationBinding {}

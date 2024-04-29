@@ -27,4 +27,4 @@ import lombok.*;
         }),
 })
 @EqualsAndHashCode(callSuper = true)
-public class GooglePubSubChannelBinding extends ChannelBinding {}
+public abstract class GooglePubSubChannelBinding extends ChannelBinding {}

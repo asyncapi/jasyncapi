@@ -27,4 +27,4 @@ import lombok.*;
         }),
 })
 @EqualsAndHashCode(callSuper = true)
-public class AnypointMQMessageBinding extends MessageBinding {}
+public abstract class AnypointMQMessageBinding extends MessageBinding {}

@@ -26,4 +26,4 @@ import lombok.EqualsAndHashCode;
         }),
 })
 @EqualsAndHashCode(callSuper = true)
-public class PulsarServerBinding extends ServerBinding {}
+public abstract class PulsarServerBinding extends ServerBinding {}

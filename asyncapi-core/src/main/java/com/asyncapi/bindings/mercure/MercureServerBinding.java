@@ -28,5 +28,5 @@ import lombok.EqualsAndHashCode;
         }),
 })
 @EqualsAndHashCode(callSuper = true)
-public class MercureServerBinding extends ServerBinding {
+public abstract class MercureServerBinding extends ServerBinding {
 }

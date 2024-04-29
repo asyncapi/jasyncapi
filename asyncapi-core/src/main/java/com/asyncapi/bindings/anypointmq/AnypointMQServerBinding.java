@@ -28,4 +28,4 @@ import lombok.NoArgsConstructor;
         }),
 })
 @EqualsAndHashCode(callSuper = true)
-public class AnypointMQServerBinding extends ServerBinding {}
+public abstract class AnypointMQServerBinding extends ServerBinding {}

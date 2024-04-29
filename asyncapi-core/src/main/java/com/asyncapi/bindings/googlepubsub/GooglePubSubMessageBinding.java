@@ -29,4 +29,4 @@ import lombok.EqualsAndHashCode;
         }),
 })
 @EqualsAndHashCode(callSuper = true)
-public class GooglePubSubMessageBinding extends MessageBinding {}
+public abstract class GooglePubSubMessageBinding extends MessageBinding {}

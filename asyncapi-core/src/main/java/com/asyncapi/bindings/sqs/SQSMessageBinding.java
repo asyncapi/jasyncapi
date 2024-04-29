@@ -30,4 +30,4 @@ import lombok.EqualsAndHashCode;
         }),
 })
 @EqualsAndHashCode(callSuper = true)
-public class SQSMessageBinding extends MessageBinding {}
+public abstract class SQSMessageBinding extends MessageBinding {}

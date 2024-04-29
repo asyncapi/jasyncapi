@@ -29,4 +29,4 @@ import lombok.EqualsAndHashCode;
         }),
 })
 @EqualsAndHashCode(callSuper = true)
-public class IBMMQServerBinding extends ServerBinding {}
+public abstract class IBMMQServerBinding extends ServerBinding {}

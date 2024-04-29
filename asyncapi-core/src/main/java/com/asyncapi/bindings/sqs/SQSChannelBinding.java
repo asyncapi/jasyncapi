@@ -30,4 +30,4 @@ import lombok.EqualsAndHashCode;
         }),
 })
 @EqualsAndHashCode(callSuper = true)
-public class SQSChannelBinding extends ChannelBinding {}
+public abstract class SQSChannelBinding extends ChannelBinding {}

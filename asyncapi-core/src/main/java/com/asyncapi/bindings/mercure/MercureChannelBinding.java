@@ -28,5 +28,5 @@ import lombok.EqualsAndHashCode;
         }),
 })
 @EqualsAndHashCode(callSuper = true)
-public class MercureChannelBinding extends ChannelBinding {
+public abstract class MercureChannelBinding extends ChannelBinding {
 }

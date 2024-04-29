@@ -30,4 +30,4 @@ import lombok.EqualsAndHashCode;
         }),
 })
 @EqualsAndHashCode(callSuper = true)
-public class SQSOperationBinding extends OperationBinding {}
+public abstract class SQSOperationBinding extends OperationBinding {}

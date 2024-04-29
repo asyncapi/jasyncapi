@@ -28,4 +28,4 @@ import lombok.EqualsAndHashCode;
         }),
 })
 @EqualsAndHashCode(callSuper = true)
-public class JMSServerBinding extends ServerBinding {}
+public abstract class JMSServerBinding extends ServerBinding {}
