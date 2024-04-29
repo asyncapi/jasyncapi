@@ -1,6 +1,5 @@
 package com.asyncapi.bindings.kafka.v0._4_0.operation;
 
-import com.asyncapi.bindings.OperationBinding;
 import com.asyncapi.v3.schema.AsyncAPISchema;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
@@ -21,7 +20,7 @@ import org.jetbrains.annotations.Nullable;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class KafkaOperationBinding extends OperationBinding {
+public class KafkaOperationBinding extends com.asyncapi.bindings.kafka.KafkaOperationBinding {
 
     /**
      * Id of the consumer group.
@@ -39,11 +38,14 @@ public class KafkaOperationBinding extends OperationBinding {
     @JsonPropertyDescription("Id of the consumer inside a consumer group.")
     private AsyncAPISchema clientId;
 
-    /**
-     * The version of this binding. If omitted, "latest" MUST be assumed.
-     */
-    @Nullable
-    @Builder.Default
-    private String bindingVersion = "0.4.0";
+    @Override
+    public String getBindingVersion() {
+        return "0.4.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.4.0");
+    }
 
 }

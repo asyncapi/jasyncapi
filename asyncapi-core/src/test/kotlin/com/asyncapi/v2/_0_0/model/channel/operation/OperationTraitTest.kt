@@ -10,7 +10,7 @@ import com.asyncapi.bindings.googlepubsub.GooglePubSubV0_2_0Test
 import com.asyncapi.bindings.http.HTTPV0_3_0Test
 import com.asyncapi.bindings.ibmmq.v0._1_0.operation.IBMMQOperationBinding
 import com.asyncapi.bindings.jms.v0._0_1.operation.JMSOperationBinding
-import com.asyncapi.bindings.kafka.v0._4_0.operation.KafkaOperationBindingTest
+import com.asyncapi.bindings.kafka.KafkaV0_4_0Test
 import com.asyncapi.bindings.mercure.v0._1_0.operation.MercureOperationBinding
 import com.asyncapi.bindings.mqtt.v0._1_0.operation.MQTTOperationBindingTest
 import com.asyncapi.bindings.mqtt5.v0._2_0.operation.MQTT5OperationBinding
@@ -57,7 +57,7 @@ class OperationTraitTest: SerDeTest<OperationTrait>() {
                         Pair("http", HTTPV0_3_0Test.operationBinding()),
                         Pair("ibmmq", IBMMQOperationBinding()),
                         Pair("jms", JMSOperationBinding()),
-                        Pair("kafka", KafkaOperationBindingTest().build()),
+                        Pair("kafka", KafkaV0_4_0Test.operationBinding()),
                         Pair("mercure", MercureOperationBinding()),
                         Pair("mqtt", MQTTOperationBindingTest().build()),
                         Pair("mqtt5", MQTT5OperationBinding()),

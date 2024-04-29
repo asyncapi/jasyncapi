@@ -6,7 +6,7 @@ import com.asyncapi.v2._6_0.model.ExternalDocumentation
 import com.asyncapi.v2._6_0.model.Tag
 import com.asyncapi.bindings.amqp.AMQPV0_2_0Test
 import com.asyncapi.bindings.http.HTTPV0_3_0Test
-import com.asyncapi.bindings.kafka.v0._4_0.operation.KafkaOperationBindingTest
+import com.asyncapi.bindings.kafka.KafkaV0_4_0Test
 import com.asyncapi.bindings.mqtt.v0._1_0.operation.MQTTOperationBindingTest
 import com.asyncapi.bindings.nats.NATSV0_1_0Test
 import com.asyncapi.bindings.solace.v0._3_0.operation.SolaceOperationBindingTest
@@ -47,7 +47,7 @@ class OperationTraitTest: SerDeTest<OperationTrait>() {
                         Pair("http", HTTPV0_3_0Test.operationBinding()),
                         Pair("ibmmq", Reference("#/components/operationBindings/ibmmq")),
                         Pair("jms", Reference("#/components/operationBindings/jms")),
-                        Pair("kafka", KafkaOperationBindingTest().build()),
+                        Pair("kafka", KafkaV0_4_0Test.operationBinding()),
                         Pair("mercure", Reference("#/components/operationBindings/mercure")),
                         Pair("mqtt", MQTTOperationBindingTest().build()),
                         Pair("mqtt5", Reference("#/components/operationBindings/mqtt5")),

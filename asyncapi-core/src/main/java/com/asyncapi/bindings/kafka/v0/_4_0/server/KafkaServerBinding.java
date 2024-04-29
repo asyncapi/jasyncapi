@@ -1,6 +1,5 @@
 package com.asyncapi.bindings.kafka.v0._4_0.server;
 
-import com.asyncapi.bindings.ServerBinding;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
@@ -20,7 +19,7 @@ import org.jetbrains.annotations.Nullable;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonClassDescription("Describes Kafka server binding.")
-public class KafkaServerBinding extends ServerBinding {
+public class KafkaServerBinding extends com.asyncapi.bindings.kafka.KafkaServerBinding {
 
     /**
      * API URL for the Schema Registry used when producing Kafka messages (if a Schema Registry was used)
@@ -40,13 +39,14 @@ public class KafkaServerBinding extends ServerBinding {
     @JsonPropertyDescription("The vendor of Schema Registry and Kafka serdes library that should be used (e.g. apicurio, confluent, ibm, or karapace)")
     private String schemaRegistryVendor;
 
-    /**
-     * The version of this binding.
-     */
-    @Nullable
-    @Builder.Default
-    @JsonProperty("bindingVersion")
-    @JsonPropertyDescription("The version of this binding.")
-    private String bindingVersion = "0.4.0";
+    @Override
+    public String getBindingVersion() {
+        return "0.4.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.4.0");
+    }
 
 }

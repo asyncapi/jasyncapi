@@ -12,7 +12,7 @@ import com.asyncapi.bindings.amqp.AMQPV0_2_0Test
 import com.asyncapi.bindings.anypointmq.AnypointMQV0_0_1Test
 import com.asyncapi.bindings.googlepubsub.GooglePubSubV0_1_0Test
 import com.asyncapi.bindings.ibmmq.IBMMQV0_1_0Test
-import com.asyncapi.bindings.kafka.v0._4_0.channel.KafkaChannelBindingTest
+import com.asyncapi.bindings.kafka.KafkaV0_4_0Test
 import com.asyncapi.bindings.pulsar.PulsarV0_1_0Test
 import com.asyncapi.bindings.websockets.v0._1_0.WebSocketsBindingProvider
 
@@ -71,7 +71,7 @@ class ChannelTest: SerDeTest<Channel>() {
                     Pair("http", Reference("#/components/channelBindings/http")),
                     Pair("ibmmq", IBMMQV0_1_0Test.channelBinding()),
                     Pair("jms", Reference("#/components/channelBindings/jms")),
-                    Pair("kafka", KafkaChannelBindingTest().build()),
+                    Pair("kafka", KafkaV0_4_0Test.channelBinding()),
                     Pair("mercure", Reference("#/components/channelBindings/mercure")),
                     Pair("mqtt", Reference("#/components/channelBindings/mqtt")),
                     Pair("mqtt5", Reference("#/components/channelBindings/mqtt5")),
@@ -144,7 +144,7 @@ class ChannelTestWithReference: SerDeTest<Channel>() {
                     Pair("http", Reference("#/components/channelBindings/http")),
                     Pair("ibmmq", IBMMQV0_1_0Test.channelBinding()),
                     Pair("jms", Reference("#/components/channelBindings/jms")),
-                    Pair("kafka", KafkaChannelBindingTest().build()),
+                    Pair("kafka", KafkaV0_4_0Test.channelBinding()),
                     Pair("mercure", Reference("#/components/channelBindings/mercure")),
                     Pair("mqtt", Reference("#/components/channelBindings/mqtt")),
                     Pair("mqtt5", Reference("#/components/channelBindings/mqtt5")),

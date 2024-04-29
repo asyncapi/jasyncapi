@@ -1,6 +1,5 @@
 package com.asyncapi.bindings.kafka.v0._4_0.channel;
 
-import com.asyncapi.bindings.ChannelBinding;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
@@ -20,7 +19,7 @@ import org.jetbrains.annotations.Nullable;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonClassDescription("Describes Kafka channel binding.")
-public class KafkaChannelBinding extends ChannelBinding {
+public class KafkaChannelBinding extends com.asyncapi.bindings.kafka.KafkaChannelBinding {
 
     /**
      * Kafka topic name if different from channel name.
@@ -66,11 +65,14 @@ public class KafkaChannelBinding extends ChannelBinding {
     @JsonPropertyDescription("Topic configuration properties that are relevant for the API.")
     private KafkaChannelTopicConfiguration topicConfiguration;
 
-    /**
-     * The version of this binding. If omitted, "latest" MUST be assumed.
-     */
-    @Nullable
-    @Builder.Default
-    private String bindingVersion = "0.4.0";
+    @Override
+    public String getBindingVersion() {
+        return "0.4.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.4.0");
+    }
 
 }

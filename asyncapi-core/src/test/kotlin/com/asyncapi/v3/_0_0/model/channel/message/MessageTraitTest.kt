@@ -10,7 +10,7 @@ import com.asyncapi.bindings.anypointmq.AnypointMQV0_0_1Test
 import com.asyncapi.bindings.googlepubsub.GooglePubSubV0_1_0Test
 import com.asyncapi.bindings.http.HTTPV0_3_0Test
 import com.asyncapi.bindings.ibmmq.IBMMQV0_1_0Test
-import com.asyncapi.bindings.kafka.v0._4_0.message.KafkaMessageBindingTest
+import com.asyncapi.bindings.kafka.KafkaV0_4_0Test
 import com.asyncapi.bindings.mqtt.v0._1_0.message.MQTTMessageBindingTest
 import com.asyncapi.v3.schema.multiformat.AsyncAPIFormatSchema
 
@@ -66,7 +66,7 @@ class MessageTraitTestWithSchema: SerDeTest<MessageTrait>() {
                         Pair("http", HTTPV0_3_0Test.messageBinding()),
                         Pair("ibmmq", IBMMQV0_1_0Test.messageBinding()),
                         Pair("jms", Reference("#/components/messageBindings/jms")),
-                        Pair("kafka", KafkaMessageBindingTest().build()),
+                        Pair("kafka", KafkaV0_4_0Test.messageBinding()),
                         Pair("mercure",
                             Reference("#/components/messageBindings/mercure")
                         ),
@@ -121,7 +121,7 @@ class MessageTraitTestWithReference: SerDeTest<MessageTrait>() {
                         Pair("http", HTTPV0_3_0Test.messageBinding()),
                         Pair("ibmmq", IBMMQV0_1_0Test.messageBinding()),
                         Pair("jms", Reference("#/components/messageBindings/jms")),
-                        Pair("kafka", KafkaMessageBindingTest().build()),
+                        Pair("kafka", KafkaV0_4_0Test.messageBinding()),
                         Pair("mercure",
                             Reference("#/components/messageBindings/mercure")
                         ),
@@ -193,7 +193,7 @@ class MessageTraitTestWithMultiFormatSchema: SerDeTest<MessageTrait>() {
                         Pair("http", HTTPV0_3_0Test.messageBinding()),
                         Pair("ibmmq", IBMMQV0_1_0Test.messageBinding()),
                         Pair("jms", Reference("#/components/messageBindings/jms")),
-                        Pair("kafka", KafkaMessageBindingTest().build()),
+                        Pair("kafka", KafkaV0_4_0Test.messageBinding()),
                         Pair("mercure",
                             Reference("#/components/messageBindings/mercure")
                         ),

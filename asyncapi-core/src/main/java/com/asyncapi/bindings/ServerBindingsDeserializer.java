@@ -7,7 +7,7 @@ import com.asyncapi.bindings.googlepubsub.GooglePubSubServerBinding;
 import com.asyncapi.bindings.http.HTTPServerBinding;
 import com.asyncapi.bindings.ibmmq.IBMMQServerBinding;
 import com.asyncapi.bindings.jms.JMSServerBinding;
-import com.asyncapi.bindings.kafka.v0._4_0.server.KafkaServerBinding;
+import com.asyncapi.bindings.kafka.KafkaServerBinding;
 import com.asyncapi.bindings.mercure.MercureServerBinding;
 import com.asyncapi.bindings.mqtt.v0._1_0.server.MQTTServerBinding;
 import com.asyncapi.bindings.mqtt5.v0._2_0.server.MQTT5ServerBinding;

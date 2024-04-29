@@ -1,6 +1,5 @@
 package com.asyncapi.bindings.kafka.v0._4_0.message;
 
-import com.asyncapi.bindings.MessageBinding;
 import com.asyncapi.v3.schema.AsyncAPISchema;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
@@ -21,7 +20,7 @@ import org.jetbrains.annotations.Nullable;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class KafkaMessageBinding extends MessageBinding {
+public class KafkaMessageBinding extends com.asyncapi.bindings.kafka.KafkaMessageBinding {
 
     /**
      * The message key.
@@ -55,13 +54,14 @@ public class KafkaMessageBinding extends MessageBinding {
     @JsonPropertyDescription("Freeform string for any naming strategy class to use. Clients should default to the vendor default if not supplied.")
     private String schemaLookupStrategy;
 
-    /**
-     * The version of this binding. If omitted, "latest" MUST be assumed.
-     */
-    @Nullable
-    @Builder.Default
-    @JsonProperty("bindingVersion")
-    @JsonPropertyDescription("The version of this binding.")
-    private String bindingVersion = "0.4.0";
+    @Override
+    public String getBindingVersion() {
+        return "0.4.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.4.0");
+    }
 
 }

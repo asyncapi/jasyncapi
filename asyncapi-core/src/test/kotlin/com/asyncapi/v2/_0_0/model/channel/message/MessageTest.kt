@@ -13,7 +13,7 @@ import com.asyncapi.bindings.googlepubsub.GooglePubSubV0_1_0Test
 import com.asyncapi.bindings.http.HTTPV0_3_0Test
 import com.asyncapi.bindings.ibmmq.IBMMQV0_1_0Test
 import com.asyncapi.bindings.jms.v0._0_1.message.JMSMessageBinding
-import com.asyncapi.bindings.kafka.v0._4_0.message.KafkaMessageBindingTest
+import com.asyncapi.bindings.kafka.KafkaV0_4_0Test
 import com.asyncapi.bindings.mercure.v0._1_0.message.MercureMessageBinding
 import com.asyncapi.bindings.mqtt.v0._1_0.message.MQTTMessageBindingTest
 import com.asyncapi.bindings.mqtt5.v0._2_0.message.MQTT5MessageBinding
@@ -121,7 +121,7 @@ class MessageTest: SerDeTest<Message>() {
                     Pair("http", HTTPV0_3_0Test.messageBinding()),
                     Pair("ibmmq", IBMMQV0_1_0Test.messageBinding()),
                     Pair("jms", JMSMessageBinding()),
-                    Pair("kafka", KafkaMessageBindingTest().build()),
+                    Pair("kafka", KafkaV0_4_0Test.messageBinding()),
                     Pair("mercure", MercureMessageBinding()),
                     Pair("mqtt", MQTTMessageBindingTest().build()),
                     Pair("mqtt5", MQTT5MessageBinding()),
