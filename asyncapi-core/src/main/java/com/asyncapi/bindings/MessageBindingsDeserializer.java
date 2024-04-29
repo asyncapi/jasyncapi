@@ -1,7 +1,7 @@
 package com.asyncapi.bindings;
 
 import com.asyncapi.bindings.amqp.AMQPMessageBinding;
-import com.asyncapi.bindings.amqp1.v0._1_0.message.AMQP1MessageBinding;
+import com.asyncapi.bindings.amqp1.AMQP1MessageBinding;
 import com.asyncapi.bindings.anypointmq.AnypointMQMessageBinding;
 import com.asyncapi.bindings.googlepubsub.GooglePubSubMessageBinding;
 import com.asyncapi.bindings.http.HTTPMessageBinding;
@@ -13,12 +13,12 @@ import com.asyncapi.bindings.mqtt.v0._1_0.message.MQTTMessageBinding;
 import com.asyncapi.bindings.mqtt5.v0._2_0.message.MQTT5MessageBinding;
 import com.asyncapi.bindings.nats.NATSMessageBinding;
 import com.asyncapi.bindings.pulsar.PulsarMessageBinding;
-import com.asyncapi.bindings.redis.v0._1_0.message.RedisMessageBinding;
+import com.asyncapi.bindings.redis.RedisMessageBinding;
 import com.asyncapi.bindings.sns.v0._1_0.message.SNSMessageBinding;
 import com.asyncapi.bindings.solace.v0._3_0.message.SolaceMessageBinding;
-import com.asyncapi.bindings.sqs.v0._1_0.message.SQSMessageBinding;
-import com.asyncapi.bindings.stomp.v0._1_0.message.STOMPMessageBinding;
-import com.asyncapi.bindings.websockets.v0._1_0.message.WebSocketsMessageBinding;
+import com.asyncapi.bindings.sqs.SQSMessageBinding;
+import com.asyncapi.bindings.stomp.STOMPMessageBinding;
+import com.asyncapi.bindings.websockets.WebSocketsMessageBinding;
 import com.asyncapi.Reference;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.ObjectCodec;

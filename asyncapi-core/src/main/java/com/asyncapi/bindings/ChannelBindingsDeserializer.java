@@ -1,7 +1,7 @@
 package com.asyncapi.bindings;
 
 import com.asyncapi.bindings.amqp.AMQPChannelBinding;
-import com.asyncapi.bindings.amqp1.v0._1_0.channel.AMQP1ChannelBinding;
+import com.asyncapi.bindings.amqp1.AMQP1ChannelBinding;
 import com.asyncapi.bindings.anypointmq.AnypointMQChannelBinding;
 import com.asyncapi.bindings.googlepubsub.GooglePubSubChannelBinding;
 import com.asyncapi.bindings.http.HTTPChannelBinding;
@@ -13,12 +13,12 @@ import com.asyncapi.bindings.mqtt.v0._1_0.channel.MQTTChannelBinding;
 import com.asyncapi.bindings.mqtt5.v0._2_0.channel.MQTT5ChannelBinding;
 import com.asyncapi.bindings.nats.NATSChannelBinding;
 import com.asyncapi.bindings.pulsar.PulsarChannelBinding;
-import com.asyncapi.bindings.redis.v0._1_0.channel.RedisChannelBinding;
+import com.asyncapi.bindings.redis.RedisChannelBinding;
 import com.asyncapi.bindings.sns.v0._1_0.channel.SNSChannelBinding;
 import com.asyncapi.bindings.solace.v0._3_0.channel.SolaceChannelBinding;
-import com.asyncapi.bindings.sqs.v0._1_0.channel.SQSChannelBinding;
-import com.asyncapi.bindings.stomp.v0._1_0.channel.STOMPChannelBinding;
-import com.asyncapi.bindings.websockets.v0._1_0.channel.WebSocketsChannelBinding;
+import com.asyncapi.bindings.sqs.SQSChannelBinding;
+import com.asyncapi.bindings.stomp.STOMPChannelBinding;
+import com.asyncapi.bindings.websockets.WebSocketsChannelBinding;
 import com.asyncapi.Reference;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.ObjectCodec;

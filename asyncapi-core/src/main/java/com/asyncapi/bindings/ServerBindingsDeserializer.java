@@ -1,7 +1,7 @@
 package com.asyncapi.bindings;
 
 import com.asyncapi.bindings.amqp.AMQPServerBinding;
-import com.asyncapi.bindings.amqp1.v0._1_0.server.AMQP1ServerBinding;
+import com.asyncapi.bindings.amqp1.AMQP1ServerBinding;
 import com.asyncapi.bindings.anypointmq.AnypointMQServerBinding;
 import com.asyncapi.bindings.googlepubsub.GooglePubSubServerBinding;
 import com.asyncapi.bindings.http.HTTPServerBinding;
@@ -13,12 +13,12 @@ import com.asyncapi.bindings.mqtt.v0._1_0.server.MQTTServerBinding;
 import com.asyncapi.bindings.mqtt5.v0._2_0.server.MQTT5ServerBinding;
 import com.asyncapi.bindings.nats.NATSServerBinding;
 import com.asyncapi.bindings.pulsar.PulsarServerBinding;
-import com.asyncapi.bindings.redis.v0._1_0.server.RedisServerBinding;
+import com.asyncapi.bindings.redis.RedisServerBinding;
 import com.asyncapi.bindings.sns.v0._1_0.server.SNSServerBinding;
 import com.asyncapi.bindings.solace.v0._3_0.server.SolaceServerBinding;
-import com.asyncapi.bindings.sqs.v0._1_0.server.SQSServerBinding;
-import com.asyncapi.bindings.stomp.v0._1_0.server.STOMPServerBinding;
-import com.asyncapi.bindings.websockets.v0._1_0.server.WebSocketsServerBinding;
+import com.asyncapi.bindings.sqs.SQSServerBinding;
+import com.asyncapi.bindings.stomp.STOMPServerBinding;
+import com.asyncapi.bindings.websockets.WebSocketsServerBinding;
 import com.asyncapi.Reference;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.ObjectCodec;

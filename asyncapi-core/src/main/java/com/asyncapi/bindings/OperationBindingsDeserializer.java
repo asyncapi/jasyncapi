@@ -1,7 +1,7 @@
 package com.asyncapi.bindings;
 
 import com.asyncapi.bindings.amqp.AMQPOperationBinding;
-import com.asyncapi.bindings.amqp1.v0._1_0.operation.AMQP1OperationBinding;
+import com.asyncapi.bindings.amqp1.AMQP1OperationBinding;
 import com.asyncapi.bindings.anypointmq.AnypointMQOperationBinding;
 import com.asyncapi.bindings.googlepubsub.GooglePubSubOperationBinding;
 import com.asyncapi.bindings.http.HTTPOperationBinding;
@@ -13,12 +13,12 @@ import com.asyncapi.bindings.mqtt.v0._1_0.operation.MQTTOperationBinding;
 import com.asyncapi.bindings.mqtt5.v0._2_0.operation.MQTT5OperationBinding;
 import com.asyncapi.bindings.nats.NATSOperationBinding;
 import com.asyncapi.bindings.pulsar.PulsarOperationBinding;
-import com.asyncapi.bindings.redis.v0._1_0.operation.RedisOperationBinding;
+import com.asyncapi.bindings.redis.RedisOperationBinding;
 import com.asyncapi.bindings.sns.v0._1_0.operation.SNSOperationBinding;
 import com.asyncapi.bindings.solace.v0._3_0.operation.SolaceOperationBinding;
-import com.asyncapi.bindings.sqs.v0._1_0.operation.SQSOperationBinding;
-import com.asyncapi.bindings.stomp.v0._1_0.operation.STOMPOperationBinding;
-import com.asyncapi.bindings.websockets.v0._1_0.operation.WebSocketsOperationBinding;
+import com.asyncapi.bindings.sqs.SQSOperationBinding;
+import com.asyncapi.bindings.stomp.STOMPOperationBinding;
+import com.asyncapi.bindings.websockets.WebSocketsOperationBinding;
 import com.asyncapi.Reference;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.ObjectCodec;
