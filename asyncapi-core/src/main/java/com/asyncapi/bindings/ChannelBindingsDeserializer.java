@@ -10,7 +10,7 @@ import com.asyncapi.bindings.jms.JMSChannelBinding;
 import com.asyncapi.bindings.kafka.KafkaChannelBinding;
 import com.asyncapi.bindings.mercure.MercureChannelBinding;
 import com.asyncapi.bindings.mqtt.v0._1_0.channel.MQTTChannelBinding;
-import com.asyncapi.bindings.mqtt5.v0._2_0.channel.MQTT5ChannelBinding;
+import com.asyncapi.bindings.mqtt5.MQTT5ChannelBinding;
 import com.asyncapi.bindings.nats.NATSChannelBinding;
 import com.asyncapi.bindings.pulsar.PulsarChannelBinding;
 import com.asyncapi.bindings.redis.RedisChannelBinding;

@@ -78,7 +78,9 @@
       "qos" : 2,
       "retain" : true
     },
-    "mqtt5" : { },
+    "mqtt5" : {
+      "bindingVersion" : "0.2.0"
+    },
     "nats" : {
       "bindingVersion" : "0.1.0",
       "queue" : "messages"
@@ -206,7 +208,9 @@
         "qos" : 2,
         "retain" : true
       },
-      "mqtt5" : { },
+      "mqtt5" : {
+        "bindingVersion" : "0.2.0"
+      },
       "nats" : {
         "bindingVersion" : "0.1.0",
         "queue" : "messages"
@@ -366,7 +370,9 @@
       "mqtt" : {
         "bindingVersion" : "0.1.0"
       },
-      "mqtt5" : { },
+      "mqtt5" : {
+        "bindingVersion" : "0.2.0"
+      },
       "nats" : {
         "bindingVersion" : "0.1.0"
       },

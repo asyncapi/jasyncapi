@@ -10,7 +10,7 @@ import com.asyncapi.bindings.jms.JMSServerBinding;
 import com.asyncapi.bindings.kafka.KafkaServerBinding;
 import com.asyncapi.bindings.mercure.MercureServerBinding;
 import com.asyncapi.bindings.mqtt.v0._1_0.server.MQTTServerBinding;
-import com.asyncapi.bindings.mqtt5.v0._2_0.server.MQTT5ServerBinding;
+import com.asyncapi.bindings.mqtt5.MQTT5ServerBinding;
 import com.asyncapi.bindings.nats.NATSServerBinding;
 import com.asyncapi.bindings.pulsar.PulsarServerBinding;
 import com.asyncapi.bindings.redis.RedisServerBinding;

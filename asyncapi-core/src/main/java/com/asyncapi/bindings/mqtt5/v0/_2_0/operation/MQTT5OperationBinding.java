@@ -1,9 +1,9 @@
 package com.asyncapi.bindings.mqtt5.v0._2_0.operation;
 
-import com.asyncapi.bindings.OperationBinding;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * This class MUST NOT contain any properties. Its name is reserved for future use.
@@ -17,5 +17,16 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class MQTT5OperationBinding extends OperationBinding {
+public class MQTT5OperationBinding extends com.asyncapi.bindings.mqtt5.MQTT5OperationBinding {
+
+    @Override
+    public String getBindingVersion() {
+        return "0.2.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.2.0");
+    }
+
 }
