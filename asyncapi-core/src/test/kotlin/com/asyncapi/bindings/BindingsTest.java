@@ -1,29 +1,30 @@
 package com.asyncapi.bindings;
 
-import com.asyncapi.bindings.amqp1.AMQP1Test;
-import com.asyncapi.bindings.redis.RedisTest;
-import com.asyncapi.bindings.stomp.STOMPTest;
-import com.asyncapi.bindings.websockets.WebSocketsTest;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
+import org.junit.platform.suite.api.SelectClasses;
+import org.junit.platform.suite.api.Suite;
+import org.junit.platform.suite.api.SuiteDisplayName;
 
-@DisplayName("Bindings")
-public class BindingsTest {
-
-    @Nested
-    @DisplayName("AMQP1")
-    class AMQP1 extends AMQP1Test {}
-
-    @Nested
-    @DisplayName("Redis")
-    class Redis extends RedisTest {}
-
-    @Nested
-    @DisplayName("STOMP")
-    class STOMP extends STOMPTest {}
-
-    @Nested
-    @DisplayName("WebSockets")
-    class WebSockets extends WebSocketsTest {}
-
-}
+@Suite
+@SelectClasses({
+        com.asyncapi.bindings.amqp.AMQP.class,
+//        com.asyncapi.bindings.amqp1.AMQP.class,
+        com.asyncapi.bindings.anypointmq.AnypointMQ.class,
+        com.asyncapi.bindings.googlepubsub.GooglePubSub.class,
+        com.asyncapi.bindings.http.HTTP.class,
+        com.asyncapi.bindings.ibmmq.IBMMQ.class,
+        com.asyncapi.bindings.jms.JMS.class,
+        com.asyncapi.bindings.kafka.Kafka.class,
+        com.asyncapi.bindings.mercure.Mercure.class,
+        com.asyncapi.bindings.mqtt.MQTT.class,
+        com.asyncapi.bindings.mqtt5.MQTT5.class,
+        com.asyncapi.bindings.nats.NATS.class,
+        com.asyncapi.bindings.pulsar.Pulsar.class,
+//        com.asyncapi.bindings.redis.Pulsar.class,
+        com.asyncapi.bindings.sns.SNS.class,
+        com.asyncapi.bindings.solace.Solace.class,
+        com.asyncapi.bindings.sqs.SQS.class,
+//        com.asyncapi.bindings.stomp.STOMP.class,
+//        com.asyncapi.bindings.websockets.WebSockets.class,
+})
+@SuiteDisplayName("Bindings")
+public class BindingsTest {}

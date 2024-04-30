@@ -5,7 +5,7 @@ import org.junit.platform.suite.api.Suite;
 import org.junit.platform.suite.api.SuiteDisplayName;
 
 @Suite
-@SuiteDisplayName("nats")
+@SuiteDisplayName("NATS")
 @SelectPackages("com.asyncapi.bindings.nats")
 public class NATS {
 }
