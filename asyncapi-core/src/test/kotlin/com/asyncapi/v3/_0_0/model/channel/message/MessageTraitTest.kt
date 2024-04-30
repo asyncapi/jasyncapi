@@ -11,7 +11,7 @@ import com.asyncapi.bindings.googlepubsub.GooglePubSubV0_1_0Test
 import com.asyncapi.bindings.http.HTTPV0_3_0Test
 import com.asyncapi.bindings.ibmmq.IBMMQV0_1_0Test
 import com.asyncapi.bindings.kafka.KafkaV0_4_0Test
-import com.asyncapi.bindings.mqtt.v0._1_0.message.MQTTMessageBindingTest
+import com.asyncapi.bindings.mqtt.MQTTV0_1_0Test
 import com.asyncapi.v3.schema.multiformat.AsyncAPIFormatSchema
 
 class MessageTraitTestWithSchema: SerDeTest<MessageTrait>() {
@@ -70,7 +70,7 @@ class MessageTraitTestWithSchema: SerDeTest<MessageTrait>() {
                         Pair("mercure",
                             Reference("#/components/messageBindings/mercure")
                         ),
-                        Pair("mqtt", MQTTMessageBindingTest().build()),
+                        Pair("mqtt", MQTTV0_1_0Test.messageBinding()),
                         Pair("mqtt5", Reference("#/components/messageBindings/mqtt5")),
                         Pair("nats", Reference("#/components/messageBindings/nats")),
                         Pair("pulsar", Reference("#/components/messageBindings/pulsar")),
@@ -125,7 +125,7 @@ class MessageTraitTestWithReference: SerDeTest<MessageTrait>() {
                         Pair("mercure",
                             Reference("#/components/messageBindings/mercure")
                         ),
-                        Pair("mqtt", MQTTMessageBindingTest().build()),
+                        Pair("mqtt", MQTTV0_1_0Test.messageBinding()),
                         Pair("mqtt5", Reference("#/components/messageBindings/mqtt5")),
                         Pair("nats", Reference("#/components/messageBindings/nats")),
                         Pair("pulsar", Reference("#/components/messageBindings/pulsar")),
@@ -197,7 +197,7 @@ class MessageTraitTestWithMultiFormatSchema: SerDeTest<MessageTrait>() {
                         Pair("mercure",
                             Reference("#/components/messageBindings/mercure")
                         ),
-                        Pair("mqtt", MQTTMessageBindingTest().build()),
+                        Pair("mqtt", MQTTV0_1_0Test.messageBinding()),
                         Pair("mqtt5", Reference("#/components/messageBindings/mqtt5")),
                         Pair("nats", Reference("#/components/messageBindings/nats")),
                         Pair("pulsar", Reference("#/components/messageBindings/pulsar")),

@@ -1,0 +1,17 @@
+{
+  "bindingVersion" : "0.1.0",
+  "clientId" : "guest",
+  "cleanSession" : true,
+  "lastWill" : {
+    "topic" : "/last-wills",
+    "qos" : 2,
+    "message" : "Guest gone offline.",
+    "retain" : false
+  },
+  "keepAlive" : 60,
+  "x-number" : 0,
+  "x-string" : "",
+  "x-object" : {
+    "property" : { }
+  }
+}

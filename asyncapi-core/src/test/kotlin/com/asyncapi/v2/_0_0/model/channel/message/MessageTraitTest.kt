@@ -13,7 +13,7 @@ import com.asyncapi.bindings.ibmmq.IBMMQV0_1_0Test
 import com.asyncapi.bindings.jms.v0._0_1.message.JMSMessageBinding
 import com.asyncapi.bindings.kafka.KafkaV0_4_0Test
 import com.asyncapi.bindings.mercure.v0._1_0.message.MercureMessageBinding
-import com.asyncapi.bindings.mqtt.v0._1_0.message.MQTTMessageBindingTest
+import com.asyncapi.bindings.mqtt.MQTTV0_1_0Test
 import com.asyncapi.bindings.mqtt5.v0._2_0.message.MQTT5MessageBinding
 import com.asyncapi.bindings.nats.v0._1_0.message.NATSMessageBinding
 import com.asyncapi.bindings.pulsar.v0._1_0.message.PulsarMessageBinding
@@ -82,7 +82,7 @@ class MessageTraitTest: SerDeTest<MessageTrait>() {
                         Pair("jms", JMSMessageBinding()),
                         Pair("kafka", KafkaV0_4_0Test.messageBinding()),
                         Pair("mercure", MercureMessageBinding()),
-                        Pair("mqtt", MQTTMessageBindingTest().build()),
+                        Pair("mqtt", MQTTV0_1_0Test.messageBinding()),
                         Pair("mqtt5", MQTT5MessageBinding()),
                         Pair("nats", NATSMessageBinding()),
                         Pair("pulsar", PulsarMessageBinding()),

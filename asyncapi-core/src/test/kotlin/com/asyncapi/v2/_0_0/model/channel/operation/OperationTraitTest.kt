@@ -12,7 +12,7 @@ import com.asyncapi.bindings.ibmmq.v0._1_0.operation.IBMMQOperationBinding
 import com.asyncapi.bindings.jms.v0._0_1.operation.JMSOperationBinding
 import com.asyncapi.bindings.kafka.KafkaV0_4_0Test
 import com.asyncapi.bindings.mercure.v0._1_0.operation.MercureOperationBinding
-import com.asyncapi.bindings.mqtt.v0._1_0.operation.MQTTOperationBindingTest
+import com.asyncapi.bindings.mqtt.MQTTV0_1_0Test
 import com.asyncapi.bindings.mqtt5.v0._2_0.operation.MQTT5OperationBinding
 import com.asyncapi.bindings.nats.NATSV0_1_0Test
 import com.asyncapi.bindings.pulsar.v0._1_0.operation.PulsarOperationBinding
@@ -59,7 +59,7 @@ class OperationTraitTest: SerDeTest<OperationTrait>() {
                         Pair("jms", JMSOperationBinding()),
                         Pair("kafka", KafkaV0_4_0Test.operationBinding()),
                         Pair("mercure", MercureOperationBinding()),
-                        Pair("mqtt", MQTTOperationBindingTest().build()),
+                        Pair("mqtt", MQTTV0_1_0Test.operationBinding()),
                         Pair("mqtt5", MQTT5OperationBinding()),
                         Pair("nats", NATSV0_1_0Test.operationBinding()),
                         Pair("pulsar", PulsarOperationBinding()),

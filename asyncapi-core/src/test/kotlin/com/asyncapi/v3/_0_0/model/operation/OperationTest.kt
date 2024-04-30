@@ -3,7 +3,7 @@ package com.asyncapi.v3._0_0.model.operation
 import com.asyncapi.bindings.amqp.AMQPV0_2_0Test
 import com.asyncapi.bindings.http.HTTPV0_3_0Test
 import com.asyncapi.bindings.kafka.KafkaV0_4_0Test
-import com.asyncapi.bindings.mqtt.v0._1_0.operation.MQTTOperationBindingTest
+import com.asyncapi.bindings.mqtt.MQTTV0_1_0Test
 import com.asyncapi.bindings.nats.NATSV0_1_0Test
 import com.asyncapi.bindings.solace.v0._3_0.operation.SolaceOperationBindingTest
 import com.asyncapi.Reference
@@ -76,7 +76,7 @@ class OperationTest: SerDeTest<Operation>() {
                     Pair("jms", Reference("#/components/operationBindings/jms")),
                     Pair("kafka", KafkaV0_4_0Test.operationBinding()),
                     Pair("mercure", Reference("#/components/operationBindings/mercure")),
-                    Pair("mqtt", MQTTOperationBindingTest().build()),
+                    Pair("mqtt", MQTTV0_1_0Test.operationBinding()),
                     Pair("mqtt5", Reference("#/components/operationBindings/mqtt5")),
                     Pair("nats", NATSV0_1_0Test.operationBinding()),
                     Pair("pulsar", Reference("#/components/operationBindings/pulsar")),
@@ -136,7 +136,7 @@ class OperationTestWithReference: SerDeTest<Operation>() {
                         Pair("mercure",
                             Reference("#/components/operationBindings/mercure")
                         ),
-                        Pair("mqtt", MQTTOperationBindingTest().build()),
+                        Pair("mqtt", MQTTV0_1_0Test.operationBinding()),
                         Pair("mqtt5", Reference("#/components/operationBindings/mqtt5")),
                         Pair("nats", NATSV0_1_0Test.operationBinding()),
                         Pair("pulsar",

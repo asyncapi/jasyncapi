@@ -717,7 +717,9 @@
     "mercure" : {
       "bindingVersion" : "0.1.0"
     },
-    "mqtt" : { },
+    "mqtt" : {
+      "bindingVersion" : "0.1.0"
+    },
     "mqtt5" : { },
     "nats" : {
       "bindingVersion" : "0.1.0"

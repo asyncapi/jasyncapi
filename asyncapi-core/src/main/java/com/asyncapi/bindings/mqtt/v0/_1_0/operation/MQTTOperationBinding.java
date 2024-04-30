@@ -1,6 +1,5 @@
 package com.asyncapi.bindings.mqtt.v0._1_0.operation;
 
-import com.asyncapi.bindings.OperationBinding;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
@@ -22,7 +21,7 @@ import org.jetbrains.annotations.Nullable;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonClassDescription("Describes MQTT operation binding.")
-public class MQTTOperationBinding extends OperationBinding {
+public class MQTTOperationBinding extends com.asyncapi.bindings.mqtt.MQTTOperationBinding {
 
     /**
      * Defines how hard the broker/client will try to ensure that a message is received.
@@ -53,15 +52,14 @@ public class MQTTOperationBinding extends OperationBinding {
     @JsonPropertyDescription("Whether the broker should retain the message or not.")
     private Boolean retain;
 
-    /**
-     * The version of this binding. If omitted, "latest" MUST be assumed.
-     * <p>
-     * Applies to: publish, subscribe
-     */
-    @Nullable
-    @Builder.Default
-    @JsonProperty("bindingVersion")
-    @JsonPropertyDescription("The version of this binding.")
-    private String bindingVersion = "0.1.0";
+    @Override
+    public String getBindingVersion() {
+        return "0.1.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.1.0");
+    }
 
 }

@@ -1,6 +1,5 @@
 package com.asyncapi.bindings.mqtt.v0._1_0.message;
 
-import com.asyncapi.bindings.MessageBinding;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import lombok.*;
@@ -18,17 +17,17 @@ import org.jetbrains.annotations.Nullable;
 @Data
 @Builder
 @NoArgsConstructor
-@AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class MQTTMessageBinding extends MessageBinding {
+public class MQTTMessageBinding extends com.asyncapi.bindings.mqtt.MQTTMessageBinding {
 
-    /**
-     * The version of this binding. If omitted, "latest" MUST be assumed.
-     */
-    @Nullable
-    @Builder.Default
-    @JsonProperty("bindingVersion")
-    @JsonPropertyDescription("The version of this binding.")
-    private String bindingVersion = "0.1.0";
+    @Override
+    public String getBindingVersion() {
+        return "0.1.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.1.0");
+    }
 
 }

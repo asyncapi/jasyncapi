@@ -1,6 +1,5 @@
 package com.asyncapi.bindings.mqtt.v0._1_0.server;
 
-import com.asyncapi.bindings.ServerBinding;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
@@ -22,7 +21,7 @@ import org.jetbrains.annotations.Nullable;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonClassDescription("Describes MQTT server binding.")
-public class MQTTServerBinding extends ServerBinding {
+public class MQTTServerBinding extends com.asyncapi.bindings.mqtt.MQTTServerBinding {
 
     /**
      * The client identifier.
@@ -56,13 +55,14 @@ public class MQTTServerBinding extends ServerBinding {
     @JsonPropertyDescription("Interval in seconds of the longest period of time the broker and the client can endure without sending a message.")
     private Integer keepAlive;
 
-    /**
-     * The version of this binding. If omitted, "latest" MUST be assumed.
-     */
-    @Nullable
-    @Builder.Default
-    @JsonProperty("bindingVersion")
-    @JsonPropertyDescription("The version of this binding.")
-    private String bindingVersion = "0.1.0";
+    @Override
+    public String getBindingVersion() {
+        return "0.1.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.1.0");
+    }
 
 }
