@@ -93,7 +93,9 @@
       "redis" : {
         "bindingVersion" : "0.1.0"
       },
-      "sns" : { },
+      "sns" : {
+        "bindingVersion" : "0.1.0"
+      },
       "solace" : {
         "bindingVersion" : "0.3.0",
         "destinations" : [ {
@@ -223,7 +225,9 @@
         "redis" : {
           "bindingVersion" : "0.1.0"
         },
-        "sns" : { },
+        "sns" : {
+          "bindingVersion" : "0.1.0"
+        },
         "solace" : {
           "bindingVersion" : "0.3.0",
           "destinations" : [ {
@@ -356,7 +360,9 @@
       "redis" : {
         "bindingVersion" : "0.1.0"
       },
-      "sns" : { },
+      "sns" : {
+        "bindingVersion" : "0.1.0"
+      },
       "solace" : {
         "bindingVersion" : "0.3.0",
         "destinations" : [ {
@@ -486,7 +492,9 @@
         "redis" : {
           "bindingVersion" : "0.1.0"
         },
-        "sns" : { },
+        "sns" : {
+          "bindingVersion" : "0.1.0"
+        },
         "solace" : {
           "bindingVersion" : "0.3.0",
           "destinations" : [ {
@@ -647,7 +655,9 @@
         "redis" : {
           "bindingVersion" : "0.1.0"
         },
-        "sns" : { },
+        "sns" : {
+          "bindingVersion" : "0.1.0"
+        },
         "solace" : { },
         "sqs" : {
           "bindingVersion" : "0.1.0"
@@ -789,7 +799,9 @@
     "redis" : {
       "bindingVersion" : "0.1.0"
     },
-    "sns" : { },
+    "sns" : {
+      "bindingVersion" : "0.1.0"
+    },
     "solace" : { },
     "sqs" : {
       "bindingVersion" : "0.1.0"

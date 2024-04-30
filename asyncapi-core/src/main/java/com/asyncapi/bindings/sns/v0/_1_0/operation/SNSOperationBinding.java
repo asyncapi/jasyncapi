@@ -1,9 +1,9 @@
 package com.asyncapi.bindings.sns.v0._1_0.operation;
 
-import com.asyncapi.bindings.OperationBinding;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * This class MUST NOT contain any properties. Its name is reserved for future use.
@@ -17,5 +17,16 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class SNSOperationBinding extends OperationBinding {
+public class SNSOperationBinding extends com.asyncapi.bindings.sns.SNSOperationBinding {
+
+    @Override
+    public String getBindingVersion() {
+        return "0.1.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.1.0");
+    }
+
 }

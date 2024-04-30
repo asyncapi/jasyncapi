@@ -14,7 +14,7 @@ import com.asyncapi.bindings.mqtt5.MQTT5ServerBinding;
 import com.asyncapi.bindings.nats.NATSServerBinding;
 import com.asyncapi.bindings.pulsar.PulsarServerBinding;
 import com.asyncapi.bindings.redis.RedisServerBinding;
-import com.asyncapi.bindings.sns.v0._1_0.server.SNSServerBinding;
+import com.asyncapi.bindings.sns.SNSServerBinding;
 import com.asyncapi.bindings.solace.v0._3_0.server.SolaceServerBinding;
 import com.asyncapi.bindings.sqs.SQSServerBinding;
 import com.asyncapi.bindings.stomp.STOMPServerBinding;
