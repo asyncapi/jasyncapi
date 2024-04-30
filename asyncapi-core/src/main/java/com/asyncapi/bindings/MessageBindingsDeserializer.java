@@ -9,7 +9,7 @@ import com.asyncapi.bindings.ibmmq.IBMMQMessageBinding;
 import com.asyncapi.bindings.jms.JMSMessageBinding;
 import com.asyncapi.bindings.kafka.KafkaMessageBinding;
 import com.asyncapi.bindings.mercure.MercureMessageBinding;
-import com.asyncapi.bindings.mqtt.v0._1_0.message.MQTTMessageBinding;
+import com.asyncapi.bindings.mqtt.MQTTMessageBinding;
 import com.asyncapi.bindings.mqtt5.MQTT5MessageBinding;
 import com.asyncapi.bindings.nats.NATSMessageBinding;
 import com.asyncapi.bindings.pulsar.PulsarMessageBinding;
