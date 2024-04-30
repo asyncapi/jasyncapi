@@ -28,4 +28,4 @@ import lombok.EqualsAndHashCode;
         }),
 })
 @EqualsAndHashCode(callSuper = true)
-public class KafkaMessageBinding extends MessageBinding {}
+public abstract class KafkaMessageBinding extends MessageBinding {}

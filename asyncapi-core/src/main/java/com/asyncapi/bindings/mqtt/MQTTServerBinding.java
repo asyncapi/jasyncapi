@@ -11,4 +11,4 @@ import com.asyncapi.bindings.ServerBinding;
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/mqtt#server-binding-object">MQTT server binding</a>
  * @author Pavel Bodiachevskii
  */
-public class MQTTServerBinding extends ServerBinding {}
+public abstract class MQTTServerBinding extends ServerBinding {}

@@ -28,4 +28,4 @@ import lombok.EqualsAndHashCode;
         }),
 })
 @EqualsAndHashCode(callSuper = true)
-public class KafkaOperationBinding extends OperationBinding {}
+public abstract class KafkaOperationBinding extends OperationBinding {}

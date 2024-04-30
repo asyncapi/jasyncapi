@@ -11,4 +11,4 @@ import com.asyncapi.bindings.OperationBinding;
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/mqtt#operation-binding-object">MQTT operation binding</a>
  * @author Pavel Bodiachevskii
  */
-public class MQTTOperationBinding extends OperationBinding {}
+public abstract class MQTTOperationBinding extends OperationBinding {}

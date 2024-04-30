@@ -26,4 +26,4 @@ import lombok.EqualsAndHashCode;
         }),
 })
 @EqualsAndHashCode(callSuper = true)
-public class KafkaChannelBinding extends ChannelBinding {}
+public abstract class KafkaChannelBinding extends ChannelBinding {}

@@ -11,4 +11,4 @@ import com.asyncapi.bindings.ChannelBinding;
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/mqtt#channel-binding-object">MQTT channel binding</a>
  * @author Pavel Bodiachevskii
  */
-public class MQTTChannelBinding extends ChannelBinding {}
+public abstract class MQTTChannelBinding extends ChannelBinding {}

@@ -26,4 +26,4 @@ import lombok.EqualsAndHashCode;
         }),
 })
 @EqualsAndHashCode(callSuper = true)
-public class KafkaServerBinding extends ServerBinding {}
+public abstract class KafkaServerBinding extends ServerBinding {}

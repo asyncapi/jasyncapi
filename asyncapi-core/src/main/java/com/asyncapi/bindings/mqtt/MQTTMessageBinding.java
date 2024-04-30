@@ -11,4 +11,4 @@ import com.asyncapi.bindings.MessageBinding;
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/mqtt#message-binding-object">MQTT message binding</a>
  * @author Pavel Bodiachevskii
  */
-public class MQTTMessageBinding extends MessageBinding {}
+public abstract class MQTTMessageBinding extends MessageBinding {}
