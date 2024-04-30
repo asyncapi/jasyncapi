@@ -1,6 +1,5 @@
 package com.asyncapi.bindings.solace.v0._3_0.operation;
 
-import com.asyncapi.bindings.OperationBinding;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
@@ -24,7 +23,7 @@ import java.util.List;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonClassDescription("Describes Solace operation binding.")
-public class SolaceOperationBinding extends OperationBinding {
+public class SolaceOperationBinding extends com.asyncapi.bindings.solace.SolaceOperationBinding {
 
     /**
      * List of destinations
@@ -34,13 +33,14 @@ public class SolaceOperationBinding extends OperationBinding {
     @JsonPropertyDescription("List of destinations")
     private List<SolaceOperationDestination> destinations;
 
-    /**
-     * The version of this binding. (e.g. bindingVersion: 0.3.0)
-     */
-    @Nullable
-    @Builder.Default
-    @JsonProperty("bindingVersion")
-    @JsonPropertyDescription("The version of this binding.")
-    private String bindingVersion = "0.3.0";
+    @Override
+    public String getBindingVersion() {
+        return "0.3.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.3.0");
+    }
 
 }

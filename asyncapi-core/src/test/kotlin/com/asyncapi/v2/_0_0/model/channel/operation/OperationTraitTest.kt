@@ -18,7 +18,7 @@ import com.asyncapi.bindings.nats.NATSV0_1_0Test
 import com.asyncapi.bindings.pulsar.v0._1_0.operation.PulsarOperationBinding
 import com.asyncapi.bindings.redis.v0._1_0.operation.RedisOperationBinding
 import com.asyncapi.bindings.sns.v0._1_0.operation.SNSOperationBinding
-import com.asyncapi.bindings.solace.v0._3_0.operation.SolaceOperationBindingTest
+import com.asyncapi.bindings.solace.SolaceV0_3_0Test
 import com.asyncapi.bindings.sqs.v0._1_0.operation.SQSOperationBinding
 import com.asyncapi.bindings.stomp.v0._1_0.operation.STOMPOperationBinding
 import com.asyncapi.bindings.websockets.v0._1_0.operation.WebSocketsOperationBinding
@@ -65,7 +65,7 @@ class OperationTraitTest: SerDeTest<OperationTrait>() {
                         Pair("pulsar", PulsarOperationBinding()),
                         Pair("redis", RedisOperationBinding()),
                         Pair("sns", SNSOperationBinding()),
-                        Pair("solace", SolaceOperationBindingTest().build()),
+                        Pair("solace", SolaceV0_3_0Test.operationBinding()),
                         Pair("sqs", SQSOperationBinding()),
                         Pair("stomp", STOMPOperationBinding()),
                         Pair("ws", WebSocketsOperationBinding())

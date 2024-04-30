@@ -775,7 +775,9 @@
             "sns" : {
               "bindingVersion" : "0.1.0"
             },
-            "solace" : { },
+            "solace" : {
+              "bindingVersion" : "0.3.0"
+            },
             "sqs" : {
               "bindingVersion" : "0.1.0"
             },
@@ -919,7 +921,9 @@
         "sns" : {
           "bindingVersion" : "0.1.0"
         },
-        "solace" : { },
+        "solace" : {
+          "bindingVersion" : "0.3.0"
+        },
         "sqs" : {
           "bindingVersion" : "0.1.0"
         },
@@ -1110,7 +1114,9 @@
           "sns" : {
             "bindingVersion" : "0.1.0"
           },
-          "solace" : { },
+          "solace" : {
+            "bindingVersion" : "0.3.0"
+          },
           "sqs" : {
             "bindingVersion" : "0.1.0"
           },
@@ -1504,7 +1510,9 @@
           "sns" : {
             "bindingVersion" : "0.1.0"
           },
-          "solace" : { },
+          "solace" : {
+            "bindingVersion" : "0.3.0"
+          },
           "sqs" : {
             "bindingVersion" : "0.1.0"
           },
@@ -1712,7 +1720,9 @@
       "sns" : {
         "bindingVersion" : "0.1.0"
       },
-      "solace" : { },
+      "solace" : {
+        "bindingVersion" : "0.3.0"
+      },
       "sqs" : {
         "bindingVersion" : "0.1.0"
       },
@@ -1938,7 +1948,9 @@
       "sns" : {
         "bindingVersion" : "0.1.0"
       },
-      "solace" : { },
+      "solace" : {
+        "bindingVersion" : "0.3.0"
+      },
       "sqs" : {
         "bindingVersion" : "0.1.0"
       },

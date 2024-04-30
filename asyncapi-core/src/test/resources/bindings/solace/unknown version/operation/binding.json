@@ -1,0 +1,31 @@
+{
+  "destinations": [
+    {
+      "destinationType": "queue",
+      "queue": {
+        "name": "CreatedHREvents",
+        "topicSubscriptions": [
+          "person/*/created"
+        ],
+        "accessType": "exclusive",
+        "maxMsgSpoolSize": "1,500",
+        "maxTtl": "60"
+      }
+    },
+    {
+      "destinationType": "queue",
+      "queue": {
+        "name": "UpdatedHREvents",
+        "topicSubscriptions": [
+          "person/*/updated"
+        ]
+      },
+      "topic": {
+        "topicSubscriptions": [
+          "person/*/updated"
+        ]
+      }
+    }
+  ],
+  "bindingVersion" : "unknown version"
+}

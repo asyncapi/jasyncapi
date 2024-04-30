@@ -5,7 +5,7 @@ import com.asyncapi.bindings.http.HTTPV0_3_0Test
 import com.asyncapi.bindings.kafka.KafkaV0_4_0Test
 import com.asyncapi.bindings.mqtt.MQTTV0_1_0Test
 import com.asyncapi.bindings.nats.NATSV0_1_0Test
-import com.asyncapi.bindings.solace.v0._3_0.operation.SolaceOperationBindingTest
+import com.asyncapi.bindings.solace.SolaceV0_3_0Test
 import com.asyncapi.Reference
 import com.asyncapi.v3.SerDeTest
 import com.asyncapi.v3._0_0.model.ExternalDocumentation
@@ -82,7 +82,7 @@ class OperationTest: SerDeTest<Operation>() {
                     Pair("pulsar", Reference("#/components/operationBindings/pulsar")),
                     Pair("redis", Reference("#/components/operationBindings/redis")),
                     Pair("sns", Reference("#/components/operationBindings/sns")),
-                    Pair("solace", SolaceOperationBindingTest().build()),
+                    Pair("solace", SolaceV0_3_0Test.operationBinding()),
                     Pair("sqs", Reference("#/components/operationBindings/sqs")),
                     Pair("stomp", Reference("#/components/operationBindings/stomp")),
                     Pair("ws", Reference("#/components/operationBindings/ws"))
@@ -144,7 +144,7 @@ class OperationTestWithReference: SerDeTest<Operation>() {
                         ),
                         Pair("redis", Reference("#/components/operationBindings/redis")),
                         Pair("sns", Reference("#/components/operationBindings/sns")),
-                        Pair("solace", SolaceOperationBindingTest().build()),
+                        Pair("solace", SolaceV0_3_0Test.operationBinding()),
                         Pair("sqs", Reference("#/components/operationBindings/sqs")),
                         Pair("stomp", Reference("#/components/operationBindings/stomp")),
                         Pair("ws", Reference("#/components/operationBindings/ws"))

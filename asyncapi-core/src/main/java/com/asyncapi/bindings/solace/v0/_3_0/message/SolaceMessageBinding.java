@@ -1,10 +1,10 @@
 package com.asyncapi.bindings.solace.v0._3_0.message;
 
-import com.asyncapi.bindings.MessageBinding;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * This class MUST NOT contain any properties. Its name is reserved for future use.
@@ -19,5 +19,16 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class SolaceMessageBinding extends MessageBinding {
+public class SolaceMessageBinding extends com.asyncapi.bindings.solace.SolaceMessageBinding {
+
+    @Override
+    public String getBindingVersion() {
+        return "0.3.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.3.0");
+    }
+
 }

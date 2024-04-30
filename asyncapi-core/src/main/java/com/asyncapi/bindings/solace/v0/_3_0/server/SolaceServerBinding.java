@@ -1,6 +1,5 @@
 package com.asyncapi.bindings.solace.v0._3_0.server;
 
-import com.asyncapi.bindings.ServerBinding;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
@@ -20,7 +19,7 @@ import org.jetbrains.annotations.Nullable;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @JsonClassDescription("Describes Solace server binding.")
-public class SolaceServerBinding extends ServerBinding {
+public class SolaceServerBinding extends com.asyncapi.bindings.solace.SolaceServerBinding {
 
     /**
      * Message VPN of the Solace Broker
@@ -32,13 +31,14 @@ public class SolaceServerBinding extends ServerBinding {
     @JsonPropertyDescription("Message VPN of the Solace Broker")
     private String msgVpn;
 
-    /**
-     * The version of this binding.
-     */
-    @Nullable
-    @Builder.Default
-    @JsonProperty("bindingVersion")
-    @JsonPropertyDescription("The version of this binding.")
-    private String bindingVersion = "0.3.0";
+    @Override
+    public String getBindingVersion() {
+        return "0.3.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.3.0");
+    }
 
 }

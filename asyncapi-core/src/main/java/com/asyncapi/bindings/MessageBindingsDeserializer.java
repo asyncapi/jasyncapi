@@ -15,7 +15,7 @@ import com.asyncapi.bindings.nats.NATSMessageBinding;
 import com.asyncapi.bindings.pulsar.PulsarMessageBinding;
 import com.asyncapi.bindings.redis.RedisMessageBinding;
 import com.asyncapi.bindings.sns.SNSMessageBinding;
-import com.asyncapi.bindings.solace.v0._3_0.message.SolaceMessageBinding;
+import com.asyncapi.bindings.solace.SolaceMessageBinding;
 import com.asyncapi.bindings.sqs.SQSMessageBinding;
 import com.asyncapi.bindings.stomp.STOMPMessageBinding;
 import com.asyncapi.bindings.websockets.WebSocketsMessageBinding;

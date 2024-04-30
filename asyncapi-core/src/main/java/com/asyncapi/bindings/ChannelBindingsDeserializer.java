@@ -15,7 +15,7 @@ import com.asyncapi.bindings.nats.NATSChannelBinding;
 import com.asyncapi.bindings.pulsar.PulsarChannelBinding;
 import com.asyncapi.bindings.redis.RedisChannelBinding;
 import com.asyncapi.bindings.sns.SNSChannelBinding;
-import com.asyncapi.bindings.solace.v0._3_0.channel.SolaceChannelBinding;
+import com.asyncapi.bindings.solace.SolaceChannelBinding;
 import com.asyncapi.bindings.sqs.SQSChannelBinding;
 import com.asyncapi.bindings.stomp.STOMPChannelBinding;
 import com.asyncapi.bindings.websockets.WebSocketsChannelBinding;
