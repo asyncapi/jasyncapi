@@ -24,7 +24,7 @@ import org.junit.platform.suite.api.SuiteDisplayName;
         com.asyncapi.bindings.solace.Solace.class,
         com.asyncapi.bindings.sqs.SQS.class,
         com.asyncapi.bindings.stomp.STOMP.class,
-//        com.asyncapi.bindings.websockets.WebSockets.class,
+        com.asyncapi.bindings.websockets.WebSockets.class,
 })
 @SuiteDisplayName("Bindings")
 public class BindingsTest {}

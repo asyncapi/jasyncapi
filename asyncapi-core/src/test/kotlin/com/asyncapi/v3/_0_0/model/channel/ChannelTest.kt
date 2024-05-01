@@ -14,7 +14,7 @@ import com.asyncapi.bindings.googlepubsub.GooglePubSubV0_1_0Test
 import com.asyncapi.bindings.ibmmq.IBMMQV0_1_0Test
 import com.asyncapi.bindings.kafka.KafkaV0_4_0Test
 import com.asyncapi.bindings.pulsar.PulsarV0_1_0Test
-import com.asyncapi.bindings.websockets.v0._1_0.WebSocketsBindingProvider
+import com.asyncapi.bindings.websockets.WebSocketsV0_1_0Test
 
 class ChannelTest: SerDeTest<Channel>() {
 
@@ -82,7 +82,7 @@ class ChannelTest: SerDeTest<Channel>() {
                     Pair("solace", Reference("#/components/channelBindings/solace")),
                     Pair("sqs", Reference("#/components/channelBindings/sqs")),
                     Pair("stomp", Reference("#/components/channelBindings/stomp")),
-                    Pair("ws", WebSocketsBindingProvider.channel())
+                    Pair("ws", WebSocketsV0_1_0Test.channelBinding())
             )
         }
     }
@@ -155,7 +155,7 @@ class ChannelTestWithReference: SerDeTest<Channel>() {
                     Pair("solace", Reference("#/components/channelBindings/solace")),
                     Pair("sqs", Reference("#/components/channelBindings/sqs")),
                     Pair("stomp", Reference("#/components/channelBindings/stomp")),
-                    Pair("ws", WebSocketsBindingProvider.channel())
+                    Pair("ws", WebSocketsV0_1_0Test.channelBinding())
             )
         }
     }
