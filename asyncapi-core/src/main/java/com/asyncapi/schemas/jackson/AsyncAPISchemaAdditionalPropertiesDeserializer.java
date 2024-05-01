@@ -1,6 +1,6 @@
-package com.asyncapi.v3.jackson.schema;
+package com.asyncapi.schemas.jackson;
 
-import com.asyncapi.schemas.JsonSchema;
+import com.asyncapi.schemas.AsyncAPISchema;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.ObjectCodec;
@@ -11,12 +11,12 @@ import com.fasterxml.jackson.databind.JsonNode;
 import java.io.IOException;
 
 /**
- * Json Schema properties deserializer.
+ * AsyncAPI Schema additional properties deserializer
  *
  * @author Guillaume LAMIRAND (guillaume.lamirand at graviteesource.com)
  * @author GraviteeSource Team
  */
-public class JsonSchemaPropertiesDeserializer extends JsonDeserializer<Object> {
+public class AsyncAPISchemaAdditionalPropertiesDeserializer extends JsonDeserializer<Object> {
 
     @Override
     public Object deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
@@ -31,7 +31,7 @@ public class JsonSchemaPropertiesDeserializer extends JsonDeserializer<Object> {
             if (jsonNode.isBoolean()) {
                 return jsonNode.asBoolean();
             } else {
-                return jsonParser.readValueAs(JsonSchema.class);
+                return jsonParser.readValueAs(AsyncAPISchema.class);
             }
         }
     }

@@ -1,7 +1,7 @@
 package com.asyncapi.schemas.openapi.v3._0_0;
 
-import com.asyncapi.v3.jackson.schema.openapi.OpenAPISchemaAdditionalPropertiesDeserializer;
-import com.asyncapi.v3.jackson.schema.openapi.OpenAPISchemaAnyValueDeserializer;
+import com.asyncapi.schemas.jackson.openapi.OpenAPISchemaAdditionalPropertiesDeserializer;
+import com.asyncapi.schemas.jackson.openapi.OpenAPISchemaAnyValueDeserializer;
 import com.asyncapi.schemas.openapi.v3._0_0.properties.Discriminator;
 import com.asyncapi.schemas.openapi.v3._0_0.properties.Extensions;
 import com.asyncapi.schemas.openapi.v3._0_0.properties.ExternalDocumentation;

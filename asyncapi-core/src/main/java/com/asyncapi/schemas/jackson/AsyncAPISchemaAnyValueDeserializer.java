@@ -1,4 +1,4 @@
-package com.asyncapi.v3.jackson.schema;
+package com.asyncapi.schemas.jackson;
 
 import com.asyncapi.schemas.AsyncAPISchema;
 
