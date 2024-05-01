@@ -13,7 +13,7 @@ import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.server.Server
 import com.asyncapi.bindings.websockets.v0._1_0.channel.WebSocketsChannelBinding
-import com.asyncapi.v3.schema.AsyncAPISchema
+import com.asyncapi.schemas.AsyncAPISchema
 
 class WebsocketGeminiAsyncAPI: AbstractExampleValidationTest() {
 
@@ -360,7 +360,8 @@ class WebsocketGeminiAsyncAPI: AbstractExampleValidationTest() {
                         Pair("events", AsyncAPISchema.builder()
                                 .type("array")
                                 .description("Either a change to the order book, or the indication that a trade has occurred.")
-                                .items(AsyncAPISchema.builder()
+                                .items(
+                                    AsyncAPISchema.builder()
                                         .type("object")
                                         .additionalProperties(false)
                                         .properties(mapOf(

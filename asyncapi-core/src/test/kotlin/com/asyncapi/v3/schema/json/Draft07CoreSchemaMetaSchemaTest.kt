@@ -1,6 +1,6 @@
 package com.asyncapi.v3.schema.json
 
-import com.asyncapi.v3.schema.AsyncAPISchema
+import com.asyncapi.schemas.AsyncAPISchema
 import com.asyncapi.schemas.JsonSchema
 import com.asyncapi.v3.schema.SchemaProvider
 import java.math.BigDecimal
@@ -458,7 +458,8 @@ class Draft07CoreSchemaMetaSchemaTest: SchemaProvider {
                         ),
                         Pair("dependencies", AsyncAPISchema.builder()
                                 .type("object")
-                                .additionalProperties(AsyncAPISchema.builder().anyOf(listOf(
+                                .additionalProperties(
+                                    AsyncAPISchema.builder().anyOf(listOf(
                                         AsyncAPISchema.builder().ref("#").build(),
                                         AsyncAPISchema.builder().ref("#/definitions/stringArray").build(),
                                 )).build())

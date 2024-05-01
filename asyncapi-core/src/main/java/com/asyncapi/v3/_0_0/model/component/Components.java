@@ -24,7 +24,7 @@ import com.asyncapi.bindings.MessageBindingsDeserializer;
 import com.asyncapi.bindings.OperationBindingsDeserializer;
 import com.asyncapi.bindings.ServerBindingsDeserializer;
 import com.asyncapi.v3.schema.multiformat.MultiFormatSchema;
-import com.asyncapi.v3.schema.AsyncAPISchema;
+import com.asyncapi.schemas.AsyncAPISchema;
 import com.asyncapi.v3.security_scheme.SecurityScheme;
 import com.asyncapi.schemas.ExtendableObject;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;

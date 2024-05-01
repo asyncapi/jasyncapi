@@ -1,6 +1,6 @@
 package com.asyncapi.bindings.jms.v0._0_1.message;
 
-import com.asyncapi.v3.schema.AsyncAPISchema;
+import com.asyncapi.schemas.AsyncAPISchema;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.jetbrains.annotations.Nullable;

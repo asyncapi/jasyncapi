@@ -9,7 +9,7 @@ import com.asyncapi.v3._0_0.model.component.Components
 import com.asyncapi.v3._0_0.model.info.Info
 import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
-import com.asyncapi.v3.schema.AsyncAPISchema
+import com.asyncapi.schemas.AsyncAPISchema
 import com.asyncapi.v3.security_scheme.oauth2.OAuth2SecurityScheme
 import com.asyncapi.v3.security_scheme.oauth2.OAuthFlows
 import com.asyncapi.v3.security_scheme.oauth2.flow.ClientCredentialsOAuthFlow
@@ -85,7 +85,8 @@ class OperationSecurityAsyncAPI: AbstractExampleValidationTest() {
                 .messages(mapOf(
                         Pair("message",
                                 Message.builder()
-                                        .headers(AsyncAPISchema.builder()
+                                        .headers(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("X-SIGNATURE", AsyncAPISchema.builder()
@@ -102,7 +103,8 @@ class OperationSecurityAsyncAPI: AbstractExampleValidationTest() {
                                                         )
                                                 ))
                                                 .build())
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("metadata", AsyncAPISchema.builder().ref("#/components/schemas/MetaData").build()),

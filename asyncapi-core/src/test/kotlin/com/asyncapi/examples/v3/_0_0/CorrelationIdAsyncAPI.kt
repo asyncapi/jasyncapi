@@ -13,7 +13,7 @@ import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.server.Server
 import com.asyncapi.v3._0_0.model.server.ServerVariable
-import com.asyncapi.v3.schema.AsyncAPISchema
+import com.asyncapi.schemas.AsyncAPISchema
 import com.asyncapi.v3.security_scheme.OpenIdConnectSecurityScheme
 import com.asyncapi.v3.security_scheme.oauth2.OAuth2SecurityScheme
 import com.asyncapi.v3.security_scheme.oauth2.OAuthFlows

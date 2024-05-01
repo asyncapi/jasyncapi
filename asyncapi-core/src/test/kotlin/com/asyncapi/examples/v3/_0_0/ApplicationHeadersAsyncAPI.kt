@@ -12,7 +12,7 @@ import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.server.Server
 import com.asyncapi.v3._0_0.model.server.ServerVariable
-import com.asyncapi.v3.schema.AsyncAPISchema
+import com.asyncapi.schemas.AsyncAPISchema
 import java.math.BigDecimal
 
 class ApplicationHeadersAsyncAPI: AbstractExampleValidationTest() {
@@ -99,7 +99,8 @@ class ApplicationHeadersAsyncAPI: AbstractExampleValidationTest() {
                                         .summary("Inform about environmental lighting conditions of a particular streetlight.")
                                         .correlationId(CorrelationId(null, "\$message.header#/MQMD/CorrelId"))
                                         .contentType("application/json")
-                                        .headers(AsyncAPISchema.builder()
+                                        .headers(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("MQMD", AsyncAPISchema.builder()

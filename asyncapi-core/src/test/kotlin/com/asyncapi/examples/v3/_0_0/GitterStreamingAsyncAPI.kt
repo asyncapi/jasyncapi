@@ -12,7 +12,7 @@ import com.asyncapi.v3._0_0.model.info.Info
 import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.server.Server
-import com.asyncapi.v3.schema.AsyncAPISchema
+import com.asyncapi.schemas.AsyncAPISchema
 import com.asyncapi.schemas.JsonSchema
 import com.asyncapi.v3.schema.multiformat.JsonFormatSchema
 import com.asyncapi.v3.security_scheme.http.HttpSecurityScheme
@@ -260,7 +260,8 @@ class GitterStreamingAsyncAPI: AbstractExampleValidationTest() {
                                 ))
                                 .bindings(mapOf(
                                         Pair("http", HTTPMessageBinding.builder()
-                                                .headers(AsyncAPISchema.builder()
+                                                .headers(
+                                                    AsyncAPISchema.builder()
                                                         .type("object")
                                                         .properties(mapOf(
                                                                 Pair("Transfer-Encoding", AsyncAPISchema.builder()
@@ -292,7 +293,8 @@ class GitterStreamingAsyncAPI: AbstractExampleValidationTest() {
                                 ))
                                 .bindings(mapOf(
                                         Pair("http", HTTPMessageBinding.builder()
-                                                .headers(AsyncAPISchema.builder()
+                                                .headers(
+                                                    AsyncAPISchema.builder()
                                                         .type("object")
                                                         .properties(mapOf(
                                                                 Pair("Transfer-Encoding", AsyncAPISchema.builder()

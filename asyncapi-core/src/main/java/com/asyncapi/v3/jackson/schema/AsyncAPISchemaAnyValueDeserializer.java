@@ -1,6 +1,6 @@
 package com.asyncapi.v3.jackson.schema;
 
-import com.asyncapi.v3.schema.AsyncAPISchema;
+import com.asyncapi.schemas.AsyncAPISchema;
 
 /**
  * AsyncAPI Schema any value deserializer

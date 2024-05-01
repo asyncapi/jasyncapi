@@ -1,6 +1,6 @@
 package com.asyncapi.bindings.kafka.v0._4_0.operation;
 
-import com.asyncapi.v3.schema.AsyncAPISchema;
+import com.asyncapi.schemas.AsyncAPISchema;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import lombok.*;

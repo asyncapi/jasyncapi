@@ -11,7 +11,7 @@ import com.asyncapi.bindings.http.HTTPV0_3_0Test
 import com.asyncapi.bindings.ibmmq.IBMMQV0_1_0Test
 import com.asyncapi.bindings.kafka.KafkaV0_4_0Test
 import com.asyncapi.bindings.mqtt.MQTTV0_1_0Test
-import com.asyncapi.v3.schema.AsyncAPISchema
+import com.asyncapi.schemas.AsyncAPISchema
 import com.asyncapi.v3.schema.multiformat.AsyncAPIFormatSchema
 
 class MessageTestWithSchema: SerDeTest<Message>() {
@@ -26,7 +26,8 @@ class MessageTestWithSchema: SerDeTest<Message>() {
 
     override fun build(): Message {
         return Message.builder()
-                .headers(AsyncAPISchema.builder()
+                .headers(
+                    AsyncAPISchema.builder()
                         .type("object")
                         .properties(mapOf(
                                 Pair(
@@ -46,7 +47,8 @@ class MessageTestWithSchema: SerDeTest<Message>() {
                         ))
                         .build()
                 )
-                .payload(AsyncAPISchema.builder()
+                .payload(
+                    AsyncAPISchema.builder()
                         .type("object")
                         .properties(mapOf(
                                 Pair(

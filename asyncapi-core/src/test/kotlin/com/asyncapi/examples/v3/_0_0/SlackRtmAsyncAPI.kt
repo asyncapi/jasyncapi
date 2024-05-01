@@ -8,7 +8,7 @@ import com.asyncapi.v3._0_0.model.info.Info
 import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.server.Server
-import com.asyncapi.v3.schema.AsyncAPISchema
+import com.asyncapi.schemas.AsyncAPISchema
 import com.asyncapi.v3.security_scheme.http.HttpApiKeySecurityScheme
 
 class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
@@ -316,7 +316,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                                                 ),
                                                 Pair("fields", AsyncAPISchema.builder()
                                                         .type("array")
-                                                        .items(AsyncAPISchema.builder()
+                                                        .items(
+                                                            AsyncAPISchema.builder()
                                                                 .type("object")
                                                                 .properties(mapOf(
                                                                         Pair("title", AsyncAPISchema.builder()
@@ -367,7 +368,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("hello",
                                 Message.builder()
                                         .summary("First event received upon connection.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -383,7 +385,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("connectionError",
                                 Message.builder()
                                         .summary("Event received when a connection error happens.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -407,7 +410,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("accountsChanged",
                                 Message.builder()
                                         .summary("The list of accounts a user is signed into has changed.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -423,7 +427,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("botAdded",
                                 Message.builder()
                                         .summary("A bot user was added.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -462,7 +467,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("botChanged",
                                 Message.builder()
                                         .summary("A bot user was changed.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -501,7 +507,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("channelArchive",
                                 Message.builder()
                                         .summary("A channel was archived.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -525,7 +532,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("channelCreated",
                                 Message.builder()
                                         .summary("A channel was created.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -563,7 +571,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("channelDeleted",
                                 Message.builder()
                                         .summary("A channel was deleted.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -583,7 +592,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("channelHistoryChanged",
                                 Message.builder()
                                         .summary("Bulk updates were made to a channel's history.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -611,7 +621,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("channelJoined",
                                 Message.builder()
                                         .summary("You joined a channel.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -649,7 +660,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("channelLeft",
                                 Message.builder()
                                         .summary("You left a channel.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -669,7 +681,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("channelMarked",
                                 Message.builder()
                                         .summary("Your channel read marker was updated.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -693,7 +706,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("channelRename",
                                 Message.builder()
                                         .summary("A channel was renamed.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -727,7 +741,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("channelUnarchive",
                                 Message.builder()
                                         .summary("A channel was unarchived.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -751,7 +766,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("commandsChanged",
                                 Message.builder()
                                         .summary("A slash command has been added or changed.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -771,7 +787,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("dndUpdated",
                                 Message.builder()
                                         .summary("Do not Disturb settings changed for the current user.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -817,7 +834,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("dndUpdatedUser",
                                 Message.builder()
                                         .summary("Do not Disturb settings changed for a member.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -855,7 +873,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("emailDomainChanged",
                                 Message.builder()
                                         .summary("The workspace email domain has changed.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -879,7 +898,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("emojiRemoved",
                                 Message.builder()
                                         .summary("A custom emoji has been removed.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -909,7 +929,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("emojiAdded",
                                 Message.builder()
                                         .summary("A custom emoji has been added.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -943,7 +964,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("fileChange",
                                 Message.builder()
                                         .summary("A file was changed.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -970,7 +992,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("fileCommentAdded",
                                 Message.builder()
                                         .summary("A file comment was added.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -978,7 +1001,9 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                                                                 .enumValue(listOf("file_comment_added"))
                                                                 .build()
                                                         ),
-                                                        Pair("comment", AsyncAPISchema()),
+                                                        Pair("comment",
+                                                            AsyncAPISchema()
+                                                        ),
                                                         Pair("file_id", AsyncAPISchema.builder()
                                                                 .type("string")
                                                                 .build()
@@ -998,7 +1023,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("fileCommentDeleted",
                                 Message.builder()
                                         .summary("A file comment was deleted.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -1029,7 +1055,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("fileCommentEdited",
                                 Message.builder()
                                         .summary("A file comment was edited.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -1037,7 +1064,9 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                                                                 .enumValue(listOf("file_comment_edited"))
                                                                 .build()
                                                         ),
-                                                        Pair("comment", AsyncAPISchema()),
+                                                        Pair("comment",
+                                                            AsyncAPISchema()
+                                                        ),
                                                         Pair("file_id", AsyncAPISchema.builder()
                                                                 .type("string")
                                                                 .build()
@@ -1057,7 +1086,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("fileCreated",
                                 Message.builder()
                                         .summary("A file was created.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -1084,7 +1114,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("fileDeleted",
                                 Message.builder()
                                         .summary("A file was deleted.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -1108,7 +1139,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("filePublic",
                                 Message.builder()
                                         .summary("A file was made public.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -1135,7 +1167,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("fileShared",
                                 Message.builder()
                                         .summary("A file was shared.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -1162,7 +1195,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("fileUnshared",
                                 Message.builder()
                                         .summary("A file was unshared.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -1189,7 +1223,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("goodbye",
                                 Message.builder()
                                         .summary("The server intends to close the connection soon.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -1205,7 +1240,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("groupArchive",
                                 Message.builder()
                                         .summary("A private channel was archived.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -1225,7 +1261,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("groupClose",
                                 Message.builder()
                                         .summary("You closed a private channel.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -1249,7 +1286,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("groupHistoryChanged",
                                 Message.builder()
                                         .summary("Bulk updates were made to a private channel's history.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -1277,7 +1315,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("groupJoined",
                                 Message.builder()
                                         .summary("You joined a private channel.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -1315,7 +1354,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("groupLeft",
                                 Message.builder()
                                         .summary("You left a private channel.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -1335,7 +1375,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("groupMarked",
                                 Message.builder()
                                         .summary("A private channel read marker was updated.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -1359,7 +1400,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("groupOpen",
                                 Message.builder()
                                         .summary("You opened a private channel.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -1383,7 +1425,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("groupRename",
                                 Message.builder()
                                         .summary("A private channel was renamed.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -1417,7 +1460,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("groupUnarchive",
                                 Message.builder()
                                         .summary("A private channel was unarchived.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -1441,7 +1485,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("imClose",
                                 Message.builder()
                                         .summary("You closed a DM.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -1465,7 +1510,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("imCreated",
                                 Message.builder()
                                         .summary("A DM was created.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -1507,7 +1553,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("imMarked",
                                 Message.builder()
                                         .summary("A direct message read marker was updated.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -1531,7 +1578,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("imOpen",
                                 Message.builder()
                                         .summary("You opened a DM.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -1555,7 +1603,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("manualPresenceChange",
                                 Message.builder()
                                         .summary("You manually updated your presence.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -1575,7 +1624,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("memberJoinedChannel",
                                 Message.builder()
                                         .summary("A user joined a public or private channel.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -1612,7 +1662,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("memberLeftChannel",
                                 Message.builder()
                                         .summary("A user left a public or private channel.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -1645,7 +1696,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("message",
                                 Message.builder()
                                         .summary("A message was sent to a channel.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()
@@ -1696,7 +1748,8 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
                         Pair("outgoingMessage",
                                 Message.builder()
                                         .summary("A message was sent to a channel.")
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("type", AsyncAPISchema.builder()

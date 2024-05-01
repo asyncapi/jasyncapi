@@ -11,7 +11,7 @@ import com.asyncapi.v2._0_0.model.info.Info
 import com.asyncapi.v2._0_0.model.server.Server
 import com.asyncapi.bindings.websockets.v0._1_0.channel.WebSocketsChannelBinding
 import com.asyncapi.v2.schema.Schema
-import com.asyncapi.v3.schema.AsyncAPISchema
+import com.asyncapi.schemas.AsyncAPISchema
 
 class WebsocketGemini: AbstractExampleValidationTest() {
 

@@ -10,7 +10,7 @@ import com.asyncapi.v3._0_0.model.info.Info
 import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.server.Server
-import com.asyncapi.v3.schema.AsyncAPISchema
+import com.asyncapi.schemas.AsyncAPISchema
 
 class MercureAsyncAPI: AbstractExampleValidationTest() {
 
@@ -91,7 +91,8 @@ class MercureAsyncAPI: AbstractExampleValidationTest() {
                                 Message.builder()
                                         .summary("The content of a book resource.")
                                         .externalDocs(ExternalDocumentation(null, "https://schema.org/Book"))
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("@id",

@@ -1,6 +1,6 @@
 package com.asyncapi.v3.schema.json
 
-import com.asyncapi.v3.schema.AsyncAPISchema
+import com.asyncapi.schemas.AsyncAPISchema
 import com.asyncapi.schemas.JsonSchema
 import com.asyncapi.v3.schema.SchemaProvider
 import java.math.BigDecimal

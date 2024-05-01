@@ -18,7 +18,7 @@ import com.asyncapi.v3._0_0.model.operation.reply.OperationReplyTest
 import com.asyncapi.v3._0_0.model.operation.reply.OperationReplyTestWithReference
 import com.asyncapi.v3._0_0.model.server.ServerTest
 import com.asyncapi.v3._0_0.model.server.ServerVariableTest
-import com.asyncapi.v3.schema.AsyncAPISchema
+import com.asyncapi.schemas.AsyncAPISchema
 import com.asyncapi.schemas.JsonSchema
 import com.asyncapi.schemas.Type
 import com.asyncapi.v3.schema.multiformat.JsonFormatSchema

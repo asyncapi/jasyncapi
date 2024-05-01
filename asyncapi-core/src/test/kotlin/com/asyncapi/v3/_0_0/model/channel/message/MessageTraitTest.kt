@@ -4,7 +4,7 @@ import com.asyncapi.schemas.Reference
 import com.asyncapi.v3.SerDeTest
 import com.asyncapi.v3._0_0.model.ExternalDocumentation
 import com.asyncapi.v3._0_0.model.Tag
-import com.asyncapi.v3.schema.AsyncAPISchema
+import com.asyncapi.schemas.AsyncAPISchema
 import com.asyncapi.bindings.amqp.AMQPV0_2_0Test
 import com.asyncapi.bindings.anypointmq.AnypointMQV0_0_1Test
 import com.asyncapi.bindings.googlepubsub.GooglePubSubV0_1_0Test
@@ -26,7 +26,8 @@ class MessageTraitTestWithSchema: SerDeTest<MessageTrait>() {
 
     override fun build(): MessageTrait {
         return MessageTrait.builder()
-                .headers(AsyncAPISchema.builder()
+                .headers(
+                    AsyncAPISchema.builder()
                         .type("object")
                         .properties(mapOf(
                                 Pair(

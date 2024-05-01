@@ -13,7 +13,7 @@ import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.operation.OperationTrait
 import com.asyncapi.v3._0_0.model.server.Server
 import com.asyncapi.bindings.kafka.v0._4_0.operation.KafkaOperationBinding
-import com.asyncapi.v3.schema.AsyncAPISchema
+import com.asyncapi.schemas.AsyncAPISchema
 import com.asyncapi.v3.security_scheme.SecurityScheme
 import com.asyncapi.v3.security_scheme.oauth2.OAuth2SecurityScheme
 import com.asyncapi.v3.security_scheme.oauth2.OAuthFlows
@@ -320,7 +320,8 @@ class StreetlightsOperationSecurityAsyncAPI: AbstractExampleValidationTest() {
                 .messageTraits(mapOf(
                         Pair("commonHeaders",
                                 MessageTrait.builder()
-                                        .headers(AsyncAPISchema.builder()
+                                        .headers(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("my-app-header", AsyncAPISchema.builder()
@@ -340,7 +341,8 @@ class StreetlightsOperationSecurityAsyncAPI: AbstractExampleValidationTest() {
                                 OperationTrait.builder()
                                         .bindings(mapOf(
                                                 Pair("kafka", KafkaOperationBinding.builder()
-                                                        .clientId(AsyncAPISchema.builder()
+                                                        .clientId(
+                                                            AsyncAPISchema.builder()
                                                                 .type("string")
                                                                 .enumValue(listOf("my-app-id"))
                                                                 .build()

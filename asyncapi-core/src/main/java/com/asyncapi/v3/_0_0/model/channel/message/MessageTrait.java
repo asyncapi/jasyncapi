@@ -1,5 +1,6 @@
 package com.asyncapi.v3._0_0.model.channel.message;
 
+import com.asyncapi.schemas.AsyncAPISchema;
 import com.asyncapi.schemas.ExtendableObject;
 import com.asyncapi.schemas.Reference;
 import com.asyncapi.v3._0_0.jackson.model.ExternalDocumentationDeserializer;
@@ -40,13 +41,13 @@ public class MessageTrait extends ExtendableObject {
      * <p>
      * It MUST NOT define the protocol headers.
      * <p>
-     * If this is a {@link com.asyncapi.v3.schema.AsyncAPISchema}, then the schemaFormat will be assumed to
+     * If this is a {@link AsyncAPISchema}, then the schemaFormat will be assumed to
      * be "application/vnd.aai.asyncapi+json;version=asyncapi" where the version
      * is equal to the AsyncAPI Version String.
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v3.schema.AsyncAPISchema}</li>
+     *     <li>{@link AsyncAPISchema}</li>
      *     <li>{@link MultiFormatSchema}</li>
      *     <li>{@link Reference}</li>
      * </ul>

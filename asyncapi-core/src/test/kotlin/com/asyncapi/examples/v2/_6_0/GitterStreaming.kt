@@ -13,7 +13,7 @@ import com.asyncapi.bindings.http.v0._3_0.message.HTTPMessageBinding
 import com.asyncapi.bindings.http.v0._3_0.operation.HTTPOperationBinding
 import com.asyncapi.v2.schema.Schema
 import com.asyncapi.v2.security_scheme.http.HttpSecurityScheme
-import com.asyncapi.v3.schema.AsyncAPISchema
+import com.asyncapi.schemas.AsyncAPISchema
 
 class GitterStreaming: AbstractExampleValidationTest() {
 
@@ -273,7 +273,8 @@ class GitterStreaming: AbstractExampleValidationTest() {
                 ))
                 .messageBindings(mapOf(
                         Pair("http", HTTPMessageBinding.builder()
-                                .headers(AsyncAPISchema.builder()
+                                .headers(
+                                    AsyncAPISchema.builder()
                                         .type("object")
                                         .properties(mapOf(
                                                 Pair("Transfer-Encoding", AsyncAPISchema.builder()

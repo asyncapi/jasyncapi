@@ -17,7 +17,7 @@ import com.asyncapi.v2.security_scheme.SecurityScheme
 import com.asyncapi.v2.security_scheme.oauth2.OAuth2SecurityScheme
 import com.asyncapi.v2.security_scheme.oauth2.OAuthFlows
 import com.asyncapi.v2.security_scheme.oauth2.flow.ClientCredentialsOAuthFlow
-import com.asyncapi.v3.schema.AsyncAPISchema
+import com.asyncapi.schemas.AsyncAPISchema
 import java.math.BigDecimal
 
 class StreetlightsOperationSecurity: AbstractExampleValidationTest() {
@@ -280,7 +280,8 @@ class StreetlightsOperationSecurity: AbstractExampleValidationTest() {
                                 OperationTrait.builder()
                                         .bindings(mapOf(
                                                 Pair("kafka", KafkaOperationBinding.builder()
-                                                        .clientId(AsyncAPISchema.builder()
+                                                        .clientId(
+                                                            AsyncAPISchema.builder()
                                                                 .type("string")
                                                                 .enumValue(listOf("my-app-id"))
                                                                 .build()

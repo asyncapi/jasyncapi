@@ -1,5 +1,6 @@
 package com.asyncapi.v3.schema
 
+import com.asyncapi.schemas.AsyncAPISchema
 import com.asyncapi.schemas.JsonSchema
 import com.asyncapi.v3.ClasspathUtils
 import com.asyncapi.v3.schema.json.*

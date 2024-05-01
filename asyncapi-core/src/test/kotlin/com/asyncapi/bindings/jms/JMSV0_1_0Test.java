@@ -7,13 +7,12 @@ import com.asyncapi.bindings.jms.v0._0_1.message.JMSMessageBinding;
 import com.asyncapi.bindings.jms.v0._0_1.operation.JMSOperationBinding;
 import com.asyncapi.bindings.jms.v0._0_1.server.JMSServerBinding;
 import com.asyncapi.bindings.jms.v0._0_1.server.JMSServerProperty;
-import com.asyncapi.v3.schema.AsyncAPISchema;
+import com.asyncapi.schemas.AsyncAPISchema;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 @DisplayName("0.0.1")
 public class JMSV0_1_0Test {

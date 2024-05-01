@@ -19,7 +19,7 @@ import com.asyncapi.bindings.kafka.v0._4_0.channel.KafkaChannelTopicCleanupPolic
 import com.asyncapi.bindings.kafka.v0._4_0.channel.KafkaChannelTopicConfiguration
 import com.asyncapi.bindings.kafka.v0._4_0.operation.KafkaOperationBinding
 import com.asyncapi.bindings.kafka.v0._4_0.server.KafkaServerBinding
-import com.asyncapi.v3.schema.AsyncAPISchema
+import com.asyncapi.schemas.AsyncAPISchema
 import com.asyncapi.v3.schema.multiformat.AvroFormatSchema
 import com.asyncapi.v3.security_scheme.SecurityScheme
 
@@ -176,7 +176,8 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
 
     override fun expectedOperations(): Map<String, Any> {
         val receiveACostingRequestKafkaBinding = KafkaOperationBinding.builder()
-                .groupId(AsyncAPISchema.builder()
+                .groupId(
+                    AsyncAPISchema.builder()
                         .type("string")
                         .description("The groupId must be prefixed by your `svc` account, deliver by the Adeo Kafka team. This `svc` must have the write access to the topic.\n")
                         .build()
@@ -246,7 +247,8 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
                                         Tag.builder().name("costing").build()
                                 ))
                                 .correlationId(Reference("#/components/correlationIds/costingCorrelationId"))
-                                .headers(AsyncAPISchema.builder()
+                                .headers(
+                                    AsyncAPISchema.builder()
                                         .type("object")
                                         .required(listOf(
                                                 "REQUESTER_ID", "REQUESTER_CODE", "REQUEST_ID", "REPLY_TOPIC"
@@ -275,7 +277,8 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
                                         Tag.builder().name("costing").build()
                                 ))
                                 .correlationId(Reference("#/components/correlationIds/costingCorrelationId"))
-                                .headers(AsyncAPISchema.builder()
+                                .headers(
+                                    AsyncAPISchema.builder()
                                         .type("object")
                                         .properties(mapOf(
                                                 Pair("CALCULATION_ID", AsyncAPISchema.builder().ref("#/components/schemas/MessageId").build()),
