@@ -39,6 +39,5 @@
                 "description": "The queue or topic that the message sender expects replies to."
             }
         }
-    },
-    "bindingVersion": "without version"
+    }
 }

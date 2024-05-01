@@ -10,6 +10,5 @@
       }
     }
   },
-  "statusCode": 200,
-  "bindingVersion": "without version"
+  "statusCode": 200
 }

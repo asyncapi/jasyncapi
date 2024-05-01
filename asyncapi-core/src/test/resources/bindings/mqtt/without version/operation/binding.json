@@ -1,5 +1,4 @@
 {
   "qos": 2,
-  "retain": true,
-  "bindingVersion": "without version"
+  "retain": true
 }

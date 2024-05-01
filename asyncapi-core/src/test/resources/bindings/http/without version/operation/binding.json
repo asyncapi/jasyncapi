@@ -13,6 +13,5 @@
       }
     },
     "additionalProperties": false
-  },
-  "bindingVersion": "without version"
+  }
 }

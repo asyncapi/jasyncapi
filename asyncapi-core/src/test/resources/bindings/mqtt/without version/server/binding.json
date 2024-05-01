@@ -7,6 +7,5 @@
     "message": "Guest gone offline.",
     "retain": false
   },
-  "keepAlive": 60,
-  "bindingVersion": "without version"
+  "keepAlive": 60
 }

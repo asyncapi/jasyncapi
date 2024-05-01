@@ -7,6 +7,5 @@
   },
   "schemaIdLocation": "payload",
   "schemaIdPayloadEncoding": "apicurio-new",
-  "schemaLookupStrategy": "TopicIdStrategy",
-  "bindingVersion": "without version"
+  "schemaLookupStrategy": "TopicIdStrategy"
 }

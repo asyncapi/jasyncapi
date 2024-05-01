@@ -1,7 +1,6 @@
 {
   "destination": "user-signed-up",
   "destinationType": "fifo-queue",
-  "bindingVersion": "without version",
   "x-number": 0,
   "x-string": "",
   "x-object": {

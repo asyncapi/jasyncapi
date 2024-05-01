@@ -1,5 +1,4 @@
 {
   "schemaRegistryUrl": "https://my-schema-registry.com",
-  "schemaRegistryVendor": "confluent",
-  "bindingVersion": "without version"
+  "schemaRegistryVendor": "confluent"
 }

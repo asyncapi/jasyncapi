@@ -6,6 +6,5 @@
             "value": false
         }
     ],
-    "clientID": "my-application-1",
-    "bindingVersion": "without version"
+    "clientID": "my-application-1"
 }

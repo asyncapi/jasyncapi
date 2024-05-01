@@ -10,6 +10,5 @@
     "enum": [
       "myClientId"
     ]
-  },
-  "bindingVersion": "without version"
+  }
 }

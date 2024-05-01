@@ -11,6 +11,5 @@
     "durablePermitted": true,
     "lastMsgRetained": true
   },
-  "maxMsgLength": 1024,
-  "bindingVersion": "without version"
+  "maxMsgLength": 1024
 }

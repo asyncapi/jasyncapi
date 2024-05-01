@@ -8,7 +8,6 @@
     "retain": false
   },
   "keepAlive": 60,
-  "bindingVersion": "without version",
   "x-number": 0,
   "x-string": "",
   "x-object": {

@@ -1,6 +1,5 @@
 {
   "schema": {
     "name": "projects/your-project/schemas/message-avro"
-  },
-  "bindingVersion": "without version"
+  }
 }

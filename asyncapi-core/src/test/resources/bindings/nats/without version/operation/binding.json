@@ -1,4 +1,3 @@
 {
-  "queue": "messages",
-  "bindingVersion": "without version"
+  "queue": "messages"
 }

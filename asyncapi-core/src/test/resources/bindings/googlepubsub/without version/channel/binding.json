@@ -18,6 +18,5 @@
   "schemaSettings": {
     "encoding": "binary",
     "name": "projects/your-project/schemas/message-proto"
-  },
-  "bindingVersion": "without version"
+  }
 }

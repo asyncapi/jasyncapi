@@ -1,5 +1,4 @@
 {
-  "bindingVersion": "without version",
   "jmsConnectionFactory": "org.apache.activemq.ActiveMQConnectionFactory",
   "properties": [
     {

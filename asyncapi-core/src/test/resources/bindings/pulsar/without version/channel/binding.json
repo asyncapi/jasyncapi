@@ -11,6 +11,5 @@
     "size": 1000
   },
   "ttl": 360,
-  "deduplication": false,
-  "bindingVersion": "without version"
+  "deduplication": false
 }
