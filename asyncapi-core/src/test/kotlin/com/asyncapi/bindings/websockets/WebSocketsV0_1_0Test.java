@@ -7,7 +7,7 @@ import com.asyncapi.bindings.websockets.v0._1_0.message.WebSocketsMessageBinding
 import com.asyncapi.bindings.websockets.v0._1_0.operation.WebSocketsOperationBinding;
 import com.asyncapi.bindings.websockets.v0._1_0.server.WebSocketsServerBinding;
 import com.asyncapi.v3.schema.AsyncAPISchema;
-import com.asyncapi.v3.schema.Type;
+import com.asyncapi.schemas.Type;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 

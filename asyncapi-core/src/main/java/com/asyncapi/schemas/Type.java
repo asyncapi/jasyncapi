@@ -1,4 +1,4 @@
-package com.asyncapi.v3.schema;
+package com.asyncapi.schemas;
 
 /**
  * Json Schema type.

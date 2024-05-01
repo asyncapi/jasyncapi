@@ -7,7 +7,7 @@ import com.asyncapi.bindings.anypointmq.v0._0_1.message.AnypointMQMessageBinding
 import com.asyncapi.bindings.anypointmq.v0._0_1.operation.AnypointMQOperationBinding;
 import com.asyncapi.bindings.anypointmq.v0._0_1.server.AnypointMQServerBinding;
 import com.asyncapi.v3.schema.AsyncAPISchema;
-import com.asyncapi.v3.schema.Type;
+import com.asyncapi.schemas.Type;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 
