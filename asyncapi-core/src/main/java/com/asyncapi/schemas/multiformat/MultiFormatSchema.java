@@ -1,4 +1,4 @@
-package com.asyncapi.v3.schema.multiformat;
+package com.asyncapi.schemas.multiformat;
 
 import com.asyncapi.schemas.ExtendableObject;
 import com.asyncapi.schemas.Reference;

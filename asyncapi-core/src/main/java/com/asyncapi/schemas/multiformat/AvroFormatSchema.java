@@ -1,8 +1,13 @@
-package com.asyncapi.v3.schema.multiformat;
+package com.asyncapi.schemas.multiformat;
 
+import com.asyncapi.schemas.Reference;
 import com.asyncapi.schemas.AsyncAPISchema;
+import com.asyncapi.schemas.avro.v1._9_0.AvroSchema;
+import com.asyncapi.schemas.avro.v1._9_0.AvroSchemaUnion;
+import com.asyncapi.schemas.avro.v1._9_0.jackson.AvroSchemaDeserializer;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.EqualsAndHashCode;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -17,34 +22,52 @@ import org.jetbrains.annotations.Nullable;
  * @version 3.0.0
  */
 @EqualsAndHashCode(callSuper = true)
-public class AsyncAPIFormatSchema extends MultiFormatSchema<AsyncAPISchema> {
+public class AvroFormatSchema extends MultiFormatSchema<Object> {
 
-    public AsyncAPIFormatSchema(@NotNull AsyncAPISchema schema) {
-        super(schema);
+    public AvroFormatSchema(@NotNull @JsonDeserialize(using = AvroSchemaDeserializer.class) Object schema) {
+        super("application/vnd.apache.avro;version=1.9.0", schema);
     }
 
     @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
-    public AsyncAPIFormatSchema(
+    public AvroFormatSchema(
             @JsonProperty("schemaFormat") @Nullable String schemaFormat,
-            @JsonProperty("schema") @NotNull AsyncAPISchema schema
+            @JsonProperty("schema") @NotNull @JsonDeserialize(using = AvroSchemaDeserializer.class) Object schema
     ) {
         super(schemaFormat(schemaFormat), schema);
     }
 
+    /**
+     * Schema <b>MUST</b> be one of:
+     * <ul>
+     *     <li>{@link AvroSchema}</li>
+     *     <li>{@link AvroSchemaUnion}</li>
+     *     <li>{@link Reference}</li>
+     * </ul>
+     *
+     * @param schema Avro Schema or Reference
+     */
     @Override
-    public void setSchema(@NotNull AsyncAPISchema schema) {
+    public void setSchema(@NotNull Object schema) {
         super.setSchema(schema);
     }
 
+    /**
+     * Schema:
+     * <ul>
+     *     <li>{@link AvroSchema}</li>
+     *     <li>{@link AvroSchemaUnion}</li>
+     *     <li>{@link Reference}</li>
+     * </ul>
+     */
     @NotNull
-    public AsyncAPISchema getSchema() {
+    public Object getSchema() {
         return super.getSchema();
     }
 
     @NotNull
     private static String schemaFormat(@Nullable String schemaFormat) {
         if (schemaFormat == null || schemaFormat.isEmpty()) {
-            return "application/vnd.aai.asyncapi+json;version=3.0.0";
+            return "application/vnd.apache.avro;version=1.9.0";
         }
 
         return schemaFormat;

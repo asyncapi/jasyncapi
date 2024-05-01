@@ -21,7 +21,7 @@ import com.asyncapi.v3._0_0.model.server.ServerVariableTest
 import com.asyncapi.schemas.AsyncAPISchema
 import com.asyncapi.schemas.JsonSchema
 import com.asyncapi.schemas.Type
-import com.asyncapi.v3.schema.multiformat.JsonFormatSchema
+import com.asyncapi.schemas.multiformat.JsonFormatSchema
 import com.asyncapi.v3.security_scheme.ApiKeySecuritySchemeTest
 import com.asyncapi.v3.security_scheme.OpenIdConnectSecuritySchemeTest
 import com.asyncapi.v3.security_scheme.http.HttpApiKeySecuritySchemeTest
@@ -62,19 +62,24 @@ class ComponentsTest: SerDeTest<Components>() {
                                 "application/schema+json;version=draft-07",
                                 JsonSchema.builder()
                                         .type("object")
-                                        .properties(mapOf(
-                                                Pair("id", JsonSchema.builder()
-                                                        .type("integer")
-                                                        .format("int64")
-                                                        .build()
-                                                ),
-                                                Pair("name", JsonSchema.builder()
-                                                        .type("string")
-                                                        .build()
+                                        .properties(
+                                                mapOf(
+                                                        Pair(
+                                                                "id", JsonSchema.builder()
+                                                                        .type("integer")
+                                                                        .format("int64")
+                                                                        .build()
+                                                        ),
+                                                        Pair(
+                                                                "name", JsonSchema.builder()
+                                                                        .type("string")
+                                                                        .build()
+                                                        )
                                                 )
-                                        ))
+                                        )
                                         .build()
-                        )),
+                        )
+                        ),
                         Pair("User", Reference("#/components/schemas/user"))
                 ))
                 .servers(mapOf(

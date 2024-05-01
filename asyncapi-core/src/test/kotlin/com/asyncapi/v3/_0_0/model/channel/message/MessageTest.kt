@@ -12,7 +12,7 @@ import com.asyncapi.bindings.ibmmq.IBMMQV0_1_0Test
 import com.asyncapi.bindings.kafka.KafkaV0_4_0Test
 import com.asyncapi.bindings.mqtt.MQTTV0_1_0Test
 import com.asyncapi.schemas.AsyncAPISchema
-import com.asyncapi.v3.schema.multiformat.AsyncAPIFormatSchema
+import com.asyncapi.schemas.multiformat.AsyncAPIFormatSchema
 
 class MessageTestWithSchema: SerDeTest<Message>() {
 
@@ -218,37 +218,48 @@ class MessageTestWithMultiFormatSchema: SerDeTest<Message>() {
 
     override fun build(): Message {
         return Message.builder()
-                .headers(AsyncAPIFormatSchema(
+                .headers(
+                    AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi+json;version=3.0.0",
                         AsyncAPISchema.builder()
-                                .type("object")
-                                .properties(mapOf(
-                                        Pair("correlationId", AsyncAPISchema.builder()
-                                                .type("string")
-                                                .description("Correlation ID set by application")
-                                                .build()
-                                        ),
-                                        Pair("applicationInstanceId", AsyncAPISchema.builder()
-                                                .type("string")
-                                                .description("Unique identifier for a given instance of the publishing application")
-                                                .build()
-                                        )
-                                ))
-                                .build()
-                ))
-                .payload(AsyncAPIFormatSchema(
+                            .type("object")
+                            .properties(
+                                mapOf(
+                                    Pair(
+                                        "correlationId", AsyncAPISchema.builder()
+                                            .type("string")
+                                            .description("Correlation ID set by application")
+                                            .build()
+                                    ),
+                                    Pair(
+                                        "applicationInstanceId", AsyncAPISchema.builder()
+                                            .type("string")
+                                            .description("Unique identifier for a given instance of the publishing application")
+                                            .build()
+                                    )
+                                )
+                            )
+                            .build()
+                    )
+                )
+                .payload(
+                    AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi+json;version=3.0.0",
                         AsyncAPISchema.builder()
-                                .type("object")
-                                .properties(mapOf(
-                                        Pair("metric", AsyncAPISchema.builder()
-                                                .type("string")
-                                                .description("Metric set by application")
-                                                .build()
-                                        )
-                                ))
-                                .build()
-                ))
+                            .type("object")
+                            .properties(
+                                mapOf(
+                                    Pair(
+                                        "metric", AsyncAPISchema.builder()
+                                            .type("string")
+                                            .description("Metric set by application")
+                                            .build()
+                                    )
+                                )
+                            )
+                            .build()
+                    )
+                )
                 .correlationId(Reference("#/components/messages/message-correlation-id"))
                 .contentType("application/json")
                 .name("UserSignup")

@@ -10,7 +10,7 @@ import com.asyncapi.v3._0_0.jackson.model.channel.message.MessageHeadersDeserial
 import com.asyncapi.v3._0_0.model.ExternalDocumentation;
 import com.asyncapi.v3._0_0.model.Tag;
 import com.asyncapi.bindings.MessageBindingsDeserializer;
-import com.asyncapi.v3.schema.multiformat.MultiFormatSchema;
+import com.asyncapi.schemas.multiformat.MultiFormatSchema;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.*;
 import org.jetbrains.annotations.Nullable;

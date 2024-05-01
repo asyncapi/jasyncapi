@@ -1,7 +1,7 @@
 package com.asyncapi.v3.schema.multiformat.avro
 
 import com.asyncapi.v3.ClasspathUtils
-import com.asyncapi.v3.schema.multiformat.AvroFormatSchema
+import com.asyncapi.schemas.multiformat.AvroFormatSchema
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory

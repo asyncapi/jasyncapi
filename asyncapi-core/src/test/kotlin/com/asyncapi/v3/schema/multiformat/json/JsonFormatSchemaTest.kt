@@ -2,7 +2,7 @@ package com.asyncapi.v3.schema.multiformat.json
 
 import com.asyncapi.v3.ClasspathUtils
 import com.asyncapi.v3.schema.json.*
-import com.asyncapi.v3.schema.multiformat.JsonFormatSchema
+import com.asyncapi.schemas.multiformat.JsonFormatSchema
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
@@ -92,31 +92,52 @@ abstract class JsonFormatSchemaTest {
             return Stream.of(
                 Arguments.of(
                     "/json/v3/schema/multiformat/json/schema+yaml/arrays.schema.yaml",
-                    JsonFormatSchema("application/schema+yaml;version=draft-07", ArraysSchemaTest().jsonSchema())
+                    JsonFormatSchema(
+                        "application/schema+yaml;version=draft-07",
+                        ArraysSchemaTest().jsonSchema()
+                    )
                 ),
                 Arguments.of(
                     "/json/v3/schema/multiformat/json/schema+yaml/complex-object.schema.yaml",
-                    JsonFormatSchema("application/schema+yaml;version=draft-07", ComplexObjectTest().jsonSchema())
+                    JsonFormatSchema(
+                        "application/schema+yaml;version=draft-07",
+                        ComplexObjectTest().jsonSchema()
+                    )
                 ),
                 Arguments.of(
                     "/json/v3/schema/multiformat/json/schema+yaml/conditional-validation-if-else.schema.yaml",
-                    JsonFormatSchema("application/schema+yaml;version=draft-07", ConditionalValidationIfElse().jsonSchema())
+                    JsonFormatSchema(
+                        "application/schema+yaml;version=draft-07",
+                        ConditionalValidationIfElse().jsonSchema()
+                    )
                 ),
                 Arguments.of(
                     "/json/v3/schema/multiformat/json/schema+yaml/draft-07-core-schema-meta-schema.yaml",
-                    JsonFormatSchema("application/schema+yaml;version=draft-07", Draft07CoreSchemaMetaSchemaTest().jsonSchema())
+                    JsonFormatSchema(
+                        "application/schema+yaml;version=draft-07",
+                        Draft07CoreSchemaMetaSchemaTest().jsonSchema()
+                    )
                 ),
                 Arguments.of(
                     "/json/v3/schema/multiformat/json/schema+yaml/enumerated-values.schema.yaml",
-                    JsonFormatSchema("application/schema+yaml;version=draft-07", EnumeratedValuesTest().jsonSchema())
+                    JsonFormatSchema(
+                        "application/schema+yaml;version=draft-07",
+                        EnumeratedValuesTest().jsonSchema()
+                    )
                 ),
                 Arguments.of(
                     "/json/v3/schema/multiformat/json/schema+yaml/person.schema.yaml",
-                    JsonFormatSchema("application/schema+yaml;version=draft-07", PersonTest().jsonSchema())
+                    JsonFormatSchema(
+                        "application/schema+yaml;version=draft-07",
+                        PersonTest().jsonSchema()
+                    )
                 ),
                 Arguments.of(
                     "/json/v3/schema/multiformat/json/schema+yaml/regex-pattern.schema.yaml",
-                    JsonFormatSchema("application/schema+yaml;version=draft-07", RegexPatternTest().jsonSchema())
+                    JsonFormatSchema(
+                        "application/schema+yaml;version=draft-07",
+                        RegexPatternTest().jsonSchema()
+                    )
                 )
             )
         }

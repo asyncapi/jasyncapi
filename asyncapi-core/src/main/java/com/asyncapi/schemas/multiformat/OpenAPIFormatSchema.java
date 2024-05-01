@@ -1,7 +1,7 @@
-package com.asyncapi.v3.schema.multiformat;
+package com.asyncapi.schemas.multiformat;
 
 import com.asyncapi.schemas.AsyncAPISchema;
-import com.asyncapi.schemas.JsonSchema;
+import com.asyncapi.v3.schema.openapi.v3._0_0.OpenAPISchema;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.EqualsAndHashCode;
@@ -17,27 +17,27 @@ import org.jetbrains.annotations.NotNull;
  * @version 3.0.0
  */
 @EqualsAndHashCode(callSuper = true)
-public class JsonFormatSchema extends MultiFormatSchema<JsonSchema> {
+public class OpenAPIFormatSchema extends MultiFormatSchema<OpenAPISchema> {
 
-    public JsonFormatSchema(@NotNull JsonSchema schema) {
-        super("application/schema+json;version=draft-07", schema);
+    public OpenAPIFormatSchema(@NotNull OpenAPISchema schema) {
+        super("application/vnd.oai.openapi+json;version=3.0.0", schema);
     }
 
     @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
-    public JsonFormatSchema(
+    public OpenAPIFormatSchema(
             @JsonProperty("schemaFormat") @NotNull String schemaFormat,
-            @JsonProperty("schema") @NotNull JsonSchema schema
+            @JsonProperty("schema") @NotNull OpenAPISchema schema
     ) {
         super(schemaFormat, schema);
     }
 
     @Override
-    public void setSchema(@NotNull JsonSchema schema) {
+    public void setSchema(@NotNull OpenAPISchema schema) {
         super.setSchema(schema);
     }
 
     @NotNull
-    public JsonSchema getSchema() {
+    public OpenAPISchema getSchema() {
         return super.getSchema();
     }
 

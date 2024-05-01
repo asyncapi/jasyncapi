@@ -20,7 +20,7 @@ import com.asyncapi.bindings.kafka.v0._4_0.channel.KafkaChannelTopicConfiguratio
 import com.asyncapi.bindings.kafka.v0._4_0.operation.KafkaOperationBinding
 import com.asyncapi.bindings.kafka.v0._4_0.server.KafkaServerBinding
 import com.asyncapi.schemas.AsyncAPISchema
-import com.asyncapi.v3.schema.multiformat.AvroFormatSchema
+import com.asyncapi.schemas.multiformat.AvroFormatSchema
 import com.asyncapi.v3.security_scheme.SecurityScheme
 
 class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
@@ -261,10 +261,12 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
                                         ))
                                         .build()
                                 )
-                                .payload(AvroFormatSchema(
+                                .payload(
+                                    AvroFormatSchema(
                                         "application/vnd.apache.avro;version=1.9.0",
-                                    Reference("https://www.asyncapi.com/resources/casestudies/adeo/CostingRequestPayload.avsc")
-                                ))
+                                        Reference("https://www.asyncapi.com/resources/casestudies/adeo/CostingRequestPayload.avsc")
+                                    )
+                                )
                                 .build()
                         ),
                         Pair("costingResponse", Message.builder()
@@ -298,10 +300,12 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
                                         ))
                                         .build()
                                 )
-                                .payload(AvroFormatSchema(
+                                .payload(
+                                    AvroFormatSchema(
                                         "application/vnd.apache.avro;version=1.9.0",
-                                    Reference("https://www.asyncapi.com/resources/casestudies/adeo/CostingResponsePayload.avsc")
-                                ))
+                                        Reference("https://www.asyncapi.com/resources/casestudies/adeo/CostingResponsePayload.avsc")
+                                    )
+                                )
                                 .build()
                         )
                 ))

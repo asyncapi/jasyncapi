@@ -1,6 +1,6 @@
 package com.asyncapi.v3.schema.multiformat.openapi
 
-import com.asyncapi.v3.schema.multiformat.OpenAPIFormatSchema
+import com.asyncapi.schemas.multiformat.OpenAPIFormatSchema
 import com.asyncapi.v3.schema.openapi.v3._0_0.SchemaTest
 import org.junit.jupiter.api.extension.ExtensionContext
 import org.junit.jupiter.params.ParameterizedTest
@@ -34,10 +34,16 @@ abstract class OpenAPIFormatSchemaV3_0_1Test: OpenAPIFormatSchemaTest() {
         override fun provideArguments(context: ExtensionContext?): Stream<out Arguments> {
             return Stream.of(
                 Arguments.of("/json/v3/schema/multiformat/openapi/3.0.1/vnd.oai.openapi/schema.json",
-                    OpenAPIFormatSchema("application/vnd.oai.openapi;version=3.0.1", SchemaTest().openAPISchema())
+                    OpenAPIFormatSchema(
+                        "application/vnd.oai.openapi;version=3.0.1",
+                        SchemaTest().openAPISchema()
+                    )
                 ),
                 Arguments.of("/json/v3/schema/multiformat/openapi/3.0.1/vnd.oai.openapi+json/schema.json",
-                    OpenAPIFormatSchema("application/vnd.oai.openapi+json;version=3.0.1", SchemaTest().openAPISchema())
+                    OpenAPIFormatSchema(
+                        "application/vnd.oai.openapi+json;version=3.0.1",
+                        SchemaTest().openAPISchema()
+                    )
                 )
             )
         }
@@ -49,10 +55,16 @@ abstract class OpenAPIFormatSchemaV3_0_1Test: OpenAPIFormatSchemaTest() {
         override fun provideArguments(context: ExtensionContext?): Stream<out Arguments> {
             return Stream.of(
                 Arguments.of("/json/v3/schema/multiformat/openapi/3.0.1/vnd.oai.openapi/schema.yaml",
-                    OpenAPIFormatSchema("application/vnd.oai.openapi;version=3.0.1", SchemaTest().openAPISchema())
+                    OpenAPIFormatSchema(
+                        "application/vnd.oai.openapi;version=3.0.1",
+                        SchemaTest().openAPISchema()
+                    )
                 ),
                 Arguments.of("/json/v3/schema/multiformat/openapi/3.0.1/vnd.oai.openapi+yaml/schema.yaml",
-                    OpenAPIFormatSchema("application/vnd.oai.openapi+yaml;version=3.0.1", SchemaTest().openAPISchema())
+                    OpenAPIFormatSchema(
+                        "application/vnd.oai.openapi+yaml;version=3.0.1",
+                        SchemaTest().openAPISchema()
+                    )
                 )
             )
         }

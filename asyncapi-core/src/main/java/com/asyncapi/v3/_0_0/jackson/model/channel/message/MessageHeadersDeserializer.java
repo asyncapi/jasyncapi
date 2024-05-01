@@ -2,7 +2,7 @@ package com.asyncapi.v3._0_0.jackson.model.channel.message;
 
 import com.asyncapi.schemas.Reference;
 import com.asyncapi.schemas.AsyncAPISchema;
-import com.asyncapi.v3.schema.multiformat.MultiFormatSchema;
+import com.asyncapi.schemas.multiformat.MultiFormatSchema;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.ObjectCodec;
