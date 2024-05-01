@@ -37,7 +37,7 @@ public class Parameter extends ExtendableObject {
      * MUST BE:
      * <ul>
      *     <li>{@link Reference}</li>
-     *     <li>{@link com.asyncapi.v2.schema.Schema}</li>
+     *     <li>{@link com.asyncapi.schemas.AsyncAPISchema}</li>
      * </ul>
      */
     @Nullable

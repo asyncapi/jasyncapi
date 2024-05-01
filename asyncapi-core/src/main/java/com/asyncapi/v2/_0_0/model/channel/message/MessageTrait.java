@@ -7,7 +7,7 @@ import com.asyncapi.v2._0_0.model.ExternalDocumentation;
 import com.asyncapi.schemas.Reference;
 import com.asyncapi.v2._0_0.model.Tag;
 import com.asyncapi.v2._0_0.model.channel.operation.OperationTrait;
-import com.asyncapi.v2.schema.Schema;
+import com.asyncapi.schemas.AsyncAPISchema;
 import com.asyncapi.bindings.MessageBinding;
 import com.asyncapi.bindings.MessageBindingsDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -47,7 +47,7 @@ public class MessageTrait extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link Schema}</li>
+     *     <li>{@link AsyncAPISchema}</li>
      *     <li>{@link Reference}</li>
      * </ul>
      */

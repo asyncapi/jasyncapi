@@ -11,7 +11,7 @@ import com.asyncapi.v2._0_0.model.channel.message.CorrelationId;
 import com.asyncapi.v2._0_0.model.channel.message.Message;
 import com.asyncapi.v2._0_0.model.channel.message.MessageTrait;
 import com.asyncapi.v2._0_0.model.channel.operation.OperationTrait;
-import com.asyncapi.v2.schema.Schema;
+import com.asyncapi.schemas.AsyncAPISchema;
 import com.asyncapi.bindings.ChannelBinding;
 import com.asyncapi.bindings.MessageBinding;
 import com.asyncapi.bindings.OperationBinding;
@@ -52,7 +52,7 @@ public class Components extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link Schema}</li>
+     *     <li>{@link AsyncAPISchema}</li>
      *     <li>{@link Reference}</li>
      * </ul>
      */

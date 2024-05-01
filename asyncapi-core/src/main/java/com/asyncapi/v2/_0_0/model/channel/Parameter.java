@@ -1,7 +1,7 @@
 package com.asyncapi.v2._0_0.model.channel;
 
 import com.asyncapi.schemas.ExtendableObject;
-import com.asyncapi.v2.schema.Schema;
+import com.asyncapi.schemas.AsyncAPISchema;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -36,7 +36,7 @@ public class Parameter extends ExtendableObject {
      */
     @JsonProperty
     @Nullable
-    private Schema schema;
+    private AsyncAPISchema schema;
 
     /**
      * A runtime expression that specifies the location of the parameter value.

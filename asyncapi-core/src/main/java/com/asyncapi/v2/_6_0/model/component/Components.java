@@ -52,7 +52,7 @@ public class Components extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v2.schema.Schema}</li>
+     *     <li>{@link com.asyncapi.schemas.AsyncAPISchema}</li>
      *     <li>{@link Reference}</li>
      * </ul>
      */

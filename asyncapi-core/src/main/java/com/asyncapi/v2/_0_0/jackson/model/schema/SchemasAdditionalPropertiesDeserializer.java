@@ -1,6 +1,6 @@
 package com.asyncapi.v2._0_0.jackson.model.schema;
 
-import com.asyncapi.v2.schema.Schema;
+import com.asyncapi.schemas.AsyncAPISchema;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.ObjectCodec;
@@ -31,7 +31,7 @@ public class SchemasAdditionalPropertiesDeserializer extends JsonDeserializer<Ob
             if (jsonNode.isBoolean()) {
                 return jsonNode.asBoolean();
             } else {
-                return jsonParser.readValueAs(Schema.class);
+                return jsonParser.readValueAs(AsyncAPISchema.class);
             }
         }
     }

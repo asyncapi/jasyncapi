@@ -9,7 +9,7 @@ import com.asyncapi.v2._0_0.model.channel.operation.Operation
 import com.asyncapi.v2._0_0.model.component.Components
 import com.asyncapi.v2._0_0.model.info.Info
 import com.asyncapi.v2._0_0.model.server.Server
-import com.asyncapi.v2.schema.Schema
+import com.asyncapi.schemas.AsyncAPISchema
 
 class Mercure: AbstractExampleValidationTest() {
 
@@ -41,7 +41,7 @@ class Mercure: AbstractExampleValidationTest() {
                         .description("Every time a resource of type `http://schema.org/Book` is created or modified, a JSON-LD representation of the new version of this resource must be pushed in this Mercure topic.")
                         .parameters(mapOf(
                                 Pair("id", Parameter.builder()
-                                        .schema(Schema.builder()
+                                        .schema(AsyncAPISchema.builder()
                                                 .type("integer")
                                                 .build()
                                         )
@@ -70,28 +70,28 @@ class Mercure: AbstractExampleValidationTest() {
                                         null,
                                         "https://schema.org/Book"
                                 ))
-                                .payload(Schema.builder()
+                                .payload(AsyncAPISchema.builder()
                                         .type("object")
                                         .properties(mapOf(
-                                                Pair("@id", Schema.builder()
+                                                Pair("@id", AsyncAPISchema.builder()
                                                         .type("string")
                                                         .format("iri-reference")
                                                         .build()
                                                 ),
-                                                Pair("@type", Schema.builder()
+                                                Pair("@type", AsyncAPISchema.builder()
                                                         .type("string")
                                                         .format("iri-reference")
                                                         .build()
                                                 ),
-                                                Pair("name", Schema.builder()
+                                                Pair("name", AsyncAPISchema.builder()
                                                         .type("string")
                                                         .build()
                                                 ),
-                                                Pair("isbn", Schema.builder()
+                                                Pair("isbn", AsyncAPISchema.builder()
                                                         .type("string")
                                                         .build()
                                                 ),
-                                                Pair("abstract", Schema.builder()
+                                                Pair("abstract", AsyncAPISchema.builder()
                                                         .type("string")
                                                         .build()
                                                 ),

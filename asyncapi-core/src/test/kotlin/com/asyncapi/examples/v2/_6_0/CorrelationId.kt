@@ -11,7 +11,7 @@ import com.asyncapi.v2._6_0.model.info.Info
 import com.asyncapi.v2._6_0.model.info.License
 import com.asyncapi.v2._6_0.model.server.Server
 import com.asyncapi.v2._6_0.model.server.ServerVariable
-import com.asyncapi.v2.schema.Schema
+import com.asyncapi.schemas.AsyncAPISchema
 import com.asyncapi.v2.security_scheme.ApiKeySecurityScheme
 import com.asyncapi.v2.security_scheme.OpenIdConnectSecurityScheme
 import com.asyncapi.v2.security_scheme.oauth2.OAuth2SecurityScheme
@@ -110,7 +110,7 @@ class CorrelationId: AbstractExampleValidationTest() {
                                         "\$message.header#/MQMD/CorrelId"
                                 ))
                                 .contentType("application/json")
-                                .payload(Schema.builder().ref("#/components/schemas/lightMeasuredPayload").build())
+                                .payload(AsyncAPISchema.builder().ref("#/components/schemas/lightMeasuredPayload").build())
                                 .build()
                         ),
                         Pair("dimLight", Message.builder()
@@ -118,44 +118,44 @@ class CorrelationId: AbstractExampleValidationTest() {
                                 .title("Dim light")
                                 .summary("Command a particular streetlight to dim the lights.")
                                 .correlationId(Reference("#/components/correlationIds/sentAtCorrelator"))
-                                .payload(Schema.builder().ref("#/components/schemas/dimLightPayload").build())
+                                .payload(AsyncAPISchema.builder().ref("#/components/schemas/dimLightPayload").build())
                                 .build()
                         )
                 ))
                 .schemas(mapOf(
-                        Pair("lightMeasuredPayload", Schema.builder()
+                        Pair("lightMeasuredPayload", AsyncAPISchema.builder()
                                 .type("object")
                                 .properties(mapOf(
-                                        Pair("lumens", Schema.builder()
+                                        Pair("lumens", AsyncAPISchema.builder()
                                                 .type("integer")
                                                 .minimum(BigDecimal.ZERO)
                                                 .description("Light intensity measured in lumens.")
                                                 .build()
                                         ),
-                                        Pair("sentAt", Schema.builder()
+                                        Pair("sentAt", AsyncAPISchema.builder()
                                                 .ref("#/components/schemas/sentAt")
                                                 .build()
                                         )
                                 ))
                                 .build()
                         ),
-                        Pair("sentAt", Schema.builder()
+                        Pair("sentAt", AsyncAPISchema.builder()
                                 .type("string")
                                 .format("date-time")
                                 .description("Date and time when the message was sent.")
                                 .build()
                         ),
-                        Pair("dimLightPayload", Schema.builder()
+                        Pair("dimLightPayload", AsyncAPISchema.builder()
                                 .type("object")
                                 .properties(mapOf(
-                                        Pair("percentage", Schema.builder()
+                                        Pair("percentage", AsyncAPISchema.builder()
                                                 .type("integer")
                                                 .minimum(BigDecimal.ZERO)
                                                 .maximum(BigDecimal.valueOf(100))
                                                 .description("Percentage to which the light should be dimmed to.")
                                                 .build()
                                         ),
-                                        Pair("sentAt", Schema.builder()
+                                        Pair("sentAt", AsyncAPISchema.builder()
                                                 .ref("#/components/schemas/sentAt")
                                                 .build()
                                         )
@@ -166,7 +166,7 @@ class CorrelationId: AbstractExampleValidationTest() {
                 .parameters(mapOf(
                         Pair("streetlightId", Parameter.builder()
                                 .description("The ID of the streetlight.")
-                                .schema(Schema.builder().type("string").build())
+                                .schema(AsyncAPISchema.builder().type("string").build())
                                 .build()
                         )
                 ))

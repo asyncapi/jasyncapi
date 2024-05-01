@@ -4,7 +4,7 @@ import com.asyncapi.schemas.Reference
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._6_0.model.channel.operation.OperationWithMessageTest
 import com.asyncapi.v2._6_0.model.channel.operation.OperationWithOneOfMessageTest
-import com.asyncapi.v2.schema.Schema
+import com.asyncapi.schemas.AsyncAPISchema
 import com.asyncapi.bindings.amqp.AMQPV0_2_0Test
 import com.asyncapi.bindings.anypointmq.AnypointMQV0_0_1Test
 import com.asyncapi.bindings.googlepubsub.GooglePubSubV0_1_0Test
@@ -27,7 +27,7 @@ class ChannelItemTest: SerDeTest<ChannelItem>() {
         val subscribe = OperationWithOneOfMessageTest().build()
         val publish = OperationWithMessageTest().build()
         val userIdParameter = ParameterWithSchemaTest().build()
-        userIdParameter.schema = Schema.builder().type("string").build()
+        userIdParameter.schema = AsyncAPISchema.builder().type("string").build()
 
         return ChannelItem.builder()
                 .description("This channel is used to exchange messages about users signing up")

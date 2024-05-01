@@ -1,6 +1,6 @@
 package com.asyncapi.v2.jackson;
 
-import com.asyncapi.v2.schema.Schema;
+import com.asyncapi.schemas.AsyncAPISchema;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.DeserializationContext;
@@ -29,17 +29,17 @@ public class SchemaItemsDeserializer extends JsonDeserializer<Object> {
         return readAsObject(node, objectCodec);
     }
 
-    private List<Schema> readAsListOfSchemas(ArrayNode arrayNode, ObjectCodec objectCodec) throws IOException {
-        List<Schema> schemaList = new ArrayList<>();
+    private List<AsyncAPISchema> readAsListOfSchemas(ArrayNode arrayNode, ObjectCodec objectCodec) throws IOException {
+        List<AsyncAPISchema> schemaList = new ArrayList<>();
         for (JsonNode childNode : arrayNode) {
             schemaList.add(readAsSchema(childNode, objectCodec));
         }
         return schemaList;
     }
 
-    private Schema readAsSchema(JsonNode jsonNode, ObjectCodec objectCodec) throws IOException {
+    private AsyncAPISchema readAsSchema(JsonNode jsonNode, ObjectCodec objectCodec) throws IOException {
         try (JsonParser parser = jsonNode.traverse(objectCodec)) {
-            return parser.readValueAs(Schema.class);
+            return parser.readValueAs(AsyncAPISchema.class);
         }
     }
 

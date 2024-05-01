@@ -8,7 +8,7 @@ import com.asyncapi.v2._0_0.jackson.model.channel.message.MessageTraitsDeseriali
 import com.asyncapi.v2._0_0.model.ExternalDocumentation;
 import com.asyncapi.schemas.Reference;
 import com.asyncapi.v2._0_0.model.Tag;
-import com.asyncapi.v2.schema.Schema;
+import com.asyncapi.schemas.AsyncAPISchema;
 import com.asyncapi.bindings.MessageBinding;
 import com.asyncapi.bindings.MessageBindingsDeserializer;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -43,7 +43,7 @@ public class Message extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link Schema}</li>
+     *     <li>{@link AsyncAPISchema}</li>
      *     <li>{@link Reference}</li>
      * </ul>
      */
@@ -56,7 +56,7 @@ public class Message extends ExtendableObject {
      * <p>
      * WILL BE:
      * <ul>
-     *     <li>{@link Schema}</li>
+     *     <li>{@link AsyncAPISchema}</li>
      *     <li>{@link com.fasterxml.jackson.databind.JsonNode}</li>
      * </ul>
      */

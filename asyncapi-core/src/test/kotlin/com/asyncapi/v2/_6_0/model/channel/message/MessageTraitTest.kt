@@ -4,7 +4,7 @@ import com.asyncapi.schemas.Reference
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._6_0.model.ExternalDocumentation
 import com.asyncapi.v2._6_0.model.Tag
-import com.asyncapi.v2.schema.Schema
+import com.asyncapi.schemas.AsyncAPISchema
 import com.asyncapi.bindings.amqp.AMQPV0_2_0Test
 import com.asyncapi.bindings.anypointmq.AnypointMQV0_0_1Test
 import com.asyncapi.bindings.googlepubsub.GooglePubSubV0_1_0Test
@@ -26,19 +26,19 @@ class MessageTraitTest: SerDeTest<MessageTrait>() {
     override fun build(): MessageTrait {
         return MessageTrait.builder()
                 .messageId("userSignup")
-                .headers(Schema.builder()
+                .headers(AsyncAPISchema.builder()
                         .type("object")
                         .properties(mapOf(
                                 Pair(
                                         "correlationId",
-                                        Schema.builder()
+                                        AsyncAPISchema.builder()
                                                 .description("Correlation ID set by application")
                                                 .type("string")
                                                 .build()
                                 ),
                                 Pair(
                                         "applicationInstanceId",
-                                        Schema.builder()
+                                        AsyncAPISchema.builder()
                                                 .description("Unique identifier for a given instance of the publishing application")
                                                 .type("string")
                                                 .build()

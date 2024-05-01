@@ -1,7 +1,7 @@
 package com.asyncapi.v2._6_0.jackson.model.channel.message;
 
 import com.asyncapi.schemas.Reference;
-import com.asyncapi.v2.schema.Schema;
+import com.asyncapi.schemas.AsyncAPISchema;
 import com.asyncapi.v2.jackson.ReferenceOrObjectDeserializer;
 
 /**
@@ -9,11 +9,11 @@ import com.asyncapi.v2.jackson.ReferenceOrObjectDeserializer;
  *
  * @author Pavel Bodiachevskii
  */
-public class MessageHeadersDeserializer extends ReferenceOrObjectDeserializer<Schema> {
+public class MessageHeadersDeserializer extends ReferenceOrObjectDeserializer<AsyncAPISchema> {
 
     @Override
-    public Class<Schema> objectTypeClass() {
-        return Schema.class;
+    public Class<AsyncAPISchema> objectTypeClass() {
+        return AsyncAPISchema.class;
     }
 
     public Class<?> referenceClass() {

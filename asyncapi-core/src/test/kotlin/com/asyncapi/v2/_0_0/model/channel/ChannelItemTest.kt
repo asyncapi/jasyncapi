@@ -3,7 +3,7 @@ package com.asyncapi.v2._0_0.model.channel
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._0_0.model.channel.operation.OperationWithMessageTest
 import com.asyncapi.v2._0_0.model.channel.operation.OperationWithReferenceToMessageTest
-import com.asyncapi.v2.schema.Schema
+import com.asyncapi.schemas.AsyncAPISchema
 import com.asyncapi.bindings.ChannelBinding
 import com.asyncapi.bindings.amqp.AMQPV0_2_0Test
 import com.asyncapi.bindings.amqp1.v0._1_0.channel.AMQP1ChannelBinding
@@ -39,7 +39,7 @@ class ChannelItemTest: SerDeTest<ChannelItem>() {
         val subscribe = OperationWithReferenceToMessageTest().build()
         val publish = OperationWithMessageTest().build()
         val userIdParameter = ParameterTest().build()
-        userIdParameter.schema = Schema.builder().type("string").build()
+        userIdParameter.schema = AsyncAPISchema.builder().type("string").build()
 
         return ChannelItem.builder()
                 .description("This channel is used to exchange messages about users signing up")

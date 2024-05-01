@@ -2,8 +2,8 @@ package com.asyncapi.v2._6_0.model.component
 
 import com.asyncapi.schemas.Reference
 import com.asyncapi.v2.SerDeTest
-import com.asyncapi.v2.schema.Schema
-import com.asyncapi.v2.schema.Type
+import com.asyncapi.schemas.AsyncAPISchema
+import com.asyncapi.schemas.Type
 import com.asyncapi.v2._6_0.model.channel.ChannelItemTest
 import com.asyncapi.v2._6_0.model.channel.ParameterWithSchemaTest
 import com.asyncapi.v2._6_0.model.channel.ParameterWithReferenceToSchemaTest
@@ -38,19 +38,19 @@ class ComponentsTest: SerDeTest<Components>() {
     override fun build(): Components {
         return Components.builder()
                 .schemas(mapOf(
-                        Pair("Category", Schema.builder()
+                        Pair("Category", AsyncAPISchema.builder()
                                 .type(Type.OBJECT)
                                 .properties(mapOf(
-                                        Pair("id", Schema.builder().type(Type.INTEGER).format("int64").build()),
-                                        Pair("name", Schema.builder().type(Type.STRING).build())
+                                        Pair("id", AsyncAPISchema.builder().type(Type.INTEGER).format("int64").build()),
+                                        Pair("name", AsyncAPISchema.builder().type(Type.STRING).build())
                                 ))
                                 .build()
                         ),
-                        Pair("Tag", Schema.builder()
+                        Pair("Tag", AsyncAPISchema.builder()
                                 .type(Type.OBJECT)
                                 .properties(mapOf(
-                                        Pair("id", Schema.builder().type(Type.INTEGER).format("int64").build()),
-                                        Pair("name", Schema.builder().type(Type.STRING).build())
+                                        Pair("id", AsyncAPISchema.builder().type(Type.INTEGER).format("int64").build()),
+                                        Pair("name", AsyncAPISchema.builder().type(Type.STRING).build())
                                 ))
                                 .build()
                         ),

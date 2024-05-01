@@ -12,7 +12,7 @@ import com.asyncapi.bindings.amqp.v0._3_0.channel.AMQPChannelBinding
 import com.asyncapi.bindings.amqp.v0._3_0.channel.AMQPChannelType
 import com.asyncapi.bindings.amqp.v0._3_0.channel.queue.AMQPChannelQueueProperties
 import com.asyncapi.bindings.amqp.v0._3_0.operation.AMQPOperationBinding
-import com.asyncapi.v2.schema.Schema
+import com.asyncapi.schemas.AsyncAPISchema
 
 class RpcClient: AbstractExampleValidationTest() {
 
@@ -46,7 +46,7 @@ class RpcClient: AbstractExampleValidationTest() {
                 Pair("{queue}", ChannelItem.builder()
                         .parameters(mapOf(
                                 Pair("queue", Parameter.builder()
-                                        .schema(Schema.builder()
+                                        .schema(AsyncAPISchema.builder()
                                                 .type("string")
                                                 .pattern("^amq\\\\.gen\\\\-.+\$")
                                                 .build())
@@ -73,10 +73,10 @@ class RpcClient: AbstractExampleValidationTest() {
                                 ))
                                 .message(Message.builder()
                                         .correlationId(CorrelationId(null, "\$message.header#/correlation_id"))
-                                        .payload(Schema.builder()
+                                        .payload(AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
-                                                        Pair("result", Schema.builder()
+                                                        Pair("result", AsyncAPISchema.builder()
                                                                 .type("number")
                                                                 .examples(listOf(7))
                                                                 .build())
@@ -110,12 +110,12 @@ class RpcClient: AbstractExampleValidationTest() {
                                 ))
                                 .message(Message.builder()
                                         .correlationId(CorrelationId(null, "\$message.header#/correlation_id"))
-                                        .payload(Schema.builder()
+                                        .payload(AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
-                                                        Pair("numbers", Schema.builder()
+                                                        Pair("numbers", AsyncAPISchema.builder()
                                                                 .type("array")
-                                                                .items(Schema.builder().type("number").build())
+                                                                .items(AsyncAPISchema.builder().type("number").build())
                                                                 .examples(listOf(listOf(4, 3)))
                                                                 .build())
                                                 ))

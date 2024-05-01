@@ -6,7 +6,7 @@ import com.asyncapi.v2._6_0.model.channel.message.Message
 import com.asyncapi.v2._6_0.model.channel.operation.Operation
 import com.asyncapi.v2._6_0.model.component.Components
 import com.asyncapi.v2._6_0.model.info.Info
-import com.asyncapi.v2.schema.Schema
+import com.asyncapi.schemas.AsyncAPISchema
 
 class Not: AbstractExampleValidationTest() {
 
@@ -37,16 +37,16 @@ class Not: AbstractExampleValidationTest() {
         return Components.builder()
                 .messages(mapOf(
                         Pair("testMessages", Message.builder()
-                                .payload(Schema.builder().ref("#/components/schemas/testSchema").build())
+                                .payload(AsyncAPISchema.builder().ref("#/components/schemas/testSchema").build())
                                 .build()
                         )
                 ))
                 .schemas(mapOf(
-                        Pair("testSchema", Schema.builder()
+                        Pair("testSchema", AsyncAPISchema.builder()
                                 .type("object")
                                 .properties(mapOf(
-                                        Pair("key", Schema.builder()
-                                                .not(Schema.builder().type("integer").build())
+                                        Pair("key", AsyncAPISchema.builder()
+                                                .not(AsyncAPISchema.builder().type("integer").build())
                                                 .build()
                                         )
                                 ))

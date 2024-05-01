@@ -1,7 +1,7 @@
 package com.asyncapi.v2._0_0.model.channel
 
 import com.asyncapi.v2.SerDeTest
-import com.asyncapi.v2.schema.Schema
+import com.asyncapi.schemas.AsyncAPISchema
 
 /**
  * @author Pavel Bodiachevskii
@@ -20,7 +20,7 @@ class ParameterTest: SerDeTest<Parameter>() {
         return Parameter.builder()
                 .description("Id of the user.")
                 .location("\$message.payload#/user/id")
-                .schema(Schema.builder().type("string").build())
+                .schema(AsyncAPISchema.builder().type("string").build())
                 .build()
     }
 

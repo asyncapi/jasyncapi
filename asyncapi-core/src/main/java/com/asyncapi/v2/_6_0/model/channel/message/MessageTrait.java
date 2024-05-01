@@ -55,7 +55,7 @@ public class MessageTrait extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v2.schema.Schema}</li>
+     *     <li>{@link com.asyncapi.schemas.AsyncAPISchema}</li>
      *     <li>{@link Reference}</li>
      * </ul>
      */
@@ -78,7 +78,7 @@ public class MessageTrait extends ExtendableObject {
 
     /**
      * A string containing the name of the schema format used to define the message payload.
-     * If omitted, implementations should parse the payload as a {@link com.asyncapi.v2.schema.Schema} object. When the payload is defined using a
+     * If omitted, implementations should parse the payload as a {@link com.asyncapi.schemas.AsyncAPISchema} object. When the payload is defined using a
      * $ref to a remote file, it is RECOMMENDED the schema format includes the file encoding type to allow implementations
      * to parse the file correctly. E.g., adding +yaml if content type is application/vnd.apache.avro results in
      * application/vnd.apache.avro+yaml.

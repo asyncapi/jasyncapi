@@ -8,7 +8,7 @@ import com.asyncapi.v2._6_0.model.component.Components
 import com.asyncapi.v2._6_0.model.info.Info
 import com.asyncapi.bindings.http.v0._3_0.operation.HTTPOperationBinding
 import com.asyncapi.bindings.http.v0._3_0.operation.HTTPOperationMethod
-import com.asyncapi.v2.schema.Schema
+import com.asyncapi.schemas.AsyncAPISchema
 import com.asyncapi.v2.security_scheme.oauth2.OAuthFlows
 import com.asyncapi.v2.security_scheme.oauth2.OAuth2SecurityScheme
 import com.asyncapi.v2.security_scheme.oauth2.flow.ClientCredentialsOAuthFlow
@@ -54,10 +54,10 @@ class OperationSecurity: AbstractExampleValidationTest() {
         return Components.builder()
                 .messages(mapOf(
                         Pair("message", Message.builder()
-                                .headers(Schema.builder()
+                                .headers(AsyncAPISchema.builder()
                                         .type("object")
                                         .properties(mapOf(
-                                                Pair("X-SIGNATURE", Schema.builder()
+                                                Pair("X-SIGNATURE", AsyncAPISchema.builder()
                                                         .type("string")
                                                         .description("ECC message signature")
                                                         .build()
@@ -65,14 +65,14 @@ class OperationSecurity: AbstractExampleValidationTest() {
                                         ))
                                         .build()
                                 )
-                                .payload(Schema.builder()
+                                .payload(AsyncAPISchema.builder()
                                         .type("object")
                                         .properties(mapOf(
-                                                Pair("metadata", Schema.builder()
+                                                Pair("metadata", AsyncAPISchema.builder()
                                                         .ref("#/components/schemas/MetaData")
                                                         .build()
                                                 ),
-                                                Pair("notification", Schema.builder()
+                                                Pair("notification", AsyncAPISchema.builder()
                                                         .ref("#/components/schemas/Notification")
                                                         .build()
                                                 )
@@ -83,20 +83,20 @@ class OperationSecurity: AbstractExampleValidationTest() {
                         )
                 ))
                 .schemas(mapOf(
-                        Pair("MetaData", Schema.builder()
+                        Pair("MetaData", AsyncAPISchema.builder()
                                 .type("object")
                                 .properties(mapOf(
-                                        Pair("topic", Schema.builder()
+                                        Pair("topic", AsyncAPISchema.builder()
                                                 .type("string")
                                                 .description("Topic subscribed to.")
                                                 .build()
                                         ),
-                                        Pair("schemaVersion", Schema.builder()
+                                        Pair("schemaVersion", AsyncAPISchema.builder()
                                                 .type("string")
                                                 .description("The schema for this topic.")
                                                 .build()
                                         ),
-                                        Pair("deprecated", Schema.builder()
+                                        Pair("deprecated", AsyncAPISchema.builder()
                                                 .type("boolean")
                                                 .description("If this is a deprecated schema or topic.")
                                                 .defaultValue("false")
@@ -105,61 +105,61 @@ class OperationSecurity: AbstractExampleValidationTest() {
                                 ))
                                 .build()
                         ),
-                        Pair("Notification", Schema.builder()
+                        Pair("Notification", AsyncAPISchema.builder()
                                 .type("object")
                                 .properties(mapOf(
-                                        Pair("notificationId", Schema.builder()
+                                        Pair("notificationId", AsyncAPISchema.builder()
                                                 .type("string")
                                                 .description("The notification Id.")
                                                 .build()
                                         ),
-                                        Pair("eventDate", Schema.builder()
+                                        Pair("eventDate", AsyncAPISchema.builder()
                                                 .type("string")
                                                 .description("The event date associated with this notification in UTC.")
                                                 .build()
                                         ),
-                                        Pair("publishDate", Schema.builder()
+                                        Pair("publishDate", AsyncAPISchema.builder()
                                                 .type("string")
                                                 .description("The message publish date in UTC.")
                                                 .build()
                                         ),
-                                        Pair("publishAttemptCount", Schema.builder()
+                                        Pair("publishAttemptCount", AsyncAPISchema.builder()
                                                 .type("integer")
                                                 .description("The number of attempts made to publish this message.")
                                                 .build()
                                         ),
-                                        Pair("publishAttemptCount", Schema.builder()
+                                        Pair("publishAttemptCount", AsyncAPISchema.builder()
                                                 .type("integer")
                                                 .description("The number of attempts made to publish this message.")
                                                 .build()
                                         ),
-                                        Pair("data", Schema.builder()
+                                        Pair("data", AsyncAPISchema.builder()
                                                 .ref("#/components/schemas/AuthorizationRevocationData")
                                                 .build()
                                         )
                                 ))
                                 .build()
                         ),
-                        Pair("AuthorizationRevocationData", Schema.builder()
+                        Pair("AuthorizationRevocationData", AsyncAPISchema.builder()
                                 .type("object")
                                 .description("The Authorization Revocation payload.")
                                 .properties(mapOf(
-                                        Pair("username", Schema.builder()
+                                        Pair("username", AsyncAPISchema.builder()
                                                 .type("string")
                                                 .description("The username for the user.")
                                                 .build()
                                         ),
-                                        Pair("userId", Schema.builder()
+                                        Pair("userId", AsyncAPISchema.builder()
                                                 .type("string")
                                                 .description("The immutable public userId for the user")
                                                 .build()
                                         ),
-                                        Pair("eiasToken", Schema.builder()
+                                        Pair("eiasToken", AsyncAPISchema.builder()
                                                 .type("string")
                                                 .description("The legacy eiasToken specific to the user")
                                                 .build()
                                         ),
-                                        Pair("revokeReason", Schema.builder()
+                                        Pair("revokeReason", AsyncAPISchema.builder()
                                                 .type("string")
                                                 .enumValue(listOf(
                                                         "REVOKED_BY_APP",
@@ -170,7 +170,7 @@ class OperationSecurity: AbstractExampleValidationTest() {
                                                 .description("The reason for authorization revocation")
                                                 .build()
                                         ),
-                                        Pair("revocationDate", Schema.builder()
+                                        Pair("revocationDate", AsyncAPISchema.builder()
                                                 .type("string")
                                                 .description("Date and time when the authorization was revoked")
                                                 .build()
