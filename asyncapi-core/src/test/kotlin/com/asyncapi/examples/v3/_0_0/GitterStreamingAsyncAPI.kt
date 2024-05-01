@@ -13,7 +13,7 @@ import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.server.Server
 import com.asyncapi.v3.schema.AsyncAPISchema
-import com.asyncapi.v3.schema.JsonSchema
+import com.asyncapi.schemas.JsonSchema
 import com.asyncapi.v3.schema.multiformat.JsonFormatSchema
 import com.asyncapi.v3.security_scheme.http.HttpSecurityScheme
 

@@ -1,7 +1,7 @@
 package com.asyncapi.v3.schema.json
 
 import com.asyncapi.v3.schema.AsyncAPISchema
-import com.asyncapi.v3.schema.JsonSchema
+import com.asyncapi.schemas.JsonSchema
 import com.asyncapi.v3.schema.SchemaProvider
 
 class ConditionalValidationIfElse: SchemaProvider {
@@ -23,7 +23,8 @@ class ConditionalValidationIfElse: SchemaProvider {
                         )
                 ))
                 .required(listOf("isMember"))
-                .ifValue(JsonSchema.builder()
+                .ifValue(
+                    JsonSchema.builder()
                         .properties(mapOf(
                                 Pair("isMember", JsonSchema.builder()
                                         .constValue(true)
@@ -32,7 +33,8 @@ class ConditionalValidationIfElse: SchemaProvider {
                         ))
                         .build()
                 )
-                .thenValue(JsonSchema.builder()
+                .thenValue(
+                    JsonSchema.builder()
                         .properties(mapOf(
                                 Pair("membershipNumber", JsonSchema.builder()
                                         .type("string")
@@ -43,7 +45,8 @@ class ConditionalValidationIfElse: SchemaProvider {
                         ))
                         .build()
                 )
-                .elseValue(JsonSchema.builder()
+                .elseValue(
+                    JsonSchema.builder()
                         .properties(mapOf(
                                 Pair("membershipNumber", JsonSchema.builder()
                                         .type("string")

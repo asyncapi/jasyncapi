@@ -1,12 +1,14 @@
 package com.asyncapi.v3.schema
 
+import com.asyncapi.schemas.JsonSchema
 import com.asyncapi.v3.schema.multiformat.AsyncAPIFormatSchema
 import com.asyncapi.v3.schema.multiformat.JsonFormatSchema
 import com.asyncapi.v3.schema.openapi.v3._0_0.OpenAPISchema
 
 interface SchemaProvider {
 
-    fun jsonSchema(): JsonSchema = JsonSchema()
+    fun jsonSchema(): JsonSchema =
+        JsonSchema()
 
     fun jsonFormatSchemaJson(): JsonFormatSchema = JsonFormatSchema(jsonSchema())
 

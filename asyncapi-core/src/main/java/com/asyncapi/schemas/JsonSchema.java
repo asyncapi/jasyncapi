@@ -1,4 +1,4 @@
-package com.asyncapi.v3.schema;
+package com.asyncapi.schemas;
 
 import com.asyncapi.v3.jackson.schema.JsonSchemaAnyValueDeserializer;
 import com.asyncapi.v3.jackson.schema.JsonSchemaItemsDeserializer;
