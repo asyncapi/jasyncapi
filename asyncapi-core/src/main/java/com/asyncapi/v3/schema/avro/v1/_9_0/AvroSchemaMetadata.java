@@ -9,6 +9,9 @@ import org.jetbrains.annotations.Nullable;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Avro Schema metadata
+ */
 @Data
 @JsonIgnoreProperties({"metadata"})
 public class AvroSchemaMetadata {

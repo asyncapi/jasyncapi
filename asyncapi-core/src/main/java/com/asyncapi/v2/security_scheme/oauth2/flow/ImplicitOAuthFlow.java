@@ -11,6 +11,10 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Map;
 
 /**
+ * Configuration for the OAuth Implicit flow
+ * <p>
+ * This object MAY be extended with {@link com.asyncapi.ExtendableObject}.
+ *
  * @version 2.6.0
  * @see <a href="https://www.asyncapi.com/docs/reference/specification/v2.6.0#oauthFlowObject">OAuth Flow Object</a>
  * @author Pavel Bodiachevskii

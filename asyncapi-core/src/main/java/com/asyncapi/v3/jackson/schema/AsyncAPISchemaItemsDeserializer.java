@@ -14,6 +14,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * AsyncAPI Schema items deserializer
+ */
 public class AsyncAPISchemaItemsDeserializer extends SchemaItemsDeserializer<AsyncAPISchema> {
 
     public Class<AsyncAPISchema> schemaClass() {

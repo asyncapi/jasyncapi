@@ -109,7 +109,7 @@ public class OpenAPISchema extends Extensions {
 
     /**
      * The word “exclusive” in {@link #exclusiveMinimum} and {@link #exclusiveMaximum} means the corresponding boundary is excluded:
-     * <table summary="exclusive description">
+     * <table caption="exclusive description">
      *     <tr>
      *         <th>Keyword</th>
      *         <th>Description</th>
@@ -166,7 +166,7 @@ public class OpenAPISchema extends Extensions {
 
     /**
      * The word “exclusive” in {@link #exclusiveMinimum} and {@link #exclusiveMaximum} means the corresponding boundary is excluded:
-     * <table summary="exclusive description">
+     * <table caption="exclusive description">
      *     <tr>
      *         <th>Keyword</th>
      *         <th>Description</th>

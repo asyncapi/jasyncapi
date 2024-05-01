@@ -3,6 +3,8 @@ package com.asyncapi.v3.jackson.schema;
 import com.asyncapi.v3.schema.JsonSchema;
 
 /**
+ * Json Schema any value deserializer
+ *
  * @author Pavel Bodiachevskii
  */
 public class JsonSchemaAnyValueDeserializer extends SchemaAnyValueDeserializer<JsonSchema> {

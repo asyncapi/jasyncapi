@@ -12,6 +12,8 @@ import java.util.Collections;
 import java.util.Map;
 
 /**
+ * Avro Map Schema
+ *
  * @see <a href="https://avro.apache.org/docs/1.9.0/spec.html#Maps">Maps</a>
  */
 @Data

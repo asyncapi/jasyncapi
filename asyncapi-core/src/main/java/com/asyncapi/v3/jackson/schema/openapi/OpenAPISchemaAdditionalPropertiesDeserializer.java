@@ -11,6 +11,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import java.io.IOException;
 
 /**
+ * OpenAPI Schema additional properties deserializer
+ *
  * @author Pavel Bodiachevskii
  * @version 3.0.0
  */

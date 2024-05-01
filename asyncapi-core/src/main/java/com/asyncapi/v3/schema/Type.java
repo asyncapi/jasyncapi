@@ -1,6 +1,8 @@
 package com.asyncapi.v3.schema;
 
 /**
+ * Json Schema type.
+ *
  * @author Pavel Bodiachevskii
  */
 public class Type {

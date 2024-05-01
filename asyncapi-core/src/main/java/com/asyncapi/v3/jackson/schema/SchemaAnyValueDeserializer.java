@@ -14,6 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Abstract Schema any value deserializer
+ *
+ * @param <Schema> schema to deserialize
  * @author Pavel Bodiachevskii
  */
 public abstract class SchemaAnyValueDeserializer<Schema> extends JsonDeserializer<Object> {

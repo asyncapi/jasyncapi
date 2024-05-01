@@ -11,6 +11,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
+ * HTTP API Key Security Scheme
+ *
  * @version 2.6.0
  * @see <a href="https://www.asyncapi.com/docs/reference/specification/v2.6.0#securitySchemeObject">SecurityScheme</a>
  * @author Pavel Bodiachevskii

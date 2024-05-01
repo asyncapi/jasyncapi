@@ -2,6 +2,9 @@ package com.asyncapi.v3.schema.avro.v1._9_0;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Avro Schema logical types
+ */
 public class AvroSchemaLogicalType {
 
     @JsonProperty("decimal")

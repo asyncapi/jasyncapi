@@ -11,6 +11,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import java.io.IOException;
 
 /**
+ * Json Schema properties deserializer.
+ *
  * @author Guillaume LAMIRAND (guillaume.lamirand at graviteesource.com)
  * @author GraviteeSource Team
  */

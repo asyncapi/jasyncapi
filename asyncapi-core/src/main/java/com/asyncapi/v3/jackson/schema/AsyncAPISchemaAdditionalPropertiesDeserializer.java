@@ -11,6 +11,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import java.io.IOException;
 
 /**
+ * AsyncAPI Schema additional properties deserializer
+ *
  * @author Guillaume LAMIRAND (guillaume.lamirand at graviteesource.com)
  * @author GraviteeSource Team
  */

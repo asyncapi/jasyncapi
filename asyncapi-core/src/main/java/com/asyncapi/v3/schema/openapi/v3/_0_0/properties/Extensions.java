@@ -13,6 +13,8 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 /**
+ * Allows to extend AsyncAPI specification
+ *
  * @see <a href="https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.0.md#specification-extensions">Specification Extensions</a>
  */
 @Data

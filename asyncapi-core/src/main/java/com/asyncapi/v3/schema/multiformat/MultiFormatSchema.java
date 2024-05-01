@@ -14,6 +14,7 @@ import org.jetbrains.annotations.NotNull;
  * The Multi Format Schema Object represents a schema definition. It differs from the {@link AsyncAPISchema} in that it supports
  * multiple schema formats or languages (e.g., JSON Schema, Avro, etc.).
  *
+ * @param <Schema> schema to use
  * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#multiFormatSchemaObject">Multi Format Schema</a>
  * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#schemaObject">Schema</a>
  * @author Pavel Bodiachevskii

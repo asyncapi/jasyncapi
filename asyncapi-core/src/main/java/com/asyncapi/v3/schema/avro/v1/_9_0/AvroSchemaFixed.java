@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * Avro Fixed Schema
+ *
  * @see <a href="https://avro.apache.org/docs/1.9.0/spec.html#Arrays">Arrays</a>
  */
 @Data
