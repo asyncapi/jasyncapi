@@ -4,7 +4,7 @@ import com.asyncapi.schemas.AsyncAPISchema
 import com.asyncapi.schemas.JsonSchema
 import com.asyncapi.schemas.multiformat.AsyncAPIFormatSchema
 import com.asyncapi.schemas.multiformat.JsonFormatSchema
-import com.asyncapi.v3.schema.openapi.v3._0_0.OpenAPISchema
+import com.asyncapi.schemas.openapi.v3._0_0.OpenAPISchema
 
 interface SchemaProvider {
 
@@ -29,6 +29,7 @@ interface SchemaProvider {
             asyncAPISchema()
         )
 
-    fun openAPISchema(): OpenAPISchema = OpenAPISchema()
+    fun openAPISchema(): OpenAPISchema =
+        OpenAPISchema()
 
 }

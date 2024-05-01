@@ -1,7 +1,7 @@
 package com.asyncapi.v3.jackson.schema.openapi;
 
 import com.asyncapi.v3.jackson.schema.SchemaAnyValueDeserializer;
-import com.asyncapi.v3.schema.openapi.v3._0_0.OpenAPISchema;
+import com.asyncapi.schemas.openapi.v3._0_0.OpenAPISchema;
 
 /**
  * OpenAPI Schema any value deserializer

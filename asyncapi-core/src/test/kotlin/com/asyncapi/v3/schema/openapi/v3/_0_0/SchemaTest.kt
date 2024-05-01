@@ -1,9 +1,10 @@
 package com.asyncapi.v3.schema.openapi.v3._0_0
 
+import com.asyncapi.schemas.openapi.v3._0_0.OpenAPISchema
 import com.asyncapi.v3.schema.SchemaProvider
-import com.asyncapi.v3.schema.openapi.v3._0_0.properties.Discriminator
-import com.asyncapi.v3.schema.openapi.v3._0_0.properties.ExternalDocumentation
-import com.asyncapi.v3.schema.openapi.v3._0_0.properties.XML
+import com.asyncapi.schemas.openapi.v3._0_0.properties.Discriminator
+import com.asyncapi.schemas.openapi.v3._0_0.properties.ExternalDocumentation
+import com.asyncapi.schemas.openapi.v3._0_0.properties.XML
 import java.math.BigDecimal
 
 class SchemaTest: SchemaProvider {
@@ -87,7 +88,8 @@ class SchemaTest: SchemaProvider {
                     .required(listOf("pet_type"))
                     .build()
             ))
-            .not(OpenAPISchema.builder()
+            .not(
+                OpenAPISchema.builder()
                 .name("Pet by type")
                 .type("object")
                 .properties(mapOf(
@@ -112,7 +114,8 @@ class SchemaTest: SchemaProvider {
                     .build()
                 )
             ))
-            .additionalProperties(OpenAPISchema.builder()
+            .additionalProperties(
+                OpenAPISchema.builder()
                 .properties(mapOf(
                     Pair("pet_type", OpenAPISchema.builder()
                         .type("string")
@@ -121,7 +124,8 @@ class SchemaTest: SchemaProvider {
                         .build()
                     )
                 ))
-                .additionalProperties(OpenAPISchema.builder()
+                .additionalProperties(
+                    OpenAPISchema.builder()
                     .properties(mapOf(
                         Pair("hunts", OpenAPISchema.builder()
                             .type("boolean")
@@ -138,7 +142,8 @@ class SchemaTest: SchemaProvider {
             .nullable(true)
             .readOnly(true)
             .writeOnly(true)
-            .example(OpenAPISchema.builder()
+            .example(
+                OpenAPISchema.builder()
                 .type("string")
                 .enumValue(listOf("approved", "pending", "closed", "new"))
                 .example("approved")
