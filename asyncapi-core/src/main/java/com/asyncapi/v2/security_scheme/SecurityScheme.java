@@ -1,6 +1,6 @@
 package com.asyncapi.v2.security_scheme;
 
-import com.asyncapi.ExtendableObject;
+import com.asyncapi.schemas.ExtendableObject;
 import com.asyncapi.v2.security_scheme.http.HttpApiKeySecurityScheme;
 import com.asyncapi.v2.security_scheme.http.HttpSecurityScheme;
 import com.asyncapi.v2.security_scheme.oauth2.OAuth2SecurityScheme;

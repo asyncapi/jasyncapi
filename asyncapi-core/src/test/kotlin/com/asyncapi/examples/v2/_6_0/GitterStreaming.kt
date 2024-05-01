@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v2._6_0
 
-import com.asyncapi.Reference
+import com.asyncapi.schemas.Reference
 import com.asyncapi.v2._6_0.model.channel.ChannelItem
 import com.asyncapi.v2._6_0.model.channel.Parameter
 import com.asyncapi.v2._6_0.model.channel.message.Message
@@ -72,8 +72,8 @@ class GitterStreaming: AbstractExampleValidationTest() {
                                         )
                                 ))
                                 .message(OneOfMessages(listOf(
-                                        Reference("#/components/messages/chatMessage"),
-                                        Reference("#/components/messages/heartbeat")
+                                    Reference("#/components/messages/chatMessage"),
+                                    Reference("#/components/messages/heartbeat")
                                 )))
                                 .build()
                         )
@@ -249,7 +249,9 @@ class GitterStreaming: AbstractExampleValidationTest() {
                                         .build()
                                 )
                                 .bindings(mapOf(
-                                        Pair("http", Reference("#/components/messageBindings/streamingHeaders"))
+                                        Pair("http",
+                                            Reference("#/components/messageBindings/streamingHeaders")
+                                        )
                                 ))
                                 .build()
                         ),
@@ -262,7 +264,9 @@ class GitterStreaming: AbstractExampleValidationTest() {
                                         .build()
                                 )
                                 .bindings(mapOf(
-                                        Pair("http", Reference("#/components/messageBindings/streamingHeaders"))
+                                        Pair("http",
+                                            Reference("#/components/messageBindings/streamingHeaders")
+                                        )
                                 ))
                                 .build()
                         ),

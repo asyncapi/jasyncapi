@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v2._0_0
 
-import com.asyncapi.Reference
+import com.asyncapi.schemas.Reference
 import com.asyncapi.bindings.http.v0._3_0.operation.HTTPOperationBinding
 import com.asyncapi.bindings.http.v0._3_0.operation.HTTPOperationMethod
 import com.asyncapi.v2._0_0.model.channel.ChannelItem

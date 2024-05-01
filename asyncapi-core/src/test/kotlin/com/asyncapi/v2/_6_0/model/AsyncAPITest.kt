@@ -1,6 +1,6 @@
 package com.asyncapi.v2._6_0.model
 
-import com.asyncapi.Reference
+import com.asyncapi.schemas.Reference
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._6_0.model.channel.ChannelItemTest
 import com.asyncapi.v2._6_0.model.component.ComponentsTest
@@ -27,7 +27,9 @@ class AsyncAPITest: SerDeTest<AsyncAPI>() {
                 InfoTest().build(),
                 mapOf(
                         Pair("stage", ServerTest().build()),
-                        Pair("stage-2", Reference("#/components/servers/stage-2"))
+                        Pair("stage-2",
+                            Reference("#/components/servers/stage-2")
+                        )
                 ),
                 "application/json",
                 mapOf(

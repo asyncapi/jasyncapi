@@ -1,7 +1,7 @@
 package com.asyncapi.v3._0_0.model.operation.reply;
 
-import com.asyncapi.ExtendableObject;
-import com.asyncapi.Reference;
+import com.asyncapi.schemas.ExtendableObject;
+import com.asyncapi.schemas.Reference;
 import com.asyncapi.v3._0_0.jackson.model.operation.reply.OperationReplyAddressDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.*;

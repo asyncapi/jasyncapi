@@ -1,6 +1,7 @@
 package com.asyncapi.v2._6_0.model.channel.operation;
 
-import com.asyncapi.ExtendableObject;
+import com.asyncapi.schemas.ExtendableObject;
+import com.asyncapi.schemas.Reference;
 import com.asyncapi.v2._6_0.jackson.model.channel.operation.OperationMessageDeserializer;
 import com.asyncapi.v2._6_0.jackson.model.channel.operation.OperationTraitsDeserializer;
 import com.asyncapi.v2._6_0.model.ExternalDocumentation;
@@ -87,7 +88,7 @@ public class Operation extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.Reference}</li>
+     *     <li>{@link Reference}</li>
      *     <li>{@link OperationBinding}</li>
      * </ul>
      */
@@ -101,7 +102,7 @@ public class Operation extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.Reference}</li>
+     *     <li>{@link Reference}</li>
      *     <li>{@link com.asyncapi.v2._6_0.model.channel.operation.OperationTrait}</li>
      * </ul>
      */
@@ -116,7 +117,7 @@ public class Operation extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.Reference}</li>
+     *     <li>{@link Reference}</li>
      *     <li>{@link com.asyncapi.v2._6_0.model.channel.message.Message}</li>
      *     <li>{@link com.asyncapi.v2._6_0.model.channel.message.OneOfMessages}</li>
      * </ul>

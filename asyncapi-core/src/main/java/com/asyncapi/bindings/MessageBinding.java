@@ -1,6 +1,6 @@
 package com.asyncapi.bindings;
 
-import com.asyncapi.ExtendableObject;
+import com.asyncapi.schemas.ExtendableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

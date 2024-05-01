@@ -1,6 +1,6 @@
 package com.asyncapi.v2._0_0.model.server;
 
-import com.asyncapi.ExtendableObject;
+import com.asyncapi.schemas.ExtendableObject;
 import com.asyncapi.bindings.ServerBinding;
 import com.asyncapi.bindings.ServerBindingsDeserializer;
 import com.fasterxml.jackson.annotation.JsonProperty;

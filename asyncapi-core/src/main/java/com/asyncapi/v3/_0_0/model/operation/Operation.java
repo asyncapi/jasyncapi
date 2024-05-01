@@ -1,7 +1,7 @@
 package com.asyncapi.v3._0_0.model.operation;
 
-import com.asyncapi.ExtendableObject;
-import com.asyncapi.Reference;
+import com.asyncapi.schemas.ExtendableObject;
+import com.asyncapi.schemas.Reference;
 import com.asyncapi.v3._0_0.jackson.model.ExternalDocumentationDeserializer;
 import com.asyncapi.v3._0_0.jackson.model.TagsDeserializer;
 import com.asyncapi.v3._0_0.jackson.model.operation.OperationTraitsDeserializer;

@@ -1,6 +1,6 @@
 package com.asyncapi.v2.schema;
 
-import com.asyncapi.ExtendableObject;
+import com.asyncapi.schemas.ExtendableObject;
 import com.asyncapi.v2._0_0.jackson.model.schema.SchemasAdditionalPropertiesDeserializer;
 import com.asyncapi.v2._0_0.model.ExternalDocumentation;
 import com.asyncapi.v2.jackson.SchemaItemsDeserializer;

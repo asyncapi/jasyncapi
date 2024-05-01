@@ -1,6 +1,7 @@
 package com.asyncapi.v2._6_0.model.channel.message;
 
-import com.asyncapi.ExtendableObject;
+import com.asyncapi.schemas.ExtendableObject;
+import com.asyncapi.schemas.Reference;
 import com.asyncapi.v2._6_0.jackson.model.channel.message.MessageCorrelationIdDeserializer;
 import com.asyncapi.v2._6_0.jackson.model.channel.message.MessageHeadersDeserializer;
 import com.asyncapi.v2._6_0.jackson.model.channel.message.MessagePayloadDeserializer;
@@ -51,7 +52,7 @@ public class Message extends ExtendableObject {
      * MUST BE:
      * <ul>
      *     <li>{@link com.asyncapi.v2.schema.Schema}</li>
-     *     <li>{@link com.asyncapi.Reference}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @Nullable
@@ -78,7 +79,7 @@ public class Message extends ExtendableObject {
      * MUST BE:
      * <ul>
      *     <li>{@link com.asyncapi.v2._6_0.model.channel.message.CorrelationId}</li>
-     *     <li>{@link com.asyncapi.Reference}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @Nullable
@@ -149,7 +150,7 @@ public class Message extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.Reference}</li>
+     *     <li>{@link Reference}</li>
      *     <li>{@link MessageBinding}</li>
      * </ul>
      */
@@ -170,7 +171,7 @@ public class Message extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.Reference}</li>
+     *     <li>{@link Reference}</li>
      *     <li>{@link com.asyncapi.v2._6_0.model.channel.message.MessageTrait}</li>
      * </ul>
      */

@@ -2,7 +2,7 @@ package com.asyncapi.v2._0_0.model.channel.operation
 
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._0_0.model.ExternalDocumentation
-import com.asyncapi.Reference
+import com.asyncapi.schemas.Reference
 import com.asyncapi.v2._0_0.model.Tag
 import com.asyncapi.v2._0_0.model.channel.message.MessageTest
 import com.asyncapi.bindings.OperationBinding
@@ -54,7 +54,7 @@ class OperationWithReferenceToMessageTest: SerDeTest<Operation>() {
                 .externalDocs(ExternalDocumentation("Messages sending rules", "messages/sending-rules"))
                 .bindings(OperationTest.bindings())
                 .traits(listOf(
-                        Reference("#/components/operationTraits/sendMessage"),
+                    Reference("#/components/operationTraits/sendMessage"),
                         OperationTraitTest().build()
                 ))
                 .message(Reference("#/components/schemas/sendMessage"))
@@ -88,7 +88,7 @@ class OperationWithMessageTest: SerDeTest<Operation>() {
                 .externalDocs(ExternalDocumentation("Messages sending rules", "messages/sending-rules"))
                 .bindings(OperationTest.bindings())
                 .traits(listOf(
-                        Reference("#/components/operationTraits/sendMessage"),
+                    Reference("#/components/operationTraits/sendMessage"),
                         OperationTraitTest().build()
                 ))
                 .message(MessageTest().build())

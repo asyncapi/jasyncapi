@@ -1,7 +1,6 @@
 package com.asyncapi.examples.v2._6_0
 
-import com.asyncapi.Reference
-import com.asyncapi.v2._6_0.model.Tag
+import com.asyncapi.schemas.Reference
 import com.asyncapi.v2._6_0.model.channel.ChannelItem
 import com.asyncapi.v2._6_0.model.channel.Parameter
 import com.asyncapi.v2._6_0.model.channel.message.Message
@@ -73,7 +72,9 @@ class StreetlightsOperationSecurity: AbstractExampleValidationTest() {
                 Pair("smartylighting.streetlights.1.0.event.{streetlightId}.lighting.measured",
                         ChannelItem.builder()
                                 .description("The topic on which measured values may be produced and consumed.")
-                                .parameters(mapOf(Pair("streetlightId", Reference("#/components/parameters/streetlightId"))))
+                                .parameters(mapOf(Pair("streetlightId",
+                                    Reference("#/components/parameters/streetlightId")
+                                )))
                                 .publish(Operation.builder()
                                         .operationId("receiveLightMeasurement")
                                         .summary("Inform about environmental lighting conditions of a particular streetlight.")
@@ -85,7 +86,9 @@ class StreetlightsOperationSecurity: AbstractExampleValidationTest() {
                 ),
                 Pair("smartylighting.streetlights.1.0.action.{streetlightId}.turn.on",
                         ChannelItem.builder()
-                                .parameters(mapOf(Pair("streetlightId", Reference("#/components/parameters/streetlightId"))))
+                                .parameters(mapOf(Pair("streetlightId",
+                                    Reference("#/components/parameters/streetlightId")
+                                )))
                                 .subscribe(Operation.builder()
                                         .operationId("turnOn")
                                         .traits(listOf(Reference("#/components/operationTraits/kafka")))
@@ -97,7 +100,9 @@ class StreetlightsOperationSecurity: AbstractExampleValidationTest() {
                 ),
                 Pair("smartylighting.streetlights.1.0.action.{streetlightId}.turn.off",
                         ChannelItem.builder()
-                                .parameters(mapOf(Pair("streetlightId", Reference("#/components/parameters/streetlightId"))))
+                                .parameters(mapOf(Pair("streetlightId",
+                                    Reference("#/components/parameters/streetlightId")
+                                )))
                                 .subscribe(Operation.builder()
                                         .operationId("turnOff")
                                         .traits(listOf(Reference("#/components/operationTraits/kafka")))
@@ -110,7 +115,9 @@ class StreetlightsOperationSecurity: AbstractExampleValidationTest() {
                 ),
                 Pair("smartylighting.streetlights.1.0.action.{streetlightId}.dim",
                         ChannelItem.builder()
-                                .parameters(mapOf(Pair("streetlightId", Reference("#/components/parameters/streetlightId"))))
+                                .parameters(mapOf(Pair("streetlightId",
+                                    Reference("#/components/parameters/streetlightId")
+                                )))
                                 .subscribe(Operation.builder()
                                         .operationId("dimLight")
                                         .traits(listOf(Reference("#/components/operationTraits/kafka")))

@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.Reference
+import com.asyncapi.schemas.Reference
 import com.asyncapi.v3._0_0.model.Tag
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.Parameter
@@ -117,7 +117,9 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
                                         "![](https://user-images.githubusercontent.com/5501911/188920831-689cec5f-8dc3-460b-8794-0b54ec8b0ac8.png)\n"
                         )
                         .parameters(mapOf(
-                                Pair("env", Reference("#/components/parameters/Env")),
+                                Pair("env",
+                                    Reference("#/components/parameters/Env")
+                                ),
                                 Pair("version",
                                     Reference("#/components/parameters/Version")
                                 )

@@ -1,4 +1,4 @@
-package com.asyncapi;
+package com.asyncapi.schemas;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;

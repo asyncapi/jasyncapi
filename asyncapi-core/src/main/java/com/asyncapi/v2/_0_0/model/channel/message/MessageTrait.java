@@ -1,10 +1,10 @@
 package com.asyncapi.v2._0_0.model.channel.message;
 
-import com.asyncapi.ExtendableObject;
+import com.asyncapi.schemas.ExtendableObject;
 import com.asyncapi.v2._0_0.jackson.model.channel.message.MessageCorrelationIdDeserializer;
 import com.asyncapi.v2._0_0.jackson.model.channel.message.MessageHeadersDeserializer;
 import com.asyncapi.v2._0_0.model.ExternalDocumentation;
-import com.asyncapi.Reference;
+import com.asyncapi.schemas.Reference;
 import com.asyncapi.v2._0_0.model.Tag;
 import com.asyncapi.v2._0_0.model.channel.operation.OperationTrait;
 import com.asyncapi.v2.schema.Schema;

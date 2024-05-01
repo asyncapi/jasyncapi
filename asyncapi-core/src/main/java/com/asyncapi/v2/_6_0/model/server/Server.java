@@ -1,6 +1,7 @@
 package com.asyncapi.v2._6_0.model.server;
 
-import com.asyncapi.ExtendableObject;
+import com.asyncapi.schemas.ExtendableObject;
+import com.asyncapi.schemas.Reference;
 import com.asyncapi.v2._6_0.jackson.model.server.ServerVariablesDeserializer;
 import com.asyncapi.v2._6_0.model.Tag;
 import com.asyncapi.bindings.ServerBinding;
@@ -73,7 +74,7 @@ public class Server extends ExtendableObject {
      * <p>
      * MUST be one of:
      * <ul>
-     *     <li>{@link com.asyncapi.Reference}</li>
+     *     <li>{@link Reference}</li>
      *     <li>{@link com.asyncapi.v2._6_0.model.server.ServerVariable}</li>
      * </ul>
      */
@@ -107,7 +108,7 @@ public class Server extends ExtendableObject {
      * <p>
      * MUST be one of:
      * <ul>
-     *     <li>{@link com.asyncapi.Reference}</li>
+     *     <li>{@link Reference}</li>
      *     <li>{@link ServerBinding}</li>
      * </ul>
      */

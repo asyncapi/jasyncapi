@@ -1,6 +1,6 @@
 package com.asyncapi.v3._0_0.model.channel.message
 
-import com.asyncapi.Reference
+import com.asyncapi.schemas.Reference
 import com.asyncapi.v3.SerDeTest
 import com.asyncapi.v3._0_0.model.ExternalDocumentation
 import com.asyncapi.v3._0_0.model.Tag
@@ -85,23 +85,37 @@ class MessageTestWithSchema: SerDeTest<Message>() {
         fun bindings(): Map<String, Any> {
             return mapOf(
                     Pair("amqp", AMQPV0_2_0Test.messageBinding()),
-                    Pair("amqp1", Reference("#/components/messageBindings/amqp1")),
+                    Pair("amqp1",
+                        Reference("#/components/messageBindings/amqp1")
+                    ),
                     Pair("anypointmq", AnypointMQV0_0_1Test.messageBinding()),
                     Pair("googlepubsub", GooglePubSubV0_1_0Test.messageBinding()),
                     Pair("http", HTTPV0_3_0Test.messageBinding()),
                     Pair("ibmmq", IBMMQV0_1_0Test.messageBinding()),
                     Pair("jms", Reference("#/components/messageBindings/jms")),
                     Pair("kafka", KafkaV0_4_0Test.messageBinding()),
-                    Pair("mercure", Reference("#/components/messageBindings/mercure")),
+                    Pair("mercure",
+                        Reference("#/components/messageBindings/mercure")
+                    ),
                     Pair("mqtt", MQTTV0_1_0Test.messageBinding()),
-                    Pair("mqtt5", Reference("#/components/messageBindings/mqtt5")),
+                    Pair("mqtt5",
+                        Reference("#/components/messageBindings/mqtt5")
+                    ),
                     Pair("nats", Reference("#/components/messageBindings/nats")),
-                    Pair("pulsar", Reference("#/components/messageBindings/pulsar")),
-                    Pair("redis", Reference("#/components/messageBindings/redis")),
+                    Pair("pulsar",
+                        Reference("#/components/messageBindings/pulsar")
+                    ),
+                    Pair("redis",
+                        Reference("#/components/messageBindings/redis")
+                    ),
                     Pair("sns", Reference("#/components/messageBindings/sns")),
-                    Pair("solace", Reference("#/components/messageBindings/solace")),
+                    Pair("solace",
+                        Reference("#/components/messageBindings/solace")
+                    ),
                     Pair("sqs", Reference("#/components/messageBindings/sqs")),
-                    Pair("stomp", Reference("#/components/messageBindings/stomp")),
+                    Pair("stomp",
+                        Reference("#/components/messageBindings/stomp")
+                    ),
                     Pair("ws", Reference("#/components/messageBindings/ws"))
             )
         }
@@ -138,25 +152,45 @@ class MessageTestWithReference: SerDeTest<Message>() {
                 .externalDocs(Reference("#/components/externalDocs/external-doc"))
                 .bindings(mapOf(
                         Pair("amqp", AMQPV0_2_0Test.messageBinding()),
-                        Pair("amqp1", Reference("#/components/messageBindings/amqp1")),
+                        Pair("amqp1",
+                            Reference("#/components/messageBindings/amqp1")
+                        ),
                         Pair("anypointmq", AnypointMQV0_0_1Test.messageBinding()),
                         Pair("googlepubsub", GooglePubSubV0_1_0Test.messageBinding()),
                         Pair("http", HTTPV0_3_0Test.messageBinding()),
                         Pair("ibmmq", IBMMQV0_1_0Test.messageBinding()),
-                        Pair("jms", Reference("#/components/messageBindings/jms")),
+                        Pair("jms",
+                            Reference("#/components/messageBindings/jms")
+                        ),
                         Pair("kafka", KafkaV0_4_0Test.messageBinding()),
                         Pair("mercure",
                             Reference("#/components/messageBindings/mercure")
                         ),
                         Pair("mqtt", MQTTV0_1_0Test.messageBinding()),
-                        Pair("mqtt5", Reference("#/components/messageBindings/mqtt5")),
-                        Pair("nats", Reference("#/components/messageBindings/nats")),
-                        Pair("pulsar", Reference("#/components/messageBindings/pulsar")),
-                        Pair("redis", Reference("#/components/messageBindings/redis")),
-                        Pair("sns", Reference("#/components/messageBindings/sns")),
-                        Pair("solace", Reference("#/components/messageBindings/solace")),
-                        Pair("sqs", Reference("#/components/messageBindings/sqs")),
-                        Pair("stomp", Reference("#/components/messageBindings/stomp")),
+                        Pair("mqtt5",
+                            Reference("#/components/messageBindings/mqtt5")
+                        ),
+                        Pair("nats",
+                            Reference("#/components/messageBindings/nats")
+                        ),
+                        Pair("pulsar",
+                            Reference("#/components/messageBindings/pulsar")
+                        ),
+                        Pair("redis",
+                            Reference("#/components/messageBindings/redis")
+                        ),
+                        Pair("sns",
+                            Reference("#/components/messageBindings/sns")
+                        ),
+                        Pair("solace",
+                            Reference("#/components/messageBindings/solace")
+                        ),
+                        Pair("sqs",
+                            Reference("#/components/messageBindings/sqs")
+                        ),
+                        Pair("stomp",
+                            Reference("#/components/messageBindings/stomp")
+                        ),
                         Pair("ws", Reference("#/components/messageBindings/ws"))
                 ))
                 .examples(listOf(MessageExampleTest().build()))
@@ -228,25 +262,45 @@ class MessageTestWithMultiFormatSchema: SerDeTest<Message>() {
                 .externalDocs(Reference("#/components/externalDocs/external-doc"))
                 .bindings(mapOf(
                         Pair("amqp", AMQPV0_2_0Test.messageBinding()),
-                        Pair("amqp1", Reference("#/components/messageBindings/amqp1")),
+                        Pair("amqp1",
+                            Reference("#/components/messageBindings/amqp1")
+                        ),
                         Pair("anypointmq", AnypointMQV0_0_1Test.messageBinding()),
                         Pair("googlepubsub", GooglePubSubV0_1_0Test.messageBinding()),
                         Pair("http", HTTPV0_3_0Test.messageBinding()),
                         Pair("ibmmq", IBMMQV0_1_0Test.messageBinding()),
-                        Pair("jms", Reference("#/components/messageBindings/jms")),
+                        Pair("jms",
+                            Reference("#/components/messageBindings/jms")
+                        ),
                         Pair("kafka", KafkaV0_4_0Test.messageBinding()),
                         Pair("mercure",
                             Reference("#/components/messageBindings/mercure")
                         ),
                         Pair("mqtt", MQTTV0_1_0Test.messageBinding()),
-                        Pair("mqtt5", Reference("#/components/messageBindings/mqtt5")),
-                        Pair("nats", Reference("#/components/messageBindings/nats")),
-                        Pair("pulsar", Reference("#/components/messageBindings/pulsar")),
-                        Pair("redis", Reference("#/components/messageBindings/redis")),
-                        Pair("sns", Reference("#/components/messageBindings/sns")),
-                        Pair("solace", Reference("#/components/messageBindings/solace")),
-                        Pair("sqs", Reference("#/components/messageBindings/sqs")),
-                        Pair("stomp", Reference("#/components/messageBindings/stomp")),
+                        Pair("mqtt5",
+                            Reference("#/components/messageBindings/mqtt5")
+                        ),
+                        Pair("nats",
+                            Reference("#/components/messageBindings/nats")
+                        ),
+                        Pair("pulsar",
+                            Reference("#/components/messageBindings/pulsar")
+                        ),
+                        Pair("redis",
+                            Reference("#/components/messageBindings/redis")
+                        ),
+                        Pair("sns",
+                            Reference("#/components/messageBindings/sns")
+                        ),
+                        Pair("solace",
+                            Reference("#/components/messageBindings/solace")
+                        ),
+                        Pair("sqs",
+                            Reference("#/components/messageBindings/sqs")
+                        ),
+                        Pair("stomp",
+                            Reference("#/components/messageBindings/stomp")
+                        ),
                         Pair("ws", Reference("#/components/messageBindings/ws"))
                 ))
                 .examples(listOf(MessageExampleTest().build()))

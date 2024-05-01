@@ -1,6 +1,6 @@
 package com.asyncapi.v3._0_0.jackson.model.operation.reply;
 
-import com.asyncapi.Reference;
+import com.asyncapi.schemas.Reference;
 import com.asyncapi.v3._0_0.model.operation.reply.OperationReplyAddress;
 import com.asyncapi.v3.jackson.ReferenceOrObjectDeserializer;
 

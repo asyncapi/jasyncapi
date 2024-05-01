@@ -1,6 +1,6 @@
 package com.asyncapi.v2._6_0.model.component
 
-import com.asyncapi.Reference
+import com.asyncapi.schemas.Reference
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2.schema.Schema
 import com.asyncapi.v2.schema.Type
@@ -58,51 +58,81 @@ class ComponentsTest: SerDeTest<Components>() {
                 ))
                 .servers(mapOf(
                         Pair("mqtt-test", ServerTest().build()),
-                        Pair("mqtt-stage", Reference("#/components/servers/mqtt-stage"))
+                        Pair("mqtt-stage",
+                            Reference("#/components/servers/mqtt-stage")
+                        )
                 ))
                 .serverVariables(mapOf(
                         Pair("port", ServerVariableTest().build()),
-                        Pair("basePath", Reference("#/components/serverVariables/basePath"))
+                        Pair("basePath",
+                            Reference("#/components/serverVariables/basePath")
+                        )
                 ))
                 .channels(mapOf(
                         Pair("sign-up", ChannelItemTest().build()),
                 ))
                 .messages(mapOf(
                         Pair("userSignup", MessageTest().build()),
-                        Pair("userSignout", Reference("#/components/messages/userSignout"))
+                        Pair("userSignout",
+                            Reference("#/components/messages/userSignout")
+                        )
                 ))
                 .securitySchemes(mapOf(
                         Pair("apiKey", ApiKeySecuritySchemeTest().build()),
-                        Pair("asymmetricEncryption", Reference("#/components/securitySchemes/asymmetricEncryption")),
-                        Pair("gssapi", Reference("#/components/securitySchemes/gssapi")),
+                        Pair("asymmetricEncryption",
+                            Reference("#/components/securitySchemes/asymmetricEncryption")
+                        ),
+                        Pair("gssapi",
+                            Reference("#/components/securitySchemes/gssapi")
+                        ),
                         Pair("oauth2", OAuth2SecuritySchemeTest().build()),
                         Pair("openIdConnect", OpenIdConnectSecuritySchemeTest().build()),
                         Pair("httpApiKey", HttpApiKeySecuritySchemeTest().build()),
                         Pair("httpBasic", HttpSecuritySchemeBasicTest().build()),
                         Pair("httpBearer", HttpSecuritySchemeBearerTest().build()),
-                        Pair("plain", Reference("#/components/securitySchemes/plain")),
-                        Pair("scramSha256", Reference("#/components/securitySchemes/scramSha256")),
-                        Pair("scramSha512", Reference("#/components/securitySchemes/scramSha512")),
-                        Pair("symmetricEncryption", Reference("#/components/securitySchemes/symmetricEncryption")),
-                        Pair("userPassword", Reference("#/components/securitySchemes/userPassword")),
-                        Pair("X509", Reference("#/components/securitySchemes/X509")),
+                        Pair("plain",
+                            Reference("#/components/securitySchemes/plain")
+                        ),
+                        Pair("scramSha256",
+                            Reference("#/components/securitySchemes/scramSha256")
+                        ),
+                        Pair("scramSha512",
+                            Reference("#/components/securitySchemes/scramSha512")
+                        ),
+                        Pair("symmetricEncryption",
+                            Reference("#/components/securitySchemes/symmetricEncryption")
+                        ),
+                        Pair("userPassword",
+                            Reference("#/components/securitySchemes/userPassword")
+                        ),
+                        Pair("X509",
+                            Reference("#/components/securitySchemes/X509")
+                        ),
                 ))
                 .parameters(mapOf(
                         Pair("parameterWithSchema", ParameterWithSchemaTest().build()),
                         Pair("parameterWithSchemaReference", ParameterWithReferenceToSchemaTest().build()),
-                        Pair("parameter", Reference("#/components/parameters/parameter"))
+                        Pair("parameter",
+                            Reference("#/components/parameters/parameter")
+                        )
                 ))
                 .correlationIds(mapOf(
                         Pair("userSignupCorrelationId", CorrelationIdTest().build()),
-                        Pair("correlationId", Reference("#/correlationIds/parameters/correlationId"))
+                        Pair("correlationId",
+                            Reference("#/correlationIds/parameters/correlationId")
+                        )
                 ))
                 .operationTraits(mapOf(
                         Pair("sendMessage", OperationTraitTest().build()),
-                        Pair("deleteMessage", Reference("#/components/operationTraits/deleteMessage"))
+                        Pair("deleteMessage",
+                            Reference("#/components/operationTraits/deleteMessage")
+                        )
                 ))
                 .messageTraits(mapOf(
                         Pair("userSignup", MessageTraitTest().build()),
-                        Pair("userSignout", Reference("#/components/messageTraits/userSignout"))
+                        Pair("userSignout",
+                            Reference("#/components/messageTraits/userSignout")
+                        )
                 ))
                 .serverBindings(ServerTest.bindings())
                 .channelBindings(ChannelItemTest.bindings())

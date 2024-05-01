@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.Reference
+import com.asyncapi.schemas.Reference
 import com.asyncapi.bindings.http.v0._3_0.operation.HTTPOperationBinding
 import com.asyncapi.bindings.http.v0._3_0.operation.HTTPOperationMethod
 import com.asyncapi.v3._0_0.model.channel.Channel
@@ -35,7 +35,7 @@ class OperationSecurityAsyncAPI: AbstractExampleValidationTest() {
                                 .address("AUTHORIZATION_REVOCATION")
                                 .messages(mapOf(
                                         Pair("message",
-                                            Reference("#/components/messages/message")
+                                                Reference("#/components/messages/message")
                                         )
                                 ))
                                 .build()
@@ -73,7 +73,7 @@ class OperationSecurityAsyncAPI: AbstractExampleValidationTest() {
                                                 .build())
                                 ))
                                 .messages(listOf(
-                                    Reference("#/channels/authRevoke/messages/message")
+                                        Reference("#/channels/authRevoke/messages/message")
                                 ))
                                 .build()
                 )

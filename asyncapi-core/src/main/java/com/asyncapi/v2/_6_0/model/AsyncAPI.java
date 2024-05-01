@@ -1,6 +1,7 @@
 package com.asyncapi.v2._6_0.model;
 
-import com.asyncapi.ExtendableObject;
+import com.asyncapi.schemas.ExtendableObject;
+import com.asyncapi.schemas.Reference;
 import com.asyncapi.v2._6_0.jackson.model.server.ServersDeserializer;
 import com.asyncapi.v2._6_0.model.channel.ChannelItem;
 import com.asyncapi.v2._6_0.model.component.Components;
@@ -76,7 +77,7 @@ public class AsyncAPI extends ExtendableObject {
      * MUST BE:
      * <ul>
      *     <li>{@link Server}</li>
-     *     <li>{@link com.asyncapi.Reference}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @Nullable

@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.Reference
+import com.asyncapi.schemas.Reference
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.Parameter
 import com.asyncapi.v3._0_0.model.channel.message.Message

@@ -1,6 +1,6 @@
 package com.asyncapi.v3.schema.multiformat;
 
-import com.asyncapi.Reference;
+import com.asyncapi.schemas.Reference;
 import com.asyncapi.v3.schema.AsyncAPISchema;
 import com.asyncapi.v3.schema.avro.v1._9_0.jackson.AvroSchemaDeserializer;
 import com.fasterxml.jackson.annotation.JsonCreator;

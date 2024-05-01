@@ -19,7 +19,7 @@ import com.asyncapi.bindings.solace.SolaceOperationBinding;
 import com.asyncapi.bindings.sqs.SQSOperationBinding;
 import com.asyncapi.bindings.stomp.STOMPOperationBinding;
 import com.asyncapi.bindings.websockets.WebSocketsOperationBinding;
-import com.asyncapi.Reference;
+import com.asyncapi.schemas.Reference;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.JsonNode;

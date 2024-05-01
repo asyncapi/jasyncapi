@@ -1,11 +1,11 @@
 package com.asyncapi.v2._0_0.model.component;
 
-import com.asyncapi.ExtendableObject;
+import com.asyncapi.schemas.ExtendableObject;
 import com.asyncapi.v2._0_0.jackson.model.component.ComponentsMessagesDeserializer;
 import com.asyncapi.v2._0_0.jackson.model.component.ComponentsParametersDeserializer;
 import com.asyncapi.v2._0_0.jackson.model.component.ComponentsSchemasDeserializer;
 import com.asyncapi.v2._0_0.jackson.model.component.ComponentsSecuritySchemesDeserializer;
-import com.asyncapi.Reference;
+import com.asyncapi.schemas.Reference;
 import com.asyncapi.v2._0_0.model.channel.Parameter;
 import com.asyncapi.v2._0_0.model.channel.message.CorrelationId;
 import com.asyncapi.v2._0_0.model.channel.message.Message;

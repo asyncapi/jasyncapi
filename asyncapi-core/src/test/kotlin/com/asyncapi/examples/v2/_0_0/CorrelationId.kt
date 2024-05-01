@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v2._0_0
 
-import com.asyncapi.Reference
+import com.asyncapi.schemas.Reference
 import com.asyncapi.v2._0_0.model.channel.ChannelItem
 import com.asyncapi.v2._0_0.model.channel.Parameter
 import com.asyncapi.v2._0_0.model.channel.message.CorrelationId
@@ -70,7 +70,9 @@ class CorrelationId: AbstractExampleValidationTest() {
         return mapOf(
                 Pair("smartylighting/streetlights/1/0/event/{streetlightId}/lighting/measured", ChannelItem.builder()
                         .parameters(mapOf(
-                                Pair("streetlightId", Reference("#/components/parameters/streetlightId"))
+                                Pair("streetlightId",
+                                    Reference("#/components/parameters/streetlightId")
+                                )
                         ))
                         .publish(Operation.builder()
                                 .summary("Inform about environmental lighting conditions of a particular streetlight.")
@@ -82,7 +84,9 @@ class CorrelationId: AbstractExampleValidationTest() {
                 ),
                 Pair("smartylighting/streetlights/1/0/action/{streetlightId}/dim", ChannelItem.builder()
                         .parameters(mapOf(
-                                Pair("streetlightId", Reference("#/components/parameters/streetlightId"))
+                                Pair("streetlightId",
+                                    Reference("#/components/parameters/streetlightId")
+                                )
                         ))
                         .subscribe(Operation.builder()
                                 .operationId("dimLight")

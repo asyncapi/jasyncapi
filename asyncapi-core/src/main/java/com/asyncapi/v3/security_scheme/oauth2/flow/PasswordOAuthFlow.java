@@ -1,5 +1,6 @@
 package com.asyncapi.v3.security_scheme.oauth2.flow;
 
+import com.asyncapi.schemas.ExtendableObject;
 import lombok.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -9,7 +10,7 @@ import java.util.Map;
 /**
  * Configuration for the OAuth Resource Owner Protected Credentials flow
  * <p>
- * This object MAY be extended with {@link com.asyncapi.ExtendableObject}.
+ * This object MAY be extended with {@link ExtendableObject}.
  *
  * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#oauthFlowObject">OAuth Flow</a>
  * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#specificationExtensions">Specification Extensions</a>

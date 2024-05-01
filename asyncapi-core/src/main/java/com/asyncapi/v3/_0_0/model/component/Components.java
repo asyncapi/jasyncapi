@@ -1,7 +1,7 @@
 package com.asyncapi.v3._0_0.model.component;
 
 import com.asyncapi.v3._0_0.jackson.model.component.*;
-import com.asyncapi.Reference;
+import com.asyncapi.schemas.Reference;
 import com.asyncapi.v3._0_0.model.ExternalDocumentation;
 import com.asyncapi.v3._0_0.model.Tag;
 import com.asyncapi.v3._0_0.model.channel.Channel;
@@ -26,7 +26,7 @@ import com.asyncapi.bindings.ServerBindingsDeserializer;
 import com.asyncapi.v3.schema.multiformat.MultiFormatSchema;
 import com.asyncapi.v3.schema.AsyncAPISchema;
 import com.asyncapi.v3.security_scheme.SecurityScheme;
-import com.asyncapi.ExtendableObject;
+import com.asyncapi.schemas.ExtendableObject;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.*;
 import org.jetbrains.annotations.Nullable;

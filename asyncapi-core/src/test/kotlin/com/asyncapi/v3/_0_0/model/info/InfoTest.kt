@@ -1,6 +1,6 @@
 package com.asyncapi.v3._0_0.model.info
 
-import com.asyncapi.Reference
+import com.asyncapi.schemas.Reference
 import com.asyncapi.v3.SerDeTest
 import com.asyncapi.v3._0_0.model.ExternalDocumentationTest
 import com.asyncapi.v3._0_0.model.TagTest

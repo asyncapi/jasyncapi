@@ -6,7 +6,7 @@ import com.asyncapi.bindings.kafka.KafkaV0_4_0Test
 import com.asyncapi.bindings.mqtt.MQTTV0_1_0Test
 import com.asyncapi.bindings.nats.NATSV0_1_0Test
 import com.asyncapi.bindings.solace.SolaceV0_3_0Test
-import com.asyncapi.Reference
+import com.asyncapi.schemas.Reference
 import com.asyncapi.v3.SerDeTest
 import com.asyncapi.v3._0_0.model.ExternalDocumentation
 import com.asyncapi.v3._0_0.model.Tag
@@ -44,7 +44,9 @@ class OperationTraitTest: SerDeTest<OperationTrait>() {
                 .externalDocs(ExternalDocumentation("Messages validation rules", "messages/validation-rules"))
                 .bindings(mapOf(
                         Pair("amqp", AMQPV0_2_0Test.operationBinding()),
-                        Pair("amqp1", Reference("#/components/operationBindings/amqp1")),
+                        Pair("amqp1",
+                            Reference("#/components/operationBindings/amqp1")
+                        ),
                         Pair("anypointmq",
                             Reference("#/components/operationBindings/anypointmq")
                         ),
@@ -52,24 +54,40 @@ class OperationTraitTest: SerDeTest<OperationTrait>() {
                             Reference("#/components/operationBindings/googlepubsub")
                         ),
                         Pair("http", HTTPV0_3_0Test.operationBinding()),
-                        Pair("ibmmq", Reference("#/components/operationBindings/ibmmq")),
-                        Pair("jms", Reference("#/components/operationBindings/jms")),
+                        Pair("ibmmq",
+                            Reference("#/components/operationBindings/ibmmq")
+                        ),
+                        Pair("jms",
+                            Reference("#/components/operationBindings/jms")
+                        ),
                         Pair("kafka", KafkaV0_4_0Test.operationBinding()),
                         Pair("mercure",
                             Reference("#/components/operationBindings/mercure")
                         ),
                         Pair("mqtt", MQTTV0_1_0Test.operationBinding()),
-                        Pair("mqtt5", Reference("#/components/operationBindings/mqtt5")),
+                        Pair("mqtt5",
+                            Reference("#/components/operationBindings/mqtt5")
+                        ),
                         Pair("nats", NATSV0_1_0Test.operationBinding()),
                         Pair("pulsar",
                             Reference("#/components/operationBindings/pulsar")
                         ),
-                        Pair("redis", Reference("#/components/operationBindings/redis")),
-                        Pair("sns", Reference("#/components/operationBindings/sns")),
+                        Pair("redis",
+                            Reference("#/components/operationBindings/redis")
+                        ),
+                        Pair("sns",
+                            Reference("#/components/operationBindings/sns")
+                        ),
                         Pair("solace", SolaceV0_3_0Test.operationBinding()),
-                        Pair("sqs", Reference("#/components/operationBindings/sqs")),
-                        Pair("stomp", Reference("#/components/operationBindings/stomp")),
-                        Pair("ws", Reference("#/components/operationBindings/ws"))
+                        Pair("sqs",
+                            Reference("#/components/operationBindings/sqs")
+                        ),
+                        Pair("stomp",
+                            Reference("#/components/operationBindings/stomp")
+                        ),
+                        Pair("ws",
+                            Reference("#/components/operationBindings/ws")
+                        )
                 ))
                 .build()
     }
@@ -104,7 +122,9 @@ class OperationTraitTestWithReference: SerDeTest<OperationTrait>() {
                 .externalDocs(Reference("#/components/externalDocs/external-doc"))
                 .bindings(mapOf(
                         Pair("amqp", AMQPV0_2_0Test.operationBinding()),
-                        Pair("amqp1", Reference("#/components/operationBindings/amqp1")),
+                        Pair("amqp1",
+                            Reference("#/components/operationBindings/amqp1")
+                        ),
                         Pair("anypointmq",
                             Reference("#/components/operationBindings/anypointmq")
                         ),
@@ -112,24 +132,40 @@ class OperationTraitTestWithReference: SerDeTest<OperationTrait>() {
                             Reference("#/components/operationBindings/googlepubsub")
                         ),
                         Pair("http", HTTPV0_3_0Test.operationBinding()),
-                        Pair("ibmmq", Reference("#/components/operationBindings/ibmmq")),
-                        Pair("jms", Reference("#/components/operationBindings/jms")),
+                        Pair("ibmmq",
+                            Reference("#/components/operationBindings/ibmmq")
+                        ),
+                        Pair("jms",
+                            Reference("#/components/operationBindings/jms")
+                        ),
                         Pair("kafka", KafkaV0_4_0Test.operationBinding()),
                         Pair("mercure",
                             Reference("#/components/operationBindings/mercure")
                         ),
                         Pair("mqtt", MQTTV0_1_0Test.operationBinding()),
-                        Pair("mqtt5", Reference("#/components/operationBindings/mqtt5")),
+                        Pair("mqtt5",
+                            Reference("#/components/operationBindings/mqtt5")
+                        ),
                         Pair("nats", NATSV0_1_0Test.operationBinding()),
                         Pair("pulsar",
                             Reference("#/components/operationBindings/pulsar")
                         ),
-                        Pair("redis", Reference("#/components/operationBindings/redis")),
-                        Pair("sns", Reference("#/components/operationBindings/sns")),
+                        Pair("redis",
+                            Reference("#/components/operationBindings/redis")
+                        ),
+                        Pair("sns",
+                            Reference("#/components/operationBindings/sns")
+                        ),
                         Pair("solace", SolaceV0_3_0Test.operationBinding()),
-                        Pair("sqs", Reference("#/components/operationBindings/sqs")),
-                        Pair("stomp", Reference("#/components/operationBindings/stomp")),
-                        Pair("ws", Reference("#/components/operationBindings/ws"))
+                        Pair("sqs",
+                            Reference("#/components/operationBindings/sqs")
+                        ),
+                        Pair("stomp",
+                            Reference("#/components/operationBindings/stomp")
+                        ),
+                        Pair("ws",
+                            Reference("#/components/operationBindings/ws")
+                        )
                 ))
                 .build()
     }

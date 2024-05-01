@@ -1,6 +1,6 @@
 package com.asyncapi.v2
 
-import com.asyncapi.ExtendableObject
+import com.asyncapi.schemas.ExtendableObject
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.JsonMappingException
 import com.fasterxml.jackson.databind.ObjectMapper

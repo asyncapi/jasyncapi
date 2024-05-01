@@ -1,6 +1,6 @@
 package com.asyncapi.v2.security_scheme.oauth2.flow;
 
-import com.asyncapi.ExtendableObject;
+import com.asyncapi.schemas.ExtendableObject;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

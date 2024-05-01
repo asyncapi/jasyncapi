@@ -1,5 +1,6 @@
 package com.asyncapi.v2.security_scheme.oauth2.flow;
 
+import com.asyncapi.schemas.ExtendableObject;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,7 +14,7 @@ import java.util.Map;
 /**
  * Configuration for the OAuth Client Credentials flow
  * <p>
- * This object MAY be extended with {@link com.asyncapi.ExtendableObject}.
+ * This object MAY be extended with {@link ExtendableObject}.
  *
  * @version 2.6.0
  * @see <a href="https://www.asyncapi.com/docs/reference/specification/v2.6.0#oauthFlowObject">OAuth Flow Object</a>

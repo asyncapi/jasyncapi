@@ -1,6 +1,7 @@
 package com.asyncapi.v2._6_0.model.channel;
 
-import com.asyncapi.ExtendableObject;
+import com.asyncapi.schemas.ExtendableObject;
+import com.asyncapi.schemas.Reference;
 import com.asyncapi.v2._6_0.jackson.model.channel.ChannelParametersDeserializer;
 import com.asyncapi.v2._6_0.model.channel.operation.Operation;
 import com.asyncapi.bindings.ChannelBinding;
@@ -73,7 +74,7 @@ public class ChannelItem extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.Reference}</li>
+     *     <li>{@link Reference}</li>
      *     <li>{@link com.asyncapi.v2._6_0.model.channel.Parameter}</li>
      * </ul>
      */
@@ -86,7 +87,7 @@ public class ChannelItem extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.Reference}</li>
+     *     <li>{@link Reference}</li>
      *     <li>{@link ChannelBinding}</li>
      * </ul>
      */
