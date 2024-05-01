@@ -19,7 +19,7 @@ import org.junit.platform.suite.api.SuiteDisplayName;
         com.asyncapi.bindings.mqtt5.MQTT5.class,
         com.asyncapi.bindings.nats.NATS.class,
         com.asyncapi.bindings.pulsar.Pulsar.class,
-//        com.asyncapi.bindings.redis.Pulsar.class,
+        com.asyncapi.bindings.redis.Redis.class,
         com.asyncapi.bindings.sns.SNS.class,
         com.asyncapi.bindings.solace.Solace.class,
         com.asyncapi.bindings.sqs.SQS.class,
