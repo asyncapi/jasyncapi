@@ -1,8 +1,8 @@
 package com.asyncapi.v3.schema.avro
 
 import com.asyncapi.v3.ClasspathUtils
-import com.asyncapi.v3.schema.avro.v1._9_0.AvroSchema
-import com.asyncapi.v3.schema.avro.v1._9_0.AvroSchemaUnion
+import com.asyncapi.schemas.avro.v1._9_0.AvroSchema
+import com.asyncapi.schemas.avro.v1._9_0.AvroSchemaUnion
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory

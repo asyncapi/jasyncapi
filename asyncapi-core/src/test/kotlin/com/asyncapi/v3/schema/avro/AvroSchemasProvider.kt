@@ -1,8 +1,6 @@
 package com.asyncapi.v3.schema.avro
 
-import com.asyncapi.v3.schema.avro.v1._9_0.*
-import com.asyncapi.v3.schema.avro.v1._9_0.AvroSchemaLogicalType
-import com.asyncapi.v3.schema.avro.v1._9_0.AvroSchemaType
+import com.asyncapi.schemas.avro.v1._9_0.*
 
 class AvroSchemasProvider {
 
@@ -112,7 +110,8 @@ class AvroSchemasProvider {
                     .name("s")
                     .type(
                         AvroSchemaUnion(
-                            AvroSchemaType.NULL, AvroSchemaType.STRING
+                            AvroSchemaType.NULL,
+                            AvroSchemaType.STRING
                         )
                     )
                     .build(),
@@ -120,7 +119,8 @@ class AvroSchemasProvider {
                     .name("h")
                     .type(
                         AvroSchemaUnion(
-                            AvroSchemaType.NULL, AvroSchemaType.STRING
+                            AvroSchemaType.NULL,
+                            AvroSchemaType.STRING
                         )
                     )
                     .build()
@@ -154,7 +154,8 @@ class AvroSchemasProvider {
                     .name("f32")
                     .type(
                         AvroSchemaUnion(
-                            AvroSchemaType.FLOAT, AvroSchemaType.NULL
+                            AvroSchemaType.FLOAT,
+                            AvroSchemaType.NULL
                         )
                     )
                     .build(),
@@ -205,7 +206,8 @@ class AvroSchemasProvider {
                     .name("requestId")
                     .type(
                         AvroSchemaUnion(
-                            AvroSchemaType.NULL, AvroSchemaType.STRING
+                            AvroSchemaType.NULL,
+                            AvroSchemaType.STRING
                         )
                     )
                     .build()
@@ -239,7 +241,8 @@ class AvroSchemasProvider {
                     .name("requestId")
                     .type(
                         AvroSchemaUnion(
-                            AvroSchemaType.NULL, AvroSchemaType.STRING
+                            AvroSchemaType.NULL,
+                            AvroSchemaType.STRING
                         )
                     )
                     .build()
@@ -272,7 +275,8 @@ class AvroSchemasProvider {
                     .name("s")
                     .type(
                         AvroSchemaUnion(
-                            AvroSchemaType.NULL, AvroSchemaType.STRING
+                            AvroSchemaType.NULL,
+                            AvroSchemaType.STRING
                         )
                     )
                     .defaultValue(null)
@@ -281,7 +285,8 @@ class AvroSchemasProvider {
                     .name("e")
                     .type(
                         AvroSchemaUnion(
-                            AvroSchemaType.NULL, AvroSchemaRecord.builder()
+                            AvroSchemaType.NULL,
+                            AvroSchemaRecord.builder()
                                 .type(AvroSchemaType.ERROR)
                                 .name("TestError")
                                 .fields(
@@ -329,7 +334,8 @@ class AvroSchemasProvider {
                     .name("location")
                     .type(
                         AvroSchemaUnion(
-                            AvroSchemaType.NULL, AvroSchemaMap.builder()
+                            AvroSchemaType.NULL,
+                            AvroSchemaMap.builder()
                                 .values(
                                     AvroSchemaUnion(
                                         AvroSchemaType.NULL,
@@ -344,7 +350,12 @@ class AvroSchemasProvider {
                                                         .build(),
                                                     AvroSchemaRecordField.builder()
                                                         .name("long_r2")
-                                                        .type(AvroSchemaUnion(AvroSchemaType.NULL, AvroSchemaType.FLOAT))
+                                                        .type(
+                                                            AvroSchemaUnion(
+                                                                AvroSchemaType.NULL,
+                                                                AvroSchemaType.FLOAT
+                                                            )
+                                                        )
                                                         .defaultValue(null)
                                                         .metadata(mapOf(Pair("field-id", 2)))
                                                         .build()
@@ -377,7 +388,8 @@ class AvroSchemasProvider {
                     .name("location")
                     .type(
                         AvroSchemaUnion(
-                            AvroSchemaType.NULL, AvroSchemaMap.builder()
+                            AvroSchemaType.NULL,
+                            AvroSchemaMap.builder()
                                 .values(
                                     AvroSchemaUnion(
                                         AvroSchemaType.NULL,
@@ -392,7 +404,12 @@ class AvroSchemasProvider {
                                                         .build(),
                                                     AvroSchemaRecordField.builder()
                                                         .name("long")
-                                                        .type(AvroSchemaUnion(AvroSchemaType.NULL, AvroSchemaType.FLOAT))
+                                                        .type(
+                                                            AvroSchemaUnion(
+                                                                AvroSchemaType.NULL,
+                                                                AvroSchemaType.FLOAT
+                                                            )
+                                                        )
                                                         .defaultValue(null)
                                                         .metadata(mapOf(Pair("field-id", 2)))
                                                         .build()
@@ -612,7 +629,8 @@ class AvroSchemasProvider {
                     .name("optionalRecord")
                     .type(
                         AvroSchemaUnion(
-                            AvroSchemaType.NULL, AvroSchemaRecord.builder()
+                            AvroSchemaType.NULL,
+                            AvroSchemaRecord.builder()
                                 .name("nestedOptionalRecord")
                                 .fields(
                                     listOf(
@@ -659,7 +677,8 @@ class AvroSchemasProvider {
                     .name("optionalEnum")
                     .type(
                         AvroSchemaUnion(
-                            AvroSchemaType.NULL, AvroSchemaEnum.builder()
+                            AvroSchemaType.NULL,
+                            AvroSchemaEnum.builder()
                                 .name("optionalEnum")
                                 .symbols(listOf("a", "b"))
                                 .build()
@@ -692,7 +711,8 @@ class AvroSchemasProvider {
                     .name("optionalArray")
                     .type(
                         AvroSchemaUnion(
-                            AvroSchemaType.NULL, AvroSchemaArray.builder()
+                            AvroSchemaType.NULL,
+                            AvroSchemaArray.builder()
                                 .items(AvroSchemaType.STRING)
                                 .build()
                         )
@@ -722,7 +742,8 @@ class AvroSchemasProvider {
                     .name("optionalMap")
                     .type(
                         AvroSchemaUnion(
-                            AvroSchemaType.NULL, AvroSchemaMap.builder()
+                            AvroSchemaType.NULL,
+                            AvroSchemaMap.builder()
                                 .values(AvroSchemaType.STRING)
                                 .build()
                         )
@@ -753,7 +774,8 @@ class AvroSchemasProvider {
                     .name("optionalFixed")
                     .type(
                         AvroSchemaUnion(
-                            AvroSchemaType.NULL, AvroSchemaFixed.builder()
+                            AvroSchemaType.NULL,
+                            AvroSchemaFixed.builder()
                                 .name("optionalFixed")
                                 .size(1)
                                 .build()
@@ -1045,7 +1067,8 @@ class AvroSchemasProvider {
                     .name("l")
                     .type(
                         AvroSchemaUnion(
-                            AvroSchemaType.STRING, AvroSchema.builder()
+                            AvroSchemaType.STRING,
+                            AvroSchema.builder()
                                 .type(AvroSchemaType.LONG)
                                 .logicalType(AvroSchemaLogicalType.TIMESTAMP_MILLIS)
                                 .build()

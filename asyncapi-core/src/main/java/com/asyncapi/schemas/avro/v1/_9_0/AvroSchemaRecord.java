@@ -1,4 +1,4 @@
-package com.asyncapi.v3.schema.avro.v1._9_0;
+package com.asyncapi.schemas.avro.v1._9_0;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

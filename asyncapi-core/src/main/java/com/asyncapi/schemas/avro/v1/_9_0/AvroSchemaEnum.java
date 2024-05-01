@@ -1,6 +1,6 @@
-package com.asyncapi.v3.schema.avro.v1._9_0;
+package com.asyncapi.schemas.avro.v1._9_0;
 
-import com.asyncapi.v3.schema.avro.v1._9_0.jackson.AvroTypeDeserializer;
+import com.asyncapi.schemas.avro.v1._9_0.jackson.AvroTypeDeserializer;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Data;
