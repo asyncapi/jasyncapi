@@ -7,7 +7,7 @@ import org.junit.platform.suite.api.SuiteDisplayName;
 @Suite
 @SelectClasses({
         com.asyncapi.bindings.amqp.AMQP.class,
-//        com.asyncapi.bindings.amqp1.AMQP.class,
+        com.asyncapi.bindings.amqp1.AMQP1.class,
         com.asyncapi.bindings.anypointmq.AnypointMQ.class,
         com.asyncapi.bindings.googlepubsub.GooglePubSub.class,
         com.asyncapi.bindings.http.HTTP.class,
