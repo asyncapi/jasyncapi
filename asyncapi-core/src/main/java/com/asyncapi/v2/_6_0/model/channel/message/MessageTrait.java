@@ -1,7 +1,9 @@
 package com.asyncapi.v2._6_0.model.channel.message;
 
+import com.asyncapi.schemas.AsyncAPISchema;
 import com.asyncapi.schemas.ExtendableObject;
 import com.asyncapi.schemas.Reference;
+import com.asyncapi.schemas.multiformat.MultiFormatSchema;
 import com.asyncapi.v2._6_0.jackson.model.channel.message.MessageCorrelationIdDeserializer;
 import com.asyncapi.v2._6_0.jackson.model.channel.message.MessageHeadersDeserializer;
 import com.asyncapi.v2._6_0.model.ExternalDocumentation;
@@ -55,7 +57,8 @@ public class MessageTrait extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.schemas.AsyncAPISchema}</li>
+     *     <li>{@link AsyncAPISchema}</li>
+     *     <li>{@link MultiFormatSchema}</li>
      *     <li>{@link Reference}</li>
      * </ul>
      */

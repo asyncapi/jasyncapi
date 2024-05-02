@@ -1,7 +1,9 @@
 package com.asyncapi.v2._6_0.model.channel.message;
 
+import com.asyncapi.schemas.AsyncAPISchema;
 import com.asyncapi.schemas.ExtendableObject;
 import com.asyncapi.schemas.Reference;
+import com.asyncapi.schemas.multiformat.MultiFormatSchema;
 import com.asyncapi.v2._6_0.jackson.model.channel.message.MessageCorrelationIdDeserializer;
 import com.asyncapi.v2._6_0.jackson.model.channel.message.MessageHeadersDeserializer;
 import com.asyncapi.v2._6_0.jackson.model.channel.message.MessagePayloadDeserializer;
@@ -51,7 +53,8 @@ public class Message extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.schemas.AsyncAPISchema}</li>
+     *     <li>{@link AsyncAPISchema}</li>
+     *     <li>{@link MultiFormatSchema}</li>
      *     <li>{@link Reference}</li>
      * </ul>
      */
@@ -64,9 +67,11 @@ public class Message extends ExtendableObject {
      * It must match the schema format, including encoding type - e.g Avro should be inlined as either a YAML or JSON object
      * NOT a string to be parsed as YAML or JSON.
      * <p>
-     * WILL BE:
+     * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.schemas.AsyncAPISchema}</li>
+     *     <li>{@link AsyncAPISchema}</li>
+     *     <li>{@link MultiFormatSchema}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @Nullable
