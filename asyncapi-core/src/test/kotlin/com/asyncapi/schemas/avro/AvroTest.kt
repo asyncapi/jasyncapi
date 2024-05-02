@@ -1,4 +1,4 @@
-package com.asyncapi.v3.schema.avro
+package com.asyncapi.schemas.avro
 
 import com.asyncapi.v3.ClasspathUtils
 import com.asyncapi.schemas.avro.v1._9_0.AvroSchema
