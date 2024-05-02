@@ -1,12 +1,13 @@
-package com.asyncapi.v3.schema.json.properties
+package com.asyncapi.schemas.json.properties
 
 import com.asyncapi.schemas.AsyncAPISchema
 import com.asyncapi.schemas.JsonSchema
 import com.asyncapi.v3.schema.SchemaProvider
+import java.math.BigInteger
 
-class ConstDefaultExamplesNullTest: SchemaProvider {
+class ConstDefaultExamplesBigIntegerMinimumTest: SchemaProvider {
 
-    private val value = null
+    private val value = BigInteger("-214748364821474836482147483648")
 
     override fun jsonSchema(): JsonSchema {
         return JsonSchema.builder()

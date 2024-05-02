@@ -1,13 +1,12 @@
-package com.asyncapi.v3.schema.json.properties
+package com.asyncapi.schemas.json.properties
 
 import com.asyncapi.schemas.AsyncAPISchema
 import com.asyncapi.schemas.JsonSchema
 import com.asyncapi.v3.schema.SchemaProvider
-import java.math.BigDecimal
 
-class ConstDefaultExamplesBigDecimalMinimumTest: SchemaProvider {
+class ConstDefaultExamplesNullTest: SchemaProvider {
 
-    private val value = BigDecimal("-2.214748364821474836482147483648214748364821474836482147483648214748364821474836482147483648")
+    private val value = null
 
     override fun jsonSchema(): JsonSchema {
         return JsonSchema.builder()

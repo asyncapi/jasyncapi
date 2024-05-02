@@ -1,6 +1,6 @@
 package com.asyncapi.v3.schema.multiformat.asyncapi
 
-import com.asyncapi.v3.schema.json.*
+import com.asyncapi.schemas.json.*
 import com.asyncapi.schemas.multiformat.AsyncAPIFormatSchema
 import org.junit.jupiter.api.extension.ExtensionContext
 import org.junit.jupiter.params.ParameterizedTest

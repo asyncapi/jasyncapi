@@ -1,7 +1,7 @@
 package com.asyncapi.v3.schema.multiformat.json
 
+import com.asyncapi.schemas.json.*
 import com.asyncapi.v3.ClasspathUtils
-import com.asyncapi.v3.schema.json.*
 import com.asyncapi.schemas.multiformat.JsonFormatSchema
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.ObjectMapper

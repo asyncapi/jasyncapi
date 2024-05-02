@@ -1,4 +1,4 @@
-package com.asyncapi.v3.schema.json.properties
+package com.asyncapi.schemas.json.properties
 
 import com.asyncapi.schemas.AsyncAPISchema
 import com.asyncapi.schemas.JsonSchema

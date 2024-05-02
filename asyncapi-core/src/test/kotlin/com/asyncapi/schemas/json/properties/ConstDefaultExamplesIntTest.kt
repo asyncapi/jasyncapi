@@ -1,12 +1,13 @@
-package com.asyncapi.v3.schema.json.properties
+package com.asyncapi.schemas.json.properties
 
 import com.asyncapi.schemas.AsyncAPISchema
 import com.asyncapi.schemas.JsonSchema
 import com.asyncapi.v3.schema.SchemaProvider
 
-class ConstDefaultExamplesDoubleMinimumTest: SchemaProvider {
+class ConstDefaultExamplesIntTest: SchemaProvider {
 
-    private val value: Double = -4.9E-324
+    private val value: Int = 0
+
 
     override fun jsonSchema(): JsonSchema {
         return JsonSchema.builder()

@@ -1,12 +1,12 @@
-package com.asyncapi.v3.schema.json.properties
+package com.asyncapi.schemas.json.properties
 
 import com.asyncapi.schemas.AsyncAPISchema
 import com.asyncapi.schemas.JsonSchema
 import com.asyncapi.v3.schema.SchemaProvider
 
-class ConstDefaultExamplesBooleanFalseTest: SchemaProvider {
+class ConstDefaultExamplesIntMinimumTest: SchemaProvider {
 
-    private val value = false
+    private val value: Int = -2147483648
 
     override fun jsonSchema(): JsonSchema {
         return JsonSchema.builder()
