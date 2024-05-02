@@ -2,7 +2,6 @@ package com.asyncapi.schemas
 
 import com.asyncapi.schemas.json.properties.*
 import com.asyncapi.v3.ClasspathUtils
-import com.asyncapi.v3.schema.SchemaProvider
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper

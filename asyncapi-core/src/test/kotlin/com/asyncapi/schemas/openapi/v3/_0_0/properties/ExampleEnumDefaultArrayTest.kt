@@ -1,6 +1,6 @@
 package com.asyncapi.schemas.openapi.v3._0_0.properties
 
-import com.asyncapi.v3.schema.SchemaProvider
+import com.asyncapi.schemas.SchemaProvider
 import com.asyncapi.schemas.openapi.v3._0_0.OpenAPISchema
 
 class ExampleEnumDefaultArrayTest: SchemaProvider {

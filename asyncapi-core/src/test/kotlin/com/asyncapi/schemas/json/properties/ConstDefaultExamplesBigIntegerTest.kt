@@ -2,7 +2,7 @@ package com.asyncapi.schemas.json.properties
 
 import com.asyncapi.schemas.AsyncAPISchema
 import com.asyncapi.schemas.JsonSchema
-import com.asyncapi.v3.schema.SchemaProvider
+import com.asyncapi.schemas.SchemaProvider
 import java.math.BigInteger
 
 class ConstDefaultExamplesBigIntegerTest: SchemaProvider {
