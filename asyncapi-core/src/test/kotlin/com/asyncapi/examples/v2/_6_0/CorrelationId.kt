@@ -110,7 +110,7 @@ class CorrelationId: AbstractExampleValidationTest() {
                                         "\$message.header#/MQMD/CorrelId"
                                 ))
                                 .contentType("application/json")
-                                .payload(AsyncAPISchema.builder().ref("#/components/schemas/lightMeasuredPayload").build())
+                                .payload(Reference("#/components/schemas/lightMeasuredPayload"))
                                 .build()
                         ),
                         Pair("dimLight", Message.builder()
@@ -118,7 +118,7 @@ class CorrelationId: AbstractExampleValidationTest() {
                                 .title("Dim light")
                                 .summary("Command a particular streetlight to dim the lights.")
                                 .correlationId(Reference("#/components/correlationIds/sentAtCorrelator"))
-                                .payload(AsyncAPISchema.builder().ref("#/components/schemas/dimLightPayload").build())
+                                .payload(Reference("#/components/schemas/dimLightPayload"))
                                 .build()
                         )
                 ))

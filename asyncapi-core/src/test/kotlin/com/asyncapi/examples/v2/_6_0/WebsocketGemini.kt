@@ -222,7 +222,7 @@ class WebsocketGemini: AbstractExampleValidationTest() {
                                         .description(
                                                 "The initial response message will show the existing state of the order book. Subsequent messages will show all executed trades, as well as all other changes to the order book from orders placed or canceled.\n"
                                         )
-                                        .payload(AsyncAPISchema.builder().ref("#/components/schemas/market").build())
+                                        .payload(Reference("#/components/schemas/market"))
                                         .examples(listOf(
                                                 MessageExample.builder()
                                                         .name("updateMessage")

@@ -37,7 +37,7 @@ class Not: AbstractExampleValidationTest() {
         return Components.builder()
                 .messages(mapOf(
                         Pair("testMessages", Message.builder()
-                                .payload(AsyncAPISchema.builder().ref("#/components/schemas/testSchema").build())
+                                .payload(Reference("#/components/schemas/testSchema"))
                                 .build()
                         )
                 ))

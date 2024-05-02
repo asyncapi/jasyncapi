@@ -35,10 +35,10 @@ class OneOf: AbstractExampleValidationTest() {
                         .subscribe(Operation.builder()
                                 .message(OneOfMessages(listOf(
                                         Message.builder()
-                                                .payload(AsyncAPISchema.builder().ref("#/components/schemas/objectWithKey").build())
+                                                .payload(Reference("#/components/schemas/objectWithKey"))
                                                 .build(),
                                         Message.builder()
-                                                .payload(AsyncAPISchema.builder().ref("#/components/schemas/objectWithKey2").build())
+                                                .payload(Reference("#/components/schemas/objectWithKey2"))
                                                 .build(),
                                 )))
                                 .build()
@@ -62,11 +62,11 @@ class OneOf: AbstractExampleValidationTest() {
                                 .build()
                         ),
                         Pair("testMessage1", Message.builder()
-                                .payload(AsyncAPISchema.builder().ref("#/components/schemas/objectWithKey").build())
+                                .payload(Reference("#/components/schemas/objectWithKey"))
                                 .build()
                         ),
                         Pair("testMessage2", Message.builder()
-                                .payload(AsyncAPISchema.builder().ref("#/components/schemas/objectWithKey2").build())
+                                .payload(Reference("#/components/schemas/objectWithKey2"))
                                 .build()
                         )
                 ))

@@ -154,7 +154,7 @@ class StreetlightsKafka: AbstractExampleValidationTest() {
                                         .summary("Inform about environmental lighting conditions of a particular streetlight.")
                                         .contentType("application/json")
                                         .traits(listOf(Reference("#/components/messageTraits/commonHeaders")))
-                                        .payload(AsyncAPISchema.builder().ref("#/components/schemas/lightMeasuredPayload").build())
+                                        .payload(Reference("#/components/schemas/lightMeasuredPayload"))
                                         .build()
                         ),
                         Pair("turnOnOff",
@@ -163,7 +163,7 @@ class StreetlightsKafka: AbstractExampleValidationTest() {
                                         .title("Turn on/off")
                                         .summary("Command a particular streetlight to turn the lights on or off.")
                                         .traits(listOf(Reference("#/components/messageTraits/commonHeaders")))
-                                        .payload(AsyncAPISchema.builder().ref("#/components/schemas/turnOnOffPayload").build())
+                                        .payload(Reference("#/components/schemas/turnOnOffPayload"))
                                         .build()
                         ),
                         Pair("dimLight",
@@ -172,7 +172,7 @@ class StreetlightsKafka: AbstractExampleValidationTest() {
                                         .title("Dim light")
                                         .summary("Command a particular streetlight to dim the lights.")
                                         .traits(listOf(Reference("#/components/messageTraits/commonHeaders")))
-                                        .payload(AsyncAPISchema.builder().ref("#/components/schemas/dimLightPayload").build())
+                                        .payload(Reference("#/components/schemas/dimLightPayload"))
                                         .build()
                         )
                 ))

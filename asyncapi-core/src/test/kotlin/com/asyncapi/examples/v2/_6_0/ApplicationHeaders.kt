@@ -105,7 +105,7 @@ class ApplicationHeaders: AbstractExampleValidationTest() {
                                         ))
                                         .build()
                                 )
-                                .payload(AsyncAPISchema.builder().ref("#/components/schemas/lightMeasuredPayload").build())
+                                .payload(Reference("#/components/schemas/lightMeasuredPayload"))
                                 .build()
                         )
                 ))
