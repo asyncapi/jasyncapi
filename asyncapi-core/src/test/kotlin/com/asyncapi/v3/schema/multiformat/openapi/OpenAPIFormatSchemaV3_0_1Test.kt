@@ -1,7 +1,7 @@
 package com.asyncapi.v3.schema.multiformat.openapi
 
 import com.asyncapi.schemas.multiformat.OpenAPIFormatSchema
-import com.asyncapi.v3.schema.openapi.v3._0_0.SchemaTest
+import com.asyncapi.schemas.openapi.v3._0_0.SchemaTest
 import org.junit.jupiter.api.extension.ExtensionContext
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
