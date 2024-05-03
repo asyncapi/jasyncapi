@@ -31,7 +31,7 @@ import java.util.regex.Pattern;
 @JsonIgnoreProperties({"extensionFields"})
 public class ExtendableObject {
 
-    private static final Pattern extensionPropertyNamePattern = Pattern.compile("^x-[\\w.\\x2d_]+$");
+    public static final Pattern extensionPropertyNamePattern = Pattern.compile("^x-[\\w.\\x2d_]+$");
 
     /**
      * Extension fields in the form x-extension-field-name for the exposed API.

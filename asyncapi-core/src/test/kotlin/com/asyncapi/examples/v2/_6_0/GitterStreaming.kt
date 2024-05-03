@@ -92,7 +92,7 @@ class GitterStreaming: AbstractExampleValidationTest() {
                 ))
                 .messages(mapOf(
                         Pair("chatMessage", Message.builder()
-                                .schemaFormat("application/schema+yaml;version=draft-07")
+                                .schemaFormat("application/vnd.aai.asyncapi+yaml;version=2.6.0")
                                 .summary("A message represents an individual chat message sent to a room. They are a sub-resource of a room.")
                                 .payload(AsyncAPISchema.builder()
                                         .type("object")
@@ -255,7 +255,7 @@ class GitterStreaming: AbstractExampleValidationTest() {
                                 .build()
                         ),
                         Pair("heartbeat", Message.builder()
-                                .schemaFormat("application/schema+yaml;version=draft-07")
+                                .schemaFormat("application/vnd.aai.asyncapi+yaml;version=2.6.0")
                                 .summary("Its purpose is to keep the connection alive.")
                                 .payload(AsyncAPISchema.builder()
                                         .type("string")

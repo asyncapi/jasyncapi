@@ -65,7 +65,7 @@ class MessageTest: SerDeTest<Message>() {
                         .build()
                 )
                 .correlationId(CorrelationId("Default Correlation ID", "\$message.header#/correlationId"))
-                .schemaFormat("application/vnd.apache.avro+json;version=1.9.0")
+                .schemaFormat("application/vnd.aai.asyncapi;version=2.6.0")
                 .contentType("application/json")
                 .name("UserSignup")
                 .title("User signup")

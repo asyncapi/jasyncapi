@@ -1,0 +1,41 @@
+asyncapi: 2.6.0
+info:
+  title: Kafka Queue Example
+  version: '1.0.0'
+servers:
+  activemq:
+    url: tcp://localhost:61616
+    protocol: kafka
+channels:
+  products:
+    publish:
+      operationId: publishObjectMessage
+      message:
+        $ref: "#/components/messages/product"
+components:
+  messages:
+    product:
+      name: product
+      title: An inventory product
+      summary: Product representing items in inventory
+      contentType: application/json
+      schemaFormat: application/vnd.apache.avro;version=1.11.1
+      payload:
+        namespace: model
+        type: record
+        doc: ''
+        name: ApplicationEvent
+        fields:
+          - name: applicationId
+            type: string
+            doc: Application ID
+          - name: status
+            type: string
+            doc: Application Status
+          - name: documents
+            type:
+              - 'null'
+              - type: array
+                items: model.DocumentInfo
+            doc: ''
+            default: null

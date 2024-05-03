@@ -58,7 +58,6 @@ public class MessageTrait extends ExtendableObject {
      * MUST BE:
      * <ul>
      *     <li>{@link AsyncAPISchema}</li>
-     *     <li>{@link MultiFormatSchema}</li>
      *     <li>{@link Reference}</li>
      * </ul>
      */

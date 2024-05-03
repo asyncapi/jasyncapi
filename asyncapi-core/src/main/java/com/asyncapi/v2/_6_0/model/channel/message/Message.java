@@ -1,23 +1,18 @@
 package com.asyncapi.v2._6_0.model.channel.message;
 
-import com.asyncapi.schemas.AsyncAPISchema;
-import com.asyncapi.schemas.ExtendableObject;
-import com.asyncapi.schemas.Reference;
-import com.asyncapi.schemas.multiformat.MultiFormatSchema;
-import com.asyncapi.v2._6_0.jackson.model.channel.message.MessageCorrelationIdDeserializer;
-import com.asyncapi.v2._6_0.jackson.model.channel.message.MessageHeadersDeserializer;
-import com.asyncapi.v2._6_0.jackson.model.channel.message.MessagePayloadDeserializer;
-import com.asyncapi.v2._6_0.jackson.model.channel.message.MessageTraitsDeserializer;
-import com.asyncapi.v2._6_0.model.ExternalDocumentation;
-import com.asyncapi.v2._6_0.model.Tag;
 import com.asyncapi.bindings.MessageBinding;
 import com.asyncapi.bindings.MessageBindingsDeserializer;
+import com.asyncapi.schemas.AsyncAPISchema;
+import com.asyncapi.schemas.ExtendableObject;
+import com.asyncapi.schemas.JsonSchema;
+import com.asyncapi.schemas.Reference;
+import com.asyncapi.schemas.avro.v1._9_0.AvroSchema;
+import com.asyncapi.schemas.openapi.v3._0_0.OpenAPISchema;
+import com.asyncapi.v2._6_0.jackson.model.channel.message.*;
+import com.asyncapi.v2._6_0.model.ExternalDocumentation;
+import com.asyncapi.v2._6_0.model.Tag;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -35,6 +30,7 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
+@JsonDeserialize(using = MessageDeserializer.class)
 public class Message extends ExtendableObject {
 
     /**
@@ -54,7 +50,6 @@ public class Message extends ExtendableObject {
      * MUST BE:
      * <ul>
      *     <li>{@link AsyncAPISchema}</li>
-     *     <li>{@link MultiFormatSchema}</li>
      *     <li>{@link Reference}</li>
      * </ul>
      */
@@ -70,12 +65,13 @@ public class Message extends ExtendableObject {
      * MUST BE:
      * <ul>
      *     <li>{@link AsyncAPISchema}</li>
-     *     <li>{@link MultiFormatSchema}</li>
+     *     <li>{@link OpenAPISchema}</li>
+     *     <li>{@link JsonSchema}</li>
+     *     <li>{@link AvroSchema}</li>
      *     <li>{@link Reference}</li>
      * </ul>
      */
     @Nullable
-    @JsonDeserialize(using = MessagePayloadDeserializer.class)
     private Object payload;
 
     /**
