@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.v3.security_scheme.ApiKeySecurityScheme
+import com.asyncapi.schemas.security.ApiKeySecurityScheme
 import com.asyncapi.schemas.security.OpenIdConnectSecurityScheme
 import com.asyncapi.schemas.Reference
 import com.asyncapi.v3._0_0.model.Tag
@@ -316,7 +316,10 @@ class StreetlightsMQTTAsyncAPI: AbstractExampleValidationTest() {
                 ))
                 .securitySchemes(mapOf(
                         Pair("apiKey",
-                                ApiKeySecurityScheme("Provide your API key as the user and leave the password empty.", ApiKeySecurityScheme.ApiKeyLocation.USER)
+                            ApiKeySecurityScheme(
+                                "Provide your API key as the user and leave the password empty.",
+                                ApiKeySecurityScheme.ApiKeyLocation.USER
+                            )
                         ),
                         Pair("supportedOauthFlows",
                                 OAuth2SecurityScheme(

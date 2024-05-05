@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.v3.security_scheme.ApiKeySecurityScheme
+import com.asyncapi.schemas.security.ApiKeySecurityScheme
 import com.asyncapi.schemas.Reference
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.Parameter
@@ -254,9 +254,10 @@ class CorrelationIdAsyncAPI: AbstractExampleValidationTest() {
                 ))
                 .securitySchemes(mapOf(
                         Pair("apiKey", ApiKeySecurityScheme(
-                                "Provide your API key as the user and leave the password empty.",
-                                ApiKeySecurityScheme.ApiKeyLocation.USER
-                        )),
+                            "Provide your API key as the user and leave the password empty.",
+                            ApiKeySecurityScheme.ApiKeyLocation.USER
+                        )
+                        ),
                         Pair("supportedOauthFlows", OAuth2SecurityScheme(
                                 "Flows to support OAuth 2.0",
                                 OAuthFlows(
