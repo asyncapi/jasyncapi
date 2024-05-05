@@ -1,5 +1,6 @@
 package com.asyncapi.v3.security_scheme
 
+import com.asyncapi.schemas.security.OpenIdConnectSecurityScheme
 import com.asyncapi.v3.SerDeTest
 
 /**

@@ -1,7 +1,7 @@
 package com.asyncapi.examples.v3._0_0
 
 import com.asyncapi.v3.security_scheme.ApiKeySecurityScheme
-import com.asyncapi.v3.security_scheme.OpenIdConnectSecurityScheme
+import com.asyncapi.schemas.security.OpenIdConnectSecurityScheme
 import com.asyncapi.schemas.Reference
 import com.asyncapi.v3._0_0.model.Tag
 import com.asyncapi.v3._0_0.model.channel.Channel
@@ -363,7 +363,13 @@ class StreetlightsMQTTAsyncAPI: AbstractExampleValidationTest() {
                                         null
                                 )
                         ),
-                        Pair("openIdConnectWellKnown", OpenIdConnectSecurityScheme(null, "https://authserver.example/.well-known", null))
+                        Pair("openIdConnectWellKnown",
+                            OpenIdConnectSecurityScheme(
+                                null,
+                                "https://authserver.example/.well-known",
+                                null
+                            )
+                        )
                 ))
                 .parameters(mapOf(
                         Pair("streetlightId", Parameter.builder().description("The ID of the streetlight.").build())

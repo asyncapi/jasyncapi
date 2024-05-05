@@ -14,7 +14,7 @@ import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.server.Server
 import com.asyncapi.v3._0_0.model.server.ServerVariable
 import com.asyncapi.schemas.AsyncAPISchema
-import com.asyncapi.v3.security_scheme.OpenIdConnectSecurityScheme
+import com.asyncapi.schemas.security.OpenIdConnectSecurityScheme
 import com.asyncapi.v3.security_scheme.oauth2.OAuth2SecurityScheme
 import com.asyncapi.v3.security_scheme.oauth2.OAuthFlows
 import com.asyncapi.v3.security_scheme.oauth2.flow.AuthorizationCodeOAuthFlow
@@ -300,11 +300,13 @@ class CorrelationIdAsyncAPI: AbstractExampleValidationTest() {
                                 ),
                                 null
                         )),
-                        Pair("openIdConnectWellKnown", OpenIdConnectSecurityScheme(
+                        Pair("openIdConnectWellKnown",
+                            OpenIdConnectSecurityScheme(
                                 null,
                                 "https://authserver.example/.well-known",
                                 null
-                        )),
+                            )
+                        ),
                 ))
                 .build()
     }
