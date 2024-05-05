@@ -10,9 +10,9 @@ import com.asyncapi.v3._0_0.model.info.Info
 import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.schemas.AsyncAPISchema
-import com.asyncapi.v3.security_scheme.oauth2.OAuth2SecurityScheme
-import com.asyncapi.v3.security_scheme.oauth2.OAuthFlows
-import com.asyncapi.v3.security_scheme.oauth2.flow.ClientCredentialsOAuthFlow
+import com.asyncapi.schemas.security.oauth2.OAuth2SecurityScheme
+import com.asyncapi.schemas.security.oauth2.OAuthFlows
+import com.asyncapi.schemas.security.oauth2.flow.ClientCredentialsOAuthFlow
 
 class OperationSecurityAsyncAPI: AbstractExampleValidationTest() {
 
@@ -50,22 +50,25 @@ class OperationSecurityAsyncAPI: AbstractExampleValidationTest() {
                                 .action(OperationAction.SEND)
                                 .channel(Reference("#/channels/authRevoke"))
                                 .security(listOf(
-                                        OAuth2SecurityScheme(
-                                                "The oauth security descriptions",
-                                                OAuthFlows(
-                                                        null,
-                                                        null,
-                                                        ClientCredentialsOAuthFlow(
-                                                                "",
-                                                                mapOf(
-                                                                        Pair("subscribe:auth_revocations", "Scope required for authorization revocation topic")
-                                                                ),
-                                                                "https://example.com/api/oauth/dialog"
-                                                        ),
-                                                        null
+                                    OAuth2SecurityScheme(
+                                        "The oauth security descriptions",
+                                        OAuthFlows(
+                                            null,
+                                            null,
+                                            ClientCredentialsOAuthFlow(
+                                                "",
+                                                mapOf(
+                                                    Pair(
+                                                        "subscribe:auth_revocations",
+                                                        "Scope required for authorization revocation topic"
+                                                    )
                                                 ),
-                                                listOf("subscribe:auth_revocations"),
-                                        )
+                                                "https://example.com/api/oauth/dialog"
+                                            ),
+                                            null
+                                        ),
+                                        listOf("subscribe:auth_revocations"),
+                                    )
                                 ))
                                 .bindings(mapOf(
                                         Pair("http", HTTPOperationBinding.builder()
@@ -210,22 +213,27 @@ class OperationSecurityAsyncAPI: AbstractExampleValidationTest() {
                         )
                 ))
                 .securitySchemes(mapOf(
-                        Pair("petstore_auth", OAuth2SecurityScheme(
+                        Pair("petstore_auth",
+                            OAuth2SecurityScheme(
                                 "The oauth security descriptions",
                                 OAuthFlows(
-                                        null,
-                                        null,
-                                        ClientCredentialsOAuthFlow(
-                                                "",
-                                                mapOf(
-                                                        Pair("subscribe:auth_revocations", "Scope required for authorization revocation topic")
-                                                ),
-                                                "https://example.com/api/oauth/dialog"
+                                    null,
+                                    null,
+                                    ClientCredentialsOAuthFlow(
+                                        "",
+                                        mapOf(
+                                            Pair(
+                                                "subscribe:auth_revocations",
+                                                "Scope required for authorization revocation topic"
+                                            )
                                         ),
-                                        null
+                                        "https://example.com/api/oauth/dialog"
+                                    ),
+                                    null
                                 ),
                                 null
-                        ))
+                            )
+                        )
                 ))
                 .build()
     }

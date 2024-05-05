@@ -1,4 +1,4 @@
-package com.asyncapi.v3.security_scheme.oauth2;
+package com.asyncapi.schemas.security.oauth2;
 
 import com.asyncapi.v3.security_scheme.SecurityScheme;
 import lombok.*;

@@ -1,4 +1,4 @@
-package com.asyncapi.v3.security_scheme.oauth2.flow;
+package com.asyncapi.schemas.security.oauth2.flow;
 
 import com.asyncapi.schemas.ExtendableObject;
 import lombok.*;
@@ -8,7 +8,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Map;
 
 /**
- * Configuration for the OAuth Resource Owner Protected Credentials flow
+ * Configuration for the OAuth Implicit flow
  * <p>
  * This object MAY be extended with {@link ExtendableObject}.
  *
@@ -21,22 +21,22 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class PasswordOAuthFlow extends OAuthFlow {
+public class ImplicitOAuthFlow extends OAuthFlow {
 
     /**
      * <b>REQUIRED</b>.
      * <p>
-     * The token URL to be used for this flow. This MUST be in the form of a URL.
+     * The authorization URL to be used for this flow. This MUST be in the form of a URL
      */
     @NotNull
-    private String tokenUrl = "";
+    private String authorizationUrl = "";
 
-    @Builder(builderMethodName = "passwordBuilder")
-    public PasswordOAuthFlow(@Nullable String refreshUrl,
+    @Builder(builderMethodName = "implicitBuilder")
+    public ImplicitOAuthFlow(@Nullable String refreshUrl,
                              @NotNull Map<String, String> scopes,
-                             @NotNull String tokenUrl) {
+                             @NotNull String authorizationUrl) {
         super(refreshUrl, scopes);
-        this.tokenUrl = tokenUrl;
+        this.authorizationUrl = authorizationUrl;
     }
 
 }

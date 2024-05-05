@@ -1,14 +1,15 @@
-package com.asyncapi.v3.security_scheme.oauth2.flow;
+package com.asyncapi.schemas.security.oauth2.flow;
 
 import com.asyncapi.schemas.ExtendableObject;
 import lombok.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Configuration for the OAuth Implicit flow
+ * Configuration details for a supported OAuth Flow
  * <p>
  * This object MAY be extended with {@link ExtendableObject}.
  *
@@ -18,25 +19,26 @@ import java.util.Map;
  * @version 3.0.0
  */
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class ImplicitOAuthFlow extends OAuthFlow {
+public class OAuthFlow extends ExtendableObject {
+
+    /**
+     * The URL to be used for obtaining refresh tokens. This MUST be in the form of an absolute URL.
+     */
+    @Nullable
+    @Builder.Default
+    private String refreshUrl = "";
 
     /**
      * <b>REQUIRED</b>.
      * <p>
-     * The authorization URL to be used for this flow. This MUST be in the form of a URL
+     * The available scopes for the OAuth2 security scheme. A map between the scope name and a short description for it.
      */
     @NotNull
-    private String authorizationUrl = "";
-
-    @Builder(builderMethodName = "implicitBuilder")
-    public ImplicitOAuthFlow(@Nullable String refreshUrl,
-                             @NotNull Map<String, String> scopes,
-                             @NotNull String authorizationUrl) {
-        super(refreshUrl, scopes);
-        this.authorizationUrl = authorizationUrl;
-    }
+    @Builder.Default
+    private Map<String, String> availableScopes = new HashMap<>();
 
 }

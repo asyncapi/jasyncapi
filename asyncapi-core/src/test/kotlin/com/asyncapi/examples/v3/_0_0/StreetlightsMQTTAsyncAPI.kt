@@ -18,12 +18,12 @@ import com.asyncapi.v3._0_0.model.server.Server
 import com.asyncapi.v3._0_0.model.server.ServerVariable
 import com.asyncapi.bindings.mqtt.v0._1_0.operation.MQTTOperationBinding
 import com.asyncapi.schemas.AsyncAPISchema
-import com.asyncapi.v3.security_scheme.oauth2.OAuth2SecurityScheme
-import com.asyncapi.v3.security_scheme.oauth2.OAuthFlows
-import com.asyncapi.v3.security_scheme.oauth2.flow.AuthorizationCodeOAuthFlow
-import com.asyncapi.v3.security_scheme.oauth2.flow.ClientCredentialsOAuthFlow
-import com.asyncapi.v3.security_scheme.oauth2.flow.ImplicitOAuthFlow
-import com.asyncapi.v3.security_scheme.oauth2.flow.PasswordOAuthFlow
+import com.asyncapi.schemas.security.oauth2.OAuth2SecurityScheme
+import com.asyncapi.schemas.security.oauth2.OAuthFlows
+import com.asyncapi.schemas.security.oauth2.flow.AuthorizationCodeOAuthFlow
+import com.asyncapi.schemas.security.oauth2.flow.ClientCredentialsOAuthFlow
+import com.asyncapi.schemas.security.oauth2.flow.ImplicitOAuthFlow
+import com.asyncapi.schemas.security.oauth2.flow.PasswordOAuthFlow
 import java.math.BigDecimal
 
 class StreetlightsMQTTAsyncAPI: AbstractExampleValidationTest() {
@@ -73,36 +73,72 @@ class StreetlightsMQTTAsyncAPI: AbstractExampleValidationTest() {
                                                         ImplicitOAuthFlow(
                                                                 "",
                                                                 mapOf(
-                                                                        Pair("streetlights:on", "Ability to switch lights on"),
-                                                                        Pair("streetlights:off", "Ability to switch lights off"),
-                                                                        Pair("streetlights:dim", "Ability to dim the lights")
+                                                                        Pair(
+                                                                                "streetlights:on",
+                                                                                "Ability to switch lights on"
+                                                                        ),
+                                                                        Pair(
+                                                                                "streetlights:off",
+                                                                                "Ability to switch lights off"
+                                                                        ),
+                                                                        Pair(
+                                                                                "streetlights:dim",
+                                                                                "Ability to dim the lights"
+                                                                        )
                                                                 ),
                                                                 "https://authserver.example/auth"
                                                         ),
                                                         PasswordOAuthFlow(
                                                                 "",
                                                                 mapOf(
-                                                                        Pair("streetlights:on", "Ability to switch lights on"),
-                                                                        Pair("streetlights:off", "Ability to switch lights off"),
-                                                                        Pair("streetlights:dim", "Ability to dim the lights")
+                                                                        Pair(
+                                                                                "streetlights:on",
+                                                                                "Ability to switch lights on"
+                                                                        ),
+                                                                        Pair(
+                                                                                "streetlights:off",
+                                                                                "Ability to switch lights off"
+                                                                        ),
+                                                                        Pair(
+                                                                                "streetlights:dim",
+                                                                                "Ability to dim the lights"
+                                                                        )
                                                                 ),
                                                                 "https://authserver.example/token"
                                                         ),
                                                         ClientCredentialsOAuthFlow(
                                                                 "",
                                                                 mapOf(
-                                                                        Pair("streetlights:on", "Ability to switch lights on"),
-                                                                        Pair("streetlights:off", "Ability to switch lights off"),
-                                                                        Pair("streetlights:dim", "Ability to dim the lights")
+                                                                        Pair(
+                                                                                "streetlights:on",
+                                                                                "Ability to switch lights on"
+                                                                        ),
+                                                                        Pair(
+                                                                                "streetlights:off",
+                                                                                "Ability to switch lights off"
+                                                                        ),
+                                                                        Pair(
+                                                                                "streetlights:dim",
+                                                                                "Ability to dim the lights"
+                                                                        )
                                                                 ),
                                                                 "https://authserver.example/token"
                                                         ),
                                                         AuthorizationCodeOAuthFlow(
                                                                 "https://authserver.example/refresh",
                                                                 mapOf(
-                                                                        Pair("streetlights:on", "Ability to switch lights on"),
-                                                                        Pair("streetlights:off", "Ability to switch lights off"),
-                                                                        Pair("streetlights:dim", "Ability to dim the lights")
+                                                                        Pair(
+                                                                                "streetlights:on",
+                                                                                "Ability to switch lights on"
+                                                                        ),
+                                                                        Pair(
+                                                                                "streetlights:off",
+                                                                                "Ability to switch lights off"
+                                                                        ),
+                                                                        Pair(
+                                                                                "streetlights:dim",
+                                                                                "Ability to dim the lights"
+                                                                        )
                                                                 ),
                                                                 "https://authserver.example/auth",
                                                                 "https://authserver.example/token"
@@ -329,7 +365,10 @@ class StreetlightsMQTTAsyncAPI: AbstractExampleValidationTest() {
                                                         "",
                                                         mapOf(
                                                                 Pair("streetlights:on", "Ability to switch lights on"),
-                                                                Pair("streetlights:off", "Ability to switch lights off"),
+                                                                Pair(
+                                                                        "streetlights:off",
+                                                                        "Ability to switch lights off"
+                                                                ),
                                                                 Pair("streetlights:dim", "Ability to dim the lights")
                                                         ),
                                                         "https://authserver.example/auth"
@@ -338,7 +377,10 @@ class StreetlightsMQTTAsyncAPI: AbstractExampleValidationTest() {
                                                         "",
                                                         mapOf(
                                                                 Pair("streetlights:on", "Ability to switch lights on"),
-                                                                Pair("streetlights:off", "Ability to switch lights off"),
+                                                                Pair(
+                                                                        "streetlights:off",
+                                                                        "Ability to switch lights off"
+                                                                ),
                                                                 Pair("streetlights:dim", "Ability to dim the lights")
                                                         ),
                                                         "https://authserver.example/token"
@@ -347,7 +389,10 @@ class StreetlightsMQTTAsyncAPI: AbstractExampleValidationTest() {
                                                         "",
                                                         mapOf(
                                                                 Pair("streetlights:on", "Ability to switch lights on"),
-                                                                Pair("streetlights:off", "Ability to switch lights off"),
+                                                                Pair(
+                                                                        "streetlights:off",
+                                                                        "Ability to switch lights off"
+                                                                ),
                                                                 Pair("streetlights:dim", "Ability to dim the lights")
                                                         ),
                                                         "https://authserver.example/token"
@@ -356,7 +401,10 @@ class StreetlightsMQTTAsyncAPI: AbstractExampleValidationTest() {
                                                         "https://authserver.example/refresh",
                                                         mapOf(
                                                                 Pair("streetlights:on", "Ability to switch lights on"),
-                                                                Pair("streetlights:off", "Ability to switch lights off"),
+                                                                Pair(
+                                                                        "streetlights:off",
+                                                                        "Ability to switch lights off"
+                                                                ),
                                                                 Pair("streetlights:dim", "Ability to dim the lights")
                                                         ),
                                                         "https://authserver.example/auth",

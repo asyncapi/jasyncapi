@@ -1,15 +1,14 @@
-package com.asyncapi.v3.security_scheme.oauth2.flow;
+package com.asyncapi.schemas.security.oauth2.flow;
 
 import com.asyncapi.schemas.ExtendableObject;
 import lombok.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Configuration details for a supported OAuth Flow
+ * Configuration for the OAuth Client Credentials flow
  * <p>
  * This object MAY be extended with {@link ExtendableObject}.
  *
@@ -19,26 +18,25 @@ import java.util.Map;
  * @version 3.0.0
  */
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class OAuthFlow extends ExtendableObject {
-
-    /**
-     * The URL to be used for obtaining refresh tokens. This MUST be in the form of an absolute URL.
-     */
-    @Nullable
-    @Builder.Default
-    private String refreshUrl = "";
+public class ClientCredentialsOAuthFlow extends OAuthFlow {
 
     /**
      * <b>REQUIRED</b>.
      * <p>
-     * The available scopes for the OAuth2 security scheme. A map between the scope name and a short description for it.
+     * The token URL to be used for this flow. This MUST be in the form of a URL.
      */
     @NotNull
-    @Builder.Default
-    private Map<String, String> availableScopes = new HashMap<>();
+    private String tokenUrl = "";
+
+    @Builder(builderMethodName = "clientCredentialsBuilder")
+    public ClientCredentialsOAuthFlow(@Nullable String refreshUrl,
+                                      @NotNull Map<String, String> availableScopes,
+                                      @NotNull String tokenUrl) {
+        super(refreshUrl, availableScopes);
+        this.tokenUrl = tokenUrl;
+    }
 
 }

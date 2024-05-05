@@ -1,10 +1,10 @@
-package com.asyncapi.v3.security_scheme.oauth2;
+package com.asyncapi.schemas.security.oauth2;
 
 import com.asyncapi.schemas.ExtendableObject;
-import com.asyncapi.v3.security_scheme.oauth2.flow.AuthorizationCodeOAuthFlow;
-import com.asyncapi.v3.security_scheme.oauth2.flow.ClientCredentialsOAuthFlow;
-import com.asyncapi.v3.security_scheme.oauth2.flow.ImplicitOAuthFlow;
-import com.asyncapi.v3.security_scheme.oauth2.flow.PasswordOAuthFlow;
+import com.asyncapi.schemas.security.oauth2.flow.AuthorizationCodeOAuthFlow;
+import com.asyncapi.schemas.security.oauth2.flow.ClientCredentialsOAuthFlow;
+import com.asyncapi.schemas.security.oauth2.flow.ImplicitOAuthFlow;
+import com.asyncapi.schemas.security.oauth2.flow.PasswordOAuthFlow;
 import lombok.*;
 import org.jetbrains.annotations.Nullable;
 

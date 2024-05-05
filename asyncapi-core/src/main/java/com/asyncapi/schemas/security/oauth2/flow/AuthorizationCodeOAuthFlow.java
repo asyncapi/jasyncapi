@@ -1,4 +1,4 @@
-package com.asyncapi.v3.security_scheme.oauth2.flow;
+package com.asyncapi.schemas.security.oauth2.flow;
 
 import com.asyncapi.schemas.ExtendableObject;
 import lombok.*;

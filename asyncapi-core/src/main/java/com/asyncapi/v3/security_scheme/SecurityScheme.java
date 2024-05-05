@@ -5,7 +5,7 @@ import com.asyncapi.schemas.security.ApiKeySecurityScheme;
 import com.asyncapi.schemas.security.OpenIdConnectSecurityScheme;
 import com.asyncapi.schemas.security.http.HttpApiKeySecurityScheme;
 import com.asyncapi.schemas.security.http.HttpSecurityScheme;
-import com.asyncapi.v3.security_scheme.oauth2.OAuth2SecurityScheme;
+import com.asyncapi.schemas.security.oauth2.OAuth2SecurityScheme;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
