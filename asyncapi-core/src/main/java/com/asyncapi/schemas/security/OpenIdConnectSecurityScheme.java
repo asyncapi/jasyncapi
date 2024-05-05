@@ -1,6 +1,5 @@
 package com.asyncapi.schemas.security;
 
-import com.asyncapi.v3.security_scheme.SecurityScheme;
 import lombok.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

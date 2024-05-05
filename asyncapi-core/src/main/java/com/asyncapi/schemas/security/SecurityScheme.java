@@ -1,8 +1,6 @@
-package com.asyncapi.v3.security_scheme;
+package com.asyncapi.schemas.security;
 
 import com.asyncapi.schemas.ExtendableObject;
-import com.asyncapi.schemas.security.ApiKeySecurityScheme;
-import com.asyncapi.schemas.security.OpenIdConnectSecurityScheme;
 import com.asyncapi.schemas.security.http.HttpApiKeySecurityScheme;
 import com.asyncapi.schemas.security.http.HttpSecurityScheme;
 import com.asyncapi.schemas.security.oauth2.OAuth2SecurityScheme;

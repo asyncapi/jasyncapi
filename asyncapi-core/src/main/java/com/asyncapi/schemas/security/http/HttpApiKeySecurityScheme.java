@@ -1,6 +1,6 @@
 package com.asyncapi.schemas.security.http;
 
-import com.asyncapi.v3.security_scheme.SecurityScheme;
+import com.asyncapi.schemas.security.SecurityScheme;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.jetbrains.annotations.NotNull;

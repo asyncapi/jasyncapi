@@ -21,7 +21,7 @@ import com.asyncapi.bindings.kafka.v0._4_0.operation.KafkaOperationBinding
 import com.asyncapi.bindings.kafka.v0._4_0.server.KafkaServerBinding
 import com.asyncapi.schemas.AsyncAPISchema
 import com.asyncapi.schemas.multiformat.AvroFormatSchema
-import com.asyncapi.v3.security_scheme.SecurityScheme
+import com.asyncapi.schemas.security.SecurityScheme
 
 class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
 
@@ -216,10 +216,10 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
 
     override fun expectedComponents(): Components? {
         val saslSslSecurityScheme = SecurityScheme(
-                SecurityScheme.Type.PLAIN,
-                "Use [SASL authentication with SSL " +
-                        "encryption](https://docs.confluent.io/platform/current/security/security_tutorial.html#configure-clients) " +
-                        "to connect to the ADEO Broker."
+            SecurityScheme.Type.PLAIN,
+            "Use [SASL authentication with SSL " +
+                    "encryption](https://docs.confluent.io/platform/current/security/security_tutorial.html#configure-clients) " +
+                    "to connect to the ADEO Broker."
         )
         saslSslSecurityScheme.extensionFields = mapOf(
                 Pair("x-sasl.jaas.config", "org.apache.kafka.common.security.plain.PlainLoginModule required " +

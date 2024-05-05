@@ -15,7 +15,7 @@ import com.asyncapi.v3._0_0.model.operation.OperationTrait
 import com.asyncapi.v3._0_0.model.server.Server
 import com.asyncapi.bindings.kafka.v0._4_0.operation.KafkaOperationBinding
 import com.asyncapi.schemas.AsyncAPISchema
-import com.asyncapi.v3.security_scheme.SecurityScheme
+import com.asyncapi.schemas.security.SecurityScheme
 import java.math.BigDecimal
 
 class StreetlightsKafkaAsyncAPI: AbstractExampleValidationTest() {
@@ -279,10 +279,10 @@ class StreetlightsKafkaAsyncAPI: AbstractExampleValidationTest() {
                                 .build()
                         ),
                         Pair("certs",
-                                SecurityScheme(
-                                        SecurityScheme.Type.X509,
-                                        "Download the certificate files from service provider"
-                                )
+                            SecurityScheme(
+                                SecurityScheme.Type.X509,
+                                "Download the certificate files from service provider"
+                            )
                         )
                 ))
                 .parameters(mapOf(

@@ -1,6 +1,6 @@
 package com.asyncapi.schemas.security.oauth2;
 
-import com.asyncapi.v3.security_scheme.SecurityScheme;
+import com.asyncapi.schemas.security.SecurityScheme;
 import lombok.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

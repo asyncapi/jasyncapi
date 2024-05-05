@@ -25,7 +25,7 @@ import com.asyncapi.bindings.OperationBindingsDeserializer;
 import com.asyncapi.bindings.ServerBindingsDeserializer;
 import com.asyncapi.schemas.multiformat.MultiFormatSchema;
 import com.asyncapi.schemas.AsyncAPISchema;
-import com.asyncapi.v3.security_scheme.SecurityScheme;
+import com.asyncapi.schemas.security.SecurityScheme;
 import com.asyncapi.schemas.ExtendableObject;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.*;
