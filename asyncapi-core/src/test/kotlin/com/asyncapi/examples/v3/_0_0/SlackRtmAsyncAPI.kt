@@ -9,7 +9,7 @@ import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.server.Server
 import com.asyncapi.schemas.AsyncAPISchema
-import com.asyncapi.v3.security_scheme.http.HttpApiKeySecurityScheme
+import com.asyncapi.schemas.security.http.HttpApiKeySecurityScheme
 
 class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
 
@@ -265,10 +265,11 @@ class SlackRtmAsyncAPI: AbstractExampleValidationTest() {
         return Components.builder()
                 .securitySchemes(mapOf(
                         Pair("token", HttpApiKeySecurityScheme(
-                                null,
-                                "token",
-                                HttpApiKeySecurityScheme.ApiKeyLocation.QUERY
-                        ))
+                            null,
+                            "token",
+                            HttpApiKeySecurityScheme.ApiKeyLocation.QUERY
+                        )
+                        )
                 ))
                 .schemas(mapOf(
                         Pair("attachment",

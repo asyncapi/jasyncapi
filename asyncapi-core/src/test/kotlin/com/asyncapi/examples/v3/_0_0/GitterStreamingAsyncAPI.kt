@@ -15,7 +15,7 @@ import com.asyncapi.v3._0_0.model.server.Server
 import com.asyncapi.schemas.AsyncAPISchema
 import com.asyncapi.schemas.JsonSchema
 import com.asyncapi.schemas.multiformat.JsonFormatSchema
-import com.asyncapi.v3.security_scheme.http.HttpSecurityScheme
+import com.asyncapi.schemas.security.http.HttpSecurityScheme
 
 class GitterStreamingAsyncAPI: AbstractExampleValidationTest() {
 
@@ -98,11 +98,13 @@ class GitterStreamingAsyncAPI: AbstractExampleValidationTest() {
     override fun expectedComponents(): Components? {
         return Components.builder()
                 .securitySchemes(mapOf(
-                        Pair("httpBearerToken", HttpSecurityScheme(
+                        Pair("httpBearerToken",
+                            HttpSecurityScheme(
                                 null,
                                 "bearer",
                                 null,
-                        ))
+                            )
+                        )
                 ))
                 .messages(mapOf(
                         Pair("chatMessage", Message.builder()

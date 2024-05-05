@@ -1,5 +1,6 @@
 package com.asyncapi.v3.security_scheme.http
 
+import com.asyncapi.schemas.security.http.HttpSecurityScheme
 import com.asyncapi.v3.SerDeTest
 
 class HttpSecuritySchemeBasicTest: SerDeTest<HttpSecurityScheme>() {

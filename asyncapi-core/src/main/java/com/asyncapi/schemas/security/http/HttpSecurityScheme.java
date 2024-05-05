@@ -1,4 +1,4 @@
-package com.asyncapi.v3.security_scheme.http;
+package com.asyncapi.schemas.security.http;
 
 import com.asyncapi.v3.security_scheme.SecurityScheme;
 import lombok.*;
