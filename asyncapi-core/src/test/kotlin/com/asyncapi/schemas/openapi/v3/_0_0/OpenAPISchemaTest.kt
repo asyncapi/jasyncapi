@@ -84,14 +84,14 @@ class OpenAPISchemaTest {
             extendedXML.extensions = mapOf(Pair("x-extension-property", "value"))
 
             return Stream.of(
-                    Arguments.of("/json/v3/schema/openapi/xml.json", extendedXML),
-                    Arguments.of("/json/v3/schema/openapi/xml-attribute.json", XML.builder().attribute(true).build()),
-                    Arguments.of("/json/v3/schema/openapi/xml-name-replacement.json", XML.builder().name("animal").build()),
-                    Arguments.of("/json/v3/schema/openapi/xml-prefix-and-namespace.json", XML.builder()
+                    Arguments.of("/schemas/openapi/xml.json", extendedXML),
+                    Arguments.of("/schemas/openapi/xml-attribute.json", XML.builder().attribute(true).build()),
+                    Arguments.of("/schemas/openapi/xml-name-replacement.json", XML.builder().name("animal").build()),
+                    Arguments.of("/schemas/openapi/xml-prefix-and-namespace.json", XML.builder()
                             .namespace("http://example.com/schema/sample")
                             .prefix("sample").build()
                     ),
-                    Arguments.of("/json/v3/schema/openapi/xml-wrapped.json", XML.builder().wrapped(true).build()),
+                    Arguments.of("/schemas/openapi/xml-wrapped.json", XML.builder().wrapped(true).build()),
             )
         }
 
@@ -101,14 +101,14 @@ class OpenAPISchemaTest {
 
         override fun provideArguments(context: ExtensionContext?): Stream<out Arguments> {
             return Stream.of(
-                    Arguments.of("/json/v3/schema/openapi/discriminator.json", Discriminator.builder()
+                    Arguments.of("/schemas/openapi/discriminator.json", Discriminator.builder()
                             .propertyName("pet_type")
                             .mapping(mapOf(
                                     Pair("dog", "#/components/schemas/Dog"),
                                     Pair("monster", "https://gigantic-server.com/schemas/Monster/schema.json"),
                             )).build()
                     ),
-                    Arguments.of("/json/v3/schema/openapi/discriminator-propertyname.json", Discriminator.builder().propertyName("pet_type").build()),
+                    Arguments.of("/schemas/openapi/discriminator-propertyname.json", Discriminator.builder().propertyName("pet_type").build()),
             )
         }
 
@@ -121,8 +121,8 @@ class OpenAPISchemaTest {
             extendedExternalDocumentation.extensions = mapOf(Pair("x-extension-property", "value"))
 
             return Stream.of(
-                Arguments.of("/json/v3/schema/openapi/externaldocumentation.json", extendedExternalDocumentation),
-                Arguments.of("/json/v3/schema/openapi/externaldocumentation-url.json", ExternalDocumentation(
+                Arguments.of("/schemas/openapi/externaldocumentation.json", extendedExternalDocumentation),
+                Arguments.of("/schemas/openapi/externaldocumentation-url.json", ExternalDocumentation(
                     null, "https://example.com"
                 )),
             )
@@ -134,9 +134,9 @@ class OpenAPISchemaTest {
 
         override fun provideArguments(context: ExtensionContext?): Stream<out Arguments> {
             return Stream.of(
-                Arguments.of("/json/v3/schema/openapi/schema.json", SchemaTest()),
-                Arguments.of("/json/v3/schema/openapi/properties/array.json", ExampleEnumDefaultArrayTest()),
-                Arguments.of("/json/v3/schema/openapi/properties/null.json", ExampleEnumDefaultNullTest()),
+                Arguments.of("/schemas/openapi/schema.json", SchemaTest()),
+                Arguments.of("/schemas/openapi/properties/array.json", ExampleEnumDefaultArrayTest()),
+                Arguments.of("/schemas/openapi/properties/null.json", ExampleEnumDefaultNullTest()),
             )
         }
 
