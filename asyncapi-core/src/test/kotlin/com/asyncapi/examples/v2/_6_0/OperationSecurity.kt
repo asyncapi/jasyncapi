@@ -9,9 +9,9 @@ import com.asyncapi.v2._6_0.model.info.Info
 import com.asyncapi.bindings.http.v0._3_0.operation.HTTPOperationBinding
 import com.asyncapi.bindings.http.v0._3_0.operation.HTTPOperationMethod
 import com.asyncapi.schemas.AsyncAPISchema
-import com.asyncapi.v2.security_scheme.oauth2.OAuthFlows
-import com.asyncapi.v2.security_scheme.oauth2.OAuth2SecurityScheme
-import com.asyncapi.v2.security_scheme.oauth2.flow.ClientCredentialsOAuthFlow
+import com.asyncapi.schemas.security.v2.oauth2.OAuthFlows
+import com.asyncapi.schemas.security.v2.oauth2.OAuth2SecurityScheme
+import com.asyncapi.schemas.security.v2.oauth2.flow.ClientCredentialsOAuthFlow
 
 class OperationSecurity: AbstractExampleValidationTest() {
 
@@ -180,19 +180,26 @@ class OperationSecurity: AbstractExampleValidationTest() {
                         ),
                 ))
                 .securitySchemes(mapOf(
-                        Pair("petstore_auth", OAuth2SecurityScheme(
+                        Pair("petstore_auth",
+                            OAuth2SecurityScheme(
                                 "The oauth security descriptions",
                                 OAuthFlows(
-                                        null,
-                                        null,
-                                        ClientCredentialsOAuthFlow(
-                                                "",
-                                                mapOf(Pair("subscribe:auth_revocations", "Scope required for authorization revocation topic")),
-                                                "https://example.com/api/oauth/dialog"
+                                    null,
+                                    null,
+                                    ClientCredentialsOAuthFlow(
+                                        "",
+                                        mapOf(
+                                            Pair(
+                                                "subscribe:auth_revocations",
+                                                "Scope required for authorization revocation topic"
+                                            )
                                         ),
-                                        null
+                                        "https://example.com/api/oauth/dialog"
+                                    ),
+                                    null
                                 ),
-                        ))
+                            )
+                        )
                 ))
                 .build()
     }

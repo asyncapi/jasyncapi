@@ -12,12 +12,12 @@ import com.asyncapi.v2._0_0.model.channel.operation.OperationTraitTest
 import com.asyncapi.schemas.AsyncAPISchema
 import com.asyncapi.schemas.Type
 import com.asyncapi.v2._0_0.model.server.ServerTest
-import com.asyncapi.v2.security_scheme.ApiKeySecuritySchemeTest
-import com.asyncapi.v2.security_scheme.OpenIdConnectSecuritySchemeTest
-import com.asyncapi.v2.security_scheme.http.HttpApiKeySecuritySchemeTest
-import com.asyncapi.v2.security_scheme.http.HttpSecuritySchemeBasicTest
-import com.asyncapi.v2.security_scheme.http.HttpSecuritySchemeBearerTest
-import com.asyncapi.v2.security_scheme.oauth2.OAuth2SecuritySchemeTest
+import com.asyncapi.schemas.security.v2.ApiKeySecuritySchemeTest
+import com.asyncapi.schemas.security.v2.OpenIdConnectSecuritySchemeTest
+import com.asyncapi.schemas.security.v2.http.HttpApiKeySecuritySchemeTest
+import com.asyncapi.schemas.security.v2.http.HttpSecuritySchemeBasicTest
+import com.asyncapi.schemas.security.v2.http.HttpSecuritySchemeBearerTest
+import com.asyncapi.schemas.security.v2.oauth2.OAuth2SecuritySchemeTest
 
 /**
  * @author Pavel Bodiachevskii

@@ -12,7 +12,7 @@ import com.asyncapi.v2._6_0.model.server.Server
 import com.asyncapi.bindings.http.v0._3_0.message.HTTPMessageBinding
 import com.asyncapi.bindings.http.v0._3_0.operation.HTTPOperationBinding
 import com.asyncapi.schemas.AsyncAPISchema
-import com.asyncapi.v2.security_scheme.http.HttpSecurityScheme
+import com.asyncapi.schemas.security.v2.http.HttpSecurityScheme
 
 class GitterStreaming: AbstractExampleValidationTest() {
 
@@ -84,11 +84,13 @@ class GitterStreaming: AbstractExampleValidationTest() {
     override fun expectedComponents(): Components? {
         return Components.builder()
                 .securitySchemes(mapOf(
-                        Pair("httpBearerToken", HttpSecurityScheme(
+                        Pair("httpBearerToken",
+                            HttpSecurityScheme(
                                 null,
                                 "bearer",
                                 null,
-                        ))
+                            )
+                        )
                 ))
                 .messages(mapOf(
                         Pair("chatMessage", Message.builder()

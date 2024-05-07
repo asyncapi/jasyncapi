@@ -14,14 +14,14 @@ import com.asyncapi.v2._0_0.model.server.Server
 import com.asyncapi.v2._0_0.model.server.ServerVariable
 import com.asyncapi.bindings.mqtt.v0._1_0.operation.MQTTOperationBinding
 import com.asyncapi.schemas.AsyncAPISchema
-import com.asyncapi.v2.security_scheme.ApiKeySecurityScheme
-import com.asyncapi.v2.security_scheme.OpenIdConnectSecurityScheme
-import com.asyncapi.v2.security_scheme.oauth2.OAuth2SecurityScheme
-import com.asyncapi.v2.security_scheme.oauth2.OAuthFlows
-import com.asyncapi.v2.security_scheme.oauth2.flow.AuthorizationCodeOAuthFlow
-import com.asyncapi.v2.security_scheme.oauth2.flow.ClientCredentialsOAuthFlow
-import com.asyncapi.v2.security_scheme.oauth2.flow.ImplicitOAuthFlow
-import com.asyncapi.v2.security_scheme.oauth2.flow.PasswordOAuthFlow
+import com.asyncapi.schemas.security.v2.ApiKeySecurityScheme
+import com.asyncapi.schemas.security.v2.OpenIdConnectSecurityScheme
+import com.asyncapi.schemas.security.v2.oauth2.OAuth2SecurityScheme
+import com.asyncapi.schemas.security.v2.oauth2.OAuthFlows
+import com.asyncapi.schemas.security.v2.oauth2.flow.AuthorizationCodeOAuthFlow
+import com.asyncapi.schemas.security.v2.oauth2.flow.ClientCredentialsOAuthFlow
+import com.asyncapi.schemas.security.v2.oauth2.flow.ImplicitOAuthFlow
+import com.asyncapi.schemas.security.v2.oauth2.flow.PasswordOAuthFlow
 import java.math.BigDecimal
 
 class StreetlightsMQTT: AbstractExampleValidationTest() {
@@ -225,7 +225,10 @@ class StreetlightsMQTT: AbstractExampleValidationTest() {
                 ))
                 .securitySchemes(mapOf(
                         Pair("apiKey",
-                                ApiKeySecurityScheme("Provide your API key as the user and leave the password empty.", ApiKeySecurityScheme.ApiKeyLocation.USER)
+                            ApiKeySecurityScheme(
+                                "Provide your API key as the user and leave the password empty.",
+                                ApiKeySecurityScheme.ApiKeyLocation.USER
+                            )
                         ),
                         Pair("supportedOauthFlows",
                                 OAuth2SecurityScheme(
@@ -235,7 +238,10 @@ class StreetlightsMQTT: AbstractExampleValidationTest() {
                                                         "",
                                                         mapOf(
                                                                 Pair("streetlights:on", "Ability to switch lights on"),
-                                                                Pair("streetlights:off", "Ability to switch lights off"),
+                                                                Pair(
+                                                                        "streetlights:off",
+                                                                        "Ability to switch lights off"
+                                                                ),
                                                                 Pair("streetlights:dim", "Ability to dim the lights")
                                                         ),
                                                         "https://authserver.example/auth"
@@ -244,7 +250,10 @@ class StreetlightsMQTT: AbstractExampleValidationTest() {
                                                         "",
                                                         mapOf(
                                                                 Pair("streetlights:on", "Ability to switch lights on"),
-                                                                Pair("streetlights:off", "Ability to switch lights off"),
+                                                                Pair(
+                                                                        "streetlights:off",
+                                                                        "Ability to switch lights off"
+                                                                ),
                                                                 Pair("streetlights:dim", "Ability to dim the lights")
                                                         ),
                                                         "https://authserver.example/token"
@@ -253,7 +262,10 @@ class StreetlightsMQTT: AbstractExampleValidationTest() {
                                                         "",
                                                         mapOf(
                                                                 Pair("streetlights:on", "Ability to switch lights on"),
-                                                                Pair("streetlights:off", "Ability to switch lights off"),
+                                                                Pair(
+                                                                        "streetlights:off",
+                                                                        "Ability to switch lights off"
+                                                                ),
                                                                 Pair("streetlights:dim", "Ability to dim the lights")
                                                         ),
                                                         "https://authserver.example/token"
@@ -262,7 +274,10 @@ class StreetlightsMQTT: AbstractExampleValidationTest() {
                                                         "https://authserver.example/refresh",
                                                         mapOf(
                                                                 Pair("streetlights:on", "Ability to switch lights on"),
-                                                                Pair("streetlights:off", "Ability to switch lights off"),
+                                                                Pair(
+                                                                        "streetlights:off",
+                                                                        "Ability to switch lights off"
+                                                                ),
                                                                 Pair("streetlights:dim", "Ability to dim the lights")
                                                         ),
                                                         "https://authserver.example/auth",
@@ -271,7 +286,12 @@ class StreetlightsMQTT: AbstractExampleValidationTest() {
                                         )
                                 )
                         ),
-                        Pair("openIdConnectWellKnown", OpenIdConnectSecurityScheme(null, "https://authserver.example/.well-known"))
+                        Pair("openIdConnectWellKnown",
+                            OpenIdConnectSecurityScheme(
+                                null,
+                                "https://authserver.example/.well-known"
+                            )
+                        )
                 ))
                 .parameters(mapOf(
                         Pair("streetlightId", Parameter.builder()

@@ -13,7 +13,7 @@ import com.asyncapi.v2._0_0.model.info.License
 import com.asyncapi.v2._0_0.model.server.Server
 import com.asyncapi.bindings.kafka.v0._4_0.operation.KafkaOperationBinding
 import com.asyncapi.schemas.AsyncAPISchema
-import com.asyncapi.v2.security_scheme.SecurityScheme
+import com.asyncapi.schemas.security.v2.SecurityScheme
 import java.math.BigDecimal
 
 class StreetlightsKafka: AbstractExampleValidationTest() {
@@ -216,10 +216,10 @@ class StreetlightsKafka: AbstractExampleValidationTest() {
                                 .build()
                         ),
                         Pair("certs",
-                                SecurityScheme(
-                                        SecurityScheme.Type.X509,
-                                        "Download the certificate files from service provider"
-                                )
+                            SecurityScheme(
+                                SecurityScheme.Type.X509,
+                                "Download the certificate files from service provider"
+                            )
                         )
                 ))
                 .parameters(mapOf(

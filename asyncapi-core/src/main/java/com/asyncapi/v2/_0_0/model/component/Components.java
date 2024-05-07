@@ -20,7 +20,7 @@ import com.asyncapi.bindings.ChannelBindingsDeserializer;
 import com.asyncapi.bindings.MessageBindingsDeserializer;
 import com.asyncapi.bindings.OperationBindingsDeserializer;
 import com.asyncapi.bindings.ServerBindingsDeserializer;
-import com.asyncapi.v2.security_scheme.SecurityScheme;
+import com.asyncapi.schemas.security.v2.SecurityScheme;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
