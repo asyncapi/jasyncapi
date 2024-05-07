@@ -34,48 +34,48 @@ abstract class EmptySchemaFormatTest: AsyncAPIFormatSchemaTest() {
         override fun provideArguments(context: ExtensionContext?): Stream<out Arguments> {
             return Stream.of(
                 Arguments.of(
-                    "/json/v3/schema/multiformat/schemaFormat is empty/arrays.schema.json",
+                    "/schemas/multiformat/schemaFormat is empty/arrays.schema.json",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi+json;version=3.0.0",
                         ArraysSchemaTest().asyncAPISchema()
                     )
                 ),
-                Arguments.of("/json/v3/schema/multiformat/schemaFormat is empty/complex-object.schema.json",
+                Arguments.of("/schemas/multiformat/schemaFormat is empty/complex-object.schema.json",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi+json;version=3.0.0",
                         ComplexObjectTest().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/schemaFormat is empty/conditional-validation-if-else.schema.json",
+                    "/schemas/multiformat/schemaFormat is empty/conditional-validation-if-else.schema.json",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi+json;version=3.0.0",
                         ConditionalValidationIfElse().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/schemaFormat is empty/draft-07-core-schema-meta-schema.json",
+                    "/schemas/multiformat/schemaFormat is empty/draft-07-core-schema-meta-schema.json",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi+json;version=3.0.0",
                         Draft07CoreSchemaMetaSchemaTest().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/schemaFormat is empty/enumerated-values.schema.json",
+                    "/schemas/multiformat/schemaFormat is empty/enumerated-values.schema.json",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi+json;version=3.0.0",
                         EnumeratedValuesTest().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/schemaFormat is empty/person.schema.json",
+                    "/schemas/multiformat/schemaFormat is empty/person.schema.json",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi+json;version=3.0.0",
                         PersonTest().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/schemaFormat is empty/regex-pattern.schema.json",
+                    "/schemas/multiformat/schemaFormat is empty/regex-pattern.schema.json",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi+json;version=3.0.0",
                         RegexPatternTest().asyncAPISchema()
@@ -91,48 +91,48 @@ abstract class EmptySchemaFormatTest: AsyncAPIFormatSchemaTest() {
         override fun provideArguments(context: ExtensionContext?): Stream<out Arguments> {
             return Stream.of(
                 Arguments.of(
-                    "/json/v3/schema/multiformat/schemaFormat is empty/arrays.schema.yaml",
+                    "/schemas/multiformat/schemaFormat is empty/arrays.schema.yaml",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi+json;version=3.0.0",
                         ArraysSchemaTest().asyncAPISchema()
                     )
                 ),
-                Arguments.of("/json/v3/schema/multiformat/schemaFormat is empty/complex-object.schema.yaml",
+                Arguments.of("/schemas/multiformat/schemaFormat is empty/complex-object.schema.yaml",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi+json;version=3.0.0",
                         ComplexObjectTest().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/schemaFormat is empty/conditional-validation-if-else.schema.yaml",
+                    "/schemas/multiformat/schemaFormat is empty/conditional-validation-if-else.schema.yaml",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi+json;version=3.0.0",
                         ConditionalValidationIfElse().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/schemaFormat is empty/draft-07-core-schema-meta-schema.yaml",
+                    "/schemas/multiformat/schemaFormat is empty/draft-07-core-schema-meta-schema.yaml",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi+json;version=3.0.0",
                         Draft07CoreSchemaMetaSchemaTest().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/schemaFormat is empty/enumerated-values.schema.yaml",
+                    "/schemas/multiformat/schemaFormat is empty/enumerated-values.schema.yaml",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi+json;version=3.0.0",
                         EnumeratedValuesTest().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/schemaFormat is empty/person.schema.yaml",
+                    "/schemas/multiformat/schemaFormat is empty/person.schema.yaml",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi+json;version=3.0.0",
                         PersonTest().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/schemaFormat is empty/regex-pattern.schema.yaml",
+                    "/schemas/multiformat/schemaFormat is empty/regex-pattern.schema.yaml",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi+json;version=3.0.0",
                         RegexPatternTest().asyncAPISchema()

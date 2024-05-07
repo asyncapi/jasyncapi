@@ -34,49 +34,49 @@ abstract class AsyncAPIFormatSchemaV2_4_0Test: AsyncAPIFormatSchemaTest() {
         override fun provideArguments(context: ExtensionContext?): Stream<out Arguments> {
             return Stream.of(
                 Arguments.of(
-                    "/json/v3/schema/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi+json/arrays.schema.json",
+                    "/schemas/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi+json/arrays.schema.json",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi+json;version=2.4.0",
                         ArraysSchemaTest().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi+json/complex-object.schema.json",
+                    "/schemas/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi+json/complex-object.schema.json",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi+json;version=2.4.0",
                         ComplexObjectTest().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi+json/conditional-validation-if-else.schema.json",
+                    "/schemas/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi+json/conditional-validation-if-else.schema.json",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi+json;version=2.4.0",
                         ConditionalValidationIfElse().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi+json/draft-07-core-schema-meta-schema.json",
+                    "/schemas/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi+json/draft-07-core-schema-meta-schema.json",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi+json;version=2.4.0",
                         Draft07CoreSchemaMetaSchemaTest().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi+json/enumerated-values.schema.json",
+                    "/schemas/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi+json/enumerated-values.schema.json",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi+json;version=2.4.0",
                         EnumeratedValuesTest().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi+json/person.schema.json",
+                    "/schemas/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi+json/person.schema.json",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi+json;version=2.4.0",
                         PersonTest().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi+json/regex-pattern.schema.json",
+                    "/schemas/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi+json/regex-pattern.schema.json",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi+json;version=2.4.0",
                         RegexPatternTest().asyncAPISchema()
@@ -84,49 +84,49 @@ abstract class AsyncAPIFormatSchemaV2_4_0Test: AsyncAPIFormatSchemaTest() {
                 ),
                 //
                 Arguments.of(
-                    "/json/v3/schema/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi/arrays.schema.json",
+                    "/schemas/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi/arrays.schema.json",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi;version=2.4.0",
                         ArraysSchemaTest().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi/complex-object.schema.json",
+                    "/schemas/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi/complex-object.schema.json",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi;version=2.4.0",
                         ComplexObjectTest().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi/conditional-validation-if-else.schema.json",
+                    "/schemas/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi/conditional-validation-if-else.schema.json",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi;version=2.4.0",
                         ConditionalValidationIfElse().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi/draft-07-core-schema-meta-schema.json",
+                    "/schemas/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi/draft-07-core-schema-meta-schema.json",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi;version=2.4.0",
                         Draft07CoreSchemaMetaSchemaTest().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi/enumerated-values.schema.json",
+                    "/schemas/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi/enumerated-values.schema.json",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi;version=2.4.0",
                         EnumeratedValuesTest().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi/person.schema.json",
+                    "/schemas/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi/person.schema.json",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi;version=2.4.0",
                         PersonTest().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi/regex-pattern.schema.json",
+                    "/schemas/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi/regex-pattern.schema.json",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi;version=2.4.0",
                         RegexPatternTest().asyncAPISchema()
@@ -142,49 +142,49 @@ abstract class AsyncAPIFormatSchemaV2_4_0Test: AsyncAPIFormatSchemaTest() {
         override fun provideArguments(context: ExtensionContext?): Stream<out Arguments> {
             return Stream.of(
                 Arguments.of(
-                    "/json/v3/schema/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi+yaml/arrays.schema.yaml",
+                    "/schemas/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi+yaml/arrays.schema.yaml",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi+yaml;version=2.4.0",
                         ArraysSchemaTest().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi+yaml/complex-object.schema.yaml",
+                    "/schemas/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi+yaml/complex-object.schema.yaml",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi+yaml;version=2.4.0",
                         ComplexObjectTest().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi+yaml/conditional-validation-if-else.schema.yaml",
+                    "/schemas/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi+yaml/conditional-validation-if-else.schema.yaml",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi+yaml;version=2.4.0",
                         ConditionalValidationIfElse().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi+yaml/draft-07-core-schema-meta-schema.yaml",
+                    "/schemas/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi+yaml/draft-07-core-schema-meta-schema.yaml",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi+yaml;version=2.4.0",
                         Draft07CoreSchemaMetaSchemaTest().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi+yaml/enumerated-values.schema.yaml",
+                    "/schemas/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi+yaml/enumerated-values.schema.yaml",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi+yaml;version=2.4.0",
                         EnumeratedValuesTest().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi+yaml/person.schema.yaml",
+                    "/schemas/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi+yaml/person.schema.yaml",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi+yaml;version=2.4.0",
                         PersonTest().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi+yaml/regex-pattern.schema.yaml",
+                    "/schemas/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi+yaml/regex-pattern.schema.yaml",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi+yaml;version=2.4.0",
                         RegexPatternTest().asyncAPISchema()
@@ -192,49 +192,49 @@ abstract class AsyncAPIFormatSchemaV2_4_0Test: AsyncAPIFormatSchemaTest() {
                 ),
                 //
                 Arguments.of(
-                    "/json/v3/schema/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi/arrays.schema.yaml",
+                    "/schemas/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi/arrays.schema.yaml",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi;version=2.4.0",
                         ArraysSchemaTest().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi/complex-object.schema.yaml",
+                    "/schemas/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi/complex-object.schema.yaml",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi;version=2.4.0",
                         ComplexObjectTest().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi/conditional-validation-if-else.schema.yaml",
+                    "/schemas/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi/conditional-validation-if-else.schema.yaml",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi;version=2.4.0",
                         ConditionalValidationIfElse().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi/draft-07-core-schema-meta-schema.yaml",
+                    "/schemas/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi/draft-07-core-schema-meta-schema.yaml",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi;version=2.4.0",
                         Draft07CoreSchemaMetaSchemaTest().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi/enumerated-values.schema.yaml",
+                    "/schemas/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi/enumerated-values.schema.yaml",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi;version=2.4.0",
                         EnumeratedValuesTest().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi/person.schema.yaml",
+                    "/schemas/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi/person.schema.yaml",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi;version=2.4.0",
                         PersonTest().asyncAPISchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi/regex-pattern.schema.yaml",
+                    "/schemas/multiformat/asyncapi/2.4.0/vnd.aai.asyncapi/regex-pattern.schema.yaml",
                     AsyncAPIFormatSchema(
                         "application/vnd.aai.asyncapi;version=2.4.0",
                         RegexPatternTest().asyncAPISchema()

@@ -54,31 +54,31 @@ abstract class JsonFormatSchemaTest {
         override fun provideArguments(context: ExtensionContext?): Stream<out Arguments> {
             return Stream.of(
                 Arguments.of(
-                    "/json/v3/schema/multiformat/json/schema+json/arrays.schema.json",
+                    "/schemas/multiformat/json/schema+json/arrays.schema.json",
                     JsonFormatSchema(ArraysSchemaTest().jsonSchema())
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/json/schema+json/complex-object.schema.json",
+                    "/schemas/multiformat/json/schema+json/complex-object.schema.json",
                     JsonFormatSchema(ComplexObjectTest().jsonSchema())
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/json/schema+json/conditional-validation-if-else.schema.json",
+                    "/schemas/multiformat/json/schema+json/conditional-validation-if-else.schema.json",
                     JsonFormatSchema(ConditionalValidationIfElse().jsonSchema())
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/json/schema+json/draft-07-core-schema-meta-schema.json",
+                    "/schemas/multiformat/json/schema+json/draft-07-core-schema-meta-schema.json",
                     JsonFormatSchema(Draft07CoreSchemaMetaSchemaTest().jsonSchema())
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/json/schema+json/enumerated-values.schema.json",
+                    "/schemas/multiformat/json/schema+json/enumerated-values.schema.json",
                     JsonFormatSchema(EnumeratedValuesTest().jsonSchema())
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/json/schema+json/person.schema.json",
+                    "/schemas/multiformat/json/schema+json/person.schema.json",
                     JsonFormatSchema(PersonTest().jsonSchema())
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/json/schema+json/regex-pattern.schema.json",
+                    "/schemas/multiformat/json/schema+json/regex-pattern.schema.json",
                     JsonFormatSchema(RegexPatternTest().jsonSchema())
                 )
             )
@@ -91,49 +91,49 @@ abstract class JsonFormatSchemaTest {
         override fun provideArguments(context: ExtensionContext?): Stream<out Arguments> {
             return Stream.of(
                 Arguments.of(
-                    "/json/v3/schema/multiformat/json/schema+yaml/arrays.schema.yaml",
+                    "/schemas/multiformat/json/schema+yaml/arrays.schema.yaml",
                     JsonFormatSchema(
                         "application/schema+yaml;version=draft-07",
                         ArraysSchemaTest().jsonSchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/json/schema+yaml/complex-object.schema.yaml",
+                    "/schemas/multiformat/json/schema+yaml/complex-object.schema.yaml",
                     JsonFormatSchema(
                         "application/schema+yaml;version=draft-07",
                         ComplexObjectTest().jsonSchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/json/schema+yaml/conditional-validation-if-else.schema.yaml",
+                    "/schemas/multiformat/json/schema+yaml/conditional-validation-if-else.schema.yaml",
                     JsonFormatSchema(
                         "application/schema+yaml;version=draft-07",
                         ConditionalValidationIfElse().jsonSchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/json/schema+yaml/draft-07-core-schema-meta-schema.yaml",
+                    "/schemas/multiformat/json/schema+yaml/draft-07-core-schema-meta-schema.yaml",
                     JsonFormatSchema(
                         "application/schema+yaml;version=draft-07",
                         Draft07CoreSchemaMetaSchemaTest().jsonSchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/json/schema+yaml/enumerated-values.schema.yaml",
+                    "/schemas/multiformat/json/schema+yaml/enumerated-values.schema.yaml",
                     JsonFormatSchema(
                         "application/schema+yaml;version=draft-07",
                         EnumeratedValuesTest().jsonSchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/json/schema+yaml/person.schema.yaml",
+                    "/schemas/multiformat/json/schema+yaml/person.schema.yaml",
                     JsonFormatSchema(
                         "application/schema+yaml;version=draft-07",
                         PersonTest().jsonSchema()
                     )
                 ),
                 Arguments.of(
-                    "/json/v3/schema/multiformat/json/schema+yaml/regex-pattern.schema.yaml",
+                    "/schemas/multiformat/json/schema+yaml/regex-pattern.schema.yaml",
                     JsonFormatSchema(
                         "application/schema+yaml;version=draft-07",
                         RegexPatternTest().jsonSchema()

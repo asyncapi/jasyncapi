@@ -33,13 +33,13 @@ abstract class OpenAPIFormatSchemaV3_0_2Test: OpenAPIFormatSchemaTest() {
 
         override fun provideArguments(context: ExtensionContext?): Stream<out Arguments> {
             return Stream.of(
-                Arguments.of("/json/v3/schema/multiformat/openapi/3.0.2/vnd.oai.openapi/schema.json",
+                Arguments.of("/schemas/multiformat/openapi/3.0.2/vnd.oai.openapi/schema.json",
                     OpenAPIFormatSchema(
                         "application/vnd.oai.openapi;version=3.0.2",
                         SchemaTest().openAPISchema()
                     )
                 ),
-                Arguments.of("/json/v3/schema/multiformat/openapi/3.0.2/vnd.oai.openapi+json/schema.json",
+                Arguments.of("/schemas/multiformat/openapi/3.0.2/vnd.oai.openapi+json/schema.json",
                     OpenAPIFormatSchema(
                         "application/vnd.oai.openapi+json;version=3.0.2",
                         SchemaTest().openAPISchema()
@@ -54,13 +54,13 @@ abstract class OpenAPIFormatSchemaV3_0_2Test: OpenAPIFormatSchemaTest() {
 
         override fun provideArguments(context: ExtensionContext?): Stream<out Arguments> {
             return Stream.of(
-                Arguments.of("/json/v3/schema/multiformat/openapi/3.0.2/vnd.oai.openapi/schema.yaml",
+                Arguments.of("/schemas/multiformat/openapi/3.0.2/vnd.oai.openapi/schema.yaml",
                     OpenAPIFormatSchema(
                         "application/vnd.oai.openapi;version=3.0.2",
                         SchemaTest().openAPISchema()
                     )
                 ),
-                Arguments.of("/json/v3/schema/multiformat/openapi/3.0.2/vnd.oai.openapi+yaml/schema.yaml",
+                Arguments.of("/schemas/multiformat/openapi/3.0.2/vnd.oai.openapi+yaml/schema.yaml",
                     OpenAPIFormatSchema(
                         "application/vnd.oai.openapi+yaml;version=3.0.2",
                         SchemaTest().openAPISchema()
