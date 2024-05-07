@@ -58,13 +58,13 @@ class ReadJsonSchemaTest {
 
         override fun provideArguments(context: ExtensionContext?): Stream<out Arguments> {
             return Stream.of(
-                    Arguments.of("/json/v3/schema/json/arrays.schema.json", ArraysSchemaTest()),
-                    Arguments.of("/json/v3/schema/json/complex-object.schema.json", ComplexObjectTest()),
-                    Arguments.of("/json/v3/schema/json/conditional-validation-if-else.schema.json", ConditionalValidationIfElse()),
-                    Arguments.of("/json/v3/schema/json/draft-07-core-schema-meta-schema.json", Draft07CoreSchemaMetaSchemaTest()),
-                    Arguments.of("/json/v3/schema/json/enumerated-values.schema.json", EnumeratedValuesTest()),
-                    Arguments.of("/json/v3/schema/json/person.schema.json", PersonTest()),
-                    Arguments.of("/json/v3/schema/json/regex-pattern.schema.json", RegexPatternTest())
+                    Arguments.of("/schemas/json/arrays.schema.json", ArraysSchemaTest()),
+                    Arguments.of("/schemas/json/complex-object.schema.json", ComplexObjectTest()),
+                    Arguments.of("/schemas/json/conditional-validation-if-else.schema.json", ConditionalValidationIfElse()),
+                    Arguments.of("/schemas/json/draft-07-core-schema-meta-schema.json", Draft07CoreSchemaMetaSchemaTest()),
+                    Arguments.of("/schemas/json/enumerated-values.schema.json", EnumeratedValuesTest()),
+                    Arguments.of("/schemas/json/person.schema.json", PersonTest()),
+                    Arguments.of("/schemas/json/regex-pattern.schema.json", RegexPatternTest())
             )
         }
 
