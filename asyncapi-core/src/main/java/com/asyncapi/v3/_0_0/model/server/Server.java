@@ -10,7 +10,7 @@ import com.asyncapi.v3._0_0.jackson.model.TagsDeserializer;
 import com.asyncapi.v3._0_0.model.ExternalDocumentation;
 import com.asyncapi.v3._0_0.model.Tag;
 import com.asyncapi.v3.jackson.security_scheme.SecuritySchemesDeserializer;
-import com.asyncapi.schemas.security.SecurityScheme;
+import com.asyncapi.schemas.security.v3.SecurityScheme;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.*;

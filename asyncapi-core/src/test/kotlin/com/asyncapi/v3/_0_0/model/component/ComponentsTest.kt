@@ -22,12 +22,12 @@ import com.asyncapi.schemas.AsyncAPISchema
 import com.asyncapi.schemas.JsonSchema
 import com.asyncapi.schemas.Type
 import com.asyncapi.schemas.multiformat.JsonFormatSchema
-import com.asyncapi.v3.security_scheme.ApiKeySecuritySchemeTest
-import com.asyncapi.v3.security_scheme.OpenIdConnectSecuritySchemeTest
-import com.asyncapi.v3.security_scheme.http.HttpApiKeySecuritySchemeTest
-import com.asyncapi.v3.security_scheme.http.HttpSecuritySchemeBasicTest
-import com.asyncapi.v3.security_scheme.http.HttpSecuritySchemeBearerTest
-import com.asyncapi.v3.security_scheme.oauth2.OAuth2SecuritySchemeTest
+import com.asyncapi.schemas.security.v3.ApiKeySecuritySchemeTest
+import com.asyncapi.schemas.security.v3.OpenIdConnectSecuritySchemeTest
+import com.asyncapi.schemas.security.v3.http.HttpApiKeySecuritySchemeTest
+import com.asyncapi.schemas.security.v3.http.HttpSecuritySchemeBasicTest
+import com.asyncapi.schemas.security.v3.http.HttpSecuritySchemeBearerTest
+import com.asyncapi.schemas.security.v3.oauth2.OAuth2SecuritySchemeTest
 
 /**
  * @version 3.0-.0

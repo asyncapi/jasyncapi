@@ -10,7 +10,7 @@ import com.asyncapi.schemas.Reference
 import com.asyncapi.v3.SerDeTest
 import com.asyncapi.v3._0_0.model.ExternalDocumentation
 import com.asyncapi.v3._0_0.model.Tag
-import com.asyncapi.v3.security_scheme.ApiKeySecuritySchemeTest
+import com.asyncapi.schemas.security.v3.ApiKeySecuritySchemeTest
 
 /**
  * @version 3.0.0

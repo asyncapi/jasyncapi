@@ -21,7 +21,7 @@ import com.asyncapi.bindings.kafka.v0._4_0.operation.KafkaOperationBinding
 import com.asyncapi.bindings.kafka.v0._4_0.server.KafkaServerBinding
 import com.asyncapi.schemas.AsyncAPISchema
 import com.asyncapi.schemas.multiformat.AvroFormatSchema
-import com.asyncapi.schemas.security.SecurityScheme
+import com.asyncapi.schemas.security.v3.SecurityScheme
 
 class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
 

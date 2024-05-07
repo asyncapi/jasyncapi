@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.schemas.security.ApiKeySecurityScheme
+import com.asyncapi.schemas.security.v3.ApiKeySecurityScheme
 import com.asyncapi.schemas.Reference
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.Parameter
@@ -14,13 +14,13 @@ import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.server.Server
 import com.asyncapi.v3._0_0.model.server.ServerVariable
 import com.asyncapi.schemas.AsyncAPISchema
-import com.asyncapi.schemas.security.OpenIdConnectSecurityScheme
-import com.asyncapi.schemas.security.oauth2.OAuth2SecurityScheme
-import com.asyncapi.schemas.security.oauth2.OAuthFlows
-import com.asyncapi.schemas.security.oauth2.flow.AuthorizationCodeOAuthFlow
-import com.asyncapi.schemas.security.oauth2.flow.ClientCredentialsOAuthFlow
-import com.asyncapi.schemas.security.oauth2.flow.ImplicitOAuthFlow
-import com.asyncapi.schemas.security.oauth2.flow.PasswordOAuthFlow
+import com.asyncapi.schemas.security.v3.OpenIdConnectSecurityScheme
+import com.asyncapi.schemas.security.v3.oauth2.OAuth2SecurityScheme
+import com.asyncapi.schemas.security.v3.oauth2.OAuthFlows
+import com.asyncapi.schemas.security.v3.oauth2.flow.AuthorizationCodeOAuthFlow
+import com.asyncapi.schemas.security.v3.oauth2.flow.ClientCredentialsOAuthFlow
+import com.asyncapi.schemas.security.v3.oauth2.flow.ImplicitOAuthFlow
+import com.asyncapi.schemas.security.v3.oauth2.flow.PasswordOAuthFlow
 import java.math.BigDecimal
 
 class CorrelationIdAsyncAPI: AbstractExampleValidationTest() {

@@ -9,7 +9,7 @@ import com.asyncapi.v3._0_0.model.Tag;
 import com.asyncapi.bindings.OperationBinding;
 import com.asyncapi.bindings.OperationBindingsDeserializer;
 import com.asyncapi.v3.jackson.security_scheme.SecuritySchemesDeserializer;
-import com.asyncapi.schemas.security.SecurityScheme;
+import com.asyncapi.schemas.security.v3.SecurityScheme;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.*;
 import org.jetbrains.annotations.Nullable;

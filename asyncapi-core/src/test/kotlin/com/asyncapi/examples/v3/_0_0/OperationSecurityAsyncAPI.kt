@@ -10,9 +10,9 @@ import com.asyncapi.v3._0_0.model.info.Info
 import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.schemas.AsyncAPISchema
-import com.asyncapi.schemas.security.oauth2.OAuth2SecurityScheme
-import com.asyncapi.schemas.security.oauth2.OAuthFlows
-import com.asyncapi.schemas.security.oauth2.flow.ClientCredentialsOAuthFlow
+import com.asyncapi.schemas.security.v3.oauth2.OAuth2SecurityScheme
+import com.asyncapi.schemas.security.v3.oauth2.OAuthFlows
+import com.asyncapi.schemas.security.v3.oauth2.flow.ClientCredentialsOAuthFlow
 
 class OperationSecurityAsyncAPI: AbstractExampleValidationTest() {
 

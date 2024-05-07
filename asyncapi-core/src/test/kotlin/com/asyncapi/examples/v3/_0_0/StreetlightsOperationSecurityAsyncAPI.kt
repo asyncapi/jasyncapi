@@ -14,10 +14,10 @@ import com.asyncapi.v3._0_0.model.operation.OperationTrait
 import com.asyncapi.v3._0_0.model.server.Server
 import com.asyncapi.bindings.kafka.v0._4_0.operation.KafkaOperationBinding
 import com.asyncapi.schemas.AsyncAPISchema
-import com.asyncapi.schemas.security.SecurityScheme
-import com.asyncapi.schemas.security.oauth2.OAuth2SecurityScheme
-import com.asyncapi.schemas.security.oauth2.OAuthFlows
-import com.asyncapi.schemas.security.oauth2.flow.ClientCredentialsOAuthFlow
+import com.asyncapi.schemas.security.v3.SecurityScheme
+import com.asyncapi.schemas.security.v3.oauth2.OAuth2SecurityScheme
+import com.asyncapi.schemas.security.v3.oauth2.OAuthFlows
+import com.asyncapi.schemas.security.v3.oauth2.flow.ClientCredentialsOAuthFlow
 import java.math.BigDecimal
 
 class StreetlightsOperationSecurityAsyncAPI: AbstractExampleValidationTest() {

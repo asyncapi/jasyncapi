@@ -23,8 +23,8 @@ import com.asyncapi.bindings.solace.v0._3_0.server.SolaceServerBinding
 import com.asyncapi.bindings.sqs.v0._1_0.server.SQSServerBinding
 import com.asyncapi.bindings.stomp.v0._1_0.server.STOMPServerBinding
 import com.asyncapi.bindings.websockets.v0._1_0.server.WebSocketsServerBinding
-import com.asyncapi.v3.security_scheme.ApiKeySecuritySchemeTest
-import com.asyncapi.v3.security_scheme.http.HttpSecuritySchemeBearerTest
+import com.asyncapi.schemas.security.v3.ApiKeySecuritySchemeTest
+import com.asyncapi.schemas.security.v3.http.HttpSecuritySchemeBearerTest
 
 /**
  * @version 3.0.0

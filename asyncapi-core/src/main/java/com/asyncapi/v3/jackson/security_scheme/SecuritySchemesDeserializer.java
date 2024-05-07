@@ -2,7 +2,7 @@ package com.asyncapi.v3.jackson.security_scheme;
 
 import com.asyncapi.schemas.Reference;
 import com.asyncapi.v3.jackson.ListOfReferencesOrObjectsDeserializer;
-import com.asyncapi.schemas.security.SecurityScheme;
+import com.asyncapi.schemas.security.v3.SecurityScheme;
 
 /**
  * Deserializes security schemes.
