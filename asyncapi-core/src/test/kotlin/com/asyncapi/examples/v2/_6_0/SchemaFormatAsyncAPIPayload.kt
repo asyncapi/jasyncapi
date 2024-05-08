@@ -1,7 +1,6 @@
 package com.asyncapi.examples.v2._6_0
 
 import com.asyncapi.schemas.AsyncAPISchema
-import com.asyncapi.schemas.JsonSchema
 import com.asyncapi.schemas.Reference
 import com.asyncapi.v2._6_0.model.channel.ChannelItem
 import com.asyncapi.v2._6_0.model.channel.message.Message

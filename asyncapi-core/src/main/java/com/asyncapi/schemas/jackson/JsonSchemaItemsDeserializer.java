@@ -1,7 +1,7 @@
 package com.asyncapi.schemas.jackson;
 
 import com.asyncapi.v3.jackson.SchemaItemsDeserializer;
-import com.asyncapi.schemas.JsonSchema;
+import com.asyncapi.schemas.json.JsonSchema;
 
 /**
  * Json Schema items deserializer

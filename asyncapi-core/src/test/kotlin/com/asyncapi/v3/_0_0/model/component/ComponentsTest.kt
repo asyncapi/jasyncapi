@@ -19,7 +19,7 @@ import com.asyncapi.v3._0_0.model.operation.reply.OperationReplyTestWithReferenc
 import com.asyncapi.v3._0_0.model.server.ServerTest
 import com.asyncapi.v3._0_0.model.server.ServerVariableTest
 import com.asyncapi.schemas.AsyncAPISchema
-import com.asyncapi.schemas.JsonSchema
+import com.asyncapi.schemas.json.JsonSchema
 import com.asyncapi.schemas.Type
 import com.asyncapi.schemas.multiformat.JsonFormatSchema
 import com.asyncapi.schemas.security.v3.ApiKeySecuritySchemeTest

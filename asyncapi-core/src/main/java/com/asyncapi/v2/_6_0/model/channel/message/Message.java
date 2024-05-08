@@ -4,7 +4,7 @@ import com.asyncapi.bindings.MessageBinding;
 import com.asyncapi.bindings.MessageBindingsDeserializer;
 import com.asyncapi.schemas.AsyncAPISchema;
 import com.asyncapi.schemas.ExtendableObject;
-import com.asyncapi.schemas.JsonSchema;
+import com.asyncapi.schemas.json.JsonSchema;
 import com.asyncapi.schemas.Reference;
 import com.asyncapi.schemas.avro.v1._9_0.AvroSchema;
 import com.asyncapi.schemas.openapi.v3._0_0.OpenAPISchema;

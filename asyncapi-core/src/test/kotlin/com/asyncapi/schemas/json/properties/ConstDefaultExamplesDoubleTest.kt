@@ -1,7 +1,7 @@
 package com.asyncapi.schemas.json.properties
 
 import com.asyncapi.schemas.AsyncAPISchema
-import com.asyncapi.schemas.JsonSchema
+import com.asyncapi.schemas.json.JsonSchema
 import com.asyncapi.schemas.SchemaProvider
 
 class ConstDefaultExamplesDoubleTest: SchemaProvider {

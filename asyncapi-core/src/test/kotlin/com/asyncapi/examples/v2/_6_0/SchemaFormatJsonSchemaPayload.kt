@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v2._6_0
 
-import com.asyncapi.schemas.JsonSchema
+import com.asyncapi.schemas.json.JsonSchema
 import com.asyncapi.schemas.Reference
 import com.asyncapi.v2._6_0.model.channel.ChannelItem
 import com.asyncapi.v2._6_0.model.channel.message.Message
@@ -53,7 +53,8 @@ class SchemaFormatJsonSchemaPayload: AbstractExampleValidationTest() {
                     .summary("Product representing items in inventory")
                     .contentType("application/json")
                     .schemaFormat("application/schema+json;version=draft-07")
-                    .payload(JsonSchema.builder()
+                    .payload(
+                        JsonSchema.builder()
                         .id("https://example.com/person.schema.json")
                         .schema("http://json-schema.org/draft-07/schema#")
                         .title("Person")

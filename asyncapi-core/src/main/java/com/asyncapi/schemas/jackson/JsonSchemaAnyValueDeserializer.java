@@ -1,6 +1,6 @@
 package com.asyncapi.schemas.jackson;
 
-import com.asyncapi.schemas.JsonSchema;
+import com.asyncapi.schemas.json.JsonSchema;
 
 /**
  * Json Schema any value deserializer

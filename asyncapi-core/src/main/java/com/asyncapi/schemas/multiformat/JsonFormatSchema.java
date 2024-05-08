@@ -1,7 +1,7 @@
 package com.asyncapi.schemas.multiformat;
 
 import com.asyncapi.schemas.AsyncAPISchema;
-import com.asyncapi.schemas.JsonSchema;
+import com.asyncapi.schemas.json.JsonSchema;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.EqualsAndHashCode;

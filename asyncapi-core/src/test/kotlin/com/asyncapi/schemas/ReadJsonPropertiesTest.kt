@@ -1,5 +1,6 @@
 package com.asyncapi.schemas
 
+import com.asyncapi.schemas.json.JsonSchema
 import com.asyncapi.schemas.json.properties.*
 import com.asyncapi.v3.ClasspathUtils
 import com.fasterxml.jackson.annotation.JsonInclude

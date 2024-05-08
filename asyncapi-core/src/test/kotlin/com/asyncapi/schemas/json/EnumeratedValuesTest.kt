@@ -1,7 +1,6 @@
 package com.asyncapi.schemas.json
 
 import com.asyncapi.schemas.AsyncAPISchema
-import com.asyncapi.schemas.JsonSchema
 import com.asyncapi.schemas.SchemaProvider
 
 class EnumeratedValuesTest: SchemaProvider {
