@@ -1,6 +1,6 @@
 package com.asyncapi.v3._0_0.jackson.model.component;
 
-import com.asyncapi.schemas.Reference;
+import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.v3._0_0.model.server.ServerVariable;
 import com.asyncapi.v3.jackson.MapOfReferencesOrObjectsDeserializer;
 

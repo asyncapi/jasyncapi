@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.schemas.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.Parameter
 import com.asyncapi.v3._0_0.model.channel.message.CorrelationId
@@ -12,7 +12,7 @@ import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.server.Server
 import com.asyncapi.v3._0_0.model.server.ServerVariable
-import com.asyncapi.schemas.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 import java.math.BigDecimal
 
 class ApplicationHeadersAsyncAPI: AbstractExampleValidationTest() {

@@ -1,7 +1,7 @@
 package com.asyncapi.v2._0_0.model.channel;
 
-import com.asyncapi.schemas.ExtendableObject;
-import com.asyncapi.schemas.AsyncAPISchema;
+import com.asyncapi.schemas.asyncapi.ExtendableObject;
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

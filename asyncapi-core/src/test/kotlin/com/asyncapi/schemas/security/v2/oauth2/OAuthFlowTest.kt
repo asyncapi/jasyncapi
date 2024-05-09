@@ -1,5 +1,6 @@
 package com.asyncapi.schemas.security.v2.oauth2
 
+import com.asyncapi.schemas.asyncapi.security.v2.oauth2.OAuthFlows
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.schemas.security.v2.oauth2.flow.*
 

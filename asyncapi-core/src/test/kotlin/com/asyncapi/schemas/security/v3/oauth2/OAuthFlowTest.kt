@@ -1,5 +1,6 @@
 package com.asyncapi.schemas.security.v3.oauth2
 
+import com.asyncapi.schemas.asyncapi.security.v3.oauth2.OAuthFlows
 import com.asyncapi.schemas.security.v3.oauth2.flow.AuthorizationCodeOAuthFlowTest
 import com.asyncapi.schemas.security.v3.oauth2.flow.ClientCredentialsOAuthFlowTest
 import com.asyncapi.schemas.security.v3.oauth2.flow.ImplicitOAuthFlowTest

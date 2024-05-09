@@ -1,7 +1,7 @@
 package com.asyncapi.schemas.multiformat.openapi
 
 import com.asyncapi.v3.ClasspathUtils
-import com.asyncapi.schemas.multiformat.OpenAPIFormatSchema
+import com.asyncapi.schemas.asyncapi.multiformat.OpenAPIFormatSchema
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory

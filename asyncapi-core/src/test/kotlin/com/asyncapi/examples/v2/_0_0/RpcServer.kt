@@ -12,7 +12,7 @@ import com.asyncapi.bindings.amqp.v0._3_0.channel.AMQPChannelBinding
 import com.asyncapi.bindings.amqp.v0._3_0.channel.AMQPChannelType
 import com.asyncapi.bindings.amqp.v0._3_0.channel.queue.AMQPChannelQueueProperties
 import com.asyncapi.bindings.amqp.v0._3_0.operation.AMQPOperationBinding
-import com.asyncapi.schemas.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 
 class RpcServer: AbstractExampleValidationTest() {
 
@@ -46,7 +46,8 @@ class RpcServer: AbstractExampleValidationTest() {
                 Pair("{queue}", ChannelItem.builder()
                         .parameters(mapOf(
                                 Pair("queue", Parameter.builder()
-                                        .schema(AsyncAPISchema.builder()
+                                        .schema(
+                                            AsyncAPISchema.builder()
                                                 .type("string")
                                                 .pattern("^amq\\\\.gen\\\\-.+\$")
                                                 .build())
@@ -73,7 +74,8 @@ class RpcServer: AbstractExampleValidationTest() {
                                 ))
                                 .message(Message.builder()
                                         .correlationId(CorrelationId(null, "\$message.header#/correlation_id"))
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("result", AsyncAPISchema.builder()
@@ -104,7 +106,8 @@ class RpcServer: AbstractExampleValidationTest() {
                                 .operationId("sum")
                                 .message(Message.builder()
                                         .correlationId(CorrelationId(null, "\$message.header#/correlation_id"))
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("numbers", AsyncAPISchema.builder()

@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v2._6_0
 
-import com.asyncapi.schemas.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v2._6_0.model.Tag
 import com.asyncapi.v2._6_0.model.channel.ChannelItem
 import com.asyncapi.v2._6_0.model.channel.Parameter
@@ -14,15 +14,15 @@ import com.asyncapi.v2._6_0.model.info.License
 import com.asyncapi.v2._6_0.model.server.Server
 import com.asyncapi.v2._6_0.model.server.ServerVariable
 import com.asyncapi.bindings.mqtt.v0._1_0.operation.MQTTOperationBinding
-import com.asyncapi.schemas.AsyncAPISchema
-import com.asyncapi.schemas.security.v2.ApiKeySecurityScheme
-import com.asyncapi.schemas.security.v2.OpenIdConnectSecurityScheme
-import com.asyncapi.schemas.security.v2.oauth2.OAuth2SecurityScheme
-import com.asyncapi.schemas.security.v2.oauth2.OAuthFlows
-import com.asyncapi.schemas.security.v2.oauth2.flow.AuthorizationCodeOAuthFlow
-import com.asyncapi.schemas.security.v2.oauth2.flow.ClientCredentialsOAuthFlow
-import com.asyncapi.schemas.security.v2.oauth2.flow.ImplicitOAuthFlow
-import com.asyncapi.schemas.security.v2.oauth2.flow.PasswordOAuthFlow
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.security.v2.ApiKeySecurityScheme
+import com.asyncapi.schemas.asyncapi.security.v2.OpenIdConnectSecurityScheme
+import com.asyncapi.schemas.asyncapi.security.v2.oauth2.OAuth2SecurityScheme
+import com.asyncapi.schemas.asyncapi.security.v2.oauth2.OAuthFlows
+import com.asyncapi.schemas.asyncapi.security.v2.oauth2.flow.AuthorizationCodeOAuthFlow
+import com.asyncapi.schemas.asyncapi.security.v2.oauth2.flow.ClientCredentialsOAuthFlow
+import com.asyncapi.schemas.asyncapi.security.v2.oauth2.flow.ImplicitOAuthFlow
+import com.asyncapi.schemas.asyncapi.security.v2.oauth2.flow.PasswordOAuthFlow
 import java.math.BigDecimal
 
 class StreetlightsMQTT: AbstractExampleValidationTest() {
@@ -87,7 +87,7 @@ class StreetlightsMQTT: AbstractExampleValidationTest() {
                         ChannelItem.builder()
                                 .description("The topic on which measured values may be produced and consumed.")
                                 .parameters(mapOf(Pair("streetlightId",
-                                    Reference("#/components/parameters/streetlightId")
+                                        Reference("#/components/parameters/streetlightId")
                                 )))
                                 .publish(Operation.builder()
                                         .operationId("receiveLightMeasurement")
@@ -100,7 +100,7 @@ class StreetlightsMQTT: AbstractExampleValidationTest() {
                 Pair("smartylighting/streetlights/1/0/action/{streetlightId}/turn/on",
                         ChannelItem.builder()
                                 .parameters(mapOf(Pair("streetlightId",
-                                    Reference("#/components/parameters/streetlightId")
+                                        Reference("#/components/parameters/streetlightId")
                                 )))
                                 .subscribe(Operation.builder()
                                         .operationId("turnOn")
@@ -112,7 +112,7 @@ class StreetlightsMQTT: AbstractExampleValidationTest() {
                 Pair("smartylighting/streetlights/1/0/action/{streetlightId}/turn/off",
                         ChannelItem.builder()
                                 .parameters(mapOf(Pair("streetlightId",
-                                    Reference("#/components/parameters/streetlightId")
+                                        Reference("#/components/parameters/streetlightId")
                                 )))
                                 .subscribe(Operation.builder()
                                         .operationId("turnOff")
@@ -124,7 +124,7 @@ class StreetlightsMQTT: AbstractExampleValidationTest() {
                 Pair("smartylighting/streetlights/1/0/action/{streetlightId}/dim",
                         ChannelItem.builder()
                                 .parameters(mapOf(Pair("streetlightId",
-                                    Reference("#/components/parameters/streetlightId")
+                                        Reference("#/components/parameters/streetlightId")
                                 )))
                                 .subscribe(Operation.builder()
                                         .operationId("dimLight")
@@ -231,10 +231,10 @@ class StreetlightsMQTT: AbstractExampleValidationTest() {
                 ))
                 .securitySchemes(mapOf(
                         Pair("apiKey",
-                            ApiKeySecurityScheme(
-                                "Provide your API key as the user and leave the password empty.",
-                                ApiKeySecurityScheme.ApiKeyLocation.USER
-                            )
+                                ApiKeySecurityScheme(
+                                        "Provide your API key as the user and leave the password empty.",
+                                        ApiKeySecurityScheme.ApiKeyLocation.USER
+                                )
                         ),
                         Pair("supportedOauthFlows",
                                 OAuth2SecurityScheme(
@@ -293,10 +293,10 @@ class StreetlightsMQTT: AbstractExampleValidationTest() {
                                 )
                         ),
                         Pair("openIdConnectWellKnown",
-                            OpenIdConnectSecurityScheme(
-                                null,
-                                "https://authserver.example/.well-known"
-                            )
+                                OpenIdConnectSecurityScheme(
+                                        null,
+                                        "https://authserver.example/.well-known"
+                                )
                         )
                 ))
                 .parameters(mapOf(
@@ -309,7 +309,8 @@ class StreetlightsMQTT: AbstractExampleValidationTest() {
                 .messageTraits(mapOf(
                         Pair("commonHeaders",
                                 MessageTrait.builder()
-                                        .headers(AsyncAPISchema.builder()
+                                        .headers(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("my-app-header", AsyncAPISchema.builder()

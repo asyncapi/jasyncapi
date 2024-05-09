@@ -1,6 +1,6 @@
 package com.asyncapi.schemas.json
 
-import com.asyncapi.schemas.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 import com.asyncapi.schemas.SchemaProvider
 
 class RegexPatternTest: SchemaProvider {

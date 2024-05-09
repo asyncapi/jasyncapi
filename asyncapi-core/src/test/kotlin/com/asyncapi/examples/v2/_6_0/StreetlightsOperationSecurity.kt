@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v2._6_0
 
-import com.asyncapi.schemas.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v2._6_0.model.channel.ChannelItem
 import com.asyncapi.v2._6_0.model.channel.Parameter
 import com.asyncapi.v2._6_0.model.channel.message.Message
@@ -12,11 +12,11 @@ import com.asyncapi.v2._6_0.model.info.Info
 import com.asyncapi.v2._6_0.model.info.License
 import com.asyncapi.v2._6_0.model.server.Server
 import com.asyncapi.bindings.kafka.v0._4_0.operation.KafkaOperationBinding
-import com.asyncapi.schemas.AsyncAPISchema
-import com.asyncapi.schemas.security.v2.SecurityScheme
-import com.asyncapi.schemas.security.v2.oauth2.OAuth2SecurityScheme
-import com.asyncapi.schemas.security.v2.oauth2.OAuthFlows
-import com.asyncapi.schemas.security.v2.oauth2.flow.ClientCredentialsOAuthFlow
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.security.v2.SecurityScheme
+import com.asyncapi.schemas.asyncapi.security.v2.oauth2.OAuth2SecurityScheme
+import com.asyncapi.schemas.asyncapi.security.v2.oauth2.OAuthFlows
+import com.asyncapi.schemas.asyncapi.security.v2.oauth2.flow.ClientCredentialsOAuthFlow
 import java.math.BigDecimal
 
 class StreetlightsOperationSecurity: AbstractExampleValidationTest() {
@@ -72,7 +72,7 @@ class StreetlightsOperationSecurity: AbstractExampleValidationTest() {
                         ChannelItem.builder()
                                 .description("The topic on which measured values may be produced and consumed.")
                                 .parameters(mapOf(Pair("streetlightId",
-                                    Reference("#/components/parameters/streetlightId")
+                                        Reference("#/components/parameters/streetlightId")
                                 )))
                                 .publish(Operation.builder()
                                         .operationId("receiveLightMeasurement")
@@ -86,7 +86,7 @@ class StreetlightsOperationSecurity: AbstractExampleValidationTest() {
                 Pair("smartylighting.streetlights.1.0.action.{streetlightId}.turn.on",
                         ChannelItem.builder()
                                 .parameters(mapOf(Pair("streetlightId",
-                                    Reference("#/components/parameters/streetlightId")
+                                        Reference("#/components/parameters/streetlightId")
                                 )))
                                 .subscribe(Operation.builder()
                                         .operationId("turnOn")
@@ -100,7 +100,7 @@ class StreetlightsOperationSecurity: AbstractExampleValidationTest() {
                 Pair("smartylighting.streetlights.1.0.action.{streetlightId}.turn.off",
                         ChannelItem.builder()
                                 .parameters(mapOf(Pair("streetlightId",
-                                    Reference("#/components/parameters/streetlightId")
+                                        Reference("#/components/parameters/streetlightId")
                                 )))
                                 .subscribe(Operation.builder()
                                         .operationId("turnOff")
@@ -115,7 +115,7 @@ class StreetlightsOperationSecurity: AbstractExampleValidationTest() {
                 Pair("smartylighting.streetlights.1.0.action.{streetlightId}.dim",
                         ChannelItem.builder()
                                 .parameters(mapOf(Pair("streetlightId",
-                                    Reference("#/components/parameters/streetlightId")
+                                        Reference("#/components/parameters/streetlightId")
                                 )))
                                 .subscribe(Operation.builder()
                                         .operationId("dimLight")
@@ -265,7 +265,8 @@ class StreetlightsOperationSecurity: AbstractExampleValidationTest() {
                 .messageTraits(mapOf(
                         Pair("commonHeaders",
                                 MessageTrait.builder()
-                                        .headers(AsyncAPISchema.builder()
+                                        .headers(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("my-app-header", AsyncAPISchema.builder()

@@ -1,10 +1,10 @@
 package com.asyncapi.v3._0_0.model.channel.message
 
-import com.asyncapi.schemas.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v3.SerDeTest
 import com.asyncapi.v3._0_0.model.ExternalDocumentation
 import com.asyncapi.v3._0_0.model.Tag
-import com.asyncapi.schemas.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 import com.asyncapi.bindings.amqp.AMQPV0_2_0Test
 import com.asyncapi.bindings.anypointmq.AnypointMQV0_0_1Test
 import com.asyncapi.bindings.googlepubsub.GooglePubSubV0_1_0Test
@@ -12,7 +12,7 @@ import com.asyncapi.bindings.http.HTTPV0_3_0Test
 import com.asyncapi.bindings.ibmmq.IBMMQV0_1_0Test
 import com.asyncapi.bindings.kafka.KafkaV0_4_0Test
 import com.asyncapi.bindings.mqtt.MQTTV0_1_0Test
-import com.asyncapi.schemas.multiformat.AsyncAPIFormatSchema
+import com.asyncapi.schemas.asyncapi.multiformat.AsyncAPIFormatSchema
 
 class MessageTraitTestWithSchema: SerDeTest<MessageTrait>() {
 
@@ -100,7 +100,9 @@ class MessageTraitTestWithSchema: SerDeTest<MessageTrait>() {
                         Pair("stomp",
                             Reference("#/components/messageBindings/stomp")
                         ),
-                        Pair("ws", Reference("#/components/messageBindings/ws"))
+                        Pair("ws",
+                            Reference("#/components/messageBindings/ws")
+                        )
                 ))
                 .examples(listOf(MessageExampleTest().build()))
                 .build()
@@ -175,7 +177,9 @@ class MessageTraitTestWithReference: SerDeTest<MessageTrait>() {
                         Pair("stomp",
                             Reference("#/components/messageBindings/stomp")
                         ),
-                        Pair("ws", Reference("#/components/messageBindings/ws"))
+                        Pair("ws",
+                            Reference("#/components/messageBindings/ws")
+                        )
                 ))
                 .examples(listOf(MessageExampleTest().build()))
                 .build()
@@ -273,7 +277,9 @@ class MessageTraitTestWithMultiFormatSchema: SerDeTest<MessageTrait>() {
                         Pair("stomp",
                             Reference("#/components/messageBindings/stomp")
                         ),
-                        Pair("ws", Reference("#/components/messageBindings/ws"))
+                        Pair("ws",
+                            Reference("#/components/messageBindings/ws")
+                        )
                 ))
                 .examples(listOf(MessageExampleTest().build()))
                 .build()

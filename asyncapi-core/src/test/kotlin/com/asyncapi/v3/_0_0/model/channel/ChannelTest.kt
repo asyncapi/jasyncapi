@@ -1,6 +1,6 @@
 package com.asyncapi.v3._0_0.model.channel
 
-import com.asyncapi.schemas.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v3.SerDeTest
 import com.asyncapi.v3._0_0.model.ExternalDocumentationTest
 import com.asyncapi.v3._0_0.model.TagTest
@@ -70,27 +70,39 @@ class ChannelTest: SerDeTest<Channel>() {
                     ),
                     Pair("anypointmq", AnypointMQV0_0_1Test.channelBinding()),
                     Pair("googlepubsub", GooglePubSubV0_1_0Test.channelBinding()),
-                    Pair("http", Reference("#/components/channelBindings/http")),
+                    Pair("http",
+                        Reference("#/components/channelBindings/http")
+                    ),
                     Pair("ibmmq", IBMMQV0_1_0Test.channelBinding()),
-                    Pair("jms", Reference("#/components/channelBindings/jms")),
+                    Pair("jms",
+                        Reference("#/components/channelBindings/jms")
+                    ),
                     Pair("kafka", KafkaV0_4_0Test.channelBinding()),
                     Pair("mercure",
                         Reference("#/components/channelBindings/mercure")
                     ),
-                    Pair("mqtt", Reference("#/components/channelBindings/mqtt")),
+                    Pair("mqtt",
+                        Reference("#/components/channelBindings/mqtt")
+                    ),
                     Pair("mqtt5",
                         Reference("#/components/channelBindings/mqtt5")
                     ),
-                    Pair("nats", Reference("#/components/channelBindings/nats")),
+                    Pair("nats",
+                        Reference("#/components/channelBindings/nats")
+                    ),
                     Pair("pulsar", PulsarV0_1_0Test.channelBinding()),
                     Pair("redis",
                         Reference("#/components/channelBindings/redis")
                     ),
-                    Pair("sns", Reference("#/components/channelBindings/sns")),
+                    Pair("sns",
+                        Reference("#/components/channelBindings/sns")
+                    ),
                     Pair("solace",
                         Reference("#/components/channelBindings/solace")
                     ),
-                    Pair("sqs", Reference("#/components/channelBindings/sqs")),
+                    Pair("sqs",
+                        Reference("#/components/channelBindings/sqs")
+                    ),
                     Pair("stomp",
                         Reference("#/components/channelBindings/stomp")
                     ),
@@ -155,27 +167,39 @@ class ChannelTestWithReference: SerDeTest<Channel>() {
                     ),
                     Pair("anypointmq", AnypointMQV0_0_1Test.channelBinding()),
                     Pair("googlepubsub", GooglePubSubV0_1_0Test.channelBinding()),
-                    Pair("http", Reference("#/components/channelBindings/http")),
+                    Pair("http",
+                        Reference("#/components/channelBindings/http")
+                    ),
                     Pair("ibmmq", IBMMQV0_1_0Test.channelBinding()),
-                    Pair("jms", Reference("#/components/channelBindings/jms")),
+                    Pair("jms",
+                        Reference("#/components/channelBindings/jms")
+                    ),
                     Pair("kafka", KafkaV0_4_0Test.channelBinding()),
                     Pair("mercure",
                         Reference("#/components/channelBindings/mercure")
                     ),
-                    Pair("mqtt", Reference("#/components/channelBindings/mqtt")),
+                    Pair("mqtt",
+                        Reference("#/components/channelBindings/mqtt")
+                    ),
                     Pair("mqtt5",
                         Reference("#/components/channelBindings/mqtt5")
                     ),
-                    Pair("nats", Reference("#/components/channelBindings/nats")),
+                    Pair("nats",
+                        Reference("#/components/channelBindings/nats")
+                    ),
                     Pair("pulsar", PulsarV0_1_0Test.channelBinding()),
                     Pair("redis",
                         Reference("#/components/channelBindings/redis")
                     ),
-                    Pair("sns", Reference("#/components/channelBindings/sns")),
+                    Pair("sns",
+                        Reference("#/components/channelBindings/sns")
+                    ),
                     Pair("solace",
                         Reference("#/components/channelBindings/solace")
                     ),
-                    Pair("sqs", Reference("#/components/channelBindings/sqs")),
+                    Pair("sqs",
+                        Reference("#/components/channelBindings/sqs")
+                    ),
                     Pair("stomp",
                         Reference("#/components/channelBindings/stomp")
                     ),

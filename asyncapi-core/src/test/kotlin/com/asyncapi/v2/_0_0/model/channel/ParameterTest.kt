@@ -1,7 +1,7 @@
 package com.asyncapi.v2._0_0.model.channel
 
 import com.asyncapi.v2.SerDeTest
-import com.asyncapi.schemas.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 
 /**
  * @author Pavel Bodiachevskii

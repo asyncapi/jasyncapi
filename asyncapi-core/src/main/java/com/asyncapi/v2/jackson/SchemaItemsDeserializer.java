@@ -1,6 +1,6 @@
 package com.asyncapi.v2.jackson;
 
-import com.asyncapi.schemas.AsyncAPISchema;
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.DeserializationContext;

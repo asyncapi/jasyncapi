@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.schemas.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v3._0_0.model.Tag
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.Parameter
@@ -14,8 +14,8 @@ import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.operation.OperationTrait
 import com.asyncapi.v3._0_0.model.server.Server
 import com.asyncapi.bindings.kafka.v0._4_0.operation.KafkaOperationBinding
-import com.asyncapi.schemas.AsyncAPISchema
-import com.asyncapi.schemas.security.v3.SecurityScheme
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.security.v3.SecurityScheme
 import java.math.BigDecimal
 
 class StreetlightsKafkaAsyncAPI: AbstractExampleValidationTest() {
@@ -69,7 +69,7 @@ class StreetlightsKafkaAsyncAPI: AbstractExampleValidationTest() {
                         .protocol("kafka-secure")
                         .description("Test broker secured with X509")
                         .security(listOf(
-                            Reference("#/components/securitySchemes/certs")
+                                Reference("#/components/securitySchemes/certs")
                         ))
                         .tags(listOf(
                                 Tag.builder()
@@ -96,11 +96,11 @@ class StreetlightsKafkaAsyncAPI: AbstractExampleValidationTest() {
                         Channel.builder()
                                 .address("smartylighting.streetlights.1.0.event.{streetlightId}.lighting.measured")
                                 .messages(mapOf(Pair("lightMeasured",
-                                    Reference("#/components/messages/lightMeasured")
+                                        Reference("#/components/messages/lightMeasured")
                                 )))
                                 .description("The topic on which measured values may be produced and consumed.")
                                 .parameters(mapOf(Pair("streetlightId",
-                                    Reference("#/components/parameters/streetlightId")
+                                        Reference("#/components/parameters/streetlightId")
                                 )))
                                 .build()
                 ),
@@ -108,10 +108,10 @@ class StreetlightsKafkaAsyncAPI: AbstractExampleValidationTest() {
                         Channel.builder()
                                 .address("smartylighting.streetlights.1.0.action.{streetlightId}.turn.on")
                                 .messages(mapOf(Pair("turnOn",
-                                    Reference("#/components/messages/turnOnOff")
+                                        Reference("#/components/messages/turnOnOff")
                                 )))
                                 .parameters(mapOf(Pair("streetlightId",
-                                    Reference("#/components/parameters/streetlightId")
+                                        Reference("#/components/parameters/streetlightId")
                                 )))
                                 .build()
                 ),
@@ -119,10 +119,10 @@ class StreetlightsKafkaAsyncAPI: AbstractExampleValidationTest() {
                         Channel.builder()
                                 .address("smartylighting.streetlights.1.0.action.{streetlightId}.turn.off")
                                 .messages(mapOf(Pair("turnOff",
-                                    Reference("#/components/messages/turnOnOff")
+                                        Reference("#/components/messages/turnOnOff")
                                 )))
                                 .parameters(mapOf(Pair("streetlightId",
-                                    Reference("#/components/parameters/streetlightId")
+                                        Reference("#/components/parameters/streetlightId")
                                 )))
                                 .build()
                 ),
@@ -130,10 +130,10 @@ class StreetlightsKafkaAsyncAPI: AbstractExampleValidationTest() {
                         Channel.builder()
                                 .address("smartylighting.streetlights.1.0.action.{streetlightId}.dim")
                                 .messages(mapOf(Pair("dimLight",
-                                    Reference("#/components/messages/dimLight")
+                                        Reference("#/components/messages/dimLight")
                                 )))
                                 .parameters(mapOf(Pair("streetlightId",
-                                    Reference("#/components/parameters/streetlightId")
+                                        Reference("#/components/parameters/streetlightId")
                                 )))
                                 .build()
                 )
@@ -279,10 +279,10 @@ class StreetlightsKafkaAsyncAPI: AbstractExampleValidationTest() {
                                 .build()
                         ),
                         Pair("certs",
-                            SecurityScheme(
-                                SecurityScheme.Type.X509,
-                                "Download the certificate files from service provider"
-                            )
+                                SecurityScheme(
+                                        SecurityScheme.Type.X509,
+                                        "Download the certificate files from service provider"
+                                )
                         )
                 ))
                 .parameters(mapOf(

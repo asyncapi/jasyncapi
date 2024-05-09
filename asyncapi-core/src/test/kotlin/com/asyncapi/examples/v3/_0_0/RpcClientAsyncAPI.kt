@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.schemas.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.Parameter
 import com.asyncapi.v3._0_0.model.channel.message.CorrelationId
@@ -14,7 +14,7 @@ import com.asyncapi.bindings.amqp.v0._3_0.channel.AMQPChannelBinding
 import com.asyncapi.bindings.amqp.v0._3_0.channel.AMQPChannelType
 import com.asyncapi.bindings.amqp.v0._3_0.channel.queue.AMQPChannelQueueProperties
 import com.asyncapi.bindings.amqp.v0._3_0.operation.AMQPOperationBinding
-import com.asyncapi.schemas.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 
 class RpcClientAsyncAPI: AbstractExampleValidationTest() {
 

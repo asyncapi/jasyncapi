@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v2._6_0
 
-import com.asyncapi.schemas.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v2._6_0.model.channel.ChannelItem
 import com.asyncapi.v2._6_0.model.channel.operation.Operation
 import com.asyncapi.v2._6_0.model.channel.Parameter
@@ -11,7 +11,7 @@ import com.asyncapi.v2._6_0.model.info.Info
 import com.asyncapi.v2._6_0.model.info.Contact
 import com.asyncapi.v2._6_0.model.server.Server
 import com.asyncapi.bindings.websockets.v0._1_0.channel.WebSocketsChannelBinding
-import com.asyncapi.schemas.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 
 class WebsocketGemini: AbstractExampleValidationTest() {
 
@@ -52,7 +52,8 @@ class WebsocketGemini: AbstractExampleValidationTest() {
                                         mapOf(
                                                 Pair("symbol",
                                                         Parameter.builder()
-                                                                .schema(AsyncAPISchema.builder()
+                                                                .schema(
+                                                                    AsyncAPISchema.builder()
                                                                         .type("string")
                                                                         .enumValue(listOf(
                                                                                 "btcusd",
@@ -339,7 +340,8 @@ class WebsocketGemini: AbstractExampleValidationTest() {
                         Pair("events", AsyncAPISchema.builder()
                                 .type("array")
                                 .description("Either a change to the order book, or the indication that a trade has occurred.")
-                                .items(AsyncAPISchema.builder()
+                                .items(
+                                    AsyncAPISchema.builder()
                                         .type("object")
                                         .additionalProperties(false)
                                         .properties(mapOf(

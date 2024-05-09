@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v2._6_0
 
-import com.asyncapi.schemas.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v2._6_0.model.channel.ChannelItem
 import com.asyncapi.v2._6_0.model.channel.message.Message
 import com.asyncapi.v2._6_0.model.channel.operation.Operation
@@ -8,10 +8,10 @@ import com.asyncapi.v2._6_0.model.component.Components
 import com.asyncapi.v2._6_0.model.info.Info
 import com.asyncapi.bindings.http.v0._3_0.operation.HTTPOperationBinding
 import com.asyncapi.bindings.http.v0._3_0.operation.HTTPOperationMethod
-import com.asyncapi.schemas.AsyncAPISchema
-import com.asyncapi.schemas.security.v2.oauth2.OAuthFlows
-import com.asyncapi.schemas.security.v2.oauth2.OAuth2SecurityScheme
-import com.asyncapi.schemas.security.v2.oauth2.flow.ClientCredentialsOAuthFlow
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.security.v2.oauth2.OAuthFlows
+import com.asyncapi.schemas.asyncapi.security.v2.oauth2.OAuth2SecurityScheme
+import com.asyncapi.schemas.asyncapi.security.v2.oauth2.flow.ClientCredentialsOAuthFlow
 
 class OperationSecurity: AbstractExampleValidationTest() {
 
@@ -54,7 +54,8 @@ class OperationSecurity: AbstractExampleValidationTest() {
         return Components.builder()
                 .messages(mapOf(
                         Pair("message", Message.builder()
-                                .headers(AsyncAPISchema.builder()
+                                .headers(
+                                    AsyncAPISchema.builder()
                                         .type("object")
                                         .properties(mapOf(
                                                 Pair("X-SIGNATURE", AsyncAPISchema.builder()
@@ -65,7 +66,8 @@ class OperationSecurity: AbstractExampleValidationTest() {
                                         ))
                                         .build()
                                 )
-                                .payload(AsyncAPISchema.builder()
+                                .payload(
+                                    AsyncAPISchema.builder()
                                         .type("object")
                                         .properties(mapOf(
                                                 Pair("metadata", AsyncAPISchema.builder()

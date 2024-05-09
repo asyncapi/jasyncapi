@@ -1,8 +1,8 @@
 package com.asyncapi.v2._6_0.model.component
 
-import com.asyncapi.schemas.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v2.SerDeTest
-import com.asyncapi.schemas.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 import com.asyncapi.schemas.Type
 import com.asyncapi.v2._6_0.model.channel.ChannelItemTest
 import com.asyncapi.v2._6_0.model.channel.ParameterWithSchemaTest
@@ -54,7 +54,9 @@ class ComponentsTest: SerDeTest<Components>() {
                                 ))
                                 .build()
                         ),
-                        Pair("User", Reference("#/components/schemas/user"))
+                        Pair("User",
+                            Reference("#/components/schemas/user")
+                        )
                 ))
                 .servers(mapOf(
                         Pair("mqtt-test", ServerTest().build()),

@@ -1,7 +1,8 @@
 package com.asyncapi.schemas.security.v2.oauth2
 
 import com.asyncapi.v2.SerDeTest
-import com.asyncapi.schemas.security.v2.SecurityScheme
+import com.asyncapi.schemas.asyncapi.security.v2.SecurityScheme
+import com.asyncapi.schemas.asyncapi.security.v2.oauth2.OAuth2SecurityScheme
 
 /**
  * @author Pavel Bodiachevskii

@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v2._6_0
 
-import com.asyncapi.schemas.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v2._6_0.model.channel.ChannelItem
 import com.asyncapi.v2._6_0.model.channel.Parameter
 import com.asyncapi.v2._6_0.model.channel.message.Message
@@ -11,8 +11,8 @@ import com.asyncapi.v2._6_0.model.info.Info
 import com.asyncapi.v2._6_0.model.server.Server
 import com.asyncapi.bindings.http.v0._3_0.message.HTTPMessageBinding
 import com.asyncapi.bindings.http.v0._3_0.operation.HTTPOperationBinding
-import com.asyncapi.schemas.AsyncAPISchema
-import com.asyncapi.schemas.security.v2.http.HttpSecurityScheme
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.security.v2.http.HttpSecurityScheme
 
 class GitterStreaming: AbstractExampleValidationTest() {
 
@@ -47,7 +47,8 @@ class GitterStreaming: AbstractExampleValidationTest() {
                         .parameters(mapOf(
                                 Pair("roomId", Parameter.builder()
                                         .description("Id of the Gitter room.")
-                                        .schema(AsyncAPISchema.builder()
+                                        .schema(
+                                            AsyncAPISchema.builder()
                                                 .type("string")
                                                 .examples(listOf("53307860c3599d1de448e19d"))
                                                 .build()
@@ -56,7 +57,8 @@ class GitterStreaming: AbstractExampleValidationTest() {
                                 ),
                                 Pair("resource", Parameter.builder()
                                         .description("The resource to consume.")
-                                        .schema(AsyncAPISchema.builder()
+                                        .schema(
+                                            AsyncAPISchema.builder()
                                                 .type("string")
                                                 .enumValue(listOf("chatMessages", "events"))
                                                 .build()
@@ -96,7 +98,8 @@ class GitterStreaming: AbstractExampleValidationTest() {
                         Pair("chatMessage", Message.builder()
                                 .schemaFormat("application/vnd.aai.asyncapi+yaml;version=2.6.0")
                                 .summary("A message represents an individual chat message sent to a room. They are a sub-resource of a room.")
-                                .payload(AsyncAPISchema.builder()
+                                .payload(
+                                    AsyncAPISchema.builder()
                                         .type("object")
                                         .properties(mapOf(
                                                 Pair("id", AsyncAPISchema.builder()
@@ -188,7 +191,8 @@ class GitterStreaming: AbstractExampleValidationTest() {
                                                 Pair("urls", AsyncAPISchema.builder()
                                                         .type("array")
                                                         .description("List of URLs present in the message.")
-                                                        .items(AsyncAPISchema.builder()
+                                                        .items(
+                                                            AsyncAPISchema.builder()
                                                                 .type("string")
                                                                 .format("uri")
                                                                 .build())
@@ -197,7 +201,8 @@ class GitterStreaming: AbstractExampleValidationTest() {
                                                 Pair("mentions", AsyncAPISchema.builder()
                                                         .type("array")
                                                         .description("List of @Mentions in the message.")
-                                                        .items(AsyncAPISchema.builder()
+                                                        .items(
+                                                            AsyncAPISchema.builder()
                                                                 .type("object")
                                                                 .properties(mapOf(
                                                                         Pair("screenName", AsyncAPISchema.builder()
@@ -210,7 +215,8 @@ class GitterStreaming: AbstractExampleValidationTest() {
                                                                         ),
                                                                         Pair("userIds", AsyncAPISchema.builder()
                                                                                 .type("array")
-                                                                                .items(AsyncAPISchema.builder()
+                                                                                .items(
+                                                                                    AsyncAPISchema.builder()
                                                                                         .type("string")
                                                                                         .build())
                                                                                 .build()
@@ -222,7 +228,8 @@ class GitterStreaming: AbstractExampleValidationTest() {
                                                 Pair("issues", AsyncAPISchema.builder()
                                                         .type("array")
                                                         .description("List of #Issues referenced in the message.")
-                                                        .items(AsyncAPISchema.builder()
+                                                        .items(
+                                                            AsyncAPISchema.builder()
                                                                 .type("object")
                                                                 .properties(mapOf(
                                                                         Pair("number", AsyncAPISchema.builder().type("string").build())
@@ -259,7 +266,8 @@ class GitterStreaming: AbstractExampleValidationTest() {
                         Pair("heartbeat", Message.builder()
                                 .schemaFormat("application/vnd.aai.asyncapi+yaml;version=2.6.0")
                                 .summary("Its purpose is to keep the connection alive.")
-                                .payload(AsyncAPISchema.builder()
+                                .payload(
+                                    AsyncAPISchema.builder()
                                         .type("string")
                                         .enumValue(listOf("\r\n"))
                                         .build()

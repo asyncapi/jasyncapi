@@ -7,7 +7,7 @@ import com.asyncapi.bindings.jms.v0._0_1.message.JMSMessageBinding;
 import com.asyncapi.bindings.jms.v0._0_1.operation.JMSOperationBinding;
 import com.asyncapi.bindings.jms.v0._0_1.server.JMSServerBinding;
 import com.asyncapi.bindings.jms.v0._0_1.server.JMSServerProperty;
-import com.asyncapi.schemas.AsyncAPISchema;
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 

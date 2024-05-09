@@ -1,9 +1,8 @@
 package com.asyncapi.v2._6_0.model.channel.message;
 
-import com.asyncapi.schemas.AsyncAPISchema;
-import com.asyncapi.schemas.ExtendableObject;
-import com.asyncapi.schemas.Reference;
-import com.asyncapi.schemas.multiformat.MultiFormatSchema;
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema;
+import com.asyncapi.schemas.asyncapi.ExtendableObject;
+import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.v2._6_0.jackson.model.channel.message.MessageCorrelationIdDeserializer;
 import com.asyncapi.v2._6_0.jackson.model.channel.message.MessageHeadersDeserializer;
 import com.asyncapi.v2._6_0.model.ExternalDocumentation;
@@ -80,7 +79,7 @@ public class MessageTrait extends ExtendableObject {
 
     /**
      * A string containing the name of the schema format used to define the message payload.
-     * If omitted, implementations should parse the payload as a {@link com.asyncapi.schemas.AsyncAPISchema} object. When the payload is defined using a
+     * If omitted, implementations should parse the payload as a {@link AsyncAPISchema} object. When the payload is defined using a
      * $ref to a remote file, it is RECOMMENDED the schema format includes the file encoding type to allow implementations
      * to parse the file correctly. E.g., adding +yaml if content type is application/vnd.apache.avro results in
      * application/vnd.apache.avro+yaml.

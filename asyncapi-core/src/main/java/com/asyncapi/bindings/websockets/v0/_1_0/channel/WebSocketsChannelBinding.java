@@ -1,6 +1,6 @@
 package com.asyncapi.bindings.websockets.v0._1_0.channel;
 
-import com.asyncapi.schemas.AsyncAPISchema;
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;

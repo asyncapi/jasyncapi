@@ -2,9 +2,9 @@ package com.asyncapi.v2._0_0.model.channel.message
 
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._0_0.model.ExternalDocumentation
-import com.asyncapi.schemas.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v2._0_0.model.Tag
-import com.asyncapi.schemas.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 import com.asyncapi.bindings.MessageBinding
 import com.asyncapi.bindings.amqp.AMQPV0_2_0Test
 import com.asyncapi.bindings.amqp1.v0._1_0.message.AMQP1MessageBinding
@@ -41,7 +41,8 @@ class MessageTest: SerDeTest<Message>() {
 
     override fun build(): Message {
         return Message.builder()
-                .headers(AsyncAPISchema.builder()
+                .headers(
+                    AsyncAPISchema.builder()
                         .type("object")
                         .properties(mapOf(
                                 Pair(
@@ -61,7 +62,8 @@ class MessageTest: SerDeTest<Message>() {
                         ))
                         .build()
                 )
-                .payload(AsyncAPISchema.builder()
+                .payload(
+                    AsyncAPISchema.builder()
                         .type("object")
                         .properties(mapOf(
                                 Pair(

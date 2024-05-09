@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.schemas.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.Parameter
 import com.asyncapi.v3._0_0.model.channel.message.Message
@@ -13,11 +13,11 @@ import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.operation.OperationTrait
 import com.asyncapi.v3._0_0.model.server.Server
 import com.asyncapi.bindings.kafka.v0._4_0.operation.KafkaOperationBinding
-import com.asyncapi.schemas.AsyncAPISchema
-import com.asyncapi.schemas.security.v3.SecurityScheme
-import com.asyncapi.schemas.security.v3.oauth2.OAuth2SecurityScheme
-import com.asyncapi.schemas.security.v3.oauth2.OAuthFlows
-import com.asyncapi.schemas.security.v3.oauth2.flow.ClientCredentialsOAuthFlow
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.security.v3.SecurityScheme
+import com.asyncapi.schemas.asyncapi.security.v3.oauth2.OAuth2SecurityScheme
+import com.asyncapi.schemas.asyncapi.security.v3.oauth2.OAuthFlows
+import com.asyncapi.schemas.asyncapi.security.v3.oauth2.flow.ClientCredentialsOAuthFlow
 import java.math.BigDecimal
 
 class StreetlightsOperationSecurityAsyncAPI: AbstractExampleValidationTest() {
@@ -135,23 +135,24 @@ class StreetlightsOperationSecurityAsyncAPI: AbstractExampleValidationTest() {
     }
 
     override fun expectedOperations(): Map<String, Any> {
-        val oAuth2SecurityScheme = OAuth2SecurityScheme(
-            "The oauth security descriptions",
-            OAuthFlows(
-                null,
-                null,
-                ClientCredentialsOAuthFlow(
-                    "",
-                    mapOf(
-                        Pair("streetlights:read", "Scope required for subscribing to channel"),
-                        Pair("streetlights:write", "Scope required for publishing to channel")
+        val oAuth2SecurityScheme =
+            OAuth2SecurityScheme(
+                "The oauth security descriptions",
+                OAuthFlows(
+                    null,
+                    null,
+                    ClientCredentialsOAuthFlow(
+                        "",
+                        mapOf(
+                            Pair("streetlights:read", "Scope required for subscribing to channel"),
+                            Pair("streetlights:write", "Scope required for publishing to channel")
+                        ),
+                        "https://example.com/api/oauth/dialog"
                     ),
-                    "https://example.com/api/oauth/dialog"
+                    null
                 ),
-                null
-            ),
-            listOf("streetlights:read")
-        )
+                listOf("streetlights:read")
+            )
 
         return mapOf(
                 Pair("receiveLightMeasurement",

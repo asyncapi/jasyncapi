@@ -1,8 +1,9 @@
 package com.asyncapi.schemas
 
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 import com.asyncapi.schemas.json.JsonSchema
-import com.asyncapi.schemas.multiformat.AsyncAPIFormatSchema
-import com.asyncapi.schemas.multiformat.JsonFormatSchema
+import com.asyncapi.schemas.asyncapi.multiformat.AsyncAPIFormatSchema
+import com.asyncapi.schemas.asyncapi.multiformat.JsonFormatSchema
 import com.asyncapi.schemas.openapi.v3._0_0.OpenAPISchema
 
 interface SchemaProvider {

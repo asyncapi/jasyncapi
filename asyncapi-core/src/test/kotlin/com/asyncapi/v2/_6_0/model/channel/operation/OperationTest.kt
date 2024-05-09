@@ -1,6 +1,6 @@
 package com.asyncapi.v2._6_0.model.channel.operation
 
-import com.asyncapi.schemas.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._6_0.model.ExternalDocumentation
 import com.asyncapi.v2._6_0.model.Tag
@@ -150,7 +150,9 @@ class OperationTest {
                     Pair("ibmmq",
                         Reference("#/components/operationBindings/ibmmq")
                     ),
-                    Pair("jms", Reference("#/components/operationBindings/jms")),
+                    Pair("jms",
+                        Reference("#/components/operationBindings/jms")
+                    ),
                     Pair("kafka", KafkaV0_4_0Test.operationBinding()),
                     Pair("mercure",
                         Reference("#/components/operationBindings/mercure")
@@ -166,13 +168,19 @@ class OperationTest {
                     Pair("redis",
                         Reference("#/components/operationBindings/redis")
                     ),
-                    Pair("sns", Reference("#/components/operationBindings/sns")),
+                    Pair("sns",
+                        Reference("#/components/operationBindings/sns")
+                    ),
                     Pair("solace", SolaceV0_3_0Test.operationBinding()),
-                    Pair("sqs", Reference("#/components/operationBindings/sqs")),
+                    Pair("sqs",
+                        Reference("#/components/operationBindings/sqs")
+                    ),
                     Pair("stomp",
                         Reference("#/components/operationBindings/stomp")
                     ),
-                    Pair("ws", Reference("#/components/operationBindings/ws"))
+                    Pair("ws",
+                        Reference("#/components/operationBindings/ws")
+                    )
             )
         }
     }

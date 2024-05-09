@@ -1,12 +1,12 @@
 package com.asyncapi.examples.v2._6_0
 
-import com.asyncapi.schemas.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v2._6_0.model.channel.ChannelItem
 import com.asyncapi.v2._6_0.model.channel.message.Message
 import com.asyncapi.v2._6_0.model.channel.operation.Operation
 import com.asyncapi.v2._6_0.model.component.Components
 import com.asyncapi.v2._6_0.model.info.Info
-import com.asyncapi.schemas.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 
 class Not: AbstractExampleValidationTest() {
 

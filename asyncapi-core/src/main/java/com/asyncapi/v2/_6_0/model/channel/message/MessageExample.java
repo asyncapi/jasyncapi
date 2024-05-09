@@ -1,6 +1,6 @@
 package com.asyncapi.v2._6_0.model.channel.message;
 
-import com.asyncapi.schemas.ExtendableObject;
+import com.asyncapi.schemas.asyncapi.ExtendableObject;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -1,10 +1,10 @@
 package com.asyncapi.v2._6_0.jackson.model.channel.message;
 
 import com.asyncapi.bindings.MessageBindingsDeserializer;
-import com.asyncapi.schemas.AsyncAPISchema;
-import com.asyncapi.schemas.ExtendableObject;
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema;
+import com.asyncapi.schemas.asyncapi.ExtendableObject;
 import com.asyncapi.schemas.json.JsonSchema;
-import com.asyncapi.schemas.Reference;
+import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.schemas.avro.v1._9_0.AvroSchema;
 import com.asyncapi.schemas.openapi.v3._0_0.OpenAPISchema;
 import com.asyncapi.v2._6_0.model.ExternalDocumentation;

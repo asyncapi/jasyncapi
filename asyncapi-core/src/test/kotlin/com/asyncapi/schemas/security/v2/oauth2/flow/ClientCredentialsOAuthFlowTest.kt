@@ -1,5 +1,6 @@
 package com.asyncapi.schemas.security.v2.oauth2.flow
 
+import com.asyncapi.schemas.asyncapi.security.v2.oauth2.flow.ClientCredentialsOAuthFlow
 import com.asyncapi.v2.SerDeTest
 
 class ClientCredentialsOAuthFlowTest: SerDeTest<ClientCredentialsOAuthFlow>() {

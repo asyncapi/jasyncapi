@@ -1,6 +1,6 @@
 package com.asyncapi.v3._0_0.model.component
 
-import com.asyncapi.schemas.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v3.SerDeTest
 import com.asyncapi.v3._0_0.model.ExternalDocumentationTest
 import com.asyncapi.v3._0_0.model.TagTest
@@ -18,10 +18,10 @@ import com.asyncapi.v3._0_0.model.operation.reply.OperationReplyTest
 import com.asyncapi.v3._0_0.model.operation.reply.OperationReplyTestWithReference
 import com.asyncapi.v3._0_0.model.server.ServerTest
 import com.asyncapi.v3._0_0.model.server.ServerVariableTest
-import com.asyncapi.schemas.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 import com.asyncapi.schemas.json.JsonSchema
 import com.asyncapi.schemas.Type
-import com.asyncapi.schemas.multiformat.JsonFormatSchema
+import com.asyncapi.schemas.asyncapi.multiformat.JsonFormatSchema
 import com.asyncapi.schemas.security.v3.ApiKeySecuritySchemeTest
 import com.asyncapi.schemas.security.v3.OpenIdConnectSecuritySchemeTest
 import com.asyncapi.schemas.security.v3.http.HttpApiKeySecuritySchemeTest
@@ -80,43 +80,47 @@ class ComponentsTest: SerDeTest<Components>() {
                                         .build()
                         )
                         ),
-                        Pair("User", Reference("#/components/schemas/user"))
+                        Pair("User",
+                                Reference("#/components/schemas/user")
+                        )
                 ))
                 .servers(mapOf(
                         Pair("mqtt-test", ServerTest().build()),
                         Pair("mqtt-stage",
-                            Reference("#/components/servers/mqtt-stage")
+                                Reference("#/components/servers/mqtt-stage")
                         )
                 ))
                 .serverVariables(mapOf(
                         Pair("port", ServerVariableTest().build()),
                         Pair("basePath",
-                            Reference("#/components/serverVariables/basePath")
+                                Reference("#/components/serverVariables/basePath")
                         )
                 ))
                 .channels(mapOf(
                         Pair("channel 1", ChannelTest().build()),
                         Pair("channel 2", ChannelTestWithReference().build()),
                         Pair("channel 3",
-                            Reference("#/components/channels/channel")
+                                Reference("#/components/channels/channel")
                         ),
                 ))
                 .operations(mapOf(
                         Pair("operation 1", OperationTest().build()),
                         Pair("operation 2", OperationTestWithReference().build()),
                         Pair("operation 3",
-                            Reference("#/components/operations/operation")
+                                Reference("#/components/operations/operation")
                         )
                 ))
                 .replies(mapOf(
                         Pair("reply 1", OperationReplyTest().build()),
                         Pair("reply 2", OperationReplyTestWithReference().build()),
-                        Pair("reply 3", Reference("#/components/replies/reply"))
+                        Pair("reply 3",
+                                Reference("#/components/replies/reply")
+                        )
                 ))
                 .replyAddresses(mapOf(
                         Pair("reply addresses 1", OperationReplyAddressTest().build()),
                         Pair("reply addresses 2",
-                            Reference("#/components/replyAddresses/replyAddress")
+                                Reference("#/components/replyAddresses/replyAddress")
                         )
                 ))
                 .messages(mapOf(
@@ -124,16 +128,16 @@ class ComponentsTest: SerDeTest<Components>() {
                         Pair("message 2", MessageTestWithMultiFormatSchema().build()),
                         Pair("message 3", MessageTestWithReference().build()),
                         Pair("message 4",
-                            Reference("#/components/messages/message")
+                                Reference("#/components/messages/message")
                         )
                 ))
                 .securitySchemes(mapOf(
                         Pair("apiKey", ApiKeySecuritySchemeTest().build()),
                         Pair("asymmetricEncryption",
-                            Reference("#/components/securitySchemes/asymmetricEncryption")
+                                Reference("#/components/securitySchemes/asymmetricEncryption")
                         ),
                         Pair("gssapi",
-                            Reference("#/components/securitySchemes/gssapi")
+                                Reference("#/components/securitySchemes/gssapi")
                         ),
                         Pair("oauth2", OAuth2SecuritySchemeTest().build()),
                         Pair("openIdConnect", OpenIdConnectSecuritySchemeTest().build()),
@@ -141,41 +145,41 @@ class ComponentsTest: SerDeTest<Components>() {
                         Pair("httpBasic", HttpSecuritySchemeBasicTest().build()),
                         Pair("httpBearer", HttpSecuritySchemeBearerTest().build()),
                         Pair("plain",
-                            Reference("#/components/securitySchemes/plain")
+                                Reference("#/components/securitySchemes/plain")
                         ),
                         Pair("scramSha256",
-                            Reference("#/components/securitySchemes/scramSha256")
+                                Reference("#/components/securitySchemes/scramSha256")
                         ),
                         Pair("scramSha512",
-                            Reference("#/components/securitySchemes/scramSha512")
+                                Reference("#/components/securitySchemes/scramSha512")
                         ),
                         Pair("symmetricEncryption",
-                            Reference("#/components/securitySchemes/symmetricEncryption")
+                                Reference("#/components/securitySchemes/symmetricEncryption")
                         ),
                         Pair("userPassword",
-                            Reference("#/components/securitySchemes/userPassword")
+                                Reference("#/components/securitySchemes/userPassword")
                         ),
                         Pair("X509",
-                            Reference("#/components/securitySchemes/X509")
+                                Reference("#/components/securitySchemes/X509")
                         ),
                 ))
                 .parameters(mapOf(
                         Pair("parameter 1", ParameterTest().build()),
                         Pair("parameter 2",
-                            Reference("#/components/parameters/parameter")
+                                Reference("#/components/parameters/parameter")
                         )
                 ))
                 .correlationIds(mapOf(
                         Pair("correlationId 1", CorrelationIdTest().build()),
                         Pair("correlationId 2",
-                            Reference("#/correlationIds/parameters/correlationId")
+                                Reference("#/correlationIds/parameters/correlationId")
                         )
                 ))
                 .operationTraits(mapOf(
                         Pair("operationTrait 1", OperationTraitTest().build()),
                         Pair("operationTrait 2", OperationTraitTestWithReference().build()),
                         Pair("operationTrait 3",
-                            Reference("#/components/operationTraits/operationTrait")
+                                Reference("#/components/operationTraits/operationTrait")
                         )
                 ))
                 .messageTraits(mapOf(
@@ -183,7 +187,7 @@ class ComponentsTest: SerDeTest<Components>() {
                         Pair("messageTrait 2", MessageTraitTestWithMultiFormatSchema().build()),
                         Pair("messageTrait 3", MessageTraitTestWithReference().build()),
                         Pair("messageTrait 4",
-                            Reference("#/components/messageTraits/messageTrait")
+                                Reference("#/components/messageTraits/messageTrait")
                         )
                 ))
                 .serverBindings(ServerTest.bindings())
@@ -193,13 +197,15 @@ class ComponentsTest: SerDeTest<Components>() {
                 .externalDocs(mapOf(
                         Pair("externalDoc 1", ExternalDocumentationTest().build()),
                         Pair("externalDoc 2",
-                            Reference("#/components/externalDocs/externalDoc")
+                                Reference("#/components/externalDocs/externalDoc")
                         ),
                 ))
                 .tags(mapOf(
                         Pair("tag 1", TagTest().build()),
                         Pair("tag 2", TagTestWithReferenceToExternalDocs().build()),
-                        Pair("tag 3", Reference("#/components/tags/tag")),
+                        Pair("tag 3",
+                                Reference("#/components/tags/tag")
+                        ),
                 ))
                 .build()
     }

@@ -1,6 +1,6 @@
 package com.asyncapi.v3._0_0.model.server
 
-import com.asyncapi.schemas.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v3.SerDeTest
 import com.asyncapi.v3._0_0.model.ExternalDocumentationTest
 import com.asyncapi.v3._0_0.model.Tag
@@ -78,7 +78,9 @@ class ServerTest: SerDeTest<Server>() {
         @JvmStatic
         fun bindings(): Map<String, Any> {
             return mapOf(
-                    Pair("amqp", Reference("#/components/serverBindings/amqp")),
+                    Pair("amqp",
+                        Reference("#/components/serverBindings/amqp")
+                    ),
                     Pair("amqp1", AMQP1ServerBinding()),
                     Pair("anypointmq", AnypointMQServerBinding()),
                     Pair("googlepubsub", GooglePubSubV0_2_0Test.serverBinding()),
@@ -195,7 +197,9 @@ class ServerTestWithReference: SerDeTest<Server>() {
         @JvmStatic
         fun bindings(): Map<String, Any> {
             return mapOf(
-                    Pair("amqp", Reference("#/components/serverBindings/amqp")),
+                    Pair("amqp",
+                        Reference("#/components/serverBindings/amqp")
+                    ),
                     Pair("amqp1", AMQP1ServerBinding()),
                     Pair("anypointmq", AnypointMQServerBinding()),
                     Pair("googlepubsub", GooglePubSubV0_2_0Test.serverBinding()),

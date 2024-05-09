@@ -1,13 +1,13 @@
 package com.asyncapi.examples.v2._6_0
 
-import com.asyncapi.schemas.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v2._6_0.model.channel.ChannelItem
 import com.asyncapi.v2._6_0.model.channel.message.Message
 import com.asyncapi.v2._6_0.model.channel.message.OneOfMessages
 import com.asyncapi.v2._6_0.model.channel.operation.Operation
 import com.asyncapi.v2._6_0.model.component.Components
 import com.asyncapi.v2._6_0.model.info.Info
-import com.asyncapi.schemas.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 
 class OneOf: AbstractExampleValidationTest() {
 
@@ -52,7 +52,8 @@ class OneOf: AbstractExampleValidationTest() {
         return Components.builder()
                 .messages(mapOf(
                         Pair("testMessages", Message.builder()
-                                .payload(AsyncAPISchema.builder()
+                                .payload(
+                                    AsyncAPISchema.builder()
                                         .oneOf(listOf(
                                                 AsyncAPISchema.builder().ref("#/components/schemas/objectWithKey").build(),
                                                 AsyncAPISchema.builder().ref("#/components/schemas/objectWithKey2").build()

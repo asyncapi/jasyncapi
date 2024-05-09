@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v2._0_0
 
-import com.asyncapi.schemas.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v2._0_0.model.channel.ChannelItem
 import com.asyncapi.v2._0_0.model.channel.Parameter
 import com.asyncapi.v2._0_0.model.channel.message.CorrelationId
@@ -11,7 +11,7 @@ import com.asyncapi.v2._0_0.model.info.Info
 import com.asyncapi.v2._0_0.model.info.License
 import com.asyncapi.v2._0_0.model.server.Server
 import com.asyncapi.v2._0_0.model.server.ServerVariable
-import com.asyncapi.schemas.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 import java.math.BigDecimal
 
 class ApplicationHeaders: AbstractExampleValidationTest() {
@@ -56,7 +56,7 @@ class ApplicationHeaders: AbstractExampleValidationTest() {
                 Pair("smartylighting/streetlights/1/0/event/{streetlightId}/lighting/measured", ChannelItem.builder()
                         .parameters(mapOf(
                                 Pair("streetlightId",
-                                    Reference("#/components/parameters/streetlightId")
+                                        Reference("#/components/parameters/streetlightId")
                                 )
                         ))
                         .publish(Operation.builder()
@@ -82,7 +82,8 @@ class ApplicationHeaders: AbstractExampleValidationTest() {
                                         "\$message.header#/MQMD/CorrelId"
                                 ))
                                 .contentType("application/json")
-                                .headers(AsyncAPISchema.builder()
+                                .headers(
+                                    AsyncAPISchema.builder()
                                         .type("object")
                                         .properties(mapOf(
                                                 Pair("MQMD", AsyncAPISchema.builder()

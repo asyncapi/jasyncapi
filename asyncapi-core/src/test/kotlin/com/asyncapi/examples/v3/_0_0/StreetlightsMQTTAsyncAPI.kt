@@ -1,8 +1,8 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.schemas.security.v3.ApiKeySecurityScheme
-import com.asyncapi.schemas.security.v3.OpenIdConnectSecurityScheme
-import com.asyncapi.schemas.Reference
+import com.asyncapi.schemas.asyncapi.security.v3.ApiKeySecurityScheme
+import com.asyncapi.schemas.asyncapi.security.v3.OpenIdConnectSecurityScheme
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v3._0_0.model.Tag
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.Parameter
@@ -17,13 +17,13 @@ import com.asyncapi.v3._0_0.model.operation.OperationTrait
 import com.asyncapi.v3._0_0.model.server.Server
 import com.asyncapi.v3._0_0.model.server.ServerVariable
 import com.asyncapi.bindings.mqtt.v0._1_0.operation.MQTTOperationBinding
-import com.asyncapi.schemas.AsyncAPISchema
-import com.asyncapi.schemas.security.v3.oauth2.OAuth2SecurityScheme
-import com.asyncapi.schemas.security.v3.oauth2.OAuthFlows
-import com.asyncapi.schemas.security.v3.oauth2.flow.AuthorizationCodeOAuthFlow
-import com.asyncapi.schemas.security.v3.oauth2.flow.ClientCredentialsOAuthFlow
-import com.asyncapi.schemas.security.v3.oauth2.flow.ImplicitOAuthFlow
-import com.asyncapi.schemas.security.v3.oauth2.flow.PasswordOAuthFlow
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.security.v3.oauth2.OAuth2SecurityScheme
+import com.asyncapi.schemas.asyncapi.security.v3.oauth2.OAuthFlows
+import com.asyncapi.schemas.asyncapi.security.v3.oauth2.flow.AuthorizationCodeOAuthFlow
+import com.asyncapi.schemas.asyncapi.security.v3.oauth2.flow.ClientCredentialsOAuthFlow
+import com.asyncapi.schemas.asyncapi.security.v3.oauth2.flow.ImplicitOAuthFlow
+import com.asyncapi.schemas.asyncapi.security.v3.oauth2.flow.PasswordOAuthFlow
 import java.math.BigDecimal
 
 class StreetlightsMQTTAsyncAPI: AbstractExampleValidationTest() {
@@ -66,7 +66,7 @@ class StreetlightsMQTTAsyncAPI: AbstractExampleValidationTest() {
                                         )
                                 ))
                                 .security(listOf(
-                                    Reference("#/components/securitySchemes/apiKey"),
+                                        Reference("#/components/securitySchemes/apiKey"),
                                         OAuth2SecurityScheme(
                                                 "Flows to support OAuth 2.0",
                                                 OAuthFlows(
@@ -146,7 +146,7 @@ class StreetlightsMQTTAsyncAPI: AbstractExampleValidationTest() {
                                                 ),
                                                 listOf("streetlights:on", "streetlights:off", "streetlights:dim")
                                         ),
-                                    Reference("#/components/securitySchemes/openIdConnectWellKnown")
+                                        Reference("#/components/securitySchemes/openIdConnectWellKnown")
                                 ))
                                 .tags(listOf(
                                         Tag("env:production", "This environment is meant for production use case", null),
@@ -165,13 +165,13 @@ class StreetlightsMQTTAsyncAPI: AbstractExampleValidationTest() {
                                 .address("smartylighting/streetlights/1/0/event/{streetlightId}/lighting/measured")
                                 .messages(mapOf(
                                         Pair("lightMeasured",
-                                            Reference("#/components/messages/lightMeasured")
+                                                Reference("#/components/messages/lightMeasured")
                                         )
                                 ))
                                 .description("The topic on which measured values may be produced and consumed.")
                                 .parameters(mapOf(
                                         Pair("streetlightId",
-                                            Reference("#/components/parameters/streetlightId")
+                                                Reference("#/components/parameters/streetlightId")
                                         )
                                 ))
                                 .build()
@@ -181,12 +181,12 @@ class StreetlightsMQTTAsyncAPI: AbstractExampleValidationTest() {
                                 .address("smartylighting/streetlights/1/0/action/{streetlightId}/turn/on")
                                 .messages(mapOf(
                                         Pair("turnOn",
-                                            Reference("#/components/messages/turnOnOff")
+                                                Reference("#/components/messages/turnOnOff")
                                         )
                                 ))
                                 .parameters(mapOf(
                                         Pair("streetlightId",
-                                            Reference("#/components/parameters/streetlightId")
+                                                Reference("#/components/parameters/streetlightId")
                                         )
                                 ))
                                 .build()
@@ -196,12 +196,12 @@ class StreetlightsMQTTAsyncAPI: AbstractExampleValidationTest() {
                                 .address("smartylighting/streetlights/1/0/action/{streetlightId}/turn/off")
                                 .messages(mapOf(
                                         Pair("turnOff",
-                                            Reference("#/components/messages/turnOnOff")
+                                                Reference("#/components/messages/turnOnOff")
                                         )
                                 ))
                                 .parameters(mapOf(
                                         Pair("streetlightId",
-                                            Reference("#/components/parameters/streetlightId")
+                                                Reference("#/components/parameters/streetlightId")
                                         )
                                 ))
                                 .build()
@@ -211,12 +211,12 @@ class StreetlightsMQTTAsyncAPI: AbstractExampleValidationTest() {
                                 .address("smartylighting/streetlights/1/0/action/{streetlightId}/dim")
                                 .messages(mapOf(
                                         Pair("dimLight",
-                                            Reference("#/components/messages/dimLight")
+                                                Reference("#/components/messages/dimLight")
                                         )
                                 ))
                                 .parameters(mapOf(
                                         Pair("streetlightId",
-                                            Reference("#/components/parameters/streetlightId")
+                                                Reference("#/components/parameters/streetlightId")
                                         )
                                 ))
                                 .build()
@@ -352,10 +352,10 @@ class StreetlightsMQTTAsyncAPI: AbstractExampleValidationTest() {
                 ))
                 .securitySchemes(mapOf(
                         Pair("apiKey",
-                            ApiKeySecurityScheme(
-                                "Provide your API key as the user and leave the password empty.",
-                                ApiKeySecurityScheme.ApiKeyLocation.USER
-                            )
+                                ApiKeySecurityScheme(
+                                        "Provide your API key as the user and leave the password empty.",
+                                        ApiKeySecurityScheme.ApiKeyLocation.USER
+                                )
                         ),
                         Pair("supportedOauthFlows",
                                 OAuth2SecurityScheme(
@@ -415,11 +415,11 @@ class StreetlightsMQTTAsyncAPI: AbstractExampleValidationTest() {
                                 )
                         ),
                         Pair("openIdConnectWellKnown",
-                            OpenIdConnectSecurityScheme(
-                                null,
-                                "https://authserver.example/.well-known",
-                                null
-                            )
+                                OpenIdConnectSecurityScheme(
+                                        null,
+                                        "https://authserver.example/.well-known",
+                                        null
+                                )
                         )
                 ))
                 .parameters(mapOf(

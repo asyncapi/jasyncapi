@@ -1,7 +1,7 @@
 package com.asyncapi.v2._6_0.model.channel.operation;
 
-import com.asyncapi.schemas.ExtendableObject;
-import com.asyncapi.schemas.Reference;
+import com.asyncapi.schemas.asyncapi.ExtendableObject;
+import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.v2._6_0.model.ExternalDocumentation;
 import com.asyncapi.v2._6_0.model.Tag;
 import com.asyncapi.bindings.OperationBinding;

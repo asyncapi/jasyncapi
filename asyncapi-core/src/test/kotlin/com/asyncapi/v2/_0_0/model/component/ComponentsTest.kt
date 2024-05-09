@@ -1,7 +1,7 @@
 package com.asyncapi.v2._0_0.model.component
 
 import com.asyncapi.v2.SerDeTest
-import com.asyncapi.schemas.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v2._0_0.model.channel.ChannelItemTest
 import com.asyncapi.v2._0_0.model.channel.ParameterTest
 import com.asyncapi.v2._0_0.model.channel.message.CorrelationIdTest
@@ -9,7 +9,7 @@ import com.asyncapi.v2._0_0.model.channel.message.MessageTest
 import com.asyncapi.v2._0_0.model.channel.message.MessageTraitTest
 import com.asyncapi.v2._0_0.model.channel.operation.OperationTest
 import com.asyncapi.v2._0_0.model.channel.operation.OperationTraitTest
-import com.asyncapi.schemas.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 import com.asyncapi.schemas.Type
 import com.asyncapi.v2._0_0.model.server.ServerTest
 import com.asyncapi.schemas.security.v2.ApiKeySecuritySchemeTest
@@ -51,7 +51,9 @@ class ComponentsTest: SerDeTest<Components>() {
                                 ))
                                 .build()
                         ),
-                        Pair("User", Reference("#/components/schemas/user"))
+                        Pair("User",
+                            Reference("#/components/schemas/user")
+                        )
                 ))
                 .messages(mapOf(
                         Pair("userSignup", MessageTest().build()),

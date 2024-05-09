@@ -1,8 +1,8 @@
 package com.asyncapi.v2._0_0.model.channel;
 
-import com.asyncapi.schemas.ExtendableObject;
+import com.asyncapi.schemas.asyncapi.ExtendableObject;
 import com.asyncapi.v2._0_0.jackson.model.channel.ChannelParametersDeserializer;
-import com.asyncapi.schemas.Reference;
+import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.v2._0_0.model.channel.operation.Operation;
 import com.asyncapi.bindings.ChannelBinding;
 import com.asyncapi.bindings.ChannelBindingsDeserializer;

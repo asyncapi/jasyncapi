@@ -8,7 +8,7 @@ import com.asyncapi.bindings.kafka.v0._4_0.message.KafkaMessageBinding;
 import com.asyncapi.bindings.kafka.v0._4_0.message.KafkaMessageSchemaIdLocation;
 import com.asyncapi.bindings.kafka.v0._4_0.operation.KafkaOperationBinding;
 import com.asyncapi.bindings.kafka.v0._4_0.server.KafkaServerBinding;
-import com.asyncapi.schemas.AsyncAPISchema;
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema;
 import com.asyncapi.schemas.Type;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;

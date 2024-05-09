@@ -1,10 +1,10 @@
 package com.asyncapi.v2._6_0.model.channel.message
 
-import com.asyncapi.schemas.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._6_0.model.ExternalDocumentation
 import com.asyncapi.v2._6_0.model.Tag
-import com.asyncapi.schemas.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 import com.asyncapi.bindings.amqp.AMQPV0_2_0Test
 import com.asyncapi.bindings.anypointmq.AnypointMQV0_0_1Test
 import com.asyncapi.bindings.googlepubsub.GooglePubSubV0_1_0Test
@@ -26,7 +26,8 @@ class MessageTraitTest: SerDeTest<MessageTrait>() {
     override fun build(): MessageTrait {
         return MessageTrait.builder()
                 .messageId("userSignup")
-                .headers(AsyncAPISchema.builder()
+                .headers(
+                    AsyncAPISchema.builder()
                         .type("object")
                         .properties(mapOf(
                                 Pair(
@@ -100,7 +101,9 @@ class MessageTraitTest: SerDeTest<MessageTrait>() {
                         Pair("stomp",
                             Reference("#/components/messageBindings/stomp")
                         ),
-                        Pair("ws", Reference("#/components/messageBindings/ws"))
+                        Pair("ws",
+                            Reference("#/components/messageBindings/ws")
+                        )
                 ))
                 .examples(listOf(MessageExampleTest().build()))
                 .build()

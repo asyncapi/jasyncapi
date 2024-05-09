@@ -1,5 +1,7 @@
 package com.asyncapi.schemas.security.v2
 
+import com.asyncapi.schemas.asyncapi.security.v2.ApiKeySecurityScheme
+import com.asyncapi.schemas.asyncapi.security.v2.SecurityScheme
 import com.asyncapi.v2.SerDeTest
 
 /**

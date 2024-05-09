@@ -2,10 +2,10 @@ package com.asyncapi.v2._6_0.model.channel.message;
 
 import com.asyncapi.bindings.MessageBinding;
 import com.asyncapi.bindings.MessageBindingsDeserializer;
-import com.asyncapi.schemas.AsyncAPISchema;
-import com.asyncapi.schemas.ExtendableObject;
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema;
+import com.asyncapi.schemas.asyncapi.ExtendableObject;
 import com.asyncapi.schemas.json.JsonSchema;
-import com.asyncapi.schemas.Reference;
+import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.schemas.avro.v1._9_0.AvroSchema;
 import com.asyncapi.schemas.openapi.v3._0_0.OpenAPISchema;
 import com.asyncapi.v2._6_0.jackson.model.channel.message.*;
@@ -89,7 +89,7 @@ public class Message extends ExtendableObject {
 
     /**
      * A string containing the name of the schema format used to define the message payload.
-     * If omitted, implementations should parse the payload as a {@link com.asyncapi.schemas.AsyncAPISchema} object. When the payload is defined using a
+     * If omitted, implementations should parse the payload as a {@link AsyncAPISchema} object. When the payload is defined using a
      * $ref to a remote file, it is RECOMMENDED the schema format includes the file encoding type to allow implementations
      * to parse the file correctly. E.g., adding +yaml if content type is application/vnd.apache.avro results in
      * application/vnd.apache.avro+yaml.

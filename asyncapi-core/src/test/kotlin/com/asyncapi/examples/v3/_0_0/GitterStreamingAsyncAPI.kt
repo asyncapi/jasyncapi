@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.schemas.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.bindings.http.v0._3_0.message.HTTPMessageBinding
 import com.asyncapi.bindings.http.v0._3_0.operation.HTTPOperationBinding
 import com.asyncapi.bindings.http.v0._3_0.operation.HTTPOperationMethod
@@ -12,10 +12,10 @@ import com.asyncapi.v3._0_0.model.info.Info
 import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.server.Server
-import com.asyncapi.schemas.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 import com.asyncapi.schemas.json.JsonSchema
-import com.asyncapi.schemas.multiformat.JsonFormatSchema
-import com.asyncapi.schemas.security.v3.http.HttpSecurityScheme
+import com.asyncapi.schemas.asyncapi.multiformat.JsonFormatSchema
+import com.asyncapi.schemas.asyncapi.security.v3.http.HttpSecurityScheme
 
 class GitterStreamingAsyncAPI: AbstractExampleValidationTest() {
 

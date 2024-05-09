@@ -1,8 +1,8 @@
 package com.asyncapi.v2._0_0.jackson.model.component;
 
-import com.asyncapi.schemas.Reference;
+import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.v2.jackson.MapOfReferencesOrObjectsDeserializer;
-import com.asyncapi.schemas.security.v2.SecurityScheme;
+import com.asyncapi.schemas.asyncapi.security.v2.SecurityScheme;
 
 /**
  * Serializes component security schemes map.

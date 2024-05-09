@@ -1,7 +1,8 @@
 package com.asyncapi.v2._6_0.model.channel;
 
-import com.asyncapi.schemas.ExtendableObject;
-import com.asyncapi.schemas.Reference;
+import com.asyncapi.schemas.asyncapi.ExtendableObject;
+import com.asyncapi.schemas.asyncapi.Reference;
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema;
 import com.asyncapi.v2._6_0.jackson.model.schema.SchemaDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
@@ -37,7 +38,7 @@ public class Parameter extends ExtendableObject {
      * MUST BE:
      * <ul>
      *     <li>{@link Reference}</li>
-     *     <li>{@link com.asyncapi.schemas.AsyncAPISchema}</li>
+     *     <li>{@link AsyncAPISchema}</li>
      * </ul>
      */
     @Nullable

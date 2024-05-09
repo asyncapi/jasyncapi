@@ -1,7 +1,7 @@
 package com.asyncapi.v2._6_0.model.channel.message
 
 import com.asyncapi.v2.ClasspathUtils
-import com.asyncapi.schemas.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test

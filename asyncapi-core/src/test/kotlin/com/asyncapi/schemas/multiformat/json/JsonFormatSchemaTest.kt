@@ -2,7 +2,7 @@ package com.asyncapi.schemas.multiformat.json
 
 import com.asyncapi.schemas.json.*
 import com.asyncapi.v3.ClasspathUtils
-import com.asyncapi.schemas.multiformat.JsonFormatSchema
+import com.asyncapi.schemas.asyncapi.multiformat.JsonFormatSchema
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
@@ -63,11 +63,15 @@ abstract class JsonFormatSchemaTest {
                 ),
                 Arguments.of(
                     "/schemas/multiformat/json/schema+json/conditional-validation-if-else.schema.json",
-                    JsonFormatSchema(ConditionalValidationIfElse().jsonSchema())
+                    JsonFormatSchema(
+                        ConditionalValidationIfElse().jsonSchema()
+                    )
                 ),
                 Arguments.of(
                     "/schemas/multiformat/json/schema+json/draft-07-core-schema-meta-schema.json",
-                    JsonFormatSchema(Draft07CoreSchemaMetaSchemaTest().jsonSchema())
+                    JsonFormatSchema(
+                        Draft07CoreSchemaMetaSchemaTest().jsonSchema()
+                    )
                 ),
                 Arguments.of(
                     "/schemas/multiformat/json/schema+json/enumerated-values.schema.json",

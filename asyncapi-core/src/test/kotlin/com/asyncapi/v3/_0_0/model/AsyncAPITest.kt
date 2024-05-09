@@ -1,6 +1,6 @@
 package com.asyncapi.v3._0_0.model
 
-import com.asyncapi.schemas.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v3.SerDeTest
 import com.asyncapi.v3._0_0.model.channel.ChannelTest
 import com.asyncapi.v3._0_0.model.channel.ChannelTestWithReference

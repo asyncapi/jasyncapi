@@ -7,7 +7,7 @@ import com.asyncapi.bindings.http.v0._1_0.operation.HTTPOperationBinding;
 import com.asyncapi.bindings.http.v0._1_0.operation.HTTPOperationMethod;
 import com.asyncapi.bindings.http.v0._1_0.operation.HTTPOperationType;
 import com.asyncapi.bindings.http.v0._1_0.server.HTTPServerBinding;
-import com.asyncapi.schemas.AsyncAPISchema;
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema;
 import com.asyncapi.schemas.Type;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;

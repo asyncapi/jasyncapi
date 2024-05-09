@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v2._0_0
 
-import com.asyncapi.schemas.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v2._0_0.model.channel.ChannelItem
 import com.asyncapi.v2._0_0.model.channel.Parameter
 import com.asyncapi.v2._0_0.model.channel.message.CorrelationId
@@ -11,15 +11,15 @@ import com.asyncapi.v2._0_0.model.info.Info
 import com.asyncapi.v2._0_0.model.info.License
 import com.asyncapi.v2._0_0.model.server.Server
 import com.asyncapi.v2._0_0.model.server.ServerVariable
-import com.asyncapi.schemas.AsyncAPISchema
-import com.asyncapi.schemas.security.v2.ApiKeySecurityScheme
-import com.asyncapi.schemas.security.v2.OpenIdConnectSecurityScheme
-import com.asyncapi.schemas.security.v2.oauth2.OAuth2SecurityScheme
-import com.asyncapi.schemas.security.v2.oauth2.OAuthFlows
-import com.asyncapi.schemas.security.v2.oauth2.flow.AuthorizationCodeOAuthFlow
-import com.asyncapi.schemas.security.v2.oauth2.flow.ClientCredentialsOAuthFlow
-import com.asyncapi.schemas.security.v2.oauth2.flow.ImplicitOAuthFlow
-import com.asyncapi.schemas.security.v2.oauth2.flow.PasswordOAuthFlow
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.security.v2.ApiKeySecurityScheme
+import com.asyncapi.schemas.asyncapi.security.v2.OpenIdConnectSecurityScheme
+import com.asyncapi.schemas.asyncapi.security.v2.oauth2.OAuth2SecurityScheme
+import com.asyncapi.schemas.asyncapi.security.v2.oauth2.OAuthFlows
+import com.asyncapi.schemas.asyncapi.security.v2.oauth2.flow.AuthorizationCodeOAuthFlow
+import com.asyncapi.schemas.asyncapi.security.v2.oauth2.flow.ClientCredentialsOAuthFlow
+import com.asyncapi.schemas.asyncapi.security.v2.oauth2.flow.ImplicitOAuthFlow
+import com.asyncapi.schemas.asyncapi.security.v2.oauth2.flow.PasswordOAuthFlow
 import java.math.BigDecimal
 
 class CorrelationId: AbstractExampleValidationTest() {
@@ -71,7 +71,7 @@ class CorrelationId: AbstractExampleValidationTest() {
                 Pair("smartylighting/streetlights/1/0/event/{streetlightId}/lighting/measured", ChannelItem.builder()
                         .parameters(mapOf(
                                 Pair("streetlightId",
-                                    Reference("#/components/parameters/streetlightId")
+                                        Reference("#/components/parameters/streetlightId")
                                 )
                         ))
                         .publish(Operation.builder()
@@ -85,7 +85,7 @@ class CorrelationId: AbstractExampleValidationTest() {
                 Pair("smartylighting/streetlights/1/0/action/{streetlightId}/dim", ChannelItem.builder()
                         .parameters(mapOf(
                                 Pair("streetlightId",
-                                    Reference("#/components/parameters/streetlightId")
+                                        Reference("#/components/parameters/streetlightId")
                                 )
                         ))
                         .subscribe(Operation.builder()
@@ -177,10 +177,11 @@ class CorrelationId: AbstractExampleValidationTest() {
                         ))
                 ))
                 .securitySchemes(mapOf(
-                        Pair("apiKey", ApiKeySecurityScheme(
-                            "Provide your API key as the user and leave the password empty.",
-                            ApiKeySecurityScheme.ApiKeyLocation.USER
-                        )
+                        Pair("apiKey",
+                                ApiKeySecurityScheme(
+                                        "Provide your API key as the user and leave the password empty.",
+                                        ApiKeySecurityScheme.ApiKeyLocation.USER
+                                )
                         ),
                         Pair("supportedOauthFlows",
                                 OAuth2SecurityScheme(
@@ -239,10 +240,10 @@ class CorrelationId: AbstractExampleValidationTest() {
                                 )
                         ),
                         Pair("openIdConnectWellKnown",
-                            OpenIdConnectSecurityScheme(
-                                null,
-                                "https://authserver.example/.well-known"
-                            )
+                                OpenIdConnectSecurityScheme(
+                                        null,
+                                        "https://authserver.example/.well-known"
+                                )
                         )
                 ))
                 .build()
