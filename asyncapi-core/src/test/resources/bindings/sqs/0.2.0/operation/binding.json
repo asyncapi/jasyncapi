@@ -1,0 +1,34 @@
+{
+  "queues": [
+    {
+      "name": "myQueue",
+      "fifoQueue": true,
+      "deduplicationScope": "messageGroup",
+      "fifoThroughputLimit": "perMessageGroupId",
+      "deliveryDelay": 10,
+      "redrivePolicy": {
+        "deadLetterQueue": {
+          "name": "myQueue_error"
+        },
+        "maxReceiveCount": 15
+      },
+      "policy": {
+        "statements": [
+          {
+            "effect": "Deny",
+            "principal": "arn:aws:iam::123456789012:user/dec.kolakowski",
+            "action": [
+              "sqs:SendMessage",
+              "sqs:ReceiveMessage"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "myQueue_error",
+      "deliveryDelay": 10
+    }
+  ],
+  "bindingVersion": "0.2.0"
+}

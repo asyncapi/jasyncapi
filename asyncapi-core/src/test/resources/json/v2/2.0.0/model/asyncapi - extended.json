@@ -103,7 +103,7 @@
           "msgVpn" : "solace.private.net"
         },
         "sqs" : {
-          "bindingVersion" : "0.1.0"
+          "bindingVersion" : "0.2.0"
         },
         "stomp" : {
           "bindingVersion" : "0.1.0"
@@ -238,7 +238,39 @@
             } ]
           },
           "sqs" : {
-            "bindingVersion" : "0.1.0"
+            "queues" : [ {
+              "name" : "myQueue",
+              "fifoQueue" : true,
+              "deduplicationScope" : "messageGroup",
+              "fifoThroughputLimit" : "perMessageGroupId",
+              "deliveryDelay" : 10,
+              "visibilityTimeout" : 30,
+              "receiveMessageWaitTime" : 0,
+              "messageRetentionPeriod" : 345600,
+              "redrivePolicy" : {
+                "deadLetterQueue" : {
+                  "name" : "myQueue_error"
+                },
+                "maxReceiveCount" : 15
+              },
+              "policy" : {
+                "statements" : [ {
+                  "effect" : "Deny",
+                  "principal" : "arn:aws:iam::123456789012:user/dec.kolakowski",
+                  "action" : [ "sqs:SendMessage", "sqs:ReceiveMessage" ]
+                } ]
+              }
+            }, {
+              "name" : "myQueue_error",
+              "fifoQueue" : false,
+              "deduplicationScope" : "queue",
+              "fifoThroughputLimit" : "perQueue",
+              "deliveryDelay" : 10,
+              "visibilityTimeout" : 30,
+              "receiveMessageWaitTime" : 0,
+              "messageRetentionPeriod" : 345600
+            } ],
+            "bindingVersion" : "0.2.0"
           },
           "stomp" : {
             "bindingVersion" : "0.1.0"
@@ -370,7 +402,39 @@
               } ]
             },
             "sqs" : {
-              "bindingVersion" : "0.1.0"
+              "queues" : [ {
+                "name" : "myQueue",
+                "fifoQueue" : true,
+                "deduplicationScope" : "messageGroup",
+                "fifoThroughputLimit" : "perMessageGroupId",
+                "deliveryDelay" : 10,
+                "visibilityTimeout" : 30,
+                "receiveMessageWaitTime" : 0,
+                "messageRetentionPeriod" : 345600,
+                "redrivePolicy" : {
+                  "deadLetterQueue" : {
+                    "name" : "myQueue_error"
+                  },
+                  "maxReceiveCount" : 15
+                },
+                "policy" : {
+                  "statements" : [ {
+                    "effect" : "Deny",
+                    "principal" : "arn:aws:iam::123456789012:user/dec.kolakowski",
+                    "action" : [ "sqs:SendMessage", "sqs:ReceiveMessage" ]
+                  } ]
+                }
+              }, {
+                "name" : "myQueue_error",
+                "fifoQueue" : false,
+                "deduplicationScope" : "queue",
+                "fifoThroughputLimit" : "perQueue",
+                "deliveryDelay" : 10,
+                "visibilityTimeout" : 30,
+                "receiveMessageWaitTime" : 0,
+                "messageRetentionPeriod" : 345600
+              } ],
+              "bindingVersion" : "0.2.0"
             },
             "stomp" : {
               "bindingVersion" : "0.1.0"
@@ -505,7 +569,39 @@
             } ]
           },
           "sqs" : {
-            "bindingVersion" : "0.1.0"
+            "queues" : [ {
+              "name" : "myQueue",
+              "fifoQueue" : true,
+              "deduplicationScope" : "messageGroup",
+              "fifoThroughputLimit" : "perMessageGroupId",
+              "deliveryDelay" : 10,
+              "visibilityTimeout" : 30,
+              "receiveMessageWaitTime" : 0,
+              "messageRetentionPeriod" : 345600,
+              "redrivePolicy" : {
+                "deadLetterQueue" : {
+                  "name" : "myQueue_error"
+                },
+                "maxReceiveCount" : 15
+              },
+              "policy" : {
+                "statements" : [ {
+                  "effect" : "Deny",
+                  "principal" : "arn:aws:iam::123456789012:user/dec.kolakowski",
+                  "action" : [ "sqs:SendMessage", "sqs:ReceiveMessage" ]
+                } ]
+              }
+            }, {
+              "name" : "myQueue_error",
+              "fifoQueue" : false,
+              "deduplicationScope" : "queue",
+              "fifoThroughputLimit" : "perQueue",
+              "deliveryDelay" : 10,
+              "visibilityTimeout" : 30,
+              "receiveMessageWaitTime" : 0,
+              "messageRetentionPeriod" : 345600
+            } ],
+            "bindingVersion" : "0.2.0"
           },
           "stomp" : {
             "bindingVersion" : "0.1.0"
@@ -637,7 +733,39 @@
               } ]
             },
             "sqs" : {
-              "bindingVersion" : "0.1.0"
+              "queues" : [ {
+                "name" : "myQueue",
+                "fifoQueue" : true,
+                "deduplicationScope" : "messageGroup",
+                "fifoThroughputLimit" : "perMessageGroupId",
+                "deliveryDelay" : 10,
+                "visibilityTimeout" : 30,
+                "receiveMessageWaitTime" : 0,
+                "messageRetentionPeriod" : 345600,
+                "redrivePolicy" : {
+                  "deadLetterQueue" : {
+                    "name" : "myQueue_error"
+                  },
+                  "maxReceiveCount" : 15
+                },
+                "policy" : {
+                  "statements" : [ {
+                    "effect" : "Deny",
+                    "principal" : "arn:aws:iam::123456789012:user/dec.kolakowski",
+                    "action" : [ "sqs:SendMessage", "sqs:ReceiveMessage" ]
+                  } ]
+                }
+              }, {
+                "name" : "myQueue_error",
+                "fifoQueue" : false,
+                "deduplicationScope" : "queue",
+                "fifoThroughputLimit" : "perQueue",
+                "deliveryDelay" : 10,
+                "visibilityTimeout" : 30,
+                "receiveMessageWaitTime" : 0,
+                "messageRetentionPeriod" : 345600
+              } ],
+              "bindingVersion" : "0.2.0"
             },
             "stomp" : {
               "bindingVersion" : "0.1.0"
@@ -779,7 +907,7 @@
               "bindingVersion" : "0.3.0"
             },
             "sqs" : {
-              "bindingVersion" : "0.1.0"
+              "bindingVersion" : "0.2.0"
             },
             "stomp" : {
               "bindingVersion" : "0.1.0"
@@ -925,7 +1053,44 @@
           "bindingVersion" : "0.3.0"
         },
         "sqs" : {
-          "bindingVersion" : "0.1.0"
+          "queue" : {
+            "name" : "myQueue",
+            "fifoQueue" : true,
+            "deduplicationScope" : "messageGroup",
+            "fifoThroughputLimit" : "perMessageGroupId",
+            "deliveryDelay" : 15,
+            "visibilityTimeout" : 60,
+            "receiveMessageWaitTime" : 0,
+            "messageRetentionPeriod" : 86400,
+            "redrivePolicy" : {
+              "deadLetterQueue" : {
+                "arn" : "arn:aws:SQS:eu-west-1:0000000:123456789"
+              },
+              "maxReceiveCount" : 15
+            },
+            "policy" : {
+              "statements" : [ {
+                "effect" : "Deny",
+                "principal" : "arn:aws:iam::123456789012:user/dec.kolakowski",
+                "action" : [ "sqs:SendMessage", "sqs:ReceiveMessage" ]
+              } ]
+            },
+            "tags" : {
+              "owner" : "AsyncAPI.NET",
+              "platform" : "AsyncAPIOrg"
+            }
+          },
+          "deadLetterQueue" : {
+            "name" : "myQueue_error",
+            "fifoQueue" : false,
+            "deduplicationScope" : "queue",
+            "fifoThroughputLimit" : "perQueue",
+            "deliveryDelay" : 0,
+            "visibilityTimeout" : 0,
+            "receiveMessageWaitTime" : 0,
+            "messageRetentionPeriod" : 604800
+          },
+          "bindingVersion" : "0.2.0"
         },
         "stomp" : {
           "bindingVersion" : "0.1.0"
@@ -1118,7 +1283,7 @@
             "bindingVersion" : "0.3.0"
           },
           "sqs" : {
-            "bindingVersion" : "0.1.0"
+            "bindingVersion" : "0.2.0"
           },
           "stomp" : {
             "bindingVersion" : "0.1.0"
@@ -1381,7 +1546,39 @@
             } ]
           },
           "sqs" : {
-            "bindingVersion" : "0.1.0"
+            "queues" : [ {
+              "name" : "myQueue",
+              "fifoQueue" : true,
+              "deduplicationScope" : "messageGroup",
+              "fifoThroughputLimit" : "perMessageGroupId",
+              "deliveryDelay" : 10,
+              "visibilityTimeout" : 30,
+              "receiveMessageWaitTime" : 0,
+              "messageRetentionPeriod" : 345600,
+              "redrivePolicy" : {
+                "deadLetterQueue" : {
+                  "name" : "myQueue_error"
+                },
+                "maxReceiveCount" : 15
+              },
+              "policy" : {
+                "statements" : [ {
+                  "effect" : "Deny",
+                  "principal" : "arn:aws:iam::123456789012:user/dec.kolakowski",
+                  "action" : [ "sqs:SendMessage", "sqs:ReceiveMessage" ]
+                } ]
+              }
+            }, {
+              "name" : "myQueue_error",
+              "fifoQueue" : false,
+              "deduplicationScope" : "queue",
+              "fifoThroughputLimit" : "perQueue",
+              "deliveryDelay" : 10,
+              "visibilityTimeout" : 30,
+              "receiveMessageWaitTime" : 0,
+              "messageRetentionPeriod" : 345600
+            } ],
+            "bindingVersion" : "0.2.0"
           },
           "stomp" : {
             "bindingVersion" : "0.1.0"
@@ -1514,7 +1711,7 @@
             "bindingVersion" : "0.3.0"
           },
           "sqs" : {
-            "bindingVersion" : "0.1.0"
+            "bindingVersion" : "0.2.0"
           },
           "stomp" : {
             "bindingVersion" : "0.1.0"
@@ -1606,7 +1803,7 @@
         "msgVpn" : "solace.private.net"
       },
       "sqs" : {
-        "bindingVersion" : "0.1.0"
+        "bindingVersion" : "0.2.0"
       },
       "stomp" : {
         "bindingVersion" : "0.1.0"
@@ -1724,7 +1921,44 @@
         "bindingVersion" : "0.3.0"
       },
       "sqs" : {
-        "bindingVersion" : "0.1.0"
+        "queue" : {
+          "name" : "myQueue",
+          "fifoQueue" : true,
+          "deduplicationScope" : "messageGroup",
+          "fifoThroughputLimit" : "perMessageGroupId",
+          "deliveryDelay" : 15,
+          "visibilityTimeout" : 60,
+          "receiveMessageWaitTime" : 0,
+          "messageRetentionPeriod" : 86400,
+          "redrivePolicy" : {
+            "deadLetterQueue" : {
+              "arn" : "arn:aws:SQS:eu-west-1:0000000:123456789"
+            },
+            "maxReceiveCount" : 15
+          },
+          "policy" : {
+            "statements" : [ {
+              "effect" : "Deny",
+              "principal" : "arn:aws:iam::123456789012:user/dec.kolakowski",
+              "action" : [ "sqs:SendMessage", "sqs:ReceiveMessage" ]
+            } ]
+          },
+          "tags" : {
+            "owner" : "AsyncAPI.NET",
+            "platform" : "AsyncAPIOrg"
+          }
+        },
+        "deadLetterQueue" : {
+          "name" : "myQueue_error",
+          "fifoQueue" : false,
+          "deduplicationScope" : "queue",
+          "fifoThroughputLimit" : "perQueue",
+          "deliveryDelay" : 0,
+          "visibilityTimeout" : 0,
+          "receiveMessageWaitTime" : 0,
+          "messageRetentionPeriod" : 604800
+        },
+        "bindingVersion" : "0.2.0"
       },
       "stomp" : {
         "bindingVersion" : "0.1.0"
@@ -1857,7 +2091,39 @@
         } ]
       },
       "sqs" : {
-        "bindingVersion" : "0.1.0"
+        "queues" : [ {
+          "name" : "myQueue",
+          "fifoQueue" : true,
+          "deduplicationScope" : "messageGroup",
+          "fifoThroughputLimit" : "perMessageGroupId",
+          "deliveryDelay" : 10,
+          "visibilityTimeout" : 30,
+          "receiveMessageWaitTime" : 0,
+          "messageRetentionPeriod" : 345600,
+          "redrivePolicy" : {
+            "deadLetterQueue" : {
+              "name" : "myQueue_error"
+            },
+            "maxReceiveCount" : 15
+          },
+          "policy" : {
+            "statements" : [ {
+              "effect" : "Deny",
+              "principal" : "arn:aws:iam::123456789012:user/dec.kolakowski",
+              "action" : [ "sqs:SendMessage", "sqs:ReceiveMessage" ]
+            } ]
+          }
+        }, {
+          "name" : "myQueue_error",
+          "fifoQueue" : false,
+          "deduplicationScope" : "queue",
+          "fifoThroughputLimit" : "perQueue",
+          "deliveryDelay" : 10,
+          "visibilityTimeout" : 30,
+          "receiveMessageWaitTime" : 0,
+          "messageRetentionPeriod" : 345600
+        } ],
+        "bindingVersion" : "0.2.0"
       },
       "stomp" : {
         "bindingVersion" : "0.1.0"
@@ -1952,7 +2218,7 @@
         "bindingVersion" : "0.3.0"
       },
       "sqs" : {
-        "bindingVersion" : "0.1.0"
+        "bindingVersion" : "0.2.0"
       },
       "stomp" : {
         "bindingVersion" : "0.1.0"

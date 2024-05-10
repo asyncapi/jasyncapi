@@ -22,7 +22,8 @@ import com.asyncapi.bindings.pulsar.v0._1_0.message.PulsarMessageBinding
 import com.asyncapi.bindings.redis.v0._1_0.message.RedisMessageBinding
 import com.asyncapi.bindings.sns.v0._1_0.message.SNSMessageBinding
 import com.asyncapi.bindings.solace.v0._3_0.message.SolaceMessageBinding
-import com.asyncapi.bindings.sqs.v0._1_0.message.SQSMessageBinding
+import com.asyncapi.bindings.sqs.SQSV0_2_0Test
+import com.asyncapi.bindings.sqs.v0._2_0.message.SQSMessageBinding
 import com.asyncapi.bindings.stomp.v0._1_0.message.STOMPMessageBinding
 import com.asyncapi.bindings.websockets.v0._1_0.message.WebSocketsMessageBinding
 
@@ -132,7 +133,7 @@ class MessageTest: SerDeTest<Message>() {
                     Pair("redis", RedisMessageBinding()),
                     Pair("sns", SNSMessageBinding()),
                     Pair("solace", SolaceMessageBinding()),
-                    Pair("sqs", SQSMessageBinding()),
+                    Pair("sqs", SQSV0_2_0Test.messageBinding()),
                     Pair("stomp", STOMPMessageBinding()),
                     Pair("ws", WebSocketsMessageBinding())
             )

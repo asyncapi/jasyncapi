@@ -32,9 +32,9 @@ public class SQSV0_1_0Test {
     class ChannelTest extends BindingTest<SQSChannelBinding> {{
         super.binding                          = channelBinding();
         super.bindingTypeClass                 = SQSChannelBinding.class;
-        super.pathToBindingJson                = "/bindings/default implementation/0.1.0/channel/binding.json";
-        super.pathToExtendedBindingJson        = "/bindings/default implementation/0.1.0/channel/binding - extended.json";
-        super.pathToWronglyExtendedBindingJson = "/bindings/default implementation/0.1.0/channel/binding - wrongly extended.json";
+        super.pathToBindingJson                = "/bindings/sqs/0.1.0/channel/binding.json";
+        super.pathToExtendedBindingJson        = "/bindings/sqs/0.1.0/channel/binding - extended.json";
+        super.pathToWronglyExtendedBindingJson = "/bindings/sqs/0.1.0/channel/binding - wrongly extended.json";
     }}
 
     @Nested
@@ -42,9 +42,9 @@ public class SQSV0_1_0Test {
     class Message extends BindingTest<SQSMessageBinding> {{
         super.binding                          = messageBinding();
         super.bindingTypeClass                 = SQSMessageBinding.class;
-        super.pathToBindingJson                = "/bindings/default implementation/0.1.0/message/binding.json";
-        super.pathToExtendedBindingJson        = "/bindings/default implementation/0.1.0/message/binding - extended.json";
-        super.pathToWronglyExtendedBindingJson = "/bindings/default implementation/0.1.0/message/binding - wrongly extended.json";
+        super.pathToBindingJson                = "/bindings/sqs/0.1.0/message/binding.json";
+        super.pathToExtendedBindingJson        = "/bindings/sqs/0.1.0/message/binding - extended.json";
+        super.pathToWronglyExtendedBindingJson = "/bindings/sqs/0.1.0/message/binding - wrongly extended.json";
     }}
 
     @Nested
@@ -52,9 +52,9 @@ public class SQSV0_1_0Test {
     class Operation extends BindingTest<SQSOperationBinding> {{
         super.binding                          = operationBinding();
         super.bindingTypeClass                 = SQSOperationBinding.class;
-        super.pathToBindingJson                = "/bindings/default implementation/0.1.0/operation/binding.json";
-        super.pathToExtendedBindingJson        = "/bindings/default implementation/0.1.0/operation/binding - extended.json";
-        super.pathToWronglyExtendedBindingJson = "/bindings/default implementation/0.1.0/operation/binding - wrongly extended.json";
+        super.pathToBindingJson                = "/bindings/sqs/0.1.0/operation/binding.json";
+        super.pathToExtendedBindingJson        = "/bindings/sqs/0.1.0/operation/binding - extended.json";
+        super.pathToWronglyExtendedBindingJson = "/bindings/sqs/0.1.0/operation/binding - wrongly extended.json";
     }}
 
     @Nested
@@ -62,9 +62,9 @@ public class SQSV0_1_0Test {
     class Server extends BindingTest<SQSServerBinding> {{
         super.binding                          = serverBinding();
         super.bindingTypeClass                 = SQSServerBinding.class;
-        super.pathToBindingJson                = "/bindings/default implementation/0.1.0/server/binding.json";
-        super.pathToExtendedBindingJson        = "/bindings/default implementation/0.1.0/server/binding - extended.json";
-        super.pathToWronglyExtendedBindingJson = "/bindings/default implementation/0.1.0/server/binding - wrongly extended.json";
+        super.pathToBindingJson                = "/bindings/sqs/0.1.0/server/binding.json";
+        super.pathToExtendedBindingJson        = "/bindings/sqs/0.1.0/server/binding - extended.json";
+        super.pathToWronglyExtendedBindingJson = "/bindings/sqs/0.1.0/server/binding - wrongly extended.json";
     }}
 
 }
