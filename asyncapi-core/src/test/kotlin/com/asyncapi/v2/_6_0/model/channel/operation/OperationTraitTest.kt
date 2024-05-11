@@ -9,7 +9,7 @@ import com.asyncapi.bindings.http.HTTPV0_3_0Test
 import com.asyncapi.bindings.kafka.KafkaV0_4_0Test
 import com.asyncapi.bindings.mqtt.MQTTV0_1_0Test
 import com.asyncapi.bindings.nats.NATSV0_1_0Test
-import com.asyncapi.bindings.solace.SolaceV0_3_0Test
+import com.asyncapi.bindings.solace.SolaceV0_4_0Test
 
 class OperationTraitTest: SerDeTest<OperationTrait>() {
 
@@ -75,7 +75,7 @@ class OperationTraitTest: SerDeTest<OperationTrait>() {
                         Pair("sns",
                             Reference("#/components/operationBindings/sns")
                         ),
-                        Pair("solace", SolaceV0_3_0Test.operationBinding()),
+                        Pair("solace", SolaceV0_4_0Test.operationBinding()),
                         Pair("sqs",
                             Reference("#/components/operationBindings/sqs")
                         ),

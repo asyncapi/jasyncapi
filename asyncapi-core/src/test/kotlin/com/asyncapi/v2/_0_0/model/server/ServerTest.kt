@@ -17,9 +17,8 @@ import com.asyncapi.bindings.nats.v0._1_0.server.NATSServerBinding
 import com.asyncapi.bindings.pulsar.v0._1_0.server.PulsarServerBinding
 import com.asyncapi.bindings.redis.v0._1_0.server.RedisServerBinding
 import com.asyncapi.bindings.sns.v0._1_0.server.SNSServerBinding
-import com.asyncapi.bindings.solace.v0._3_0.server.SolaceServerBinding
+import com.asyncapi.bindings.solace.v0._4_0.server.SolaceServerBinding
 import com.asyncapi.bindings.sqs.SQSV0_2_0Test
-import com.asyncapi.bindings.sqs.v0._2_0.server.SQSServerBinding
 import com.asyncapi.bindings.stomp.v0._1_0.server.STOMPServerBinding
 import com.asyncapi.bindings.websockets.v0._1_0.server.WebSocketsServerBinding
 
@@ -112,11 +111,10 @@ class ServerTest: SerDeTest<Server>() {
                     ),
                     Pair("redis", RedisServerBinding()),
                     Pair("sns", SNSServerBinding()),
-                    Pair(
-                            "solace",
-                            SolaceServerBinding.builder()
-                                    .msgVpn("solace.private.net")
-                                    .build()
+                    Pair("solace", SolaceServerBinding.builder()
+                            .msgVpn("ProdVPN")
+                            .clientName("transactions-broker")
+                            .build()
                     ),
                     Pair("sqs", SQSV0_2_0Test.serverBinding()),
                     Pair("stomp", STOMPServerBinding()),

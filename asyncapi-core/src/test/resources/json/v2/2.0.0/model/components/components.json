@@ -376,31 +376,21 @@
             {
               "destinationType": "queue",
               "queue": {
-                "name": "CreatedHREvents",
+                "name": "sampleQueue",
                 "topicSubscriptions": [
-                  "person/*/created"
+                  "samples/*"
                 ],
-                "accessType": "exclusive",
-                "maxMsgSpoolSize": "1,500",
-                "maxTtl": "60"
+                "accessType": "nonexclusive"
               }
             },
             {
-              "destinationType": "queue",
-              "queue": {
-                "name": "UpdatedHREvents",
-                "topicSubscriptions": [
-                  "person/*/updated"
-                ]
-              },
-              "topic": {
-                "topicSubscriptions": [
-                  "person/*/updated"
-                ]
-              }
+              "destinationType": "topic",
+              "topicSubscriptions": [
+                "samples/*"
+              ]
             }
           ],
-          "bindingVersion": "0.3.0"
+          "bindingVersion": "0.4.0"
         },
         "sqs": {
           "queues": [
@@ -612,8 +602,9 @@
     "redis": {},
     "sns": {},
     "solace": {
-      "msgVpn": "solace.private.net",
-      "bindingVersion": "0.3.0"
+      "clientName": "transactions-broker",
+      "msgVpn": "ProdVPN",
+      "bindingVersion": "0.4.0"
     },
     "sqs": {},
     "stomp": {},
@@ -848,32 +839,25 @@
     "redis" : { },
     "sns" : { },
     "solace" : {
-      "destinations" : [ {
-        "destinationType" : "queue",
-        "deliveryMode" : "persistent",
-        "queue" : {
-          "name" : "CreatedHREvents",
-          "topicSubscriptions" : [ "person/*/created" ],
-          "accessType" : "exclusive",
-          "maxMsgSpoolSize" : "1,500",
-          "maxTtl" : "60"
+      "destinations": [
+        {
+          "destinationType": "queue",
+          "queue": {
+            "name": "sampleQueue",
+            "topicSubscriptions": [
+              "samples/*"
+            ],
+            "accessType": "nonexclusive"
+          }
         },
-        "topic" : null
-      }, {
-        "destinationType" : "queue",
-        "deliveryMode" : "persistent",
-        "queue" : {
-          "name" : "UpdatedHREvents",
-          "topicSubscriptions" : [ "person/*/updated" ],
-          "accessType" : null,
-          "maxMsgSpoolSize" : null,
-          "maxTtl" : null
-        },
-        "topic" : {
-          "topicSubscriptions" : [ "person/*/updated" ]
+        {
+          "destinationType": "topic",
+          "topicSubscriptions": [
+            "samples/*"
+          ]
         }
-      } ],
-      "bindingVersion" : "0.3.0"
+      ],
+      "bindingVersion": "0.4.0"
     },
     "sqs" : {
       "queues": [

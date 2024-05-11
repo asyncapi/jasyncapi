@@ -1,6 +1,7 @@
 {
-  "bindingVersion" : "0.3.0",
-  "msgVpn" : "solace.private.net",
+  "bindingVersion" : "0.4.0",
+  "msgVpn" : "ProdVPN",
+  "clientName" : "transactions-broker",
   "x-number" : 0,
   "x-string" : "",
   "x-object" : {

@@ -1,4 +1,4 @@
 {
-  "msgVpn": "solace.private.net",
-  "bindingVersion" : "without version"
+  "clientName": "transactions-broker",
+  "msgVpn": "ProdVPN"
 }

@@ -74,7 +74,7 @@ public class SolaceOperationQueue {
 
         @JsonProperty("exclusive")
         EXCLUSIVE,
-        @JsonProperty("non-exclusive")
+        @JsonProperty("nonexclusive")
         NON_EXCLUSIVE
 
     }

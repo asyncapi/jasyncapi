@@ -79,8 +79,9 @@
       "bindingVersion" : "0.1.0"
     },
     "solace" : {
-      "bindingVersion" : "0.3.0",
-      "msgVpn" : "solace.private.net"
+      "bindingVersion" : "0.4.0",
+      "msgVpn" : "ProdVPN",
+      "clientName" : "transactions-broker"
     },
     "sqs" : {
       "bindingVersion" : "0.2.0"

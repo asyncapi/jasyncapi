@@ -7,24 +7,27 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * This class MUST NOT contain any properties. Its name is reserved for future use.
- * <p>
  * Describes Solace message binding.
  *
- * @version 0.3.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/solace#message-binding-object">Solace message binding</a>
+ * @see <a href="https://solace.com">Solace</a>
  * @author Pavel Bodiachevskii
+ * @version 0.2.0
+ * @since 1.0.0-RC2
  */
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
         include = JsonTypeInfo.As.EXISTING_PROPERTY,
-        defaultImpl = com.asyncapi.bindings.solace.v0._3_0.message.SolaceMessageBinding.class,
+        defaultImpl = com.asyncapi.bindings.solace.v0._4_0.message.SolaceMessageBinding.class,
         property = "bindingVersion",
         visible = true
 )
 @JsonSubTypes({
-        @JsonSubTypes.Type(value = com.asyncapi.bindings.solace.v0._3_0.message.SolaceMessageBinding.class, names = {
-                "0.3.0",
+        @JsonSubTypes.Type(value = com.asyncapi.bindings.solace.v0._1_0.message.SolaceMessageBinding.class, names = "0.1.0"),
+        @JsonSubTypes.Type(value = com.asyncapi.bindings.solace.v0._2_0.message.SolaceMessageBinding.class, names = "0.2.0"),
+        @JsonSubTypes.Type(value = com.asyncapi.bindings.solace.v0._3_0.message.SolaceMessageBinding.class, names = "0.3.0"),
+        @JsonSubTypes.Type(value = com.asyncapi.bindings.solace.v0._4_0.message.SolaceMessageBinding.class, names = {
+                "0.4.0",
                 "latest"
         }),
 })

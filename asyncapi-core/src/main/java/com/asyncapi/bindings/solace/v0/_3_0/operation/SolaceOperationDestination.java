@@ -1,7 +1,6 @@
 package com.asyncapi.bindings.solace.v0._3_0.operation;
 
 import com.asyncapi.bindings.solace.v0._3_0.operation.queue.SolaceOperationQueue;
-import com.asyncapi.bindings.solace.v0._3_0.operation.topic.SolaceOperationTopic;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
@@ -10,6 +9,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 /**
  * Describes Solace destination.
@@ -55,12 +56,12 @@ public class SolaceOperationDestination {
     private SolaceOperationQueue queue;
 
     /**
-     * Solace topic destination details.
+     * The list of topics that the client subscribes to.
      */
     @Nullable
-    @JsonProperty("topic")
-    @JsonPropertyDescription("Solace topic destination details.")
-    private SolaceOperationTopic topic;
+    @JsonProperty("topicSubscriptions")
+    @JsonPropertyDescription("The list of topics that the client subscribes to.")
+    private List<String> topicSubscriptions;
 
     public enum Type {
 

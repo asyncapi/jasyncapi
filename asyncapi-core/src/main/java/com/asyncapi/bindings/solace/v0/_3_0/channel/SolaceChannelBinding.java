@@ -16,7 +16,6 @@ import org.jetbrains.annotations.Nullable;
  * @author Pavel Bodiachevskii
  */
 @Data
-@Builder
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class SolaceChannelBinding extends com.asyncapi.bindings.solace.SolaceChannelBinding {

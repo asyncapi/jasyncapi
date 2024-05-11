@@ -98,27 +98,20 @@
       "$ref" : "#/components/operationBindings/sns"
     },
     "solace" : {
-      "bindingVersion" : "0.3.0",
+      "dmqEligible" : false,
+      "bindingVersion" : "0.4.0",
       "destinations" : [ {
         "destinationType" : "queue",
         "deliveryMode" : "persistent",
         "queue" : {
-          "name" : "CreatedHREvents",
-          "topicSubscriptions" : [ "person/*/created" ],
-          "accessType" : "exclusive",
-          "maxMsgSpoolSize" : "1,500",
-          "maxTtl" : "60"
+          "name" : "sampleQueue",
+          "topicSubscriptions" : [ "samples/*" ],
+          "accessType" : "nonexclusive"
         }
       }, {
-        "destinationType" : "queue",
+        "destinationType" : "topic",
         "deliveryMode" : "persistent",
-        "queue" : {
-          "name" : "UpdatedHREvents",
-          "topicSubscriptions" : [ "person/*/updated" ]
-        },
-        "topic" : {
-          "topicSubscriptions" : [ "person/*/updated" ]
-        }
+        "topicSubscriptions" : [ "samples/*" ]
       } ]
     },
     "sqs" : {

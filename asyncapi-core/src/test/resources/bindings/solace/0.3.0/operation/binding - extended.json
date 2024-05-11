@@ -11,15 +11,9 @@
       "maxTtl" : "60"
     }
   }, {
-    "destinationType" : "queue",
+    "destinationType" : "topic",
     "deliveryMode" : "persistent",
-    "queue" : {
-      "name" : "UpdatedHREvents",
-      "topicSubscriptions" : [ "person/*/updated" ]
-    },
-    "topic" : {
-      "topicSubscriptions" : [ "person/*/updated" ]
-    }
+    "topicSubscriptions" : [ "person/*/updated" ]
   } ],
   "x-number" : 0,
   "x-string" : "",

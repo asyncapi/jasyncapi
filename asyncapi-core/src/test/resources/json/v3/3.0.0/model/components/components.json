@@ -123,8 +123,9 @@
         "redis" : { },
         "sns" : { },
         "solace" : {
-          "msgVpn" : "solace.private.net",
-          "bindingVersion" : "0.3.0"
+          "clientName": "transactions-broker",
+          "msgVpn": "ProdVPN",
+          "bindingVersion": "0.4.0"
         },
         "sqs" : { },
         "stomp" : { },
@@ -4297,31 +4298,21 @@
             {
               "destinationType": "queue",
               "queue": {
-                "name": "CreatedHREvents",
+                "name": "sampleQueue",
                 "topicSubscriptions": [
-                  "person/*/created"
+                  "samples/*"
                 ],
-                "accessType": "exclusive",
-                "maxMsgSpoolSize": "1,500",
-                "maxTtl": "60"
+                "accessType": "nonexclusive"
               }
             },
             {
-              "destinationType": "queue",
-              "queue": {
-                "name": "UpdatedHREvents",
-                "topicSubscriptions": [
-                  "person/*/updated"
-                ]
-              },
-              "topic": {
-                "topicSubscriptions": [
-                  "person/*/updated"
-                ]
-              }
+              "destinationType": "topic",
+              "topicSubscriptions": [
+                "samples/*"
+              ]
             }
           ],
-          "bindingVersion": "0.3.0"
+          "bindingVersion": "0.4.0"
         },
         "sqs": {
           "$ref": "#/components/operationBindings/sqs"
@@ -4460,31 +4451,21 @@
                 {
                   "destinationType": "queue",
                   "queue": {
-                    "name": "CreatedHREvents",
+                    "name": "sampleQueue",
                     "topicSubscriptions": [
-                      "person/*/created"
+                      "samples/*"
                     ],
-                    "accessType": "exclusive",
-                    "maxMsgSpoolSize": "1,500",
-                    "maxTtl": "60"
+                    "accessType": "nonexclusive"
                   }
                 },
                 {
-                  "destinationType": "queue",
-                  "queue": {
-                    "name": "UpdatedHREvents",
-                    "topicSubscriptions": [
-                      "person/*/updated"
-                    ]
-                  },
-                  "topic": {
-                    "topicSubscriptions": [
-                      "person/*/updated"
-                    ]
-                  }
+                  "destinationType": "topic",
+                  "topicSubscriptions": [
+                    "samples/*"
+                  ]
                 }
               ],
-              "bindingVersion": "0.3.0"
+              "bindingVersion": "0.4.0"
             },
             "sqs": {
               "$ref": "#/components/operationBindings/sqs"
@@ -4622,31 +4603,21 @@
                 {
                   "destinationType": "queue",
                   "queue": {
-                    "name": "CreatedHREvents",
+                    "name": "sampleQueue",
                     "topicSubscriptions": [
-                      "person/*/created"
+                      "samples/*"
                     ],
-                    "accessType": "exclusive",
-                    "maxMsgSpoolSize": "1,500",
-                    "maxTtl": "60"
+                    "accessType": "nonexclusive"
                   }
                 },
                 {
-                  "destinationType": "queue",
-                  "queue": {
-                    "name": "UpdatedHREvents",
-                    "topicSubscriptions": [
-                      "person/*/updated"
-                    ]
-                  },
-                  "topic": {
-                    "topicSubscriptions": [
-                      "person/*/updated"
-                    ]
-                  }
+                  "destinationType": "topic",
+                  "topicSubscriptions": [
+                    "samples/*"
+                  ]
                 }
               ],
-              "bindingVersion": "0.3.0"
+              "bindingVersion": "0.4.0"
             },
             "sqs": {
               "$ref": "#/components/operationBindings/sqs"
@@ -4822,31 +4793,21 @@
             {
               "destinationType": "queue",
               "queue": {
-                "name": "CreatedHREvents",
+                "name": "sampleQueue",
                 "topicSubscriptions": [
-                  "person/*/created"
+                  "samples/*"
                 ],
-                "accessType": "exclusive",
-                "maxMsgSpoolSize": "1,500",
-                "maxTtl": "60"
+                "accessType": "nonexclusive"
               }
             },
             {
-              "destinationType": "queue",
-              "queue": {
-                "name": "UpdatedHREvents",
-                "topicSubscriptions": [
-                  "person/*/updated"
-                ]
-              },
-              "topic": {
-                "topicSubscriptions": [
-                  "person/*/updated"
-                ]
-              }
+              "destinationType": "topic",
+              "topicSubscriptions": [
+                "samples/*"
+              ]
             }
           ],
-          "bindingVersion": "0.3.0"
+          "bindingVersion": "0.4.0"
         },
         "sqs": {
           "$ref": "#/components/operationBindings/sqs"
@@ -4985,31 +4946,21 @@
                 {
                   "destinationType": "queue",
                   "queue": {
-                    "name": "CreatedHREvents",
+                    "name": "sampleQueue",
                     "topicSubscriptions": [
-                      "person/*/created"
+                      "samples/*"
                     ],
-                    "accessType": "exclusive",
-                    "maxMsgSpoolSize": "1,500",
-                    "maxTtl": "60"
+                    "accessType": "nonexclusive"
                   }
                 },
                 {
-                  "destinationType": "queue",
-                  "queue": {
-                    "name": "UpdatedHREvents",
-                    "topicSubscriptions": [
-                      "person/*/updated"
-                    ]
-                  },
-                  "topic": {
-                    "topicSubscriptions": [
-                      "person/*/updated"
-                    ]
-                  }
+                  "destinationType": "topic",
+                  "topicSubscriptions": [
+                    "samples/*"
+                  ]
                 }
               ],
-              "bindingVersion": "0.3.0"
+              "bindingVersion": "0.4.0"
             },
             "sqs": {
               "$ref": "#/components/operationBindings/sqs"
@@ -5147,31 +5098,21 @@
                 {
                   "destinationType": "queue",
                   "queue": {
-                    "name": "CreatedHREvents",
+                    "name": "sampleQueue",
                     "topicSubscriptions": [
-                      "person/*/created"
+                      "samples/*"
                     ],
-                    "accessType": "exclusive",
-                    "maxMsgSpoolSize": "1,500",
-                    "maxTtl": "60"
+                    "accessType": "nonexclusive"
                   }
                 },
                 {
-                  "destinationType": "queue",
-                  "queue": {
-                    "name": "UpdatedHREvents",
-                    "topicSubscriptions": [
-                      "person/*/updated"
-                    ]
-                  },
-                  "topic": {
-                    "topicSubscriptions": [
-                      "person/*/updated"
-                    ]
-                  }
+                  "destinationType": "topic",
+                  "topicSubscriptions": [
+                    "samples/*"
+                  ]
                 }
               ],
-              "bindingVersion": "0.3.0"
+              "bindingVersion": "0.4.0"
             },
             "sqs": {
               "$ref": "#/components/operationBindings/sqs"
@@ -7314,31 +7255,21 @@
             {
               "destinationType": "queue",
               "queue": {
-                "name": "CreatedHREvents",
+                "name": "sampleQueue",
                 "topicSubscriptions": [
-                  "person/*/created"
+                  "samples/*"
                 ],
-                "accessType": "exclusive",
-                "maxMsgSpoolSize": "1,500",
-                "maxTtl": "60"
+                "accessType": "nonexclusive"
               }
             },
             {
-              "destinationType": "queue",
-              "queue": {
-                "name": "UpdatedHREvents",
-                "topicSubscriptions": [
-                  "person/*/updated"
-                ]
-              },
-              "topic": {
-                "topicSubscriptions": [
-                  "person/*/updated"
-                ]
-              }
+              "destinationType": "topic",
+              "topicSubscriptions": [
+                "samples/*"
+              ]
             }
           ],
-          "bindingVersion": "0.3.0"
+          "bindingVersion": "0.4.0"
         },
         "sqs": {
           "$ref": "#/components/operationBindings/sqs"
@@ -7476,31 +7407,21 @@
             {
               "destinationType": "queue",
               "queue": {
-                "name": "CreatedHREvents",
+                "name": "sampleQueue",
                 "topicSubscriptions": [
-                  "person/*/created"
+                  "samples/*"
                 ],
-                "accessType": "exclusive",
-                "maxMsgSpoolSize": "1,500",
-                "maxTtl": "60"
+                "accessType": "nonexclusive"
               }
             },
             {
-              "destinationType": "queue",
-              "queue": {
-                "name": "UpdatedHREvents",
-                "topicSubscriptions": [
-                  "person/*/updated"
-                ]
-              },
-              "topic": {
-                "topicSubscriptions": [
-                  "person/*/updated"
-                ]
-              }
+              "destinationType": "topic",
+              "topicSubscriptions": [
+                "samples/*"
+              ]
             }
           ],
-          "bindingVersion": "0.3.0"
+          "bindingVersion": "0.4.0"
         },
         "sqs": {
           "$ref": "#/components/operationBindings/sqs"
@@ -8010,8 +7931,9 @@
     "redis": {},
     "sns": {},
     "solace": {
-      "msgVpn": "solace.private.net",
-      "bindingVersion": "0.3.0"
+      "clientName": "transactions-broker",
+      "msgVpn": "ProdVPN",
+      "bindingVersion": "0.4.0"
     },
     "sqs": {},
     "stomp": {},
@@ -8266,31 +8188,21 @@
         {
           "destinationType": "queue",
           "queue": {
-            "name": "CreatedHREvents",
+            "name": "sampleQueue",
             "topicSubscriptions": [
-              "person/*/created"
+              "samples/*"
             ],
-            "accessType": "exclusive",
-            "maxMsgSpoolSize": "1,500",
-            "maxTtl": "60"
+            "accessType": "nonexclusive"
           }
         },
         {
-          "destinationType": "queue",
-          "queue": {
-            "name": "UpdatedHREvents",
-            "topicSubscriptions": [
-              "person/*/updated"
-            ]
-          },
-          "topic": {
-            "topicSubscriptions": [
-              "person/*/updated"
-            ]
-          }
+          "destinationType": "topic",
+          "topicSubscriptions": [
+            "samples/*"
+          ]
         }
       ],
-      "bindingVersion": "0.3.0"
+      "bindingVersion": "0.4.0"
     },
     "sqs": {
       "$ref": "#/components/operationBindings/sqs"

@@ -116,7 +116,7 @@
       "bindingVersion" : "0.1.0"
     },
     "solace" : {
-      "bindingVersion" : "0.3.0"
+      "bindingVersion" : "0.4.0"
     },
     "sqs" : {
       "bindingVersion" : "0.2.0"

@@ -6,7 +6,6 @@ import com.asyncapi.bindings.solace.v0._3_0.message.SolaceMessageBinding;
 import com.asyncapi.bindings.solace.v0._3_0.operation.SolaceOperationBinding;
 import com.asyncapi.bindings.solace.v0._3_0.operation.SolaceOperationDestination;
 import com.asyncapi.bindings.solace.v0._3_0.operation.queue.SolaceOperationQueue;
-import com.asyncapi.bindings.solace.v0._3_0.operation.topic.SolaceOperationTopic;
 import com.asyncapi.bindings.solace.v0._3_0.server.SolaceServerBinding;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -39,16 +38,8 @@ public class SolaceV0_3_0Test {
                                 )
                                 .build(),
                         SolaceOperationDestination.builder()
-                                .destinationType(SolaceOperationDestination.Type.QUEUE)
-                                .queue(SolaceOperationQueue.builder()
-                                        .name("UpdatedHREvents")
-                                        .topicSubscriptions(List.of("person/*/updated"))
-                                        .build()
-                                )
-                                .topic(SolaceOperationTopic.builder()
-                                        .topicSubscriptions(List.of("person/*/updated"))
-                                        .build()
-                                )
+                                .destinationType(SolaceOperationDestination.Type.TOPIC)
+                                .topicSubscriptions(List.of("person/*/updated"))
                                 .build()
                 ))
                 .build();

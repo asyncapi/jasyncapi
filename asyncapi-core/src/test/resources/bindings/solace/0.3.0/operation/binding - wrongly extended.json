@@ -13,18 +13,10 @@
       }
     },
     {
-      "destinationType": "queue",
-      "queue": {
-        "name": "UpdatedHREvents",
-        "topicSubscriptions": [
-          "person/*/updated"
-        ]
-      },
-      "topic": {
-        "topicSubscriptions": [
-          "person/*/updated"
-        ]
-      }
+      "destinationType": "topic",
+      "topicSubscriptions": [
+        "person/*/updated"
+      ]
     }
   ],
   "bindingVersion": "0.3.0",
