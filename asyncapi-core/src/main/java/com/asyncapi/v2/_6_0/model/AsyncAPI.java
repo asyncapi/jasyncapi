@@ -49,7 +49,7 @@ public class AsyncAPI extends ExtendableObject {
      */
     @NotNull
     @Builder.Default
-    private final String asyncapi = "2.6.0";
+    private String asyncapi = "2.6.0";
 
     /**
      * Identifier of the application the AsyncAPI document is defining.

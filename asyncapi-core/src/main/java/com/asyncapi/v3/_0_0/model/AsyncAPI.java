@@ -47,7 +47,7 @@ public class AsyncAPI extends ExtendableObject {
      */
     @NotNull
     @Builder.Default
-    private final String asyncapi = "3.0.0";
+    private String asyncapi = "3.0.0";
 
     /**
      * Identifier of the <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#definitionsApplication">application</a> the AsyncAPI document is defining.
