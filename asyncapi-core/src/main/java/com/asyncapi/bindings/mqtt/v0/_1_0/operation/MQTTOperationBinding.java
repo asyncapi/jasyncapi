@@ -11,9 +11,11 @@ import org.jetbrains.annotations.Nullable;
  * <p>
  * Contains information about the operation representation in MQTT.
  *
- * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/mqtt#operation-binding-object">MQTT operation binding</a>
+ * @see <a href="https://mqtt.org/mqtt-specification/">MQTT</a>
+ * @version 0.1.0
  * @author Pavel Bodiachevskii
+ * @since 1.0.0-RC2
  */
 @Data
 @Builder

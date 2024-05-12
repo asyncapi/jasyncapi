@@ -10,9 +10,11 @@ import org.jetbrains.annotations.Nullable;
  * <p>
  * Describes MQTT channel binding.
  *
- * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/mqtt#channel-binding-object">MQTT channel binding</a>
+ * @see <a href="https://mqtt.org/mqtt-specification/">MQTT</a>
+ * @version 0.1.0
  * @author Pavel Bodiachevskii
+ * @since 1.0.0-RC2
  */
 @Data
 @NoArgsConstructor
