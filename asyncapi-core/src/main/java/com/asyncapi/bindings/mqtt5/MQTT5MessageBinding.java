@@ -6,13 +6,12 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.EqualsAndHashCode;
 
 /**
- * This class MUST NOT contain any properties. Its name is reserved for future use.
- * <p>
  * Describes MQTT 5 message binding.
  *
- * @version 0.2.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/mqtt5#message-binding-object">MQTT 5 message binding</a>
+ * @see <a href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html">MQTT 5</a>
  * @author Pavel Bodiachevskii
+ * @since 1.0.0-RC2
  */
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
@@ -22,6 +21,7 @@ import lombok.EqualsAndHashCode;
         visible = true
 )
 @JsonSubTypes({
+        @JsonSubTypes.Type(value = com.asyncapi.bindings.mqtt5.v0._1_0.message.MQTT5MessageBinding.class, name = "0.1.0"),
         @JsonSubTypes.Type(value = com.asyncapi.bindings.mqtt5.v0._2_0.message.MQTT5MessageBinding.class, names = {
                 "0.2.0",
                 "latest"
