@@ -19,7 +19,7 @@ import com.asyncapi.bindings.mqtt5.v0._2_0.channel.MQTT5ChannelBinding
 import com.asyncapi.bindings.nats.v0._1_0.channel.NATSChannelBinding
 import com.asyncapi.bindings.pulsar.PulsarV0_1_0Test
 import com.asyncapi.bindings.redis.v0._1_0.channel.RedisChannelBinding
-import com.asyncapi.bindings.sns.v0._1_0.channel.SNSChannelBinding
+import com.asyncapi.bindings.sns.SNSV0_1_0Test
 import com.asyncapi.bindings.solace.v0._4_0.channel.SolaceChannelBinding
 import com.asyncapi.bindings.sqs.SQSV0_2_0Test
 import com.asyncapi.bindings.stomp.v0._1_0.channel.STOMPChannelBinding
@@ -69,7 +69,7 @@ class ChannelItemTest: SerDeTest<ChannelItem>() {
                     Pair("nats", NATSChannelBinding()),
                     Pair("pulsar", PulsarV0_1_0Test.channelBinding()),
                     Pair("redis", RedisChannelBinding()),
-                    Pair("sns", SNSChannelBinding()),
+                    Pair("sns", SNSV0_1_0Test.channelBinding()),
                     Pair("solace", SolaceChannelBinding()),
                     Pair("sqs", SQSV0_2_0Test.channelBinding()),
                     Pair("stomp", STOMPChannelBinding()),

@@ -212,6 +212,40 @@
             "bindingVersion" : "0.1.0"
           },
           "sns" : {
+            "topic" : {
+              "name" : "someTopic"
+            },
+            "consumers" : [ {
+              "protocol" : "sqs",
+              "endpoint" : {
+                "name" : "someQueue"
+              },
+              "filterPolicy" : {
+                "store" : [ "asyncapi_corp" ],
+                "event" : [ {
+                  "anything-but" : "order_cancelled"
+                } ],
+                "customer_interests" : [ "rugby", "football", "baseball" ]
+              },
+              "filterPolicyScope" : "MessageAttributes",
+              "rawMessageDelivery" : false,
+              "redrivePolicy" : {
+                "deadLetterQueue" : {
+                  "arn" : "arn:aws:SQS:eu-west-1:0000000:123456789"
+                },
+                "maxReceiveCount" : 25
+              },
+              "deliveryPolicy" : {
+                "minDelayTarget" : 10,
+                "maxDelayTarget" : 100,
+                "numRetries" : 5,
+                "numNoDelayRetries" : 2,
+                "numMinDelayRetries" : 3,
+                "numMaxDelayRetries" : 5,
+                "backoffFunction" : "linear",
+                "maxReceivesPerSecond" : 2
+              }
+            } ],
             "bindingVersion" : "0.1.0"
           },
           "solace" : {
@@ -369,6 +403,7 @@
               "bindingVersion" : "0.1.0"
             },
             "sns" : {
+              "consumers" : [ ],
               "bindingVersion" : "0.1.0"
             },
             "solace" : {
@@ -529,6 +564,40 @@
             "bindingVersion" : "0.1.0"
           },
           "sns" : {
+            "topic" : {
+              "name" : "someTopic"
+            },
+            "consumers" : [ {
+              "protocol" : "sqs",
+              "endpoint" : {
+                "name" : "someQueue"
+              },
+              "filterPolicy" : {
+                "store" : [ "asyncapi_corp" ],
+                "event" : [ {
+                  "anything-but" : "order_cancelled"
+                } ],
+                "customer_interests" : [ "rugby", "football", "baseball" ]
+              },
+              "filterPolicyScope" : "MessageAttributes",
+              "rawMessageDelivery" : false,
+              "redrivePolicy" : {
+                "deadLetterQueue" : {
+                  "arn" : "arn:aws:SQS:eu-west-1:0000000:123456789"
+                },
+                "maxReceiveCount" : 25
+              },
+              "deliveryPolicy" : {
+                "minDelayTarget" : 10,
+                "maxDelayTarget" : 100,
+                "numRetries" : 5,
+                "numNoDelayRetries" : 2,
+                "numMinDelayRetries" : 3,
+                "numMaxDelayRetries" : 5,
+                "backoffFunction" : "linear",
+                "maxReceivesPerSecond" : 2
+              }
+            } ],
             "bindingVersion" : "0.1.0"
           },
           "solace" : {
@@ -686,6 +755,7 @@
               "bindingVersion" : "0.1.0"
             },
             "sns" : {
+              "consumers" : [ ],
               "bindingVersion" : "0.1.0"
             },
             "solace" : {
@@ -1020,6 +1090,14 @@
           "bindingVersion" : "0.1.0"
         },
         "sns" : {
+          "name" : "my-sns-topic",
+          "policy" : {
+            "statements" : [ {
+              "effect" : "Allow",
+              "principal" : "*",
+              "action" : "SNS:Publish"
+            } ]
+          },
           "bindingVersion" : "0.1.0"
         },
         "solace" : {
@@ -1492,6 +1570,7 @@
             "bindingVersion" : "0.1.0"
           },
           "sns" : {
+            "consumers" : [ ],
             "bindingVersion" : "0.1.0"
           },
           "solace" : {
@@ -1882,6 +1961,14 @@
         "bindingVersion" : "0.1.0"
       },
       "sns" : {
+        "name" : "my-sns-topic",
+        "policy" : {
+          "statements" : [ {
+            "effect" : "Allow",
+            "principal" : "*",
+            "action" : "SNS:Publish"
+          } ]
+        },
         "bindingVersion" : "0.1.0"
       },
       "solace" : {
@@ -2031,6 +2118,40 @@
         "bindingVersion" : "0.1.0"
       },
       "sns" : {
+        "topic" : {
+          "name" : "someTopic"
+        },
+        "consumers" : [ {
+          "protocol" : "sqs",
+          "endpoint" : {
+            "name" : "someQueue"
+          },
+          "filterPolicy" : {
+            "store" : [ "asyncapi_corp" ],
+            "event" : [ {
+              "anything-but" : "order_cancelled"
+            } ],
+            "customer_interests" : [ "rugby", "football", "baseball" ]
+          },
+          "filterPolicyScope" : "MessageAttributes",
+          "rawMessageDelivery" : false,
+          "redrivePolicy" : {
+            "deadLetterQueue" : {
+              "arn" : "arn:aws:SQS:eu-west-1:0000000:123456789"
+            },
+            "maxReceiveCount" : 25
+          },
+          "deliveryPolicy" : {
+            "minDelayTarget" : 10,
+            "maxDelayTarget" : 100,
+            "numRetries" : 5,
+            "numNoDelayRetries" : 2,
+            "numMinDelayRetries" : 3,
+            "numMaxDelayRetries" : 5,
+            "backoffFunction" : "linear",
+            "maxReceivesPerSecond" : 2
+          }
+        } ],
         "bindingVersion" : "0.1.0"
       },
       "solace" : {

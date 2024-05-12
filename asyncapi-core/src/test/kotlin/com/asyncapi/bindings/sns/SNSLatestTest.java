@@ -16,9 +16,9 @@ public class SNSLatestTest {
     class ChannelTest extends BindingTest<SNSChannelBinding> {{
         super.binding                          = SNSV0_1_0Test.channelBinding();
         super.bindingTypeClass                 = SNSChannelBinding.class;
-        super.pathToBindingJson                = "/bindings/default implementation/latest/channel/binding.json";
-        super.pathToExtendedBindingJson        = "/bindings/default implementation/latest/channel/binding - extended.json";
-        super.pathToWronglyExtendedBindingJson = "/bindings/default implementation/latest/channel/binding - wrongly extended.json";
+        super.pathToBindingJson                = "/bindings/sns/latest/channel/binding.json";
+        super.pathToExtendedBindingJson        = "/bindings/sns/latest/channel/binding - extended.json";
+        super.pathToWronglyExtendedBindingJson = "/bindings/sns/latest/channel/binding - wrongly extended.json";
     }}
 
     @Nested
@@ -26,9 +26,9 @@ public class SNSLatestTest {
     class Message extends BindingTest<SNSMessageBinding> {{
         super.binding                          = SNSV0_1_0Test.messageBinding();
         super.bindingTypeClass                 = SNSMessageBinding.class;
-        super.pathToBindingJson                = "/bindings/default implementation/latest/message/binding.json";
-        super.pathToExtendedBindingJson        = "/bindings/default implementation/latest/message/binding - extended.json";
-        super.pathToWronglyExtendedBindingJson = "/bindings/default implementation/latest/message/binding - wrongly extended.json";
+        super.pathToBindingJson                = "/bindings/sns/latest/message/binding.json";
+        super.pathToExtendedBindingJson        = "/bindings/sns/latest/message/binding - extended.json";
+        super.pathToWronglyExtendedBindingJson = "/bindings/sns/latest/message/binding - wrongly extended.json";
     }}
 
     @Nested
@@ -36,9 +36,9 @@ public class SNSLatestTest {
     class Operation extends BindingTest<SNSOperationBinding> {{
         super.binding                          = SNSV0_1_0Test.operationBinding();
         super.bindingTypeClass                 = SNSOperationBinding.class;
-        super.pathToBindingJson                = "/bindings/default implementation/latest/operation/binding.json";
-        super.pathToExtendedBindingJson        = "/bindings/default implementation/latest/operation/binding - extended.json";
-        super.pathToWronglyExtendedBindingJson = "/bindings/default implementation/latest/operation/binding - wrongly extended.json";
+        super.pathToBindingJson                = "/bindings/sns/latest/operation/binding.json";
+        super.pathToExtendedBindingJson        = "/bindings/sns/latest/operation/binding - extended.json";
+        super.pathToWronglyExtendedBindingJson = "/bindings/sns/latest/operation/binding - wrongly extended.json";
     }}
 
     @Nested
@@ -46,9 +46,9 @@ public class SNSLatestTest {
     class Server extends BindingTest<SNSServerBinding> {{
         super.binding                          = SNSV0_1_0Test.serverBinding();
         super.bindingTypeClass                 = SNSServerBinding.class;
-        super.pathToBindingJson                = "/bindings/default implementation/latest/server/binding.json";
-        super.pathToExtendedBindingJson        = "/bindings/default implementation/latest/server/binding - extended.json";
-        super.pathToWronglyExtendedBindingJson = "/bindings/default implementation/latest/server/binding - wrongly extended.json";
+        super.pathToBindingJson                = "/bindings/sns/latest/server/binding.json";
+        super.pathToExtendedBindingJson        = "/bindings/sns/latest/server/binding - extended.json";
+        super.pathToWronglyExtendedBindingJson = "/bindings/sns/latest/server/binding - wrongly extended.json";
     }}
 
 }

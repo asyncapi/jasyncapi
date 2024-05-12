@@ -20,7 +20,7 @@ import com.asyncapi.bindings.mqtt5.v0._2_0.operation.MQTT5OperationBinding
 import com.asyncapi.bindings.nats.NATSV0_1_0Test
 import com.asyncapi.bindings.pulsar.v0._1_0.operation.PulsarOperationBinding
 import com.asyncapi.bindings.redis.v0._1_0.operation.RedisOperationBinding
-import com.asyncapi.bindings.sns.v0._1_0.operation.SNSOperationBinding
+import com.asyncapi.bindings.sns.SNSV0_1_0Test
 import com.asyncapi.bindings.solace.SolaceV0_4_0Test
 import com.asyncapi.bindings.sqs.SQSV0_2_0Test
 import com.asyncapi.bindings.stomp.v0._1_0.operation.STOMPOperationBinding
@@ -115,7 +115,7 @@ class OperationTest {
                     Pair("nats", NATSV0_1_0Test.operationBinding()),
                     Pair("pulsar", PulsarOperationBinding()),
                     Pair("redis", RedisOperationBinding()),
-                    Pair("sns", SNSOperationBinding()),
+                    Pair("sns", SNSV0_1_0Test.operationBinding()),
                     Pair("solace", SolaceV0_4_0Test.operationBinding()),
                     Pair("sqs", SQSV0_2_0Test.operationBinding()),
                     Pair("stomp", STOMPOperationBinding()),
