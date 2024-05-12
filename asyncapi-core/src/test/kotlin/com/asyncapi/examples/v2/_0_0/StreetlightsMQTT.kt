@@ -12,7 +12,7 @@ import com.asyncapi.v2._0_0.model.info.Info
 import com.asyncapi.v2._0_0.model.info.License
 import com.asyncapi.v2._0_0.model.server.Server
 import com.asyncapi.v2._0_0.model.server.ServerVariable
-import com.asyncapi.bindings.mqtt.v0._1_0.operation.MQTTOperationBinding
+import com.asyncapi.bindings.mqtt.v0._2_0.operation.MQTTOperationBinding
 import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 import com.asyncapi.schemas.asyncapi.security.v2.ApiKeySecurityScheme
 import com.asyncapi.schemas.asyncapi.security.v2.OpenIdConnectSecurityScheme

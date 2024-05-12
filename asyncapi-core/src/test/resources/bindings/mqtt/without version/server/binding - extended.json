@@ -1,5 +1,7 @@
 {
-  "bindingVersion" : "0.1.0",
+  "sessionExpiryInterval" : 120,
+  "maximumPacketSize" : 1024,
+  "bindingVersion" : "0.2.0",
   "clientId" : "guest",
   "cleanSession" : true,
   "lastWill" : {

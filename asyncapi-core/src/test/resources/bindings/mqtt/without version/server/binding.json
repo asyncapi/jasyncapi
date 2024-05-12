@@ -7,5 +7,7 @@
     "message": "Guest gone offline.",
     "retain": false
   },
-  "keepAlive": 60
+  "keepAlive": 60,
+  "sessionExpiryInterval": 120,
+  "maximumPacketSize": 1024
 }

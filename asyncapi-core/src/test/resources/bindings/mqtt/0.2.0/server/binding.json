@@ -1,0 +1,14 @@
+{
+  "clientId": "guest",
+  "cleanSession": true,
+  "lastWill": {
+    "topic": "/last-wills",
+    "qos": 2,
+    "message": "Guest gone offline.",
+    "retain": false
+  },
+  "keepAlive": 60,
+  "sessionExpiryInterval": 120,
+  "maximumPacketSize": 1024,
+  "bindingVersion": "0.2.0"
+}

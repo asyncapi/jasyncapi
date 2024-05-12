@@ -1,6 +1,7 @@
 {
   "qos": 2,
   "retain": true,
+  "messageExpiryInterval": 60,
   "bindingVersion": "latest",
   "x-number": 0,
   "x-string": "",

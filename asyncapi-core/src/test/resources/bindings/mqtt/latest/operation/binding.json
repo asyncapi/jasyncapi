@@ -1,5 +1,6 @@
 {
   "qos": 2,
   "retain": true,
+  "messageExpiryInterval": 60,
   "bindingVersion": "latest"
 }

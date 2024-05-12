@@ -1,4 +1,5 @@
 {
   "qos": 2,
-  "retain": true
+  "retain": true,
+  "messageExpiryInterval": 60
 }

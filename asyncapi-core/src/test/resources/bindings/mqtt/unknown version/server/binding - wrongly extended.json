@@ -8,6 +8,8 @@
     "retain": false
   },
   "keepAlive": 60,
+  "sessionExpiryInterval": 120,
+  "maximumPacketSize": 1024,
   "bindingVersion": "unknown version",
   "x-number": 0,
   "x-string": "",
