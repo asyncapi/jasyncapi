@@ -14,11 +14,11 @@ import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.operation.reply.OperationReply
 import com.asyncapi.v3._0_0.model.operation.reply.OperationReplyAddress
 import com.asyncapi.v3._0_0.model.server.Server
-import com.asyncapi.bindings.kafka.v0._4_0.channel.KafkaChannelBinding
-import com.asyncapi.bindings.kafka.v0._4_0.channel.KafkaChannelTopicCleanupPolicy
-import com.asyncapi.bindings.kafka.v0._4_0.channel.KafkaChannelTopicConfiguration
-import com.asyncapi.bindings.kafka.v0._4_0.operation.KafkaOperationBinding
-import com.asyncapi.bindings.kafka.v0._4_0.server.KafkaServerBinding
+import com.asyncapi.bindings.kafka.v0._5_0.channel.KafkaChannelBinding
+import com.asyncapi.bindings.kafka.v0._5_0.channel.KafkaChannelTopicCleanupPolicy
+import com.asyncapi.bindings.kafka.v0._5_0.channel.KafkaChannelTopicConfiguration
+import com.asyncapi.bindings.kafka.v0._5_0.operation.KafkaOperationBinding
+import com.asyncapi.bindings.kafka.v0._5_0.server.KafkaServerBinding
 import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 import com.asyncapi.schemas.asyncapi.multiformat.AvroFormatSchema
 import com.asyncapi.schemas.asyncapi.security.v3.SecurityScheme

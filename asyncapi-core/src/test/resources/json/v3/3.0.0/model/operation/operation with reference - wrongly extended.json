@@ -94,7 +94,7 @@
           "myClientId"
         ]
       },
-      "bindingVersion": "0.4.0"
+      "bindingVersion": "0.5.0"
     },
     "mercure": {
       "$ref": "#/components/operationBindings/mercure"
@@ -243,7 +243,7 @@
               "myClientId"
             ]
           },
-          "bindingVersion": "0.4.0"
+          "bindingVersion": "0.5.0"
         },
         "mercure": {
           "$ref": "#/components/operationBindings/mercure"
@@ -405,7 +405,7 @@
               "myClientId"
             ]
           },
-          "bindingVersion": "0.4.0"
+          "bindingVersion": "0.5.0"
         },
         "mercure": {
           "$ref": "#/components/operationBindings/mercure"

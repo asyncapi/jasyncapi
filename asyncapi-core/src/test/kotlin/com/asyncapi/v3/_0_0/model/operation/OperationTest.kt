@@ -2,7 +2,7 @@ package com.asyncapi.v3._0_0.model.operation
 
 import com.asyncapi.bindings.amqp.AMQPV0_2_0Test
 import com.asyncapi.bindings.http.HTTPV0_3_0Test
-import com.asyncapi.bindings.kafka.KafkaV0_4_0Test
+import com.asyncapi.bindings.kafka.KafkaV0_5_0Test
 import com.asyncapi.bindings.mqtt.MQTTV0_1_0Test
 import com.asyncapi.bindings.nats.NATSV0_1_0Test
 import com.asyncapi.bindings.solace.SolaceV0_4_0Test
@@ -80,7 +80,7 @@ class OperationTest: SerDeTest<Operation>() {
                     Pair("jms",
                         Reference("#/components/operationBindings/jms")
                     ),
-                    Pair("kafka", KafkaV0_4_0Test.operationBinding()),
+                    Pair("kafka", KafkaV0_5_0Test.operationBinding()),
                     Pair("mercure",
                         Reference("#/components/operationBindings/mercure")
                     ),
@@ -160,7 +160,7 @@ class OperationTestWithReference: SerDeTest<Operation>() {
                         Pair("jms",
                             Reference("#/components/operationBindings/jms")
                         ),
-                        Pair("kafka", KafkaV0_4_0Test.operationBinding()),
+                        Pair("kafka", KafkaV0_5_0Test.operationBinding()),
                         Pair("mercure",
                             Reference("#/components/operationBindings/mercure")
                         ),

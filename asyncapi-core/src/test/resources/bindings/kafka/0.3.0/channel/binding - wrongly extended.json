@@ -1,0 +1,12 @@
+{
+  "bindingVersion": "0.3.0",
+  "topic": "my-specific-topic",
+  "partitions": 20,
+  "replicas": 3,
+  "x-number": 0,
+  "x-string": "",
+  "x-object": {
+    "property": {}
+  },
+  "ext-number": 1
+}

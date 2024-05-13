@@ -9,7 +9,7 @@ import com.asyncapi.bindings.amqp.AMQPV0_2_0Test
 import com.asyncapi.bindings.anypointmq.AnypointMQV0_0_1Test
 import com.asyncapi.bindings.googlepubsub.GooglePubSubV0_1_0Test
 import com.asyncapi.bindings.ibmmq.IBMMQV0_1_0Test
-import com.asyncapi.bindings.kafka.KafkaV0_4_0Test
+import com.asyncapi.bindings.kafka.KafkaV0_5_0Test
 import com.asyncapi.bindings.pulsar.PulsarV0_1_0Test
 import com.asyncapi.bindings.websockets.WebSocketsV0_1_0Test
 
@@ -57,7 +57,7 @@ class ChannelItemTest: SerDeTest<ChannelItem>() {
                     Pair("jms",
                         Reference("#/components/channelBindings/jms")
                     ),
-                    Pair("kafka", KafkaV0_4_0Test.channelBinding()),
+                    Pair("kafka", KafkaV0_5_0Test.channelBinding()),
                     Pair("mercure",
                         Reference("#/components/channelBindings/mercure")
                     ),

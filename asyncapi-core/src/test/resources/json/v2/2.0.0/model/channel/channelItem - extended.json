@@ -62,7 +62,7 @@
         "bindingVersion" : "0.0.1"
       },
       "kafka" : {
-        "bindingVersion" : "0.4.0",
+        "bindingVersion" : "0.5.0",
         "groupId" : {
           "type" : "string",
           "enum" : [ "myGroupId" ]
@@ -253,7 +253,7 @@
           "bindingVersion" : "0.0.1"
         },
         "kafka" : {
-          "bindingVersion" : "0.4.0",
+          "bindingVersion" : "0.5.0",
           "groupId" : {
             "type" : "string",
             "enum" : [ "myGroupId" ]
@@ -414,7 +414,7 @@
         "bindingVersion" : "0.0.1"
       },
       "kafka" : {
-        "bindingVersion" : "0.4.0",
+        "bindingVersion" : "0.5.0",
         "groupId" : {
           "type" : "string",
           "enum" : [ "myGroupId" ]
@@ -605,7 +605,7 @@
           "bindingVersion" : "0.0.1"
         },
         "kafka" : {
-          "bindingVersion" : "0.4.0",
+          "bindingVersion" : "0.5.0",
           "groupId" : {
             "type" : "string",
             "enum" : [ "myGroupId" ]
@@ -798,7 +798,7 @@
           "bindingVersion" : "0.0.1"
         },
         "kafka" : {
-          "bindingVersion" : "0.4.0",
+          "bindingVersion" : "0.5.0",
           "key" : {
             "type" : "string",
             "enum" : [ "myKey" ]
@@ -931,7 +931,7 @@
       "bindingVersion" : "0.0.1"
     },
     "kafka" : {
-      "bindingVersion" : "0.4.0",
+      "bindingVersion" : "0.5.0",
       "topic" : "my-specific-topic-name",
       "partitions" : 20,
       "replicas" : 3,

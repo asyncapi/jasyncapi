@@ -134,7 +134,7 @@
           "schemaIdLocation": "payload",
           "schemaIdPayloadEncoding": "apicurio-new",
           "schemaLookupStrategy": "TopicIdStrategy",
-          "bindingVersion": "0.4.0"
+          "bindingVersion": "0.5.0"
         },
         "mercure": {
           "$ref": "#/components/messageBindings/mercure"
@@ -284,7 +284,7 @@
               "schemaIdLocation": "payload",
               "schemaIdPayloadEncoding": "apicurio-new",
               "schemaLookupStrategy": "TopicIdStrategy",
-              "bindingVersion": "0.4.0"
+              "bindingVersion": "0.5.0"
             },
             "mercure": {
               "$ref": "#/components/messageBindings/mercure"
@@ -423,7 +423,7 @@
               "schemaIdLocation": "payload",
               "schemaIdPayloadEncoding": "apicurio-new",
               "schemaLookupStrategy": "TopicIdStrategy",
-              "bindingVersion": "0.4.0"
+              "bindingVersion": "0.5.0"
             },
             "mercure": {
               "$ref": "#/components/messageBindings/mercure"
@@ -575,7 +575,7 @@
               "schemaIdLocation": "payload",
               "schemaIdPayloadEncoding": "apicurio-new",
               "schemaLookupStrategy": "TopicIdStrategy",
-              "bindingVersion": "0.4.0"
+              "bindingVersion": "0.5.0"
             },
             "mercure": {
               "$ref": "#/components/messageBindings/mercure"
@@ -741,7 +741,7 @@
           "schemaIdLocation": "payload",
           "schemaIdPayloadEncoding": "apicurio-new",
           "schemaLookupStrategy": "TopicIdStrategy",
-          "bindingVersion": "0.4.0"
+          "bindingVersion": "0.5.0"
         },
         "mercure": {
           "$ref": "#/components/messageBindings/mercure"
@@ -891,7 +891,7 @@
               "schemaIdLocation": "payload",
               "schemaIdPayloadEncoding": "apicurio-new",
               "schemaLookupStrategy": "TopicIdStrategy",
-              "bindingVersion": "0.4.0"
+              "bindingVersion": "0.5.0"
             },
             "mercure": {
               "$ref": "#/components/messageBindings/mercure"
@@ -1030,7 +1030,7 @@
               "schemaIdLocation": "payload",
               "schemaIdPayloadEncoding": "apicurio-new",
               "schemaLookupStrategy": "TopicIdStrategy",
-              "bindingVersion": "0.4.0"
+              "bindingVersion": "0.5.0"
             },
             "mercure": {
               "$ref": "#/components/messageBindings/mercure"
@@ -1182,7 +1182,7 @@
               "schemaIdLocation": "payload",
               "schemaIdPayloadEncoding": "apicurio-new",
               "schemaLookupStrategy": "TopicIdStrategy",
-              "bindingVersion": "0.4.0"
+              "bindingVersion": "0.5.0"
             },
             "mercure": {
               "$ref": "#/components/messageBindings/mercure"
@@ -1326,7 +1326,7 @@
           "schemaIdLocation": "payload",
           "schemaIdPayloadEncoding": "apicurio-new",
           "schemaLookupStrategy": "TopicIdStrategy",
-          "bindingVersion": "0.4.0"
+          "bindingVersion": "0.5.0"
         },
         "mercure": {
           "$ref": "#/components/messageBindings/mercure"
@@ -1476,7 +1476,7 @@
               "schemaIdLocation": "payload",
               "schemaIdPayloadEncoding": "apicurio-new",
               "schemaLookupStrategy": "TopicIdStrategy",
-              "bindingVersion": "0.4.0"
+              "bindingVersion": "0.5.0"
             },
             "mercure": {
               "$ref": "#/components/messageBindings/mercure"
@@ -1615,7 +1615,7 @@
               "schemaIdLocation": "payload",
               "schemaIdPayloadEncoding": "apicurio-new",
               "schemaLookupStrategy": "TopicIdStrategy",
-              "bindingVersion": "0.4.0"
+              "bindingVersion": "0.5.0"
             },
             "mercure": {
               "$ref": "#/components/messageBindings/mercure"
@@ -1767,7 +1767,7 @@
               "schemaIdLocation": "payload",
               "schemaIdPayloadEncoding": "apicurio-new",
               "schemaLookupStrategy": "TopicIdStrategy",
-              "bindingVersion": "0.4.0"
+              "bindingVersion": "0.5.0"
             },
             "mercure": {
               "$ref": "#/components/messageBindings/mercure"
@@ -1912,7 +1912,7 @@
         "delete.retention.ms": 86400000,
         "max.message.bytes": 1048588
       },
-      "bindingVersion": "0.4.0"
+      "bindingVersion": "0.5.0"
     },
     "mercure": {
       "$ref": "#/components/channelBindings/mercure"

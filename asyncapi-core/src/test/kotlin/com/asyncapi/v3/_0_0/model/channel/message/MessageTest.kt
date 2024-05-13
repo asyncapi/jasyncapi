@@ -9,7 +9,7 @@ import com.asyncapi.bindings.anypointmq.AnypointMQV0_0_1Test
 import com.asyncapi.bindings.googlepubsub.GooglePubSubV0_1_0Test
 import com.asyncapi.bindings.http.HTTPV0_3_0Test
 import com.asyncapi.bindings.ibmmq.IBMMQV0_1_0Test
-import com.asyncapi.bindings.kafka.KafkaV0_4_0Test
+import com.asyncapi.bindings.kafka.KafkaV0_5_0Test
 import com.asyncapi.bindings.mqtt.MQTTV0_1_0Test
 import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 import com.asyncapi.schemas.asyncapi.multiformat.AsyncAPIFormatSchema
@@ -97,7 +97,7 @@ class MessageTestWithSchema: SerDeTest<Message>() {
                     Pair("jms",
                         Reference("#/components/messageBindings/jms")
                     ),
-                    Pair("kafka", KafkaV0_4_0Test.messageBinding()),
+                    Pair("kafka", KafkaV0_5_0Test.messageBinding()),
                     Pair("mercure",
                         Reference("#/components/messageBindings/mercure")
                     ),
@@ -174,7 +174,7 @@ class MessageTestWithReference: SerDeTest<Message>() {
                         Pair("jms",
                             Reference("#/components/messageBindings/jms")
                         ),
-                        Pair("kafka", KafkaV0_4_0Test.messageBinding()),
+                        Pair("kafka", KafkaV0_5_0Test.messageBinding()),
                         Pair("mercure",
                             Reference("#/components/messageBindings/mercure")
                         ),
@@ -297,7 +297,7 @@ class MessageTestWithMultiFormatSchema: SerDeTest<Message>() {
                         Pair("jms",
                             Reference("#/components/messageBindings/jms")
                         ),
-                        Pair("kafka", KafkaV0_4_0Test.messageBinding()),
+                        Pair("kafka", KafkaV0_5_0Test.messageBinding()),
                         Pair("mercure",
                             Reference("#/components/messageBindings/mercure")
                         ),

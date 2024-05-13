@@ -83,7 +83,7 @@
           "jmsConnectionFactory" : ""
         },
         "kafka" : {
-          "bindingVersion" : "0.4.0",
+          "bindingVersion" : "0.5.0",
           "schemaRegistryUrl" : "https://my-schema-registry.com",
           "schemaRegistryVendor" : "confluent"
         },
@@ -219,7 +219,7 @@
             "$ref" : "#/components/operationBindings/jms"
           },
           "kafka" : {
-            "bindingVersion" : "0.4.0",
+            "bindingVersion" : "0.5.0",
             "groupId" : {
               "type" : "string",
               "enum" : [ "myGroupId" ]
@@ -347,7 +347,7 @@
               "$ref" : "#/components/operationBindings/jms"
             },
             "kafka" : {
-              "bindingVersion" : "0.4.0",
+              "bindingVersion" : "0.5.0",
               "groupId" : {
                 "type" : "string",
                 "enum" : [ "myGroupId" ]
@@ -511,7 +511,7 @@
                 "$ref" : "#/components/messageBindings/jms"
               },
               "kafka" : {
-                "bindingVersion" : "0.4.0",
+                "bindingVersion" : "0.5.0",
                 "key" : {
                   "type" : "string",
                   "enum" : [ "myKey" ]
@@ -641,7 +641,7 @@
             "$ref" : "#/components/operationBindings/jms"
           },
           "kafka" : {
-            "bindingVersion" : "0.4.0",
+            "bindingVersion" : "0.5.0",
             "groupId" : {
               "type" : "string",
               "enum" : [ "myGroupId" ]
@@ -769,7 +769,7 @@
               "$ref" : "#/components/operationBindings/jms"
             },
             "kafka" : {
-              "bindingVersion" : "0.4.0",
+              "bindingVersion" : "0.5.0",
               "groupId" : {
                 "type" : "string",
                 "enum" : [ "myGroupId" ]
@@ -930,7 +930,7 @@
               "$ref" : "#/components/messageBindings/jms"
             },
             "kafka" : {
-              "bindingVersion" : "0.4.0",
+              "bindingVersion" : "0.5.0",
               "key" : {
                 "type" : "string",
                 "enum" : [ "myKey" ]
@@ -1065,7 +1065,7 @@
           "$ref" : "#/components/channelBindings/jms"
         },
         "kafka" : {
-          "bindingVersion" : "0.4.0",
+          "bindingVersion" : "0.5.0",
           "topic" : "my-specific-topic-name",
           "partitions" : 20,
           "replicas" : 3,
@@ -1242,7 +1242,7 @@
           "$ref" : "#/components/messageBindings/jms"
         },
         "kafka" : {
-          "bindingVersion" : "0.4.0",
+          "bindingVersion" : "0.5.0",
           "key" : {
             "type" : "string",
             "enum" : [ "myKey" ]
@@ -1495,7 +1495,7 @@
           "$ref" : "#/components/operationBindings/jms"
         },
         "kafka" : {
-          "bindingVersion" : "0.4.0",
+          "bindingVersion" : "0.5.0",
           "groupId" : {
             "type" : "string",
             "enum" : [ "myGroupId" ]
@@ -1650,7 +1650,7 @@
           "$ref" : "#/components/messageBindings/jms"
         },
         "kafka" : {
-          "bindingVersion" : "0.4.0",
+          "bindingVersion" : "0.5.0",
           "key" : {
             "type" : "string",
             "enum" : [ "myKey" ]
@@ -1743,7 +1743,7 @@
       "jmsConnectionFactory" : ""
     },
     "kafka" : {
-      "bindingVersion" : "0.4.0",
+      "bindingVersion" : "0.5.0",
       "schemaRegistryUrl" : "https://my-schema-registry.com",
       "schemaRegistryVendor" : "confluent"
     },
@@ -1856,7 +1856,7 @@
       "$ref" : "#/components/channelBindings/jms"
     },
     "kafka" : {
-      "bindingVersion" : "0.4.0",
+      "bindingVersion" : "0.5.0",
       "topic" : "my-specific-topic-name",
       "partitions" : 20,
       "replicas" : 3,
@@ -1977,7 +1977,7 @@
       "$ref" : "#/components/operationBindings/jms"
     },
     "kafka" : {
-      "bindingVersion" : "0.4.0",
+      "bindingVersion" : "0.5.0",
       "groupId" : {
         "type" : "string",
         "enum" : [ "myGroupId" ]
@@ -2090,7 +2090,7 @@
       "$ref" : "#/components/messageBindings/jms"
     },
     "kafka" : {
-      "bindingVersion" : "0.4.0",
+      "bindingVersion" : "0.5.0",
       "key" : {
         "type" : "string",
         "enum" : [ "myKey" ]

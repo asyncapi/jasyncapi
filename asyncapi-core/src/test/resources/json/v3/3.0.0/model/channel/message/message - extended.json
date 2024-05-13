@@ -82,7 +82,7 @@
       "$ref" : "#/components/messageBindings/jms"
     },
     "kafka" : {
-      "bindingVersion" : "0.4.0",
+      "bindingVersion" : "0.5.0",
       "key" : {
         "type" : "string",
         "enum" : [ "myKey" ]
@@ -216,7 +216,7 @@
         "$ref" : "#/components/messageBindings/jms"
       },
       "kafka" : {
-        "bindingVersion" : "0.4.0",
+        "bindingVersion" : "0.5.0",
         "key" : {
           "type" : "string",
           "enum" : [ "myKey" ]
@@ -350,7 +350,7 @@
         "$ref" : "#/components/messageBindings/jms"
       },
       "kafka" : {
-        "bindingVersion" : "0.4.0",
+        "bindingVersion" : "0.5.0",
         "key" : {
           "type" : "string",
           "enum" : [ "myKey" ]
@@ -498,7 +498,7 @@
         "$ref" : "#/components/messageBindings/jms"
       },
       "kafka" : {
-        "bindingVersion" : "0.4.0",
+        "bindingVersion" : "0.5.0",
         "key" : {
           "type" : "string",
           "enum" : [ "myKey" ]

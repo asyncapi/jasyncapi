@@ -8,7 +8,7 @@ import com.asyncapi.v2._6_0.model.channel.message.MessageTest
 import com.asyncapi.v2._6_0.model.channel.message.OneOfMessages
 import com.asyncapi.bindings.amqp.AMQPV0_2_0Test
 import com.asyncapi.bindings.http.HTTPV0_3_0Test
-import com.asyncapi.bindings.kafka.KafkaV0_4_0Test
+import com.asyncapi.bindings.kafka.KafkaV0_5_0Test
 import com.asyncapi.bindings.mqtt.MQTTV0_1_0Test
 import com.asyncapi.bindings.nats.NATSV0_1_0Test
 import com.asyncapi.bindings.solace.SolaceV0_4_0Test
@@ -153,7 +153,7 @@ class OperationTest {
                     Pair("jms",
                         Reference("#/components/operationBindings/jms")
                     ),
-                    Pair("kafka", KafkaV0_4_0Test.operationBinding()),
+                    Pair("kafka", KafkaV0_5_0Test.operationBinding()),
                     Pair("mercure",
                         Reference("#/components/operationBindings/mercure")
                     ),

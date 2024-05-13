@@ -102,7 +102,7 @@
       "schemaIdLocation": "payload",
       "schemaIdPayloadEncoding": "apicurio-new",
       "schemaLookupStrategy": "TopicIdStrategy",
-      "bindingVersion": "0.4.0"
+      "bindingVersion": "0.5.0"
     },
     "mercure": {
       "$ref": "#/components/messageBindings/mercure"
@@ -252,7 +252,7 @@
           "schemaIdLocation": "payload",
           "schemaIdPayloadEncoding": "apicurio-new",
           "schemaLookupStrategy": "TopicIdStrategy",
-          "bindingVersion": "0.4.0"
+          "bindingVersion": "0.5.0"
         },
         "mercure": {
           "$ref": "#/components/messageBindings/mercure"
@@ -391,7 +391,7 @@
           "schemaIdLocation": "payload",
           "schemaIdPayloadEncoding": "apicurio-new",
           "schemaLookupStrategy": "TopicIdStrategy",
-          "bindingVersion": "0.4.0"
+          "bindingVersion": "0.5.0"
         },
         "mercure": {
           "$ref": "#/components/messageBindings/mercure"
@@ -543,7 +543,7 @@
           "schemaIdLocation": "payload",
           "schemaIdPayloadEncoding": "apicurio-new",
           "schemaLookupStrategy": "TopicIdStrategy",
-          "bindingVersion": "0.4.0"
+          "bindingVersion": "0.5.0"
         },
         "mercure": {
           "$ref": "#/components/messageBindings/mercure"

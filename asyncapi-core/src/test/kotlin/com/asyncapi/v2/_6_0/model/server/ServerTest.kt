@@ -9,7 +9,7 @@ import com.asyncapi.bindings.googlepubsub.GooglePubSubV0_2_0Test
 import com.asyncapi.bindings.http.HTTPV0_3_0Test
 import com.asyncapi.bindings.ibmmq.v0._1_0.server.IBMMQServerBinding
 import com.asyncapi.bindings.jms.v0._0_1.server.JMSServerBinding
-import com.asyncapi.bindings.kafka.v0._4_0.server.KafkaServerBinding
+import com.asyncapi.bindings.kafka.v0._5_0.server.KafkaServerBinding
 import com.asyncapi.bindings.mercure.v0._1_0.server.MercureServerBinding
 import com.asyncapi.bindings.mqtt.v0._1_0.server.MQTTServerBinding
 import com.asyncapi.bindings.mqtt.v0._1_0.server.MQTTServerLastWillConfiguration

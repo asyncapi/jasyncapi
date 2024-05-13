@@ -12,7 +12,7 @@ import com.asyncapi.v2._6_0.model.component.Components
 import com.asyncapi.v2._6_0.model.info.Info
 import com.asyncapi.v2._6_0.model.info.License
 import com.asyncapi.v2._6_0.model.server.Server
-import com.asyncapi.bindings.kafka.v0._4_0.operation.KafkaOperationBinding
+import com.asyncapi.bindings.kafka.v0._5_0.operation.KafkaOperationBinding
 import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 import com.asyncapi.schemas.asyncapi.security.v2.SecurityScheme
 import java.math.BigDecimal

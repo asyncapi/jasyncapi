@@ -132,7 +132,7 @@
           "schemaIdLocation": "payload",
           "schemaIdPayloadEncoding": "apicurio-new",
           "schemaLookupStrategy": "TopicIdStrategy",
-          "bindingVersion": "0.4.0"
+          "bindingVersion": "0.5.0"
         },
         "mercure": {},
         "mqtt": {
@@ -355,7 +355,7 @@
               "myClientId"
             ]
           },
-          "bindingVersion": "0.4.0"
+          "bindingVersion": "0.5.0"
         },
         "mercure": {},
         "mqtt": {
@@ -524,7 +524,7 @@
           "schemaIdLocation": "payload",
           "schemaIdPayloadEncoding": "apicurio-new",
           "schemaLookupStrategy": "TopicIdStrategy",
-          "bindingVersion": "0.4.0"
+          "bindingVersion": "0.5.0"
         },
         "mercure": {},
         "mqtt": {
@@ -575,7 +575,7 @@
     "kafka": {
       "schemaRegistryUrl": "https://my-schema-registry.com",
       "schemaRegistryVendor": "confluent",
-      "bindingVersion": "0.4.0"
+      "bindingVersion": "0.5.0"
     },
     "mercure": {},
     "mqtt": {
@@ -691,7 +691,7 @@
         "delete.retention.ms": 86400000,
         "max.message.bytes": 1048588
       },
-      "bindingVersion": "0.4.0"
+      "bindingVersion": "0.5.0"
     },
     "mercure": { },
     "mqtt": { },
@@ -832,7 +832,7 @@
         "type" : "string",
         "enum" : [ "myClientId" ]
       },
-      "bindingVersion" : "0.4.0"
+      "bindingVersion" : "0.5.0"
     },
     "mercure" : { },
     "mqtt" : {
@@ -1001,7 +1001,7 @@
       "schemaIdLocation": "payload",
       "schemaIdPayloadEncoding": "apicurio-new",
       "schemaLookupStrategy": "TopicIdStrategy",
-      "bindingVersion": "0.4.0"
+      "bindingVersion": "0.5.0"
     },
     "mercure": {},
     "mqtt": {

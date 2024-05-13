@@ -25,6 +25,7 @@ public class KafkaMessageBinding extends com.asyncapi.bindings.kafka.KafkaMessag
     /**
      * The message key.
      */
+    // TODO: Reference, AsyncAPISchema, AvroSchema
     @Nullable
     @JsonProperty("key")
     @JsonPropertyDescription("The message key.")

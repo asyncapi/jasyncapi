@@ -1,0 +1,6 @@
+{
+  "topic": "my-specific-topic",
+  "partitions": 20,
+  "replicas": 3,
+  "bindingVersion": "0.3.0"
+}
