@@ -1,6 +1,5 @@
 package com.asyncapi.bindings.nats.v0._1_0.server;
 
-import com.asyncapi.bindings.ServerBinding;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -11,9 +10,11 @@ import org.jetbrains.annotations.Nullable;
  * <p>
  * Describes NATS channel binding.
  *
- * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/nats#server-binding-object">NATS server binding</a>
+ * @see <a href="https://nats.io">NATS</a>
  * @author Pavel Bodiachevskii
+ * @version 0.1.0
+ * @since 1.0.0-RC2
  */
 @Data
 @NoArgsConstructor

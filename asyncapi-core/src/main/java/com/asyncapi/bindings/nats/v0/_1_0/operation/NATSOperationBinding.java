@@ -1,6 +1,5 @@
 package com.asyncapi.bindings.nats.v0._1_0.operation;
 
-import com.asyncapi.bindings.OperationBinding;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
@@ -10,9 +9,11 @@ import org.jetbrains.annotations.Nullable;
 /**
  * Describes NATS operation binding.
  *
- * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/nats#operation-binding-object">NATS operation binding</a>
+ * @see <a href="https://nats.io">NATS</a>
  * @author Pavel Bodiachevskii
+ * @version 0.1.0
+ * @since 1.0.0-RC2
  */
 @Data
 @Builder
