@@ -12,9 +12,11 @@ import java.util.List;
 /**
  * Describes Pulsar channel binding.
  *
- * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/pulsar#channel-binding-object">Pulsar channel binding</a>
+ * @see <a href="https://pulsar.apache.org">Pulsar</a>
  * @author Pavel Bodiachevskii
+ * @version 0.1.0
+ * @since 1.0.0-RC2
  */
 @Data
 @Builder

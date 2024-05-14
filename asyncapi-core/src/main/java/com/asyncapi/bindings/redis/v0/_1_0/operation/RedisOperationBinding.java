@@ -10,9 +10,11 @@ import org.jetbrains.annotations.Nullable;
  * <p>
  * Describes Redis operation binding.
  *
- * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/redis#operation-binding-object">Redis operation binding</a>
+ * @see <a href="https://redis.io">Redis</a>
  * @author Pavel Bodiachevskii
+ * @version 0.1.0
+ * @since 1.0.0-RC2
  */
 @Data
 @NoArgsConstructor

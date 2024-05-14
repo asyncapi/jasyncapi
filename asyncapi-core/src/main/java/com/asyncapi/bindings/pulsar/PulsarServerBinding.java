@@ -8,9 +8,10 @@ import lombok.EqualsAndHashCode;
 /**
  * Describes Pulsar server binding.
  *
- * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/pulsar#server-binding-object">Redis server binding</a>
+ * @see <a href="https://pulsar.apache.org">Pulsar</a>
  * @author Pavel Bodiachevskii
+ * @since 1.0.0-RC2
  */
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,

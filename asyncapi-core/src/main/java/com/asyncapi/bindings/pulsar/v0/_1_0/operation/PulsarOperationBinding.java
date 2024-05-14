@@ -11,9 +11,11 @@ import org.jetbrains.annotations.Nullable;
  * <p>
  * This object MUST NOT contain any properties. Its name is reserved for future use.
  *
- * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/pulsar#operation-binding-object">Pulsar operation binding</a>
+ * @see <a href="https://pulsar.apache.org">Pulsar</a>
  * @author Pavel Bodiachevskii
+ * @version 0.1.0
+ * @since 1.0.0-RC2
  */
 @Data
 @Builder
