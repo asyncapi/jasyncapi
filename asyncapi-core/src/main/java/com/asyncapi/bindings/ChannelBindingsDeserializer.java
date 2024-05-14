@@ -30,6 +30,7 @@ import java.io.IOException;
  * Serializes channel bindings map.
  *
  * @author Pavel Bodiachevskii
+ * @since 1.0.0-RC2
  */
 public class ChannelBindingsDeserializer extends BindingsMapDeserializer {
 

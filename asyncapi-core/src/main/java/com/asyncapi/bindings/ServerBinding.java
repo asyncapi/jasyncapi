@@ -14,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
  * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#specificationExtensions">Specification Extensions</a>
  * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#serverBindingsObject">Server Binding</a>
  * @author Pavel Bodiachevskii
- * @version 3.0.0
+ * @since 1.0.0-RC2
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

@@ -30,6 +30,7 @@ import java.io.IOException;
  * Serializes message bindings map.
  *
  * @author Pavel Bodiachevskii
+ * @since 1.0.0-RC2
  */
 public class MessageBindingsDeserializer extends BindingsMapDeserializer {
 

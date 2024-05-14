@@ -13,6 +13,9 @@ import java.util.Map;
 
 /**
  * Deserializes AsyncAPI bindings map.
+ *
+ * @author Pavel Bodiachevskii
+ * @since 1.0.0-RC2
  */
 public abstract class BindingsMapDeserializer extends JsonDeserializer<Map<String, Object>> {
 

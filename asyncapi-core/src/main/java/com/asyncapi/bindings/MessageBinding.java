@@ -8,8 +8,13 @@ import org.jetbrains.annotations.Nullable;
 
 /**
  * Describes AsyncAPI message binding.
+ * <p>
+ * This object MAY be extended with {@link ExtendableObject}.
  *
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#specificationExtensions">Specification Extensions</a>
+ * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#messageBindingsObject">Message Binding</a>
  * @author Pavel Bodiachevskii
+ * @since 1.0.0-RC2
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

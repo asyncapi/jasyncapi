@@ -29,8 +29,8 @@ import java.io.IOException;
 /**
  * Serializes server bindings map.
  *
- * @version 3.0.0
  * @author Pavel Bodiachevskii
+ * @since 1.0.0-RC2
  */
 public class ServerBindingsDeserializer extends BindingsMapDeserializer {
 
