@@ -21,9 +21,11 @@ import java.util.Map;
  * WebSockets doesn't support virtual channels or, put it another way, there's only one channel and its characteristics
  * are strongly related to the protocol used for the handshake, i.e., HTTP.
  *
- * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/websockets#channel-binding-object">WebSockets channel binding</a>
+ * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API">MDN WebSockets</a>
  * @author Pavel Bodiachevskii
+ * @version 0.1.0
+ * @since 1.0.0-RC2
  */
 @Data
 @AllArgsConstructor

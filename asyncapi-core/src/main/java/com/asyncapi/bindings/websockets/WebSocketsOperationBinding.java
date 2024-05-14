@@ -7,15 +7,12 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * This class <b>MUST NOT</b> contain any properties.
- * <p>
- * Its name is reserved for future use.
- * <p>
  * Describes WebSockets operation binding.
  *
- * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/websockets#operation-binding-object">WebSockets operation binding</a>
+ * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API">MDN WebSockets</a>
  * @author Pavel Bodiachevskii
+ * @since 1.0.0-RC2
  */
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
