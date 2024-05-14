@@ -1,6 +1,5 @@
 package com.asyncapi.bindings.solace.v0._3_0.message;
 
-import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

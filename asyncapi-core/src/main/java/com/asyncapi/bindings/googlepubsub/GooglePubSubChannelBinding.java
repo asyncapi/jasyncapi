@@ -1,8 +1,9 @@
 package com.asyncapi.bindings.googlepubsub;
 
 import com.asyncapi.bindings.ChannelBinding;
-import com.fasterxml.jackson.annotation.*;
-import lombok.*;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import lombok.EqualsAndHashCode;
 
 /**
  * Describes Google Cloud Pub/Sub channel binding.

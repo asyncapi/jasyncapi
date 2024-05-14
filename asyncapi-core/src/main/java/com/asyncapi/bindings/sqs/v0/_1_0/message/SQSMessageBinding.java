@@ -1,6 +1,5 @@
 package com.asyncapi.bindings.sqs.v0._1_0.message;
 
-import com.asyncapi.bindings.MessageBinding;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

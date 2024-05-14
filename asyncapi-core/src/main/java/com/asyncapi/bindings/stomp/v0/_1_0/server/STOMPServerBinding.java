@@ -1,9 +1,7 @@
 package com.asyncapi.bindings.stomp.v0._1_0.server;
 
-import com.asyncapi.bindings.ServerBinding;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.Nullable;
 
 /**

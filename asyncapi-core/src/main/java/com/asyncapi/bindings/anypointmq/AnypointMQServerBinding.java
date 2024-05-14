@@ -3,9 +3,7 @@ package com.asyncapi.bindings.anypointmq;
 import com.asyncapi.bindings.ServerBinding;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 
 /**
  * Describes Anypoint MQ server binding.
