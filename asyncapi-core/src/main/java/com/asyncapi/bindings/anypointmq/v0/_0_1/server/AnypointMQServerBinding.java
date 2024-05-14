@@ -8,11 +8,13 @@ import org.jetbrains.annotations.Nullable;
 /**
  * This class MUST NOT contain any properties. Its name is reserved for future use.
  * <p>
- * Describes <a href="https://docs.mulesoft.com/mq/">Anypoint MQ</a> server binding.
+ * Describes Anypoint MQ server binding.
  *
- * @version 0.0.1
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/anypointmq#server-binding-object">Anypoint MQ server binding</a>
+ * @see <a href="https://docs.mulesoft.com/mq/">Anypoint MQ</a>
  * @author Pavel Bodiachevskii
+ * @version 0.0.1
+ * @since 1.0.0-RC2
  */
 @Data
 @NoArgsConstructor

@@ -9,9 +9,11 @@ import org.jetbrains.annotations.Nullable;
 /**
  * Describes Anypoint MQ channel binding.
  *
- * @version 0.0.1
  * @see <a href="https://github.com/asyncapi/bindings/blob/master/anypointmq/README.md#channel-binding-object">Anypoint MQ channel binding</a>
+ * @see <a href="https://docs.mulesoft.com/mq/">Anypoint MQ</a>
  * @author Pavel Bodiachevskii
+ * @version 0.0.1
+ * @since 1.0.0-RC2
  */
 @Data
 @Builder

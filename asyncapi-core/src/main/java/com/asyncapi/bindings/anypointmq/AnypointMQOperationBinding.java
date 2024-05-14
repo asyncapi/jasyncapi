@@ -8,11 +8,13 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
- * Describes <a href="https://docs.mulesoft.com/mq/">Anypoint MQ</a> operation binding.
+ * Describes Anypoint MQ operation binding.
  *
- * @version 0.0.1
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/anypointmq#operation-binding-object">Anypoint MQ operation binding</a>
+ * @see <a href="https://docs.mulesoft.com/mq/">Anypoint MQ</a>
  * @author Pavel Bodiachevskii
+ * @version 0.0.1
+ * @since 1.0.0-RC2
  */
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
