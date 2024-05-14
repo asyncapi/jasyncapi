@@ -17,9 +17,11 @@ import java.util.List;
  * <p>
  * Contains information about the destination in Solace PubSub+ Broker.
  *
- * @version 0.3.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/solace#operation-binding-object">Solace operation binding</a>
+ * @see <a href="https://solace.com">Solace</a>
  * @author Dennis Brinley, Pavel Bodiachevskii
+ * @version 0.3.0
+ * @since 1.0.0-RC2
  */
 @Data
 @Builder

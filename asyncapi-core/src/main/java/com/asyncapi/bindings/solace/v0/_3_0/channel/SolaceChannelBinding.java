@@ -11,9 +11,11 @@ import org.jetbrains.annotations.Nullable;
  * <p>
  * Describes Solace channel binding.
  *
- * @version 0.3.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/solace#channel-binding-object">Solace channel binding</a>
- * @author Pavel Bodiachevskii
+ * @see <a href="https://solace.com">Solace</a>
+ * @author Dennis Brinley, Pavel Bodiachevskii
+ * @version 0.3.0
+ * @since 1.0.0-RC2
  */
 @Data
 @NoArgsConstructor

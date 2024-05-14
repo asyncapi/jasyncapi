@@ -12,7 +12,6 @@ import lombok.EqualsAndHashCode;
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/solace#channel-binding-object">Solace channel binding</a>
  * @see <a href="https://solace.com">Solace</a>
  * @author Pavel Bodiachevskii
- * @version 0.2.0
  * @since 1.0.0-RC2
  */
 @JsonTypeInfo(

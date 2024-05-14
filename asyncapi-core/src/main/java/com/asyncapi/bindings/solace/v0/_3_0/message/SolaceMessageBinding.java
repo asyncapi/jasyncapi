@@ -11,9 +11,11 @@ import org.jetbrains.annotations.Nullable;
  * <p>
  * Describes Solace message binding.
  *
- * @version 0.3.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/solace#message-binding-object">Solace message binding</a>
+ * @see <a href="https://solace.com">Solace</a>
  * @author Pavel Bodiachevskii
+ * @version 0.3.0
+ * @since 1.0.0-RC2
  */
 @Data
 @NoArgsConstructor
