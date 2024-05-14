@@ -8,9 +8,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * <p>
  * Contains information about the channel exchange type in AMQP.
  *
- * @version 0.2.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/amqp#channel-binding-object">AMQP channel binding</a>
+ * @see <a href="https://www.amqp.org">AMQP</a>
  * @author Pavel Bodiachevskii
+ * @version 0.2.0
+ * @since 1.0.0-RC2
  */
 @JsonClassDescription("Describes AMQP 0-9-1 channel exchange type.")
 public enum AMQPChannelExchangeType {

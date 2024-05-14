@@ -11,9 +11,10 @@ import lombok.EqualsAndHashCode;
  * <p>
  * Contains information about the operation representation in AMQP.
  *
- * @since 1.0.0-RC2
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/amqp#operation-binding-object">AMQP operation binding</a>
+ * @see <a href="https://www.amqp.org">AMQP</a>
  * @author Pavel Bodiachevskii
+ * @since 1.0.0-RC2
  */
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,

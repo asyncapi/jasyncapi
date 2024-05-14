@@ -8,9 +8,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * <p>
  * Contains information about the type of channel in AMQP.
  *
- * @version 0.3.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/amqp#channel-binding-object">AMQP channel binding</a>
+ * @see <a href="https://www.amqp.org">AMQP</a>
  * @author Pavel Bodiachevskii
+ * @version 0.3.0
+ * @since 1.0.0-RC2
  */
 public enum AMQPChannelType {
 
