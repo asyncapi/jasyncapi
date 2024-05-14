@@ -11,7 +11,7 @@ import com.asyncapi.v3._0_0.model.Tag;
 import com.asyncapi.v3._0_0.model.operation.reply.OperationReply;
 import com.asyncapi.bindings.OperationBinding;
 import com.asyncapi.bindings.OperationBindingsDeserializer;
-import com.asyncapi.v3.jackson.security_scheme.SecuritySchemesDeserializer;
+import com.asyncapi.schemas.serde.asyncapi.security.v3.SecuritySchemesDeserializer;
 import com.asyncapi.schemas.asyncapi.security.v3.SecurityScheme;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.*;

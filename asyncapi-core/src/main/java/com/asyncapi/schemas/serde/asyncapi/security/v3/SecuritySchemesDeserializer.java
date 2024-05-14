@@ -1,4 +1,4 @@
-package com.asyncapi.v3.jackson.security_scheme;
+package com.asyncapi.schemas.serde.asyncapi.security.v3;
 
 import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.serde.ListOfReferencesOrObjectsDeserializer;
