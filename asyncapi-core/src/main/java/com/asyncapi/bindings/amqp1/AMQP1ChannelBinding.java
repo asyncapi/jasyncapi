@@ -6,13 +6,13 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.EqualsAndHashCode;
 
 /**
- * This class MUST NOT contain any properties. Its name is reserved for future use.
- * <p>
  * Describes AMQP 1.0 channel binding.
  *
- * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/amqp1#channel-binding-object">AMQP 1.0 channel binding</a>
+ * @see <a href="https://www.amqp.org">AMQP</a>
  * @author Pavel Bodiachevskii
+ * @version 0.1.0
+ * @since 1.0.0-RC2
  */
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,

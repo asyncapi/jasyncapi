@@ -10,9 +10,11 @@ import org.jetbrains.annotations.Nullable;
  * <p>
  * Describes AMQP 1.0 operation binding.
  *
- * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/amqp1#operation-binding-object">AMQP operation binding</a>
+ * @see <a href="https://www.amqp.org">AMQP</a>
  * @author Pavel Bodiachevskii
+ * @version 0.1.0
+ * @since 1.0.0-RC2
  */
 @Data
 @NoArgsConstructor
