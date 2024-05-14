@@ -9,7 +9,9 @@ import lombok.EqualsAndHashCode;
  * Describes HTTP channel binding.
  *
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/http#channel-binding-object">HTTP channel binding</a>
+ * @see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview">MDN HTTP overview</a>
  * @author Pavel Bodiachevskii
+ * @since 1.0.0-RC2
  */
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
