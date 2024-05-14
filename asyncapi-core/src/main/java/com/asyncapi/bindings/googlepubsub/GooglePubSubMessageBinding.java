@@ -12,7 +12,9 @@ import lombok.EqualsAndHashCode;
  * pertintent parts of the Google Cloud Pub/Sub <a href="https://cloud.google.com/pubsub/docs/reference/rest/v1/projects.schemas#Schema">Schema</a> Object, with AsyncAPI.
  *
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/googlepubsub#message-binding-object">Google Cloud Pub/Sub message binding</a>
+ * @see <a href="https://cloud.google.com/pubsub">Google Cloud Pub/Sub</a>
  * @author Pavel Bodiachevskii
+ * @since 1.0.0-RC2
  */
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,

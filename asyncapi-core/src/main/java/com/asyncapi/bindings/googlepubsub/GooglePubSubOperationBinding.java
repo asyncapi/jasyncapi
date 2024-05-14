@@ -9,7 +9,9 @@ import lombok.EqualsAndHashCode;
  * Describes Google Cloud Pub/Sub operation binding.
  *
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/googlepubsub#operation-binding-object">Google Cloud Pub/Sub operation binding</a>
+ * @see <a href="https://cloud.google.com/pubsub">Google Cloud Pub/Sub</a>
  * @author Pavel Bodiachevskii
+ * @since 1.0.0-RC2
  */
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,

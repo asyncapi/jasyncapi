@@ -11,6 +11,11 @@ import org.jetbrains.annotations.Nullable;
  * Describes Google Cloud Pub/Sub SchemaSettings.
  * <p>
  * The Schema Settings Object is used to describe the Google Cloud Pub/Sub <a href="https://cloud.google.com/pubsub/docs/reference/rest/v1/projects.topics#SchemaSettings">SchemaSettings</a> Object with AsyncAPI.
+ *
+ * @see <a href="https://cloud.google.com/pubsub">Google Cloud Pub/Sub</a>
+ * @author Pavel Bodiachevskii
+ * @version 0.1.0
+ * @since 1.0.0-RC2
  */
 @Data
 @Builder

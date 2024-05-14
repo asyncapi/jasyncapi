@@ -14,9 +14,11 @@ import java.util.Map;
  * <p>
  * The Channel Bindings Object is used to describe the Google Cloud Pub/Sub specific <a href="https://cloud.google.com/pubsub/docs/reference/rest/v1/projects.topics/create">Topic</a> details with AsyncAPI.
  *
- * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/googlepubsub#channel-binding-object">Google Cloud Pub/Sub channel binding</a>
+ * @see <a href="https://cloud.google.com/pubsub">Google Cloud Pub/Sub</a>
  * @author Pavel Bodiachevskii
+ * @version 0.1.0
+ * @since 1.0.0-RC2
  */
 @Data
 @Builder

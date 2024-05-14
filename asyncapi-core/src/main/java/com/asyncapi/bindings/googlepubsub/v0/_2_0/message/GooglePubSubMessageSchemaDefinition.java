@@ -14,9 +14,11 @@ import org.jetbrains.annotations.NotNull;
  * provide this information here at all times, especially for cases where AsyncAPI does not natively support describing
  * payloads using a supported Google Cloud Pub/Sub schema format like Protobuf.
  *
- * @version 0.2.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/googlepubsub#message-binding-object">Google Cloud Pub/Sub message binding</a>
+ * @see <a href="https://cloud.google.com/pubsub">Google Cloud Pub/Sub</a>
  * @author Pavel Bodiachevskii
+ * @version 0.2.0
+ * @since 1.0.0-RC2
  */
 @Data
 @Builder

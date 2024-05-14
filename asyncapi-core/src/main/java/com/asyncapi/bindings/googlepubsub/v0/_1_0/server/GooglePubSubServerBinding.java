@@ -10,9 +10,11 @@ import org.jetbrains.annotations.Nullable;
  * <p>
  * Describes Google Cloud Pub/Sub server binding.
  *
- * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/googlepubsub">Google Cloud Pub/Sub server binding</a>
+ * @see <a href="https://cloud.google.com/pubsub">Google Cloud Pub/Sub</a>
  * @author Pavel Bodiachevskii
+ * @version 0.1.0
+ * @since 1.0.0-RC2
  */
 @Data
 @NoArgsConstructor
