@@ -7,8 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0-RC2] - TBA
 
+### Added
+
+- AsyncAPI 2.6.0 message parses Avro, Json and OpenAPI schemas
+
 ### Changed
 
+- Bindings were updated:
+  - AMQP: 0.1.0, 0.2.0, 0.3.0
+  - AMQP1: 0.1.0
+  - Anypoint MQ: 0.1.0
+  - Google Cloud Pub/Sub: 0.1.0, 0.2.0
+  - HTTP: 0.1.0, 0.2.0, 0.3.0, 0.4.0, 0.5.0
+  - IBM MQ: 0.1.0
+  - JMS: 0.0.1
+  - Apache Kafka: 0.1.0, 0.3.0, 0.4.0, 0.5.0
+  - Mercure: 0.1.0
+  - MQTT: 0.1.0, 0.2.0
+  - MQTT 5: 0.1.0, 0.2.0
+  - NATS: 0.1.0
+  - Apache Pulsar: 0.1.0
+  - Redis: 0.1.0
+  - Amazon SNS: 0.1.0
+  - Solace: 0.1.0, 0.2.0, 0.3.0, 0.4.0
+  - Amazon SQS: 0.1.0, 0.2.0
+  - STOMP: 0.1.0
+  - WebSockets: 0.1.0
 - All schemas now are located in `schemas` package
 - All bindings now are located in `bindings` package
 - Bindings structure was changed. Each binding now holds `channel`, `server`, `message`, `operation` inside package
