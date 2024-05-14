@@ -1,6 +1,7 @@
-package com.asyncapi.schemas.jackson;
+package com.asyncapi.schemas.serde.asyncapi;
 
 import com.asyncapi.schemas.asyncapi.AsyncAPISchema;
+import com.asyncapi.schemas.serde.SchemaAnyValueDeserializer;
 
 /**
  * AsyncAPI Schema any value deserializer

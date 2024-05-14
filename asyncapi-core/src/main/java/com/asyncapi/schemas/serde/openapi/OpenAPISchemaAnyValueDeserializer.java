@@ -1,6 +1,6 @@
-package com.asyncapi.schemas.jackson.openapi;
+package com.asyncapi.schemas.serde.openapi;
 
-import com.asyncapi.schemas.jackson.SchemaAnyValueDeserializer;
+import com.asyncapi.schemas.serde.SchemaAnyValueDeserializer;
 import com.asyncapi.schemas.openapi.v3._0_0.OpenAPISchema;
 
 /**

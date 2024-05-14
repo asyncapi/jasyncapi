@@ -1,4 +1,4 @@
-package com.asyncapi.schemas.jackson;
+package com.asyncapi.schemas.serde.json;
 
 import com.asyncapi.schemas.json.JsonSchema;
 import com.fasterxml.jackson.core.JsonParser;

@@ -1,8 +1,8 @@
 package com.asyncapi.schemas.json;
 
-import com.asyncapi.schemas.jackson.JsonSchemaAnyValueDeserializer;
-import com.asyncapi.schemas.jackson.JsonSchemaItemsDeserializer;
-import com.asyncapi.schemas.jackson.JsonSchemaPropertiesDeserializer;
+import com.asyncapi.schemas.serde.json.JsonSchemaAnyValueDeserializer;
+import com.asyncapi.schemas.serde.json.JsonSchemaItemsDeserializer;
+import com.asyncapi.schemas.serde.json.JsonSchemaPropertiesDeserializer;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;

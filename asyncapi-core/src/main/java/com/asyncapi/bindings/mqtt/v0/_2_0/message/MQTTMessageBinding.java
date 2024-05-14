@@ -1,6 +1,6 @@
 package com.asyncapi.bindings.mqtt.v0._2_0.message;
 
-import com.asyncapi.schemas.serde.ReferenceOrAsyncAPISchemaOrStringDeserializer;
+import com.asyncapi.schemas.serde.asyncapi.ReferenceOrAsyncAPISchemaOrStringDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.*;
 import org.jetbrains.annotations.Nullable;

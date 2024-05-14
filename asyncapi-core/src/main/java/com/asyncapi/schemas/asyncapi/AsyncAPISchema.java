@@ -1,9 +1,9 @@
 package com.asyncapi.schemas.asyncapi;
 
 import com.asyncapi.v3._0_0.jackson.model.ExternalDocumentationDeserializer;
-import com.asyncapi.schemas.jackson.AsyncAPISchemaAdditionalPropertiesDeserializer;
-import com.asyncapi.schemas.jackson.AsyncAPISchemaAnyValueDeserializer;
-import com.asyncapi.schemas.jackson.AsyncAPISchemaItemsDeserializer;
+import com.asyncapi.schemas.serde.asyncapi.AsyncAPISchemaAdditionalPropertiesDeserializer;
+import com.asyncapi.schemas.serde.asyncapi.AsyncAPISchemaAnyValueDeserializer;
+import com.asyncapi.schemas.serde.asyncapi.AsyncAPISchemaItemsDeserializer;
 import com.asyncapi.schemas.asyncapi.multiformat.MultiFormatSchema;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;

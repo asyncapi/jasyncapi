@@ -1,4 +1,4 @@
-package com.asyncapi.schemas.jackson.openapi;
+package com.asyncapi.schemas.serde.openapi;
 
 import com.asyncapi.schemas.openapi.v3._0_0.OpenAPISchema;
 import com.fasterxml.jackson.core.JsonParser;

@@ -1,6 +1,6 @@
 package com.asyncapi.bindings.mqtt.v0._2_0.server;
 
-import com.asyncapi.schemas.serde.ReferenceOrAsyncAPISchemaOrNumberDeserializer;
+import com.asyncapi.schemas.serde.asyncapi.ReferenceOrAsyncAPISchemaOrNumberDeserializer;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;

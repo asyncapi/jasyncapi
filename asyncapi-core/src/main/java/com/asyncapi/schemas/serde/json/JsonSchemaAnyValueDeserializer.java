@@ -1,5 +1,6 @@
-package com.asyncapi.schemas.jackson;
+package com.asyncapi.schemas.serde.json;
 
+import com.asyncapi.schemas.serde.SchemaAnyValueDeserializer;
 import com.asyncapi.schemas.json.JsonSchema;
 
 /**
