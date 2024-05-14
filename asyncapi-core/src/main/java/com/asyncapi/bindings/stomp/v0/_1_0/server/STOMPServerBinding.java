@@ -13,9 +13,11 @@ import org.jetbrains.annotations.Nullable;
  * <p>
  * Describes STOMP server binding.
  *
- * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/sqs#server-binding-object">STOMP server binding</a>
+ * @see <a href="https://stomp.github.io">STOMP</a>
  * @author Pavel Bodiachevskii
+ * @version 0.1.0
+ * @since 1.0.0-RC2
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

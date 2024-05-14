@@ -8,15 +8,12 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
- * This class <b>MUST NOT</b> contain any properties.
- * <p>
- * Its name is reserved for future use.
- * <p>
  * Describes STOMP channel binding.
  *
- * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/stomp#channel-binding-object">STOMP channel binding</a>
+ * @see <a href="https://stomp.github.io">STOMP</a>
  * @author Pavel Bodiachevskii
+ * @since 1.0.0-RC2
  */
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,

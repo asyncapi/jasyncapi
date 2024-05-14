@@ -13,9 +13,11 @@ import org.jetbrains.annotations.Nullable;
  * <p>
  * Describes STOMP channel binding.
  *
- * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/stomp#channel-binding-object">STOMP channel binding</a>
+ * @see <a href="https://stomp.github.io">STOMP</a>
  * @author Pavel Bodiachevskii
+ * @version 0.1.0
+ * @since 1.0.0-RC2
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

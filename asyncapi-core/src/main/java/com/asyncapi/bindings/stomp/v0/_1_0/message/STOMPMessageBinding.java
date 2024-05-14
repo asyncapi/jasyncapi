@@ -13,9 +13,11 @@ import org.jetbrains.annotations.Nullable;
  * <p>
  * Describes STOMP message binding.
  *
- * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/sqs#message-binding-object">STOMP message binding</a>
+ * @see <a href="https://stomp.github.io">STOMP</a>
  * @author Pavel Bodiachevskii
+ * @version 0.1.0
+ * @since 1.0.0-RC2
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
