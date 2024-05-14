@@ -8,13 +8,13 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 /**
- * This class MUST NOT contain any properties. Its name is reserved for future use.
- * <p>
  * Describes JMS server binding.
  *
- * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/jms#server-binding-object">JMS server binding</a>
+ * @see <a href="https://www.oracle.com/java/technologies/java-message-service.html">Java Message Service</a>
  * @author Pavel Bodiachevskii
+ * @version 0.0.1
+ * @since 1.0.0-RC2
  */
 @Data
 @Builder

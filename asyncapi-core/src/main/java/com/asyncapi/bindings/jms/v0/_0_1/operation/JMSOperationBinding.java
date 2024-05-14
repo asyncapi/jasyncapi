@@ -10,9 +10,11 @@ import org.jetbrains.annotations.Nullable;
  * <p>
  * Describes JMS operation binding.
  *
- * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/jms#operation-binding-object">JMS operation binding</a>
+ * @see <a href="https://www.oracle.com/java/technologies/java-message-service.html">Java Message Service</a>
  * @author Pavel Bodiachevskii
+ * @version 0.0.1
+ * @since 1.0.0-RC2
  */
 @Data
 @NoArgsConstructor

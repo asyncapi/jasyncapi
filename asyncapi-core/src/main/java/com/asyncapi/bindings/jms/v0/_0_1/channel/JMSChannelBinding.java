@@ -5,13 +5,13 @@ import lombok.*;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * This class MUST NOT contain any properties. Its name is reserved for future use.
- * <p>
  * Describes JMS channel binding.
  *
- * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/jms#channel-binding-object">JMS channel binding</a>
+ * @see <a href="https://www.oracle.com/java/technologies/java-message-service.html">Java Message Service</a>
  * @author Pavel Bodiachevskii
+ * @version 0.0.1
+ * @since 1.0.0-RC2
  */
 @Data
 @Builder
