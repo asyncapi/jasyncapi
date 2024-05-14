@@ -2,7 +2,11 @@ package com.asyncapi.bindings.solace.v0._4_0.operation;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;

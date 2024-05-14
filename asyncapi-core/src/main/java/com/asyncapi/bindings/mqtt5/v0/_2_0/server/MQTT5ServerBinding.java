@@ -1,6 +1,10 @@
 package com.asyncapi.bindings.mqtt5.v0._2_0.server;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.Nullable;
 
 /**

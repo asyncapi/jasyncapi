@@ -2,7 +2,11 @@ package com.asyncapi.bindings.mqtt.v0._2_0.message;
 
 import com.asyncapi.schemas.serde.asyncapi.ReferenceOrAsyncAPISchemaOrStringDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.Nullable;
 
 /**

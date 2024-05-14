@@ -2,7 +2,11 @@ package com.asyncapi.bindings.jms.v0._0_1.message;
 
 import com.asyncapi.schemas.asyncapi.AsyncAPISchema;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.Nullable;
 
 /**
