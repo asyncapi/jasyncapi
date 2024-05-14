@@ -6,13 +6,12 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.EqualsAndHashCode;
 
 /**
- * This class MUST NOT contain any properties. Its name is reserved for future use.
- * <p>
  * Describes Mercure server binding.
  *
- * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/mercure#server-binding-object">Mercure server binding</a>
+ * @see <a href="https://mercure.rocks">Mercure</a>
  * @author Pavel Bodiachevskii
+ * @since 1.0.0-RC2
  */
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
