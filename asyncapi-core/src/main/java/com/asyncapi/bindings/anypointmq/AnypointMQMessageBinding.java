@@ -12,7 +12,6 @@ import lombok.*;
  * @see <a href="https://github.com/asyncapi/bindings/blob/master/anypointmq/README.md#message-binding-object">Anypoint MQ message binding</a>
  * @see <a href="https://docs.mulesoft.com/mq/">Anypoint MQ</a>
  * @author Pavel Bodiachevskii
- * @version 0.0.1
  * @since 1.0.0-RC2
  */
 @JsonTypeInfo(
