@@ -4,7 +4,7 @@ import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.schemas.asyncapi.AsyncAPISchema;
 import com.asyncapi.schemas.avro.v1._9_0.AvroSchema;
 import com.asyncapi.schemas.avro.v1._9_0.AvroSchemaUnion;
-import com.asyncapi.schemas.avro.v1._9_0.jackson.AvroSchemaDeserializer;
+import com.asyncapi.schemas.avro.v1._9_0.serde.AvroSchemaDeserializer;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;

@@ -1,6 +1,5 @@
-package com.asyncapi.schemas.avro.v1._9_0.jackson;
+package com.asyncapi.schemas.avro.v1._9_0.serde;
 
-import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.schemas.avro.v1._9_0.AvroSchema;
 import com.asyncapi.schemas.avro.v1._9_0.AvroSchemaUnion;
 import com.fasterxml.jackson.core.JsonParser;
@@ -11,11 +10,10 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.JsonNodeType;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import java.io.IOException;
 
-public class AvroSchemaDeserializer extends JsonDeserializer<Object> {
+public class AvroTypeDeserializer extends JsonDeserializer<Object> {
 
     @Override
     final public Object deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
@@ -32,12 +30,14 @@ public class AvroSchemaDeserializer extends JsonDeserializer<Object> {
             switch (nodeType) {
                 case ARRAY:
                     return readAsUnion((ArrayNode) jsonNode, objectCodec);
+                case BOOLEAN:
+                    return jsonNode.asBoolean();
+                case NUMBER:
+                    return jsonParser.readValueAs(Number.class);
                 case OBJECT:
-                    return readAvroSchema((ObjectNode) jsonNode, objectCodec);
+                    return jsonParser.readValueAs(AvroSchema.class);
                 case STRING:
                     return jsonParser.readValueAs(String.class);
-                case BOOLEAN:
-                case NUMBER:
                 case BINARY:
                 case POJO:
                 case MISSING:
@@ -56,16 +56,6 @@ public class AvroSchemaDeserializer extends JsonDeserializer<Object> {
         }
 
         return avroSchemaUnion;
-    }
-
-    private Object readAvroSchema(ObjectNode objectNode, ObjectCodec objectCodec) throws IOException {
-        try (JsonParser jsonParser = objectNode.traverse(objectCodec)) {
-            if (objectNode.size() == 1 && objectNode.has("$ref")) {
-                return jsonParser.readValueAs(Reference.class);
-            }
-
-            return jsonParser.readValueAs(AvroSchema.class);
-        }
     }
 
 }

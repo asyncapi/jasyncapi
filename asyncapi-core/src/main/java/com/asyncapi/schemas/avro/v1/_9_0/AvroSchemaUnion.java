@@ -1,6 +1,6 @@
 package com.asyncapi.schemas.avro.v1._9_0;
 
-import com.asyncapi.schemas.avro.v1._9_0.jackson.AvroTypeDeserializer;
+import com.asyncapi.schemas.avro.v1._9_0.serde.AvroTypeDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.jetbrains.annotations.NotNull;
 
