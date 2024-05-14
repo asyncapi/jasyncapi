@@ -7,12 +7,12 @@ import lombok.EqualsAndHashCode;
 
 /**
  * Describes IBM MQ operation binding.
- * <p>
- * This object MUST NOT contain any properties. Its name is reserved for future use.
  *
- * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/ibmmq#operation-binding-object">IBM MQ operation binding</a>
+ * @see <a href="https://www.ibm.com/products/mq">IBM MQ</a>
  * @author Pavel Bodiachevskii
+ * @version 0.3.0
+ * @since 1.0.0-RC2
  */
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,

@@ -1,6 +1,5 @@
 package com.asyncapi.bindings.ibmmq.v0._1_0.server;
 
-import com.asyncapi.bindings.ServerBinding;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
@@ -13,9 +12,11 @@ import org.jetbrains.annotations.Nullable;
  * This object contains server connection information about the IBM MQ server, referred to as an IBM MQ queue manager.
  * This object contains additional connectivity information not possible to represent within the core AsyncAPI specification.
  *
- * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/ibmmq#server-binding-object">IBM MQ server binding</a>
+ * @see <a href="https://www.ibm.com/products/mq">IBM MQ</a>
  * @author Pavel Bodiachevskii
+ * @version 0.1.0
+ * @since 1.0.0-RC2
  */
 @Data
 @Builder

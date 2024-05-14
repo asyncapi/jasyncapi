@@ -1,6 +1,5 @@
 package com.asyncapi.bindings.ibmmq.v0._1_0.operation;
 
-import com.asyncapi.bindings.OperationBinding;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -12,9 +11,11 @@ import org.jetbrains.annotations.Nullable;
  * <p>
  * This object MUST NOT contain any properties. Its name is reserved for future use.
  *
- * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/ibmmq#operation-binding-object">IBM MQ operation binding</a>
+ * @see <a href="https://www.ibm.com/products/mq">IBM MQ</a>
  * @author Pavel Bodiachevskii
+ * @version 0.1.0
+ * @since 1.0.0-RC2
  */
 @Data
 @Builder

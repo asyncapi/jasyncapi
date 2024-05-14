@@ -9,11 +9,13 @@ import lombok.EqualsAndHashCode;
  * Describes IBM MQ server binding.
  * <p>
  * This object contains server connection information about the IBM MQ server, referred to as an IBM MQ queue manager.
+ * <p>
  * This object contains additional connectivity information not possible to represent within the core AsyncAPI specification.
  *
- * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/ibmmq#server-binding-object">IBM MQ server binding</a>
+ * @see <a href="https://www.ibm.com/products/mq">IBM MQ</a>
  * @author Pavel Bodiachevskii
+ * @since 1.0.0-RC2
  */
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,

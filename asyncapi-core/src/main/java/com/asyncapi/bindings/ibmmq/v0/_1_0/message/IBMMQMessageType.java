@@ -7,9 +7,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * <p>
  * This object contains information about the message type in IBM MQ.
  *
- * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/ibmmq#message-binding-object">IBM MQ message binding</a>
+ * @see <a href="https://www.ibm.com/products/mq">IBM MQ</a>
  * @author Pavel Bodiachevskii
+ * @version 0.1.0
+ * @since 1.0.0-RC2
  */
 public enum IBMMQMessageType {
 

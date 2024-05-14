@@ -7,12 +7,11 @@ import lombok.EqualsAndHashCode;
 
 /**
  * Describes IBM MQ message binding.
- * <p>
- * This object contains information about the message representation in IBM MQ.
  *
- * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/ibmmq#message-binding-object">IBM MQ message binding</a>
+ * @see <a href="https://www.ibm.com/products/mq">IBM MQ</a>
  * @author Pavel Bodiachevskii
+ * @since 1.0.0-RC2
  */
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
