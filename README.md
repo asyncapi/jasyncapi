@@ -3,10 +3,6 @@
 <h4 align="left">Building the future of event-driven architectures</h4>
 <h6 align="left">We're on a mission to standardize message-based communication and increase interoperability of the different systems out there.</h6>
 
----
-> ⚠️ This project doesn't support AsyncAPI 1.x
----
-
 [![Version](https://img.shields.io/maven-central/v/com.asyncapi/asyncapi-core?logo=apache-maven)](https://central.sonatype.com/artifact/com.asyncapi/asyncapi-core/1.0.0-RC)
 
 ## Overview
@@ -19,6 +15,7 @@ Hints:
 ## Known consumers:
 - [Springwolf Core](https://github.com/springwolf/springwolf-core) - Automated documentation for async APIs built with Spring Boot
 - [AsyncAPI Quarkus](https://github.com/quarkiverse/quarkus-asyncapi) - Generates AsyncAPIRegistry and configuration classes for Quarkus
+- [Specmatic](https://specmatic.in) - Converts AsyncAPI specifications into executable contracts
 
 ## Known open specifications to check compatibility with:
 - [x] [adeo-kafka-request-reply-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/adeo-kafka-request-reply-asyncapi.yml)

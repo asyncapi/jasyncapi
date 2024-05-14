@@ -1,11 +1,7 @@
-<h1 align="center">
-  <br>
-  <a href="https://asyncapi.org"><img src="../assets/logo.png" alt="AsyncAPI logo" height="80"></a>
-</h1>
-<h4 align="center">Building the future of event-driven architectures</h4>
-<h6 align="center">We're on a mission to standardize message-based communication and increase interoperability of the different systems out there.</h6>
+[![AsyncAPI Logo](../assets/logo.png)](https://www.asyncapi.com)
 
-> ⚠️ This project doesn't support AsyncAPI 1.x
+<h4 align="left">Building the future of event-driven architectures</h4>
+<h6 align="left">We're on a mission to standardize message-based communication and increase interoperability of the different systems out there.</h6>
 
 This submodule stores projection of AsyncAPI specification to java classes. Each class is being properly annotated with `jsr-305` annotations,
 which allows to use it in null-safety languages like `kotlin` without extra headache.
@@ -14,7 +10,7 @@ which allows to use it in null-safety languages like `kotlin` without extra head
 <dependency>
   <groupId>com.asyncapi</groupId>
   <artifactId>asyncapi-core</artifactId>
-  <version>1.0.0-EAP-2</version>
+  <version>1.0.0-RC2</version>
 </dependency>
 ```
 
@@ -26,8 +22,3 @@ For manual working with AsyncAPI specification from java/kotlin code:
 ```kotlin
 var asyncApi = objectMapper.readValue(model, AsyncAPI::class.java)
 ```
-
-### Generating of AsyncAPI Specification while building:
-For generating of AsyncAPI specification from hand-crafted AsyncAPI class at choosed build cycle step use one of implemented plugins:
-* [Gradle plugin](../asyncapi-plugin/asyncapi-plugin-gradle)
-* [Maven plugin](../asyncapi-plugin/asyncapi-plugin-maven)
