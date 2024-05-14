@@ -1,7 +1,7 @@
 package com.asyncapi.schemas.serde.json;
 
-import com.asyncapi.schemas.serde.SchemaAnyValueDeserializer;
 import com.asyncapi.schemas.json.JsonSchema;
+import com.asyncapi.schemas.serde.SchemaAnyValueDeserializer;
 
 /**
  * Json Schema any value deserializer

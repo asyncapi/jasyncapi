@@ -1,8 +1,8 @@
 package com.asyncapi.schemas.asyncapi.multiformat;
 
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema;
 import com.asyncapi.schemas.asyncapi.ExtendableObject;
 import com.asyncapi.schemas.asyncapi.Reference;
-import com.asyncapi.schemas.asyncapi.AsyncAPISchema;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;

@@ -1,7 +1,7 @@
 package com.asyncapi.schemas.serde.asyncapi;
 
-import com.asyncapi.serde.SchemaItemsDeserializer;
 import com.asyncapi.schemas.asyncapi.AsyncAPISchema;
+import com.asyncapi.serde.SchemaItemsDeserializer;
 
 /**
  * AsyncAPI Schema items deserializer

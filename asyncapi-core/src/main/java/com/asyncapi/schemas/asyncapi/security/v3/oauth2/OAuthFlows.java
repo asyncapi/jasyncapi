@@ -5,7 +5,11 @@ import com.asyncapi.schemas.asyncapi.security.v3.oauth2.flow.AuthorizationCodeOA
 import com.asyncapi.schemas.asyncapi.security.v3.oauth2.flow.ClientCredentialsOAuthFlow;
 import com.asyncapi.schemas.asyncapi.security.v3.oauth2.flow.ImplicitOAuthFlow;
 import com.asyncapi.schemas.asyncapi.security.v3.oauth2.flow.PasswordOAuthFlow;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.Nullable;
 
 /**

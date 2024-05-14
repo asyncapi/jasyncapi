@@ -1,14 +1,18 @@
 package com.asyncapi.schemas.asyncapi;
 
-import com.asyncapi.v3._0_0.jackson.model.ExternalDocumentationDeserializer;
+import com.asyncapi.schemas.asyncapi.multiformat.MultiFormatSchema;
 import com.asyncapi.schemas.serde.asyncapi.AsyncAPISchemaAdditionalPropertiesDeserializer;
 import com.asyncapi.schemas.serde.asyncapi.AsyncAPISchemaAnyValueDeserializer;
 import com.asyncapi.schemas.serde.asyncapi.AsyncAPISchemaItemsDeserializer;
-import com.asyncapi.schemas.asyncapi.multiformat.MultiFormatSchema;
+import com.asyncapi.v3._0_0.jackson.model.ExternalDocumentationDeserializer;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.Nullable;
 
 import javax.validation.constraints.Min;

@@ -2,9 +2,9 @@ package com.asyncapi.schemas.asyncapi.security.v2.oauth2;
 
 import com.asyncapi.schemas.asyncapi.ExtendableObject;
 import com.asyncapi.schemas.asyncapi.security.v2.oauth2.flow.AuthorizationCodeOAuthFlow;
-import com.asyncapi.schemas.asyncapi.security.v2.oauth2.flow.PasswordOAuthFlow;
 import com.asyncapi.schemas.asyncapi.security.v2.oauth2.flow.ClientCredentialsOAuthFlow;
 import com.asyncapi.schemas.asyncapi.security.v2.oauth2.flow.ImplicitOAuthFlow;
+import com.asyncapi.schemas.asyncapi.security.v2.oauth2.flow.PasswordOAuthFlow;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

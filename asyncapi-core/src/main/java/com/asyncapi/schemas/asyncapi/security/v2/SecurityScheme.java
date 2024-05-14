@@ -1,8 +1,8 @@
 package com.asyncapi.schemas.asyncapi.security.v2;
 
 import com.asyncapi.schemas.asyncapi.ExtendableObject;
-import com.asyncapi.schemas.asyncapi.security.v2.http.HttpSecurityScheme;
 import com.asyncapi.schemas.asyncapi.security.v2.http.HttpApiKeySecurityScheme;
+import com.asyncapi.schemas.asyncapi.security.v2.http.HttpSecurityScheme;
 import com.asyncapi.schemas.asyncapi.security.v2.oauth2.OAuth2SecurityScheme;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;

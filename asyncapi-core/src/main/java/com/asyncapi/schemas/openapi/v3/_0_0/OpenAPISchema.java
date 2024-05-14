@@ -1,14 +1,18 @@
 package com.asyncapi.schemas.openapi.v3._0_0;
 
-import com.asyncapi.schemas.serde.openapi.OpenAPISchemaAdditionalPropertiesDeserializer;
-import com.asyncapi.schemas.serde.openapi.OpenAPISchemaAnyValueDeserializer;
 import com.asyncapi.schemas.openapi.v3._0_0.properties.Discriminator;
 import com.asyncapi.schemas.openapi.v3._0_0.properties.Extensions;
 import com.asyncapi.schemas.openapi.v3._0_0.properties.ExternalDocumentation;
 import com.asyncapi.schemas.openapi.v3._0_0.properties.XML;
+import com.asyncapi.schemas.serde.openapi.OpenAPISchemaAdditionalPropertiesDeserializer;
+import com.asyncapi.schemas.serde.openapi.OpenAPISchemaAnyValueDeserializer;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.Nullable;
 
 import java.math.BigDecimal;
