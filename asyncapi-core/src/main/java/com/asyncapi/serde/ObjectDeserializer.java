@@ -1,4 +1,4 @@
-package com.asyncapi.v2.jackson;
+package com.asyncapi.serde;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;

@@ -2,7 +2,7 @@ package com.asyncapi.v3._0_0.jackson.model.operation.reply;
 
 import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.v3._0_0.model.operation.reply.OperationReply;
-import com.asyncapi.v3.jackson.ReferenceOrObjectDeserializer;
+import com.asyncapi.serde.ReferenceOrObjectDeserializer;
 
 /**
  * Serializes operation reply

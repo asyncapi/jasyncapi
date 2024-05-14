@@ -2,7 +2,7 @@ package com.asyncapi.v3._0_0.jackson.model.component;
 
 import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.v3._0_0.model.channel.Parameter;
-import com.asyncapi.v3.jackson.MapOfReferencesOrObjectsDeserializer;
+import com.asyncapi.serde.MapOfReferencesOrObjectsDeserializer;
 
 public class ComponentsParametersDeserializer extends MapOfReferencesOrObjectsDeserializer<Parameter> {
 

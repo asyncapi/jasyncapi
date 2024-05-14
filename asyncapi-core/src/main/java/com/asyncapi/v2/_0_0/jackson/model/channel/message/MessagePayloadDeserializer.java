@@ -1,7 +1,7 @@
 package com.asyncapi.v2._0_0.jackson.model.channel.message;
 
 import com.asyncapi.schemas.asyncapi.AsyncAPISchema;
-import com.asyncapi.v2.jackson.ObjectDeserializer;
+import com.asyncapi.serde.ObjectDeserializer;
 
 /**
  * Serializes message traits list.

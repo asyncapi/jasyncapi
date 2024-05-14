@@ -1,4 +1,4 @@
-package com.asyncapi.v3.jackson;
+package com.asyncapi.serde;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.ObjectCodec;

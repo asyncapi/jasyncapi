@@ -2,7 +2,7 @@ package com.asyncapi.v3._0_0.jackson.model.channel;
 
 import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.v3._0_0.model.channel.Channel;
-import com.asyncapi.v3.jackson.MapOfReferencesOrObjectsDeserializer;
+import com.asyncapi.serde.MapOfReferencesOrObjectsDeserializer;
 
 /**
  * Serializes component channels map.

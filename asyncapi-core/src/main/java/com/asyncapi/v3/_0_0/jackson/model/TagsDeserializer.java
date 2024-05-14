@@ -2,7 +2,7 @@ package com.asyncapi.v3._0_0.jackson.model;
 
 import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.v3._0_0.model.Tag;
-import com.asyncapi.v3.jackson.ListOfReferencesOrObjectsDeserializer;
+import com.asyncapi.serde.ListOfReferencesOrObjectsDeserializer;
 
 /**
  * Deserializes tags.

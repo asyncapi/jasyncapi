@@ -2,7 +2,7 @@ package com.asyncapi.v3._0_0.jackson.model.channel.message;
 
 import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.v3._0_0.model.channel.message.CorrelationId;
-import com.asyncapi.v3.jackson.ReferenceOrObjectDeserializer;
+import com.asyncapi.serde.ReferenceOrObjectDeserializer;
 
 /**
  * Serializes message correlation id.
