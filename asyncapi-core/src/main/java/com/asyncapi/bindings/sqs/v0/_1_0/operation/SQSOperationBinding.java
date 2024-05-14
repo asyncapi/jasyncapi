@@ -13,9 +13,11 @@ import org.jetbrains.annotations.Nullable;
  * <p>
  * Describes SQS operation binding.
  *
- * @version 0.1.0
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/sqs#operation-binding-object">SQS operation binding</a>
+ * @see <a href="https://aws.amazon.com/sqs/">Amazon SQS</a>
  * @author Pavel Bodiachevskii
+ * @version 0.1.0
+ * @since 1.0.0-RC2
  */
 @Data
 @NoArgsConstructor

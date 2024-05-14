@@ -9,7 +9,7 @@ import lombok.EqualsAndHashCode;
  * Describes SQS channel binding.
  *
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/sqs#channel-binding-object">SQS channel binding</a>
- * @see <a href="https://aws.amazon.com/sqs/">SQS</a>
+ * @see <a href="https://aws.amazon.com/sqs/">Amazon SQS</a>
  * @author Pavel Bodiachevskii
  * @since 1.0.0-RC2
  */

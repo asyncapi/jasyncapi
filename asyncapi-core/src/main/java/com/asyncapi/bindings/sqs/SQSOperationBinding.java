@@ -9,7 +9,7 @@ import lombok.EqualsAndHashCode;
  * Describes SQS operation binding.
  *
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/sqs#operation-binding-object">SQS operation binding</a>
- * @see <a href="https://aws.amazon.com/sqs/">SQS</a>
+ * @see <a href="https://aws.amazon.com/sqs/">Amazon SQS</a>
  * @author Pavel Bodiachevskii
  * @since 1.0.0-RC2
  */
