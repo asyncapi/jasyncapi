@@ -25,7 +25,7 @@ Hints:
 | 2.6.0   | ✅                     |
 | 3.0.0   | ✅                     |
 
-### Implemented AsyncAPI schemas (4/6)
+### Implemented AsyncAPI schemas (5/7)
 
 | Protocol                     | Versions                                                    |
 |------------------------------|-------------------------------------------------------------|
