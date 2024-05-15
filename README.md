@@ -27,14 +27,15 @@ Hints:
 
 ### Implemented AsyncAPI schemas (4/6)
 
-| Protocol         | Versions                                                    |
-|------------------|-------------------------------------------------------------|
-| AsyncAPI Schema  | unified version                                             |
-| Avro Schema      | 1.9.0, 1.9.1, 1.9.2, 1.10.0, 1.10.1, 1.10.2, 1.11.0, 1.11.1 |
-| Json Schema      | Draft-07                                                    |
-| OpenAPI Schema   | 3.0.0, 3.0.1, 3.0.2, 3.0.3                                  |
-| RAML 1.0 Schema  | ❌                                                           |
-| Protocol Buffers | ❌                                                           |
+| Protocol                     | Versions                                                    |
+|------------------------------|-------------------------------------------------------------|
+| AsyncAPI Multi Format Schema | 3.0.0                                                       |
+| AsyncAPI Schema              | unified version                                             |
+| Avro Schema                  | 1.9.0, 1.9.1, 1.9.2, 1.10.0, 1.10.1, 1.10.2, 1.11.0, 1.11.1 |
+| Json Schema                  | Draft-07                                                    |
+| OpenAPI Schema               | 3.0.0, 3.0.1, 3.0.2, 3.0.3                                  |
+| RAML 1.0 Schema              | ❌                                                           |
+| Protocol Buffers             | ❌                                                           |
 
 ### Implemented AsyncAPI bindings (19/19)
 
