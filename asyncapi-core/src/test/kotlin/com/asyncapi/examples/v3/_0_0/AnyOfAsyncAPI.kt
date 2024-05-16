@@ -1,13 +1,13 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.v3.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.message.Message
 import com.asyncapi.v3._0_0.model.component.Components
 import com.asyncapi.v3._0_0.model.info.Info
 import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
-import com.asyncapi.v3.schema.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 
 class AnyOfAsyncAPI: AbstractExampleValidationTest() {
     override fun specificationLocation(): String = "/examples/v3.0.0/anyof-asyncapi.yml"
@@ -27,7 +27,9 @@ class AnyOfAsyncAPI: AbstractExampleValidationTest() {
                         Channel.builder()
                                 .address("test")
                                 .messages(mapOf(
-                                        Pair("testMessages", Reference("#/components/messages/testMessages"))
+                                        Pair("testMessages",
+                                            Reference("#/components/messages/testMessages")
+                                        )
                                 ))
                                 .build()
                 )
@@ -51,7 +53,8 @@ class AnyOfAsyncAPI: AbstractExampleValidationTest() {
                 .messages(mapOf(
                         Pair("testMessages",
                                 Message.builder()
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .anyOf(listOf(
                                                         AsyncAPISchema.builder().ref("#/components/schemas/objectWithKey").build(),
                                                         AsyncAPISchema.builder().ref("#/components/schemas/objectWithKey2").build()

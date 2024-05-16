@@ -1,12 +1,12 @@
 package com.asyncapi.examples.v2._6_0
 
-import com.asyncapi.v2.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v2._6_0.model.channel.ChannelItem
 import com.asyncapi.v2._6_0.model.channel.message.Message
 import com.asyncapi.v2._6_0.model.channel.operation.Operation
 import com.asyncapi.v2._6_0.model.component.Components
 import com.asyncapi.v2._6_0.model.info.Info
-import com.asyncapi.v2.schema.Schema
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 
 class Simple: AbstractExampleValidationTest() {
 
@@ -38,15 +38,16 @@ class Simple: AbstractExampleValidationTest() {
         return Components.builder()
                 .messages(mapOf(
                         Pair("UserSignedUp", Message.builder()
-                                .payload(Schema.builder()
+                                .payload(
+                                    AsyncAPISchema.builder()
                                         .type("object")
                                         .properties(mapOf(
-                                                Pair("displayName", Schema.builder()
+                                                Pair("displayName", AsyncAPISchema.builder()
                                                         .type("string")
                                                         .description("Name of the user")
                                                         .build()
                                                 ),
-                                                Pair("email", Schema.builder()
+                                                Pair("email", AsyncAPISchema.builder()
                                                         .type("string")
                                                         .format("email")
                                                         .description("Email of the user")

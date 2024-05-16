@@ -1,7 +1,7 @@
 package com.asyncapi.v3._0_0.model
 
 import com.asyncapi.v3.ClasspathUtils
-import com.asyncapi.v3.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName

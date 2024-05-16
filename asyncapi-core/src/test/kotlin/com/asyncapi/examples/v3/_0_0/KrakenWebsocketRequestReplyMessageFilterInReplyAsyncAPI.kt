@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.v3.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.message.CorrelationId
 import com.asyncapi.v3._0_0.model.channel.message.Message
@@ -10,7 +10,7 @@ import com.asyncapi.v3._0_0.model.info.Info
 import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.operation.reply.OperationReply
-import com.asyncapi.v3.schema.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 
 class KrakenWebsocketRequestReplyMessageFilterInReplyAsyncAPI: AbstractExampleValidationTest() {
 
@@ -45,14 +45,30 @@ class KrakenWebsocketRequestReplyMessageFilterInReplyAsyncAPI: AbstractExampleVa
                         Channel.builder()
                                 .address("/")
                                 .messages(mapOf(
-                                        Pair("ping", Reference("#/components/messages/ping")),
-                                        Pair("pong", Reference("#/components/messages/pong")),
-                                        Pair("heartbeat", Reference("#/components/messages/heartbeat")),
-                                        Pair("systemStatus", Reference("#/components/messages/systemStatus")),
-                                        Pair("subscriptionStatus", Reference("#/components/messages/subscriptionStatus")),
-                                        Pair("subscribe", Reference("#/components/messages/subscribe")),
-                                        Pair("unsubscribe", Reference("#/components/messages/unsubscribe")),
-                                        Pair("dummyCurrencyInfo", Reference("#/components/messages/dummyCurrencyInfo")),
+                                        Pair("ping",
+                                                Reference("#/components/messages/ping")
+                                        ),
+                                        Pair("pong",
+                                                Reference("#/components/messages/pong")
+                                        ),
+                                        Pair("heartbeat",
+                                                Reference("#/components/messages/heartbeat")
+                                        ),
+                                        Pair("systemStatus",
+                                                Reference("#/components/messages/systemStatus")
+                                        ),
+                                        Pair("subscriptionStatus",
+                                                Reference("#/components/messages/subscriptionStatus")
+                                        ),
+                                        Pair("subscribe",
+                                                Reference("#/components/messages/subscribe")
+                                        ),
+                                        Pair("unsubscribe",
+                                                Reference("#/components/messages/unsubscribe")
+                                        ),
+                                        Pair("dummyCurrencyInfo",
+                                                Reference("#/components/messages/dummyCurrencyInfo")
+                                        ),
                                 ))
                                 .build()
                 )
@@ -120,7 +136,8 @@ class KrakenWebsocketRequestReplyMessageFilterInReplyAsyncAPI: AbstractExampleVa
                         Pair("dummyCurrencyInfo", Message.builder()
                                 .summary("Dummy message with no real life details")
                                 .description("It is here in this example to showcase that there is an additional message that normally is of a complex structure. It represents actually currency exchange value to show a reply to operation receiveSubscribeRequest with more than one possible message.")
-                                .payload(AsyncAPISchema.builder()
+                                .payload(
+                                    AsyncAPISchema.builder()
                                         .type("object")
                                         .properties(mapOf(
                                                 Pair("event", AsyncAPISchema.builder()
@@ -514,7 +531,8 @@ class KrakenWebsocketRequestReplyMessageFilterInReplyAsyncAPI: AbstractExampleVa
                         Pair("pair", AsyncAPISchema.builder()
                                 .type("array")
                                 .description("Array of currency pairs.")
-                                .items(AsyncAPISchema.builder()
+                                .items(
+                                    AsyncAPISchema.builder()
                                         .type("string")
                                         .description("Format of each pair is \"A/B\", where A and B are ISO 4217-A3 for standardized assets and popular unique symbol if not standardized.")
                                         .pattern("[A-Z\\s]+\\/[A-Z\\s]+")

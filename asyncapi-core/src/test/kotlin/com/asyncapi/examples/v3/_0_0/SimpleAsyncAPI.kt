@@ -1,13 +1,13 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.v3.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.message.Message
 import com.asyncapi.v3._0_0.model.component.Components
 import com.asyncapi.v3._0_0.model.info.Info
 import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
-import com.asyncapi.v3.schema.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 
 class SimpleAsyncAPI: AbstractExampleValidationTest() {
 
@@ -29,7 +29,9 @@ class SimpleAsyncAPI: AbstractExampleValidationTest() {
                         Channel.builder()
                                 .address("user/signedup")
                                 .messages(mapOf(
-                                        Pair("UserSignedUp", Reference("#/components/messages/UserSignedUp"))
+                                        Pair("UserSignedUp",
+                                            Reference("#/components/messages/UserSignedUp")
+                                        )
                                 ))
                                 .build()
                 )
@@ -43,7 +45,7 @@ class SimpleAsyncAPI: AbstractExampleValidationTest() {
                                 .action(OperationAction.SEND)
                                 .channel(Reference("#/channels/userSignedup"))
                                 .messages(listOf(
-                                        Reference("#/channels/userSignedup/messages/UserSignedUp")
+                                    Reference("#/channels/userSignedup/messages/UserSignedUp")
                                 ))
                                 .build()
                 )
@@ -55,7 +57,8 @@ class SimpleAsyncAPI: AbstractExampleValidationTest() {
                 .messages(mapOf(
                         Pair("UserSignedUp",
                                 Message.builder()
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("displayName",

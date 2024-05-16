@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.v3.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.Parameter
 import com.asyncapi.v3._0_0.model.channel.message.CorrelationId
@@ -12,7 +12,7 @@ import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.server.Server
 import com.asyncapi.v3._0_0.model.server.ServerVariable
-import com.asyncapi.v3.schema.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 import java.math.BigDecimal
 
 class ApplicationHeadersAsyncAPI: AbstractExampleValidationTest() {
@@ -60,10 +60,14 @@ class ApplicationHeadersAsyncAPI: AbstractExampleValidationTest() {
                         Channel.builder()
                                 .address("smartylighting/streetlights/1/0/event/{streetlightId}/lighting/measured")
                                 .messages(mapOf(
-                                        Pair("lightMeasured", Reference("#/components/messages/lightMeasured"))
+                                        Pair("lightMeasured",
+                                            Reference("#/components/messages/lightMeasured")
+                                        )
                                 ))
                                 .parameters(mapOf(
-                                        Pair("streetlightId", Reference("#/components/parameters/streetlightId"))
+                                        Pair("streetlightId",
+                                            Reference("#/components/parameters/streetlightId")
+                                        )
                                 ))
                                 .build()
                 )
@@ -78,7 +82,7 @@ class ApplicationHeadersAsyncAPI: AbstractExampleValidationTest() {
                                 .channel(Reference("#/channels/lightingMeasured"))
                                 .summary("Inform about environmental lighting conditions of a particular streetlight.")
                                 .messages(listOf(
-                                        Reference("#/channels/lightingMeasured/messages/lightMeasured")
+                                    Reference("#/channels/lightingMeasured/messages/lightMeasured")
                                 ))
                                 .build()
                 )
@@ -95,7 +99,8 @@ class ApplicationHeadersAsyncAPI: AbstractExampleValidationTest() {
                                         .summary("Inform about environmental lighting conditions of a particular streetlight.")
                                         .correlationId(CorrelationId(null, "\$message.header#/MQMD/CorrelId"))
                                         .contentType("application/json")
-                                        .headers(AsyncAPISchema.builder()
+                                        .headers(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("MQMD", AsyncAPISchema.builder()

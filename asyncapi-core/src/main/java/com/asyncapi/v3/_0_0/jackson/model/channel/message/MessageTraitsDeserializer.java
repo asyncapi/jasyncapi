@@ -1,8 +1,8 @@
 package com.asyncapi.v3._0_0.jackson.model.channel.message;
 
-import com.asyncapi.v3.Reference;
+import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.v3._0_0.model.channel.message.MessageTrait;
-import com.asyncapi.v3.jackson.ListOfReferencesOrObjectsDeserializer;
+import com.asyncapi.serde.ListOfReferencesOrObjectsDeserializer;
 
 /**
  * Deserializes message traits.

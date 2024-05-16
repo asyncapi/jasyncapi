@@ -1,30 +1,30 @@
 package com.asyncapi.v3._0_0.model.server
 
-import com.asyncapi.v3.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v3.SerDeTest
 import com.asyncapi.v3._0_0.model.ExternalDocumentationTest
 import com.asyncapi.v3._0_0.model.Tag
-import com.asyncapi.v3.binding.server.amqp1.AMQP1ServerBinding
-import com.asyncapi.v3.binding.server.anypointmq.AnypointMQServerBinding
-import com.asyncapi.v3.binding.server.googlepubsub.GooglePubSubServerBinding
-import com.asyncapi.v3.binding.server.http.HTTPServerBinding
-import com.asyncapi.v3.binding.server.ibmmq.IBMMQServerBinding
-import com.asyncapi.v3.binding.server.jms.JMSServerBinding
-import com.asyncapi.v3.binding.server.kafka.KafkaServerBinding
-import com.asyncapi.v3.binding.server.mercure.MercureServerBinding
-import com.asyncapi.v3.binding.server.mqtt.MQTTServerBinding
-import com.asyncapi.v3.binding.server.mqtt.MQTTServerLastWillConfiguration
-import com.asyncapi.v3.binding.server.mqtt5.MQTT5ServerBinding
-import com.asyncapi.v3.binding.server.nats.NATSServerBinding
-import com.asyncapi.v3.binding.server.pulsar.PulsarServerBinding
-import com.asyncapi.v3.binding.server.redis.RedisServerBinding
-import com.asyncapi.v3.binding.server.sns.SNSServerBinding
-import com.asyncapi.v3.binding.server.solace.SolaceServerBinding
-import com.asyncapi.v3.binding.server.sqs.SQSServerBinding
-import com.asyncapi.v3.binding.server.stomp.STOMPServerBinding
-import com.asyncapi.v3.binding.server.ws.WebSocketsServerBinding
-import com.asyncapi.v3.security_scheme.ApiKeySecuritySchemeTest
-import com.asyncapi.v3.security_scheme.http.HttpSecuritySchemeBearerTest
+import com.asyncapi.bindings.amqp1.v0._1_0.server.AMQP1ServerBinding
+import com.asyncapi.bindings.anypointmq.v0._0_1.server.AnypointMQServerBinding
+import com.asyncapi.bindings.googlepubsub.GooglePubSubV0_2_0Test
+import com.asyncapi.bindings.http.HTTPV0_3_0Test
+import com.asyncapi.bindings.ibmmq.v0._1_0.server.IBMMQServerBinding
+import com.asyncapi.bindings.jms.v0._0_1.server.JMSServerBinding
+import com.asyncapi.bindings.kafka.v0._5_0.server.KafkaServerBinding
+import com.asyncapi.bindings.mercure.v0._1_0.server.MercureServerBinding
+import com.asyncapi.bindings.mqtt.v0._1_0.server.MQTTServerBinding
+import com.asyncapi.bindings.mqtt.v0._1_0.server.MQTTServerLastWillConfiguration
+import com.asyncapi.bindings.mqtt5.v0._2_0.server.MQTT5ServerBinding
+import com.asyncapi.bindings.nats.v0._1_0.server.NATSServerBinding
+import com.asyncapi.bindings.pulsar.v0._1_0.server.PulsarServerBinding
+import com.asyncapi.bindings.redis.v0._1_0.server.RedisServerBinding
+import com.asyncapi.bindings.sns.v0._1_0.server.SNSServerBinding
+import com.asyncapi.bindings.solace.v0._4_0.server.SolaceServerBinding
+import com.asyncapi.bindings.sqs.SQSV0_2_0Test
+import com.asyncapi.bindings.stomp.v0._1_0.server.STOMPServerBinding
+import com.asyncapi.bindings.websockets.v0._1_0.server.WebSocketsServerBinding
+import com.asyncapi.schemas.security.v3.ApiKeySecuritySchemeTest
+import com.asyncapi.schemas.security.v3.http.HttpSecuritySchemeBearerTest
 
 /**
  * @version 3.0.0
@@ -58,7 +58,9 @@ class ServerTest: SerDeTest<Server>() {
                                 .enumValues(listOf("8883", "8884"))
                                 .defaultValue("8883")
                                 .build()),
-                        Pair("basePath", Reference("#/components/serverVariables/basePath"))
+                        Pair("basePath",
+                            Reference("#/components/serverVariables/basePath")
+                        )
                 ))
                 .security(listOf(
                         ApiKeySecuritySchemeTest().build(),
@@ -76,11 +78,13 @@ class ServerTest: SerDeTest<Server>() {
         @JvmStatic
         fun bindings(): Map<String, Any> {
             return mapOf(
-                    Pair("amqp", Reference("#/components/serverBindings/amqp")),
+                    Pair("amqp",
+                        Reference("#/components/serverBindings/amqp")
+                    ),
                     Pair("amqp1", AMQP1ServerBinding()),
                     Pair("anypointmq", AnypointMQServerBinding()),
-                    Pair("googlepubsub", GooglePubSubServerBinding()),
-                    Pair("http", HTTPServerBinding()),
+                    Pair("googlepubsub", GooglePubSubV0_2_0Test.serverBinding()),
+                    Pair("http", HTTPV0_3_0Test.serverBinding()),
                     Pair(
                             "ibmmq",
                             IBMMQServerBinding.builder()
@@ -96,7 +100,9 @@ class ServerTest: SerDeTest<Server>() {
                                     .schemaRegistryVendor("confluent")
                                     .build()
                     ),
-                    Pair("mercure", MercureServerBinding()),
+                    Pair("mercure",
+                            MercureServerBinding()
+                    ),
                     Pair(
                             "mqtt",
                             MQTTServerBinding.builder()
@@ -126,13 +132,12 @@ class ServerTest: SerDeTest<Server>() {
                     ),
                     Pair("redis", RedisServerBinding()),
                     Pair("sns", SNSServerBinding()),
-                    Pair(
-                            "solace",
-                            SolaceServerBinding.builder()
-                                    .msgVpn("solace.private.net")
-                                    .build()
+                    Pair("solace", SolaceServerBinding.builder()
+                            .msgVpn("ProdVPN")
+                            .clientName("transactions-broker")
+                            .build()
                     ),
-                    Pair("sqs", SQSServerBinding()),
+                    Pair("sqs", SQSV0_2_0Test.serverBinding()),
                     Pair("stomp", STOMPServerBinding()),
                     Pair("ws", WebSocketsServerBinding()),
             )
@@ -169,16 +174,18 @@ class ServerTestWithReference: SerDeTest<Server>() {
                                 .enumValues(listOf("8883", "8884"))
                                 .defaultValue("8883")
                                 .build()),
-                        Pair("basePath", Reference("#/components/serverVariables/basePath"))
+                        Pair("basePath",
+                            Reference("#/components/serverVariables/basePath")
+                        )
                 ))
                 .security(listOf(
                         ApiKeySecuritySchemeTest().build(),
                         HttpSecuritySchemeBearerTest().build(),
-                        Reference("#/components/securitySchemes/openId")
+                    Reference("#/components/securitySchemes/openId")
                 ))
                 .tags(listOf(
                         Tag("env:staging", "This environment is a replica of the production environment", null),
-                        Reference("#/components/tags/tag_name")
+                    Reference("#/components/tags/tag_name")
                 ))
                 .externalDocs(Reference("#/components/externalDocs/externalDoc"))
                 .bindings(bindings())
@@ -189,11 +196,13 @@ class ServerTestWithReference: SerDeTest<Server>() {
         @JvmStatic
         fun bindings(): Map<String, Any> {
             return mapOf(
-                    Pair("amqp", Reference("#/components/serverBindings/amqp")),
+                    Pair("amqp",
+                        Reference("#/components/serverBindings/amqp")
+                    ),
                     Pair("amqp1", AMQP1ServerBinding()),
                     Pair("anypointmq", AnypointMQServerBinding()),
-                    Pair("googlepubsub", GooglePubSubServerBinding()),
-                    Pair("http", HTTPServerBinding()),
+                    Pair("googlepubsub", GooglePubSubV0_2_0Test.serverBinding()),
+                    Pair("http", HTTPV0_3_0Test.serverBinding()),
                     Pair(
                             "ibmmq",
                             IBMMQServerBinding.builder()
@@ -209,7 +218,9 @@ class ServerTestWithReference: SerDeTest<Server>() {
                                     .schemaRegistryVendor("confluent")
                                     .build()
                     ),
-                    Pair("mercure", MercureServerBinding()),
+                    Pair("mercure",
+                            MercureServerBinding()
+                    ),
                     Pair(
                             "mqtt",
                             MQTTServerBinding.builder()
@@ -239,13 +250,12 @@ class ServerTestWithReference: SerDeTest<Server>() {
                     ),
                     Pair("redis", RedisServerBinding()),
                     Pair("sns", SNSServerBinding()),
-                    Pair(
-                            "solace",
-                            SolaceServerBinding.builder()
-                                    .msgVpn("solace.private.net")
-                                    .build()
+                    Pair("solace", SolaceServerBinding.builder()
+                            .msgVpn("ProdVPN")
+                            .clientName("transactions-broker")
+                            .build()
                     ),
-                    Pair("sqs", SQSServerBinding()),
+                    Pair("sqs", SQSV0_2_0Test.serverBinding()),
                     Pair("stomp", STOMPServerBinding()),
                     Pair("ws", WebSocketsServerBinding()),
             )

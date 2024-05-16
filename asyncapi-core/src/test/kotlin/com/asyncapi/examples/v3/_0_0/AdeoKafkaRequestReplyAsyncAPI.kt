@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.v3.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v3._0_0.model.Tag
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.Parameter
@@ -14,14 +14,14 @@ import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.operation.reply.OperationReply
 import com.asyncapi.v3._0_0.model.operation.reply.OperationReplyAddress
 import com.asyncapi.v3._0_0.model.server.Server
-import com.asyncapi.v3.binding.channel.kafka.KafkaChannelBinding
-import com.asyncapi.v3.binding.channel.kafka.KafkaChannelTopicCleanupPolicy
-import com.asyncapi.v3.binding.channel.kafka.KafkaChannelTopicConfiguration
-import com.asyncapi.v3.binding.operation.kafka.KafkaOperationBinding
-import com.asyncapi.v3.binding.server.kafka.KafkaServerBinding
-import com.asyncapi.v3.schema.AsyncAPISchema
-import com.asyncapi.v3.schema.multiformat.AvroFormatSchema
-import com.asyncapi.v3.security_scheme.SecurityScheme
+import com.asyncapi.bindings.kafka.v0._5_0.channel.KafkaChannelBinding
+import com.asyncapi.bindings.kafka.v0._5_0.channel.KafkaChannelTopicCleanupPolicy
+import com.asyncapi.bindings.kafka.v0._5_0.channel.KafkaChannelTopicConfiguration
+import com.asyncapi.bindings.kafka.v0._5_0.operation.KafkaOperationBinding
+import com.asyncapi.bindings.kafka.v0._5_0.server.KafkaServerBinding
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.multiformat.AvroFormatSchema
+import com.asyncapi.schemas.asyncapi.security.v3.SecurityScheme
 
 class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
 
@@ -117,8 +117,12 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
                                         "![](https://user-images.githubusercontent.com/5501911/188920831-689cec5f-8dc3-460b-8794-0b54ec8b0ac8.png)\n"
                         )
                         .parameters(mapOf(
-                                Pair("env", Reference("#/components/parameters/Env")),
-                                Pair("version", Reference("#/components/parameters/Version"))
+                                Pair("env",
+                                        Reference("#/components/parameters/Env")
+                                ),
+                                Pair("version",
+                                        Reference("#/components/parameters/Version")
+                                )
                         ))
                         .bindings(mapOf(
                                 Pair("kafka", KafkaChannelBinding.builder()
@@ -133,7 +137,9 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
                                 )
                         ))
                         .messages(mapOf(
-                                Pair("CostingRequest", Reference("#/components/messages/costingRequestV1"))
+                                Pair("CostingRequest",
+                                        Reference("#/components/messages/costingRequestV1")
+                                )
                         ))
                         .build()
                 ),
@@ -159,7 +165,9 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
                         ))
                         .tags(listOf(Tag.builder().name("costing").build()))
                         .messages(mapOf(
-                                Pair("costingResponse", Reference("#/components/messages/costingResponse"))
+                                Pair("costingResponse",
+                                        Reference("#/components/messages/costingResponse")
+                                )
                         ))
                         .build()
                 )
@@ -168,7 +176,8 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
 
     override fun expectedOperations(): Map<String, Any> {
         val receiveACostingRequestKafkaBinding = KafkaOperationBinding.builder()
-                .groupId(AsyncAPISchema.builder()
+                .groupId(
+                    AsyncAPISchema.builder()
                         .type("string")
                         .description("The groupId must be prefixed by your `svc` account, deliver by the Adeo Kafka team. This `svc` must have the write access to the topic.\n")
                         .build()
@@ -238,7 +247,8 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
                                         Tag.builder().name("costing").build()
                                 ))
                                 .correlationId(Reference("#/components/correlationIds/costingCorrelationId"))
-                                .headers(AsyncAPISchema.builder()
+                                .headers(
+                                    AsyncAPISchema.builder()
                                         .type("object")
                                         .required(listOf(
                                                 "REQUESTER_ID", "REQUESTER_CODE", "REQUEST_ID", "REPLY_TOPIC"
@@ -251,10 +261,12 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
                                         ))
                                         .build()
                                 )
-                                .payload(AvroFormatSchema(
-                                        "application/vnd.apache.avro;version=1.9.0",
-                                        Reference("https://www.asyncapi.com/resources/casestudies/adeo/CostingRequestPayload.avsc")
-                                ))
+                                .payload(
+                                        AvroFormatSchema(
+                                                "application/vnd.apache.avro;version=1.9.0",
+                                                Reference("https://www.asyncapi.com/resources/casestudies/adeo/CostingRequestPayload.avsc")
+                                        )
+                                )
                                 .build()
                         ),
                         Pair("costingResponse", Message.builder()
@@ -267,7 +279,8 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
                                         Tag.builder().name("costing").build()
                                 ))
                                 .correlationId(Reference("#/components/correlationIds/costingCorrelationId"))
-                                .headers(AsyncAPISchema.builder()
+                                .headers(
+                                    AsyncAPISchema.builder()
                                         .type("object")
                                         .properties(mapOf(
                                                 Pair("CALCULATION_ID", AsyncAPISchema.builder().ref("#/components/schemas/MessageId").build()),
@@ -287,10 +300,12 @@ class AdeoKafkaRequestReplyAsyncAPI: AbstractExampleValidationTest() {
                                         ))
                                         .build()
                                 )
-                                .payload(AvroFormatSchema(
-                                        "application/vnd.apache.avro;version=1.9.0",
-                                        Reference("https://www.asyncapi.com/resources/casestudies/adeo/CostingResponsePayload.avsc")
-                                ))
+                                .payload(
+                                        AvroFormatSchema(
+                                                "application/vnd.apache.avro;version=1.9.0",
+                                                Reference("https://www.asyncapi.com/resources/casestudies/adeo/CostingResponsePayload.avsc")
+                                        )
+                                )
                                 .build()
                         )
                 ))

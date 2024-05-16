@@ -65,7 +65,7 @@
     "kafka" : {
       "schemaRegistryUrl" : "https://my-schema-registry.com",
       "schemaRegistryVendor" : "confluent",
-      "bindingVersion" : "0.4.0"
+      "bindingVersion" : "0.5.0"
     },
     "mercure" : { },
     "mqtt" : {
@@ -92,8 +92,9 @@
     "redis" : { },
     "sns" : { },
     "solace" : {
-      "msgVpn" : "solace.private.net",
-      "bindingVersion" : "0.3.0"
+      "clientName": "transactions-broker",
+      "msgVpn": "ProdVPN",
+      "bindingVersion": "0.4.0"
     },
     "sqs" : { },
     "stomp" : { },

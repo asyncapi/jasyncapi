@@ -1,26 +1,26 @@
 package com.asyncapi.v2._0_0.model.server
 
 import com.asyncapi.v2.SerDeTest
-import com.asyncapi.v2.binding.server.ServerBinding
-import com.asyncapi.v2.binding.server.amqp1.AMQP1ServerBinding
-import com.asyncapi.v2.binding.server.anypointmq.AnypointMQServerBinding
-import com.asyncapi.v2.binding.server.googlepubsub.GooglePubSubServerBinding
-import com.asyncapi.v2.binding.server.http.HTTPServerBinding
-import com.asyncapi.v2.binding.server.ibmmq.IBMMQServerBinding
-import com.asyncapi.v2.binding.server.jms.JMSServerBinding
-import com.asyncapi.v2.binding.server.kafka.KafkaServerBinding
-import com.asyncapi.v2.binding.server.mercure.MercureServerBinding
-import com.asyncapi.v2.binding.server.mqtt.MQTTServerBinding
-import com.asyncapi.v2.binding.server.mqtt.MQTTServerLastWillConfiguration
-import com.asyncapi.v2.binding.server.mqtt5.MQTT5ServerBinding
-import com.asyncapi.v2.binding.server.nats.NATSServerBinding
-import com.asyncapi.v2.binding.server.pulsar.PulsarServerBinding
-import com.asyncapi.v2.binding.server.redis.RedisServerBinding
-import com.asyncapi.v2.binding.server.sns.SNSServerBinding
-import com.asyncapi.v2.binding.server.solace.SolaceServerBinding
-import com.asyncapi.v2.binding.server.sqs.SQSServerBinding
-import com.asyncapi.v2.binding.server.stomp.STOMPServerBinding
-import com.asyncapi.v2.binding.server.ws.WebSocketsServerBinding
+import com.asyncapi.bindings.ServerBinding
+import com.asyncapi.bindings.amqp1.v0._1_0.server.AMQP1ServerBinding
+import com.asyncapi.bindings.anypointmq.v0._0_1.server.AnypointMQServerBinding
+import com.asyncapi.bindings.googlepubsub.GooglePubSubV0_2_0Test
+import com.asyncapi.bindings.http.HTTPV0_3_0Test
+import com.asyncapi.bindings.ibmmq.v0._1_0.server.IBMMQServerBinding
+import com.asyncapi.bindings.jms.v0._0_1.server.JMSServerBinding
+import com.asyncapi.bindings.kafka.v0._5_0.server.KafkaServerBinding
+import com.asyncapi.bindings.mercure.v0._1_0.server.MercureServerBinding
+import com.asyncapi.bindings.mqtt.v0._1_0.server.MQTTServerBinding
+import com.asyncapi.bindings.mqtt.v0._1_0.server.MQTTServerLastWillConfiguration
+import com.asyncapi.bindings.mqtt5.v0._2_0.server.MQTT5ServerBinding
+import com.asyncapi.bindings.nats.v0._1_0.server.NATSServerBinding
+import com.asyncapi.bindings.pulsar.v0._1_0.server.PulsarServerBinding
+import com.asyncapi.bindings.redis.v0._1_0.server.RedisServerBinding
+import com.asyncapi.bindings.sns.v0._1_0.server.SNSServerBinding
+import com.asyncapi.bindings.solace.v0._4_0.server.SolaceServerBinding
+import com.asyncapi.bindings.sqs.SQSV0_2_0Test
+import com.asyncapi.bindings.stomp.v0._1_0.server.STOMPServerBinding
+import com.asyncapi.bindings.websockets.v0._1_0.server.WebSocketsServerBinding
 
 /**
  * @author Pavel Bodiachevskii
@@ -64,8 +64,8 @@ class ServerTest: SerDeTest<Server>() {
             return mapOf(
                     Pair("amqp1", AMQP1ServerBinding()),
                     Pair("anypointmq", AnypointMQServerBinding()),
-                    Pair("googlepubsub", GooglePubSubServerBinding()),
-                    Pair("http", HTTPServerBinding()),
+                    Pair("googlepubsub", GooglePubSubV0_2_0Test.serverBinding()),
+                    Pair("http", HTTPV0_3_0Test.serverBinding()),
                     Pair(
                             "ibmmq",
                             IBMMQServerBinding.builder()
@@ -111,13 +111,12 @@ class ServerTest: SerDeTest<Server>() {
                     ),
                     Pair("redis", RedisServerBinding()),
                     Pair("sns", SNSServerBinding()),
-                    Pair(
-                            "solace",
-                            SolaceServerBinding.builder()
-                                    .msgVpn("solace.private.net")
-                                    .build()
+                    Pair("solace", SolaceServerBinding.builder()
+                            .msgVpn("ProdVPN")
+                            .clientName("transactions-broker")
+                            .build()
                     ),
-                    Pair("sqs", SQSServerBinding()),
+                    Pair("sqs", SQSV0_2_0Test.serverBinding()),
                     Pair("stomp", STOMPServerBinding()),
                     Pair("ws", WebSocketsServerBinding()),
             )

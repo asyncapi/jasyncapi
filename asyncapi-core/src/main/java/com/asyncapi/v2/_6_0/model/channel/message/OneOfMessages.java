@@ -1,5 +1,6 @@
 package com.asyncapi.v2._6_0.model.channel.message;
 
+import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.v2._6_0.jackson.model.channel.message.MessagesDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
@@ -26,7 +27,7 @@ public class OneOfMessages {
      * Given message MUST be one of provided messages.
      *
      * <ul>
-     *     <li>{@link com.asyncapi.v2.Reference}</li>
+     *     <li>{@link Reference}</li>
      *     <li>{@link com.asyncapi.v2._6_0.model.channel.message.Message}</li>
      * </ul>
      */

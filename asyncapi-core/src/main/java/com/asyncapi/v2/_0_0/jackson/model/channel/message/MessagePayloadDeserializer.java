@@ -1,18 +1,18 @@
 package com.asyncapi.v2._0_0.jackson.model.channel.message;
 
-import com.asyncapi.v2.schema.Schema;
-import com.asyncapi.v2.jackson.ObjectDeserializer;
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema;
+import com.asyncapi.serde.ObjectDeserializer;
 
 /**
  * Serializes message traits list.
  *
  * @author Pavel Bodiachevskii
  */
-public class MessagePayloadDeserializer extends ObjectDeserializer<Schema> {
+public class MessagePayloadDeserializer extends ObjectDeserializer<AsyncAPISchema> {
 
     @Override
-    public Class<Schema> objectTypeClass() {
-        return Schema.class;
+    public Class<AsyncAPISchema> objectTypeClass() {
+        return AsyncAPISchema.class;
     }
 
 }

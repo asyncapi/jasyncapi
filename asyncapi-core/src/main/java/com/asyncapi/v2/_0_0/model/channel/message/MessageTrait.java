@@ -1,15 +1,15 @@
 package com.asyncapi.v2._0_0.model.channel.message;
 
-import com.asyncapi.v2.ExtendableObject;
+import com.asyncapi.schemas.asyncapi.ExtendableObject;
 import com.asyncapi.v2._0_0.jackson.model.channel.message.MessageCorrelationIdDeserializer;
 import com.asyncapi.v2._0_0.jackson.model.channel.message.MessageHeadersDeserializer;
 import com.asyncapi.v2._0_0.model.ExternalDocumentation;
-import com.asyncapi.v2.Reference;
+import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.v2._0_0.model.Tag;
 import com.asyncapi.v2._0_0.model.channel.operation.OperationTrait;
-import com.asyncapi.v2.schema.Schema;
-import com.asyncapi.v2.binding.message.MessageBinding;
-import com.asyncapi.v2.jackson.binding.message.MessageBindingsDeserializer;
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema;
+import com.asyncapi.bindings.MessageBinding;
+import com.asyncapi.bindings.MessageBindingsDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -47,7 +47,7 @@ public class MessageTrait extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link Schema}</li>
+     *     <li>{@link AsyncAPISchema}</li>
      *     <li>{@link Reference}</li>
      * </ul>
      */

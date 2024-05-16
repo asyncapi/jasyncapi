@@ -3,11 +3,7 @@
 <h4 align="left">Building the future of event-driven architectures</h4>
 <h6 align="left">We're on a mission to standardize message-based communication and increase interoperability of the different systems out there.</h6>
 
----
-> ⚠️ This project doesn't support AsyncAPI 1.x
----
-
-[![Version](https://img.shields.io/maven-central/v/com.asyncapi/asyncapi-core?logo=apache-maven)](https://central.sonatype.com/artifact/com.asyncapi/asyncapi-core/1.0.0-RC)
+[![Version](https://img.shields.io/maven-central/v/com.asyncapi/asyncapi-core/1.0.0-RC2?logo=apache-maven)](https://central.sonatype.com/artifact/com.asyncapi/asyncapi-core/1.0.0-RC2)
 
 ## Overview
 JVM-friendly bindings for AsyncAPI. It allows you to read or write specifications for your asynchronous API  through code
@@ -16,9 +12,75 @@ Hints:
 - If you are working with AsyncAPI specification in JetBrains IDE, check out our [AsyncAPI - IDEA plugin](https://github.com/asyncapi/jasyncapi-idea-plugin)
 - If you are working with AsyncAPI specification in VSCode, check out our [AsyncAPI - VSCode plugin](https://github.com/asyncapi/vs-asyncapi-preview)
 
+### Implemented AsyncAPI versions (3/8)
+
+| Version | Implementation status |
+|---------|-----------------------|
+| 2.0.0   | ✅                     |
+| 2.1.0   | ❌                     |
+| 2.2.0   | ❌                     |
+| 2.3.0   | ❌                     |
+| 2.4.0   | ❌                     |
+| 2.5.0   | ❌                     |
+| 2.6.0   | ✅                     |
+| 3.0.0   | ✅                     |
+
+### Implemented AsyncAPI schemas (5/7)
+
+| Protocol                     | Versions                                                    |
+|------------------------------|-------------------------------------------------------------|
+| AsyncAPI Multi Format Schema | 3.0.0                                                       |
+| AsyncAPI Schema              | unified version                                             |
+| Avro Schema                  | 1.9.0, 1.9.1, 1.9.2, 1.10.0, 1.10.1, 1.10.2, 1.11.0, 1.11.1 |
+| Json Schema                  | Draft-07                                                    |
+| OpenAPI Schema               | 3.0.0, 3.0.1, 3.0.2, 3.0.3                                  |
+| RAML 1.0 Schema              | ❌                                                           |
+| Protocol Buffers             | ❌                                                           |
+
+### Implemented AsyncAPI bindings (19/19)
+
+| Protocol             | Versions                          |
+|----------------------|-----------------------------------|
+| AMQP                 | 0.1.0, 0.2.0, 0.3.0               |
+| AMQP1                | 0.1.0                             |
+| Anypoint MQ          | 0.1.0                             |
+| Google Cloud Pub/Sub | 0.1.0, 0.2.0                      |
+| HTTP                 | 0.1.0, 0.2.0, 0.3.0, 0.4.0, 0.5.0 |
+| IBM MQ               | 0.1.0                             |
+| JMS                  | 0.0.1                             |
+| Apache Kafka         | 0.1.0, 0.3.0, 0.4.0, 0.5.0        |
+| Mercure              | 0.1.0                             |
+| MQTT                 | 0.1.0, 0.2.0                      |
+| MQTT 5               | 0.1.0, 0.2.0                      |
+| NATS                 | 0.1.0                             |
+| Apache Pulsar        | 0.1.0                             |
+| Redis                | 0.1.0                             |
+| Amazon SNS           | 0.1.0                             |
+| Solace               | 0.1.0, 0.2.0, 0.3.0, 0.4.0        |
+| Amazon SQS           | 0.1.0, 0.2.0                      |
+| STOMP                | 0.1.0                             |
+| WebSockets           | 0.1.0                             |
+
+### Implemented AsyncAPI Security Schemas (12/12)
+| Security Schema       | Implementation status |
+|-----------------------|-----------------------|
+| API Key               | ✅                     |
+| Asymmetric Encryption | ✅                     |
+| GSS-API               | ✅                     |
+| HTTP                  | ✅                     |
+| HTTP API Key          | ✅                     |
+| OAuth2                | ✅                     |
+| OpenID Connect        | ✅                     |
+| Plain                 | ✅                     |
+| SCRAM-SHA-256         | ✅                     |
+| SCRAM-SHA-512         | ✅                     |
+| Symmetric Encryption  | ✅                     |
+| User Password         | ✅                     |
+
 ## Known consumers:
 - [Springwolf Core](https://github.com/springwolf/springwolf-core) - Automated documentation for async APIs built with Spring Boot
 - [AsyncAPI Quarkus](https://github.com/quarkiverse/quarkus-asyncapi) - Generates AsyncAPIRegistry and configuration classes for Quarkus
+- [Specmatic](https://specmatic.in) - Converts AsyncAPI specifications into executable contracts
 
 ## Known open specifications to check compatibility with:
 - [x] [adeo-kafka-request-reply-asyncapi.yml](https://github.com/asyncapi/spec/blob/master/examples/adeo-kafka-request-reply-asyncapi.yml)

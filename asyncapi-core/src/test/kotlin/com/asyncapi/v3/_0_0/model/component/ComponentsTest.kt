@@ -1,6 +1,6 @@
 package com.asyncapi.v3._0_0.model.component
 
-import com.asyncapi.v3.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v3.SerDeTest
 import com.asyncapi.v3._0_0.model.ExternalDocumentationTest
 import com.asyncapi.v3._0_0.model.TagTest
@@ -18,16 +18,16 @@ import com.asyncapi.v3._0_0.model.operation.reply.OperationReplyTest
 import com.asyncapi.v3._0_0.model.operation.reply.OperationReplyTestWithReference
 import com.asyncapi.v3._0_0.model.server.ServerTest
 import com.asyncapi.v3._0_0.model.server.ServerVariableTest
-import com.asyncapi.v3.schema.AsyncAPISchema
-import com.asyncapi.v3.schema.JsonSchema
-import com.asyncapi.v3.schema.Type
-import com.asyncapi.v3.schema.multiformat.JsonFormatSchema
-import com.asyncapi.v3.security_scheme.ApiKeySecuritySchemeTest
-import com.asyncapi.v3.security_scheme.OpenIdConnectSecuritySchemeTest
-import com.asyncapi.v3.security_scheme.http.HttpApiKeySecuritySchemeTest
-import com.asyncapi.v3.security_scheme.http.HttpSecuritySchemeBasicTest
-import com.asyncapi.v3.security_scheme.http.HttpSecuritySchemeBearerTest
-import com.asyncapi.v3.security_scheme.oauth2.OAuth2SecuritySchemeTest
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
+import com.asyncapi.schemas.json.JsonSchema
+import com.asyncapi.schemas.Type
+import com.asyncapi.schemas.asyncapi.multiformat.JsonFormatSchema
+import com.asyncapi.schemas.security.v3.ApiKeySecuritySchemeTest
+import com.asyncapi.schemas.security.v3.OpenIdConnectSecuritySchemeTest
+import com.asyncapi.schemas.security.v3.http.HttpApiKeySecuritySchemeTest
+import com.asyncapi.schemas.security.v3.http.HttpSecuritySchemeBasicTest
+import com.asyncapi.schemas.security.v3.http.HttpSecuritySchemeBearerTest
+import com.asyncapi.schemas.security.v3.oauth2.OAuth2SecuritySchemeTest
 
 /**
  * @version 3.0-.0
@@ -62,88 +62,133 @@ class ComponentsTest: SerDeTest<Components>() {
                                 "application/schema+json;version=draft-07",
                                 JsonSchema.builder()
                                         .type("object")
-                                        .properties(mapOf(
-                                                Pair("id", JsonSchema.builder()
-                                                        .type("integer")
-                                                        .format("int64")
-                                                        .build()
-                                                ),
-                                                Pair("name", JsonSchema.builder()
-                                                        .type("string")
-                                                        .build()
+                                        .properties(
+                                                mapOf(
+                                                        Pair(
+                                                                "id", JsonSchema.builder()
+                                                                        .type("integer")
+                                                                        .format("int64")
+                                                                        .build()
+                                                        ),
+                                                        Pair(
+                                                                "name", JsonSchema.builder()
+                                                                        .type("string")
+                                                                        .build()
+                                                        )
                                                 )
-                                        ))
+                                        )
                                         .build()
-                        )),
-                        Pair("User", Reference("#/components/schemas/user"))
+                        )
+                        ),
+                        Pair("User",
+                                Reference("#/components/schemas/user")
+                        )
                 ))
                 .servers(mapOf(
                         Pair("mqtt-test", ServerTest().build()),
-                        Pair("mqtt-stage", Reference("#/components/servers/mqtt-stage"))
+                        Pair("mqtt-stage",
+                                Reference("#/components/servers/mqtt-stage")
+                        )
                 ))
                 .serverVariables(mapOf(
                         Pair("port", ServerVariableTest().build()),
-                        Pair("basePath", Reference("#/components/serverVariables/basePath"))
+                        Pair("basePath",
+                                Reference("#/components/serverVariables/basePath")
+                        )
                 ))
                 .channels(mapOf(
                         Pair("channel 1", ChannelTest().build()),
                         Pair("channel 2", ChannelTestWithReference().build()),
-                        Pair("channel 3", Reference("#/components/channels/channel")),
+                        Pair("channel 3",
+                                Reference("#/components/channels/channel")
+                        ),
                 ))
                 .operations(mapOf(
                         Pair("operation 1", OperationTest().build()),
                         Pair("operation 2", OperationTestWithReference().build()),
-                        Pair("operation 3", Reference("#/components/operations/operation"))
+                        Pair("operation 3",
+                                Reference("#/components/operations/operation")
+                        )
                 ))
                 .replies(mapOf(
                         Pair("reply 1", OperationReplyTest().build()),
                         Pair("reply 2", OperationReplyTestWithReference().build()),
-                        Pair("reply 3", Reference("#/components/replies/reply"))
+                        Pair("reply 3",
+                                Reference("#/components/replies/reply")
+                        )
                 ))
                 .replyAddresses(mapOf(
                         Pair("reply addresses 1", OperationReplyAddressTest().build()),
-                        Pair("reply addresses 2", Reference("#/components/replyAddresses/replyAddress"))
+                        Pair("reply addresses 2",
+                                Reference("#/components/replyAddresses/replyAddress")
+                        )
                 ))
                 .messages(mapOf(
                         Pair("message 1", MessageTestWithSchema().build()),
                         Pair("message 2", MessageTestWithMultiFormatSchema().build()),
                         Pair("message 3", MessageTestWithReference().build()),
-                        Pair("message 4", Reference("#/components/messages/message"))
+                        Pair("message 4",
+                                Reference("#/components/messages/message")
+                        )
                 ))
                 .securitySchemes(mapOf(
                         Pair("apiKey", ApiKeySecuritySchemeTest().build()),
-                        Pair("asymmetricEncryption", Reference("#/components/securitySchemes/asymmetricEncryption")),
-                        Pair("gssapi", Reference("#/components/securitySchemes/gssapi")),
+                        Pair("asymmetricEncryption",
+                                Reference("#/components/securitySchemes/asymmetricEncryption")
+                        ),
+                        Pair("gssapi",
+                                Reference("#/components/securitySchemes/gssapi")
+                        ),
                         Pair("oauth2", OAuth2SecuritySchemeTest().build()),
                         Pair("openIdConnect", OpenIdConnectSecuritySchemeTest().build()),
                         Pair("httpApiKey", HttpApiKeySecuritySchemeTest().build()),
                         Pair("httpBasic", HttpSecuritySchemeBasicTest().build()),
                         Pair("httpBearer", HttpSecuritySchemeBearerTest().build()),
-                        Pair("plain", Reference("#/components/securitySchemes/plain")),
-                        Pair("scramSha256", Reference("#/components/securitySchemes/scramSha256")),
-                        Pair("scramSha512", Reference("#/components/securitySchemes/scramSha512")),
-                        Pair("symmetricEncryption", Reference("#/components/securitySchemes/symmetricEncryption")),
-                        Pair("userPassword", Reference("#/components/securitySchemes/userPassword")),
-                        Pair("X509", Reference("#/components/securitySchemes/X509")),
+                        Pair("plain",
+                                Reference("#/components/securitySchemes/plain")
+                        ),
+                        Pair("scramSha256",
+                                Reference("#/components/securitySchemes/scramSha256")
+                        ),
+                        Pair("scramSha512",
+                                Reference("#/components/securitySchemes/scramSha512")
+                        ),
+                        Pair("symmetricEncryption",
+                                Reference("#/components/securitySchemes/symmetricEncryption")
+                        ),
+                        Pair("userPassword",
+                                Reference("#/components/securitySchemes/userPassword")
+                        ),
+                        Pair("X509",
+                                Reference("#/components/securitySchemes/X509")
+                        ),
                 ))
                 .parameters(mapOf(
                         Pair("parameter 1", ParameterTest().build()),
-                        Pair("parameter 2", Reference("#/components/parameters/parameter"))
+                        Pair("parameter 2",
+                                Reference("#/components/parameters/parameter")
+                        )
                 ))
                 .correlationIds(mapOf(
                         Pair("correlationId 1", CorrelationIdTest().build()),
-                        Pair("correlationId 2", Reference("#/correlationIds/parameters/correlationId"))
+                        Pair("correlationId 2",
+                                Reference("#/correlationIds/parameters/correlationId")
+                        )
                 ))
                 .operationTraits(mapOf(
                         Pair("operationTrait 1", OperationTraitTest().build()),
                         Pair("operationTrait 2", OperationTraitTestWithReference().build()),
-                        Pair("operationTrait 3", Reference("#/components/operationTraits/operationTrait"))
+                        Pair("operationTrait 3",
+                                Reference("#/components/operationTraits/operationTrait")
+                        )
                 ))
                 .messageTraits(mapOf(
                         Pair("messageTrait 1", MessageTraitTestWithSchema().build()),
                         Pair("messageTrait 2", MessageTraitTestWithMultiFormatSchema().build()),
                         Pair("messageTrait 3", MessageTraitTestWithReference().build()),
-                        Pair("messageTrait 4", Reference("#/components/messageTraits/messageTrait"))
+                        Pair("messageTrait 4",
+                                Reference("#/components/messageTraits/messageTrait")
+                        )
                 ))
                 .serverBindings(ServerTest.bindings())
                 .channelBindings(ChannelTest.bindings())
@@ -151,12 +196,16 @@ class ComponentsTest: SerDeTest<Components>() {
                 .messageBindings(MessageTestWithSchema.bindings())
                 .externalDocs(mapOf(
                         Pair("externalDoc 1", ExternalDocumentationTest().build()),
-                        Pair("externalDoc 2", Reference("#/components/externalDocs/externalDoc")),
+                        Pair("externalDoc 2",
+                                Reference("#/components/externalDocs/externalDoc")
+                        ),
                 ))
                 .tags(mapOf(
                         Pair("tag 1", TagTest().build()),
                         Pair("tag 2", TagTestWithReferenceToExternalDocs().build()),
-                        Pair("tag 3", Reference("#/components/tags/tag")),
+                        Pair("tag 3",
+                                Reference("#/components/tags/tag")
+                        ),
                 ))
                 .build()
     }

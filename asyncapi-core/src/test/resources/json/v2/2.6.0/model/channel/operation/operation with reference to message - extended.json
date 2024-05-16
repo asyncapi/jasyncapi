@@ -19,6 +19,7 @@
   },
   "bindings" : {
     "amqp" : {
+      "bindingVersion" : "0.2.0",
       "expiration" : 100000,
       "userId" : "guest",
       "cc" : [ "user.logs" ],
@@ -28,8 +29,7 @@
       "bcc" : [ "external.audit" ],
       "replyTo" : "user.signedup",
       "timestamp" : true,
-      "ack" : false,
-      "bindingVersion" : "0.2.0"
+      "ack" : false
     },
     "amqp1" : {
       "$ref" : "#/components/operationBindings/amqp1"
@@ -41,104 +41,20 @@
       "$ref" : "#/components/operationBindings/googlepubsub"
     },
     "http" : {
-      "type" : "request",
+      "bindingVersion" : "0.3.0",
       "method" : "GET",
       "query" : {
-        "title" : null,
-        "description" : null,
-        "readOnly" : null,
-        "writeOnly" : null,
-        "examples" : null,
-        "contentEncoding" : null,
-        "contentMediaType" : null,
         "type" : "object",
-        "multipleOf" : null,
-        "maximum" : null,
-        "exclusiveMaximum" : null,
-        "minimum" : null,
-        "exclusiveMinimum" : null,
-        "maxLength" : null,
-        "minLength" : null,
-        "pattern" : null,
-        "items" : null,
-        "additionalItems" : null,
-        "maxItems" : null,
-        "minItems" : null,
-        "uniqueItems" : null,
-        "contains" : null,
-        "maxProperties" : null,
-        "minProperties" : null,
         "required" : [ "companyId" ],
         "properties" : {
           "companyId" : {
-            "title" : null,
-            "description" : "The Id of the company.",
-            "readOnly" : null,
-            "writeOnly" : null,
-            "examples" : null,
-            "contentEncoding" : null,
-            "contentMediaType" : null,
             "type" : "number",
-            "multipleOf" : null,
-            "maximum" : null,
-            "exclusiveMaximum" : null,
             "minimum" : 1,
-            "exclusiveMinimum" : null,
-            "maxLength" : null,
-            "minLength" : null,
-            "pattern" : null,
-            "items" : null,
-            "additionalItems" : null,
-            "maxItems" : null,
-            "minItems" : null,
-            "uniqueItems" : null,
-            "contains" : null,
-            "maxProperties" : null,
-            "minProperties" : null,
-            "required" : null,
-            "properties" : null,
-            "patternProperties" : null,
-            "additionalProperties" : null,
-            "dependencies" : null,
-            "propertyNames" : null,
-            "allOf" : null,
-            "anyOf" : null,
-            "oneOf" : null,
-            "not" : null,
-            "format" : null,
-            "discriminator" : null,
-            "externalDocs" : null,
-            "deprecated" : null,
-            "default" : null,
-            "$ref" : null,
-            "enum" : null,
-            "const" : null,
-            "if" : null,
-            "then" : null,
-            "else" : null
+            "description" : "The Id of the company."
           }
         },
-        "patternProperties" : null,
-        "additionalProperties" : false,
-        "dependencies" : null,
-        "propertyNames" : null,
-        "allOf" : null,
-        "anyOf" : null,
-        "oneOf" : null,
-        "not" : null,
-        "format" : null,
-        "discriminator" : null,
-        "externalDocs" : null,
-        "deprecated" : null,
-        "default" : null,
-        "$ref" : null,
-        "enum" : null,
-        "const" : null,
-        "if" : null,
-        "then" : null,
-        "else" : null
-      },
-      "bindingVersion" : "0.1.0"
+        "additionalProperties" : false
+      }
     },
     "ibmmq" : {
       "$ref" : "#/components/operationBindings/ibmmq"
@@ -147,116 +63,30 @@
       "$ref" : "#/components/operationBindings/jms"
     },
     "kafka" : {
-      "bindingVersion" : "0.4.0",
+      "bindingVersion" : "0.5.0",
       "groupId" : {
-        "title" : null,
-        "description" : null,
-        "readOnly" : null,
-        "writeOnly" : null,
-        "examples" : null,
-        "contentEncoding" : null,
-        "contentMediaType" : null,
         "type" : "string",
-        "multipleOf" : null,
-        "maximum" : null,
-        "exclusiveMaximum" : null,
-        "minimum" : null,
-        "exclusiveMinimum" : null,
-        "maxLength" : null,
-        "minLength" : null,
-        "pattern" : null,
-        "items" : null,
-        "additionalItems" : null,
-        "maxItems" : null,
-        "minItems" : null,
-        "uniqueItems" : null,
-        "contains" : null,
-        "maxProperties" : null,
-        "minProperties" : null,
-        "required" : null,
-        "properties" : null,
-        "patternProperties" : null,
-        "additionalProperties" : null,
-        "dependencies" : null,
-        "propertyNames" : null,
-        "allOf" : null,
-        "anyOf" : null,
-        "oneOf" : null,
-        "not" : null,
-        "format" : null,
-        "discriminator" : null,
-        "externalDocs" : null,
-        "deprecated" : null,
-        "default" : null,
-        "$ref" : null,
-        "enum" : [ "myGroupId" ],
-        "const" : null,
-        "if" : null,
-        "then" : null,
-        "else" : null
+        "enum" : [ "myGroupId" ]
       },
       "clientId" : {
-        "title" : null,
-        "description" : null,
-        "readOnly" : null,
-        "writeOnly" : null,
-        "examples" : null,
-        "contentEncoding" : null,
-        "contentMediaType" : null,
         "type" : "string",
-        "multipleOf" : null,
-        "maximum" : null,
-        "exclusiveMaximum" : null,
-        "minimum" : null,
-        "exclusiveMinimum" : null,
-        "maxLength" : null,
-        "minLength" : null,
-        "pattern" : null,
-        "items" : null,
-        "additionalItems" : null,
-        "maxItems" : null,
-        "minItems" : null,
-        "uniqueItems" : null,
-        "contains" : null,
-        "maxProperties" : null,
-        "minProperties" : null,
-        "required" : null,
-        "properties" : null,
-        "patternProperties" : null,
-        "additionalProperties" : null,
-        "dependencies" : null,
-        "propertyNames" : null,
-        "allOf" : null,
-        "anyOf" : null,
-        "oneOf" : null,
-        "not" : null,
-        "format" : null,
-        "discriminator" : null,
-        "externalDocs" : null,
-        "deprecated" : null,
-        "default" : null,
-        "$ref" : null,
-        "enum" : [ "myClientId" ],
-        "const" : null,
-        "if" : null,
-        "then" : null,
-        "else" : null
+        "enum" : [ "myClientId" ]
       }
     },
     "mercure" : {
       "$ref" : "#/components/operationBindings/mercure"
     },
     "mqtt" : {
+      "bindingVersion" : "0.1.0",
       "qos" : 2,
-      "retain" : true,
-      "bindingVersion" : "0.1.0"
+      "retain" : true
     },
     "mqtt5" : {
       "$ref" : "#/components/operationBindings/mqtt5"
     },
     "nats" : {
-      "queue" : "messages",
-      "bindingVersion" : "0.1.0"
+      "bindingVersion" : "0.1.0",
+      "queue" : "messages"
     },
     "pulsar" : {
       "$ref" : "#/components/operationBindings/pulsar"
@@ -268,32 +98,21 @@
       "$ref" : "#/components/operationBindings/sns"
     },
     "solace" : {
+      "dmqEligible" : false,
+      "bindingVersion" : "0.4.0",
       "destinations" : [ {
         "destinationType" : "queue",
         "deliveryMode" : "persistent",
         "queue" : {
-          "name" : "CreatedHREvents",
-          "topicSubscriptions" : [ "person/*/created" ],
-          "accessType" : "exclusive",
-          "maxMsgSpoolSize" : "1,500",
-          "maxTtl" : "60"
-        },
-        "topic" : null
-      }, {
-        "destinationType" : "queue",
-        "deliveryMode" : "persistent",
-        "queue" : {
-          "name" : "UpdatedHREvents",
-          "topicSubscriptions" : [ "person/*/updated" ],
-          "accessType" : null,
-          "maxMsgSpoolSize" : null,
-          "maxTtl" : null
-        },
-        "topic" : {
-          "topicSubscriptions" : [ "person/*/updated" ]
+          "name" : "sampleQueue",
+          "topicSubscriptions" : [ "samples/*" ],
+          "accessType" : "nonexclusive"
         }
-      } ],
-      "bindingVersion" : "0.3.0"
+      }, {
+        "destinationType" : "topic",
+        "deliveryMode" : "persistent",
+        "topicSubscriptions" : [ "samples/*" ]
+      } ]
     },
     "sqs" : {
       "$ref" : "#/components/operationBindings/sqs"
@@ -328,6 +147,7 @@
     },
     "bindings" : {
       "amqp" : {
+        "bindingVersion" : "0.2.0",
         "expiration" : 100000,
         "userId" : "guest",
         "cc" : [ "user.logs" ],
@@ -337,8 +157,7 @@
         "bcc" : [ "external.audit" ],
         "replyTo" : "user.signedup",
         "timestamp" : true,
-        "ack" : false,
-        "bindingVersion" : "0.2.0"
+        "ack" : false
       },
       "amqp1" : {
         "$ref" : "#/components/operationBindings/amqp1"
@@ -350,104 +169,20 @@
         "$ref" : "#/components/operationBindings/googlepubsub"
       },
       "http" : {
-        "type" : "request",
+        "bindingVersion" : "0.3.0",
         "method" : "GET",
         "query" : {
-          "title" : null,
-          "description" : null,
-          "readOnly" : null,
-          "writeOnly" : null,
-          "examples" : null,
-          "contentEncoding" : null,
-          "contentMediaType" : null,
           "type" : "object",
-          "multipleOf" : null,
-          "maximum" : null,
-          "exclusiveMaximum" : null,
-          "minimum" : null,
-          "exclusiveMinimum" : null,
-          "maxLength" : null,
-          "minLength" : null,
-          "pattern" : null,
-          "items" : null,
-          "additionalItems" : null,
-          "maxItems" : null,
-          "minItems" : null,
-          "uniqueItems" : null,
-          "contains" : null,
-          "maxProperties" : null,
-          "minProperties" : null,
           "required" : [ "companyId" ],
           "properties" : {
             "companyId" : {
-              "title" : null,
-              "description" : "The Id of the company.",
-              "readOnly" : null,
-              "writeOnly" : null,
-              "examples" : null,
-              "contentEncoding" : null,
-              "contentMediaType" : null,
               "type" : "number",
-              "multipleOf" : null,
-              "maximum" : null,
-              "exclusiveMaximum" : null,
               "minimum" : 1,
-              "exclusiveMinimum" : null,
-              "maxLength" : null,
-              "minLength" : null,
-              "pattern" : null,
-              "items" : null,
-              "additionalItems" : null,
-              "maxItems" : null,
-              "minItems" : null,
-              "uniqueItems" : null,
-              "contains" : null,
-              "maxProperties" : null,
-              "minProperties" : null,
-              "required" : null,
-              "properties" : null,
-              "patternProperties" : null,
-              "additionalProperties" : null,
-              "dependencies" : null,
-              "propertyNames" : null,
-              "allOf" : null,
-              "anyOf" : null,
-              "oneOf" : null,
-              "not" : null,
-              "format" : null,
-              "discriminator" : null,
-              "externalDocs" : null,
-              "deprecated" : null,
-              "default" : null,
-              "$ref" : null,
-              "enum" : null,
-              "const" : null,
-              "if" : null,
-              "then" : null,
-              "else" : null
+              "description" : "The Id of the company."
             }
           },
-          "patternProperties" : null,
-          "additionalProperties" : false,
-          "dependencies" : null,
-          "propertyNames" : null,
-          "allOf" : null,
-          "anyOf" : null,
-          "oneOf" : null,
-          "not" : null,
-          "format" : null,
-          "discriminator" : null,
-          "externalDocs" : null,
-          "deprecated" : null,
-          "default" : null,
-          "$ref" : null,
-          "enum" : null,
-          "const" : null,
-          "if" : null,
-          "then" : null,
-          "else" : null
-        },
-        "bindingVersion" : "0.1.0"
+          "additionalProperties" : false
+        }
       },
       "ibmmq" : {
         "$ref" : "#/components/operationBindings/ibmmq"
@@ -456,116 +191,30 @@
         "$ref" : "#/components/operationBindings/jms"
       },
       "kafka" : {
-        "bindingVersion" : "0.4.0",
+        "bindingVersion" : "0.5.0",
         "groupId" : {
-          "title" : null,
-          "description" : null,
-          "readOnly" : null,
-          "writeOnly" : null,
-          "examples" : null,
-          "contentEncoding" : null,
-          "contentMediaType" : null,
           "type" : "string",
-          "multipleOf" : null,
-          "maximum" : null,
-          "exclusiveMaximum" : null,
-          "minimum" : null,
-          "exclusiveMinimum" : null,
-          "maxLength" : null,
-          "minLength" : null,
-          "pattern" : null,
-          "items" : null,
-          "additionalItems" : null,
-          "maxItems" : null,
-          "minItems" : null,
-          "uniqueItems" : null,
-          "contains" : null,
-          "maxProperties" : null,
-          "minProperties" : null,
-          "required" : null,
-          "properties" : null,
-          "patternProperties" : null,
-          "additionalProperties" : null,
-          "dependencies" : null,
-          "propertyNames" : null,
-          "allOf" : null,
-          "anyOf" : null,
-          "oneOf" : null,
-          "not" : null,
-          "format" : null,
-          "discriminator" : null,
-          "externalDocs" : null,
-          "deprecated" : null,
-          "default" : null,
-          "$ref" : null,
-          "enum" : [ "myGroupId" ],
-          "const" : null,
-          "if" : null,
-          "then" : null,
-          "else" : null
+          "enum" : [ "myGroupId" ]
         },
         "clientId" : {
-          "title" : null,
-          "description" : null,
-          "readOnly" : null,
-          "writeOnly" : null,
-          "examples" : null,
-          "contentEncoding" : null,
-          "contentMediaType" : null,
           "type" : "string",
-          "multipleOf" : null,
-          "maximum" : null,
-          "exclusiveMaximum" : null,
-          "minimum" : null,
-          "exclusiveMinimum" : null,
-          "maxLength" : null,
-          "minLength" : null,
-          "pattern" : null,
-          "items" : null,
-          "additionalItems" : null,
-          "maxItems" : null,
-          "minItems" : null,
-          "uniqueItems" : null,
-          "contains" : null,
-          "maxProperties" : null,
-          "minProperties" : null,
-          "required" : null,
-          "properties" : null,
-          "patternProperties" : null,
-          "additionalProperties" : null,
-          "dependencies" : null,
-          "propertyNames" : null,
-          "allOf" : null,
-          "anyOf" : null,
-          "oneOf" : null,
-          "not" : null,
-          "format" : null,
-          "discriminator" : null,
-          "externalDocs" : null,
-          "deprecated" : null,
-          "default" : null,
-          "$ref" : null,
-          "enum" : [ "myClientId" ],
-          "const" : null,
-          "if" : null,
-          "then" : null,
-          "else" : null
+          "enum" : [ "myClientId" ]
         }
       },
       "mercure" : {
         "$ref" : "#/components/operationBindings/mercure"
       },
       "mqtt" : {
+        "bindingVersion" : "0.1.0",
         "qos" : 2,
-        "retain" : true,
-        "bindingVersion" : "0.1.0"
+        "retain" : true
       },
       "mqtt5" : {
         "$ref" : "#/components/operationBindings/mqtt5"
       },
       "nats" : {
-        "queue" : "messages",
-        "bindingVersion" : "0.1.0"
+        "bindingVersion" : "0.1.0",
+        "queue" : "messages"
       },
       "pulsar" : {
         "$ref" : "#/components/operationBindings/pulsar"
@@ -577,32 +226,21 @@
         "$ref" : "#/components/operationBindings/sns"
       },
       "solace" : {
+        "dmqEligible" : false,
+        "bindingVersion" : "0.4.0",
         "destinations" : [ {
           "destinationType" : "queue",
           "deliveryMode" : "persistent",
           "queue" : {
-            "name" : "CreatedHREvents",
-            "topicSubscriptions" : [ "person/*/created" ],
-            "accessType" : "exclusive",
-            "maxMsgSpoolSize" : "1,500",
-            "maxTtl" : "60"
-          },
-          "topic" : null
-        }, {
-          "destinationType" : "queue",
-          "deliveryMode" : "persistent",
-          "queue" : {
-            "name" : "UpdatedHREvents",
-            "topicSubscriptions" : [ "person/*/updated" ],
-            "accessType" : null,
-            "maxMsgSpoolSize" : null,
-            "maxTtl" : null
-          },
-          "topic" : {
-            "topicSubscriptions" : [ "person/*/updated" ]
+            "name" : "sampleQueue",
+            "topicSubscriptions" : [ "samples/*" ],
+            "accessType" : "nonexclusive"
           }
-        } ],
-        "bindingVersion" : "0.3.0"
+        }, {
+          "destinationType" : "topic",
+          "deliveryMode" : "persistent",
+          "topicSubscriptions" : [ "samples/*" ]
+        } ]
       },
       "sqs" : {
         "$ref" : "#/components/operationBindings/sqs"

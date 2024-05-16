@@ -58,7 +58,7 @@
         "kafka": {
           "schemaRegistryUrl": "https://my-schema-registry.com",
           "schemaRegistryVendor": "confluent",
-          "bindingVersion": "0.4.0"
+          "bindingVersion": "0.5.0"
         },
         "mercure": {},
         "mqtt": {
@@ -85,8 +85,9 @@
         "redis": {},
         "sns": {},
         "solace": {
-          "msgVpn": "solace.private.net",
-          "bindingVersion": "0.3.0"
+          "clientName": "transactions-broker",
+          "msgVpn": "ProdVPN",
+          "bindingVersion": "0.4.0"
         },
         "sqs": {},
         "stomp": {},
@@ -133,7 +134,6 @@
           "anypointmq" : { },
           "googlepubsub" : { },
           "http" : {
-            "type" : "request",
             "method" : "GET",
             "query" : {
               "type" : "object",
@@ -147,7 +147,7 @@
               },
               "additionalProperties" : false
             },
-            "bindingVersion" : "0.1.0"
+            "bindingVersion" : "0.3.0"
           },
           "ibmmq" : { },
           "jms" : { },
@@ -160,7 +160,7 @@
               "type" : "string",
               "enum" : [ "myClientId" ]
             },
-            "bindingVersion" : "0.4.0"
+            "bindingVersion" : "0.5.0"
           },
           "mercure" : { },
           "mqtt" : {
@@ -175,36 +175,99 @@
           },
           "pulsar" : { },
           "redis" : { },
-          "sns" : { },
-          "solace" : {
-            "destinations" : [ {
-              "destinationType" : "queue",
-              "deliveryMode" : "persistent",
-              "queue" : {
-                "name" : "CreatedHREvents",
-                "topicSubscriptions" : [ "person/*/created" ],
-                "accessType" : "exclusive",
-                "maxMsgSpoolSize" : "1,500",
-                "maxTtl" : "60"
+          "sns" : {
+            "topic" : {
+              "name" : "someTopic"
+            },
+            "consumers" : [ {
+              "protocol" : "sqs",
+              "endpoint" : {
+                "name" : "someQueue"
               },
-              "topic" : null
-            }, {
-              "destinationType" : "queue",
-              "deliveryMode" : "persistent",
-              "queue" : {
-                "name" : "UpdatedHREvents",
-                "topicSubscriptions" : [ "person/*/updated" ],
-                "accessType" : null,
-                "maxMsgSpoolSize" : null,
-                "maxTtl" : null
+              "filterPolicy" : {
+                "store" : [ "asyncapi_corp" ],
+                "event" : [ {
+                  "anything-but" : "order_cancelled"
+                } ],
+                "customer_interests" : [ "rugby", "football", "baseball" ]
               },
-              "topic" : {
-                "topicSubscriptions" : [ "person/*/updated" ]
+              "filterPolicyScope" : "MessageAttributes",
+              "rawMessageDelivery" : false,
+              "redrivePolicy" : {
+                "deadLetterQueue" : {
+                  "arn" : "arn:aws:SQS:eu-west-1:0000000:123456789"
+                },
+                "maxReceiveCount" : 25
+              },
+              "deliveryPolicy" : {
+                "minDelayTarget" : 10,
+                "maxDelayTarget" : 100,
+                "numRetries" : 5,
+                "numNoDelayRetries" : 2,
+                "numMinDelayRetries" : 3,
+                "numMaxDelayRetries" : 5,
+                "backoffFunction" : "linear",
+                "maxReceivesPerSecond" : 2
               }
             } ],
-            "bindingVersion" : "0.3.0"
+            "bindingVersion" : "0.1.0"
           },
-          "sqs" : { },
+          "solace" : {
+            "destinations": [
+              {
+                "destinationType": "queue",
+                "queue": {
+                  "name": "sampleQueue",
+                  "topicSubscriptions": [
+                    "samples/*"
+                  ],
+                  "accessType": "nonexclusive"
+                }
+              },
+              {
+                "destinationType": "topic",
+                "topicSubscriptions": [
+                  "samples/*"
+                ]
+              }
+            ],
+            "bindingVersion": "0.4.0"
+          },
+          "sqs" : {
+            "queues" : [ {
+              "name" : "myQueue",
+              "fifoQueue" : true,
+              "deduplicationScope" : "messageGroup",
+              "fifoThroughputLimit" : "perMessageGroupId",
+              "deliveryDelay" : 10,
+              "visibilityTimeout" : 30,
+              "receiveMessageWaitTime" : 0,
+              "messageRetentionPeriod" : 345600,
+              "redrivePolicy" : {
+                "deadLetterQueue" : {
+                  "name" : "myQueue_error"
+                },
+                "maxReceiveCount" : 15
+              },
+              "policy" : {
+                "statements" : [ {
+                  "effect" : "Deny",
+                  "principal" : "arn:aws:iam::123456789012:user/dec.kolakowski",
+                  "action" : [ "sqs:SendMessage", "sqs:ReceiveMessage" ]
+                } ]
+              }
+            }, {
+              "name" : "myQueue_error",
+              "fifoQueue" : false,
+              "deduplicationScope" : "queue",
+              "fifoThroughputLimit" : "perQueue",
+              "deliveryDelay" : 10,
+              "visibilityTimeout" : 30,
+              "receiveMessageWaitTime" : 0,
+              "messageRetentionPeriod" : 345600
+            } ],
+            "bindingVersion" : "0.2.0"
+          },
           "stomp" : { },
           "ws" : { }
         },
@@ -252,7 +315,6 @@
               "anypointmq": {},
               "googlepubsub": {},
               "http": {
-                "type": "request",
                 "method": "GET",
                 "query": {
                   "type": "object",
@@ -268,7 +330,7 @@
                   },
                   "additionalProperties": false
                 },
-                "bindingVersion": "0.1.0"
+                "bindingVersion": "0.3.0"
               },
               "ibmmq": {},
               "jms": {},
@@ -285,7 +347,7 @@
                     "myClientId"
                   ]
                 },
-                "bindingVersion": "0.4.0"
+                "bindingVersion": "0.5.0"
               },
               "mercure": {},
               "mqtt": {
@@ -306,33 +368,57 @@
                   {
                     "destinationType": "queue",
                     "queue": {
-                      "name": "CreatedHREvents",
+                      "name": "sampleQueue",
                       "topicSubscriptions": [
-                        "person/*/created"
+                        "samples/*"
                       ],
-                      "accessType": "exclusive",
-                      "maxMsgSpoolSize": "1,500",
-                      "maxTtl": "60"
+                      "accessType": "nonexclusive"
                     }
                   },
                   {
-                    "destinationType": "queue",
-                    "queue": {
-                      "name": "UpdatedHREvents",
-                      "topicSubscriptions": [
-                        "person/*/updated"
-                      ]
-                    },
-                    "topic": {
-                      "topicSubscriptions": [
-                        "person/*/updated"
-                      ]
-                    }
+                    "destinationType": "topic",
+                    "topicSubscriptions": [
+                      "samples/*"
+                    ]
                   }
                 ],
-                "bindingVersion": "0.3.0"
+                "bindingVersion": "0.4.0"
               },
-              "sqs": {},
+              "sqs": {
+                "queues" : [ {
+                  "name" : "myQueue",
+                  "fifoQueue" : true,
+                  "deduplicationScope" : "messageGroup",
+                  "fifoThroughputLimit" : "perMessageGroupId",
+                  "deliveryDelay" : 10,
+                  "visibilityTimeout" : 30,
+                  "receiveMessageWaitTime" : 0,
+                  "messageRetentionPeriod" : 345600,
+                  "redrivePolicy" : {
+                    "deadLetterQueue" : {
+                      "name" : "myQueue_error"
+                    },
+                    "maxReceiveCount" : 15
+                  },
+                  "policy" : {
+                    "statements" : [ {
+                      "effect" : "Deny",
+                      "principal" : "arn:aws:iam::123456789012:user/dec.kolakowski",
+                      "action" : [ "sqs:SendMessage", "sqs:ReceiveMessage" ]
+                    } ]
+                  }
+                }, {
+                  "name" : "myQueue_error",
+                  "fifoQueue" : false,
+                  "deduplicationScope" : "queue",
+                  "fifoThroughputLimit" : "perQueue",
+                  "deliveryDelay" : 10,
+                  "visibilityTimeout" : 30,
+                  "receiveMessageWaitTime" : 0,
+                  "messageRetentionPeriod" : 345600
+                } ],
+                "bindingVersion" : "0.2.0"
+              },
               "stomp": {},
               "ws": {}
             }
@@ -378,7 +464,6 @@
           "anypointmq" : { },
           "googlepubsub" : { },
           "http" : {
-            "type" : "request",
             "method" : "GET",
             "query" : {
               "type" : "object",
@@ -392,7 +477,7 @@
               },
               "additionalProperties" : false
             },
-            "bindingVersion" : "0.1.0"
+            "bindingVersion" : "0.3.0"
           },
           "ibmmq" : { },
           "jms" : { },
@@ -405,7 +490,7 @@
               "type" : "string",
               "enum" : [ "myClientId" ]
             },
-            "bindingVersion" : "0.4.0"
+            "bindingVersion" : "0.5.0"
           },
           "mercure" : { },
           "mqtt" : {
@@ -420,36 +505,99 @@
           },
           "pulsar" : { },
           "redis" : { },
-          "sns" : { },
-          "solace" : {
-            "destinations" : [ {
-              "destinationType" : "queue",
-              "deliveryMode" : "persistent",
-              "queue" : {
-                "name" : "CreatedHREvents",
-                "topicSubscriptions" : [ "person/*/created" ],
-                "accessType" : "exclusive",
-                "maxMsgSpoolSize" : "1,500",
-                "maxTtl" : "60"
+          "sns" : {
+            "topic" : {
+              "name" : "someTopic"
+            },
+            "consumers" : [ {
+              "protocol" : "sqs",
+              "endpoint" : {
+                "name" : "someQueue"
               },
-              "topic" : null
-            }, {
-              "destinationType" : "queue",
-              "deliveryMode" : "persistent",
-              "queue" : {
-                "name" : "UpdatedHREvents",
-                "topicSubscriptions" : [ "person/*/updated" ],
-                "accessType" : null,
-                "maxMsgSpoolSize" : null,
-                "maxTtl" : null
+              "filterPolicy" : {
+                "store" : [ "asyncapi_corp" ],
+                "event" : [ {
+                  "anything-but" : "order_cancelled"
+                } ],
+                "customer_interests" : [ "rugby", "football", "baseball" ]
               },
-              "topic" : {
-                "topicSubscriptions" : [ "person/*/updated" ]
+              "filterPolicyScope" : "MessageAttributes",
+              "rawMessageDelivery" : false,
+              "redrivePolicy" : {
+                "deadLetterQueue" : {
+                  "arn" : "arn:aws:SQS:eu-west-1:0000000:123456789"
+                },
+                "maxReceiveCount" : 25
+              },
+              "deliveryPolicy" : {
+                "minDelayTarget" : 10,
+                "maxDelayTarget" : 100,
+                "numRetries" : 5,
+                "numNoDelayRetries" : 2,
+                "numMinDelayRetries" : 3,
+                "numMaxDelayRetries" : 5,
+                "backoffFunction" : "linear",
+                "maxReceivesPerSecond" : 2
               }
             } ],
-            "bindingVersion" : "0.3.0"
+            "bindingVersion" : "0.1.0"
           },
-          "sqs" : { },
+          "solace" : {
+            "destinations": [
+              {
+                "destinationType": "queue",
+                "queue": {
+                  "name": "sampleQueue",
+                  "topicSubscriptions": [
+                    "samples/*"
+                  ],
+                  "accessType": "nonexclusive"
+                }
+              },
+              {
+                "destinationType": "topic",
+                "topicSubscriptions": [
+                  "samples/*"
+                ]
+              }
+            ],
+            "bindingVersion": "0.4.0"
+          },
+          "sqs" : {
+            "queues" : [ {
+              "name" : "myQueue",
+              "fifoQueue" : true,
+              "deduplicationScope" : "messageGroup",
+              "fifoThroughputLimit" : "perMessageGroupId",
+              "deliveryDelay" : 10,
+              "visibilityTimeout" : 30,
+              "receiveMessageWaitTime" : 0,
+              "messageRetentionPeriod" : 345600,
+              "redrivePolicy" : {
+                "deadLetterQueue" : {
+                  "name" : "myQueue_error"
+                },
+                "maxReceiveCount" : 15
+              },
+              "policy" : {
+                "statements" : [ {
+                  "effect" : "Deny",
+                  "principal" : "arn:aws:iam::123456789012:user/dec.kolakowski",
+                  "action" : [ "sqs:SendMessage", "sqs:ReceiveMessage" ]
+                } ]
+              }
+            }, {
+              "name" : "myQueue_error",
+              "fifoQueue" : false,
+              "deduplicationScope" : "queue",
+              "fifoThroughputLimit" : "perQueue",
+              "deliveryDelay" : 10,
+              "visibilityTimeout" : 30,
+              "receiveMessageWaitTime" : 0,
+              "messageRetentionPeriod" : 345600
+            } ],
+            "bindingVersion" : "0.2.0"
+          },
           "stomp" : { },
           "ws" : { }
         },
@@ -497,7 +645,6 @@
               "anypointmq": { },
               "googlepubsub": { },
               "http": {
-                "type": "request",
                 "method": "GET",
                 "query": {
                   "type": "object",
@@ -513,7 +660,7 @@
                   },
                   "additionalProperties": false
                 },
-                "bindingVersion": "0.1.0"
+                "bindingVersion": "0.3.0"
               },
               "ibmmq": { },
               "jms": { },
@@ -530,7 +677,7 @@
                     "myClientId"
                   ]
                 },
-                "bindingVersion": "0.4.0"
+                "bindingVersion": "0.5.0"
               },
               "mercure": { },
               "mqtt": {
@@ -551,33 +698,57 @@
                   {
                     "destinationType": "queue",
                     "queue": {
-                      "name": "CreatedHREvents",
+                      "name": "sampleQueue",
                       "topicSubscriptions": [
-                        "person/*/created"
+                        "samples/*"
                       ],
-                      "accessType": "exclusive",
-                      "maxMsgSpoolSize": "1,500",
-                      "maxTtl": "60"
+                      "accessType": "nonexclusive"
                     }
                   },
                   {
-                    "destinationType": "queue",
-                    "queue": {
-                      "name": "UpdatedHREvents",
-                      "topicSubscriptions": [
-                        "person/*/updated"
-                      ]
-                    },
-                    "topic": {
-                      "topicSubscriptions": [
-                        "person/*/updated"
-                      ]
-                    }
+                    "destinationType": "topic",
+                    "topicSubscriptions": [
+                      "samples/*"
+                    ]
                   }
                 ],
-                "bindingVersion": "0.3.0"
+                "bindingVersion": "0.4.0"
               },
-              "sqs": { },
+              "sqs": {
+                "queues" : [ {
+                  "name" : "myQueue",
+                  "fifoQueue" : true,
+                  "deduplicationScope" : "messageGroup",
+                  "fifoThroughputLimit" : "perMessageGroupId",
+                  "deliveryDelay" : 10,
+                  "visibilityTimeout" : 30,
+                  "receiveMessageWaitTime" : 0,
+                  "messageRetentionPeriod" : 345600,
+                  "redrivePolicy" : {
+                    "deadLetterQueue" : {
+                      "name" : "myQueue_error"
+                    },
+                    "maxReceiveCount" : 15
+                  },
+                  "policy" : {
+                    "statements" : [ {
+                      "effect" : "Deny",
+                      "principal" : "arn:aws:iam::123456789012:user/dec.kolakowski",
+                      "action" : [ "sqs:SendMessage", "sqs:ReceiveMessage" ]
+                    } ]
+                  }
+                }, {
+                  "name" : "myQueue_error",
+                  "fifoQueue" : false,
+                  "deduplicationScope" : "queue",
+                  "fifoThroughputLimit" : "perQueue",
+                  "deliveryDelay" : 10,
+                  "visibilityTimeout" : 30,
+                  "receiveMessageWaitTime" : 0,
+                  "messageRetentionPeriod" : 345600
+                } ],
+                "bindingVersion" : "0.2.0"
+              },
               "stomp": { },
               "ws": { }
             }
@@ -665,7 +836,8 @@
                   }
                 }
               },
-              "bindingVersion": "0.1.0"
+              "statusCode": 200,
+              "bindingVersion": "0.3.0"
             },
             "ibmmq": {
               "type": "jms",
@@ -685,7 +857,7 @@
               "schemaIdLocation": "payload",
               "schemaIdPayloadEncoding": "apicurio-new",
               "schemaLookupStrategy": "TopicIdStrategy",
-              "bindingVersion": "0.4.0"
+              "bindingVersion": "0.5.0"
             },
             "mercure": { },
             "mqtt": {
@@ -812,7 +984,7 @@
             "delete.retention.ms": 86400000,
             "max.message.bytes": 1048588
           },
-          "bindingVersion": "0.4.0"
+          "bindingVersion": "0.5.0"
         },
         "mercure": { },
         "mqtt": { },
@@ -835,9 +1007,58 @@
           "bindingVersion": "0.1.0"
         },
         "redis": { },
-        "sns": { },
+        "sns": {
+          "name" : "my-sns-topic",
+          "policy" : {
+            "statements" : [ {
+              "effect" : "Allow",
+              "principal" : "*",
+              "action" : "SNS:Publish"
+            } ]
+          },
+          "bindingVersion" : "0.1.0"
+        },
         "solace": { },
-        "sqs": { },
+        "sqs": {
+          "queue" : {
+            "name" : "myQueue",
+            "fifoQueue" : true,
+            "deduplicationScope" : "messageGroup",
+            "fifoThroughputLimit" : "perMessageGroupId",
+            "deliveryDelay" : 15,
+            "visibilityTimeout" : 60,
+            "receiveMessageWaitTime" : 0,
+            "messageRetentionPeriod" : 86400,
+            "redrivePolicy" : {
+              "deadLetterQueue" : {
+                "arn" : "arn:aws:SQS:eu-west-1:0000000:123456789"
+              },
+              "maxReceiveCount" : 15
+            },
+            "policy" : {
+              "statements" : [ {
+                "effect" : "Deny",
+                "principal" : "arn:aws:iam::123456789012:user/dec.kolakowski",
+                "action" : [ "sqs:SendMessage", "sqs:ReceiveMessage" ]
+              } ]
+            },
+            "tags" : {
+              "owner" : "AsyncAPI.NET",
+              "platform" : "AsyncAPIOrg"
+            }
+          },
+          "deadLetterQueue" : {
+            "name" : "myQueue_error",
+            "fifoQueue" : false,
+            "deduplicationScope" : "queue",
+            "fifoThroughputLimit" : "perQueue",
+            "deliveryDelay" : 0,
+            "visibilityTimeout" : 0,
+            "receiveMessageWaitTime" : 0,
+            "messageRetentionPeriod" : 604800
+          },
+          "bindingVersion" : "0.2.0"
+        },
         "stomp": { },
         "ws": {
           "method": "GET",
@@ -976,7 +1197,8 @@
                 }
               }
             },
-            "bindingVersion": "0.1.0"
+            "statusCode" : 200,
+            "bindingVersion": "0.3.0"
           },
           "ibmmq": {
             "type": "jms",
@@ -996,7 +1218,7 @@
             "schemaIdLocation": "payload",
             "schemaIdPayloadEncoding": "apicurio-new",
             "schemaLookupStrategy": "TopicIdStrategy",
-            "bindingVersion": "0.4.0"
+            "bindingVersion": "0.5.0"
           },
           "mercure": {},
           "mqtt": {
@@ -1187,7 +1409,6 @@
           "anypointmq": {},
           "googlepubsub": {},
           "http": {
-            "type": "request",
             "method": "GET",
             "query": {
               "type": "object",
@@ -1203,7 +1424,7 @@
               },
               "additionalProperties": false
             },
-            "bindingVersion": "0.1.0"
+            "bindingVersion": "0.3.0"
           },
           "ibmmq": {},
           "jms": {},
@@ -1220,7 +1441,7 @@
                 "myClientId"
               ]
             },
-            "bindingVersion": "0.4.0"
+            "bindingVersion": "0.5.0"
           },
           "mercure": {},
           "mqtt": {
@@ -1241,33 +1462,57 @@
               {
                 "destinationType": "queue",
                 "queue": {
-                  "name": "CreatedHREvents",
+                  "name": "sampleQueue",
                   "topicSubscriptions": [
-                    "person/*/created"
+                    "samples/*"
                   ],
-                  "accessType": "exclusive",
-                  "maxMsgSpoolSize": "1,500",
-                  "maxTtl": "60"
+                  "accessType": "nonexclusive"
                 }
               },
               {
-                "destinationType": "queue",
-                "queue": {
-                  "name": "UpdatedHREvents",
-                  "topicSubscriptions": [
-                    "person/*/updated"
-                  ]
-                },
-                "topic": {
-                  "topicSubscriptions": [
-                    "person/*/updated"
-                  ]
-                }
+                "destinationType": "topic",
+                "topicSubscriptions": [
+                  "samples/*"
+                ]
               }
             ],
-            "bindingVersion": "0.3.0"
+            "bindingVersion": "0.4.0"
           },
-          "sqs": {},
+          "sqs": {
+            "queues" : [ {
+              "name" : "myQueue",
+              "fifoQueue" : true,
+              "deduplicationScope" : "messageGroup",
+              "fifoThroughputLimit" : "perMessageGroupId",
+              "deliveryDelay" : 10,
+              "visibilityTimeout" : 30,
+              "receiveMessageWaitTime" : 0,
+              "messageRetentionPeriod" : 345600,
+              "redrivePolicy" : {
+                "deadLetterQueue" : {
+                  "name" : "myQueue_error"
+                },
+                "maxReceiveCount" : 15
+              },
+              "policy" : {
+                "statements" : [ {
+                  "effect" : "Deny",
+                  "principal" : "arn:aws:iam::123456789012:user/dec.kolakowski",
+                  "action" : [ "sqs:SendMessage", "sqs:ReceiveMessage" ]
+                } ]
+              }
+            }, {
+              "name" : "myQueue_error",
+              "fifoQueue" : false,
+              "deduplicationScope" : "queue",
+              "fifoThroughputLimit" : "perQueue",
+              "deliveryDelay" : 10,
+              "visibilityTimeout" : 30,
+              "receiveMessageWaitTime" : 0,
+              "messageRetentionPeriod" : 345600
+            } ],
+            "bindingVersion" : "0.2.0"
+          },
           "stomp": {},
           "ws": {}
         }
@@ -1345,7 +1590,8 @@
                 }
               }
             },
-            "bindingVersion": "0.1.0"
+            "statusCode" : 200,
+            "bindingVersion": "0.3.0"
           },
           "ibmmq": {
             "type": "jms",
@@ -1365,7 +1611,7 @@
             "schemaIdLocation": "payload",
             "schemaIdPayloadEncoding": "apicurio-new",
             "schemaLookupStrategy": "TopicIdStrategy",
-            "bindingVersion": "0.4.0"
+            "bindingVersion": "0.5.0"
           },
           "mercure": {},
           "mqtt": {
@@ -1416,7 +1662,7 @@
       "kafka": {
         "schemaRegistryUrl": "https://my-schema-registry.com",
         "schemaRegistryVendor": "confluent",
-        "bindingVersion": "0.4.0"
+        "bindingVersion": "0.5.0"
       },
       "mercure": {},
       "mqtt": {
@@ -1443,8 +1689,9 @@
       "redis": {},
       "sns": {},
       "solace": {
-        "msgVpn": "solace.private.net",
-        "bindingVersion": "0.3.0"
+        "clientName": "transactions-broker",
+        "msgVpn": "ProdVPN",
+        "bindingVersion": "0.4.0"
       },
       "sqs": {},
       "stomp": {},
@@ -1531,7 +1778,7 @@
           "delete.retention.ms": 86400000,
           "max.message.bytes": 1048588
         },
-        "bindingVersion": "0.4.0"
+        "bindingVersion": "0.5.0"
       },
       "mercure": { },
       "mqtt": { },
@@ -1554,9 +1801,58 @@
         "bindingVersion": "0.1.0"
       },
       "redis": { },
-      "sns": { },
+      "sns": {
+        "name" : "my-sns-topic",
+        "policy" : {
+          "statements" : [ {
+            "effect" : "Allow",
+            "principal" : "*",
+            "action" : "SNS:Publish"
+          } ]
+        },
+        "bindingVersion" : "0.1.0"
+      },
       "solace": { },
-      "sqs": { },
+      "sqs": {
+        "queue" : {
+          "name" : "myQueue",
+          "fifoQueue" : true,
+          "deduplicationScope" : "messageGroup",
+          "fifoThroughputLimit" : "perMessageGroupId",
+          "deliveryDelay" : 15,
+          "visibilityTimeout" : 60,
+          "receiveMessageWaitTime" : 0,
+          "messageRetentionPeriod" : 86400,
+          "redrivePolicy" : {
+            "deadLetterQueue" : {
+              "arn" : "arn:aws:SQS:eu-west-1:0000000:123456789"
+            },
+            "maxReceiveCount" : 15
+          },
+          "policy" : {
+            "statements" : [ {
+              "effect" : "Deny",
+              "principal" : "arn:aws:iam::123456789012:user/dec.kolakowski",
+              "action" : [ "sqs:SendMessage", "sqs:ReceiveMessage" ]
+            } ]
+          },
+          "tags" : {
+            "owner" : "AsyncAPI.NET",
+            "platform" : "AsyncAPIOrg"
+          }
+        },
+        "deadLetterQueue" : {
+          "name" : "myQueue_error",
+          "fifoQueue" : false,
+          "deduplicationScope" : "queue",
+          "fifoThroughputLimit" : "perQueue",
+          "deliveryDelay" : 0,
+          "visibilityTimeout" : 0,
+          "receiveMessageWaitTime" : 0,
+          "messageRetentionPeriod" : 604800
+        },
+        "bindingVersion" : "0.2.0"
+      },
       "stomp": { },
       "ws": {
         "method": "GET",
@@ -1598,7 +1894,6 @@
       "anypointmq" : { },
       "googlepubsub" : { },
       "http" : {
-        "type" : "request",
         "method" : "GET",
         "query" : {
           "type" : "object",
@@ -1612,7 +1907,7 @@
           },
           "additionalProperties" : false
         },
-        "bindingVersion" : "0.1.0"
+        "bindingVersion" : "0.3.0"
       },
       "ibmmq" : { },
       "jms" : { },
@@ -1625,7 +1920,7 @@
           "type" : "string",
           "enum" : [ "myClientId" ]
         },
-        "bindingVersion" : "0.4.0"
+        "bindingVersion" : "0.5.0"
       },
       "mercure" : { },
       "mqtt" : {
@@ -1640,36 +1935,98 @@
       },
       "pulsar" : { },
       "redis" : { },
-      "sns" : { },
-      "solace" : {
-        "destinations" : [ {
-          "destinationType" : "queue",
-          "deliveryMode" : "persistent",
-          "queue" : {
-            "name" : "CreatedHREvents",
-            "topicSubscriptions" : [ "person/*/created" ],
-            "accessType" : "exclusive",
-            "maxMsgSpoolSize" : "1,500",
-            "maxTtl" : "60"
+      "sns" : {
+        "topic" : {
+          "name" : "someTopic"
+        },
+        "consumers" : [ {
+          "protocol" : "sqs",
+          "endpoint" : {
+            "name" : "someQueue"
           },
-          "topic" : null
-        }, {
-          "destinationType" : "queue",
-          "deliveryMode" : "persistent",
-          "queue" : {
-            "name" : "UpdatedHREvents",
-            "topicSubscriptions" : [ "person/*/updated" ],
-            "accessType" : null,
-            "maxMsgSpoolSize" : null,
-            "maxTtl" : null
+          "filterPolicy" : {
+            "store" : [ "asyncapi_corp" ],
+            "event" : [ {
+              "anything-but" : "order_cancelled"
+            } ],
+            "customer_interests" : [ "rugby", "football", "baseball" ]
           },
-          "topic" : {
-            "topicSubscriptions" : [ "person/*/updated" ]
+          "filterPolicyScope" : "MessageAttributes",
+          "rawMessageDelivery" : false,
+          "redrivePolicy" : {
+            "deadLetterQueue" : {
+              "arn" : "arn:aws:SQS:eu-west-1:0000000:123456789"
+            },
+            "maxReceiveCount" : 25
+          },
+          "deliveryPolicy" : {
+            "minDelayTarget" : 10,
+            "maxDelayTarget" : 100,
+            "numRetries" : 5,
+            "numNoDelayRetries" : 2,
+            "numMinDelayRetries" : 3,
+            "numMaxDelayRetries" : 5,
+            "backoffFunction" : "linear",
+            "maxReceivesPerSecond" : 2
           }
         } ],
-        "bindingVersion" : "0.3.0"
+        "bindingVersion" : "0.1.0"
       },
-      "sqs" : { },
+      "solace" : {
+        "destinations": [
+          {
+            "destinationType": "queue",
+            "queue": {
+              "name": "sampleQueue",
+              "topicSubscriptions": [
+                "samples/*"
+              ],
+              "accessType": "nonexclusive"
+            }
+          },
+          {
+            "destinationType": "topic",
+            "topicSubscriptions": [
+              "samples/*"
+            ]
+          }
+        ],
+        "bindingVersion": "0.4.0"
+      },
+      "sqs" : {
+        "queues": [
+          {
+            "name": "myQueue",
+            "fifoQueue": true,
+            "deduplicationScope": "messageGroup",
+            "fifoThroughputLimit": "perMessageGroupId",
+            "deliveryDelay": 10,
+            "redrivePolicy": {
+              "deadLetterQueue": {
+                "name": "myQueue_error"
+              },
+              "maxReceiveCount": 15
+            },
+            "policy": {
+              "statements": [
+                {
+                  "effect": "Deny",
+                  "principal": "arn:aws:iam::123456789012:user/dec.kolakowski",
+                  "action": [
+                    "sqs:SendMessage",
+                    "sqs:ReceiveMessage"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "myQueue_error",
+            "deliveryDelay": 10
+          }
+        ],
+        "bindingVersion": "0.2.0"
+      },
       "stomp" : { },
       "ws" : { }
     },
@@ -1711,7 +2068,8 @@
             }
           }
         },
-        "bindingVersion": "0.1.0"
+        "statusCode": 200,
+        "bindingVersion": "0.3.0"
       },
       "ibmmq": {
         "type": "jms",
@@ -1731,7 +2089,7 @@
         "schemaIdLocation": "payload",
         "schemaIdPayloadEncoding": "apicurio-new",
         "schemaLookupStrategy": "TopicIdStrategy",
-        "bindingVersion": "0.4.0"
+        "bindingVersion": "0.5.0"
       },
       "mercure": {},
       "mqtt": {

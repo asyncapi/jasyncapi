@@ -1,0 +1,36 @@
+asyncapi: 2.6.0
+info:
+  title: Kafka Queue Example
+  version: '1.0.0'
+servers:
+  activemq:
+    url: tcp://localhost:61616
+    protocol: kafka
+channels:
+  products:
+    publish:
+      operationId: publishObjectMessage
+      message:
+        $ref: "#/components/messages/product"
+components:
+  messages:
+    product:
+      name: product
+      title: An inventory product
+      summary: Product representing items in inventory
+      contentType: application/json
+      schemaFormat: application/vnd.oai.openapi;version=3.0.0
+      payload:
+        type: object
+        properties:
+          name:
+            description: Every product has a name
+            type: string
+            example: Iphone
+          inventory:
+            description: Count of items in inventory
+            type: number
+            nullable: true
+          id:
+            description: Unique identifier of the product
+            type: number

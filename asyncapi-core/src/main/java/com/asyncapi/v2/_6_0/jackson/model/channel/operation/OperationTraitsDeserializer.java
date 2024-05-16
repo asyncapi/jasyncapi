@@ -1,8 +1,8 @@
 package com.asyncapi.v2._6_0.jackson.model.channel.operation;
 
-import com.asyncapi.v2.Reference;
+import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.v2._6_0.model.channel.operation.OperationTrait;
-import com.asyncapi.v2.jackson.ListOfReferencesOrObjectsDeserializer;
+import com.asyncapi.serde.ListOfReferencesOrObjectsDeserializer;
 
 /**
  * Serializes operation traits list.

@@ -1,6 +1,6 @@
 package com.asyncapi.v2._0_0.model;
 
-import com.asyncapi.v2.ExtendableObject;
+import com.asyncapi.schemas.asyncapi.ExtendableObject;
 import com.asyncapi.v2._0_0.model.channel.ChannelItem;
 import com.asyncapi.v2._0_0.model.component.Components;
 import com.asyncapi.v2._0_0.model.info.Info;
@@ -46,7 +46,7 @@ public class AsyncAPI extends ExtendableObject {
      */
     @NotNull
     @Builder.Default
-    private final String asyncapi = "2.0.0";
+    private String asyncapi = "2.0.0";
 
     /**
      * Identifier of the application the AsyncAPI document is defining.

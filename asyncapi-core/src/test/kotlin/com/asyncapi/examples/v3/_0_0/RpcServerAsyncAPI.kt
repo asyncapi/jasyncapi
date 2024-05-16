@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.v3.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.Parameter
 import com.asyncapi.v3._0_0.model.channel.message.CorrelationId
@@ -10,11 +10,11 @@ import com.asyncapi.v3._0_0.model.info.Info
 import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.server.Server
-import com.asyncapi.v3.binding.channel.amqp.AMQPChannelBinding
-import com.asyncapi.v3.binding.channel.amqp.AMQPChannelType
-import com.asyncapi.v3.binding.channel.amqp.queue.AMQPChannelQueueProperties
-import com.asyncapi.v3.binding.operation.amqp.AMQPOperationBinding
-import com.asyncapi.v3.schema.AsyncAPISchema
+import com.asyncapi.bindings.amqp.v0._3_0.channel.AMQPChannelBinding
+import com.asyncapi.bindings.amqp.v0._3_0.channel.AMQPChannelType
+import com.asyncapi.bindings.amqp.v0._3_0.channel.queue.AMQPChannelQueueProperties
+import com.asyncapi.bindings.amqp.v0._3_0.operation.AMQPOperationBinding
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 
 class RpcServerAsyncAPI: AbstractExampleValidationTest() {
 
@@ -51,7 +51,8 @@ class RpcServerAsyncAPI: AbstractExampleValidationTest() {
                                         Pair("sendSumResult",
                                                 Message.builder()
                                                         .correlationId(CorrelationId(null, "\$message.header#/correlation_id"))
-                                                        .payload(AsyncAPISchema.builder()
+                                                        .payload(
+                                                            AsyncAPISchema.builder()
                                                                 .type("object")
                                                                 .properties(mapOf(
                                                                         Pair("result", AsyncAPISchema.builder()
@@ -88,12 +89,14 @@ class RpcServerAsyncAPI: AbstractExampleValidationTest() {
                                         Pair("sum",
                                                 Message.builder()
                                                         .correlationId(CorrelationId(null, "\$message.header#/correlation_id"))
-                                                        .payload(AsyncAPISchema.builder()
+                                                        .payload(
+                                                            AsyncAPISchema.builder()
                                                                 .type("object")
                                                                 .properties(mapOf(
                                                                         Pair("numbers", AsyncAPISchema.builder()
                                                                                 .type("array")
-                                                                                .items(AsyncAPISchema.builder()
+                                                                                .items(
+                                                                                    AsyncAPISchema.builder()
                                                                                         .type("number")
                                                                                         .build()
                                                                                 )
@@ -136,7 +139,7 @@ class RpcServerAsyncAPI: AbstractExampleValidationTest() {
                                         )
                                 ))
                                 .messages(listOf(
-                                        Reference("#/channels/queue/messages/sendSumResult")
+                                    Reference("#/channels/queue/messages/sendSumResult")
                                 ))
                                 .build()
                 ),
@@ -145,7 +148,7 @@ class RpcServerAsyncAPI: AbstractExampleValidationTest() {
                                 .action(OperationAction.RECEIVE)
                                 .channel(Reference("#/channels/rpc_queue"))
                                 .messages(listOf(
-                                        Reference("#/channels/rpc_queue/messages/sum")
+                                    Reference("#/channels/rpc_queue/messages/sum")
                                 ))
                                 .build()
                 )

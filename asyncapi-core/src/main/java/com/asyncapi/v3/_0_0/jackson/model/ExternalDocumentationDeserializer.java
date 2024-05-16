@@ -1,8 +1,8 @@
 package com.asyncapi.v3._0_0.jackson.model;
 
-import com.asyncapi.v3.Reference;
+import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.v3._0_0.model.ExternalDocumentation;
-import com.asyncapi.v3.jackson.ReferenceOrObjectDeserializer;
+import com.asyncapi.serde.ReferenceOrObjectDeserializer;
 
 /**
  * Deserializes external documentation.

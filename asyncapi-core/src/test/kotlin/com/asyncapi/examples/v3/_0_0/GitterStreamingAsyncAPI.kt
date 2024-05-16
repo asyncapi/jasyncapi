@@ -1,7 +1,9 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.v3.binding.message.http.HTTPMessageBinding
-import com.asyncapi.v3.Reference
+import com.asyncapi.schemas.asyncapi.Reference
+import com.asyncapi.bindings.http.v0._3_0.message.HTTPMessageBinding
+import com.asyncapi.bindings.http.v0._3_0.operation.HTTPOperationBinding
+import com.asyncapi.bindings.http.v0._3_0.operation.HTTPOperationMethod
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.Parameter
 import com.asyncapi.v3._0_0.model.channel.message.Message
@@ -10,12 +12,10 @@ import com.asyncapi.v3._0_0.model.info.Info
 import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.server.Server
-import com.asyncapi.v3.binding.operation.http.HTTPOperationBinding
-import com.asyncapi.v3.binding.operation.http.HTTPOperationMethod
-import com.asyncapi.v3.schema.AsyncAPISchema
-import com.asyncapi.v3.schema.JsonSchema
-import com.asyncapi.v3.schema.multiformat.JsonFormatSchema
-import com.asyncapi.v3.security_scheme.http.HttpSecurityScheme
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
+import com.asyncapi.schemas.json.JsonSchema
+import com.asyncapi.schemas.asyncapi.multiformat.JsonFormatSchema
+import com.asyncapi.schemas.asyncapi.security.v3.http.HttpSecurityScheme
 
 class GitterStreamingAsyncAPI: AbstractExampleValidationTest() {
 
@@ -39,7 +39,7 @@ class GitterStreamingAsyncAPI: AbstractExampleValidationTest() {
                                 .protocol("https")
                                 .protocolVersion("1.1")
                                 .security(listOf(
-                                        Reference("#/components/securitySchemes/httpBearerToken")
+                                    Reference("#/components/securitySchemes/httpBearerToken")
                                 ))
                                 .build()
                 )
@@ -52,8 +52,12 @@ class GitterStreamingAsyncAPI: AbstractExampleValidationTest() {
                         Channel.builder()
                                 .address("/rooms/{roomId}/{resource}")
                                 .messages(mapOf(
-                                        Pair("chatMessage", Reference("#/components/messages/chatMessage")),
-                                        Pair("heartbeat", Reference("#/components/messages/heartbeat"))
+                                        Pair("chatMessage",
+                                            Reference("#/components/messages/chatMessage")
+                                        ),
+                                        Pair("heartbeat",
+                                            Reference("#/components/messages/heartbeat")
+                                        )
                                 ))
                                 .parameters(mapOf(
                                         Pair("roomId", Parameter.builder()
@@ -83,8 +87,8 @@ class GitterStreamingAsyncAPI: AbstractExampleValidationTest() {
                                 )
                         ))
                         .messages(listOf(
-                                Reference("#/channels/rooms/messages/chatMessage"),
-                                Reference("#/channels/rooms/messages/heartbeat")
+                            Reference("#/channels/rooms/messages/chatMessage"),
+                            Reference("#/channels/rooms/messages/heartbeat")
                         ))
                         .build()
                 )
@@ -94,11 +98,13 @@ class GitterStreamingAsyncAPI: AbstractExampleValidationTest() {
     override fun expectedComponents(): Components? {
         return Components.builder()
                 .securitySchemes(mapOf(
-                        Pair("httpBearerToken", HttpSecurityScheme(
+                        Pair("httpBearerToken",
+                            HttpSecurityScheme(
                                 null,
                                 "bearer",
                                 null,
-                        ))
+                            )
+                        )
                 ))
                 .messages(mapOf(
                         Pair("chatMessage", Message.builder()
@@ -108,155 +114,206 @@ class GitterStreamingAsyncAPI: AbstractExampleValidationTest() {
                                         "application/schema+yaml;version=draft-07",
                                         JsonSchema.builder()
                                             .type("object")
-                                            .properties(mapOf(
-                                                Pair("id", JsonSchema.builder()
-                                                    .type("string")
-                                                    .description("ID of the message.")
-                                                    .build()
-                                                ),
-                                                Pair("text", JsonSchema.builder()
-                                                    .type("string")
-                                                    .description("Original message in plain-text/markdown.")
-                                                    .build()
-                                                ),
-                                                Pair("html", JsonSchema.builder()
-                                                    .type("string")
-                                                    .description("HTML formatted message.")
-                                                    .build()
-                                                ),
-                                                Pair("sent", JsonSchema.builder()
-                                                    .type("string")
-                                                    .format("date-time")
-                                                    .description("ISO formatted date of the message.")
-                                                    .build()
-                                                ),
-                                                Pair("fromUser", JsonSchema.builder()
-                                                    .type("object")
-                                                    .description("User that sent the message.")
-                                                    .properties(mapOf(
-                                                        Pair("id", JsonSchema.builder()
+                                            .properties(
+                                                mapOf(
+                                                    Pair(
+                                                        "id", JsonSchema.builder()
                                                             .type("string")
-                                                            .description("Gitter User ID.")
+                                                            .description("ID of the message.")
                                                             .build()
-                                                        ),
-                                                        Pair("username", JsonSchema.builder()
+                                                    ),
+                                                    Pair(
+                                                        "text", JsonSchema.builder()
                                                             .type("string")
-                                                            .description("Gitter/GitHub username.")
+                                                            .description("Original message in plain-text/markdown.")
                                                             .build()
-                                                        ),
-                                                        Pair("displayName", JsonSchema.builder()
+                                                    ),
+                                                    Pair(
+                                                        "html", JsonSchema.builder()
                                                             .type("string")
-                                                            .description("Gitter/GitHub user real name.")
+                                                            .description("HTML formatted message.")
                                                             .build()
-                                                        ),
-                                                        Pair("url", JsonSchema.builder()
+                                                    ),
+                                                    Pair(
+                                                        "sent", JsonSchema.builder()
                                                             .type("string")
-                                                            .description("Path to the user on Gitter.")
+                                                            .format("date-time")
+                                                            .description("ISO formatted date of the message.")
                                                             .build()
-                                                        ),
-                                                        Pair("avatarUrl", JsonSchema.builder()
-                                                            .type("string")
-                                                            .format("uri")
-                                                            .description("User avatar URI.")
+                                                    ),
+                                                    Pair(
+                                                        "fromUser", JsonSchema.builder()
+                                                            .type("object")
+                                                            .description("User that sent the message.")
+                                                            .properties(
+                                                                mapOf(
+                                                                    Pair(
+                                                                        "id", JsonSchema.builder()
+                                                                            .type("string")
+                                                                            .description("Gitter User ID.")
+                                                                            .build()
+                                                                    ),
+                                                                    Pair(
+                                                                        "username", JsonSchema.builder()
+                                                                            .type("string")
+                                                                            .description("Gitter/GitHub username.")
+                                                                            .build()
+                                                                    ),
+                                                                    Pair(
+                                                                        "displayName", JsonSchema.builder()
+                                                                            .type("string")
+                                                                            .description("Gitter/GitHub user real name.")
+                                                                            .build()
+                                                                    ),
+                                                                    Pair(
+                                                                        "url", JsonSchema.builder()
+                                                                            .type("string")
+                                                                            .description("Path to the user on Gitter.")
+                                                                            .build()
+                                                                    ),
+                                                                    Pair(
+                                                                        "avatarUrl", JsonSchema.builder()
+                                                                            .type("string")
+                                                                            .format("uri")
+                                                                            .description("User avatar URI.")
+                                                                            .build()
+                                                                    ),
+                                                                    Pair(
+                                                                        "avatarUrlSmall", JsonSchema.builder()
+                                                                            .type("string")
+                                                                            .format("uri")
+                                                                            .description("User avatar URI (small).")
+                                                                            .build()
+                                                                    ),
+                                                                    Pair(
+                                                                        "avatarUrlMedium", JsonSchema.builder()
+                                                                            .type("string")
+                                                                            .format("uri")
+                                                                            .description("User avatar URI (medium).")
+                                                                            .build()
+                                                                    ),
+                                                                    Pair(
+                                                                        "v", JsonSchema.builder()
+                                                                            .type("number")
+                                                                            .description("Version.")
+                                                                            .build()
+                                                                    ),
+                                                                    Pair(
+                                                                        "gv", JsonSchema.builder()
+                                                                            .type("string")
+                                                                            .description("Stands for \"Gravatar version\" and is used for cache busting.")
+                                                                            .build()
+                                                                    ),
+                                                                )
+                                                            )
                                                             .build()
-                                                        ),
-                                                        Pair("avatarUrlSmall", JsonSchema.builder()
-                                                            .type("string")
-                                                            .format("uri")
-                                                            .description("User avatar URI (small).")
+                                                    ),
+                                                    Pair(
+                                                        "unread", JsonSchema.builder()
+                                                            .type("boolean")
+                                                            .description("Boolean that indicates if the current user has read the message.")
                                                             .build()
-                                                        ),
-                                                        Pair("avatarUrlMedium", JsonSchema.builder()
-                                                            .type("string")
-                                                            .format("uri")
-                                                            .description("User avatar URI (medium).")
+                                                    ),
+                                                    Pair(
+                                                        "readBy", JsonSchema.builder()
+                                                            .type("number")
+                                                            .description("Number of users that have read the message.")
                                                             .build()
-                                                        ),
-                                                        Pair("v", JsonSchema.builder()
+                                                    ),
+                                                    Pair(
+                                                        "urls", JsonSchema.builder()
+                                                            .type("array")
+                                                            .description("List of URLs present in the message.")
+                                                            .items(
+                                                                JsonSchema.builder()
+                                                                    .type("string")
+                                                                    .format("uri")
+                                                                    .build()
+                                                            )
+                                                            .build()
+                                                    ),
+                                                    Pair(
+                                                        "mentions", JsonSchema.builder()
+                                                            .type("array")
+                                                            .description("List of @Mentions in the message.")
+                                                            .items(
+                                                                JsonSchema.builder()
+                                                                    .type("object")
+                                                                    .properties(
+                                                                        mapOf(
+                                                                            Pair(
+                                                                                "screenName",
+                                                                                JsonSchema.builder().type("string")
+                                                                                    .build()
+                                                                            ),
+                                                                            Pair(
+                                                                                "userId",
+                                                                                JsonSchema.builder().type("string")
+                                                                                    .build()
+                                                                            ),
+                                                                            Pair(
+                                                                                "userIds", JsonSchema.builder()
+                                                                                    .type("array")
+                                                                                    .items(
+                                                                                        JsonSchema.builder()
+                                                                                            .type("string").build()
+                                                                                    )
+                                                                                    .build()
+                                                                            ),
+                                                                        )
+                                                                    )
+                                                                    .build()
+                                                            )
+                                                            .build()
+                                                    ),
+                                                    Pair(
+                                                        "issues", JsonSchema.builder()
+                                                            .type("array")
+                                                            .description("List of #Issues referenced in the message.")
+                                                            .items(
+                                                                JsonSchema.builder()
+                                                                    .type("object")
+                                                                    .properties(
+                                                                        mapOf(
+                                                                            Pair(
+                                                                                "number",
+                                                                                JsonSchema.builder().type("string")
+                                                                                    .build()
+                                                                            ),
+                                                                        )
+                                                                    )
+                                                                    .build()
+                                                            )
+                                                            .build()
+                                                    ),
+                                                    Pair(
+                                                        "meta", JsonSchema.builder()
+                                                            .type("array")
+                                                            .description("Metadata. This is currently not used for anything.")
+                                                            .items(JsonSchema.builder().build())
+                                                            .build()
+                                                    ),
+                                                    Pair(
+                                                        "v", JsonSchema.builder()
                                                             .type("number")
                                                             .description("Version.")
                                                             .build()
-                                                        ),
-                                                        Pair("gv", JsonSchema.builder()
+                                                    ),
+                                                    Pair(
+                                                        "gv", JsonSchema.builder()
                                                             .type("string")
                                                             .description("Stands for \"Gravatar version\" and is used for cache busting.")
                                                             .build()
-                                                        ),
-                                                    ))
-                                                    .build()
-                                                ),
-                                                Pair("unread", JsonSchema.builder()
-                                                    .type("boolean")
-                                                    .description("Boolean that indicates if the current user has read the message.")
-                                                    .build()
-                                                ),
-                                                Pair("readBy", JsonSchema.builder()
-                                                    .type("number")
-                                                    .description("Number of users that have read the message.")
-                                                    .build()
-                                                ),
-                                                Pair("urls", JsonSchema.builder()
-                                                    .type("array")
-                                                    .description("List of URLs present in the message.")
-                                                    .items(JsonSchema.builder()
-                                                        .type("string")
-                                                        .format("uri")
-                                                        .build()
-                                                    )
-                                                    .build()
-                                                ),
-                                                Pair("mentions", JsonSchema.builder()
-                                                    .type("array")
-                                                    .description("List of @Mentions in the message.")
-                                                    .items(JsonSchema.builder()
-                                                        .type("object")
-                                                        .properties(mapOf(
-                                                            Pair("screenName", JsonSchema.builder().type("string").build()),
-                                                            Pair("userId", JsonSchema.builder().type("string").build()),
-                                                            Pair("userIds", JsonSchema.builder()
-                                                                .type("array")
-                                                                .items(JsonSchema.builder().type("string").build())
-                                                                .build()
-                                                            ),
-                                                        ))
-                                                        .build()
-                                                    )
-                                                    .build()
-                                                ),
-                                                Pair("issues", JsonSchema.builder()
-                                                    .type("array")
-                                                    .description("List of #Issues referenced in the message.")
-                                                    .items(JsonSchema.builder()
-                                                        .type("object")
-                                                        .properties(mapOf(
-                                                            Pair("number", JsonSchema.builder().type("string").build()),
-                                                        ))
-                                                        .build()
-                                                    )
-                                                    .build()
-                                                ),
-                                                Pair("meta", JsonSchema.builder()
-                                                    .type("array")
-                                                    .description("Metadata. This is currently not used for anything.")
-                                                    .items(JsonSchema.builder().build())
-                                                    .build()
-                                                ),
-                                                Pair("v", JsonSchema.builder()
-                                                    .type("number")
-                                                    .description("Version.")
-                                                    .build()
-                                                ),
-                                                Pair("gv", JsonSchema.builder()
-                                                    .type("string")
-                                                    .description("Stands for \"Gravatar version\" and is used for cache busting.")
-                                                    .build()
-                                                ),
-                                            ))
+                                                    ),
+                                                )
+                                            )
                                             .build()
-                                ))
+                                    )
+                                )
                                 .bindings(mapOf(
                                         Pair("http", HTTPMessageBinding.builder()
-                                                .headers(AsyncAPISchema.builder()
+                                                .headers(
+                                                    AsyncAPISchema.builder()
                                                         .type("object")
                                                         .properties(mapOf(
                                                                 Pair("Transfer-Encoding", AsyncAPISchema.builder()
@@ -270,23 +327,28 @@ class GitterStreamingAsyncAPI: AbstractExampleValidationTest() {
                                                                         .build()
                                                                 )
                                                         ))
-                                                        .build())
+                                                        .build()
+                                                )
+                                                .statusCode(200)
                                                 .build()
                                         )
                                 ))
                                 .build()),
                         Pair("heartbeat", Message.builder()
                                 .summary("Its purpose is to keep the connection alive.")
-                                .payload(JsonFormatSchema(
-                                    "application/schema+yaml;version=draft-07",
-                                    JsonSchema.builder()
-                                        .type("string")
-                                        .enumValue(listOf("\r\n"))
-                                        .build()
-                                ))
+                                .payload(
+                                    JsonFormatSchema(
+                                        "application/schema+yaml;version=draft-07",
+                                        JsonSchema.builder()
+                                            .type("string")
+                                            .enumValue(listOf("\r\n"))
+                                            .build()
+                                    )
+                                )
                                 .bindings(mapOf(
                                         Pair("http", HTTPMessageBinding.builder()
-                                                .headers(AsyncAPISchema.builder()
+                                                .headers(
+                                                    AsyncAPISchema.builder()
                                                         .type("object")
                                                         .properties(mapOf(
                                                                 Pair("Transfer-Encoding", AsyncAPISchema.builder()
@@ -300,7 +362,9 @@ class GitterStreamingAsyncAPI: AbstractExampleValidationTest() {
                                                                         .build()
                                                                 )
                                                         ))
-                                                        .build())
+                                                        .build()
+                                                )
+                                                .statusCode(200)
                                                 .build()
                                         )
                                 ))

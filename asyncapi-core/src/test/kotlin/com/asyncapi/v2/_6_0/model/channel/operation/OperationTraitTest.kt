@@ -1,15 +1,15 @@
 package com.asyncapi.v2._6_0.model.channel.operation
 
-import com.asyncapi.v2.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._6_0.model.ExternalDocumentation
 import com.asyncapi.v2._6_0.model.Tag
-import com.asyncapi.v2.binding.operation.amqp.AMQPOperationBindingTest
-import com.asyncapi.v2.binding.operation.http.HTTPOperationBindingTest
-import com.asyncapi.v2.binding.operation.kafka.KafkaOperationBindingTest
-import com.asyncapi.v2.binding.operation.mqtt.MQTTOperationBindingTest
-import com.asyncapi.v2.binding.operation.nats.NATSOperationBindingTest
-import com.asyncapi.v2.binding.operation.solace.SolaceOperationBindingTest
+import com.asyncapi.bindings.amqp.AMQPV0_2_0Test
+import com.asyncapi.bindings.http.HTTPV0_3_0Test
+import com.asyncapi.bindings.kafka.KafkaV0_5_0Test
+import com.asyncapi.bindings.mqtt.MQTTV0_1_0Test
+import com.asyncapi.bindings.nats.NATSV0_1_0Test
+import com.asyncapi.bindings.solace.SolaceV0_4_0Test
 
 class OperationTraitTest: SerDeTest<OperationTrait>() {
 
@@ -40,25 +40,51 @@ class OperationTraitTest: SerDeTest<OperationTrait>() {
                 ))
                 .externalDocs(ExternalDocumentation("Messages sending rules", "messages/sending-rules"))
                 .bindings(mapOf(
-                        Pair("amqp", AMQPOperationBindingTest().build()),
-                        Pair("amqp1", Reference("#/components/operationBindings/amqp1")),
-                        Pair("anypointmq", Reference("#/components/operationBindings/anypointmq")),
-                        Pair("googlepubsub", Reference("#/components/operationBindings/googlepubsub")),
-                        Pair("http", HTTPOperationBindingTest().build()),
-                        Pair("ibmmq", Reference("#/components/operationBindings/ibmmq")),
-                        Pair("jms", Reference("#/components/operationBindings/jms")),
-                        Pair("kafka", KafkaOperationBindingTest().build()),
-                        Pair("mercure", Reference("#/components/operationBindings/mercure")),
-                        Pair("mqtt", MQTTOperationBindingTest().build()),
-                        Pair("mqtt5", Reference("#/components/operationBindings/mqtt5")),
-                        Pair("nats", NATSOperationBindingTest().build()),
-                        Pair("pulsar", Reference("#/components/operationBindings/pulsar")),
-                        Pair("redis", Reference("#/components/operationBindings/redis")),
-                        Pair("sns", Reference("#/components/operationBindings/sns")),
-                        Pair("solace", SolaceOperationBindingTest().build()),
-                        Pair("sqs", Reference("#/components/operationBindings/sqs")),
-                        Pair("stomp", Reference("#/components/operationBindings/stomp")),
-                        Pair("ws", Reference("#/components/operationBindings/ws"))
+                        Pair("amqp", AMQPV0_2_0Test.operationBinding()),
+                        Pair("amqp1",
+                            Reference("#/components/operationBindings/amqp1")
+                        ),
+                        Pair("anypointmq",
+                            Reference("#/components/operationBindings/anypointmq")
+                        ),
+                        Pair("googlepubsub",
+                            Reference("#/components/operationBindings/googlepubsub")
+                        ),
+                        Pair("http", HTTPV0_3_0Test.operationBinding()),
+                        Pair("ibmmq",
+                            Reference("#/components/operationBindings/ibmmq")
+                        ),
+                        Pair("jms",
+                            Reference("#/components/operationBindings/jms")
+                        ),
+                        Pair("kafka", KafkaV0_5_0Test.operationBinding()),
+                        Pair("mercure",
+                            Reference("#/components/operationBindings/mercure")
+                        ),
+                        Pair("mqtt", MQTTV0_1_0Test.operationBinding()),
+                        Pair("mqtt5",
+                            Reference("#/components/operationBindings/mqtt5")
+                        ),
+                        Pair("nats", NATSV0_1_0Test.operationBinding()),
+                        Pair("pulsar",
+                            Reference("#/components/operationBindings/pulsar")
+                        ),
+                        Pair("redis",
+                            Reference("#/components/operationBindings/redis")
+                        ),
+                        Pair("sns",
+                            Reference("#/components/operationBindings/sns")
+                        ),
+                        Pair("solace", SolaceV0_4_0Test.operationBinding()),
+                        Pair("sqs",
+                            Reference("#/components/operationBindings/sqs")
+                        ),
+                        Pair("stomp",
+                            Reference("#/components/operationBindings/stomp")
+                        ),
+                        Pair("ws",
+                            Reference("#/components/operationBindings/ws")
+                        )
                 ))
                 .build()
     }

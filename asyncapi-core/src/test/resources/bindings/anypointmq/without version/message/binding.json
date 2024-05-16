@@ -1,0 +1,11 @@
+{
+  "headers": {
+    "type": "object",
+    "properties": {
+      "correlationId": {
+        "description": "Correlation ID set by application",
+        "type": "string"
+      }
+    }
+  }
+}

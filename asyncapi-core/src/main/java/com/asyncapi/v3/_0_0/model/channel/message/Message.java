@@ -1,7 +1,8 @@
 package com.asyncapi.v3._0_0.model.channel.message;
 
-import com.asyncapi.v3.ExtendableObject;
-import com.asyncapi.v3.Reference;
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema;
+import com.asyncapi.schemas.asyncapi.ExtendableObject;
+import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.v3._0_0.jackson.model.ExternalDocumentationDeserializer;
 import com.asyncapi.v3._0_0.jackson.model.TagsDeserializer;
 import com.asyncapi.v3._0_0.jackson.model.channel.message.MessageCorrelationIdDeserializer;
@@ -10,8 +11,8 @@ import com.asyncapi.v3._0_0.jackson.model.channel.message.MessageHeadersDeserial
 import com.asyncapi.v3._0_0.jackson.model.channel.message.MessagePayloadDeserializer;
 import com.asyncapi.v3._0_0.model.ExternalDocumentation;
 import com.asyncapi.v3._0_0.model.Tag;
-import com.asyncapi.v3.jackson.binding.message.MessageBindingsDeserializer;
-import com.asyncapi.v3.schema.multiformat.MultiFormatSchema;
+import com.asyncapi.bindings.MessageBindingsDeserializer;
+import com.asyncapi.schemas.asyncapi.multiformat.MultiFormatSchema;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.*;
 import org.jetbrains.annotations.Nullable;
@@ -40,15 +41,15 @@ public class Message extends ExtendableObject {
      * <p>
      * It MUST NOT define the protocol headers.
      * <p>
-     * If this is a {@link com.asyncapi.v3.schema.AsyncAPISchema}, then the schemaFormat will be assumed to
+     * If this is a {@link AsyncAPISchema}, then the schemaFormat will be assumed to
      * be "application/vnd.aai.asyncapi+json;version=asyncapi" where the version
      * is equal to the AsyncAPI Version String.
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v3.schema.AsyncAPISchema}</li>
+     *     <li>{@link AsyncAPISchema}</li>
      *     <li>{@link MultiFormatSchema}</li>
-     *     <li>{@link com.asyncapi.v3.Reference}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @Nullable
@@ -58,14 +59,14 @@ public class Message extends ExtendableObject {
     /**
      * Definition of the message payload.
      * <p>
-     * If this is a {@link com.asyncapi.v3.schema.AsyncAPISchema}, then the schemaFormat will be assumed to be
+     * If this is a {@link AsyncAPISchema}, then the schemaFormat will be assumed to be
      * "application/vnd.aai.asyncapi+json;version=asyncapi" where the version is equal to the AsyncAPI Version String.
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v3.schema.AsyncAPISchema}</li>
+     *     <li>{@link AsyncAPISchema}</li>
      *     <li>{@link MultiFormatSchema}</li>
-     *     <li>{@link com.asyncapi.v3.Reference}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @Nullable
@@ -78,7 +79,7 @@ public class Message extends ExtendableObject {
      * MUST BE:
      * <ul>
      *     <li>{@link CorrelationId}</li>
-     *     <li>{@link com.asyncapi.v3.Reference}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @JsonDeserialize(using = MessageCorrelationIdDeserializer.class)
@@ -123,8 +124,8 @@ public class Message extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v3.binding.message.MessageBinding}</li>
-     *     <li>{@link com.asyncapi.v3.Reference}</li>
+     *     <li>{@link com.asyncapi.bindings.MessageBinding}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @Nullable
@@ -144,7 +145,7 @@ public class Message extends ExtendableObject {
      * MUST BE:
      * <ul>
      *     <li>{@link com.asyncapi.v3._0_0.model.channel.message.MessageTrait}</li>
-     *     <li>{@link com.asyncapi.v3.Reference}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      *
      * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#traits-merge-mechanism">Traits Merge Mechanism</a>
@@ -159,7 +160,7 @@ public class Message extends ExtendableObject {
      * MUST BE:
      * <ul>
      *     <li>{@link Tag}</li>
-     *     <li>{@link com.asyncapi.v3.Reference}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @Nullable

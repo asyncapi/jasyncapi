@@ -1,7 +1,7 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.v3.security_scheme.ApiKeySecurityScheme
-import com.asyncapi.v3.Reference
+import com.asyncapi.schemas.asyncapi.security.v3.ApiKeySecurityScheme
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.Parameter
 import com.asyncapi.v3._0_0.model.channel.message.CorrelationId
@@ -13,14 +13,14 @@ import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.server.Server
 import com.asyncapi.v3._0_0.model.server.ServerVariable
-import com.asyncapi.v3.schema.AsyncAPISchema
-import com.asyncapi.v3.security_scheme.OpenIdConnectSecurityScheme
-import com.asyncapi.v3.security_scheme.oauth2.OAuth2SecurityScheme
-import com.asyncapi.v3.security_scheme.oauth2.OAuthFlows
-import com.asyncapi.v3.security_scheme.oauth2.flow.AuthorizationCodeOAuthFlow
-import com.asyncapi.v3.security_scheme.oauth2.flow.ClientCredentialsOAuthFlow
-import com.asyncapi.v3.security_scheme.oauth2.flow.ImplicitOAuthFlow
-import com.asyncapi.v3.security_scheme.oauth2.flow.PasswordOAuthFlow
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.security.v3.OpenIdConnectSecurityScheme
+import com.asyncapi.schemas.asyncapi.security.v3.oauth2.OAuth2SecurityScheme
+import com.asyncapi.schemas.asyncapi.security.v3.oauth2.OAuthFlows
+import com.asyncapi.schemas.asyncapi.security.v3.oauth2.flow.AuthorizationCodeOAuthFlow
+import com.asyncapi.schemas.asyncapi.security.v3.oauth2.flow.ClientCredentialsOAuthFlow
+import com.asyncapi.schemas.asyncapi.security.v3.oauth2.flow.ImplicitOAuthFlow
+import com.asyncapi.schemas.asyncapi.security.v3.oauth2.flow.PasswordOAuthFlow
 import java.math.BigDecimal
 
 class CorrelationIdAsyncAPI: AbstractExampleValidationTest() {
@@ -63,36 +63,72 @@ class CorrelationIdAsyncAPI: AbstractExampleValidationTest() {
                                                         ImplicitOAuthFlow(
                                                                 "",
                                                                 mapOf(
-                                                                        Pair("streetlights:on", "Ability to switch lights on"),
-                                                                        Pair("streetlights:off", "Ability to switch lights off"),
-                                                                        Pair("streetlights:dim", "Ability to dim the lights"),
+                                                                        Pair(
+                                                                                "streetlights:on",
+                                                                                "Ability to switch lights on"
+                                                                        ),
+                                                                        Pair(
+                                                                                "streetlights:off",
+                                                                                "Ability to switch lights off"
+                                                                        ),
+                                                                        Pair(
+                                                                                "streetlights:dim",
+                                                                                "Ability to dim the lights"
+                                                                        ),
                                                                 ),
                                                                 "https://authserver.example/auth"
                                                         ),
                                                         PasswordOAuthFlow(
                                                                 "",
                                                                 mapOf(
-                                                                        Pair("streetlights:on", "Ability to switch lights on"),
-                                                                        Pair("streetlights:off", "Ability to switch lights off"),
-                                                                        Pair("streetlights:dim", "Ability to dim the lights"),
+                                                                        Pair(
+                                                                                "streetlights:on",
+                                                                                "Ability to switch lights on"
+                                                                        ),
+                                                                        Pair(
+                                                                                "streetlights:off",
+                                                                                "Ability to switch lights off"
+                                                                        ),
+                                                                        Pair(
+                                                                                "streetlights:dim",
+                                                                                "Ability to dim the lights"
+                                                                        ),
                                                                 ),
                                                                 "https://authserver.example/token"
                                                         ),
                                                         ClientCredentialsOAuthFlow(
                                                                 "",
                                                                 mapOf(
-                                                                        Pair("streetlights:on", "Ability to switch lights on"),
-                                                                        Pair("streetlights:off", "Ability to switch lights off"),
-                                                                        Pair("streetlights:dim", "Ability to dim the lights"),
+                                                                        Pair(
+                                                                                "streetlights:on",
+                                                                                "Ability to switch lights on"
+                                                                        ),
+                                                                        Pair(
+                                                                                "streetlights:off",
+                                                                                "Ability to switch lights off"
+                                                                        ),
+                                                                        Pair(
+                                                                                "streetlights:dim",
+                                                                                "Ability to dim the lights"
+                                                                        ),
                                                                 ),
                                                                 "https://authserver.example/token"
                                                         ),
                                                         AuthorizationCodeOAuthFlow(
                                                                 "https://authserver.example/refresh",
                                                                 mapOf(
-                                                                        Pair("streetlights:on", "Ability to switch lights on"),
-                                                                        Pair("streetlights:off", "Ability to switch lights off"),
-                                                                        Pair("streetlights:dim", "Ability to dim the lights"),
+                                                                        Pair(
+                                                                                "streetlights:on",
+                                                                                "Ability to switch lights on"
+                                                                        ),
+                                                                        Pair(
+                                                                                "streetlights:off",
+                                                                                "Ability to switch lights off"
+                                                                        ),
+                                                                        Pair(
+                                                                                "streetlights:dim",
+                                                                                "Ability to dim the lights"
+                                                                        ),
                                                                 ),
                                                                 "https://authserver.example/auth",
                                                                 "https://authserver.example/token"
@@ -117,10 +153,14 @@ class CorrelationIdAsyncAPI: AbstractExampleValidationTest() {
                         Channel.builder()
                                 .address("smartylighting/streetlights/1/0/event/{streetlightId}/lighting/measured")
                                 .messages(mapOf(
-                                        Pair("lightMeasured", Reference("#/components/messages/lightMeasured"))
+                                        Pair("lightMeasured",
+                                                Reference("#/components/messages/lightMeasured")
+                                        )
                                 ))
                                 .parameters(mapOf(
-                                        Pair("streetlightId", Reference("#/components/parameters/streetlightId"))
+                                        Pair("streetlightId",
+                                                Reference("#/components/parameters/streetlightId")
+                                        )
                                 ))
                                 .build()
                 ),
@@ -128,10 +168,14 @@ class CorrelationIdAsyncAPI: AbstractExampleValidationTest() {
                         Channel.builder()
                                 .address("smartylighting/streetlights/1/0/action/{streetlightId}/dim")
                                 .messages(mapOf(
-                                        Pair("dimLight", Reference("#/components/messages/dimLight"))
+                                        Pair("dimLight",
+                                                Reference("#/components/messages/dimLight")
+                                        )
                                 ))
                                 .parameters(mapOf(
-                                        Pair("streetlightId", Reference("#/components/parameters/streetlightId"))
+                                        Pair("streetlightId",
+                                                Reference("#/components/parameters/streetlightId")
+                                        )
                                 ))
                                 .build()
                 )
@@ -245,58 +289,76 @@ class CorrelationIdAsyncAPI: AbstractExampleValidationTest() {
                         )
                 ))
                 .securitySchemes(mapOf(
-                        Pair("apiKey", ApiKeySecurityScheme(
-                                "Provide your API key as the user and leave the password empty.",
-                                ApiKeySecurityScheme.ApiKeyLocation.USER
-                        )),
-                        Pair("supportedOauthFlows", OAuth2SecurityScheme(
-                                "Flows to support OAuth 2.0",
-                                OAuthFlows(
-                                        ImplicitOAuthFlow(
-                                                "",
-                                                mapOf(
-                                                        Pair("streetlights:on", "Ability to switch lights on"),
-                                                        Pair("streetlights:off", "Ability to switch lights off"),
-                                                        Pair("streetlights:dim", "Ability to dim the lights"),
+                        Pair("apiKey",
+                                ApiKeySecurityScheme(
+                                        "Provide your API key as the user and leave the password empty.",
+                                        ApiKeySecurityScheme.ApiKeyLocation.USER
+                                )
+                        ),
+                        Pair("supportedOauthFlows",
+                                OAuth2SecurityScheme(
+                                        "Flows to support OAuth 2.0",
+                                        OAuthFlows(
+                                                ImplicitOAuthFlow(
+                                                        "",
+                                                        mapOf(
+                                                                Pair("streetlights:on", "Ability to switch lights on"),
+                                                                Pair(
+                                                                        "streetlights:off",
+                                                                        "Ability to switch lights off"
+                                                                ),
+                                                                Pair("streetlights:dim", "Ability to dim the lights"),
+                                                        ),
+                                                        "https://authserver.example/auth"
                                                 ),
-                                                "https://authserver.example/auth"
+                                                PasswordOAuthFlow(
+                                                        "",
+                                                        mapOf(
+                                                                Pair("streetlights:on", "Ability to switch lights on"),
+                                                                Pair(
+                                                                        "streetlights:off",
+                                                                        "Ability to switch lights off"
+                                                                ),
+                                                                Pair("streetlights:dim", "Ability to dim the lights"),
+                                                        ),
+                                                        "https://authserver.example/token"
+                                                ),
+                                                ClientCredentialsOAuthFlow(
+                                                        "",
+                                                        mapOf(
+                                                                Pair("streetlights:on", "Ability to switch lights on"),
+                                                                Pair(
+                                                                        "streetlights:off",
+                                                                        "Ability to switch lights off"
+                                                                ),
+                                                                Pair("streetlights:dim", "Ability to dim the lights"),
+                                                        ),
+                                                        "https://authserver.example/token"
+                                                ),
+                                                AuthorizationCodeOAuthFlow(
+                                                        "https://authserver.example/refresh",
+                                                        mapOf(
+                                                                Pair("streetlights:on", "Ability to switch lights on"),
+                                                                Pair(
+                                                                        "streetlights:off",
+                                                                        "Ability to switch lights off"
+                                                                ),
+                                                                Pair("streetlights:dim", "Ability to dim the lights"),
+                                                        ),
+                                                        "https://authserver.example/auth",
+                                                        "https://authserver.example/token"
+                                                )
                                         ),
-                                        PasswordOAuthFlow(
-                                                "",
-                                                mapOf(
-                                                        Pair("streetlights:on", "Ability to switch lights on"),
-                                                        Pair("streetlights:off", "Ability to switch lights off"),
-                                                        Pair("streetlights:dim", "Ability to dim the lights"),
-                                                ),
-                                                "https://authserver.example/token"
-                                        ),
-                                        ClientCredentialsOAuthFlow(
-                                                "",
-                                                mapOf(
-                                                        Pair("streetlights:on", "Ability to switch lights on"),
-                                                        Pair("streetlights:off", "Ability to switch lights off"),
-                                                        Pair("streetlights:dim", "Ability to dim the lights"),
-                                                ),
-                                                "https://authserver.example/token"
-                                        ),
-                                        AuthorizationCodeOAuthFlow(
-                                                "https://authserver.example/refresh",
-                                                mapOf(
-                                                        Pair("streetlights:on", "Ability to switch lights on"),
-                                                        Pair("streetlights:off", "Ability to switch lights off"),
-                                                        Pair("streetlights:dim", "Ability to dim the lights"),
-                                                ),
-                                                "https://authserver.example/auth",
-                                                "https://authserver.example/token"
-                                        )
-                                ),
-                                null
-                        )),
-                        Pair("openIdConnectWellKnown", OpenIdConnectSecurityScheme(
-                                null,
-                                "https://authserver.example/.well-known",
-                                null
-                        )),
+                                        null
+                                )
+                        ),
+                        Pair("openIdConnectWellKnown",
+                                OpenIdConnectSecurityScheme(
+                                        null,
+                                        "https://authserver.example/.well-known",
+                                        null
+                                )
+                        ),
                 ))
                 .build()
     }

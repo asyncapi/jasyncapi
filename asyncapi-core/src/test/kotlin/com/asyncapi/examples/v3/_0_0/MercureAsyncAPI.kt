@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.v3.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v3._0_0.model.ExternalDocumentation
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.Parameter
@@ -10,7 +10,7 @@ import com.asyncapi.v3._0_0.model.info.Info
 import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.server.Server
-import com.asyncapi.v3.schema.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 
 class MercureAsyncAPI: AbstractExampleValidationTest() {
 
@@ -44,7 +44,9 @@ class MercureAsyncAPI: AbstractExampleValidationTest() {
                         Channel.builder()
                                 .address("https://example.com/books/{id}")
                                 .messages(mapOf(
-                                        Pair("book", Reference("#/components/messages/book"))
+                                        Pair("book",
+                                            Reference("#/components/messages/book")
+                                        )
                                 ))
                                 .description(
                                         "Every time a resource of type `http://schema.org/Book` is created or " +
@@ -66,7 +68,7 @@ class MercureAsyncAPI: AbstractExampleValidationTest() {
                                 .action(OperationAction.RECEIVE)
                                 .channel(Reference("#/channels/books"))
                                 .messages(listOf(
-                                        Reference("#/channels/books/messages/book")
+                                    Reference("#/channels/books/messages/book")
                                 ))
                                 .build()
                 ),
@@ -75,7 +77,7 @@ class MercureAsyncAPI: AbstractExampleValidationTest() {
                                 .action(OperationAction.SEND)
                                 .channel(Reference("#/channels/books"))
                                 .messages(listOf(
-                                        Reference("#/channels/books/messages/book")
+                                    Reference("#/channels/books/messages/book")
                                 ))
                                 .build()
                 )
@@ -89,7 +91,8 @@ class MercureAsyncAPI: AbstractExampleValidationTest() {
                                 Message.builder()
                                         .summary("The content of a book resource.")
                                         .externalDocs(ExternalDocumentation(null, "https://schema.org/Book"))
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("@id",

@@ -1,8 +1,8 @@
 package com.asyncapi.v3._0_0.jackson.model.component;
 
-import com.asyncapi.v3.Reference;
-import com.asyncapi.v3.schema.multiformat.MultiFormatSchema;
-import com.asyncapi.v3.schema.AsyncAPISchema;
+import com.asyncapi.schemas.asyncapi.Reference;
+import com.asyncapi.schemas.asyncapi.multiformat.MultiFormatSchema;
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.ObjectCodec;

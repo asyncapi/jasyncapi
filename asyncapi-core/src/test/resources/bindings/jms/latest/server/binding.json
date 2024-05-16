@@ -1,0 +1,11 @@
+{
+    "jmsConnectionFactory": "org.apache.activemq.ActiveMQConnectionFactory",
+    "properties": [
+        {
+            "name": "disableTimeStampsByDefault",
+            "value": false
+        }
+    ],
+    "clientID": "my-application-1",
+    "bindingVersion": "latest"
+}

@@ -16,6 +16,7 @@
   },
   "bindings" : {
     "amqp" : {
+      "bindingVersion" : "0.2.0",
       "expiration" : 100000,
       "userId" : "guest",
       "cc" : [ "user.logs" ],
@@ -25,256 +26,133 @@
       "bcc" : [ "external.audit" ],
       "replyTo" : "user.signedup",
       "timestamp" : true,
-      "ack" : false,
+      "ack" : false
+    },
+    "amqp1" : {
+      "bindingVersion" : "0.1.0"
+    },
+    "anypointmq" : {
+      "bindingVersion" : "0.0.1"
+    },
+    "googlepubsub" : {
       "bindingVersion" : "0.2.0"
     },
-    "amqp1" : { },
-    "anypointmq" : { },
-    "googlepubsub" : { },
     "http" : {
-      "type" : "request",
+      "bindingVersion" : "0.3.0",
       "method" : "GET",
       "query" : {
-        "title" : null,
-        "description" : null,
-        "readOnly" : null,
-        "writeOnly" : null,
-        "examples" : null,
-        "contentEncoding" : null,
-        "contentMediaType" : null,
         "type" : "object",
-        "multipleOf" : null,
-        "maximum" : null,
-        "exclusiveMaximum" : null,
-        "minimum" : null,
-        "exclusiveMinimum" : null,
-        "maxLength" : null,
-        "minLength" : null,
-        "pattern" : null,
-        "items" : null,
-        "additionalItems" : null,
-        "maxItems" : null,
-        "minItems" : null,
-        "uniqueItems" : null,
-        "contains" : null,
-        "maxProperties" : null,
-        "minProperties" : null,
         "required" : [ "companyId" ],
         "properties" : {
           "companyId" : {
-            "title" : null,
-            "description" : "The Id of the company.",
-            "readOnly" : null,
-            "writeOnly" : null,
-            "examples" : null,
-            "contentEncoding" : null,
-            "contentMediaType" : null,
             "type" : "number",
-            "multipleOf" : null,
-            "maximum" : null,
-            "exclusiveMaximum" : null,
             "minimum" : 1,
-            "exclusiveMinimum" : null,
-            "maxLength" : null,
-            "minLength" : null,
-            "pattern" : null,
-            "items" : null,
-            "additionalItems" : null,
-            "maxItems" : null,
-            "minItems" : null,
-            "uniqueItems" : null,
-            "contains" : null,
-            "maxProperties" : null,
-            "minProperties" : null,
-            "required" : null,
-            "properties" : null,
-            "patternProperties" : null,
-            "additionalProperties" : null,
-            "dependencies" : null,
-            "propertyNames" : null,
-            "allOf" : null,
-            "anyOf" : null,
-            "oneOf" : null,
-            "not" : null,
-            "format" : null,
-            "discriminator" : null,
-            "externalDocs" : null,
-            "deprecated" : null,
-            "default" : null,
-            "$ref" : null,
-            "enum" : null,
-            "const" : null,
-            "if" : null,
-            "then" : null,
-            "else" : null
+            "description" : "The Id of the company."
           }
         },
-        "patternProperties" : null,
-        "additionalProperties" : false,
-        "dependencies" : null,
-        "propertyNames" : null,
-        "allOf" : null,
-        "anyOf" : null,
-        "oneOf" : null,
-        "not" : null,
-        "format" : null,
-        "discriminator" : null,
-        "externalDocs" : null,
-        "deprecated" : null,
-        "default" : null,
-        "$ref" : null,
-        "enum" : null,
-        "const" : null,
-        "if" : null,
-        "then" : null,
-        "else" : null
-      },
-      "bindingVersion" : "0.1.0"
-    },
-    "ibmmq" : { },
-    "jms" : { },
-    "kafka" : {
-      "bindingVersion" : "0.4.0",
-      "groupId" : {
-        "title" : null,
-        "description" : null,
-        "readOnly" : null,
-        "writeOnly" : null,
-        "examples" : null,
-        "contentEncoding" : null,
-        "contentMediaType" : null,
-        "type" : "string",
-        "multipleOf" : null,
-        "maximum" : null,
-        "exclusiveMaximum" : null,
-        "minimum" : null,
-        "exclusiveMinimum" : null,
-        "maxLength" : null,
-        "minLength" : null,
-        "pattern" : null,
-        "items" : null,
-        "additionalItems" : null,
-        "maxItems" : null,
-        "minItems" : null,
-        "uniqueItems" : null,
-        "contains" : null,
-        "maxProperties" : null,
-        "minProperties" : null,
-        "required" : null,
-        "properties" : null,
-        "patternProperties" : null,
-        "additionalProperties" : null,
-        "dependencies" : null,
-        "propertyNames" : null,
-        "allOf" : null,
-        "anyOf" : null,
-        "oneOf" : null,
-        "not" : null,
-        "format" : null,
-        "discriminator" : null,
-        "externalDocs" : null,
-        "deprecated" : null,
-        "default" : null,
-        "$ref" : null,
-        "enum" : [ "myGroupId" ],
-        "const" : null,
-        "if" : null,
-        "then" : null,
-        "else" : null
-      },
-      "clientId" : {
-        "title" : null,
-        "description" : null,
-        "readOnly" : null,
-        "writeOnly" : null,
-        "examples" : null,
-        "contentEncoding" : null,
-        "contentMediaType" : null,
-        "type" : "string",
-        "multipleOf" : null,
-        "maximum" : null,
-        "exclusiveMaximum" : null,
-        "minimum" : null,
-        "exclusiveMinimum" : null,
-        "maxLength" : null,
-        "minLength" : null,
-        "pattern" : null,
-        "items" : null,
-        "additionalItems" : null,
-        "maxItems" : null,
-        "minItems" : null,
-        "uniqueItems" : null,
-        "contains" : null,
-        "maxProperties" : null,
-        "minProperties" : null,
-        "required" : null,
-        "properties" : null,
-        "patternProperties" : null,
-        "additionalProperties" : null,
-        "dependencies" : null,
-        "propertyNames" : null,
-        "allOf" : null,
-        "anyOf" : null,
-        "oneOf" : null,
-        "not" : null,
-        "format" : null,
-        "discriminator" : null,
-        "externalDocs" : null,
-        "deprecated" : null,
-        "default" : null,
-        "$ref" : null,
-        "enum" : [ "myClientId" ],
-        "const" : null,
-        "if" : null,
-        "then" : null,
-        "else" : null
+        "additionalProperties" : false
       }
     },
-    "mercure" : { },
+    "ibmmq" : {
+      "bindingVersion" : "0.1.0"
+    },
+    "jms" : {
+      "bindingVersion" : "0.0.1"
+    },
+    "kafka" : {
+      "bindingVersion" : "0.5.0",
+      "groupId" : {
+        "type" : "string",
+        "enum" : [ "myGroupId" ]
+      },
+      "clientId" : {
+        "type" : "string",
+        "enum" : [ "myClientId" ]
+      }
+    },
+    "mercure" : {
+      "bindingVersion" : "0.1.0"
+    },
     "mqtt" : {
+      "bindingVersion" : "0.1.0",
       "qos" : 2,
-      "retain" : true,
-      "bindingVersion" : "0.1.0"
+      "retain" : true
     },
-    "mqtt5" : { },
+    "mqtt5" : {
+      "bindingVersion" : "0.2.0"
+    },
     "nats" : {
-      "queue" : "messages",
+      "bindingVersion" : "0.1.0",
+      "queue" : "messages"
+    },
+    "pulsar" : {
       "bindingVersion" : "0.1.0"
     },
-    "pulsar" : { },
-    "redis" : { },
-    "sns" : { },
+    "redis" : {
+      "bindingVersion" : "0.1.0"
+    },
+    "sns" : {
+      "consumers" : [ ],
+      "bindingVersion" : "0.1.0"
+    },
     "solace" : {
+      "dmqEligible" : false,
+      "bindingVersion" : "0.4.0",
       "destinations" : [ {
         "destinationType" : "queue",
         "deliveryMode" : "persistent",
         "queue" : {
-          "name" : "CreatedHREvents",
-          "topicSubscriptions" : [ "person/*/created" ],
-          "accessType" : "exclusive",
-          "maxMsgSpoolSize" : "1,500",
-          "maxTtl" : "60"
-        },
-        "topic" : null
-      }, {
-        "destinationType" : "queue",
-        "deliveryMode" : "persistent",
-        "queue" : {
-          "name" : "UpdatedHREvents",
-          "topicSubscriptions" : [ "person/*/updated" ],
-          "accessType" : null,
-          "maxMsgSpoolSize" : null,
-          "maxTtl" : null
-        },
-        "topic" : {
-          "topicSubscriptions" : [ "person/*/updated" ]
+          "name" : "sampleQueue",
+          "topicSubscriptions" : [ "samples/*" ],
+          "accessType" : "nonexclusive"
         }
-      } ],
-      "bindingVersion" : "0.3.0"
+      }, {
+        "destinationType" : "topic",
+        "deliveryMode" : "persistent",
+        "topicSubscriptions" : [ "samples/*" ]
+      } ]
     },
-    "sqs" : { },
-    "stomp" : { },
-    "ws" : { }
+    "sqs" : {
+      "queues" : [ {
+        "name" : "myQueue",
+        "fifoQueue" : true,
+        "deduplicationScope" : "messageGroup",
+        "fifoThroughputLimit" : "perMessageGroupId",
+        "deliveryDelay" : 10,
+        "visibilityTimeout" : 30,
+        "receiveMessageWaitTime" : 0,
+        "messageRetentionPeriod" : 345600,
+        "redrivePolicy" : {
+          "deadLetterQueue" : {
+            "name" : "myQueue_error"
+          },
+          "maxReceiveCount" : 15
+        },
+        "policy" : {
+          "statements" : [ {
+            "effect" : "Deny",
+            "principal" : "arn:aws:iam::123456789012:user/dec.kolakowski",
+            "action" : [ "sqs:SendMessage", "sqs:ReceiveMessage" ]
+          } ]
+        }
+      }, {
+        "name" : "myQueue_error",
+        "fifoQueue" : false,
+        "deduplicationScope" : "queue",
+        "fifoThroughputLimit" : "perQueue",
+        "deliveryDelay" : 10,
+        "visibilityTimeout" : 30,
+        "receiveMessageWaitTime" : 0,
+        "messageRetentionPeriod" : 345600
+      } ],
+      "bindingVersion" : "0.2.0"
+    },
+    "stomp" : {
+      "bindingVersion" : "0.1.0"
+    },
+    "ws" : {
+      "bindingVersion" : "0.1.0"
+    }
   },
   "x-number" : 0,
   "x-string" : "",

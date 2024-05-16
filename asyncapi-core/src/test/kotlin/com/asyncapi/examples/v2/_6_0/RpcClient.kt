@@ -8,11 +8,11 @@ import com.asyncapi.v2._6_0.model.channel.operation.Operation
 import com.asyncapi.v2._6_0.model.component.Components
 import com.asyncapi.v2._6_0.model.info.Info
 import com.asyncapi.v2._6_0.model.server.Server
-import com.asyncapi.v2.binding.channel.amqp.AMQPChannelBinding
-import com.asyncapi.v2.binding.channel.amqp.AMQPChannelType
-import com.asyncapi.v2.binding.channel.amqp.queue.AMQPChannelQueueProperties
-import com.asyncapi.v2.binding.operation.amqp.AMQPOperationBinding
-import com.asyncapi.v2.schema.Schema
+import com.asyncapi.bindings.amqp.v0._3_0.channel.AMQPChannelBinding
+import com.asyncapi.bindings.amqp.v0._3_0.channel.AMQPChannelType
+import com.asyncapi.bindings.amqp.v0._3_0.channel.queue.AMQPChannelQueueProperties
+import com.asyncapi.bindings.amqp.v0._3_0.operation.AMQPOperationBinding
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 
 class RpcClient: AbstractExampleValidationTest() {
 
@@ -46,7 +46,8 @@ class RpcClient: AbstractExampleValidationTest() {
                 Pair("{queue}", ChannelItem.builder()
                         .parameters(mapOf(
                                 Pair("queue", Parameter.builder()
-                                        .schema(Schema.builder()
+                                        .schema(
+                                            AsyncAPISchema.builder()
                                                 .type("string")
                                                 .pattern("^amq\\\\.gen\\\\-.+\$")
                                                 .build())
@@ -73,10 +74,11 @@ class RpcClient: AbstractExampleValidationTest() {
                                 ))
                                 .message(Message.builder()
                                         .correlationId(CorrelationId(null, "\$message.header#/correlation_id"))
-                                        .payload(Schema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
-                                                        Pair("result", Schema.builder()
+                                                        Pair("result", AsyncAPISchema.builder()
                                                                 .type("number")
                                                                 .examples(listOf(7))
                                                                 .build())
@@ -110,12 +112,13 @@ class RpcClient: AbstractExampleValidationTest() {
                                 ))
                                 .message(Message.builder()
                                         .correlationId(CorrelationId(null, "\$message.header#/correlation_id"))
-                                        .payload(Schema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
-                                                        Pair("numbers", Schema.builder()
+                                                        Pair("numbers", AsyncAPISchema.builder()
                                                                 .type("array")
-                                                                .items(Schema.builder().type("number").build())
+                                                                .items(AsyncAPISchema.builder().type("number").build())
                                                                 .examples(listOf(listOf(4, 3)))
                                                                 .build())
                                                 ))

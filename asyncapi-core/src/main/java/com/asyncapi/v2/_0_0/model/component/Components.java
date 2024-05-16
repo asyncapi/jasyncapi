@@ -1,26 +1,26 @@
 package com.asyncapi.v2._0_0.model.component;
 
-import com.asyncapi.v2.ExtendableObject;
+import com.asyncapi.schemas.asyncapi.ExtendableObject;
 import com.asyncapi.v2._0_0.jackson.model.component.ComponentsMessagesDeserializer;
 import com.asyncapi.v2._0_0.jackson.model.component.ComponentsParametersDeserializer;
 import com.asyncapi.v2._0_0.jackson.model.component.ComponentsSchemasDeserializer;
 import com.asyncapi.v2._0_0.jackson.model.component.ComponentsSecuritySchemesDeserializer;
-import com.asyncapi.v2.Reference;
+import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.v2._0_0.model.channel.Parameter;
 import com.asyncapi.v2._0_0.model.channel.message.CorrelationId;
 import com.asyncapi.v2._0_0.model.channel.message.Message;
 import com.asyncapi.v2._0_0.model.channel.message.MessageTrait;
 import com.asyncapi.v2._0_0.model.channel.operation.OperationTrait;
-import com.asyncapi.v2.schema.Schema;
-import com.asyncapi.v2.binding.channel.ChannelBinding;
-import com.asyncapi.v2.binding.message.MessageBinding;
-import com.asyncapi.v2.binding.operation.OperationBinding;
-import com.asyncapi.v2.binding.server.ServerBinding;
-import com.asyncapi.v2.jackson.binding.channel.ChannelBindingsDeserializer;
-import com.asyncapi.v2.jackson.binding.message.MessageBindingsDeserializer;
-import com.asyncapi.v2.jackson.binding.operation.OperationBindingsDeserializer;
-import com.asyncapi.v2.jackson.binding.server.ServerBindingsDeserializer;
-import com.asyncapi.v2.security_scheme.SecurityScheme;
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema;
+import com.asyncapi.bindings.ChannelBinding;
+import com.asyncapi.bindings.MessageBinding;
+import com.asyncapi.bindings.OperationBinding;
+import com.asyncapi.bindings.ServerBinding;
+import com.asyncapi.bindings.ChannelBindingsDeserializer;
+import com.asyncapi.bindings.MessageBindingsDeserializer;
+import com.asyncapi.bindings.OperationBindingsDeserializer;
+import com.asyncapi.bindings.ServerBindingsDeserializer;
+import com.asyncapi.schemas.asyncapi.security.v2.SecurityScheme;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -52,7 +52,7 @@ public class Components extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link Schema}</li>
+     *     <li>{@link AsyncAPISchema}</li>
      *     <li>{@link Reference}</li>
      * </ul>
      */

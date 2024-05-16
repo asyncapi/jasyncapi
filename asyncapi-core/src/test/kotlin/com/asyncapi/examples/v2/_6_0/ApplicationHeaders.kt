@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v2._6_0
 
-import com.asyncapi.v2.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v2._6_0.model.channel.ChannelItem
 import com.asyncapi.v2._6_0.model.channel.Parameter
 import com.asyncapi.v2._6_0.model.channel.message.CorrelationId
@@ -11,7 +11,7 @@ import com.asyncapi.v2._6_0.model.info.Info
 import com.asyncapi.v2._6_0.model.info.License
 import com.asyncapi.v2._6_0.model.server.Server
 import com.asyncapi.v2._6_0.model.server.ServerVariable
-import com.asyncapi.v2.schema.Schema
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 import java.math.BigDecimal
 
 class ApplicationHeaders: AbstractExampleValidationTest() {
@@ -55,7 +55,9 @@ class ApplicationHeaders: AbstractExampleValidationTest() {
         return mapOf(
                 Pair("smartylighting/streetlights/1/0/event/{streetlightId}/lighting/measured", ChannelItem.builder()
                         .parameters(mapOf(
-                                Pair("streetlightId", Reference("#/components/parameters/streetlightId"))
+                                Pair("streetlightId",
+                                        Reference("#/components/parameters/streetlightId")
+                                )
                         ))
                         .publish(Operation.builder()
                                 .summary("Inform about environmental lighting conditions of a particular streetlight.")
@@ -80,13 +82,14 @@ class ApplicationHeaders: AbstractExampleValidationTest() {
                                         "\$message.header#/MQMD/CorrelId"
                                 ))
                                 .contentType("application/json")
-                                .headers(Schema.builder()
+                                .headers(
+                                    AsyncAPISchema.builder()
                                         .type("object")
                                         .properties(mapOf(
-                                                Pair("MQMD", Schema.builder()
+                                                Pair("MQMD", AsyncAPISchema.builder()
                                                         .type("object")
                                                         .properties(mapOf(
-                                                                Pair("CorrelId", Schema.builder()
+                                                                Pair("CorrelId", AsyncAPISchema.builder()
                                                                         .type("string")
                                                                         .minLength(24)
                                                                         .maxLength(24)
@@ -96,41 +99,41 @@ class ApplicationHeaders: AbstractExampleValidationTest() {
                                                         ))
                                                         .build()
                                                 ),
-                                                Pair("applicationInstanceId", Schema.builder()
+                                                Pair("applicationInstanceId", AsyncAPISchema.builder()
                                                         .ref("#/components/schemas/applicationInstanceId")
                                                         .build()
                                                 )
                                         ))
                                         .build()
                                 )
-                                .payload(Schema.builder().ref("#/components/schemas/lightMeasuredPayload").build())
+                                .payload(Reference("#/components/schemas/lightMeasuredPayload"))
                                 .build()
                         )
                 ))
                 .schemas(mapOf(
-                        Pair("lightMeasuredPayload", Schema.builder()
+                        Pair("lightMeasuredPayload", AsyncAPISchema.builder()
                                 .type("object")
                                 .properties(mapOf(
-                                        Pair("lumens", Schema.builder()
+                                        Pair("lumens", AsyncAPISchema.builder()
                                                 .type("integer")
                                                 .minimum(BigDecimal.ZERO)
                                                 .description("Light intensity measured in lumens.")
                                                 .build()
                                         ),
-                                        Pair("sentAt", Schema.builder()
+                                        Pair("sentAt", AsyncAPISchema.builder()
                                                 .ref("#/components/schemas/sentAt")
                                                 .build()
                                         )
                                 ))
                                 .build()
                         ),
-                        Pair("sentAt", Schema.builder()
+                        Pair("sentAt", AsyncAPISchema.builder()
                                 .type("string")
                                 .format("date-time")
                                 .description("Date and time when the message was sent.")
                                 .build()
                         ),
-                        Pair("applicationInstanceId", Schema.builder()
+                        Pair("applicationInstanceId", AsyncAPISchema.builder()
                                 .type("string")
                                 .description("Unique identifier for a given instance of the publishing application")
                                 .build()
@@ -139,7 +142,7 @@ class ApplicationHeaders: AbstractExampleValidationTest() {
                 .parameters(mapOf(
                         Pair("streetlightId", Parameter.builder()
                                 .description("The ID of the streetlight.")
-                                .schema(Schema.builder().type("string").build())
+                                .schema(AsyncAPISchema.builder().type("string").build())
                                 .build()
                         )
                 ))

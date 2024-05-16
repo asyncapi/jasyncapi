@@ -33,7 +33,7 @@
         "description": "Default Correlation ID",
         "location": "$message.header#/correlationId"
       },
-      "schemaFormat": "application/vnd.apache.avro+json;version=1.9.0",
+      "schemaFormat": "application/vnd.aai.asyncapi;version=2.6.0",
       "contentType": "application/json",
       "name": "UserSignup",
       "title": "User signup",
@@ -88,7 +88,8 @@
               }
             }
           },
-          "bindingVersion": "0.1.0"
+          "statusCode" : 200,
+          "bindingVersion": "0.3.0"
         },
         "ibmmq": {
           "type": "jms",
@@ -110,7 +111,7 @@
           "schemaIdLocation": "payload",
           "schemaIdPayloadEncoding": "apicurio-new",
           "schemaLookupStrategy": "TopicIdStrategy",
-          "bindingVersion": "0.4.0"
+          "bindingVersion": "0.5.0"
         },
         "mercure": {
           "$ref": "#/components/messageBindings/mercure"

@@ -1,6 +1,6 @@
 package com.asyncapi.v3._0_0.model.channel.message;
 
-import com.asyncapi.v3.ExtendableObject;
+import com.asyncapi.schemas.asyncapi.ExtendableObject;
 import lombok.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

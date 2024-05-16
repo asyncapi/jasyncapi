@@ -1,10 +1,11 @@
 package com.asyncapi.v2._6_0.model.channel.operation;
 
-import com.asyncapi.v2.ExtendableObject;
+import com.asyncapi.schemas.asyncapi.ExtendableObject;
+import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.v2._6_0.model.ExternalDocumentation;
 import com.asyncapi.v2._6_0.model.Tag;
-import com.asyncapi.v2.binding.operation.OperationBinding;
-import com.asyncapi.v2.jackson.binding.operation.OperationBindingsDeserializer;
+import com.asyncapi.bindings.OperationBinding;
+import com.asyncapi.bindings.OperationBindingsDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -92,7 +93,7 @@ public class OperationTrait extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v2.Reference}</li>
+     *     <li>{@link Reference}</li>
      *     <li>{@link OperationBinding}</li>
      * </ul>
      */

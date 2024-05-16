@@ -1,0 +1,21 @@
+{
+  "destinations": [
+    {
+      "destinationType": "queue",
+      "queue": {
+        "name": "sampleQueue",
+        "topicSubscriptions": [
+          "samples/*"
+        ],
+        "accessType": "nonexclusive"
+      }
+    },
+    {
+      "destinationType": "topic",
+      "topicSubscriptions": [
+        "samples/*"
+      ]
+    }
+  ],
+  "bindingVersion" : "latest"
+}

@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.v3.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v3._0_0.model.Tag
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.Parameter
@@ -13,9 +13,9 @@ import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.operation.OperationTrait
 import com.asyncapi.v3._0_0.model.server.Server
-import com.asyncapi.v3.binding.operation.kafka.KafkaOperationBinding
-import com.asyncapi.v3.schema.AsyncAPISchema
-import com.asyncapi.v3.security_scheme.SecurityScheme
+import com.asyncapi.bindings.kafka.v0._5_0.operation.KafkaOperationBinding
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.security.v3.SecurityScheme
 import java.math.BigDecimal
 
 class StreetlightsKafkaAsyncAPI: AbstractExampleValidationTest() {
@@ -95,30 +95,46 @@ class StreetlightsKafkaAsyncAPI: AbstractExampleValidationTest() {
                 Pair("lightingMeasured",
                         Channel.builder()
                                 .address("smartylighting.streetlights.1.0.event.{streetlightId}.lighting.measured")
-                                .messages(mapOf(Pair("lightMeasured", Reference("#/components/messages/lightMeasured"))))
+                                .messages(mapOf(Pair("lightMeasured",
+                                        Reference("#/components/messages/lightMeasured")
+                                )))
                                 .description("The topic on which measured values may be produced and consumed.")
-                                .parameters(mapOf(Pair("streetlightId", Reference("#/components/parameters/streetlightId"))))
+                                .parameters(mapOf(Pair("streetlightId",
+                                        Reference("#/components/parameters/streetlightId")
+                                )))
                                 .build()
                 ),
                 Pair("lightTurnOn",
                         Channel.builder()
                                 .address("smartylighting.streetlights.1.0.action.{streetlightId}.turn.on")
-                                .messages(mapOf(Pair("turnOn", Reference("#/components/messages/turnOnOff"))))
-                                .parameters(mapOf(Pair("streetlightId", Reference("#/components/parameters/streetlightId"))))
+                                .messages(mapOf(Pair("turnOn",
+                                        Reference("#/components/messages/turnOnOff")
+                                )))
+                                .parameters(mapOf(Pair("streetlightId",
+                                        Reference("#/components/parameters/streetlightId")
+                                )))
                                 .build()
                 ),
                 Pair("lightTurnOff",
                         Channel.builder()
                                 .address("smartylighting.streetlights.1.0.action.{streetlightId}.turn.off")
-                                .messages(mapOf(Pair("turnOff", Reference("#/components/messages/turnOnOff"))))
-                                .parameters(mapOf(Pair("streetlightId", Reference("#/components/parameters/streetlightId"))))
+                                .messages(mapOf(Pair("turnOff",
+                                        Reference("#/components/messages/turnOnOff")
+                                )))
+                                .parameters(mapOf(Pair("streetlightId",
+                                        Reference("#/components/parameters/streetlightId")
+                                )))
                                 .build()
                 ),
                 Pair("lightsDim",
                         Channel.builder()
                                 .address("smartylighting.streetlights.1.0.action.{streetlightId}.dim")
-                                .messages(mapOf(Pair("dimLight", Reference("#/components/messages/dimLight"))))
-                                .parameters(mapOf(Pair("streetlightId", Reference("#/components/parameters/streetlightId"))))
+                                .messages(mapOf(Pair("dimLight",
+                                        Reference("#/components/messages/dimLight")
+                                )))
+                                .parameters(mapOf(Pair("streetlightId",
+                                        Reference("#/components/parameters/streetlightId")
+                                )))
                                 .build()
                 )
         )
@@ -275,7 +291,8 @@ class StreetlightsKafkaAsyncAPI: AbstractExampleValidationTest() {
                 .messageTraits(mapOf(
                         Pair("commonHeaders",
                                 MessageTrait.builder()
-                                        .headers(AsyncAPISchema.builder()
+                                        .headers(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("my-app-header", AsyncAPISchema.builder()
@@ -295,7 +312,8 @@ class StreetlightsKafkaAsyncAPI: AbstractExampleValidationTest() {
                                 OperationTrait.builder()
                                         .bindings(mapOf(
                                                 Pair("kafka", KafkaOperationBinding.builder()
-                                                        .clientId(AsyncAPISchema.builder()
+                                                        .clientId(
+                                                            AsyncAPISchema.builder()
                                                                 .type("string")
                                                                 .enumValue(listOf("my-app-id"))
                                                                 .build()

@@ -28,6 +28,7 @@
   },
   "bindings" : {
     "amqp" : {
+      "bindingVersion" : "0.2.0",
       "expiration" : 100000,
       "userId" : "guest",
       "cc" : [ "user.logs" ],
@@ -37,8 +38,7 @@
       "bcc" : [ "external.audit" ],
       "replyTo" : "user.signedup",
       "timestamp" : true,
-      "ack" : false,
-      "bindingVersion" : "0.2.0"
+      "ack" : false
     },
     "amqp1" : {
       "$ref" : "#/components/operationBindings/amqp1"
@@ -50,7 +50,7 @@
       "$ref" : "#/components/operationBindings/googlepubsub"
     },
     "http" : {
-      "type" : "request",
+      "bindingVersion" : "0.3.0",
       "method" : "GET",
       "query" : {
         "type" : "object",
@@ -63,8 +63,7 @@
           }
         },
         "additionalProperties" : false
-      },
-      "bindingVersion" : "0.1.0"
+      }
     },
     "ibmmq" : {
       "$ref" : "#/components/operationBindings/ibmmq"
@@ -73,7 +72,7 @@
       "$ref" : "#/components/operationBindings/jms"
     },
     "kafka" : {
-      "bindingVersion" : "0.4.0",
+      "bindingVersion" : "0.5.0",
       "groupId" : {
         "type" : "string",
         "enum" : [ "myGroupId" ]
@@ -87,16 +86,16 @@
       "$ref" : "#/components/operationBindings/mercure"
     },
     "mqtt" : {
+      "bindingVersion" : "0.1.0",
       "qos" : 2,
-      "retain" : true,
-      "bindingVersion" : "0.1.0"
+      "retain" : true
     },
     "mqtt5" : {
       "$ref" : "#/components/operationBindings/mqtt5"
     },
     "nats" : {
-      "queue" : "messages",
-      "bindingVersion" : "0.1.0"
+      "bindingVersion" : "0.1.0",
+      "queue" : "messages"
     },
     "pulsar" : {
       "$ref" : "#/components/operationBindings/pulsar"
@@ -108,28 +107,21 @@
       "$ref" : "#/components/operationBindings/sns"
     },
     "solace" : {
+      "dmqEligible" : false,
+      "bindingVersion" : "0.4.0",
       "destinations" : [ {
         "destinationType" : "queue",
         "deliveryMode" : "persistent",
         "queue" : {
-          "name" : "CreatedHREvents",
-          "topicSubscriptions" : [ "person/*/created" ],
-          "accessType" : "exclusive",
-          "maxMsgSpoolSize" : "1,500",
-          "maxTtl" : "60"
+          "name" : "sampleQueue",
+          "topicSubscriptions" : [ "samples/*" ],
+          "accessType" : "nonexclusive"
         }
       }, {
-        "destinationType" : "queue",
+        "destinationType" : "topic",
         "deliveryMode" : "persistent",
-        "queue" : {
-          "name" : "UpdatedHREvents",
-          "topicSubscriptions" : [ "person/*/updated" ]
-        },
-        "topic" : {
-          "topicSubscriptions" : [ "person/*/updated" ]
-        }
-      } ],
-      "bindingVersion" : "0.3.0"
+        "topicSubscriptions" : [ "samples/*" ]
+      } ]
     },
     "sqs" : {
       "$ref" : "#/components/operationBindings/sqs"
@@ -168,6 +160,7 @@
     },
     "bindings" : {
       "amqp" : {
+        "bindingVersion" : "0.2.0",
         "expiration" : 100000,
         "userId" : "guest",
         "cc" : [ "user.logs" ],
@@ -177,8 +170,7 @@
         "bcc" : [ "external.audit" ],
         "replyTo" : "user.signedup",
         "timestamp" : true,
-        "ack" : false,
-        "bindingVersion" : "0.2.0"
+        "ack" : false
       },
       "amqp1" : {
         "$ref" : "#/components/operationBindings/amqp1"
@@ -190,7 +182,7 @@
         "$ref" : "#/components/operationBindings/googlepubsub"
       },
       "http" : {
-        "type" : "request",
+        "bindingVersion" : "0.3.0",
         "method" : "GET",
         "query" : {
           "type" : "object",
@@ -203,8 +195,7 @@
             }
           },
           "additionalProperties" : false
-        },
-        "bindingVersion" : "0.1.0"
+        }
       },
       "ibmmq" : {
         "$ref" : "#/components/operationBindings/ibmmq"
@@ -213,7 +204,7 @@
         "$ref" : "#/components/operationBindings/jms"
       },
       "kafka" : {
-        "bindingVersion" : "0.4.0",
+        "bindingVersion" : "0.5.0",
         "groupId" : {
           "type" : "string",
           "enum" : [ "myGroupId" ]
@@ -227,16 +218,16 @@
         "$ref" : "#/components/operationBindings/mercure"
       },
       "mqtt" : {
+        "bindingVersion" : "0.1.0",
         "qos" : 2,
-        "retain" : true,
-        "bindingVersion" : "0.1.0"
+        "retain" : true
       },
       "mqtt5" : {
         "$ref" : "#/components/operationBindings/mqtt5"
       },
       "nats" : {
-        "queue" : "messages",
-        "bindingVersion" : "0.1.0"
+        "bindingVersion" : "0.1.0",
+        "queue" : "messages"
       },
       "pulsar" : {
         "$ref" : "#/components/operationBindings/pulsar"
@@ -248,28 +239,21 @@
         "$ref" : "#/components/operationBindings/sns"
       },
       "solace" : {
+        "dmqEligible" : false,
+        "bindingVersion" : "0.4.0",
         "destinations" : [ {
           "destinationType" : "queue",
           "deliveryMode" : "persistent",
           "queue" : {
-            "name" : "CreatedHREvents",
-            "topicSubscriptions" : [ "person/*/created" ],
-            "accessType" : "exclusive",
-            "maxMsgSpoolSize" : "1,500",
-            "maxTtl" : "60"
+            "name" : "sampleQueue",
+            "topicSubscriptions" : [ "samples/*" ],
+            "accessType" : "nonexclusive"
           }
         }, {
-          "destinationType" : "queue",
+          "destinationType" : "topic",
           "deliveryMode" : "persistent",
-          "queue" : {
-            "name" : "UpdatedHREvents",
-            "topicSubscriptions" : [ "person/*/updated" ]
-          },
-          "topic" : {
-            "topicSubscriptions" : [ "person/*/updated" ]
-          }
-        } ],
-        "bindingVersion" : "0.3.0"
+          "topicSubscriptions" : [ "samples/*" ]
+        } ]
       },
       "sqs" : {
         "$ref" : "#/components/operationBindings/sqs"
@@ -307,6 +291,7 @@
     },
     "bindings" : {
       "amqp" : {
+        "bindingVersion" : "0.2.0",
         "expiration" : 100000,
         "userId" : "guest",
         "cc" : [ "user.logs" ],
@@ -316,8 +301,7 @@
         "bcc" : [ "external.audit" ],
         "replyTo" : "user.signedup",
         "timestamp" : true,
-        "ack" : false,
-        "bindingVersion" : "0.2.0"
+        "ack" : false
       },
       "amqp1" : {
         "$ref" : "#/components/operationBindings/amqp1"
@@ -329,7 +313,7 @@
         "$ref" : "#/components/operationBindings/googlepubsub"
       },
       "http" : {
-        "type" : "request",
+        "bindingVersion" : "0.3.0",
         "method" : "GET",
         "query" : {
           "type" : "object",
@@ -342,8 +326,7 @@
             }
           },
           "additionalProperties" : false
-        },
-        "bindingVersion" : "0.1.0"
+        }
       },
       "ibmmq" : {
         "$ref" : "#/components/operationBindings/ibmmq"
@@ -352,7 +335,7 @@
         "$ref" : "#/components/operationBindings/jms"
       },
       "kafka" : {
-        "bindingVersion" : "0.4.0",
+        "bindingVersion" : "0.5.0",
         "groupId" : {
           "type" : "string",
           "enum" : [ "myGroupId" ]
@@ -366,16 +349,16 @@
         "$ref" : "#/components/operationBindings/mercure"
       },
       "mqtt" : {
+        "bindingVersion" : "0.1.0",
         "qos" : 2,
-        "retain" : true,
-        "bindingVersion" : "0.1.0"
+        "retain" : true
       },
       "mqtt5" : {
         "$ref" : "#/components/operationBindings/mqtt5"
       },
       "nats" : {
-        "queue" : "messages",
-        "bindingVersion" : "0.1.0"
+        "bindingVersion" : "0.1.0",
+        "queue" : "messages"
       },
       "pulsar" : {
         "$ref" : "#/components/operationBindings/pulsar"
@@ -387,28 +370,21 @@
         "$ref" : "#/components/operationBindings/sns"
       },
       "solace" : {
+        "dmqEligible" : false,
+        "bindingVersion" : "0.4.0",
         "destinations" : [ {
           "destinationType" : "queue",
           "deliveryMode" : "persistent",
           "queue" : {
-            "name" : "CreatedHREvents",
-            "topicSubscriptions" : [ "person/*/created" ],
-            "accessType" : "exclusive",
-            "maxMsgSpoolSize" : "1,500",
-            "maxTtl" : "60"
+            "name" : "sampleQueue",
+            "topicSubscriptions" : [ "samples/*" ],
+            "accessType" : "nonexclusive"
           }
         }, {
-          "destinationType" : "queue",
+          "destinationType" : "topic",
           "deliveryMode" : "persistent",
-          "queue" : {
-            "name" : "UpdatedHREvents",
-            "topicSubscriptions" : [ "person/*/updated" ]
-          },
-          "topic" : {
-            "topicSubscriptions" : [ "person/*/updated" ]
-          }
-        } ],
-        "bindingVersion" : "0.3.0"
+          "topicSubscriptions" : [ "samples/*" ]
+        } ]
       },
       "sqs" : {
         "$ref" : "#/components/operationBindings/sqs"

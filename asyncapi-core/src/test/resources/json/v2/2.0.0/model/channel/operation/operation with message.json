@@ -34,7 +34,6 @@
     "anypointmq" : { },
     "googlepubsub" : { },
     "http" : {
-      "type" : "request",
       "method" : "GET",
       "query" : {
         "type" : "object",
@@ -48,7 +47,7 @@
         },
         "additionalProperties" : false
       },
-      "bindingVersion" : "0.1.0"
+      "bindingVersion" : "0.3.0"
     },
     "ibmmq" : { },
     "jms" : { },
@@ -61,7 +60,7 @@
         "type" : "string",
         "enum" : [ "myClientId" ]
       },
-      "bindingVersion" : "0.4.0"
+      "bindingVersion" : "0.5.0"
     },
     "mercure" : { },
     "mqtt" : {
@@ -76,36 +75,104 @@
     },
     "pulsar" : { },
     "redis" : { },
-    "sns" : { },
+    "sns" : {
+      "bindingVersion": "0.1.0",
+      "topic": {
+        "name": "someTopic"
+      },
+      "consumers": [
+        {
+          "protocol": "sqs",
+          "endpoint": {
+            "name": "someQueue"
+          },
+          "filterPolicy": {
+            "store": [
+              "asyncapi_corp"
+            ],
+            "event": [
+              {
+                "anything-but": "order_cancelled"
+              }
+            ],
+            "customer_interests": [
+              "rugby",
+              "football",
+              "baseball"
+            ]
+          },
+          "filterPolicyScope": "MessageAttributes",
+          "rawMessageDelivery": false,
+          "redrivePolicy": {
+            "deadLetterQueue": {
+              "arn": "arn:aws:SQS:eu-west-1:0000000:123456789"
+            },
+            "maxReceiveCount": 25
+          },
+          "deliveryPolicy": {
+            "minDelayTarget": 10,
+            "maxDelayTarget": 100,
+            "numRetries": 5,
+            "numNoDelayRetries": 2,
+            "numMinDelayRetries": 3,
+            "numMaxDelayRetries": 5,
+            "backoffFunction": "linear",
+            "maxReceivesPerSecond": 2
+          }
+        }
+      ]
+    },
     "solace" : {
+      "dmqEligible" : false,
+      "bindingVersion" : "0.4.0",
       "destinations" : [ {
         "destinationType" : "queue",
         "deliveryMode" : "persistent",
         "queue" : {
-          "name" : "CreatedHREvents",
-          "topicSubscriptions" : [ "person/*/created" ],
-          "accessType" : "exclusive",
-          "maxMsgSpoolSize" : "1,500",
-          "maxTtl" : "60"
-        },
-        "topic" : null
-      }, {
-        "destinationType" : "queue",
-        "deliveryMode" : "persistent",
-        "queue" : {
-          "name" : "UpdatedHREvents",
-          "topicSubscriptions" : [ "person/*/updated" ],
-          "accessType" : null,
-          "maxMsgSpoolSize" : null,
-          "maxTtl" : null
-        },
-        "topic" : {
-          "topicSubscriptions" : [ "person/*/updated" ]
+          "name" : "sampleQueue",
+          "topicSubscriptions" : [ "samples/*" ],
+          "accessType" : "nonexclusive"
         }
-      } ],
-      "bindingVersion" : "0.3.0"
+      }, {
+        "destinationType" : "topic",
+        "deliveryMode" : "persistent",
+        "topicSubscriptions" : [ "samples/*" ]
+      } ]
     },
-    "sqs" : { },
+    "sqs" : {
+      "queues": [
+        {
+          "name": "myQueue",
+          "fifoQueue": true,
+          "deduplicationScope": "messageGroup",
+          "fifoThroughputLimit": "perMessageGroupId",
+          "deliveryDelay": 10,
+          "redrivePolicy": {
+            "deadLetterQueue": {
+              "name": "myQueue_error"
+            },
+            "maxReceiveCount": 15
+          },
+          "policy": {
+            "statements": [
+              {
+                "effect": "Deny",
+                "principal": "arn:aws:iam::123456789012:user/dec.kolakowski",
+                "action": [
+                  "sqs:SendMessage",
+                  "sqs:ReceiveMessage"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "myQueue_error",
+          "deliveryDelay": 10
+        }
+      ],
+      "bindingVersion": "0.2.0"
+    },
     "stomp" : { },
     "ws" : { }
   },
@@ -153,7 +220,6 @@
         "anypointmq": { },
         "googlepubsub": { },
         "http": {
-          "type": "request",
           "method": "GET",
           "query": {
             "type": "object",
@@ -169,7 +235,7 @@
             },
             "additionalProperties": false
           },
-          "bindingVersion": "0.1.0"
+          "bindingVersion": "0.3.0"
         },
         "ibmmq": { },
         "jms": { },
@@ -186,7 +252,7 @@
               "myClientId"
             ]
           },
-          "bindingVersion": "0.4.0"
+          "bindingVersion": "0.5.0"
         },
         "mercure": { },
         "mqtt": {
@@ -203,37 +269,56 @@
         "redis": { },
         "sns": { },
         "solace": {
-          "destinations": [
+          "dmqEligible" : false,
+          "bindingVersion" : "0.4.0",
+          "destinations" : [ {
+            "destinationType" : "queue",
+            "deliveryMode" : "persistent",
+            "queue" : {
+              "name" : "sampleQueue",
+              "topicSubscriptions" : [ "samples/*" ],
+              "accessType" : "nonexclusive"
+            }
+          }, {
+            "destinationType" : "topic",
+            "deliveryMode" : "persistent",
+            "topicSubscriptions" : [ "samples/*" ]
+          } ]
+        },
+        "sqs": {
+          "queues": [
             {
-              "destinationType": "queue",
-              "queue": {
-                "name": "CreatedHREvents",
-                "topicSubscriptions": [
-                  "person/*/created"
-                ],
-                "accessType": "exclusive",
-                "maxMsgSpoolSize": "1,500",
-                "maxTtl": "60"
+              "name": "myQueue",
+              "fifoQueue": true,
+              "deduplicationScope": "messageGroup",
+              "fifoThroughputLimit": "perMessageGroupId",
+              "deliveryDelay": 10,
+              "redrivePolicy": {
+                "deadLetterQueue": {
+                  "name": "myQueue_error"
+                },
+                "maxReceiveCount": 15
+              },
+              "policy": {
+                "statements": [
+                  {
+                    "effect": "Deny",
+                    "principal": "arn:aws:iam::123456789012:user/dec.kolakowski",
+                    "action": [
+                      "sqs:SendMessage",
+                      "sqs:ReceiveMessage"
+                    ]
+                  }
+                ]
               }
             },
             {
-              "destinationType": "queue",
-              "queue": {
-                "name": "UpdatedHREvents",
-                "topicSubscriptions": [
-                  "person/*/updated"
-                ]
-              },
-              "topic": {
-                "topicSubscriptions": [
-                  "person/*/updated"
-                ]
-              }
+              "name": "myQueue_error",
+              "deliveryDelay": 10
             }
           ],
-          "bindingVersion": "0.3.0"
+          "bindingVersion": "0.2.0"
         },
-        "sqs": { },
         "stomp": { },
         "ws": { }
       }
@@ -321,7 +406,8 @@
             }
           }
         },
-        "bindingVersion": "0.1.0"
+        "statusCode" : 200,
+        "bindingVersion": "0.3.0"
       },
       "ibmmq": {
         "type": "jms",
@@ -341,7 +427,7 @@
         "schemaIdLocation": "payload",
         "schemaIdPayloadEncoding": "apicurio-new",
         "schemaLookupStrategy": "TopicIdStrategy",
-        "bindingVersion": "0.4.0"
+        "bindingVersion": "0.5.0"
       },
       "mercure": { },
       "mqtt": {

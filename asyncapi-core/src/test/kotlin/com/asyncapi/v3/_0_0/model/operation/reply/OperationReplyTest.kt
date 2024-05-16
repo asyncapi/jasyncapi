@@ -1,6 +1,6 @@
 package com.asyncapi.v3._0_0.model.operation.reply
 
-import com.asyncapi.v3.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v3.SerDeTest
 
 /**
@@ -22,9 +22,9 @@ class OperationReplyTest: SerDeTest<OperationReply>() {
                 .address(OperationReplyAddressTest().build())
                 .channel(Reference("#/components/channels/channel"))
                 .messages(listOf(
-                        Reference("#/components/messages/message 1"),
-                        Reference("#/components/messages/message 2"),
-                        Reference("#/components/messages/message 3"),
+                    Reference("#/components/messages/message 1"),
+                    Reference("#/components/messages/message 2"),
+                    Reference("#/components/messages/message 3"),
                 ))
                 .build()
     }
@@ -46,9 +46,9 @@ class OperationReplyTestWithReference: SerDeTest<OperationReply>() {
                 .address(Reference("#/components/addresses/address"))
                 .channel(Reference("#/components/channels/channel"))
                 .messages(listOf(
-                        Reference("#/components/messages/message 1"),
-                        Reference("#/components/messages/message 2"),
-                        Reference("#/components/messages/message 3"),
+                    Reference("#/components/messages/message 1"),
+                    Reference("#/components/messages/message 2"),
+                    Reference("#/components/messages/message 3"),
                 ))
                 .build()
     }

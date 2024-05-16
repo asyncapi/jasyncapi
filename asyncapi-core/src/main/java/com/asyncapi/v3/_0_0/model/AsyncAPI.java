@@ -1,7 +1,7 @@
 package com.asyncapi.v3._0_0.model;
 
-import com.asyncapi.v3.ExtendableObject;
-import com.asyncapi.v3.Reference;
+import com.asyncapi.schemas.asyncapi.ExtendableObject;
+import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.v3._0_0.jackson.model.channel.ChannelsDeserializer;
 import com.asyncapi.v3._0_0.jackson.model.operation.OperationsDeserializer;
 import com.asyncapi.v3._0_0.jackson.model.server.ServersDeserializer;
@@ -47,7 +47,7 @@ public class AsyncAPI extends ExtendableObject {
      */
     @NotNull
     @Builder.Default
-    private final String asyncapi = "3.0.0";
+    private String asyncapi = "3.0.0";
 
     /**
      * Identifier of the <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#definitionsApplication">application</a> the AsyncAPI document is defining.

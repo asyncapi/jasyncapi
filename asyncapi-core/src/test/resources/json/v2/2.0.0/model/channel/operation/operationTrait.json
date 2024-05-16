@@ -38,7 +38,6 @@
     "anypointmq": {},
     "googlepubsub": {},
     "http": {
-      "type": "request",
       "method": "GET",
       "query": {
         "type": "object",
@@ -54,7 +53,7 @@
         },
         "additionalProperties": false
       },
-      "bindingVersion": "0.1.0"
+      "bindingVersion": "0.3.0"
     },
     "ibmmq": {},
     "jms": {},
@@ -71,7 +70,7 @@
           "myClientId"
         ]
       },
-      "bindingVersion": "0.4.0"
+      "bindingVersion": "0.5.0"
     },
     "mercure": {},
     "mqtt": {
@@ -88,37 +87,56 @@
     "redis": {},
     "sns": {},
     "solace": {
-      "destinations": [
+      "dmqEligible" : false,
+      "bindingVersion" : "0.4.0",
+      "destinations" : [ {
+        "destinationType" : "queue",
+        "deliveryMode" : "persistent",
+        "queue" : {
+          "name" : "sampleQueue",
+          "topicSubscriptions" : [ "samples/*" ],
+          "accessType" : "nonexclusive"
+        }
+      }, {
+        "destinationType" : "topic",
+        "deliveryMode" : "persistent",
+        "topicSubscriptions" : [ "samples/*" ]
+      } ]
+    },
+    "sqs": {
+      "queues": [
         {
-          "destinationType": "queue",
-          "queue": {
-            "name": "CreatedHREvents",
-            "topicSubscriptions": [
-              "person/*/created"
-            ],
-            "accessType": "exclusive",
-            "maxMsgSpoolSize": "1,500",
-            "maxTtl": "60"
+          "name": "myQueue",
+          "fifoQueue": true,
+          "deduplicationScope": "messageGroup",
+          "fifoThroughputLimit": "perMessageGroupId",
+          "deliveryDelay": 10,
+          "redrivePolicy": {
+            "deadLetterQueue": {
+              "name": "myQueue_error"
+            },
+            "maxReceiveCount": 15
+          },
+          "policy": {
+            "statements": [
+              {
+                "effect": "Deny",
+                "principal": "arn:aws:iam::123456789012:user/dec.kolakowski",
+                "action": [
+                  "sqs:SendMessage",
+                  "sqs:ReceiveMessage"
+                ]
+              }
+            ]
           }
         },
         {
-          "destinationType": "queue",
-          "queue": {
-            "name": "UpdatedHREvents",
-            "topicSubscriptions": [
-              "person/*/updated"
-            ]
-          },
-          "topic": {
-            "topicSubscriptions": [
-              "person/*/updated"
-            ]
-          }
+          "name": "myQueue_error",
+          "deliveryDelay": 10
         }
       ],
-      "bindingVersion": "0.3.0"
+      "bindingVersion": "0.2.0"
     },
-    "sqs": {},
     "stomp": {},
     "ws": {}
   }

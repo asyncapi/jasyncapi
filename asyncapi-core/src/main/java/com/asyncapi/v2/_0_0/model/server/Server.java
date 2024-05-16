@@ -1,8 +1,8 @@
 package com.asyncapi.v2._0_0.model.server;
 
-import com.asyncapi.v2.ExtendableObject;
-import com.asyncapi.v2.binding.server.ServerBinding;
-import com.asyncapi.v2.jackson.binding.server.ServerBindingsDeserializer;
+import com.asyncapi.schemas.asyncapi.ExtendableObject;
+import com.asyncapi.bindings.ServerBinding;
+import com.asyncapi.bindings.ServerBindingsDeserializer;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;

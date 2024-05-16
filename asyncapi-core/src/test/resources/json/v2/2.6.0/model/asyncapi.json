@@ -70,7 +70,7 @@
         "kafka": {
           "schemaRegistryUrl": "https://my-schema-registry.com",
           "schemaRegistryVendor": "confluent",
-          "bindingVersion": "0.4.0"
+          "bindingVersion": "0.5.0"
         },
         "mercure": {},
         "mqtt": {
@@ -97,8 +97,9 @@
         "redis": {},
         "sns": {},
         "solace": {
-          "msgVpn": "solace.private.net",
-          "bindingVersion": "0.3.0"
+          "clientName": "transactions-broker",
+          "msgVpn": "ProdVPN",
+          "bindingVersion": "0.4.0"
         },
         "sqs": {},
         "stomp": {},
@@ -168,7 +169,6 @@
             "$ref": "#/components/operationBindings/googlepubsub"
           },
           "http": {
-            "type": "request",
             "method": "GET",
             "query": {
               "type": "object",
@@ -184,7 +184,7 @@
               },
               "additionalProperties": false
             },
-            "bindingVersion": "0.1.0"
+            "bindingVersion": "0.3.0"
           },
           "ibmmq": {
             "$ref": "#/components/operationBindings/ibmmq"
@@ -205,7 +205,7 @@
                 "myClientId"
               ]
             },
-            "bindingVersion": "0.4.0"
+            "bindingVersion": "0.5.0"
           },
           "mercure": {
             "$ref": "#/components/operationBindings/mercure"
@@ -236,31 +236,21 @@
               {
                 "destinationType": "queue",
                 "queue": {
-                  "name": "CreatedHREvents",
+                  "name": "sampleQueue",
                   "topicSubscriptions": [
-                    "person/*/created"
+                    "samples/*"
                   ],
-                  "accessType": "exclusive",
-                  "maxMsgSpoolSize": "1,500",
-                  "maxTtl": "60"
+                  "accessType": "nonexclusive"
                 }
               },
               {
-                "destinationType": "queue",
-                "queue": {
-                  "name": "UpdatedHREvents",
-                  "topicSubscriptions": [
-                    "person/*/updated"
-                  ]
-                },
-                "topic": {
-                  "topicSubscriptions": [
-                    "person/*/updated"
-                  ]
-                }
+                "destinationType": "topic",
+                "topicSubscriptions": [
+                  "samples/*"
+                ]
               }
             ],
-            "bindingVersion": "0.3.0"
+            "bindingVersion": "0.4.0"
           },
           "sqs": {
             "$ref": "#/components/operationBindings/sqs"
@@ -329,7 +319,6 @@
                 "$ref": "#/components/operationBindings/googlepubsub"
               },
               "http": {
-                "type": "request",
                 "method": "GET",
                 "query": {
                   "type": "object",
@@ -345,7 +334,7 @@
                   },
                   "additionalProperties": false
                 },
-                "bindingVersion": "0.1.0"
+                "bindingVersion": "0.3.0"
               },
               "ibmmq": {
                 "$ref": "#/components/operationBindings/ibmmq"
@@ -366,7 +355,7 @@
                     "myClientId"
                   ]
                 },
-                "bindingVersion": "0.4.0"
+                "bindingVersion": "0.5.0"
               },
               "mercure": {
                 "$ref": "#/components/operationBindings/mercure"
@@ -397,31 +386,21 @@
                   {
                     "destinationType": "queue",
                     "queue": {
-                      "name": "CreatedHREvents",
+                      "name": "sampleQueue",
                       "topicSubscriptions": [
-                        "person/*/created"
+                        "samples/*"
                       ],
-                      "accessType": "exclusive",
-                      "maxMsgSpoolSize": "1,500",
-                      "maxTtl": "60"
+                      "accessType": "nonexclusive"
                     }
                   },
                   {
-                    "destinationType": "queue",
-                    "queue": {
-                      "name": "UpdatedHREvents",
-                      "topicSubscriptions": [
-                        "person/*/updated"
-                      ]
-                    },
-                    "topic": {
-                      "topicSubscriptions": [
-                        "person/*/updated"
-                      ]
-                    }
+                    "destinationType": "topic",
+                    "topicSubscriptions": [
+                      "samples/*"
+                    ]
                   }
                 ],
-                "bindingVersion": "0.3.0"
+                "bindingVersion": "0.4.0"
               },
               "sqs": {
                 "$ref": "#/components/operationBindings/sqs"
@@ -470,7 +449,7 @@
                 "description": "Default Correlation ID",
                 "location": "$message.header#/correlationId"
               },
-              "schemaFormat": "application/vnd.apache.avro+json;version=1.9.0",
+              "schemaFormat": "application/vnd.aai.asyncapi;version=2.6.0",
               "contentType": "application/json",
               "name": "UserSignup",
               "title": "User signup",
@@ -525,7 +504,8 @@
                       }
                     }
                   },
-                  "bindingVersion": "0.1.0"
+                  "statusCode": 200,
+                  "bindingVersion": "0.3.0"
                 },
                 "ibmmq": {
                   "type": "jms",
@@ -547,7 +527,7 @@
                   "schemaIdLocation": "payload",
                   "schemaIdPayloadEncoding": "apicurio-new",
                   "schemaLookupStrategy": "TopicIdStrategy",
-                  "bindingVersion": "0.4.0"
+                  "bindingVersion": "0.5.0"
                 },
                 "mercure": {
                   "$ref": "#/components/messageBindings/mercure"
@@ -661,7 +641,6 @@
             "$ref": "#/components/operationBindings/googlepubsub"
           },
           "http": {
-            "type": "request",
             "method": "GET",
             "query": {
               "type": "object",
@@ -677,7 +656,7 @@
               },
               "additionalProperties": false
             },
-            "bindingVersion": "0.1.0"
+            "bindingVersion": "0.3.0"
           },
           "ibmmq": {
             "$ref": "#/components/operationBindings/ibmmq"
@@ -698,7 +677,7 @@
                 "myClientId"
               ]
             },
-            "bindingVersion": "0.4.0"
+            "bindingVersion": "0.5.0"
           },
           "mercure": {
             "$ref": "#/components/operationBindings/mercure"
@@ -729,31 +708,21 @@
               {
                 "destinationType": "queue",
                 "queue": {
-                  "name": "CreatedHREvents",
+                  "name": "sampleQueue",
                   "topicSubscriptions": [
-                    "person/*/created"
+                    "samples/*"
                   ],
-                  "accessType": "exclusive",
-                  "maxMsgSpoolSize": "1,500",
-                  "maxTtl": "60"
+                  "accessType": "nonexclusive"
                 }
               },
               {
-                "destinationType": "queue",
-                "queue": {
-                  "name": "UpdatedHREvents",
-                  "topicSubscriptions": [
-                    "person/*/updated"
-                  ]
-                },
-                "topic": {
-                  "topicSubscriptions": [
-                    "person/*/updated"
-                  ]
-                }
+                "destinationType": "topic",
+                "topicSubscriptions": [
+                  "samples/*"
+                ]
               }
             ],
-            "bindingVersion": "0.3.0"
+            "bindingVersion": "0.4.0"
           },
           "sqs": {
             "$ref": "#/components/operationBindings/sqs"
@@ -822,7 +791,6 @@
                 "$ref": "#/components/operationBindings/googlepubsub"
               },
               "http": {
-                "type": "request",
                 "method": "GET",
                 "query": {
                   "type": "object",
@@ -838,7 +806,7 @@
                   },
                   "additionalProperties": false
                 },
-                "bindingVersion": "0.1.0"
+                "bindingVersion": "0.3.0"
               },
               "ibmmq": {
                 "$ref": "#/components/operationBindings/ibmmq"
@@ -859,7 +827,7 @@
                     "myClientId"
                   ]
                 },
-                "bindingVersion": "0.4.0"
+                "bindingVersion": "0.5.0"
               },
               "mercure": {
                 "$ref": "#/components/operationBindings/mercure"
@@ -890,31 +858,21 @@
                   {
                     "destinationType": "queue",
                     "queue": {
-                      "name": "CreatedHREvents",
+                      "name": "sampleQueue",
                       "topicSubscriptions": [
-                        "person/*/created"
+                        "samples/*"
                       ],
-                      "accessType": "exclusive",
-                      "maxMsgSpoolSize": "1,500",
-                      "maxTtl": "60"
+                      "accessType": "nonexclusive"
                     }
                   },
                   {
-                    "destinationType": "queue",
-                    "queue": {
-                      "name": "UpdatedHREvents",
-                      "topicSubscriptions": [
-                        "person/*/updated"
-                      ]
-                    },
-                    "topic": {
-                      "topicSubscriptions": [
-                        "person/*/updated"
-                      ]
-                    }
+                    "destinationType": "topic",
+                    "topicSubscriptions": [
+                      "samples/*"
+                    ]
                   }
                 ],
-                "bindingVersion": "0.3.0"
+                "bindingVersion": "0.4.0"
               },
               "sqs": {
                 "$ref": "#/components/operationBindings/sqs"
@@ -958,7 +916,7 @@
             "description": "Default Correlation ID",
             "location": "$message.header#/correlationId"
           },
-          "schemaFormat": "application/vnd.apache.avro+json;version=1.9.0",
+          "schemaFormat": "application/vnd.aai.asyncapi;version=2.6.0",
           "contentType": "application/json",
           "name": "UserSignup",
           "title": "User signup",
@@ -1013,7 +971,8 @@
                   }
                 }
               },
-              "bindingVersion": "0.1.0"
+              "statusCode": 200,
+              "bindingVersion": "0.3.0"
             },
             "ibmmq": {
               "type": "jms",
@@ -1035,7 +994,7 @@
               "schemaIdLocation": "payload",
               "schemaIdPayloadEncoding": "apicurio-new",
               "schemaLookupStrategy": "TopicIdStrategy",
-              "bindingVersion": "0.4.0"
+              "bindingVersion": "0.5.0"
             },
             "mercure": {
               "$ref": "#/components/messageBindings/mercure"
@@ -1190,7 +1149,7 @@
             "delete.retention.ms": 86400000,
             "max.message.bytes": 1048588
           },
-          "bindingVersion": "0.4.0"
+          "bindingVersion": "0.5.0"
         },
         "mercure": {
           "$ref": "#/components/channelBindings/mercure"
@@ -1342,7 +1301,7 @@
           "kafka": {
             "schemaRegistryUrl": "https://my-schema-registry.com",
             "schemaRegistryVendor": "confluent",
-            "bindingVersion": "0.4.0"
+            "bindingVersion": "0.5.0"
           },
           "mercure": {},
           "mqtt": {
@@ -1369,8 +1328,9 @@
           "redis": {},
           "sns": {},
           "solace": {
-            "msgVpn": "solace.private.net",
-            "bindingVersion": "0.3.0"
+            "clientName": "transactions-broker",
+            "msgVpn": "ProdVPN",
+            "bindingVersion": "0.4.0"
           },
           "sqs": {},
           "stomp": {},
@@ -1457,7 +1417,6 @@
               "$ref": "#/components/operationBindings/googlepubsub"
             },
             "http": {
-              "type": "request",
               "method": "GET",
               "query": {
                 "type": "object",
@@ -1473,7 +1432,7 @@
                 },
                 "additionalProperties": false
               },
-              "bindingVersion": "0.1.0"
+              "bindingVersion": "0.3.0"
             },
             "ibmmq": {
               "$ref": "#/components/operationBindings/ibmmq"
@@ -1494,7 +1453,7 @@
                   "myClientId"
                 ]
               },
-              "bindingVersion": "0.4.0"
+              "bindingVersion": "0.5.0"
             },
             "mercure": {
               "$ref": "#/components/operationBindings/mercure"
@@ -1525,31 +1484,21 @@
                 {
                   "destinationType": "queue",
                   "queue": {
-                    "name": "CreatedHREvents",
+                    "name": "sampleQueue",
                     "topicSubscriptions": [
-                      "person/*/created"
+                      "samples/*"
                     ],
-                    "accessType": "exclusive",
-                    "maxMsgSpoolSize": "1,500",
-                    "maxTtl": "60"
+                    "accessType": "nonexclusive"
                   }
                 },
                 {
-                  "destinationType": "queue",
-                  "queue": {
-                    "name": "UpdatedHREvents",
-                    "topicSubscriptions": [
-                      "person/*/updated"
-                    ]
-                  },
-                  "topic": {
-                    "topicSubscriptions": [
-                      "person/*/updated"
-                    ]
-                  }
+                  "destinationType": "topic",
+                  "topicSubscriptions": [
+                    "samples/*"
+                  ]
                 }
               ],
-              "bindingVersion": "0.3.0"
+              "bindingVersion": "0.4.0"
             },
             "sqs": {
               "$ref": "#/components/operationBindings/sqs"
@@ -1618,7 +1567,6 @@
                   "$ref": "#/components/operationBindings/googlepubsub"
                 },
                 "http": {
-                  "type": "request",
                   "method": "GET",
                   "query": {
                     "type": "object",
@@ -1634,7 +1582,7 @@
                     },
                     "additionalProperties": false
                   },
-                  "bindingVersion": "0.1.0"
+                  "bindingVersion": "0.3.0"
                 },
                 "ibmmq": {
                   "$ref": "#/components/operationBindings/ibmmq"
@@ -1655,7 +1603,7 @@
                       "myClientId"
                     ]
                   },
-                  "bindingVersion": "0.4.0"
+                  "bindingVersion": "0.5.0"
                 },
                 "mercure": {
                   "$ref": "#/components/operationBindings/mercure"
@@ -1686,31 +1634,21 @@
                     {
                       "destinationType": "queue",
                       "queue": {
-                        "name": "CreatedHREvents",
+                        "name": "sampleQueue",
                         "topicSubscriptions": [
-                          "person/*/created"
+                          "samples/*"
                         ],
-                        "accessType": "exclusive",
-                        "maxMsgSpoolSize": "1,500",
-                        "maxTtl": "60"
+                        "accessType": "nonexclusive"
                       }
                     },
                     {
-                      "destinationType": "queue",
-                      "queue": {
-                        "name": "UpdatedHREvents",
-                        "topicSubscriptions": [
-                          "person/*/updated"
-                        ]
-                      },
-                      "topic": {
-                        "topicSubscriptions": [
-                          "person/*/updated"
-                        ]
-                      }
+                      "destinationType": "topic",
+                      "topicSubscriptions": [
+                        "samples/*"
+                      ]
                     }
                   ],
-                  "bindingVersion": "0.3.0"
+                  "bindingVersion": "0.4.0"
                 },
                 "sqs": {
                   "$ref": "#/components/operationBindings/sqs"
@@ -1759,7 +1697,7 @@
                   "description": "Default Correlation ID",
                   "location": "$message.header#/correlationId"
                 },
-                "schemaFormat": "application/vnd.apache.avro+json;version=1.9.0",
+                "schemaFormat": "application/vnd.aai.asyncapi;version=2.6.0",
                 "contentType": "application/json",
                 "name": "UserSignup",
                 "title": "User signup",
@@ -1814,7 +1752,8 @@
                         }
                       }
                     },
-                    "bindingVersion": "0.1.0"
+                    "statusCode" : 200,
+                    "bindingVersion": "0.3.0"
                   },
                   "ibmmq": {
                     "type": "jms",
@@ -1836,7 +1775,7 @@
                     "schemaIdLocation": "payload",
                     "schemaIdPayloadEncoding": "apicurio-new",
                     "schemaLookupStrategy": "TopicIdStrategy",
-                    "bindingVersion": "0.4.0"
+                    "bindingVersion": "0.5.0"
                   },
                   "mercure": {
                     "$ref": "#/components/messageBindings/mercure"
@@ -1950,7 +1889,6 @@
               "$ref": "#/components/operationBindings/googlepubsub"
             },
             "http": {
-              "type": "request",
               "method": "GET",
               "query": {
                 "type": "object",
@@ -1966,7 +1904,7 @@
                 },
                 "additionalProperties": false
               },
-              "bindingVersion": "0.1.0"
+              "bindingVersion": "0.3.0"
             },
             "ibmmq": {
               "$ref": "#/components/operationBindings/ibmmq"
@@ -1987,7 +1925,7 @@
                   "myClientId"
                 ]
               },
-              "bindingVersion": "0.4.0"
+              "bindingVersion": "0.5.0"
             },
             "mercure": {
               "$ref": "#/components/operationBindings/mercure"
@@ -2018,31 +1956,21 @@
                 {
                   "destinationType": "queue",
                   "queue": {
-                    "name": "CreatedHREvents",
+                    "name": "sampleQueue",
                     "topicSubscriptions": [
-                      "person/*/created"
+                      "samples/*"
                     ],
-                    "accessType": "exclusive",
-                    "maxMsgSpoolSize": "1,500",
-                    "maxTtl": "60"
+                    "accessType": "nonexclusive"
                   }
                 },
                 {
-                  "destinationType": "queue",
-                  "queue": {
-                    "name": "UpdatedHREvents",
-                    "topicSubscriptions": [
-                      "person/*/updated"
-                    ]
-                  },
-                  "topic": {
-                    "topicSubscriptions": [
-                      "person/*/updated"
-                    ]
-                  }
+                  "destinationType": "topic",
+                  "topicSubscriptions": [
+                    "samples/*"
+                  ]
                 }
               ],
-              "bindingVersion": "0.3.0"
+              "bindingVersion": "0.4.0"
             },
             "sqs": {
               "$ref": "#/components/operationBindings/sqs"
@@ -2111,7 +2039,6 @@
                   "$ref": "#/components/operationBindings/googlepubsub"
                 },
                 "http": {
-                  "type": "request",
                   "method": "GET",
                   "query": {
                     "type": "object",
@@ -2127,7 +2054,7 @@
                     },
                     "additionalProperties": false
                   },
-                  "bindingVersion": "0.1.0"
+                  "bindingVersion": "0.3.0"
                 },
                 "ibmmq": {
                   "$ref": "#/components/operationBindings/ibmmq"
@@ -2148,7 +2075,7 @@
                       "myClientId"
                     ]
                   },
-                  "bindingVersion": "0.4.0"
+                  "bindingVersion": "0.5.0"
                 },
                 "mercure": {
                   "$ref": "#/components/operationBindings/mercure"
@@ -2179,31 +2106,21 @@
                     {
                       "destinationType": "queue",
                       "queue": {
-                        "name": "CreatedHREvents",
+                        "name": "sampleQueue",
                         "topicSubscriptions": [
-                          "person/*/created"
+                          "samples/*"
                         ],
-                        "accessType": "exclusive",
-                        "maxMsgSpoolSize": "1,500",
-                        "maxTtl": "60"
+                        "accessType": "nonexclusive"
                       }
                     },
                     {
-                      "destinationType": "queue",
-                      "queue": {
-                        "name": "UpdatedHREvents",
-                        "topicSubscriptions": [
-                          "person/*/updated"
-                        ]
-                      },
-                      "topic": {
-                        "topicSubscriptions": [
-                          "person/*/updated"
-                        ]
-                      }
+                      "destinationType": "topic",
+                      "topicSubscriptions": [
+                        "samples/*"
+                      ]
                     }
                   ],
-                  "bindingVersion": "0.3.0"
+                  "bindingVersion": "0.4.0"
                 },
                 "sqs": {
                   "$ref": "#/components/operationBindings/sqs"
@@ -2247,7 +2164,7 @@
               "description": "Default Correlation ID",
               "location": "$message.header#/correlationId"
             },
-            "schemaFormat": "application/vnd.apache.avro+json;version=1.9.0",
+            "schemaFormat": "application/vnd.aai.asyncapi;version=2.6.0",
             "contentType": "application/json",
             "name": "UserSignup",
             "title": "User signup",
@@ -2302,7 +2219,8 @@
                     }
                   }
                 },
-                "bindingVersion": "0.1.0"
+                "statusCode" : 200,
+                "bindingVersion": "0.3.0"
               },
               "ibmmq": {
                 "type": "jms",
@@ -2324,7 +2242,7 @@
                 "schemaIdLocation": "payload",
                 "schemaIdPayloadEncoding": "apicurio-new",
                 "schemaLookupStrategy": "TopicIdStrategy",
-                "bindingVersion": "0.4.0"
+                "bindingVersion": "0.5.0"
               },
               "mercure": {
                 "$ref": "#/components/messageBindings/mercure"
@@ -2479,7 +2397,7 @@
               "delete.retention.ms": 86400000,
               "max.message.bytes": 1048588
             },
-            "bindingVersion": "0.4.0"
+            "bindingVersion": "0.5.0"
           },
           "mercure": {
             "$ref": "#/components/channelBindings/mercure"
@@ -2579,7 +2497,7 @@
           "description": "Default Correlation ID",
           "location": "$message.header#/correlationId"
         },
-        "schemaFormat": "application/vnd.apache.avro+json;version=1.9.0",
+        "schemaFormat": "application/vnd.aai.asyncapi;version=2.6.0",
         "contentType": "application/json",
         "name": "UserSignup",
         "title": "User signup",
@@ -2634,7 +2552,8 @@
                 }
               }
             },
-            "bindingVersion": "0.1.0"
+            "statusCode" : 200,
+            "bindingVersion": "0.3.0"
           },
           "ibmmq": {
             "type": "jms",
@@ -2656,7 +2575,7 @@
             "schemaIdLocation": "payload",
             "schemaIdPayloadEncoding": "apicurio-new",
             "schemaLookupStrategy": "TopicIdStrategy",
-            "bindingVersion": "0.4.0"
+            "bindingVersion": "0.5.0"
           },
           "mercure": {
             "$ref": "#/components/messageBindings/mercure"
@@ -2892,7 +2811,6 @@
             "$ref": "#/components/operationBindings/googlepubsub"
           },
           "http": {
-            "type": "request",
             "method": "GET",
             "query": {
               "type": "object",
@@ -2908,7 +2826,7 @@
               },
               "additionalProperties": false
             },
-            "bindingVersion": "0.1.0"
+            "bindingVersion": "0.3.0"
           },
           "ibmmq": {
             "$ref": "#/components/operationBindings/ibmmq"
@@ -2929,7 +2847,7 @@
                 "myClientId"
               ]
             },
-            "bindingVersion": "0.4.0"
+            "bindingVersion": "0.5.0"
           },
           "mercure": {
             "$ref": "#/components/operationBindings/mercure"
@@ -2960,31 +2878,21 @@
               {
                 "destinationType": "queue",
                 "queue": {
-                  "name": "CreatedHREvents",
+                  "name": "sampleQueue",
                   "topicSubscriptions": [
-                    "person/*/created"
+                    "samples/*"
                   ],
-                  "accessType": "exclusive",
-                  "maxMsgSpoolSize": "1,500",
-                  "maxTtl": "60"
+                  "accessType": "nonexclusive"
                 }
               },
               {
-                "destinationType": "queue",
-                "queue": {
-                  "name": "UpdatedHREvents",
-                  "topicSubscriptions": [
-                    "person/*/updated"
-                  ]
-                },
-                "topic": {
-                  "topicSubscriptions": [
-                    "person/*/updated"
-                  ]
-                }
+                "destinationType": "topic",
+                "topicSubscriptions": [
+                  "samples/*"
+                ]
               }
             ],
-            "bindingVersion": "0.3.0"
+            "bindingVersion": "0.4.0"
           },
           "sqs": {
             "$ref": "#/components/operationBindings/sqs"
@@ -3021,7 +2929,7 @@
           "description": "Default Correlation ID",
           "location": "$message.header#/correlationId"
         },
-        "schemaFormat": "application/vnd.apache.avro+json;version=1.9.0",
+        "schemaFormat": "application/vnd.aai.asyncapi;version=2.6.0",
         "contentType": "application/json",
         "name": "UserSignup",
         "title": "User signup",
@@ -3076,7 +2984,8 @@
                 }
               }
             },
-            "bindingVersion": "0.1.0"
+            "statusCode" : 200,
+            "bindingVersion": "0.3.0"
           },
           "ibmmq": {
             "type": "jms",
@@ -3098,7 +3007,7 @@
             "schemaIdLocation": "payload",
             "schemaIdPayloadEncoding": "apicurio-new",
             "schemaLookupStrategy": "TopicIdStrategy",
-            "bindingVersion": "0.4.0"
+            "bindingVersion": "0.5.0"
           },
           "mercure": {
             "$ref": "#/components/messageBindings/mercure"
@@ -3177,7 +3086,7 @@
       "kafka": {
         "schemaRegistryUrl": "https://my-schema-registry.com",
         "schemaRegistryVendor": "confluent",
-        "bindingVersion": "0.4.0"
+        "bindingVersion": "0.5.0"
       },
       "mercure": {},
       "mqtt": {
@@ -3204,8 +3113,9 @@
       "redis": {},
       "sns": {},
       "solace": {
-        "msgVpn": "solace.private.net",
-        "bindingVersion": "0.3.0"
+        "clientName": "transactions-broker",
+        "msgVpn": "ProdVPN",
+        "bindingVersion": "0.4.0"
       },
       "sqs": {},
       "stomp": {},
@@ -3298,7 +3208,7 @@
           "delete.retention.ms": 86400000,
           "max.message.bytes": 1048588
         },
-        "bindingVersion": "0.4.0"
+        "bindingVersion": "0.5.0"
       },
       "mercure": {
         "$ref": "#/components/channelBindings/mercure"
@@ -3393,7 +3303,6 @@
         "$ref": "#/components/operationBindings/googlepubsub"
       },
       "http": {
-        "type": "request",
         "method": "GET",
         "query": {
           "type": "object",
@@ -3409,7 +3318,7 @@
           },
           "additionalProperties": false
         },
-        "bindingVersion": "0.1.0"
+        "bindingVersion": "0.3.0"
       },
       "ibmmq": {
         "$ref": "#/components/operationBindings/ibmmq"
@@ -3430,7 +3339,7 @@
             "myClientId"
           ]
         },
-        "bindingVersion": "0.4.0"
+        "bindingVersion": "0.5.0"
       },
       "mercure": {
         "$ref": "#/components/operationBindings/mercure"
@@ -3461,31 +3370,21 @@
           {
             "destinationType": "queue",
             "queue": {
-              "name": "CreatedHREvents",
+              "name": "sampleQueue",
               "topicSubscriptions": [
-                "person/*/created"
+                "samples/*"
               ],
-              "accessType": "exclusive",
-              "maxMsgSpoolSize": "1,500",
-              "maxTtl": "60"
+              "accessType": "nonexclusive"
             }
           },
           {
-            "destinationType": "queue",
-            "queue": {
-              "name": "UpdatedHREvents",
-              "topicSubscriptions": [
-                "person/*/updated"
-              ]
-            },
-            "topic": {
-              "topicSubscriptions": [
-                "person/*/updated"
-              ]
-            }
+            "destinationType": "topic",
+            "topicSubscriptions": [
+              "samples/*"
+            ]
           }
         ],
-        "bindingVersion": "0.3.0"
+        "bindingVersion": "0.4.0"
       },
       "sqs": {
         "$ref": "#/components/operationBindings/sqs"
@@ -3537,7 +3436,8 @@
             }
           }
         },
-        "bindingVersion": "0.1.0"
+        "statusCode" : 200,
+        "bindingVersion": "0.3.0"
       },
       "ibmmq": {
         "type": "jms",
@@ -3559,7 +3459,7 @@
         "schemaIdLocation": "payload",
         "schemaIdPayloadEncoding": "apicurio-new",
         "schemaLookupStrategy": "TopicIdStrategy",
-        "bindingVersion": "0.4.0"
+        "bindingVersion": "0.5.0"
       },
       "mercure": {
         "$ref": "#/components/messageBindings/mercure"

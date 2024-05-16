@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.v3.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v3._0_0.model.ExternalDocumentation
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.Parameter
@@ -12,10 +12,8 @@ import com.asyncapi.v3._0_0.model.info.Contact
 import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
 import com.asyncapi.v3._0_0.model.server.Server
-import com.asyncapi.v3.binding.channel.ws.WebSocketsChannelBinding
-import com.asyncapi.v3.schema.AsyncAPISchema
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.Test
+import com.asyncapi.bindings.websockets.v0._1_0.channel.WebSocketsChannelBinding
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
 
 class WebsocketGeminiAsyncAPI: AbstractExampleValidationTest() {
 
@@ -53,7 +51,9 @@ class WebsocketGeminiAsyncAPI: AbstractExampleValidationTest() {
                                 .address("/v1/marketdata/{symbol}")
                                 .messages(
                                         mapOf(
-                                                Pair("marketData", Reference("#/components/messages/marketData"))
+                                                Pair("marketData",
+                                                        Reference("#/components/messages/marketData")
+                                                )
                                         )
                                 )
                                 .parameters(
@@ -360,7 +360,8 @@ class WebsocketGeminiAsyncAPI: AbstractExampleValidationTest() {
                         Pair("events", AsyncAPISchema.builder()
                                 .type("array")
                                 .description("Either a change to the order book, or the indication that a trade has occurred.")
-                                .items(AsyncAPISchema.builder()
+                                .items(
+                                    AsyncAPISchema.builder()
                                         .type("object")
                                         .additionalProperties(false)
                                         .properties(mapOf(

@@ -1,18 +1,18 @@
 package com.asyncapi.examples.v3._0_0
 
-import com.asyncapi.v3.Reference
+import com.asyncapi.schemas.asyncapi.Reference
+import com.asyncapi.bindings.http.v0._3_0.operation.HTTPOperationBinding
+import com.asyncapi.bindings.http.v0._3_0.operation.HTTPOperationMethod
 import com.asyncapi.v3._0_0.model.channel.Channel
 import com.asyncapi.v3._0_0.model.channel.message.Message
 import com.asyncapi.v3._0_0.model.component.Components
 import com.asyncapi.v3._0_0.model.info.Info
 import com.asyncapi.v3._0_0.model.operation.Operation
 import com.asyncapi.v3._0_0.model.operation.OperationAction
-import com.asyncapi.v3.binding.operation.http.HTTPOperationBinding
-import com.asyncapi.v3.binding.operation.http.HTTPOperationMethod
-import com.asyncapi.v3.schema.AsyncAPISchema
-import com.asyncapi.v3.security_scheme.oauth2.OAuth2SecurityScheme
-import com.asyncapi.v3.security_scheme.oauth2.OAuthFlows
-import com.asyncapi.v3.security_scheme.oauth2.flow.ClientCredentialsOAuthFlow
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.security.v3.oauth2.OAuth2SecurityScheme
+import com.asyncapi.schemas.asyncapi.security.v3.oauth2.OAuthFlows
+import com.asyncapi.schemas.asyncapi.security.v3.oauth2.flow.ClientCredentialsOAuthFlow
 
 class OperationSecurityAsyncAPI: AbstractExampleValidationTest() {
 
@@ -34,7 +34,9 @@ class OperationSecurityAsyncAPI: AbstractExampleValidationTest() {
                         Channel.builder()
                                 .address("AUTHORIZATION_REVOCATION")
                                 .messages(mapOf(
-                                        Pair("message", Reference("#/components/messages/message"))
+                                        Pair("message",
+                                            Reference("#/components/messages/message")
+                                        )
                                 ))
                                 .build()
                 )
@@ -48,22 +50,25 @@ class OperationSecurityAsyncAPI: AbstractExampleValidationTest() {
                                 .action(OperationAction.SEND)
                                 .channel(Reference("#/channels/authRevoke"))
                                 .security(listOf(
-                                        OAuth2SecurityScheme(
-                                                "The oauth security descriptions",
-                                                OAuthFlows(
-                                                        null,
-                                                        null,
-                                                        ClientCredentialsOAuthFlow(
-                                                                "",
-                                                                mapOf(
-                                                                        Pair("subscribe:auth_revocations", "Scope required for authorization revocation topic")
-                                                                ),
-                                                                "https://example.com/api/oauth/dialog"
-                                                        ),
-                                                        null
+                                    OAuth2SecurityScheme(
+                                        "The oauth security descriptions",
+                                        OAuthFlows(
+                                            null,
+                                            null,
+                                            ClientCredentialsOAuthFlow(
+                                                "",
+                                                mapOf(
+                                                    Pair(
+                                                        "subscribe:auth_revocations",
+                                                        "Scope required for authorization revocation topic"
+                                                    )
                                                 ),
-                                                listOf("subscribe:auth_revocations"),
-                                        )
+                                                "https://example.com/api/oauth/dialog"
+                                            ),
+                                            null
+                                        ),
+                                        listOf("subscribe:auth_revocations"),
+                                    )
                                 ))
                                 .bindings(mapOf(
                                         Pair("http", HTTPOperationBinding.builder()
@@ -71,7 +76,7 @@ class OperationSecurityAsyncAPI: AbstractExampleValidationTest() {
                                                 .build())
                                 ))
                                 .messages(listOf(
-                                        Reference("#/channels/authRevoke/messages/message")
+                                    Reference("#/channels/authRevoke/messages/message")
                                 ))
                                 .build()
                 )
@@ -83,7 +88,8 @@ class OperationSecurityAsyncAPI: AbstractExampleValidationTest() {
                 .messages(mapOf(
                         Pair("message",
                                 Message.builder()
-                                        .headers(AsyncAPISchema.builder()
+                                        .headers(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("X-SIGNATURE", AsyncAPISchema.builder()
@@ -100,7 +106,8 @@ class OperationSecurityAsyncAPI: AbstractExampleValidationTest() {
                                                         )
                                                 ))
                                                 .build())
-                                        .payload(AsyncAPISchema.builder()
+                                        .payload(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
                                                         Pair("metadata", AsyncAPISchema.builder().ref("#/components/schemas/MetaData").build()),
@@ -206,22 +213,27 @@ class OperationSecurityAsyncAPI: AbstractExampleValidationTest() {
                         )
                 ))
                 .securitySchemes(mapOf(
-                        Pair("petstore_auth", OAuth2SecurityScheme(
+                        Pair("petstore_auth",
+                            OAuth2SecurityScheme(
                                 "The oauth security descriptions",
                                 OAuthFlows(
-                                        null,
-                                        null,
-                                        ClientCredentialsOAuthFlow(
-                                                "",
-                                                mapOf(
-                                                        Pair("subscribe:auth_revocations", "Scope required for authorization revocation topic")
-                                                ),
-                                                "https://example.com/api/oauth/dialog"
+                                    null,
+                                    null,
+                                    ClientCredentialsOAuthFlow(
+                                        "",
+                                        mapOf(
+                                            Pair(
+                                                "subscribe:auth_revocations",
+                                                "Scope required for authorization revocation topic"
+                                            )
                                         ),
-                                        null
+                                        "https://example.com/api/oauth/dialog"
+                                    ),
+                                    null
                                 ),
                                 null
-                        ))
+                            )
+                        )
                 ))
                 .build()
     }

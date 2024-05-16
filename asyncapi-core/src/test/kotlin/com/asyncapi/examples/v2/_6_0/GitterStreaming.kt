@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v2._6_0
 
-import com.asyncapi.v2.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v2._6_0.model.channel.ChannelItem
 import com.asyncapi.v2._6_0.model.channel.Parameter
 import com.asyncapi.v2._6_0.model.channel.message.Message
@@ -9,11 +9,10 @@ import com.asyncapi.v2._6_0.model.channel.operation.Operation
 import com.asyncapi.v2._6_0.model.component.Components
 import com.asyncapi.v2._6_0.model.info.Info
 import com.asyncapi.v2._6_0.model.server.Server
-import com.asyncapi.v2.binding.message.http.HTTPMessageBinding
-import com.asyncapi.v2.binding.operation.http.HTTPOperationBinding
-import com.asyncapi.v2.binding.operation.http.HTTPOperationType
-import com.asyncapi.v2.schema.Schema
-import com.asyncapi.v2.security_scheme.http.HttpSecurityScheme
+import com.asyncapi.bindings.http.v0._3_0.message.HTTPMessageBinding
+import com.asyncapi.bindings.http.v0._3_0.operation.HTTPOperationBinding
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.security.v2.http.HttpSecurityScheme
 
 class GitterStreaming: AbstractExampleValidationTest() {
 
@@ -48,7 +47,8 @@ class GitterStreaming: AbstractExampleValidationTest() {
                         .parameters(mapOf(
                                 Pair("roomId", Parameter.builder()
                                         .description("Id of the Gitter room.")
-                                        .schema(Schema.builder()
+                                        .schema(
+                                            AsyncAPISchema.builder()
                                                 .type("string")
                                                 .examples(listOf("53307860c3599d1de448e19d"))
                                                 .build()
@@ -57,7 +57,8 @@ class GitterStreaming: AbstractExampleValidationTest() {
                                 ),
                                 Pair("resource", Parameter.builder()
                                         .description("The resource to consume.")
-                                        .schema(Schema.builder()
+                                        .schema(
+                                            AsyncAPISchema.builder()
                                                 .type("string")
                                                 .enumValue(listOf("chatMessages", "events"))
                                                 .build()
@@ -68,13 +69,12 @@ class GitterStreaming: AbstractExampleValidationTest() {
                         .subscribe(Operation.builder()
                                 .bindings(mapOf(
                                         Pair("http", HTTPOperationBinding.builder()
-                                                .type(HTTPOperationType.RESPONSE)
                                                 .build()
                                         )
                                 ))
                                 .message(OneOfMessages(listOf(
-                                        Reference("#/components/messages/chatMessage"),
-                                        Reference("#/components/messages/heartbeat")
+                                    Reference("#/components/messages/chatMessage"),
+                                    Reference("#/components/messages/heartbeat")
                                 )))
                                 .build()
                         )
@@ -86,88 +86,91 @@ class GitterStreaming: AbstractExampleValidationTest() {
     override fun expectedComponents(): Components? {
         return Components.builder()
                 .securitySchemes(mapOf(
-                        Pair("httpBearerToken", HttpSecurityScheme(
+                        Pair("httpBearerToken",
+                            HttpSecurityScheme(
                                 null,
                                 "bearer",
                                 null,
-                        ))
+                            )
+                        )
                 ))
                 .messages(mapOf(
                         Pair("chatMessage", Message.builder()
-                                .schemaFormat("application/schema+yaml;version=draft-07")
+                                .schemaFormat("application/vnd.aai.asyncapi+yaml;version=2.6.0")
                                 .summary("A message represents an individual chat message sent to a room. They are a sub-resource of a room.")
-                                .payload(Schema.builder()
+                                .payload(
+                                    AsyncAPISchema.builder()
                                         .type("object")
                                         .properties(mapOf(
-                                                Pair("id", Schema.builder()
+                                                Pair("id", AsyncAPISchema.builder()
                                                         .type("string")
                                                         .description("ID of the message.")
                                                         .build()
                                                 ),
-                                                Pair("text", Schema.builder()
+                                                Pair("text", AsyncAPISchema.builder()
                                                         .type("string")
                                                         .description("Original message in plain-text/markdown.")
                                                         .build()
                                                 ),
-                                                Pair("html", Schema.builder()
+                                                Pair("html", AsyncAPISchema.builder()
                                                         .type("string")
                                                         .description("HTML formatted message.")
                                                         .build()
                                                 ),
-                                                Pair("sent", Schema.builder()
+                                                Pair("sent", AsyncAPISchema.builder()
                                                         .type("string")
                                                         .format("date-time")
                                                         .description("ISO formatted date of the message.")
                                                         .build()
                                                 ),
-                                                Pair("fromUser", Schema.builder()
+                                                Pair("fromUser", AsyncAPISchema.builder()
                                                         .type("object")
                                                         .description("User that sent the message.")
                                                         .properties(mapOf(
-                                                                Pair("id", Schema.builder()
+                                                                Pair("id", AsyncAPISchema.builder()
                                                                         .type("string")
                                                                         .description("Gitter User ID.")
                                                                         .build()
                                                                 ),
-                                                                Pair("username", Schema.builder()
+                                                                Pair("username", AsyncAPISchema.builder()
                                                                         .type("string")
                                                                         .description("Gitter/GitHub username.")
                                                                         .build()
                                                                 ),
-                                                                Pair("displayName", Schema.builder()
+                                                                Pair("displayName", AsyncAPISchema.builder()
                                                                         .type("string")
                                                                         .description("Gitter/GitHub user real name.")
                                                                         .build()
                                                                 ),
-                                                                Pair("url", Schema.builder()
+                                                                Pair("url", AsyncAPISchema.builder()
                                                                         .type("string")
                                                                         .description("Path to the user on Gitter.")
                                                                         .build()
                                                                 ),
-                                                                Pair("avatarUrl", Schema.builder()
+                                                                Pair("avatarUrl", AsyncAPISchema.builder()
                                                                         .type("string")
                                                                         .format("uri")
                                                                         .description("User avatar URI.")
                                                                         .build()
                                                                 ),
-                                                                Pair("avatarUrlSmall", Schema.builder()
+                                                                Pair("avatarUrlSmall", AsyncAPISchema.builder()
                                                                         .type("string")
                                                                         .format("uri")
                                                                         .description("User avatar URI (small).")
                                                                         .build()
                                                                 ),
-                                                                Pair("avatarUrlMedium", Schema.builder()
+                                                                Pair("avatarUrlMedium", AsyncAPISchema.builder()
                                                                         .type("string")
                                                                         .format("uri")
                                                                         .description("User avatar URI (medium).")
                                                                         .build()
                                                                 ),
-                                                                Pair("v", Schema.builder()
+                                                                Pair("v", AsyncAPISchema.builder()
                                                                         .type("number")
                                                                         .description("Version.")
                                                                         .build()
                                                                 ),
-                                                                Pair("gv", Schema.builder()
+                                                                Pair("gv", AsyncAPISchema.builder()
                                                                         .type("string")
                                                                         .description("Stands for \"Gravatar version\" and is used for cache busting.")
                                                                         .build()
@@ -175,42 +178,45 @@ class GitterStreaming: AbstractExampleValidationTest() {
                                                         ))
                                                         .build()
                                                 ),
-                                                Pair("unread", Schema.builder()
+                                                Pair("unread", AsyncAPISchema.builder()
                                                         .type("boolean")
                                                         .description("Boolean that indicates if the current user has read the message.")
                                                         .build()
                                                 ),
-                                                Pair("readBy", Schema.builder()
+                                                Pair("readBy", AsyncAPISchema.builder()
                                                         .type("number")
                                                         .description("Number of users that have read the message.")
                                                         .build()
                                                 ),
-                                                Pair("urls", Schema.builder()
+                                                Pair("urls", AsyncAPISchema.builder()
                                                         .type("array")
                                                         .description("List of URLs present in the message.")
-                                                        .items(Schema.builder()
+                                                        .items(
+                                                            AsyncAPISchema.builder()
                                                                 .type("string")
                                                                 .format("uri")
                                                                 .build())
                                                         .build()
                                                 ),
-                                                Pair("mentions", Schema.builder()
+                                                Pair("mentions", AsyncAPISchema.builder()
                                                         .type("array")
                                                         .description("List of @Mentions in the message.")
-                                                        .items(Schema.builder()
+                                                        .items(
+                                                            AsyncAPISchema.builder()
                                                                 .type("object")
                                                                 .properties(mapOf(
-                                                                        Pair("screenName", Schema.builder()
+                                                                        Pair("screenName", AsyncAPISchema.builder()
                                                                                 .type("string")
                                                                                 .build()
                                                                         ),
-                                                                        Pair("userId", Schema.builder()
+                                                                        Pair("userId", AsyncAPISchema.builder()
                                                                                 .type("string")
                                                                                 .build()
                                                                         ),
-                                                                        Pair("userIds", Schema.builder()
+                                                                        Pair("userIds", AsyncAPISchema.builder()
                                                                                 .type("array")
-                                                                                .items(Schema.builder()
+                                                                                .items(
+                                                                                    AsyncAPISchema.builder()
                                                                                         .type("string")
                                                                                         .build())
                                                                                 .build()
@@ -219,29 +225,30 @@ class GitterStreaming: AbstractExampleValidationTest() {
                                                                 .build())
                                                         .build()
                                                 ),
-                                                Pair("issues", Schema.builder()
+                                                Pair("issues", AsyncAPISchema.builder()
                                                         .type("array")
                                                         .description("List of #Issues referenced in the message.")
-                                                        .items(Schema.builder()
+                                                        .items(
+                                                            AsyncAPISchema.builder()
                                                                 .type("object")
                                                                 .properties(mapOf(
-                                                                        Pair("number", Schema.builder().type("string").build())
+                                                                        Pair("number", AsyncAPISchema.builder().type("string").build())
                                                                 ))
                                                                 .build())
                                                         .build()
                                                 ),
-                                                Pair("meta", Schema.builder()
+                                                Pair("meta", AsyncAPISchema.builder()
                                                         .type("array")
                                                         .description("Metadata. This is currently not used for anything.")
-                                                        .items(Schema.builder().build())
+                                                        .items(AsyncAPISchema.builder().build())
                                                         .build()
                                                 ),
-                                                Pair("v", Schema.builder()
+                                                Pair("v", AsyncAPISchema.builder()
                                                         .type("number")
                                                         .description("Version.")
                                                         .build()
                                                 ),
-                                                Pair("gv", Schema.builder()
+                                                Pair("gv", AsyncAPISchema.builder()
                                                         .type("string")
                                                         .description("Stands for \"Gravatar version\" and is used for cache busting.")
                                                         .build()
@@ -250,35 +257,41 @@ class GitterStreaming: AbstractExampleValidationTest() {
                                         .build()
                                 )
                                 .bindings(mapOf(
-                                        Pair("http", Reference("#/components/messageBindings/streamingHeaders"))
+                                        Pair("http",
+                                            Reference("#/components/messageBindings/streamingHeaders")
+                                        )
                                 ))
                                 .build()
                         ),
                         Pair("heartbeat", Message.builder()
-                                .schemaFormat("application/schema+yaml;version=draft-07")
+                                .schemaFormat("application/vnd.aai.asyncapi+yaml;version=2.6.0")
                                 .summary("Its purpose is to keep the connection alive.")
-                                .payload(Schema.builder()
+                                .payload(
+                                    AsyncAPISchema.builder()
                                         .type("string")
                                         .enumValue(listOf("\r\n"))
                                         .build()
                                 )
                                 .bindings(mapOf(
-                                        Pair("http", Reference("#/components/messageBindings/streamingHeaders"))
+                                        Pair("http",
+                                            Reference("#/components/messageBindings/streamingHeaders")
+                                        )
                                 ))
                                 .build()
                         ),
                 ))
                 .messageBindings(mapOf(
                         Pair("http", HTTPMessageBinding.builder()
-                                .headers(Schema.builder()
+                                .headers(
+                                    AsyncAPISchema.builder()
                                         .type("object")
                                         .properties(mapOf(
-                                                Pair("Transfer-Encoding", Schema.builder()
+                                                Pair("Transfer-Encoding", AsyncAPISchema.builder()
                                                         .type("string")
                                                         .constValue("chunked")
                                                         .build()
                                                 ),
-                                                Pair("Trailer", Schema.builder()
+                                                Pair("Trailer", AsyncAPISchema.builder()
                                                         .type("string")
                                                         .constValue("\\r\\n")
                                                         .build()

@@ -1,6 +1,6 @@
 package com.asyncapi.examples.v2._6_0
 
-import com.asyncapi.v2.Reference
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v2._6_0.model.Tag
 import com.asyncapi.v2._6_0.model.channel.ChannelItem
 import com.asyncapi.v2._6_0.model.channel.Parameter
@@ -13,16 +13,16 @@ import com.asyncapi.v2._6_0.model.info.Info
 import com.asyncapi.v2._6_0.model.info.License
 import com.asyncapi.v2._6_0.model.server.Server
 import com.asyncapi.v2._6_0.model.server.ServerVariable
-import com.asyncapi.v2.binding.operation.mqtt.MQTTOperationBinding
-import com.asyncapi.v2.schema.Schema
-import com.asyncapi.v2.security_scheme.ApiKeySecurityScheme
-import com.asyncapi.v2.security_scheme.OpenIdConnectSecurityScheme
-import com.asyncapi.v2.security_scheme.oauth2.OAuth2SecurityScheme
-import com.asyncapi.v2.security_scheme.oauth2.OAuthFlows
-import com.asyncapi.v2.security_scheme.oauth2.flow.AuthorizationCodeOAuthFlow
-import com.asyncapi.v2.security_scheme.oauth2.flow.ClientCredentialsOAuthFlow
-import com.asyncapi.v2.security_scheme.oauth2.flow.ImplicitOAuthFlow
-import com.asyncapi.v2.security_scheme.oauth2.flow.PasswordOAuthFlow
+import com.asyncapi.bindings.mqtt.v0._2_0.operation.MQTTOperationBinding
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
+import com.asyncapi.schemas.asyncapi.security.v2.ApiKeySecurityScheme
+import com.asyncapi.schemas.asyncapi.security.v2.OpenIdConnectSecurityScheme
+import com.asyncapi.schemas.asyncapi.security.v2.oauth2.OAuth2SecurityScheme
+import com.asyncapi.schemas.asyncapi.security.v2.oauth2.OAuthFlows
+import com.asyncapi.schemas.asyncapi.security.v2.oauth2.flow.AuthorizationCodeOAuthFlow
+import com.asyncapi.schemas.asyncapi.security.v2.oauth2.flow.ClientCredentialsOAuthFlow
+import com.asyncapi.schemas.asyncapi.security.v2.oauth2.flow.ImplicitOAuthFlow
+import com.asyncapi.schemas.asyncapi.security.v2.oauth2.flow.PasswordOAuthFlow
 import java.math.BigDecimal
 
 class StreetlightsMQTT: AbstractExampleValidationTest() {
@@ -86,7 +86,9 @@ class StreetlightsMQTT: AbstractExampleValidationTest() {
                 Pair("smartylighting/streetlights/1/0/event/{streetlightId}/lighting/measured",
                         ChannelItem.builder()
                                 .description("The topic on which measured values may be produced and consumed.")
-                                .parameters(mapOf(Pair("streetlightId", Reference("#/components/parameters/streetlightId"))))
+                                .parameters(mapOf(Pair("streetlightId",
+                                        Reference("#/components/parameters/streetlightId")
+                                )))
                                 .publish(Operation.builder()
                                         .operationId("receiveLightMeasurement")
                                         .summary("Inform about environmental lighting conditions of a particular streetlight.")
@@ -97,7 +99,9 @@ class StreetlightsMQTT: AbstractExampleValidationTest() {
                 ),
                 Pair("smartylighting/streetlights/1/0/action/{streetlightId}/turn/on",
                         ChannelItem.builder()
-                                .parameters(mapOf(Pair("streetlightId", Reference("#/components/parameters/streetlightId"))))
+                                .parameters(mapOf(Pair("streetlightId",
+                                        Reference("#/components/parameters/streetlightId")
+                                )))
                                 .subscribe(Operation.builder()
                                         .operationId("turnOn")
                                         .traits(listOf(Reference("#/components/operationTraits/mqtt")))
@@ -107,7 +111,9 @@ class StreetlightsMQTT: AbstractExampleValidationTest() {
                 ),
                 Pair("smartylighting/streetlights/1/0/action/{streetlightId}/turn/off",
                         ChannelItem.builder()
-                                .parameters(mapOf(Pair("streetlightId", Reference("#/components/parameters/streetlightId"))))
+                                .parameters(mapOf(Pair("streetlightId",
+                                        Reference("#/components/parameters/streetlightId")
+                                )))
                                 .subscribe(Operation.builder()
                                         .operationId("turnOff")
                                         .traits(listOf(Reference("#/components/operationTraits/mqtt")))
@@ -117,7 +123,9 @@ class StreetlightsMQTT: AbstractExampleValidationTest() {
                 ),
                 Pair("smartylighting/streetlights/1/0/action/{streetlightId}/dim",
                         ChannelItem.builder()
-                                .parameters(mapOf(Pair("streetlightId", Reference("#/components/parameters/streetlightId"))))
+                                .parameters(mapOf(Pair("streetlightId",
+                                        Reference("#/components/parameters/streetlightId")
+                                )))
                                 .subscribe(Operation.builder()
                                         .operationId("dimLight")
                                         .traits(listOf(Reference("#/components/operationTraits/mqtt")))
@@ -138,7 +146,7 @@ class StreetlightsMQTT: AbstractExampleValidationTest() {
                                         .summary("Inform about environmental lighting conditions of a particular streetlight.")
                                         .contentType("application/json")
                                         .traits(listOf(Reference("#/components/messageTraits/commonHeaders")))
-                                        .payload(Schema.builder().ref("#/components/schemas/lightMeasuredPayload").build())
+                                        .payload(Reference("#/components/schemas/lightMeasuredPayload"))
                                         .build()
                         ),
                         Pair("turnOnOff",
@@ -147,7 +155,7 @@ class StreetlightsMQTT: AbstractExampleValidationTest() {
                                         .title("Turn on/off")
                                         .summary("Command a particular streetlight to turn the lights on or off.")
                                         .traits(listOf(Reference("#/components/messageTraits/commonHeaders")))
-                                        .payload(Schema.builder().ref("#/components/schemas/turnOnOffPayload").build())
+                                        .payload(Reference("#/components/schemas/turnOnOffPayload"))
                                         .build()
                         ),
                         Pair("dimLight",
@@ -156,51 +164,51 @@ class StreetlightsMQTT: AbstractExampleValidationTest() {
                                         .title("Dim light")
                                         .summary("Command a particular streetlight to dim the lights.")
                                         .traits(listOf(Reference("#/components/messageTraits/commonHeaders")))
-                                        .payload(Schema.builder().ref("#/components/schemas/dimLightPayload").build())
+                                        .payload(Reference("#/components/schemas/dimLightPayload"))
                                         .build()
                         )
                 ))
                 .schemas(mapOf(
                         Pair("lightMeasuredPayload",
-                                Schema.builder()
+                                AsyncAPISchema.builder()
                                         .type("object")
                                         .properties(mapOf(
                                                 Pair("lumens",
-                                                        Schema.builder()
+                                                        AsyncAPISchema.builder()
                                                                 .type("integer")
                                                                 .minimum(BigDecimal.ZERO)
                                                                 .description("Light intensity measured in lumens.")
                                                                 .build()
                                                 ),
                                                 Pair("sentAt",
-                                                        Schema.builder().ref("#/components/schemas/sentAt").build()
+                                                        AsyncAPISchema.builder().ref("#/components/schemas/sentAt").build()
                                                 )
                                         ))
                                         .build()
                         ),
                         Pair("turnOnOffPayload",
-                                Schema.builder()
+                                AsyncAPISchema.builder()
                                         .type("object")
                                         .properties(mapOf(
                                                 Pair("command",
-                                                        Schema.builder()
+                                                        AsyncAPISchema.builder()
                                                                 .type("string")
                                                                 .enumValue(listOf("on", "off"))
                                                                 .description("Whether to turn on or off the light.")
                                                                 .build()
                                                 ),
                                                 Pair("sentAt",
-                                                        Schema.builder().ref("#/components/schemas/sentAt").build()
+                                                        AsyncAPISchema.builder().ref("#/components/schemas/sentAt").build()
                                                 )
                                         ))
                                         .build()
                         ),
                         Pair("dimLightPayload",
-                                Schema.builder()
+                                AsyncAPISchema.builder()
                                         .type("object")
                                         .properties(mapOf(
                                                 Pair("percentage",
-                                                        Schema.builder()
+                                                        AsyncAPISchema.builder()
                                                                 .type("integer")
                                                                 .minimum(BigDecimal.ZERO)
                                                                 .maximum(BigDecimal.valueOf(100))
@@ -208,13 +216,13 @@ class StreetlightsMQTT: AbstractExampleValidationTest() {
                                                                 .build()
                                                 ),
                                                 Pair("sentAt",
-                                                        Schema.builder().ref("#/components/schemas/sentAt").build()
+                                                        AsyncAPISchema.builder().ref("#/components/schemas/sentAt").build()
                                                 )
                                         ))
                                         .build()
                         ),
                         Pair("sentAt",
-                                Schema.builder()
+                                AsyncAPISchema.builder()
                                         .type("string")
                                         .format("date-time")
                                         .description("Date and time when the message was sent.")
@@ -223,7 +231,10 @@ class StreetlightsMQTT: AbstractExampleValidationTest() {
                 ))
                 .securitySchemes(mapOf(
                         Pair("apiKey",
-                                ApiKeySecurityScheme("Provide your API key as the user and leave the password empty.", ApiKeySecurityScheme.ApiKeyLocation.USER)
+                                ApiKeySecurityScheme(
+                                        "Provide your API key as the user and leave the password empty.",
+                                        ApiKeySecurityScheme.ApiKeyLocation.USER
+                                )
                         ),
                         Pair("supportedOauthFlows",
                                 OAuth2SecurityScheme(
@@ -233,7 +244,10 @@ class StreetlightsMQTT: AbstractExampleValidationTest() {
                                                         "",
                                                         mapOf(
                                                                 Pair("streetlights:on", "Ability to switch lights on"),
-                                                                Pair("streetlights:off", "Ability to switch lights off"),
+                                                                Pair(
+                                                                        "streetlights:off",
+                                                                        "Ability to switch lights off"
+                                                                ),
                                                                 Pair("streetlights:dim", "Ability to dim the lights")
                                                         ),
                                                         "https://authserver.example/auth"
@@ -242,7 +256,10 @@ class StreetlightsMQTT: AbstractExampleValidationTest() {
                                                         "",
                                                         mapOf(
                                                                 Pair("streetlights:on", "Ability to switch lights on"),
-                                                                Pair("streetlights:off", "Ability to switch lights off"),
+                                                                Pair(
+                                                                        "streetlights:off",
+                                                                        "Ability to switch lights off"
+                                                                ),
                                                                 Pair("streetlights:dim", "Ability to dim the lights")
                                                         ),
                                                         "https://authserver.example/token"
@@ -251,7 +268,10 @@ class StreetlightsMQTT: AbstractExampleValidationTest() {
                                                         "",
                                                         mapOf(
                                                                 Pair("streetlights:on", "Ability to switch lights on"),
-                                                                Pair("streetlights:off", "Ability to switch lights off"),
+                                                                Pair(
+                                                                        "streetlights:off",
+                                                                        "Ability to switch lights off"
+                                                                ),
                                                                 Pair("streetlights:dim", "Ability to dim the lights")
                                                         ),
                                                         "https://authserver.example/token"
@@ -260,7 +280,10 @@ class StreetlightsMQTT: AbstractExampleValidationTest() {
                                                         "https://authserver.example/refresh",
                                                         mapOf(
                                                                 Pair("streetlights:on", "Ability to switch lights on"),
-                                                                Pair("streetlights:off", "Ability to switch lights off"),
+                                                                Pair(
+                                                                        "streetlights:off",
+                                                                        "Ability to switch lights off"
+                                                                ),
                                                                 Pair("streetlights:dim", "Ability to dim the lights")
                                                         ),
                                                         "https://authserver.example/auth",
@@ -269,22 +292,28 @@ class StreetlightsMQTT: AbstractExampleValidationTest() {
                                         )
                                 )
                         ),
-                        Pair("openIdConnectWellKnown", OpenIdConnectSecurityScheme(null, "https://authserver.example/.well-known"))
+                        Pair("openIdConnectWellKnown",
+                                OpenIdConnectSecurityScheme(
+                                        null,
+                                        "https://authserver.example/.well-known"
+                                )
+                        )
                 ))
                 .parameters(mapOf(
                         Pair("streetlightId", Parameter.builder()
                                 .description("The ID of the streetlight.")
-                                .schema(Schema.builder().type("string").build())
+                                .schema(AsyncAPISchema.builder().type("string").build())
                                 .build()
                         )
                 ))
                 .messageTraits(mapOf(
                         Pair("commonHeaders",
                                 MessageTrait.builder()
-                                        .headers(Schema.builder()
+                                        .headers(
+                                            AsyncAPISchema.builder()
                                                 .type("object")
                                                 .properties(mapOf(
-                                                        Pair("my-app-header", Schema.builder()
+                                                        Pair("my-app-header", AsyncAPISchema.builder()
                                                                 .type("integer")
                                                                 .minimum(BigDecimal.ZERO)
                                                                 .maximum(BigDecimal.valueOf(100))

@@ -1,19 +1,19 @@
 package com.asyncapi.v2._0_0.jackson.model.component;
 
-import com.asyncapi.v2.Reference;
-import com.asyncapi.v2.schema.Schema;
-import com.asyncapi.v2.jackson.MapOfReferencesOrObjectsDeserializer;
+import com.asyncapi.schemas.asyncapi.Reference;
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema;
+import com.asyncapi.serde.MapOfReferencesOrObjectsDeserializer;
 
 /**
  * Serializes component schemas map.
  *
  * @author Pavel Bodiachevskii
  */
-public class ComponentsSchemasDeserializer extends MapOfReferencesOrObjectsDeserializer<Schema> {
+public class ComponentsSchemasDeserializer extends MapOfReferencesOrObjectsDeserializer<AsyncAPISchema> {
 
     @Override
-    public Class<Schema> objectTypeClass() {
-        return Schema.class;
+    public Class<AsyncAPISchema> objectTypeClass() {
+        return AsyncAPISchema.class;
     }
 
     @Override
