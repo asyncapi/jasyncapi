@@ -3,7 +3,7 @@
 <h4 align="left">Building the future of event-driven architectures</h4>
 <h6 align="left">We're on a mission to standardize message-based communication and increase interoperability of the different systems out there.</h6>
 
-[![Version](https://img.shields.io/maven-central/v/com.asyncapi/asyncapi-core?logo=apache-maven)](https://central.sonatype.com/artifact/com.asyncapi/asyncapi-core/1.0.0-RC)
+[![Version](https://img.shields.io/maven-central/v/com.asyncapi/asyncapi-core/1.0.0-RC2?logo=apache-maven)](https://central.sonatype.com/artifact/com.asyncapi/asyncapi-core/1.0.0-RC2)
 
 ## Overview
 JVM-friendly bindings for AsyncAPI. It allows you to read or write specifications for your asynchronous API  through code
