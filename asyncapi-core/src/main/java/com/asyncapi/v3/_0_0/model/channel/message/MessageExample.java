@@ -30,7 +30,7 @@ public class MessageExample extends ExtendableObject {
      * The value of this field MUST validate against the Message {@link Message} payload field.
      */
     @Nullable
-    public Map<String, Object> payload;
+    public Object payload;
 
     /**
      * A machine-friendly name.
