@@ -75,8 +75,8 @@ public class SQSOperationQueue {
      */
     @Nullable
     @Builder.Default
-    @javax.validation.constraints.Min(0)
-    @javax.validation.constraints.Max(15)
+    @jakarta.validation.constraints.Min(0)
+    @jakarta.validation.constraints.Max(15)
     private Integer deliveryDelay = 0;
 
     /**
@@ -84,8 +84,8 @@ public class SQSOperationQueue {
      */
     @Nullable
     @Builder.Default
-    @javax.validation.constraints.Min(0)
-    @javax.validation.constraints.Max(43200)
+    @jakarta.validation.constraints.Min(0)
+    @jakarta.validation.constraints.Max(43200)
     private Integer visibilityTimeout = 30;
 
     /**
@@ -104,8 +104,8 @@ public class SQSOperationQueue {
      */
     @Nullable
     @Builder.Default
-    @javax.validation.constraints.Min(60)
-    @javax.validation.constraints.Max(1209600)
+    @jakarta.validation.constraints.Min(60)
+    @jakarta.validation.constraints.Max(1209600)
     private Integer messageRetentionPeriod = 345600;
 
     /**

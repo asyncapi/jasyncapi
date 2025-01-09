@@ -34,7 +34,7 @@ public class GooglePubSubChannelSchemaSettings {
      */
     @NotNull
     @Builder.Default
-    @javax.validation.constraints.NotNull
+    @jakarta.validation.constraints.NotNull
     @JsonProperty(value = "encoding", required = true)
     @JsonPropertyDescription("The encoding of the message (Must be one of the possible https://cloud.google.com/pubsub/docs/reference/rest/v1/projects.topics#encoding values.)")
     private String encoding = "";
@@ -60,7 +60,7 @@ public class GooglePubSubChannelSchemaSettings {
      */
     @NotNull
     @Builder.Default
-    @javax.validation.constraints.NotNull
+    @jakarta.validation.constraints.NotNull
     @JsonProperty(value = "name", required = true)
     @JsonPropertyDescription("The name of the schema that messages published should be validated against (The format is projects/{project}/schemas/{schema}.)")
     private String name = "";

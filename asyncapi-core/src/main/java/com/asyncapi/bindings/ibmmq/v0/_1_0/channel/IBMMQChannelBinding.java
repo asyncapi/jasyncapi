@@ -70,11 +70,11 @@ public class IBMMQChannelBinding extends com.asyncapi.bindings.ibmmq.IBMMQChanne
      * MUST be 0-104,857,600 bytes (100 MB).
      */
     @Nullable
-    @javax.validation.constraints.Min(
+    @jakarta.validation.constraints.Min(
             value = 0,
             message = "Maximum length of the physical message (in bytes) must be greater or equals to 0"
     )
-    @javax.validation.constraints.Max(
+    @jakarta.validation.constraints.Max(
             value = 104857600,
             message = "Maximum length of the physical message (in bytes) must be lower or equals to 104857600"
     )

@@ -34,8 +34,8 @@ public class IBMMQChannelQueueProperties {
      * A value MUST be specified. MUST NOT exceed 48 characters in length. MUST be a valid IBM MQ queue name
      */
     @NotNull
-    @javax.validation.constraints.NotNull
-    @javax.validation.constraints.Size(
+    @jakarta.validation.constraints.NotNull
+    @jakarta.validation.constraints.Size(
             max = 48,
             message = "Name of the IBM MQ queue must be less or equals to 48"
     )

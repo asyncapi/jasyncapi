@@ -49,8 +49,8 @@ public class SolaceOperationBinding extends com.asyncapi.bindings.solace.SolaceO
      * a Schema Object containing the definition of the priority.
      */
     @Nullable
-    @javax.validation.constraints.Min(0)
-    @javax.validation.constraints.Max(255)
+    @jakarta.validation.constraints.Min(0)
+    @jakarta.validation.constraints.Max(255)
     private Integer priority;
 
     /**

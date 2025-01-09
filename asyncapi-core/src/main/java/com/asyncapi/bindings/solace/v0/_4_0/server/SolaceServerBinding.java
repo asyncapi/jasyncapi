@@ -42,7 +42,7 @@ public class SolaceServerBinding extends com.asyncapi.bindings.solace.SolaceServ
      */
     @Nullable
     @JsonProperty("clientName")
-    @javax.validation.constraints.Size(min = 1, max = 160)
+    @jakarta.validation.constraints.Size(min = 1, max = 160)
     private String clientName;
 
     @Override

@@ -36,7 +36,7 @@ public class HTTPOperationBinding extends com.asyncapi.bindings.http.HTTPOperati
      */
     @NotNull
     @Builder.Default
-    @javax.validation.constraints.NotNull
+    @jakarta.validation.constraints.NotNull
     @JsonProperty(value = "type", required = true)
     @JsonPropertyDescription("Type of operation. Its value MUST be either request or response.")
     private HTTPOperationType type = HTTPOperationType.REQUEST;

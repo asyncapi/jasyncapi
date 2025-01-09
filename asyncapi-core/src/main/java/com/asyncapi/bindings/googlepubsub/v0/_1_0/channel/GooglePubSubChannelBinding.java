@@ -37,7 +37,7 @@ public class GooglePubSubChannelBinding extends com.asyncapi.bindings.googlepubs
      */
     @NotNull
     @Builder.Default
-    @javax.validation.constraints.NotNull
+    @jakarta.validation.constraints.NotNull
     @JsonProperty(value = "topic", required = true)
     @JsonPropertyDescription("The Google Cloud Pub/Sub Topic name.")
     private String topic = "";
@@ -71,7 +71,7 @@ public class GooglePubSubChannelBinding extends com.asyncapi.bindings.googlepubs
      */
     @NotNull
     @Builder.Default
-    @javax.validation.constraints.NotNull
+    @jakarta.validation.constraints.NotNull
     @JsonProperty(value = "schemaSettings", required = true)
     @JsonPropertyDescription("Settings for validating messages published against a schema")
     private GooglePubSubChannelSchemaSettings schemaSettings = new GooglePubSubChannelSchemaSettings();

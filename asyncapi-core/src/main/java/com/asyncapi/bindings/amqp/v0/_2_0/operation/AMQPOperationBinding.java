@@ -37,7 +37,7 @@ public class AMQPOperationBinding extends com.asyncapi.bindings.amqp.AMQPOperati
      * Applies to: publish, subscribe
      */
     @Nullable
-    @javax.validation.constraints.Min(
+    @jakarta.validation.constraints.Min(
             value = 0,
             message = "TTL (Time-To-Live) for the message must be greater than or equal to zero"
     )
@@ -81,11 +81,11 @@ public class AMQPOperationBinding extends com.asyncapi.bindings.amqp.AMQPOperati
      * Applies to: publish, subscribe
      */
     @Nullable
-    @javax.validation.constraints.Min(
+    @jakarta.validation.constraints.Min(
             value = 1,
             message = "Delivery mode of the message must be either 1 (transient) or 2 (persistent)"
     )
-    @javax.validation.constraints.Max(
+    @jakarta.validation.constraints.Max(
             value = 2,
             message = "Delivery mode of the message must be either 1 (transient) or 2 (persistent)"
     )

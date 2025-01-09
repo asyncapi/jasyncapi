@@ -31,7 +31,7 @@ public class NATSOperationBinding extends com.asyncapi.bindings.nats.NATSOperati
      * Defines the name of the queue to use. It MUST NOT exceed 255 characters.
      */
     @Nullable
-    @javax.validation.constraints.Size(
+    @jakarta.validation.constraints.Size(
             max = 255,
             message = "Queue name must be lower or equals to 255."
     )
