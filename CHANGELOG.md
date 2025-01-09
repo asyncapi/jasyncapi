@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0-RC2] - TBA
 
+### Changed
+
+- Replace `javax.validation` with `jakarta.validation`. Because last one is successor
+- Mark lombok dependency as `provided` to avoid its injection into resulted jar
+- `MessageExample.payload` now is `any` type instead of `Map<String, Object>
+
 ## [1.0.0-RC2] - 2024-05-16
 
 ### Added
