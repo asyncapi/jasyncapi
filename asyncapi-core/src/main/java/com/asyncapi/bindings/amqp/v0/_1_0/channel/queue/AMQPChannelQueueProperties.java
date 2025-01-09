@@ -33,7 +33,7 @@ public class AMQPChannelQueueProperties {
      * The name of the queue. It MUST NOT exceed 255 characters long.
      */
     @Nullable
-    @javax.validation.constraints.Size(
+    @jakarta.validation.constraints.Size(
             max = 255,
             message = "Queue name must not exceed 255 characters long."
     )

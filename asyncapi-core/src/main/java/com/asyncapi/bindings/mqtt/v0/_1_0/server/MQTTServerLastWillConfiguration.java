@@ -36,11 +36,11 @@ public class MQTTServerLastWillConfiguration {
      * Its value MUST be either 0, 1 or 2.
      */
     @Nullable
-    @javax.validation.constraints.Min(
+    @jakarta.validation.constraints.Min(
             value = 0,
             message = "QoS must be greater or equals to 0."
     )
-    @javax.validation.constraints.Max(
+    @jakarta.validation.constraints.Max(
             value = 2,
             message = "QoS must be lower or equals to 0."
     )

@@ -39,7 +39,7 @@ public class SNSOperationBinding extends com.asyncapi.bindings.sns.SNSOperationB
      */
     @NotNull
     @Builder.Default
-    @javax.validation.constraints.Size(min = 1)
+    @jakarta.validation.constraints.Size(min = 1)
     private List<@NotNull SNSOperationConsumer> consumers = Collections.emptyList();
 
     /**

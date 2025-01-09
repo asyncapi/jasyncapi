@@ -33,7 +33,7 @@ public class AMQPChannelExchangeProperties {
      * The name of the exchange. It MUST NOT exceed 255 characters long.
      */
     @Nullable
-    @javax.validation.constraints.Size(
+    @jakarta.validation.constraints.Size(
             max = 255,
             message = "Exchange name must not exceed 255 characters long."
     )
