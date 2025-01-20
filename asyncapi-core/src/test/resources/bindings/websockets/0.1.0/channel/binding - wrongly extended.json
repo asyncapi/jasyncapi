@@ -1,0 +1,28 @@
+{
+  "bindingVersion": "0.1.0",
+  "method": "GET",
+  "query": {
+    "type": "object",
+    "properties": {
+      "ref": {
+        "type": "string",
+        "description": "Referral."
+      }
+    }
+  },
+  "headers": {
+    "type": "object",
+    "properties": {
+      "Authentication": {
+        "type": "string",
+        "description": "Authentication token"
+      }
+    }
+  },
+  "x-number": 0,
+  "x-string": "",
+  "x-object": {
+    "property": {}
+  },
+  "ext-number": 1
+}

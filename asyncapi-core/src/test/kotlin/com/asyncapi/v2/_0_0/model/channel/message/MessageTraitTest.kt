@@ -3,26 +3,26 @@ package com.asyncapi.v2._0_0.model.channel.message
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._0_0.model.ExternalDocumentation
 import com.asyncapi.v2._0_0.model.Tag
-import com.asyncapi.v2.schema.Schema
-import com.asyncapi.v2.binding.message.amqp.AMQPMessageBindingTest
-import com.asyncapi.v2.binding.message.amqp1.AMQP1MessageBinding
-import com.asyncapi.v2.binding.message.anypointmq.AnypointMQMessageBindingTest
-import com.asyncapi.v2.binding.message.googlepubsub.GooglePubSubMessageBindingTest
-import com.asyncapi.v2.binding.message.http.HTTPMessageBindingTest
-import com.asyncapi.v2.binding.message.ibmmq.IBMMQMessageBindingTest
-import com.asyncapi.v2.binding.message.jms.JMSMessageBinding
-import com.asyncapi.v2.binding.message.kafka.KafkaMessageBindingTest
-import com.asyncapi.v2.binding.message.mercure.MercureMessageBinding
-import com.asyncapi.v2.binding.message.mqtt.MQTTMessageBindingTest
-import com.asyncapi.v2.binding.message.mqtt5.MQTT5MessageBinding
-import com.asyncapi.v2.binding.message.nats.NATSMessageBinding
-import com.asyncapi.v2.binding.message.pulsar.PulsarMessageBinding
-import com.asyncapi.v2.binding.message.redis.RedisMessageBinding
-import com.asyncapi.v2.binding.message.sns.SNSMessageBinding
-import com.asyncapi.v2.binding.message.solace.SolaceMessageBinding
-import com.asyncapi.v2.binding.message.sqs.SQSMessageBinding
-import com.asyncapi.v2.binding.message.stomp.STOMPMessageBinding
-import com.asyncapi.v2.binding.message.ws.WebSocketsMessageBinding
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
+import com.asyncapi.bindings.amqp.AMQPV0_2_0Test
+import com.asyncapi.bindings.amqp1.v0._1_0.message.AMQP1MessageBinding
+import com.asyncapi.bindings.anypointmq.AnypointMQV0_0_1Test
+import com.asyncapi.bindings.googlepubsub.GooglePubSubV0_1_0Test
+import com.asyncapi.bindings.http.HTTPV0_3_0Test
+import com.asyncapi.bindings.ibmmq.IBMMQV0_1_0Test
+import com.asyncapi.bindings.jms.v0._0_1.message.JMSMessageBinding
+import com.asyncapi.bindings.kafka.KafkaV0_5_0Test
+import com.asyncapi.bindings.mercure.v0._1_0.message.MercureMessageBinding
+import com.asyncapi.bindings.mqtt.MQTTV0_1_0Test
+import com.asyncapi.bindings.mqtt5.v0._2_0.message.MQTT5MessageBinding
+import com.asyncapi.bindings.nats.v0._1_0.message.NATSMessageBinding
+import com.asyncapi.bindings.pulsar.v0._1_0.message.PulsarMessageBinding
+import com.asyncapi.bindings.redis.v0._1_0.message.RedisMessageBinding
+import com.asyncapi.bindings.sns.v0._1_0.message.SNSMessageBinding
+import com.asyncapi.bindings.solace.v0._4_0.message.SolaceMessageBinding
+import com.asyncapi.bindings.sqs.SQSV0_2_0Test
+import com.asyncapi.bindings.stomp.v0._1_0.message.STOMPMessageBinding
+import com.asyncapi.bindings.websockets.v0._1_0.message.WebSocketsMessageBinding
 
 /**
  * @author Pavel Bodiachevskii
@@ -31,27 +31,28 @@ class MessageTraitTest: SerDeTest<MessageTrait>() {
 
     override fun objectClass() = MessageTrait::class.java
 
-    override fun baseObjectJson() = "/json/2.0.0/model/channel/message/messageTrait.json"
+    override fun baseObjectJson() = "/json/v2/2.0.0/model/channel/message/messageTrait.json"
 
-    override fun extendedObjectJson() = "/json/2.0.0/model/channel/message/messageTrait - extended.json"
+    override fun extendedObjectJson() = "/json/v2/2.0.0/model/channel/message/messageTrait - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.0.0/model/channel/message/messageTrait - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/2.0.0/model/channel/message/messageTrait - wrongly extended.json"
 
     override fun build(): MessageTrait {
         return MessageTrait.builder()
-                .headers(Schema.builder()
+                .headers(
+                    AsyncAPISchema.builder()
                         .type("object")
                         .properties(mapOf(
                                 Pair(
                                         "correlationId",
-                                        Schema.builder()
+                                        AsyncAPISchema.builder()
                                                 .description("Correlation ID set by application")
                                                 .type("string")
                                                 .build()
                                 ),
                                 Pair(
                                         "applicationInstanceId",
-                                        Schema.builder()
+                                        AsyncAPISchema.builder()
                                                 .description("Unique identifier for a given instance of the publishing application")
                                                 .type("string")
                                                 .build()
@@ -73,23 +74,23 @@ class MessageTraitTest: SerDeTest<MessageTrait>() {
                 ))
                 .externalDocs(ExternalDocumentation("User sign up rules", "messages/sign-up-rules"))
                 .bindings(mapOf(
-                        Pair("amqp", AMQPMessageBindingTest().build()),
+                        Pair("amqp", AMQPV0_2_0Test.messageBinding()),
                         Pair("amqp1", AMQP1MessageBinding()),
-                        Pair("anypointmq", AnypointMQMessageBindingTest().build()),
-                        Pair("googlepubsub", GooglePubSubMessageBindingTest().build()),
-                        Pair("http", HTTPMessageBindingTest().build()),
-                        Pair("ibmmq", IBMMQMessageBindingTest().build()),
+                        Pair("anypointmq", AnypointMQV0_0_1Test.messageBinding()),
+                        Pair("googlepubsub", GooglePubSubV0_1_0Test.messageBinding()),
+                        Pair("http", HTTPV0_3_0Test.messageBinding()),
+                        Pair("ibmmq", IBMMQV0_1_0Test.messageBinding()),
                         Pair("jms", JMSMessageBinding()),
-                        Pair("kafka", KafkaMessageBindingTest().build()),
+                        Pair("kafka", KafkaV0_5_0Test.messageBinding()),
                         Pair("mercure", MercureMessageBinding()),
-                        Pair("mqtt", MQTTMessageBindingTest().build()),
+                        Pair("mqtt", MQTTV0_1_0Test.messageBinding()),
                         Pair("mqtt5", MQTT5MessageBinding()),
                         Pair("nats", NATSMessageBinding()),
                         Pair("pulsar", PulsarMessageBinding()),
                         Pair("redis", RedisMessageBinding()),
                         Pair("sns", SNSMessageBinding()),
                         Pair("solace", SolaceMessageBinding()),
-                        Pair("sqs", SQSMessageBinding()),
+                        Pair("sqs", SQSV0_2_0Test.messageBinding()),
                         Pair("stomp", STOMPMessageBinding()),
                         Pair("ws", WebSocketsMessageBinding())
                 ))

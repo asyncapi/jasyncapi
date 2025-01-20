@@ -1,6 +1,6 @@
 package com.asyncapi.v2._0_0.model;
 
-import com.asyncapi.v2.ExtendableObject;
+import com.asyncapi.schemas.asyncapi.ExtendableObject;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,7 +27,8 @@ public class Tag extends ExtendableObject {
      * Required. The name of the tag.
      */
     @NotNull
-    private String name;
+    @Builder.Default
+    private String name = "";
 
     /**
      * A short description for the tag. CommonMark syntax can be used for rich text representation.

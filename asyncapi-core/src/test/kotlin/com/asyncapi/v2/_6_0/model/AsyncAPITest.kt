@@ -1,5 +1,6 @@
 package com.asyncapi.v2._6_0.model
 
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._6_0.model.channel.ChannelItemTest
 import com.asyncapi.v2._6_0.model.component.ComponentsTest
@@ -13,11 +14,11 @@ class AsyncAPITest: SerDeTest<AsyncAPI>() {
 
     override fun objectClass() = AsyncAPI::class.java
 
-    override fun baseObjectJson() = "/json/2.6.0/model/asyncapi.json"
+    override fun baseObjectJson() = "/json/v2/2.6.0/model/asyncapi.json"
 
-    override fun extendedObjectJson() = "/json/2.6.0/model/asyncapi - extended.json"
+    override fun extendedObjectJson() = "/json/v2/2.6.0/model/asyncapi - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.6.0/model/asyncapi - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/2.6.0/model/asyncapi - wrongly extended.json"
 
     override fun build(): AsyncAPI {
         return AsyncAPI(
@@ -25,7 +26,10 @@ class AsyncAPITest: SerDeTest<AsyncAPI>() {
                 "https://www.asyncapi.com",
                 InfoTest().build(),
                 mapOf(
-                        Pair("stage", ServerTest().build())
+                        Pair("stage", ServerTest().build()),
+                        Pair("stage-2",
+                            Reference("#/components/servers/stage-2")
+                        )
                 ),
                 "application/json",
                 mapOf(

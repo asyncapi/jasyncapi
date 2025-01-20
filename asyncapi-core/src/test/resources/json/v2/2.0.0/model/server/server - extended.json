@@ -1,0 +1,101 @@
+{
+  "url" : "{username}.gigantic-server.com:{port}/{basePath}",
+  "protocol" : "secure-mqtt",
+  "protocolVersion" : "5",
+  "description" : "The production API server",
+  "variables" : {
+    "username" : {
+      "description" : "This value is assigned by the service provider, in this example `gigantic-server.com`",
+      "default" : "demo"
+    },
+    "port" : {
+      "enum" : [ "8883", "8884" ],
+      "default" : "8883"
+    }
+  },
+  "security" : [ {
+    "mqttBroker" : [ ]
+  } ],
+  "bindings" : {
+    "amqp1" : {
+      "bindingVersion" : "0.1.0"
+    },
+    "anypointmq" : {
+      "bindingVersion" : "0.0.1"
+    },
+    "googlepubsub" : {
+      "bindingVersion" : "0.2.0"
+    },
+    "http" : {
+      "bindingVersion" : "0.3.0"
+    },
+    "ibmmq" : {
+      "bindingVersion" : "0.1.0",
+      "groupId" : "PRODCLSTR1",
+      "ccdtQueueManagerName" : "*",
+      "cipherSpec" : "ANY_TLS12_OR_HIGHER",
+      "multiEndpointServer" : false,
+      "heartBeatInterval" : 300
+    },
+    "jms" : {
+      "bindingVersion" : "0.0.1",
+      "jmsConnectionFactory" : ""
+    },
+    "kafka" : {
+      "bindingVersion" : "0.5.0",
+      "schemaRegistryUrl" : "https://my-schema-registry.com",
+      "schemaRegistryVendor" : "confluent"
+    },
+    "mercure" : {
+      "bindingVersion" : "0.1.0"
+    },
+    "mqtt" : {
+      "bindingVersion" : "0.1.0",
+      "clientId" : "guest",
+      "cleanSession" : true,
+      "lastWill" : {
+        "topic" : "/last-wills",
+        "qos" : 2,
+        "message" : "Guest gone offline.",
+        "retain" : false
+      },
+      "keepAlive" : 60
+    },
+    "mqtt5" : {
+      "sessionExpiryInterval" : 60,
+      "bindingVersion" : "0.2.0"
+    },
+    "nats" : {
+      "bindingVersion" : "0.1.0"
+    },
+    "pulsar" : {
+      "bindingVersion" : "0.1.0",
+      "tenant" : "contoso"
+    },
+    "redis" : {
+      "bindingVersion" : "0.1.0"
+    },
+    "sns" : {
+      "bindingVersion" : "0.1.0"
+    },
+    "solace" : {
+      "bindingVersion" : "0.4.0",
+      "msgVpn" : "ProdVPN",
+      "clientName" : "transactions-broker"
+    },
+    "sqs" : {
+      "bindingVersion" : "0.2.0"
+    },
+    "stomp" : {
+      "bindingVersion" : "0.1.0"
+    },
+    "ws" : {
+      "bindingVersion" : "0.1.0"
+    }
+  },
+  "x-number" : 0,
+  "x-string" : "",
+  "x-object" : {
+    "property" : { }
+  }
+}

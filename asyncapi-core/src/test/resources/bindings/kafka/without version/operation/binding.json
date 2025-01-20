@@ -1,0 +1,14 @@
+{
+  "groupId": {
+    "type": "string",
+    "enum": [
+      "myGroupId"
+    ]
+  },
+  "clientId": {
+    "type": "string",
+    "enum": [
+      "myClientId"
+    ]
+  }
+}

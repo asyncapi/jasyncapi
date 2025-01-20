@@ -1,0 +1,16 @@
+{
+  "schemaFormat": "application/vnd.apache.avro+json;version=1.9.2",
+  "schema": {
+    "namespace": "model",
+    "type": "record",
+    "doc": "",
+    "name": "MyResponse",
+    "fields": [
+      {
+        "name": "isSuccessful",
+        "type": "boolean",
+        "doc": "Indicator for successful or unsuccessful call"
+      }
+    ]
+  }
+}

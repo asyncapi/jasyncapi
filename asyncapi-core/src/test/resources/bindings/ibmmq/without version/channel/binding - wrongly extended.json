@@ -1,0 +1,21 @@
+{
+  "destinationType": "topic",
+  "queue": {
+    "objectName": "message",
+    "isPartitioned": false,
+    "exclusive": true
+  },
+  "topic": {
+    "string": "messages",
+    "objectName": "message",
+    "durablePermitted": true,
+    "lastMsgRetained": true
+  },
+  "maxMsgLength": 1024,
+  "x-number": 0,
+  "x-string": "",
+  "x-object": {
+    "property": {}
+  },
+  "ext-number": 1
+}

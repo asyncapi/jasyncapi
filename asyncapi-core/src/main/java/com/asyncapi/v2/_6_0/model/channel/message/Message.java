@@ -1,20 +1,18 @@
 package com.asyncapi.v2._6_0.model.channel.message;
 
-import com.asyncapi.v2.ExtendableObject;
-import com.asyncapi.v2._6_0.jackson.model.channel.message.MessageCorrelationIdDeserializer;
-import com.asyncapi.v2._6_0.jackson.model.channel.message.MessageHeadersDeserializer;
-import com.asyncapi.v2._6_0.jackson.model.channel.message.MessagePayloadDeserializer;
-import com.asyncapi.v2._6_0.jackson.model.channel.message.MessageTraitsDeserializer;
+import com.asyncapi.bindings.MessageBinding;
+import com.asyncapi.bindings.MessageBindingsDeserializer;
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema;
+import com.asyncapi.schemas.asyncapi.ExtendableObject;
+import com.asyncapi.schemas.json.JsonSchema;
+import com.asyncapi.schemas.asyncapi.Reference;
+import com.asyncapi.schemas.avro.v1._9_0.AvroSchema;
+import com.asyncapi.schemas.openapi.v3._0_0.OpenAPISchema;
+import com.asyncapi.v2._6_0.jackson.model.channel.message.*;
 import com.asyncapi.v2._6_0.model.ExternalDocumentation;
 import com.asyncapi.v2._6_0.model.Tag;
-import com.asyncapi.v2.binding.message.MessageBinding;
-import com.asyncapi.v2.jackson.binding.message.MessageBindingsDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -32,6 +30,7 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
+@JsonDeserialize(using = MessageDeserializer.class)
 public class Message extends ExtendableObject {
 
     /**
@@ -50,8 +49,8 @@ public class Message extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v2.schema.Schema}</li>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link AsyncAPISchema}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @Nullable
@@ -63,13 +62,16 @@ public class Message extends ExtendableObject {
      * It must match the schema format, including encoding type - e.g Avro should be inlined as either a YAML or JSON object
      * NOT a string to be parsed as YAML or JSON.
      * <p>
-     * WILL BE:
+     * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v2.schema.Schema}</li>
+     *     <li>{@link AsyncAPISchema}</li>
+     *     <li>{@link OpenAPISchema}</li>
+     *     <li>{@link JsonSchema}</li>
+     *     <li>{@link AvroSchema}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @Nullable
-    @JsonDeserialize(using = MessagePayloadDeserializer.class)
     private Object payload;
 
     /**
@@ -78,7 +80,7 @@ public class Message extends ExtendableObject {
      * MUST BE:
      * <ul>
      *     <li>{@link com.asyncapi.v2._6_0.model.channel.message.CorrelationId}</li>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link Reference}</li>
      * </ul>
      */
     @Nullable
@@ -87,7 +89,7 @@ public class Message extends ExtendableObject {
 
     /**
      * A string containing the name of the schema format used to define the message payload.
-     * If omitted, implementations should parse the payload as a {@link com.asyncapi.v2.schema.Schema} object. When the payload is defined using a
+     * If omitted, implementations should parse the payload as a {@link AsyncAPISchema} object. When the payload is defined using a
      * $ref to a remote file, it is RECOMMENDED the schema format includes the file encoding type to allow implementations
      * to parse the file correctly. E.g., adding +yaml if content type is application/vnd.apache.avro results in
      * application/vnd.apache.avro+yaml.
@@ -149,7 +151,7 @@ public class Message extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link Reference}</li>
      *     <li>{@link MessageBinding}</li>
      * </ul>
      */
@@ -170,7 +172,7 @@ public class Message extends ExtendableObject {
      * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link Reference}</li>
      *     <li>{@link com.asyncapi.v2._6_0.model.channel.message.MessageTrait}</li>
      * </ul>
      */

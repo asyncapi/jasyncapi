@@ -1,0 +1,45 @@
+{
+  "type" : "oauth2",
+  "description" : "oauth2",
+  "flows" : {
+    "implicit" : {
+      "refreshUrl" : "https://example.com/api/oauth/refresh",
+      "availableScopes" : {
+        "write:pets" : "modify pets in your account",
+        "read:pets" : "read your pets"
+      },
+      "authorizationUrl" : "https://example.com/api/oauth/dialog"
+    },
+    "password" : {
+      "refreshUrl" : "https://example.com/api/oauth/refresh",
+      "availableScopes" : {
+        "write:pets" : "modify pets in your account",
+        "read:pets" : "read your pets"
+      },
+      "tokenUrl" : "https://example.com/api/oauth/token"
+    },
+    "clientCredentials" : {
+      "refreshUrl" : "https://example.com/api/oauth/refresh",
+      "availableScopes" : {
+        "write:pets" : "modify pets in your account",
+        "read:pets" : "read your pets"
+      },
+      "tokenUrl" : "https://example.com/api/oauth/token"
+    },
+    "authorizationCode" : {
+      "refreshUrl" : "https://example.com/api/oauth/refresh",
+      "availableScopes" : {
+        "write:pets" : "modify pets in your account",
+        "read:pets" : "read your pets"
+      },
+      "authorizationUrl" : "https://example.com/api/oauth/dialog",
+      "tokenUrl" : "https://example.com/api/oauth/token"
+    }
+  },
+  "scopes" : [ "write:pets", "read:pets" ],
+  "x-number" : 0,
+  "x-string" : "",
+  "x-object" : {
+    "property" : { }
+  }
+}

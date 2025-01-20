@@ -1,0 +1,15 @@
+{
+    "schemaFormat": "application/vnd.aai.asyncapi+json;version=2.1.0",
+    "schema": {
+        "$id": "https://example.com/regex-pattern.schema.json",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "title": "Regular Expression Pattern",
+        "type": "object",
+        "properties": {
+            "code": {
+                "type": "string",
+                "pattern": "^[A-Z]{3}-\\d{3}$"
+            }
+        }
+    }
+}

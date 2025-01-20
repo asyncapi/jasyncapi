@@ -1,0 +1,13 @@
+{
+  "bindingVersion": "latest",
+  "name": "my-sns-topic",
+  "policy": {
+    "statements": [
+      {
+        "effect": "Allow",
+        "principal": "*",
+        "action": "SNS:Publish"
+      }
+    ]
+  }
+}

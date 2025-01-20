@@ -1,0 +1,52 @@
+{
+  "topic": {
+    "name": "someTopic"
+  },
+  "consumers": [
+    {
+      "protocol": "sqs",
+      "endpoint": {
+        "name": "someQueue"
+      },
+      "filterPolicy": {
+        "store": [
+          "asyncapi_corp"
+        ],
+        "event": [
+          {
+            "anything-but": "order_cancelled"
+          }
+        ],
+        "customer_interests": [
+          "rugby",
+          "football",
+          "baseball"
+        ]
+      },
+      "filterPolicyScope": "MessageAttributes",
+      "rawMessageDelivery": false,
+      "redrivePolicy": {
+        "deadLetterQueue": {
+          "arn": "arn:aws:SQS:eu-west-1:0000000:123456789"
+        },
+        "maxReceiveCount": 25
+      },
+      "deliveryPolicy": {
+        "minDelayTarget": 10,
+        "maxDelayTarget": 100,
+        "numRetries": 5,
+        "numNoDelayRetries": 2,
+        "numMinDelayRetries": 3,
+        "numMaxDelayRetries": 5,
+        "backoffFunction": "linear",
+        "maxReceivesPerSecond": 2
+      }
+    }
+  ],
+  "x-number": 0,
+  "x-string": "",
+  "x-object": {
+    "property": {}
+  },
+  "ext-number": 1
+}

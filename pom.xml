@@ -6,7 +6,7 @@
 
     <groupId>com.asyncapi</groupId>
     <artifactId>asyncapi</artifactId>
-    <version>1.0.0-EAP-2</version>
+    <version>1.0.0-RC2</version>
 
     <!-- Project Information -->
     <name>AsyncAPI</name>
@@ -38,7 +38,7 @@
     </licenses>
     <scm>
         <url>https://github.com/asyncapi/java-asyncapi</url>
-        <connection>scm:git:https://github.com/asyncapi/java-asyncapi.git</connection>
+        <connection>scm:git:https://github.com/asyncapi/jasyncapi.git</connection>
         <tag>HEAD</tag>
     </scm>
 
@@ -49,12 +49,21 @@
     </modules>
 
     <properties>
-        <kotlin.version>1.8.0</kotlin.version>
-        <jackson.version>2.14.2</jackson.version>
-        <java.version>1.8</java.version>
-        <lombok.version>1.18.26</lombok.version>
-        <junit5.version>5.9.2</junit5.version>
+        <kotlin.version>1.9.23</kotlin.version>
+        <jackson.version>2.17.0</jackson.version>
+        <lombok.version>1.18.32</lombok.version>
+        <junit5.version>5.10.2</junit5.version>
         <dokka.version>1.7.0</dokka.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Build -->
+        <maven-toolchains-plugin.version>3.2.0</maven-toolchains-plugin.version>
+        <jdk.version>1.8</jdk.version>
+        <jdk-test.version>21</jdk-test.version>
+        <maven.compiler.source>${jdk.version}</maven.compiler.source>
+        <maven.compiler.target>${jdk.version}</maven.compiler.target>
+        <maven.compiler.testSource>${jdk-test.version}</maven.compiler.testSource>
+        <maven.compiler.testTarget>${jdk-test.version}</maven.compiler.testTarget>
     </properties>
 
     <dependencies>
@@ -77,16 +86,23 @@
             <version>${junit5.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-suite-engine</artifactId>
+            <version>1.10.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib</artifactId>
+            <version>${kotlin.version}</version>
+        </dependency>
+
     </dependencies>
 
     <dependencyManagement>
         <dependencies>
             <!-- Kotlin -->
-            <dependency>
-                <groupId>org.jetbrains.kotlin</groupId>
-                <artifactId>kotlin-stdlib-jdk8</artifactId>
-                <version>${kotlin.version}</version>
-            </dependency>
             <dependency>
                 <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-test</artifactId>
@@ -97,7 +113,7 @@
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <version>1.18.10</version>
+                <version>${lombok.version}</version>
             </dependency>
             <!-- Json/Yaml -->
             <dependency>
@@ -146,7 +162,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>3.2.1</version>
+                <version>3.3.1</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -159,7 +175,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.5.0</version>
+                <version>3.6.3</version>
+                <configuration>
+                    <doclint>missing</doclint>
+                </configuration>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -203,31 +222,26 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <jvmTarget>${java.version}</jvmTarget>
+                    <jvmTarget>${jdk-test.version}</jvmTarget>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
+                <artifactId>maven-toolchains-plugin</artifactId>
+                <version>${maven-toolchains-plugin.version}</version>
                 <executions>
                     <execution>
-                        <id>compile</id>
-                        <phase>compile</phase>
                         <goals>
-                            <goal>compile</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>testCompile</id>
-                        <phase>test-compile</phase>
-                        <goals>
-                            <goal>testCompile</goal>
+                            <goal>toolchain</goal>
                         </goals>
                     </execution>
                 </executions>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <toolchains>
+                        <jdk>
+                            <version>${jdk-test.version}</version>
+                        </jdk>
+                    </toolchains>
                 </configuration>
             </plugin>
             <!-- Plugins for release cycle -->

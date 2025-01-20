@@ -1,6 +1,6 @@
 package com.asyncapi.v2._0_0.model.info;
 
-import com.asyncapi.v2.ExtendableObject;
+import com.asyncapi.schemas.asyncapi.ExtendableObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,21 +26,23 @@ public class Info extends ExtendableObject {
 
     /**
      * Required.
-     *
+     * <p>
      * The title of the application.
      */
     @NotNull
     @JsonProperty
-    private String title;
+    @Builder.Default
+    private String title = "";
 
     /**
      * Required.
-     *
+     * <p>
      * Provides the version of the application API (not to be confused with the specification version).
      */
     @NotNull
     @JsonProperty
-    private String version;
+    @Builder.Default
+    private String version = "";
 
     /**
      * A short description of the application. CommonMark syntax can be used for rich text representation.

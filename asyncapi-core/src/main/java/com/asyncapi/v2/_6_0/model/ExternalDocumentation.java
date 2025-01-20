@@ -1,6 +1,6 @@
 package com.asyncapi.v2._6_0.model;
 
-import com.asyncapi.v2.ExtendableObject;
+import com.asyncapi.schemas.asyncapi.ExtendableObject;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -35,6 +35,7 @@ public class ExternalDocumentation extends ExtendableObject {
      * The URL for the target documentation. Value MUST be in the format of a URL.
      */
     @NotNull
-    private String url;
+    @Builder.Default
+    private String url = "";
 
 }

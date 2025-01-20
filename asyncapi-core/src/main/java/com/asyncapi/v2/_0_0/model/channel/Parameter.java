@@ -1,7 +1,7 @@
 package com.asyncapi.v2._0_0.model.channel;
 
-import com.asyncapi.v2.ExtendableObject;
-import com.asyncapi.v2.schema.Schema;
+import com.asyncapi.schemas.asyncapi.ExtendableObject;
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -36,11 +36,11 @@ public class Parameter extends ExtendableObject {
      */
     @JsonProperty
     @Nullable
-    private Schema schema;
+    private AsyncAPISchema schema;
 
     /**
      * A runtime expression that specifies the location of the parameter value.
-     *
+     * <p>
      * Even when a definition for the target field exists, it MUST NOT be used to validate this parameter but,
      * instead, the schema property MUST be used.
      */

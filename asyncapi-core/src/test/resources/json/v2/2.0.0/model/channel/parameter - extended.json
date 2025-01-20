@@ -1,0 +1,12 @@
+{
+  "description" : "Id of the user.",
+  "schema" : {
+    "type" : "string"
+  },
+  "location" : "$message.payload#/user/id",
+  "x-number" : 0,
+  "x-string" : "",
+  "x-object" : {
+    "property" : { }
+  }
+}

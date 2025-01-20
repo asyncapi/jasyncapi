@@ -1,6 +1,6 @@
 package com.asyncapi.v2._6_0.model.channel.message;
 
-import com.asyncapi.v2.ExtendableObject;
+import com.asyncapi.schemas.asyncapi.ExtendableObject;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -37,6 +37,7 @@ public class CorrelationId extends ExtendableObject {
      * A <a href="https://www.asyncapi.com/docs/reference/specification/v2.6.0#runtimeExpression">runtime expression</a> that specifies the location of the correlation ID.
      */
     @NotNull
-    private String location;
+    @Builder.Default
+    private String location = "";
 
 }

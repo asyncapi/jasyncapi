@@ -1,0 +1,18 @@
+{
+  "method": "GET",
+  "query": {
+    "type": "object",
+    "required": [
+      "companyId"
+    ],
+    "properties": {
+      "companyId": {
+        "type": "number",
+        "minimum": 1,
+        "description": "The Id of the company."
+      }
+    },
+    "additionalProperties": false
+  },
+  "bindingVersion": "0.2.0"
+}

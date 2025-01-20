@@ -1,0 +1,431 @@
+{
+  "action" : "send",
+  "channel" : {
+    "$ref" : "#/components/channels/channel"
+  },
+  "title" : "Send message operation",
+  "summary" : "Send message",
+  "description" : "Send message to remote server",
+  "security" : [ {
+    "type" : "apiKey",
+    "description" : "apiKey",
+    "in" : "user"
+  }, {
+    "$ref" : "#/components/security/plain"
+  } ],
+  "tags" : [ {
+    "name" : "messages",
+    "description" : "operations with messages",
+    "externalDocs" : {
+      "description" : "Messages validation rules",
+      "url" : "messages/validation-rules"
+    }
+  }, {
+    "$ref" : "#/components/tags/tag"
+  } ],
+  "externalDocs" : {
+    "description" : "Messages validation rules",
+    "url" : "messages/validation-rules"
+  },
+  "bindings" : {
+    "amqp" : {
+      "bindingVersion" : "0.2.0",
+      "expiration" : 100000,
+      "userId" : "guest",
+      "cc" : [ "user.logs" ],
+      "priority" : 10,
+      "deliveryMode" : 2,
+      "mandatory" : false,
+      "bcc" : [ "external.audit" ],
+      "replyTo" : "user.signedup",
+      "timestamp" : true,
+      "ack" : false
+    },
+    "amqp1" : {
+      "$ref" : "#/components/operationBindings/amqp1"
+    },
+    "anypointmq" : {
+      "$ref" : "#/components/operationBindings/anypointmq"
+    },
+    "googlepubsub" : {
+      "$ref" : "#/components/operationBindings/googlepubsub"
+    },
+    "http" : {
+      "bindingVersion" : "0.3.0",
+      "method" : "GET",
+      "query" : {
+        "type" : "object",
+        "required" : [ "companyId" ],
+        "properties" : {
+          "companyId" : {
+            "type" : "number",
+            "minimum" : 1,
+            "description" : "The Id of the company."
+          }
+        },
+        "additionalProperties" : false
+      }
+    },
+    "ibmmq" : {
+      "$ref" : "#/components/operationBindings/ibmmq"
+    },
+    "jms" : {
+      "$ref" : "#/components/operationBindings/jms"
+    },
+    "kafka" : {
+      "bindingVersion" : "0.5.0",
+      "groupId" : {
+        "type" : "string",
+        "enum" : [ "myGroupId" ]
+      },
+      "clientId" : {
+        "type" : "string",
+        "enum" : [ "myClientId" ]
+      }
+    },
+    "mercure" : {
+      "$ref" : "#/components/operationBindings/mercure"
+    },
+    "mqtt" : {
+      "bindingVersion" : "0.1.0",
+      "qos" : 2,
+      "retain" : true
+    },
+    "mqtt5" : {
+      "$ref" : "#/components/operationBindings/mqtt5"
+    },
+    "nats" : {
+      "bindingVersion" : "0.1.0",
+      "queue" : "messages"
+    },
+    "pulsar" : {
+      "$ref" : "#/components/operationBindings/pulsar"
+    },
+    "redis" : {
+      "$ref" : "#/components/operationBindings/redis"
+    },
+    "sns" : {
+      "$ref" : "#/components/operationBindings/sns"
+    },
+    "solace" : {
+      "dmqEligible" : false,
+      "bindingVersion" : "0.4.0",
+      "destinations" : [ {
+        "destinationType" : "queue",
+        "deliveryMode" : "persistent",
+        "queue" : {
+          "name" : "sampleQueue",
+          "topicSubscriptions" : [ "samples/*" ],
+          "accessType" : "nonexclusive"
+        }
+      }, {
+        "destinationType" : "topic",
+        "deliveryMode" : "persistent",
+        "topicSubscriptions" : [ "samples/*" ]
+      } ]
+    },
+    "sqs" : {
+      "$ref" : "#/components/operationBindings/sqs"
+    },
+    "stomp" : {
+      "$ref" : "#/components/operationBindings/stomp"
+    },
+    "ws" : {
+      "$ref" : "#/components/operationBindings/ws"
+    }
+  },
+  "traits" : [ {
+    "title" : "Send message operation",
+    "summary" : "Send message",
+    "description" : "Send message to remote server",
+    "security" : [ {
+      "type" : "apiKey",
+      "description" : "apiKey",
+      "in" : "user"
+    }, {
+      "$ref" : "#/components/security/plain"
+    } ],
+    "tags" : [ {
+      "name" : "messages",
+      "description" : "operations with messages",
+      "externalDocs" : {
+        "description" : "Messages validation rules",
+        "url" : "messages/validation-rules"
+      }
+    }, {
+      "$ref" : "#/components/tags/tag"
+    } ],
+    "externalDocs" : {
+      "description" : "Messages validation rules",
+      "url" : "messages/validation-rules"
+    },
+    "bindings" : {
+      "amqp" : {
+        "bindingVersion" : "0.2.0",
+        "expiration" : 100000,
+        "userId" : "guest",
+        "cc" : [ "user.logs" ],
+        "priority" : 10,
+        "deliveryMode" : 2,
+        "mandatory" : false,
+        "bcc" : [ "external.audit" ],
+        "replyTo" : "user.signedup",
+        "timestamp" : true,
+        "ack" : false
+      },
+      "amqp1" : {
+        "$ref" : "#/components/operationBindings/amqp1"
+      },
+      "anypointmq" : {
+        "$ref" : "#/components/operationBindings/anypointmq"
+      },
+      "googlepubsub" : {
+        "$ref" : "#/components/operationBindings/googlepubsub"
+      },
+      "http" : {
+        "bindingVersion" : "0.3.0",
+        "method" : "GET",
+        "query" : {
+          "type" : "object",
+          "required" : [ "companyId" ],
+          "properties" : {
+            "companyId" : {
+              "type" : "number",
+              "minimum" : 1,
+              "description" : "The Id of the company."
+            }
+          },
+          "additionalProperties" : false
+        }
+      },
+      "ibmmq" : {
+        "$ref" : "#/components/operationBindings/ibmmq"
+      },
+      "jms" : {
+        "$ref" : "#/components/operationBindings/jms"
+      },
+      "kafka" : {
+        "bindingVersion" : "0.5.0",
+        "groupId" : {
+          "type" : "string",
+          "enum" : [ "myGroupId" ]
+        },
+        "clientId" : {
+          "type" : "string",
+          "enum" : [ "myClientId" ]
+        }
+      },
+      "mercure" : {
+        "$ref" : "#/components/operationBindings/mercure"
+      },
+      "mqtt" : {
+        "bindingVersion" : "0.1.0",
+        "qos" : 2,
+        "retain" : true
+      },
+      "mqtt5" : {
+        "$ref" : "#/components/operationBindings/mqtt5"
+      },
+      "nats" : {
+        "bindingVersion" : "0.1.0",
+        "queue" : "messages"
+      },
+      "pulsar" : {
+        "$ref" : "#/components/operationBindings/pulsar"
+      },
+      "redis" : {
+        "$ref" : "#/components/operationBindings/redis"
+      },
+      "sns" : {
+        "$ref" : "#/components/operationBindings/sns"
+      },
+      "solace" : {
+        "dmqEligible" : false,
+        "bindingVersion" : "0.4.0",
+        "destinations" : [ {
+          "destinationType" : "queue",
+          "deliveryMode" : "persistent",
+          "queue" : {
+            "name" : "sampleQueue",
+            "topicSubscriptions" : [ "samples/*" ],
+            "accessType" : "nonexclusive"
+          }
+        }, {
+          "destinationType" : "topic",
+          "deliveryMode" : "persistent",
+          "topicSubscriptions" : [ "samples/*" ]
+        } ]
+      },
+      "sqs" : {
+        "$ref" : "#/components/operationBindings/sqs"
+      },
+      "stomp" : {
+        "$ref" : "#/components/operationBindings/stomp"
+      },
+      "ws" : {
+        "$ref" : "#/components/operationBindings/ws"
+      }
+    }
+  }, {
+    "title" : "Send message operation",
+    "summary" : "Send message",
+    "description" : "Send message to remote server",
+    "security" : [ {
+      "type" : "apiKey",
+      "description" : "apiKey",
+      "in" : "user"
+    }, {
+      "$ref" : "#/components/security/plain"
+    } ],
+    "tags" : [ {
+      "name" : "messages",
+      "description" : "operations with messages",
+      "externalDocs" : {
+        "description" : "Messages validation rules",
+        "url" : "messages/validation-rules"
+      }
+    }, {
+      "$ref" : "#/components/tags/tag"
+    } ],
+    "externalDocs" : {
+      "$ref" : "#/components/externalDocs/external-doc"
+    },
+    "bindings" : {
+      "amqp" : {
+        "bindingVersion" : "0.2.0",
+        "expiration" : 100000,
+        "userId" : "guest",
+        "cc" : [ "user.logs" ],
+        "priority" : 10,
+        "deliveryMode" : 2,
+        "mandatory" : false,
+        "bcc" : [ "external.audit" ],
+        "replyTo" : "user.signedup",
+        "timestamp" : true,
+        "ack" : false
+      },
+      "amqp1" : {
+        "$ref" : "#/components/operationBindings/amqp1"
+      },
+      "anypointmq" : {
+        "$ref" : "#/components/operationBindings/anypointmq"
+      },
+      "googlepubsub" : {
+        "$ref" : "#/components/operationBindings/googlepubsub"
+      },
+      "http" : {
+        "bindingVersion" : "0.3.0",
+        "method" : "GET",
+        "query" : {
+          "type" : "object",
+          "required" : [ "companyId" ],
+          "properties" : {
+            "companyId" : {
+              "type" : "number",
+              "minimum" : 1,
+              "description" : "The Id of the company."
+            }
+          },
+          "additionalProperties" : false
+        }
+      },
+      "ibmmq" : {
+        "$ref" : "#/components/operationBindings/ibmmq"
+      },
+      "jms" : {
+        "$ref" : "#/components/operationBindings/jms"
+      },
+      "kafka" : {
+        "bindingVersion" : "0.5.0",
+        "groupId" : {
+          "type" : "string",
+          "enum" : [ "myGroupId" ]
+        },
+        "clientId" : {
+          "type" : "string",
+          "enum" : [ "myClientId" ]
+        }
+      },
+      "mercure" : {
+        "$ref" : "#/components/operationBindings/mercure"
+      },
+      "mqtt" : {
+        "bindingVersion" : "0.1.0",
+        "qos" : 2,
+        "retain" : true
+      },
+      "mqtt5" : {
+        "$ref" : "#/components/operationBindings/mqtt5"
+      },
+      "nats" : {
+        "bindingVersion" : "0.1.0",
+        "queue" : "messages"
+      },
+      "pulsar" : {
+        "$ref" : "#/components/operationBindings/pulsar"
+      },
+      "redis" : {
+        "$ref" : "#/components/operationBindings/redis"
+      },
+      "sns" : {
+        "$ref" : "#/components/operationBindings/sns"
+      },
+      "solace" : {
+        "dmqEligible" : false,
+        "bindingVersion" : "0.4.0",
+        "destinations" : [ {
+          "destinationType" : "queue",
+          "deliveryMode" : "persistent",
+          "queue" : {
+            "name" : "sampleQueue",
+            "topicSubscriptions" : [ "samples/*" ],
+            "accessType" : "nonexclusive"
+          }
+        }, {
+          "destinationType" : "topic",
+          "deliveryMode" : "persistent",
+          "topicSubscriptions" : [ "samples/*" ]
+        } ]
+      },
+      "sqs" : {
+        "$ref" : "#/components/operationBindings/sqs"
+      },
+      "stomp" : {
+        "$ref" : "#/components/operationBindings/stomp"
+      },
+      "ws" : {
+        "$ref" : "#/components/operationBindings/ws"
+      }
+    }
+  }, {
+    "$ref" : "#/components/operations/trait"
+  } ],
+  "messages" : [ {
+    "$ref" : "#/components/messages/message 1"
+  }, {
+    "$ref" : "#/components/messages/message 2"
+  }, {
+    "$ref" : "#/components/messages/message 3"
+  } ],
+  "reply" : {
+    "address" : {
+      "description" : "Consumer inbox",
+      "location" : "$message.header#/replyTo"
+    },
+    "channel" : {
+      "$ref" : "#/components/channels/channel"
+    },
+    "messages" : [ {
+      "$ref" : "#/components/messages/message 1"
+    }, {
+      "$ref" : "#/components/messages/message 2"
+    }, {
+      "$ref" : "#/components/messages/message 3"
+    } ]
+  },
+  "x-number" : 0,
+  "x-string" : "",
+  "x-object" : {
+    "property" : { }
+  }
+}

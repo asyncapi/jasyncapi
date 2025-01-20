@@ -1,0 +1,23 @@
+{
+  "bindingVersion" : "0.2.0",
+  "is" : "routingKey",
+  "exchange" : {
+    "name" : "myExchange",
+    "type" : "topic",
+    "durable" : true,
+    "autoDelete" : false,
+    "vhost" : "/"
+  },
+  "queue" : {
+    "name" : "my-queue-name",
+    "durable" : true,
+    "exclusive" : true,
+    "autoDelete" : false,
+    "vhost" : "/"
+  },
+  "x-number" : 0,
+  "x-string" : "",
+  "x-object" : {
+    "property" : { }
+  }
+}

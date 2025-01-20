@@ -1,0 +1,7 @@
+{
+  "refreshUrl": "https://example.com/api/oauth/refresh",
+  "availableScopes": {
+    "write:pets": "modify pets in your account",
+    "read:pets": "read your pets"
+  }
+}

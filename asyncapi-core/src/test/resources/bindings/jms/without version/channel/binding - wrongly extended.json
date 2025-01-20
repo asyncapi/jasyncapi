@@ -1,0 +1,10 @@
+{
+  "destination": "user-signed-up",
+  "destinationType": "fifo-queue",
+  "x-number": 0,
+  "x-string": "",
+  "x-object": {
+    "property": {}
+  },
+  "ext-number": 1
+}

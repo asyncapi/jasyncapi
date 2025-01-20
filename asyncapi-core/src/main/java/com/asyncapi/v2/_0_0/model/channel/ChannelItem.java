@@ -1,11 +1,11 @@
 package com.asyncapi.v2._0_0.model.channel;
 
-import com.asyncapi.v2.ExtendableObject;
+import com.asyncapi.schemas.asyncapi.ExtendableObject;
 import com.asyncapi.v2._0_0.jackson.model.channel.ChannelParametersDeserializer;
-import com.asyncapi.v2._0_0.model.Reference;
+import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.v2._0_0.model.channel.operation.Operation;
-import com.asyncapi.v2.binding.channel.ChannelBinding;
-import com.asyncapi.v2.jackson.binding.channel.ChannelBindingsDeserializer;
+import com.asyncapi.bindings.ChannelBinding;
+import com.asyncapi.bindings.ChannelBindingsDeserializer;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
@@ -64,9 +64,9 @@ public class ChannelItem extends ExtendableObject {
     /**
      * A map of the parameters included in the channel name.
      * It SHOULD be present only when using channels with expressions (as defined by RFC 6570 section 2.2).
-     *
+     * <p>
      * This map MUST contain all the parameters used in the parent channel name.
-     *
+     * <p>
      * MUST BE:
      * <ul>
      *     <li>{@link Reference}</li>

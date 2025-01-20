@@ -1,0 +1,330 @@
+{
+  "operationId": "sendMessage",
+  "summary": "Send message",
+  "description": "Send message to remote server",
+  "tags": [
+    {
+      "name": "messages",
+      "description": "operations with messages",
+      "externalDocs": {
+        "description": "Messages validation rules",
+        "url": "messages/validation-rules"
+      }
+    }
+  ],
+  "externalDocs": {
+    "description": "Messages sending rules",
+    "url": "messages/sending-rules"
+  },
+  "bindings" : {
+    "amqp" : {
+      "expiration" : 100000,
+      "userId" : "guest",
+      "cc" : [ "user.logs" ],
+      "priority" : 10,
+      "deliveryMode" : 2,
+      "mandatory" : false,
+      "bcc" : [ "external.audit" ],
+      "replyTo" : "user.signedup",
+      "timestamp" : true,
+      "ack" : false,
+      "bindingVersion" : "0.2.0"
+    },
+    "amqp1" : { },
+    "anypointmq" : { },
+    "googlepubsub" : { },
+    "http" : {
+      "method" : "GET",
+      "query" : {
+        "type" : "object",
+        "required" : [ "companyId" ],
+        "properties" : {
+          "companyId" : {
+            "type" : "number",
+            "minimum" : 1,
+            "description" : "The Id of the company."
+          }
+        },
+        "additionalProperties" : false
+      },
+      "bindingVersion" : "0.3.0"
+    },
+    "ibmmq" : { },
+    "jms" : { },
+    "kafka" : {
+      "groupId" : {
+        "type" : "string",
+        "enum" : [ "myGroupId" ]
+      },
+      "clientId" : {
+        "type" : "string",
+        "enum" : [ "myClientId" ]
+      },
+      "bindingVersion" : "0.5.0"
+    },
+    "mercure" : { },
+    "mqtt" : {
+      "qos" : 2,
+      "retain" : true,
+      "bindingVersion" : "0.1.0"
+    },
+    "mqtt5" : { },
+    "nats" : {
+      "queue" : "messages",
+      "bindingVersion" : "0.1.0"
+    },
+    "pulsar" : { },
+    "redis" : { },
+    "sns" : {
+      "bindingVersion": "0.1.0",
+      "topic": {
+        "name": "someTopic"
+      },
+      "consumers": [
+        {
+          "protocol": "sqs",
+          "endpoint": {
+            "name": "someQueue"
+          },
+          "filterPolicy": {
+            "store": [
+              "asyncapi_corp"
+            ],
+            "event": [
+              {
+                "anything-but": "order_cancelled"
+              }
+            ],
+            "customer_interests": [
+              "rugby",
+              "football",
+              "baseball"
+            ]
+          },
+          "filterPolicyScope": "MessageAttributes",
+          "rawMessageDelivery": false,
+          "redrivePolicy": {
+            "deadLetterQueue": {
+              "arn": "arn:aws:SQS:eu-west-1:0000000:123456789"
+            },
+            "maxReceiveCount": 25
+          },
+          "deliveryPolicy": {
+            "minDelayTarget": 10,
+            "maxDelayTarget": 100,
+            "numRetries": 5,
+            "numNoDelayRetries": 2,
+            "numMinDelayRetries": 3,
+            "numMaxDelayRetries": 5,
+            "backoffFunction": "linear",
+            "maxReceivesPerSecond": 2
+          }
+        }
+      ]
+    },
+    "solace" : {
+      "dmqEligible" : false,
+      "bindingVersion" : "0.4.0",
+      "destinations" : [ {
+        "destinationType" : "queue",
+        "deliveryMode" : "persistent",
+        "queue" : {
+          "name" : "sampleQueue",
+          "topicSubscriptions" : [ "samples/*" ],
+          "accessType" : "nonexclusive"
+        }
+      }, {
+        "destinationType" : "topic",
+        "deliveryMode" : "persistent",
+        "topicSubscriptions" : [ "samples/*" ]
+      } ]
+    },
+    "sqs" : {
+      "queues": [
+        {
+          "name": "myQueue",
+          "fifoQueue": true,
+          "deduplicationScope": "messageGroup",
+          "fifoThroughputLimit": "perMessageGroupId",
+          "deliveryDelay": 10,
+          "redrivePolicy": {
+            "deadLetterQueue": {
+              "name": "myQueue_error"
+            },
+            "maxReceiveCount": 15
+          },
+          "policy": {
+            "statements": [
+              {
+                "effect": "Deny",
+                "principal": "arn:aws:iam::123456789012:user/dec.kolakowski",
+                "action": [
+                  "sqs:SendMessage",
+                  "sqs:ReceiveMessage"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "myQueue_error",
+          "deliveryDelay": 10
+        }
+      ],
+      "bindingVersion": "0.2.0"
+    },
+    "stomp" : { },
+    "ws" : { }
+  },
+  "traits": [
+    {
+      "$ref": "#/components/operationTraits/sendMessage"
+    },
+    {
+      "operationId": "sendMessage",
+      "summary": "Send message",
+      "description": "Send message to remote server",
+      "tags": [
+        {
+          "name": "messages",
+          "description": "operations with messages",
+          "externalDocs": {
+            "description": "Messages validation rules",
+            "url": "messages/validation-rules"
+          }
+        }
+      ],
+      "externalDocs": {
+        "description": "Messages sending rules",
+        "url": "messages/sending-rules"
+      },
+      "bindings": {
+        "amqp": {
+          "expiration": 100000,
+          "userId": "guest",
+          "cc": [
+            "user.logs"
+          ],
+          "priority": 10,
+          "deliveryMode": 2,
+          "mandatory": false,
+          "bcc": [
+            "external.audit"
+          ],
+          "replyTo": "user.signedup",
+          "timestamp": true,
+          "ack": false,
+          "bindingVersion": "0.2.0"
+        },
+        "amqp1": {},
+        "anypointmq": {},
+        "googlepubsub": {},
+        "http": {
+          "method": "GET",
+          "query": {
+            "type": "object",
+            "required": [
+              "companyId"
+            ],
+            "properties": {
+              "companyId": {
+                "type": "number",
+                "minimum": 1,
+                "description": "The Id of the company."
+              }
+            },
+            "additionalProperties": false
+          },
+          "bindingVersion": "0.3.0"
+        },
+        "ibmmq": {},
+        "jms": {},
+        "kafka": {
+          "groupId": {
+            "type": "string",
+            "enum": [
+              "myGroupId"
+            ]
+          },
+          "clientId": {
+            "type": "string",
+            "enum": [
+              "myClientId"
+            ]
+          },
+          "bindingVersion": "0.5.0"
+        },
+        "mercure": {},
+        "mqtt": {
+          "qos": 2,
+          "retain": true,
+          "bindingVersion": "0.1.0"
+        },
+        "mqtt5": {},
+        "nats": {
+          "queue": "messages",
+          "bindingVersion": "0.1.0"
+        },
+        "pulsar": {},
+        "redis": {},
+        "sns": {},
+        "solace": {
+          "dmqEligible" : false,
+          "bindingVersion" : "0.4.0",
+          "destinations" : [ {
+            "destinationType" : "queue",
+            "deliveryMode" : "persistent",
+            "queue" : {
+              "name" : "sampleQueue",
+              "topicSubscriptions" : [ "samples/*" ],
+              "accessType" : "nonexclusive"
+            }
+          }, {
+            "destinationType" : "topic",
+            "deliveryMode" : "persistent",
+            "topicSubscriptions" : [ "samples/*" ]
+          } ]
+        },
+        "sqs": {
+          "queues": [
+            {
+              "name": "myQueue",
+              "fifoQueue": true,
+              "deduplicationScope": "messageGroup",
+              "fifoThroughputLimit": "perMessageGroupId",
+              "deliveryDelay": 10,
+              "redrivePolicy": {
+                "deadLetterQueue": {
+                  "name": "myQueue_error"
+                },
+                "maxReceiveCount": 15
+              },
+              "policy": {
+                "statements": [
+                  {
+                    "effect": "Deny",
+                    "principal": "arn:aws:iam::123456789012:user/dec.kolakowski",
+                    "action": [
+                      "sqs:SendMessage",
+                      "sqs:ReceiveMessage"
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "name": "myQueue_error",
+              "deliveryDelay": 10
+            }
+          ],
+          "bindingVersion": "0.2.0"
+        },
+        "stomp": {},
+        "ws": {}
+      }
+    }
+  ],
+  "message": {
+    "$ref": "#/components/schemas/sendMessage"
+  }
+}

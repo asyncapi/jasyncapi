@@ -1,0 +1,150 @@
+{
+  "headers" : {
+    "type" : "object",
+    "properties" : {
+      "correlationId" : {
+        "type" : "string",
+        "description" : "Correlation ID set by application"
+      },
+      "applicationInstanceId" : {
+        "type" : "string",
+        "description" : "Unique identifier for a given instance of the publishing application"
+      }
+    }
+  },
+  "correlationId" : {
+    "description" : "Default Correlation ID",
+    "location" : "$message.header#/correlationId"
+  },
+  "schemaFormat" : "application/vnd.apache.avro+json;version=1.9.0",
+  "contentType" : "application/json",
+  "name" : "UserSignup",
+  "title" : "User signup",
+  "summary" : "Action to sign a user up.",
+  "description" : "A longer description",
+  "tags" : [ {
+    "name" : "user"
+  }, {
+    "name" : "signup"
+  }, {
+    "name" : "register"
+  } ],
+  "externalDocs" : {
+    "description" : "User sign up rules",
+    "url" : "messages/sign-up-rules"
+  },
+  "bindings" : {
+    "amqp" : {
+      "bindingVersion" : "0.2.0",
+      "contentEncoding" : "gzip",
+      "messageType" : "user.signup"
+    },
+    "amqp1" : {
+      "bindingVersion" : "0.1.0"
+    },
+    "anypointmq" : {
+      "bindingVersion" : "0.0.1",
+      "headers" : {
+        "type" : "object",
+        "properties" : {
+          "correlationId" : {
+            "type" : "string",
+            "description" : "Correlation ID set by application"
+          }
+        }
+      }
+    },
+    "googlepubsub" : {
+      "bindingVersion" : "0.1.0",
+      "schema" : {
+        "name" : "projects/your-project/schemas/message-avro",
+        "type" : "avro"
+      }
+    },
+    "http" : {
+      "bindingVersion" : "0.3.0",
+      "headers" : {
+        "type" : "object",
+        "properties" : {
+          "Content-Type" : {
+            "type" : "string",
+            "enum" : [ "application/json" ]
+          }
+        }
+      },
+      "statusCode" : 200
+    },
+    "ibmmq" : {
+      "bindingVersion" : "0.1.0",
+      "type" : "jms",
+      "headers" : "Content-Type: application/json",
+      "description" : "JMS stream message",
+      "expiry" : 0
+    },
+    "jms" : {
+      "bindingVersion" : "0.0.1"
+    },
+    "kafka" : {
+      "bindingVersion" : "0.5.0",
+      "key" : {
+        "type" : "string",
+        "enum" : [ "myKey" ]
+      },
+      "schemaIdLocation" : "payload",
+      "schemaIdPayloadEncoding" : "apicurio-new",
+      "schemaLookupStrategy" : "TopicIdStrategy"
+    },
+    "mercure" : {
+      "bindingVersion" : "0.1.0"
+    },
+    "mqtt" : {
+      "bindingVersion" : "0.1.0"
+    },
+    "mqtt5" : {
+      "bindingVersion" : "0.2.0"
+    },
+    "nats" : {
+      "bindingVersion" : "0.1.0"
+    },
+    "pulsar" : {
+      "bindingVersion" : "0.1.0"
+    },
+    "redis" : {
+      "bindingVersion" : "0.1.0"
+    },
+    "sns" : {
+      "bindingVersion" : "0.1.0"
+    },
+    "solace" : {
+      "bindingVersion" : "0.4.0"
+    },
+    "sqs" : {
+      "bindingVersion" : "0.2.0"
+    },
+    "stomp" : {
+      "bindingVersion" : "0.1.0"
+    },
+    "ws" : {
+      "bindingVersion" : "0.1.0"
+    }
+  },
+  "examples" : [ {
+    "headers" : {
+      "correlationId" : "my-correlation-id",
+      "applicationInstanceId" : "myInstanceId"
+    },
+    "payload" : {
+      "user" : {
+        "someUserKey" : "someUserValue"
+      },
+      "signup" : {
+        "someSignupKey" : "someSignupValue"
+      }
+    }
+  } ],
+  "x-number" : 0,
+  "x-string" : "",
+  "x-object" : {
+    "property" : { }
+  }
+}

@@ -1,6 +1,6 @@
 package com.asyncapi.v2._6_0.model.info;
 
-import com.asyncapi.v2.ExtendableObject;
+import com.asyncapi.schemas.asyncapi.ExtendableObject;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,7 +27,8 @@ public class License extends ExtendableObject {
      * Required. The license name used for the API.
      */
     @NotNull
-    private String name;
+    @Builder.Default
+    private String name = "";
 
     /**
      * A URL to the license used for the API. MUST be in the format of a URL.

@@ -1,14 +1,14 @@
 package com.asyncapi.v2._0_0.model.channel.operation;
 
-import com.asyncapi.v2.ExtendableObject;
+import com.asyncapi.schemas.asyncapi.ExtendableObject;
 import com.asyncapi.v2._0_0.jackson.model.channel.operation.OperationMessageDeserializer;
 import com.asyncapi.v2._0_0.jackson.model.channel.operation.OperationTraitsDeserializer;
 import com.asyncapi.v2._0_0.model.ExternalDocumentation;
-import com.asyncapi.v2._0_0.model.Reference;
+import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.v2._0_0.model.Tag;
 import com.asyncapi.v2._0_0.model.channel.message.Message;
-import com.asyncapi.v2.binding.operation.OperationBinding;
-import com.asyncapi.v2.jackson.binding.operation.OperationBindingsDeserializer;
+import com.asyncapi.bindings.OperationBinding;
+import com.asyncapi.bindings.OperationBindingsDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -40,7 +40,7 @@ public class Operation extends ExtendableObject {
 
     /**
      * Unique string used to identify the operation.
-     *
+     * <p>
      * The id MUST be unique among all operations described in the API. The operationId value is case-sensitive.
      * Tools and libraries MAY use the operationId to uniquely identify an operation, therefore, it is RECOMMENDED
      * to follow common programming naming conventions.
@@ -75,7 +75,7 @@ public class Operation extends ExtendableObject {
     /**
      * A map where the keys describe the name of the protocol and the values describe protocol-specific definitions
      * for the operation.
-     *
+     * <p>
      * Map describing protocol-specific definitions for an operation.
      */
     @Nullable
@@ -85,7 +85,7 @@ public class Operation extends ExtendableObject {
     /**
      * A list of traits to apply to the operation object. Traits MUST be merged into the operation object using the
      * JSON Merge Patch algorithm in the same order they are defined here.
-     *
+     * <p>
      * MUST BE:
      * <ul>
      *     <li>{@link Reference}</li>
@@ -99,7 +99,7 @@ public class Operation extends ExtendableObject {
     /**
      * A definition of the message that will be published or received on this channel. oneOf is allowed here to
      * specify multiple messages, however, a message MUST be valid only against one of the referenced message objects.
-     *
+     * <p>
      * MUST BE:
      * <ul>
      *     <li>{@link Reference}</li>

@@ -1,11 +1,11 @@
 package com.asyncapi.v2._0_0.model.channel.operation;
 
-import com.asyncapi.v2.ExtendableObject;
+import com.asyncapi.schemas.asyncapi.ExtendableObject;
 import com.asyncapi.v2._0_0.model.ExternalDocumentation;
 import com.asyncapi.v2._0_0.model.Tag;
 import com.asyncapi.v2._0_0.model.channel.message.MessageTrait;
-import com.asyncapi.v2.binding.operation.OperationBinding;
-import com.asyncapi.v2.jackson.binding.operation.OperationBindingsDeserializer;
+import com.asyncapi.bindings.OperationBinding;
+import com.asyncapi.bindings.OperationBindingsDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -39,7 +39,7 @@ public class OperationTrait extends ExtendableObject {
 
     /**
      * Unique string used to identify the operation.
-     *
+     * <p>
      * The id MUST be unique among all operations described in the API. The operationId value is case-sensitive.
      * Tools and libraries MAY use the operationId to uniquely identify an operation, therefore, it is RECOMMENDED
      * to follow common programming naming conventions.

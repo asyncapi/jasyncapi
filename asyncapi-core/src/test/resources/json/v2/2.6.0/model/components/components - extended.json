@@ -1,0 +1,2141 @@
+{
+  "schemas" : {
+    "Category" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "name" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Tag" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "name" : {
+          "type" : "string"
+        }
+      }
+    },
+    "User" : {
+      "$ref" : "#/components/schemas/user"
+    }
+  },
+  "servers" : {
+    "mqtt-test" : {
+      "url" : "{username}.gigantic-server.com:{port}/{basePath}",
+      "protocol" : "secure-mqtt",
+      "protocolVersion" : "5",
+      "description" : "The production API server",
+      "variables" : {
+        "username" : {
+          "description" : "This value is assigned by the service provider, in this example `gigantic-server.com`",
+          "default" : "demo"
+        },
+        "port" : {
+          "enum" : [ "8883", "8884" ],
+          "default" : "8883"
+        },
+        "basePath" : {
+          "$ref" : "#/components/serverVariables/basePath"
+        }
+      },
+      "security" : [ {
+        "mqttBroker" : [ ]
+      } ],
+      "tags" : [ {
+        "name" : "env:staging",
+        "description" : "This environment is a replica of the production environment"
+      } ],
+      "bindings" : {
+        "amqp" : {
+          "$ref" : "#/components/serverBindings/amqp"
+        },
+        "amqp1" : {
+          "bindingVersion" : "0.1.0"
+        },
+        "anypointmq" : {
+          "bindingVersion" : "0.0.1"
+        },
+        "googlepubsub" : {
+          "bindingVersion" : "0.2.0"
+        },
+        "http" : {
+          "bindingVersion" : "0.3.0"
+        },
+        "ibmmq" : {
+          "bindingVersion" : "0.1.0",
+          "groupId" : "PRODCLSTR1",
+          "ccdtQueueManagerName" : "*",
+          "cipherSpec" : "ANY_TLS12_OR_HIGHER",
+          "multiEndpointServer" : false,
+          "heartBeatInterval" : 300
+        },
+        "jms" : {
+          "bindingVersion" : "0.0.1",
+          "jmsConnectionFactory" : ""
+        },
+        "kafka" : {
+          "bindingVersion" : "0.5.0",
+          "schemaRegistryUrl" : "https://my-schema-registry.com",
+          "schemaRegistryVendor" : "confluent"
+        },
+        "mercure" : {
+          "bindingVersion" : "0.1.0"
+        },
+        "mqtt" : {
+          "bindingVersion" : "0.1.0",
+          "clientId" : "guest",
+          "cleanSession" : true,
+          "lastWill" : {
+            "topic" : "/last-wills",
+            "qos" : 2,
+            "message" : "Guest gone offline.",
+            "retain" : false
+          },
+          "keepAlive" : 60
+        },
+        "mqtt5" : {
+          "sessionExpiryInterval" : 60,
+          "bindingVersion" : "0.2.0"
+        },
+        "nats" : {
+          "bindingVersion" : "0.1.0"
+        },
+        "pulsar" : {
+          "bindingVersion" : "0.1.0",
+          "tenant" : "contoso"
+        },
+        "redis" : {
+          "bindingVersion" : "0.1.0"
+        },
+        "sns" : {
+          "bindingVersion" : "0.1.0"
+        },
+        "solace" : {
+          "bindingVersion" : "0.4.0",
+          "msgVpn" : "ProdVPN",
+          "clientName" : "transactions-broker"
+        },
+        "sqs" : {
+          "bindingVersion" : "0.2.0"
+        },
+        "stomp" : {
+          "bindingVersion" : "0.1.0"
+        },
+        "ws" : {
+          "bindingVersion" : "0.1.0"
+        }
+      }
+    },
+    "mqtt-stage" : {
+      "$ref" : "#/components/servers/mqtt-stage"
+    }
+  },
+  "serverVariables" : {
+    "port" : {
+      "description" : "To which port connect",
+      "examples" : [ "8883", "8884" ],
+      "enum" : [ "8883", "8884" ],
+      "default" : "8883"
+    },
+    "basePath" : {
+      "$ref" : "#/components/serverVariables/basePath"
+    }
+  },
+  "channels" : {
+    "sign-up" : {
+      "description" : "This channel is used to exchange messages about users signing up",
+      "servers" : [ "stage.sign" ],
+      "subscribe" : {
+        "operationId" : "sendMessage",
+        "summary" : "Send message",
+        "description" : "Send message to remote server",
+        "security" : [ {
+          "api_key" : [ "write:messages" ]
+        } ],
+        "tags" : [ {
+          "name" : "messages",
+          "description" : "operations with messages",
+          "externalDocs" : {
+            "description" : "Messages validation rules",
+            "url" : "messages/validation-rules"
+          }
+        } ],
+        "externalDocs" : {
+          "description" : "Messages sending rules",
+          "url" : "messages/sending-rules"
+        },
+        "bindings" : {
+          "amqp" : {
+            "bindingVersion" : "0.2.0",
+            "expiration" : 100000,
+            "userId" : "guest",
+            "cc" : [ "user.logs" ],
+            "priority" : 10,
+            "deliveryMode" : 2,
+            "mandatory" : false,
+            "bcc" : [ "external.audit" ],
+            "replyTo" : "user.signedup",
+            "timestamp" : true,
+            "ack" : false
+          },
+          "amqp1" : {
+            "$ref" : "#/components/operationBindings/amqp1"
+          },
+          "anypointmq" : {
+            "$ref" : "#/components/operationBindings/anypointmq"
+          },
+          "googlepubsub" : {
+            "$ref" : "#/components/operationBindings/googlepubsub"
+          },
+          "http" : {
+            "bindingVersion" : "0.3.0",
+            "method" : "GET",
+            "query" : {
+              "type" : "object",
+              "required" : [ "companyId" ],
+              "properties" : {
+                "companyId" : {
+                  "type" : "number",
+                  "minimum" : 1,
+                  "description" : "The Id of the company."
+                }
+              },
+              "additionalProperties" : false
+            }
+          },
+          "ibmmq" : {
+            "$ref" : "#/components/operationBindings/ibmmq"
+          },
+          "jms" : {
+            "$ref" : "#/components/operationBindings/jms"
+          },
+          "kafka" : {
+            "bindingVersion" : "0.5.0",
+            "groupId" : {
+              "type" : "string",
+              "enum" : [ "myGroupId" ]
+            },
+            "clientId" : {
+              "type" : "string",
+              "enum" : [ "myClientId" ]
+            }
+          },
+          "mercure" : {
+            "$ref" : "#/components/operationBindings/mercure"
+          },
+          "mqtt" : {
+            "bindingVersion" : "0.1.0",
+            "qos" : 2,
+            "retain" : true
+          },
+          "mqtt5" : {
+            "$ref" : "#/components/operationBindings/mqtt5"
+          },
+          "nats" : {
+            "bindingVersion" : "0.1.0",
+            "queue" : "messages"
+          },
+          "pulsar" : {
+            "$ref" : "#/components/operationBindings/pulsar"
+          },
+          "redis" : {
+            "$ref" : "#/components/operationBindings/redis"
+          },
+          "sns" : {
+            "$ref" : "#/components/operationBindings/sns"
+          },
+          "solace" : {
+            "dmqEligible" : false,
+            "bindingVersion" : "0.4.0",
+            "destinations" : [ {
+              "destinationType" : "queue",
+              "deliveryMode" : "persistent",
+              "queue" : {
+                "name" : "sampleQueue",
+                "topicSubscriptions" : [ "samples/*" ],
+                "accessType" : "nonexclusive"
+              }
+            }, {
+              "destinationType" : "topic",
+              "deliveryMode" : "persistent",
+              "topicSubscriptions" : [ "samples/*" ]
+            } ]
+          },
+          "sqs" : {
+            "$ref" : "#/components/operationBindings/sqs"
+          },
+          "stomp" : {
+            "$ref" : "#/components/operationBindings/stomp"
+          },
+          "ws" : {
+            "$ref" : "#/components/operationBindings/ws"
+          }
+        },
+        "traits" : [ {
+          "$ref" : "#/components/operationTraits/sendMessage"
+        }, {
+          "operationId" : "sendMessage",
+          "summary" : "Send message",
+          "description" : "Send message to remote server",
+          "security" : [ {
+            "api_key" : [ "write:messages" ]
+          } ],
+          "tags" : [ {
+            "name" : "messages",
+            "description" : "operations with messages",
+            "externalDocs" : {
+              "description" : "Messages validation rules",
+              "url" : "messages/validation-rules"
+            }
+          } ],
+          "externalDocs" : {
+            "description" : "Messages sending rules",
+            "url" : "messages/sending-rules"
+          },
+          "bindings" : {
+            "amqp" : {
+              "bindingVersion" : "0.2.0",
+              "expiration" : 100000,
+              "userId" : "guest",
+              "cc" : [ "user.logs" ],
+              "priority" : 10,
+              "deliveryMode" : 2,
+              "mandatory" : false,
+              "bcc" : [ "external.audit" ],
+              "replyTo" : "user.signedup",
+              "timestamp" : true,
+              "ack" : false
+            },
+            "amqp1" : {
+              "$ref" : "#/components/operationBindings/amqp1"
+            },
+            "anypointmq" : {
+              "$ref" : "#/components/operationBindings/anypointmq"
+            },
+            "googlepubsub" : {
+              "$ref" : "#/components/operationBindings/googlepubsub"
+            },
+            "http" : {
+              "bindingVersion" : "0.3.0",
+              "method" : "GET",
+              "query" : {
+                "type" : "object",
+                "required" : [ "companyId" ],
+                "properties" : {
+                  "companyId" : {
+                    "type" : "number",
+                    "minimum" : 1,
+                    "description" : "The Id of the company."
+                  }
+                },
+                "additionalProperties" : false
+              }
+            },
+            "ibmmq" : {
+              "$ref" : "#/components/operationBindings/ibmmq"
+            },
+            "jms" : {
+              "$ref" : "#/components/operationBindings/jms"
+            },
+            "kafka" : {
+              "bindingVersion" : "0.5.0",
+              "groupId" : {
+                "type" : "string",
+                "enum" : [ "myGroupId" ]
+              },
+              "clientId" : {
+                "type" : "string",
+                "enum" : [ "myClientId" ]
+              }
+            },
+            "mercure" : {
+              "$ref" : "#/components/operationBindings/mercure"
+            },
+            "mqtt" : {
+              "bindingVersion" : "0.1.0",
+              "qos" : 2,
+              "retain" : true
+            },
+            "mqtt5" : {
+              "$ref" : "#/components/operationBindings/mqtt5"
+            },
+            "nats" : {
+              "bindingVersion" : "0.1.0",
+              "queue" : "messages"
+            },
+            "pulsar" : {
+              "$ref" : "#/components/operationBindings/pulsar"
+            },
+            "redis" : {
+              "$ref" : "#/components/operationBindings/redis"
+            },
+            "sns" : {
+              "$ref" : "#/components/operationBindings/sns"
+            },
+            "solace" : {
+              "dmqEligible" : false,
+              "bindingVersion" : "0.4.0",
+              "destinations" : [ {
+                "destinationType" : "queue",
+                "deliveryMode" : "persistent",
+                "queue" : {
+                  "name" : "sampleQueue",
+                  "topicSubscriptions" : [ "samples/*" ],
+                  "accessType" : "nonexclusive"
+                }
+              }, {
+                "destinationType" : "topic",
+                "deliveryMode" : "persistent",
+                "topicSubscriptions" : [ "samples/*" ]
+              } ]
+            },
+            "sqs" : {
+              "$ref" : "#/components/operationBindings/sqs"
+            },
+            "stomp" : {
+              "$ref" : "#/components/operationBindings/stomp"
+            },
+            "ws" : {
+              "$ref" : "#/components/operationBindings/ws"
+            }
+          }
+        } ],
+        "message" : {
+          "oneOf" : [ {
+            "$ref" : "#/components/schemas/sendMessage"
+          }, {
+            "messageId" : "userSignup",
+            "headers" : {
+              "type" : "object",
+              "properties" : {
+                "correlationId" : {
+                  "type" : "string",
+                  "description" : "Correlation ID set by application"
+                },
+                "applicationInstanceId" : {
+                  "type" : "string",
+                  "description" : "Unique identifier for a given instance of the publishing application"
+                }
+              }
+            },
+            "payload" : {
+              "type" : "object",
+              "properties" : {
+                "user" : {
+                  "$ref" : "#/components/schemas/userCreate"
+                },
+                "signup" : {
+                  "$ref" : "#/components/schemas/signup"
+                }
+              }
+            },
+            "correlationId" : {
+              "description" : "Default Correlation ID",
+              "location" : "$message.header#/correlationId"
+            },
+            "schemaFormat" : "application/vnd.aai.asyncapi;version=2.6.0",
+            "contentType" : "application/json",
+            "name" : "UserSignup",
+            "title" : "User signup",
+            "summary" : "Action to sign a user up.",
+            "description" : "A longer description",
+            "tags" : [ {
+              "name" : "user"
+            }, {
+              "name" : "signup"
+            }, {
+              "name" : "register"
+            } ],
+            "externalDocs" : {
+              "description" : "User sign up rules",
+              "url" : "messages/sign-up-rules"
+            },
+            "bindings" : {
+              "amqp" : {
+                "bindingVersion" : "0.2.0",
+                "contentEncoding" : "gzip",
+                "messageType" : "user.signup"
+              },
+              "amqp1" : {
+                "$ref" : "#/components/messageBindings/amqp1"
+              },
+              "anypointmq" : {
+                "bindingVersion" : "0.0.1",
+                "headers" : {
+                  "type" : "object",
+                  "properties" : {
+                    "correlationId" : {
+                      "type" : "string",
+                      "description" : "Correlation ID set by application"
+                    }
+                  }
+                }
+              },
+              "googlepubsub" : {
+                "bindingVersion" : "0.1.0",
+                "schema" : {
+                  "name" : "projects/your-project/schemas/message-avro",
+                  "type" : "avro"
+                }
+              },
+              "http" : {
+                "bindingVersion" : "0.3.0",
+                "headers" : {
+                  "type" : "object",
+                  "properties" : {
+                    "Content-Type" : {
+                      "type" : "string",
+                      "enum" : [ "application/json" ]
+                    }
+                  }
+                },
+                "statusCode" : 200
+              },
+              "ibmmq" : {
+                "bindingVersion" : "0.1.0",
+                "type" : "jms",
+                "headers" : "Content-Type: application/json",
+                "description" : "JMS stream message",
+                "expiry" : 0
+              },
+              "jms" : {
+                "$ref" : "#/components/messageBindings/jms"
+              },
+              "kafka" : {
+                "bindingVersion" : "0.5.0",
+                "key" : {
+                  "type" : "string",
+                  "enum" : [ "myKey" ]
+                },
+                "schemaIdLocation" : "payload",
+                "schemaIdPayloadEncoding" : "apicurio-new",
+                "schemaLookupStrategy" : "TopicIdStrategy"
+              },
+              "mercure" : {
+                "$ref" : "#/components/messageBindings/mercure"
+              },
+              "mqtt" : {
+                "bindingVersion" : "0.1.0"
+              },
+              "mqtt5" : {
+                "$ref" : "#/components/messageBindings/mqtt5"
+              },
+              "nats" : {
+                "$ref" : "#/components/messageBindings/nats"
+              },
+              "pulsar" : {
+                "$ref" : "#/components/messageBindings/pulsar"
+              },
+              "redis" : {
+                "$ref" : "#/components/messageBindings/redis"
+              },
+              "sns" : {
+                "$ref" : "#/components/messageBindings/sns"
+              },
+              "solace" : {
+                "$ref" : "#/components/messageBindings/solace"
+              },
+              "sqs" : {
+                "$ref" : "#/components/messageBindings/sqs"
+              },
+              "stomp" : {
+                "$ref" : "#/components/messageBindings/stomp"
+              },
+              "ws" : {
+                "$ref" : "#/components/messageBindings/ws"
+              }
+            },
+            "examples" : [ {
+              "headers" : {
+                "correlationId" : "my-correlation-id",
+                "applicationInstanceId" : "myInstanceId"
+              },
+              "payload" : {
+                "user" : {
+                  "someUserKey" : "someUserValue"
+                },
+                "signup" : {
+                  "someSignupKey" : "someSignupValue"
+                }
+              },
+              "name" : "SimpleSignup",
+              "summary" : "A simple UserSignup example message"
+            } ],
+            "traits" : [ {
+              "$ref" : "#/components/messageTraits/commonHeaders"
+            } ]
+          } ]
+        }
+      },
+      "publish" : {
+        "operationId" : "sendMessage",
+        "summary" : "Send message",
+        "description" : "Send message to remote server",
+        "security" : [ {
+          "api_key" : [ "write:messages" ]
+        } ],
+        "tags" : [ {
+          "name" : "messages",
+          "description" : "operations with messages",
+          "externalDocs" : {
+            "description" : "Messages validation rules",
+            "url" : "messages/validation-rules"
+          }
+        } ],
+        "externalDocs" : {
+          "description" : "Messages sending rules",
+          "url" : "messages/sending-rules"
+        },
+        "bindings" : {
+          "amqp" : {
+            "bindingVersion" : "0.2.0",
+            "expiration" : 100000,
+            "userId" : "guest",
+            "cc" : [ "user.logs" ],
+            "priority" : 10,
+            "deliveryMode" : 2,
+            "mandatory" : false,
+            "bcc" : [ "external.audit" ],
+            "replyTo" : "user.signedup",
+            "timestamp" : true,
+            "ack" : false
+          },
+          "amqp1" : {
+            "$ref" : "#/components/operationBindings/amqp1"
+          },
+          "anypointmq" : {
+            "$ref" : "#/components/operationBindings/anypointmq"
+          },
+          "googlepubsub" : {
+            "$ref" : "#/components/operationBindings/googlepubsub"
+          },
+          "http" : {
+            "bindingVersion" : "0.3.0",
+            "method" : "GET",
+            "query" : {
+              "type" : "object",
+              "required" : [ "companyId" ],
+              "properties" : {
+                "companyId" : {
+                  "type" : "number",
+                  "minimum" : 1,
+                  "description" : "The Id of the company."
+                }
+              },
+              "additionalProperties" : false
+            }
+          },
+          "ibmmq" : {
+            "$ref" : "#/components/operationBindings/ibmmq"
+          },
+          "jms" : {
+            "$ref" : "#/components/operationBindings/jms"
+          },
+          "kafka" : {
+            "bindingVersion" : "0.5.0",
+            "groupId" : {
+              "type" : "string",
+              "enum" : [ "myGroupId" ]
+            },
+            "clientId" : {
+              "type" : "string",
+              "enum" : [ "myClientId" ]
+            }
+          },
+          "mercure" : {
+            "$ref" : "#/components/operationBindings/mercure"
+          },
+          "mqtt" : {
+            "bindingVersion" : "0.1.0",
+            "qos" : 2,
+            "retain" : true
+          },
+          "mqtt5" : {
+            "$ref" : "#/components/operationBindings/mqtt5"
+          },
+          "nats" : {
+            "bindingVersion" : "0.1.0",
+            "queue" : "messages"
+          },
+          "pulsar" : {
+            "$ref" : "#/components/operationBindings/pulsar"
+          },
+          "redis" : {
+            "$ref" : "#/components/operationBindings/redis"
+          },
+          "sns" : {
+            "$ref" : "#/components/operationBindings/sns"
+          },
+          "solace" : {
+            "dmqEligible" : false,
+            "bindingVersion" : "0.4.0",
+            "destinations" : [ {
+              "destinationType" : "queue",
+              "deliveryMode" : "persistent",
+              "queue" : {
+                "name" : "sampleQueue",
+                "topicSubscriptions" : [ "samples/*" ],
+                "accessType" : "nonexclusive"
+              }
+            }, {
+              "destinationType" : "topic",
+              "deliveryMode" : "persistent",
+              "topicSubscriptions" : [ "samples/*" ]
+            } ]
+          },
+          "sqs" : {
+            "$ref" : "#/components/operationBindings/sqs"
+          },
+          "stomp" : {
+            "$ref" : "#/components/operationBindings/stomp"
+          },
+          "ws" : {
+            "$ref" : "#/components/operationBindings/ws"
+          }
+        },
+        "traits" : [ {
+          "$ref" : "#/components/operationTraits/sendMessage"
+        }, {
+          "operationId" : "sendMessage",
+          "summary" : "Send message",
+          "description" : "Send message to remote server",
+          "security" : [ {
+            "api_key" : [ "write:messages" ]
+          } ],
+          "tags" : [ {
+            "name" : "messages",
+            "description" : "operations with messages",
+            "externalDocs" : {
+              "description" : "Messages validation rules",
+              "url" : "messages/validation-rules"
+            }
+          } ],
+          "externalDocs" : {
+            "description" : "Messages sending rules",
+            "url" : "messages/sending-rules"
+          },
+          "bindings" : {
+            "amqp" : {
+              "bindingVersion" : "0.2.0",
+              "expiration" : 100000,
+              "userId" : "guest",
+              "cc" : [ "user.logs" ],
+              "priority" : 10,
+              "deliveryMode" : 2,
+              "mandatory" : false,
+              "bcc" : [ "external.audit" ],
+              "replyTo" : "user.signedup",
+              "timestamp" : true,
+              "ack" : false
+            },
+            "amqp1" : {
+              "$ref" : "#/components/operationBindings/amqp1"
+            },
+            "anypointmq" : {
+              "$ref" : "#/components/operationBindings/anypointmq"
+            },
+            "googlepubsub" : {
+              "$ref" : "#/components/operationBindings/googlepubsub"
+            },
+            "http" : {
+              "bindingVersion" : "0.3.0",
+              "method" : "GET",
+              "query" : {
+                "type" : "object",
+                "required" : [ "companyId" ],
+                "properties" : {
+                  "companyId" : {
+                    "type" : "number",
+                    "minimum" : 1,
+                    "description" : "The Id of the company."
+                  }
+                },
+                "additionalProperties" : false
+              }
+            },
+            "ibmmq" : {
+              "$ref" : "#/components/operationBindings/ibmmq"
+            },
+            "jms" : {
+              "$ref" : "#/components/operationBindings/jms"
+            },
+            "kafka" : {
+              "bindingVersion" : "0.5.0",
+              "groupId" : {
+                "type" : "string",
+                "enum" : [ "myGroupId" ]
+              },
+              "clientId" : {
+                "type" : "string",
+                "enum" : [ "myClientId" ]
+              }
+            },
+            "mercure" : {
+              "$ref" : "#/components/operationBindings/mercure"
+            },
+            "mqtt" : {
+              "bindingVersion" : "0.1.0",
+              "qos" : 2,
+              "retain" : true
+            },
+            "mqtt5" : {
+              "$ref" : "#/components/operationBindings/mqtt5"
+            },
+            "nats" : {
+              "bindingVersion" : "0.1.0",
+              "queue" : "messages"
+            },
+            "pulsar" : {
+              "$ref" : "#/components/operationBindings/pulsar"
+            },
+            "redis" : {
+              "$ref" : "#/components/operationBindings/redis"
+            },
+            "sns" : {
+              "$ref" : "#/components/operationBindings/sns"
+            },
+            "solace" : {
+              "dmqEligible" : false,
+              "bindingVersion" : "0.4.0",
+              "destinations" : [ {
+                "destinationType" : "queue",
+                "deliveryMode" : "persistent",
+                "queue" : {
+                  "name" : "sampleQueue",
+                  "topicSubscriptions" : [ "samples/*" ],
+                  "accessType" : "nonexclusive"
+                }
+              }, {
+                "destinationType" : "topic",
+                "deliveryMode" : "persistent",
+                "topicSubscriptions" : [ "samples/*" ]
+              } ]
+            },
+            "sqs" : {
+              "$ref" : "#/components/operationBindings/sqs"
+            },
+            "stomp" : {
+              "$ref" : "#/components/operationBindings/stomp"
+            },
+            "ws" : {
+              "$ref" : "#/components/operationBindings/ws"
+            }
+          }
+        } ],
+        "message" : {
+          "messageId" : "userSignup",
+          "headers" : {
+            "type" : "object",
+            "properties" : {
+              "correlationId" : {
+                "type" : "string",
+                "description" : "Correlation ID set by application"
+              },
+              "applicationInstanceId" : {
+                "type" : "string",
+                "description" : "Unique identifier for a given instance of the publishing application"
+              }
+            }
+          },
+          "payload" : {
+            "type" : "object",
+            "properties" : {
+              "user" : {
+                "$ref" : "#/components/schemas/userCreate"
+              },
+              "signup" : {
+                "$ref" : "#/components/schemas/signup"
+              }
+            }
+          },
+          "correlationId" : {
+            "description" : "Default Correlation ID",
+            "location" : "$message.header#/correlationId"
+          },
+          "schemaFormat" : "application/vnd.aai.asyncapi;version=2.6.0",
+          "contentType" : "application/json",
+          "name" : "UserSignup",
+          "title" : "User signup",
+          "summary" : "Action to sign a user up.",
+          "description" : "A longer description",
+          "tags" : [ {
+            "name" : "user"
+          }, {
+            "name" : "signup"
+          }, {
+            "name" : "register"
+          } ],
+          "externalDocs" : {
+            "description" : "User sign up rules",
+            "url" : "messages/sign-up-rules"
+          },
+          "bindings" : {
+            "amqp" : {
+              "bindingVersion" : "0.2.0",
+              "contentEncoding" : "gzip",
+              "messageType" : "user.signup"
+            },
+            "amqp1" : {
+              "$ref" : "#/components/messageBindings/amqp1"
+            },
+            "anypointmq" : {
+              "bindingVersion" : "0.0.1",
+              "headers" : {
+                "type" : "object",
+                "properties" : {
+                  "correlationId" : {
+                    "type" : "string",
+                    "description" : "Correlation ID set by application"
+                  }
+                }
+              }
+            },
+            "googlepubsub" : {
+              "bindingVersion" : "0.1.0",
+              "schema" : {
+                "name" : "projects/your-project/schemas/message-avro",
+                "type" : "avro"
+              }
+            },
+            "http" : {
+              "bindingVersion" : "0.3.0",
+              "headers" : {
+                "type" : "object",
+                "properties" : {
+                  "Content-Type" : {
+                    "type" : "string",
+                    "enum" : [ "application/json" ]
+                  }
+                }
+              },
+              "statusCode" : 200
+            },
+            "ibmmq" : {
+              "bindingVersion" : "0.1.0",
+              "type" : "jms",
+              "headers" : "Content-Type: application/json",
+              "description" : "JMS stream message",
+              "expiry" : 0
+            },
+            "jms" : {
+              "$ref" : "#/components/messageBindings/jms"
+            },
+            "kafka" : {
+              "bindingVersion" : "0.5.0",
+              "key" : {
+                "type" : "string",
+                "enum" : [ "myKey" ]
+              },
+              "schemaIdLocation" : "payload",
+              "schemaIdPayloadEncoding" : "apicurio-new",
+              "schemaLookupStrategy" : "TopicIdStrategy"
+            },
+            "mercure" : {
+              "$ref" : "#/components/messageBindings/mercure"
+            },
+            "mqtt" : {
+              "bindingVersion" : "0.1.0"
+            },
+            "mqtt5" : {
+              "$ref" : "#/components/messageBindings/mqtt5"
+            },
+            "nats" : {
+              "$ref" : "#/components/messageBindings/nats"
+            },
+            "pulsar" : {
+              "$ref" : "#/components/messageBindings/pulsar"
+            },
+            "redis" : {
+              "$ref" : "#/components/messageBindings/redis"
+            },
+            "sns" : {
+              "$ref" : "#/components/messageBindings/sns"
+            },
+            "solace" : {
+              "$ref" : "#/components/messageBindings/solace"
+            },
+            "sqs" : {
+              "$ref" : "#/components/messageBindings/sqs"
+            },
+            "stomp" : {
+              "$ref" : "#/components/messageBindings/stomp"
+            },
+            "ws" : {
+              "$ref" : "#/components/messageBindings/ws"
+            }
+          },
+          "examples" : [ {
+            "headers" : {
+              "correlationId" : "my-correlation-id",
+              "applicationInstanceId" : "myInstanceId"
+            },
+            "payload" : {
+              "user" : {
+                "someUserKey" : "someUserValue"
+              },
+              "signup" : {
+                "someSignupKey" : "someSignupValue"
+              }
+            },
+            "name" : "SimpleSignup",
+            "summary" : "A simple UserSignup example message"
+          } ],
+          "traits" : [ {
+            "$ref" : "#/components/messageTraits/commonHeaders"
+          } ]
+        }
+      },
+      "parameters" : {
+        "userId" : {
+          "description" : "Id of the user.",
+          "schema" : {
+            "type" : "string"
+          },
+          "location" : "$message.payload#/user/id"
+        }
+      },
+      "bindings" : {
+        "amqp" : {
+          "bindingVersion" : "0.2.0",
+          "is" : "routingKey",
+          "exchange" : {
+            "name" : "myExchange",
+            "type" : "topic",
+            "durable" : true,
+            "autoDelete" : false,
+            "vhost" : "/"
+          },
+          "queue" : {
+            "name" : "my-queue-name",
+            "durable" : true,
+            "exclusive" : true,
+            "autoDelete" : false,
+            "vhost" : "/"
+          }
+        },
+        "amqp1" : {
+          "$ref" : "#/components/channelBindings/amqp1"
+        },
+        "anypointmq" : {
+          "bindingVersion" : "0.0.1",
+          "destination" : "user-signup-exchg",
+          "destinationType" : "exchange"
+        },
+        "googlepubsub" : {
+          "bindingVersion" : "0.1.0",
+          "topic" : "projects/your-project/topics/topic-proto-schema",
+          "messageRetentionDuration" : "86400s",
+          "messageStoragePolicy" : {
+            "allowedPersistenceRegions" : [ "us-central1", "us-central2", "us-east1", "us-east4", "us-east5", "us-east7", "us-south1", "us-west1", "us-west2", "us-west3", "us-west4" ]
+          },
+          "schemaSettings" : {
+            "encoding" : "binary",
+            "name" : "projects/your-project/schemas/message-proto"
+          }
+        },
+        "http" : {
+          "$ref" : "#/components/channelBindings/http"
+        },
+        "ibmmq" : {
+          "bindingVersion" : "0.1.0",
+          "destinationType" : "topic",
+          "queue" : {
+            "objectName" : "message",
+            "isPartitioned" : false,
+            "exclusive" : true
+          },
+          "topic" : {
+            "string" : "messages",
+            "objectName" : "message",
+            "durablePermitted" : true,
+            "lastMsgRetained" : true
+          },
+          "maxMsgLength" : 1024
+        },
+        "jms" : {
+          "$ref" : "#/components/channelBindings/jms"
+        },
+        "kafka" : {
+          "bindingVersion" : "0.5.0",
+          "topic" : "my-specific-topic-name",
+          "partitions" : 20,
+          "replicas" : 3,
+          "topicConfiguration" : {
+            "cleanup.policy" : [ "delete", "compact" ],
+            "retention.ms" : 604800000,
+            "retention.bytes" : 1000000000,
+            "delete.retention.ms" : 86400000,
+            "max.message.bytes" : 1048588
+          }
+        },
+        "mercure" : {
+          "$ref" : "#/components/channelBindings/mercure"
+        },
+        "mqtt" : {
+          "$ref" : "#/components/channelBindings/mqtt"
+        },
+        "mqtt5" : {
+          "$ref" : "#/components/channelBindings/mqtt5"
+        },
+        "nats" : {
+          "$ref" : "#/components/channelBindings/nats"
+        },
+        "pulsar" : {
+          "bindingVersion" : "0.1.0",
+          "namespace" : "staging",
+          "persistence" : "persistent",
+          "compaction" : 1000,
+          "geo-replication" : [ "us-east1", "us-west1" ],
+          "retention" : {
+            "time" : 7,
+            "size" : 1000
+          },
+          "ttl" : 360,
+          "deduplication" : false
+        },
+        "redis" : {
+          "$ref" : "#/components/channelBindings/redis"
+        },
+        "sns" : {
+          "$ref" : "#/components/channelBindings/sns"
+        },
+        "solace" : {
+          "$ref" : "#/components/channelBindings/solace"
+        },
+        "sqs" : {
+          "$ref" : "#/components/channelBindings/sqs"
+        },
+        "stomp" : {
+          "$ref" : "#/components/channelBindings/stomp"
+        },
+        "ws" : {
+          "bindingVersion" : "0.1.0",
+          "method" : "GET",
+          "query" : {
+            "type" : "object",
+            "properties" : {
+              "ref" : {
+                "type" : "string",
+                "description" : "Referral."
+              }
+            }
+          },
+          "headers" : {
+            "type" : "object",
+            "properties" : {
+              "Authentication" : {
+                "type" : "string",
+                "description" : "Authentication token"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "messages" : {
+    "userSignup" : {
+      "messageId" : "userSignup",
+      "headers" : {
+        "type" : "object",
+        "properties" : {
+          "correlationId" : {
+            "type" : "string",
+            "description" : "Correlation ID set by application"
+          },
+          "applicationInstanceId" : {
+            "type" : "string",
+            "description" : "Unique identifier for a given instance of the publishing application"
+          }
+        }
+      },
+      "payload" : {
+        "type" : "object",
+        "properties" : {
+          "user" : {
+            "$ref" : "#/components/schemas/userCreate"
+          },
+          "signup" : {
+            "$ref" : "#/components/schemas/signup"
+          }
+        }
+      },
+      "correlationId" : {
+        "description" : "Default Correlation ID",
+        "location" : "$message.header#/correlationId"
+      },
+      "schemaFormat" : "application/vnd.aai.asyncapi;version=2.6.0",
+      "contentType" : "application/json",
+      "name" : "UserSignup",
+      "title" : "User signup",
+      "summary" : "Action to sign a user up.",
+      "description" : "A longer description",
+      "tags" : [ {
+        "name" : "user"
+      }, {
+        "name" : "signup"
+      }, {
+        "name" : "register"
+      } ],
+      "externalDocs" : {
+        "description" : "User sign up rules",
+        "url" : "messages/sign-up-rules"
+      },
+      "bindings" : {
+        "amqp" : {
+          "bindingVersion" : "0.2.0",
+          "contentEncoding" : "gzip",
+          "messageType" : "user.signup"
+        },
+        "amqp1" : {
+          "$ref" : "#/components/messageBindings/amqp1"
+        },
+        "anypointmq" : {
+          "bindingVersion" : "0.0.1",
+          "headers" : {
+            "type" : "object",
+            "properties" : {
+              "correlationId" : {
+                "type" : "string",
+                "description" : "Correlation ID set by application"
+              }
+            }
+          }
+        },
+        "googlepubsub" : {
+          "bindingVersion" : "0.1.0",
+          "schema" : {
+            "name" : "projects/your-project/schemas/message-avro",
+            "type" : "avro"
+          }
+        },
+        "http" : {
+          "bindingVersion" : "0.3.0",
+          "headers" : {
+            "type" : "object",
+            "properties" : {
+              "Content-Type" : {
+                "type" : "string",
+                "enum" : [ "application/json" ]
+              }
+            }
+          },
+          "statusCode" : 200
+        },
+        "ibmmq" : {
+          "bindingVersion" : "0.1.0",
+          "type" : "jms",
+          "headers" : "Content-Type: application/json",
+          "description" : "JMS stream message",
+          "expiry" : 0
+        },
+        "jms" : {
+          "$ref" : "#/components/messageBindings/jms"
+        },
+        "kafka" : {
+          "bindingVersion" : "0.5.0",
+          "key" : {
+            "type" : "string",
+            "enum" : [ "myKey" ]
+          },
+          "schemaIdLocation" : "payload",
+          "schemaIdPayloadEncoding" : "apicurio-new",
+          "schemaLookupStrategy" : "TopicIdStrategy"
+        },
+        "mercure" : {
+          "$ref" : "#/components/messageBindings/mercure"
+        },
+        "mqtt" : {
+          "bindingVersion" : "0.1.0"
+        },
+        "mqtt5" : {
+          "$ref" : "#/components/messageBindings/mqtt5"
+        },
+        "nats" : {
+          "$ref" : "#/components/messageBindings/nats"
+        },
+        "pulsar" : {
+          "$ref" : "#/components/messageBindings/pulsar"
+        },
+        "redis" : {
+          "$ref" : "#/components/messageBindings/redis"
+        },
+        "sns" : {
+          "$ref" : "#/components/messageBindings/sns"
+        },
+        "solace" : {
+          "$ref" : "#/components/messageBindings/solace"
+        },
+        "sqs" : {
+          "$ref" : "#/components/messageBindings/sqs"
+        },
+        "stomp" : {
+          "$ref" : "#/components/messageBindings/stomp"
+        },
+        "ws" : {
+          "$ref" : "#/components/messageBindings/ws"
+        }
+      },
+      "examples" : [ {
+        "headers" : {
+          "correlationId" : "my-correlation-id",
+          "applicationInstanceId" : "myInstanceId"
+        },
+        "payload" : {
+          "user" : {
+            "someUserKey" : "someUserValue"
+          },
+          "signup" : {
+            "someSignupKey" : "someSignupValue"
+          }
+        },
+        "name" : "SimpleSignup",
+        "summary" : "A simple UserSignup example message"
+      } ],
+      "traits" : [ {
+        "$ref" : "#/components/messageTraits/commonHeaders"
+      } ]
+    },
+    "userSignout" : {
+      "$ref" : "#/components/messages/userSignout"
+    }
+  },
+  "securitySchemes" : {
+    "apiKey" : {
+      "type" : "apiKey",
+      "description" : "apiKey",
+      "in" : "user"
+    },
+    "asymmetricEncryption" : {
+      "$ref" : "#/components/securitySchemes/asymmetricEncryption"
+    },
+    "gssapi" : {
+      "$ref" : "#/components/securitySchemes/gssapi"
+    },
+    "oauth2" : {
+      "type" : "oauth2",
+      "description" : "oauth2",
+      "flows" : {
+        "implicit" : {
+          "refreshUrl" : "https://example.com/api/oauth/refresh",
+          "scopes" : {
+            "write:pets" : "modify pets in your account",
+            "read:pets" : "read your pets"
+          },
+          "authorizationUrl" : "https://example.com/api/oauth/dialog"
+        },
+        "password" : {
+          "refreshUrl" : "https://example.com/api/oauth/refresh",
+          "scopes" : {
+            "write:pets" : "modify pets in your account",
+            "read:pets" : "read your pets"
+          },
+          "tokenUrl" : "https://example.com/api/oauth/token"
+        },
+        "clientCredentials" : {
+          "refreshUrl" : "https://example.com/api/oauth/refresh",
+          "scopes" : {
+            "write:pets" : "modify pets in your account",
+            "read:pets" : "read your pets"
+          },
+          "tokenUrl" : "https://example.com/api/oauth/token"
+        },
+        "authorizationCode" : {
+          "refreshUrl" : "https://example.com/api/oauth/refresh",
+          "scopes" : {
+            "write:pets" : "modify pets in your account",
+            "read:pets" : "read your pets"
+          },
+          "authorizationUrl" : "https://example.com/api/oauth/dialog",
+          "tokenUrl" : "https://example.com/api/oauth/token"
+        }
+      }
+    },
+    "openIdConnect" : {
+      "type" : "openIdConnect",
+      "description" : "openIdConnect",
+      "openIdConnectUrl" : "https://server.com/.well-known/openid-configuration"
+    },
+    "httpApiKey" : {
+      "type" : "httpApiKey",
+      "description" : "httpApiKey",
+      "name" : "api_key",
+      "in" : "header"
+    },
+    "httpBasic" : {
+      "type" : "http",
+      "description" : "http",
+      "scheme" : "basic"
+    },
+    "httpBearer" : {
+      "type" : "http",
+      "description" : "http",
+      "scheme" : "bearer",
+      "bearerFormat" : "JWT"
+    },
+    "plain" : {
+      "$ref" : "#/components/securitySchemes/plain"
+    },
+    "scramSha256" : {
+      "$ref" : "#/components/securitySchemes/scramSha256"
+    },
+    "scramSha512" : {
+      "$ref" : "#/components/securitySchemes/scramSha512"
+    },
+    "symmetricEncryption" : {
+      "$ref" : "#/components/securitySchemes/symmetricEncryption"
+    },
+    "userPassword" : {
+      "$ref" : "#/components/securitySchemes/userPassword"
+    },
+    "X509" : {
+      "$ref" : "#/components/securitySchemes/X509"
+    }
+  },
+  "parameters" : {
+    "parameterWithSchema" : {
+      "description" : "Id of the user.",
+      "schema" : {
+        "type" : "string"
+      },
+      "location" : "$message.payload#/user/id"
+    },
+    "parameterWithSchemaReference" : {
+      "description" : "Id of the user.",
+      "schema" : {
+        "$ref" : "#/components/schemas/userId"
+      },
+      "location" : "$message.payload#/user/id"
+    },
+    "parameter" : {
+      "$ref" : "#/components/parameters/parameter"
+    }
+  },
+  "correlationIds" : {
+    "userSignupCorrelationId" : {
+      "description" : "Default Correlation ID",
+      "location" : "$message.header#/correlationId"
+    },
+    "correlationId" : {
+      "$ref" : "#/correlationIds/parameters/correlationId"
+    }
+  },
+  "operationTraits" : {
+    "sendMessage" : {
+      "operationId" : "sendMessage",
+      "summary" : "Send message",
+      "description" : "Send message to remote server",
+      "security" : [ {
+        "api_key" : [ "write:messages" ]
+      } ],
+      "tags" : [ {
+        "name" : "messages",
+        "description" : "operations with messages",
+        "externalDocs" : {
+          "description" : "Messages validation rules",
+          "url" : "messages/validation-rules"
+        }
+      } ],
+      "externalDocs" : {
+        "description" : "Messages sending rules",
+        "url" : "messages/sending-rules"
+      },
+      "bindings" : {
+        "amqp" : {
+          "bindingVersion" : "0.2.0",
+          "expiration" : 100000,
+          "userId" : "guest",
+          "cc" : [ "user.logs" ],
+          "priority" : 10,
+          "deliveryMode" : 2,
+          "mandatory" : false,
+          "bcc" : [ "external.audit" ],
+          "replyTo" : "user.signedup",
+          "timestamp" : true,
+          "ack" : false
+        },
+        "amqp1" : {
+          "$ref" : "#/components/operationBindings/amqp1"
+        },
+        "anypointmq" : {
+          "$ref" : "#/components/operationBindings/anypointmq"
+        },
+        "googlepubsub" : {
+          "$ref" : "#/components/operationBindings/googlepubsub"
+        },
+        "http" : {
+          "bindingVersion" : "0.3.0",
+          "method" : "GET",
+          "query" : {
+            "type" : "object",
+            "required" : [ "companyId" ],
+            "properties" : {
+              "companyId" : {
+                "type" : "number",
+                "minimum" : 1,
+                "description" : "The Id of the company."
+              }
+            },
+            "additionalProperties" : false
+          }
+        },
+        "ibmmq" : {
+          "$ref" : "#/components/operationBindings/ibmmq"
+        },
+        "jms" : {
+          "$ref" : "#/components/operationBindings/jms"
+        },
+        "kafka" : {
+          "bindingVersion" : "0.5.0",
+          "groupId" : {
+            "type" : "string",
+            "enum" : [ "myGroupId" ]
+          },
+          "clientId" : {
+            "type" : "string",
+            "enum" : [ "myClientId" ]
+          }
+        },
+        "mercure" : {
+          "$ref" : "#/components/operationBindings/mercure"
+        },
+        "mqtt" : {
+          "bindingVersion" : "0.1.0",
+          "qos" : 2,
+          "retain" : true
+        },
+        "mqtt5" : {
+          "$ref" : "#/components/operationBindings/mqtt5"
+        },
+        "nats" : {
+          "bindingVersion" : "0.1.0",
+          "queue" : "messages"
+        },
+        "pulsar" : {
+          "$ref" : "#/components/operationBindings/pulsar"
+        },
+        "redis" : {
+          "$ref" : "#/components/operationBindings/redis"
+        },
+        "sns" : {
+          "$ref" : "#/components/operationBindings/sns"
+        },
+        "solace" : {
+          "dmqEligible" : false,
+          "bindingVersion" : "0.4.0",
+          "destinations" : [ {
+            "destinationType" : "queue",
+            "deliveryMode" : "persistent",
+            "queue" : {
+              "name" : "sampleQueue",
+              "topicSubscriptions" : [ "samples/*" ],
+              "accessType" : "nonexclusive"
+            }
+          }, {
+            "destinationType" : "topic",
+            "deliveryMode" : "persistent",
+            "topicSubscriptions" : [ "samples/*" ]
+          } ]
+        },
+        "sqs" : {
+          "$ref" : "#/components/operationBindings/sqs"
+        },
+        "stomp" : {
+          "$ref" : "#/components/operationBindings/stomp"
+        },
+        "ws" : {
+          "$ref" : "#/components/operationBindings/ws"
+        }
+      }
+    },
+    "deleteMessage" : {
+      "$ref" : "#/components/operationTraits/deleteMessage"
+    }
+  },
+  "messageTraits" : {
+    "userSignup" : {
+      "messageId" : "userSignup",
+      "headers" : {
+        "type" : "object",
+        "properties" : {
+          "correlationId" : {
+            "type" : "string",
+            "description" : "Correlation ID set by application"
+          },
+          "applicationInstanceId" : {
+            "type" : "string",
+            "description" : "Unique identifier for a given instance of the publishing application"
+          }
+        }
+      },
+      "correlationId" : {
+        "description" : "Default Correlation ID",
+        "location" : "$message.header#/correlationId"
+      },
+      "schemaFormat" : "application/vnd.aai.asyncapi;version=2.6.0",
+      "contentType" : "application/json",
+      "name" : "UserSignup",
+      "title" : "User signup",
+      "summary" : "Action to sign a user up.",
+      "description" : "A longer description",
+      "tags" : [ {
+        "name" : "user"
+      }, {
+        "name" : "signup"
+      }, {
+        "name" : "register"
+      } ],
+      "externalDocs" : {
+        "description" : "User sign up rules",
+        "url" : "messages/sign-up-rules"
+      },
+      "bindings" : {
+        "amqp" : {
+          "bindingVersion" : "0.2.0",
+          "contentEncoding" : "gzip",
+          "messageType" : "user.signup"
+        },
+        "amqp1" : {
+          "$ref" : "#/components/messageBindings/amqp1"
+        },
+        "anypointmq" : {
+          "bindingVersion" : "0.0.1",
+          "headers" : {
+            "type" : "object",
+            "properties" : {
+              "correlationId" : {
+                "type" : "string",
+                "description" : "Correlation ID set by application"
+              }
+            }
+          }
+        },
+        "googlepubsub" : {
+          "bindingVersion" : "0.1.0",
+          "schema" : {
+            "name" : "projects/your-project/schemas/message-avro",
+            "type" : "avro"
+          }
+        },
+        "http" : {
+          "bindingVersion" : "0.3.0",
+          "headers" : {
+            "type" : "object",
+            "properties" : {
+              "Content-Type" : {
+                "type" : "string",
+                "enum" : [ "application/json" ]
+              }
+            }
+          },
+          "statusCode" : 200
+        },
+        "ibmmq" : {
+          "bindingVersion" : "0.1.0",
+          "type" : "jms",
+          "headers" : "Content-Type: application/json",
+          "description" : "JMS stream message",
+          "expiry" : 0
+        },
+        "jms" : {
+          "$ref" : "#/components/messageBindings/jms"
+        },
+        "kafka" : {
+          "bindingVersion" : "0.5.0",
+          "key" : {
+            "type" : "string",
+            "enum" : [ "myKey" ]
+          },
+          "schemaIdLocation" : "payload",
+          "schemaIdPayloadEncoding" : "apicurio-new",
+          "schemaLookupStrategy" : "TopicIdStrategy"
+        },
+        "mercure" : {
+          "$ref" : "#/components/messageBindings/mercure"
+        },
+        "mqtt" : {
+          "bindingVersion" : "0.1.0"
+        },
+        "mqtt5" : {
+          "$ref" : "#/components/messageBindings/mqtt5"
+        },
+        "nats" : {
+          "$ref" : "#/components/messageBindings/nats"
+        },
+        "pulsar" : {
+          "$ref" : "#/components/messageBindings/pulsar"
+        },
+        "redis" : {
+          "$ref" : "#/components/messageBindings/redis"
+        },
+        "sns" : {
+          "$ref" : "#/components/messageBindings/sns"
+        },
+        "solace" : {
+          "$ref" : "#/components/messageBindings/solace"
+        },
+        "sqs" : {
+          "$ref" : "#/components/messageBindings/sqs"
+        },
+        "stomp" : {
+          "$ref" : "#/components/messageBindings/stomp"
+        },
+        "ws" : {
+          "$ref" : "#/components/messageBindings/ws"
+        }
+      },
+      "examples" : [ {
+        "headers" : {
+          "correlationId" : "my-correlation-id",
+          "applicationInstanceId" : "myInstanceId"
+        },
+        "payload" : {
+          "user" : {
+            "someUserKey" : "someUserValue"
+          },
+          "signup" : {
+            "someSignupKey" : "someSignupValue"
+          }
+        },
+        "name" : "SimpleSignup",
+        "summary" : "A simple UserSignup example message"
+      } ]
+    },
+    "userSignout" : {
+      "$ref" : "#/components/messageTraits/userSignout"
+    }
+  },
+  "serverBindings" : {
+    "amqp" : {
+      "$ref" : "#/components/serverBindings/amqp"
+    },
+    "amqp1" : {
+      "bindingVersion" : "0.1.0"
+    },
+    "anypointmq" : {
+      "bindingVersion" : "0.0.1"
+    },
+    "googlepubsub" : {
+      "bindingVersion" : "0.2.0"
+    },
+    "http" : {
+      "bindingVersion" : "0.3.0"
+    },
+    "ibmmq" : {
+      "bindingVersion" : "0.1.0",
+      "groupId" : "PRODCLSTR1",
+      "ccdtQueueManagerName" : "*",
+      "cipherSpec" : "ANY_TLS12_OR_HIGHER",
+      "multiEndpointServer" : false,
+      "heartBeatInterval" : 300
+    },
+    "jms" : {
+      "bindingVersion" : "0.0.1",
+      "jmsConnectionFactory" : ""
+    },
+    "kafka" : {
+      "bindingVersion" : "0.5.0",
+      "schemaRegistryUrl" : "https://my-schema-registry.com",
+      "schemaRegistryVendor" : "confluent"
+    },
+    "mercure" : {
+      "bindingVersion" : "0.1.0"
+    },
+    "mqtt" : {
+      "bindingVersion" : "0.1.0",
+      "clientId" : "guest",
+      "cleanSession" : true,
+      "lastWill" : {
+        "topic" : "/last-wills",
+        "qos" : 2,
+        "message" : "Guest gone offline.",
+        "retain" : false
+      },
+      "keepAlive" : 60
+    },
+    "mqtt5" : {
+      "sessionExpiryInterval" : 60,
+      "bindingVersion" : "0.2.0"
+    },
+    "nats" : {
+      "bindingVersion" : "0.1.0"
+    },
+    "pulsar" : {
+      "bindingVersion" : "0.1.0",
+      "tenant" : "contoso"
+    },
+    "redis" : {
+      "bindingVersion" : "0.1.0"
+    },
+    "sns" : {
+      "bindingVersion" : "0.1.0"
+    },
+    "solace" : {
+      "bindingVersion" : "0.4.0",
+      "msgVpn" : "ProdVPN",
+      "clientName" : "transactions-broker"
+    },
+    "sqs" : {
+      "bindingVersion" : "0.2.0"
+    },
+    "stomp" : {
+      "bindingVersion" : "0.1.0"
+    },
+    "ws" : {
+      "bindingVersion" : "0.1.0"
+    }
+  },
+  "channelBindings" : {
+    "amqp" : {
+      "bindingVersion" : "0.2.0",
+      "is" : "routingKey",
+      "exchange" : {
+        "name" : "myExchange",
+        "type" : "topic",
+        "durable" : true,
+        "autoDelete" : false,
+        "vhost" : "/"
+      },
+      "queue" : {
+        "name" : "my-queue-name",
+        "durable" : true,
+        "exclusive" : true,
+        "autoDelete" : false,
+        "vhost" : "/"
+      }
+    },
+    "amqp1" : {
+      "$ref" : "#/components/channelBindings/amqp1"
+    },
+    "anypointmq" : {
+      "bindingVersion" : "0.0.1",
+      "destination" : "user-signup-exchg",
+      "destinationType" : "exchange"
+    },
+    "googlepubsub" : {
+      "bindingVersion" : "0.1.0",
+      "topic" : "projects/your-project/topics/topic-proto-schema",
+      "messageRetentionDuration" : "86400s",
+      "messageStoragePolicy" : {
+        "allowedPersistenceRegions" : [ "us-central1", "us-central2", "us-east1", "us-east4", "us-east5", "us-east7", "us-south1", "us-west1", "us-west2", "us-west3", "us-west4" ]
+      },
+      "schemaSettings" : {
+        "encoding" : "binary",
+        "name" : "projects/your-project/schemas/message-proto"
+      }
+    },
+    "http" : {
+      "$ref" : "#/components/channelBindings/http"
+    },
+    "ibmmq" : {
+      "bindingVersion" : "0.1.0",
+      "destinationType" : "topic",
+      "queue" : {
+        "objectName" : "message",
+        "isPartitioned" : false,
+        "exclusive" : true
+      },
+      "topic" : {
+        "string" : "messages",
+        "objectName" : "message",
+        "durablePermitted" : true,
+        "lastMsgRetained" : true
+      },
+      "maxMsgLength" : 1024
+    },
+    "jms" : {
+      "$ref" : "#/components/channelBindings/jms"
+    },
+    "kafka" : {
+      "bindingVersion" : "0.5.0",
+      "topic" : "my-specific-topic-name",
+      "partitions" : 20,
+      "replicas" : 3,
+      "topicConfiguration" : {
+        "cleanup.policy" : [ "delete", "compact" ],
+        "retention.ms" : 604800000,
+        "retention.bytes" : 1000000000,
+        "delete.retention.ms" : 86400000,
+        "max.message.bytes" : 1048588
+      }
+    },
+    "mercure" : {
+      "$ref" : "#/components/channelBindings/mercure"
+    },
+    "mqtt" : {
+      "$ref" : "#/components/channelBindings/mqtt"
+    },
+    "mqtt5" : {
+      "$ref" : "#/components/channelBindings/mqtt5"
+    },
+    "nats" : {
+      "$ref" : "#/components/channelBindings/nats"
+    },
+    "pulsar" : {
+      "bindingVersion" : "0.1.0",
+      "namespace" : "staging",
+      "persistence" : "persistent",
+      "compaction" : 1000,
+      "geo-replication" : [ "us-east1", "us-west1" ],
+      "retention" : {
+        "time" : 7,
+        "size" : 1000
+      },
+      "ttl" : 360,
+      "deduplication" : false
+    },
+    "redis" : {
+      "$ref" : "#/components/channelBindings/redis"
+    },
+    "sns" : {
+      "$ref" : "#/components/channelBindings/sns"
+    },
+    "solace" : {
+      "$ref" : "#/components/channelBindings/solace"
+    },
+    "sqs" : {
+      "$ref" : "#/components/channelBindings/sqs"
+    },
+    "stomp" : {
+      "$ref" : "#/components/channelBindings/stomp"
+    },
+    "ws" : {
+      "bindingVersion" : "0.1.0",
+      "method" : "GET",
+      "query" : {
+        "type" : "object",
+        "properties" : {
+          "ref" : {
+            "type" : "string",
+            "description" : "Referral."
+          }
+        }
+      },
+      "headers" : {
+        "type" : "object",
+        "properties" : {
+          "Authentication" : {
+            "type" : "string",
+            "description" : "Authentication token"
+          }
+        }
+      }
+    }
+  },
+  "operationBindings" : {
+    "amqp" : {
+      "bindingVersion" : "0.2.0",
+      "expiration" : 100000,
+      "userId" : "guest",
+      "cc" : [ "user.logs" ],
+      "priority" : 10,
+      "deliveryMode" : 2,
+      "mandatory" : false,
+      "bcc" : [ "external.audit" ],
+      "replyTo" : "user.signedup",
+      "timestamp" : true,
+      "ack" : false
+    },
+    "amqp1" : {
+      "$ref" : "#/components/operationBindings/amqp1"
+    },
+    "anypointmq" : {
+      "$ref" : "#/components/operationBindings/anypointmq"
+    },
+    "googlepubsub" : {
+      "$ref" : "#/components/operationBindings/googlepubsub"
+    },
+    "http" : {
+      "bindingVersion" : "0.3.0",
+      "method" : "GET",
+      "query" : {
+        "type" : "object",
+        "required" : [ "companyId" ],
+        "properties" : {
+          "companyId" : {
+            "type" : "number",
+            "minimum" : 1,
+            "description" : "The Id of the company."
+          }
+        },
+        "additionalProperties" : false
+      }
+    },
+    "ibmmq" : {
+      "$ref" : "#/components/operationBindings/ibmmq"
+    },
+    "jms" : {
+      "$ref" : "#/components/operationBindings/jms"
+    },
+    "kafka" : {
+      "bindingVersion" : "0.5.0",
+      "groupId" : {
+        "type" : "string",
+        "enum" : [ "myGroupId" ]
+      },
+      "clientId" : {
+        "type" : "string",
+        "enum" : [ "myClientId" ]
+      }
+    },
+    "mercure" : {
+      "$ref" : "#/components/operationBindings/mercure"
+    },
+    "mqtt" : {
+      "bindingVersion" : "0.1.0",
+      "qos" : 2,
+      "retain" : true
+    },
+    "mqtt5" : {
+      "$ref" : "#/components/operationBindings/mqtt5"
+    },
+    "nats" : {
+      "bindingVersion" : "0.1.0",
+      "queue" : "messages"
+    },
+    "pulsar" : {
+      "$ref" : "#/components/operationBindings/pulsar"
+    },
+    "redis" : {
+      "$ref" : "#/components/operationBindings/redis"
+    },
+    "sns" : {
+      "$ref" : "#/components/operationBindings/sns"
+    },
+    "solace" : {
+      "dmqEligible" : false,
+      "bindingVersion" : "0.4.0",
+      "destinations" : [ {
+        "destinationType" : "queue",
+        "deliveryMode" : "persistent",
+        "queue" : {
+          "name" : "sampleQueue",
+          "topicSubscriptions" : [ "samples/*" ],
+          "accessType" : "nonexclusive"
+        }
+      }, {
+        "destinationType" : "topic",
+        "deliveryMode" : "persistent",
+        "topicSubscriptions" : [ "samples/*" ]
+      } ]
+    },
+    "sqs" : {
+      "$ref" : "#/components/operationBindings/sqs"
+    },
+    "stomp" : {
+      "$ref" : "#/components/operationBindings/stomp"
+    },
+    "ws" : {
+      "$ref" : "#/components/operationBindings/ws"
+    }
+  },
+  "messageBindings" : {
+    "amqp" : {
+      "bindingVersion" : "0.2.0",
+      "contentEncoding" : "gzip",
+      "messageType" : "user.signup"
+    },
+    "amqp1" : {
+      "$ref" : "#/components/messageBindings/amqp1"
+    },
+    "anypointmq" : {
+      "bindingVersion" : "0.0.1",
+      "headers" : {
+        "type" : "object",
+        "properties" : {
+          "correlationId" : {
+            "type" : "string",
+            "description" : "Correlation ID set by application"
+          }
+        }
+      }
+    },
+    "googlepubsub" : {
+      "bindingVersion" : "0.1.0",
+      "schema" : {
+        "name" : "projects/your-project/schemas/message-avro",
+        "type" : "avro"
+      }
+    },
+    "http" : {
+      "bindingVersion" : "0.3.0",
+      "headers" : {
+        "type" : "object",
+        "properties" : {
+          "Content-Type" : {
+            "type" : "string",
+            "enum" : [ "application/json" ]
+          }
+        }
+      },
+      "statusCode" : 200
+    },
+    "ibmmq" : {
+      "bindingVersion" : "0.1.0",
+      "type" : "jms",
+      "headers" : "Content-Type: application/json",
+      "description" : "JMS stream message",
+      "expiry" : 0
+    },
+    "jms" : {
+      "$ref" : "#/components/messageBindings/jms"
+    },
+    "kafka" : {
+      "bindingVersion" : "0.5.0",
+      "key" : {
+        "type" : "string",
+        "enum" : [ "myKey" ]
+      },
+      "schemaIdLocation" : "payload",
+      "schemaIdPayloadEncoding" : "apicurio-new",
+      "schemaLookupStrategy" : "TopicIdStrategy"
+    },
+    "mercure" : {
+      "$ref" : "#/components/messageBindings/mercure"
+    },
+    "mqtt" : {
+      "bindingVersion" : "0.1.0"
+    },
+    "mqtt5" : {
+      "$ref" : "#/components/messageBindings/mqtt5"
+    },
+    "nats" : {
+      "$ref" : "#/components/messageBindings/nats"
+    },
+    "pulsar" : {
+      "$ref" : "#/components/messageBindings/pulsar"
+    },
+    "redis" : {
+      "$ref" : "#/components/messageBindings/redis"
+    },
+    "sns" : {
+      "$ref" : "#/components/messageBindings/sns"
+    },
+    "solace" : {
+      "$ref" : "#/components/messageBindings/solace"
+    },
+    "sqs" : {
+      "$ref" : "#/components/messageBindings/sqs"
+    },
+    "stomp" : {
+      "$ref" : "#/components/messageBindings/stomp"
+    },
+    "ws" : {
+      "$ref" : "#/components/messageBindings/ws"
+    }
+  },
+  "x-number" : 0,
+  "x-string" : "",
+  "x-object" : {
+    "property" : { }
+  }
+}

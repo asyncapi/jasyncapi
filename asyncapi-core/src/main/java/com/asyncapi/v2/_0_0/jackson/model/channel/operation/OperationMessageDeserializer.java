@@ -1,8 +1,8 @@
 package com.asyncapi.v2._0_0.jackson.model.channel.operation;
 
-import com.asyncapi.v2._0_0.model.Reference;
+import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.v2._0_0.model.channel.message.Message;
-import com.asyncapi.v2.jackson.ReferenceOrObjectDeserializer;
+import com.asyncapi.serde.ReferenceOrObjectDeserializer;
 
 /**
  * Serializes operation message list.

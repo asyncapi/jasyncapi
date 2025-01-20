@@ -1,0 +1,65 @@
+{
+    "example": [
+        42,
+        true,
+        "hello",
+        null,
+        [1, 2, 3, {
+            "type": "string",
+            "default": "abc",
+            "example": [
+                {
+                    "type": "string",
+                    "default": "abc"
+                },
+                42,
+                true,
+                "hello",
+                null,
+                [1, 2, 3]
+            ]
+        }]
+    ],
+    "enum": [
+        42,
+        true,
+        "hello",
+        null,
+        [1, 2, 3, {
+            "type": "string",
+            "default": "abc",
+            "example": [
+                {
+                    "type": "string",
+                    "default": "abc"
+                },
+                42,
+                true,
+                "hello",
+                null,
+                [1, 2, 3]
+            ]
+        }]
+    ],
+    "default": [
+        42,
+        true,
+        "hello",
+        null,
+        [1, 2, 3, {
+            "type": "string",
+            "default": "abc",
+            "example": [
+                {
+                    "type": "string",
+                    "default": "abc"
+                },
+                42,
+                true,
+                "hello",
+                null,
+                [1, 2, 3]
+            ]
+        }]
+    ]
+}

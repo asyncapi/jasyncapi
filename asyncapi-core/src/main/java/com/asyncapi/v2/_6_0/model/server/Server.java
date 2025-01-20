@@ -1,10 +1,11 @@
 package com.asyncapi.v2._6_0.model.server;
 
-import com.asyncapi.v2.ExtendableObject;
+import com.asyncapi.schemas.asyncapi.ExtendableObject;
+import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.v2._6_0.jackson.model.server.ServerVariablesDeserializer;
 import com.asyncapi.v2._6_0.model.Tag;
-import com.asyncapi.v2.binding.server.ServerBinding;
-import com.asyncapi.v2.jackson.binding.server.ServerBindingsDeserializer;
+import com.asyncapi.bindings.ServerBinding;
+import com.asyncapi.bindings.ServerBindingsDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -42,7 +43,8 @@ public class Server extends ExtendableObject {
      * made when a variable is named in {brackets}.
      */
     @NotNull
-    private String url;
+    @Builder.Default
+    private String url = "";
 
     /**
      * REQUIRED.
@@ -51,7 +53,8 @@ public class Server extends ExtendableObject {
      * amqp, amqps, http, https, ibmmq, jms, kafka, kafka-secure, anypointmq, mqtt, secure-mqtt, solace, stomp, stomps, ws, wss, mercure, googlepubsub, pulsar.
      */
     @NotNull
-    private String protocol;
+    @Builder.Default
+    private String protocol = "";
 
     /**
      * The version of the protocol used for connection. For instance: AMQP 0.9.1, HTTP 2.0, Kafka 1.0.0, etc.
@@ -71,7 +74,7 @@ public class Server extends ExtendableObject {
      * <p>
      * MUST be one of:
      * <ul>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link Reference}</li>
      *     <li>{@link com.asyncapi.v2._6_0.model.server.ServerVariable}</li>
      * </ul>
      */
@@ -105,7 +108,7 @@ public class Server extends ExtendableObject {
      * <p>
      * MUST be one of:
      * <ul>
-     *     <li>{@link com.asyncapi.v2._6_0.model.Reference}</li>
+     *     <li>{@link Reference}</li>
      *     <li>{@link ServerBinding}</li>
      * </ul>
      */

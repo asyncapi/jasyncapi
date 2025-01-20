@@ -1,44 +1,45 @@
 package com.asyncapi.v2._6_0.model.channel.message
 
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v2.SerDeTest
 import com.asyncapi.v2._6_0.model.ExternalDocumentation
-import com.asyncapi.v2._6_0.model.Reference
 import com.asyncapi.v2._6_0.model.Tag
-import com.asyncapi.v2.schema.Schema
-import com.asyncapi.v2.binding.message.amqp.AMQPMessageBindingTest
-import com.asyncapi.v2.binding.message.anypointmq.AnypointMQMessageBindingTest
-import com.asyncapi.v2.binding.message.googlepubsub.GooglePubSubMessageBindingTest
-import com.asyncapi.v2.binding.message.http.HTTPMessageBindingTest
-import com.asyncapi.v2.binding.message.ibmmq.IBMMQMessageBindingTest
-import com.asyncapi.v2.binding.message.kafka.KafkaMessageBindingTest
-import com.asyncapi.v2.binding.message.mqtt.MQTTMessageBindingTest
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema
+import com.asyncapi.bindings.amqp.AMQPV0_2_0Test
+import com.asyncapi.bindings.anypointmq.AnypointMQV0_0_1Test
+import com.asyncapi.bindings.googlepubsub.GooglePubSubV0_1_0Test
+import com.asyncapi.bindings.http.HTTPV0_3_0Test
+import com.asyncapi.bindings.ibmmq.IBMMQV0_1_0Test
+import com.asyncapi.bindings.kafka.KafkaV0_5_0Test
+import com.asyncapi.bindings.mqtt.MQTTV0_1_0Test
 
 class MessageTest: SerDeTest<Message>() {
 
     override fun objectClass() = Message::class.java
 
-    override fun baseObjectJson() = "/json/2.6.0/model/channel/message/message.json"
+    override fun baseObjectJson() = "/json/v2/2.6.0/model/channel/message/message.json"
 
-    override fun extendedObjectJson() = "/json/2.6.0/model/channel/message/message - extended.json"
+    override fun extendedObjectJson() = "/json/v2/2.6.0/model/channel/message/message - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.6.0/model/channel/message/message - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/2.6.0/model/channel/message/message - wrongly extended.json"
 
     override fun build(): Message {
         return Message.builder()
                 .messageId("userSignup")
-                .headers(Schema.builder()
+                .headers(
+                    AsyncAPISchema.builder()
                         .type("object")
                         .properties(mapOf(
                                 Pair(
                                         "correlationId",
-                                        Schema.builder()
+                                        AsyncAPISchema.builder()
                                                 .description("Correlation ID set by application")
                                                 .type("string")
                                                 .build()
                                 ),
                                 Pair(
                                         "applicationInstanceId",
-                                        Schema.builder()
+                                        AsyncAPISchema.builder()
                                                 .description("Unique identifier for a given instance of the publishing application")
                                                 .type("string")
                                                 .build()
@@ -46,18 +47,19 @@ class MessageTest: SerDeTest<Message>() {
                         ))
                         .build()
                 )
-                .payload(Schema.builder()
+                .payload(
+                    AsyncAPISchema.builder()
                         .type("object")
                         .properties(mapOf(
                                 Pair(
                                         "user",
-                                        Schema.builder()
+                                        AsyncAPISchema.builder()
                                                 .ref("#/components/schemas/userCreate")
                                                 .build()
                                 ),
                                 Pair(
                                         "signup",
-                                        Schema.builder()
+                                        AsyncAPISchema.builder()
                                                 .ref("#/components/schemas/signup")
                                                 .build()
                                 )
@@ -65,7 +67,7 @@ class MessageTest: SerDeTest<Message>() {
                         .build()
                 )
                 .correlationId(CorrelationId("Default Correlation ID", "\$message.header#/correlationId"))
-                .schemaFormat("application/vnd.apache.avro+json;version=1.9.0")
+                .schemaFormat("application/vnd.aai.asyncapi;version=2.6.0")
                 .contentType("application/json")
                 .name("UserSignup")
                 .title("User signup")
@@ -80,7 +82,7 @@ class MessageTest: SerDeTest<Message>() {
                 .bindings(bindings())
                 .examples(listOf(MessageExampleTest().build()))
                 .traits(listOf(
-                        Reference("#/components/messageTraits/commonHeaders"),
+                    Reference("#/components/messageTraits/commonHeaders"),
                 ))
                 .build()
     }
@@ -88,25 +90,49 @@ class MessageTest: SerDeTest<Message>() {
     companion object {
         fun bindings(): Map<String, Any> {
             return mapOf(
-                    Pair("amqp", AMQPMessageBindingTest().build()),
-                    Pair("amqp1", Reference("#/components/messageBindings/amqp1")),
-                    Pair("anypointmq", AnypointMQMessageBindingTest().build()),
-                    Pair("googlepubsub", GooglePubSubMessageBindingTest().build()),
-                    Pair("http", HTTPMessageBindingTest().build()),
-                    Pair("ibmmq", IBMMQMessageBindingTest().build()),
-                    Pair("jms", Reference("#/components/messageBindings/jms")),
-                    Pair("kafka", KafkaMessageBindingTest().build()),
-                    Pair("mercure", Reference("#/components/messageBindings/mercure")),
-                    Pair("mqtt", MQTTMessageBindingTest().build()),
-                    Pair("mqtt5", Reference("#/components/messageBindings/mqtt5")),
-                    Pair("nats", Reference("#/components/messageBindings/nats")),
-                    Pair("pulsar", Reference("#/components/messageBindings/pulsar")),
-                    Pair("redis", Reference("#/components/messageBindings/redis")),
-                    Pair("sns", Reference("#/components/messageBindings/sns")),
-                    Pair("solace", Reference("#/components/messageBindings/solace")),
-                    Pair("sqs", Reference("#/components/messageBindings/sqs")),
-                    Pair("stomp", Reference("#/components/messageBindings/stomp")),
-                    Pair("ws", Reference("#/components/messageBindings/ws"))
+                    Pair("amqp", AMQPV0_2_0Test.messageBinding()),
+                    Pair("amqp1",
+                        Reference("#/components/messageBindings/amqp1")
+                    ),
+                    Pair("anypointmq", AnypointMQV0_0_1Test.messageBinding()),
+                    Pair("googlepubsub", GooglePubSubV0_1_0Test.messageBinding()),
+                    Pair("http", HTTPV0_3_0Test.messageBinding()),
+                    Pair("ibmmq", IBMMQV0_1_0Test.messageBinding()),
+                    Pair("jms",
+                        Reference("#/components/messageBindings/jms")
+                    ),
+                    Pair("kafka", KafkaV0_5_0Test.messageBinding()),
+                    Pair("mercure",
+                        Reference("#/components/messageBindings/mercure")
+                    ),
+                    Pair("mqtt", MQTTV0_1_0Test.messageBinding()),
+                    Pair("mqtt5",
+                        Reference("#/components/messageBindings/mqtt5")
+                    ),
+                    Pair("nats",
+                        Reference("#/components/messageBindings/nats")
+                    ),
+                    Pair("pulsar",
+                        Reference("#/components/messageBindings/pulsar")
+                    ),
+                    Pair("redis",
+                        Reference("#/components/messageBindings/redis")
+                    ),
+                    Pair("sns",
+                        Reference("#/components/messageBindings/sns")
+                    ),
+                    Pair("solace",
+                        Reference("#/components/messageBindings/solace")
+                    ),
+                    Pair("sqs",
+                        Reference("#/components/messageBindings/sqs")
+                    ),
+                    Pair("stomp",
+                        Reference("#/components/messageBindings/stomp")
+                    ),
+                    Pair("ws",
+                        Reference("#/components/messageBindings/ws")
+                    )
             )
         }
     }

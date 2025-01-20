@@ -1,0 +1,19 @@
+{
+  "address": {
+    "$ref": "#/components/addresses/address"
+  },
+  "channel": {
+    "$ref": "#/components/channels/channel"
+  },
+  "messages": [
+    {
+      "$ref": "#/components/messages/message 1"
+    },
+    {
+      "$ref": "#/components/messages/message 2"
+    },
+    {
+      "$ref": "#/components/messages/message 3"
+    }
+  ]
+}

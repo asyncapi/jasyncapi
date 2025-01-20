@@ -1,26 +1,27 @@
 package com.asyncapi.v2._6_0.model.server
 
+import com.asyncapi.schemas.asyncapi.Reference
 import com.asyncapi.v2.SerDeTest
-import com.asyncapi.v2._6_0.model.Reference
 import com.asyncapi.v2._6_0.model.Tag
-import com.asyncapi.v2.binding.server.amqp1.AMQP1ServerBinding
-import com.asyncapi.v2.binding.server.anypointmq.AnypointMQServerBinding
-import com.asyncapi.v2.binding.server.googlepubsub.GooglePubSubServerBinding
-import com.asyncapi.v2.binding.server.http.HTTPServerBinding
-import com.asyncapi.v2.binding.server.ibmmq.IBMMQServerBinding
-import com.asyncapi.v2.binding.server.jms.JMSServerBinding
-import com.asyncapi.v2.binding.server.kafka.KafkaServerBinding
-import com.asyncapi.v2.binding.server.mercure.MercureServerBinding
-import com.asyncapi.v2.binding.server.mqtt.MQTTServerBinding
-import com.asyncapi.v2.binding.server.mqtt5.MQTT5ServerBinding
-import com.asyncapi.v2.binding.server.nats.NATSServerBinding
-import com.asyncapi.v2.binding.server.pulsar.PulsarServerBinding
-import com.asyncapi.v2.binding.server.redis.RedisServerBinding
-import com.asyncapi.v2.binding.server.sns.SNSServerBinding
-import com.asyncapi.v2.binding.server.solace.SolaceServerBinding
-import com.asyncapi.v2.binding.server.sqs.SQSServerBinding
-import com.asyncapi.v2.binding.server.stomp.STOMPServerBinding
-import com.asyncapi.v2.binding.server.ws.WebSocketsServerBinding
+import com.asyncapi.bindings.amqp1.v0._1_0.server.AMQP1ServerBinding;
+import com.asyncapi.bindings.anypointmq.v0._0_1.server.AnypointMQServerBinding
+import com.asyncapi.bindings.googlepubsub.GooglePubSubV0_2_0Test
+import com.asyncapi.bindings.http.HTTPV0_3_0Test
+import com.asyncapi.bindings.ibmmq.v0._1_0.server.IBMMQServerBinding
+import com.asyncapi.bindings.jms.v0._0_1.server.JMSServerBinding
+import com.asyncapi.bindings.kafka.v0._5_0.server.KafkaServerBinding
+import com.asyncapi.bindings.mercure.v0._1_0.server.MercureServerBinding
+import com.asyncapi.bindings.mqtt.v0._1_0.server.MQTTServerBinding
+import com.asyncapi.bindings.mqtt.v0._1_0.server.MQTTServerLastWillConfiguration
+import com.asyncapi.bindings.mqtt5.v0._2_0.server.MQTT5ServerBinding
+import com.asyncapi.bindings.nats.NATSV0_1_0Test
+import com.asyncapi.bindings.pulsar.v0._1_0.server.PulsarServerBinding
+import com.asyncapi.bindings.redis.v0._1_0.server.RedisServerBinding
+import com.asyncapi.bindings.sns.v0._1_0.server.SNSServerBinding
+import com.asyncapi.bindings.solace.v0._4_0.server.SolaceServerBinding
+import com.asyncapi.bindings.sqs.SQSV0_2_0Test
+import com.asyncapi.bindings.stomp.v0._1_0.server.STOMPServerBinding
+import com.asyncapi.bindings.websockets.v0._1_0.server.WebSocketsServerBinding
 
 /**
  * @version 2.6.0
@@ -30,11 +31,11 @@ class ServerTest: SerDeTest<Server>() {
 
     override fun objectClass() = Server::class.java
 
-    override fun baseObjectJson() = "/json/2.6.0/model/server/server.json"
+    override fun baseObjectJson() = "/json/v2/2.6.0/model/server/server.json"
 
-    override fun extendedObjectJson() = "/json/2.6.0/model/server/server - extended.json"
+    override fun extendedObjectJson() = "/json/v2/2.6.0/model/server/server - extended.json"
 
-    override fun wronglyExtendedObjectJson() = "/json/2.6.0/model/server/server - wrongly extended.json"
+    override fun wronglyExtendedObjectJson() = "/json/v2/2.6.0/model/server/server - wrongly extended.json"
 
     override fun build(): Server {
         return Server.builder()
@@ -51,7 +52,9 @@ class ServerTest: SerDeTest<Server>() {
                                 .enumValues(listOf("8883", "8884"))
                                 .defaultValue("8883")
                                 .build()),
-                        Pair("basePath", Reference("#/components/serverVariables/basePath"))
+                        Pair("basePath",
+                            Reference("#/components/serverVariables/basePath")
+                        )
                 ))
                 .security(listOf(mapOf(
                         Pair("mqttBroker", emptyList())
@@ -67,11 +70,13 @@ class ServerTest: SerDeTest<Server>() {
         @JvmStatic
         fun bindings(): Map<String, Any> {
             return mapOf(
-                    Pair("amqp", Reference("#/components/serverBindings/amqp")),
+                    Pair("amqp",
+                        Reference("#/components/serverBindings/amqp")
+                    ),
                     Pair("amqp1", AMQP1ServerBinding()),
                     Pair("anypointmq", AnypointMQServerBinding()),
-                    Pair("googlepubsub", GooglePubSubServerBinding()),
-                    Pair("http", HTTPServerBinding()),
+                    Pair("googlepubsub", GooglePubSubV0_2_0Test.serverBinding()),
+                    Pair("http", HTTPV0_3_0Test.serverBinding()),
                     Pair(
                             "ibmmq",
                             IBMMQServerBinding.builder()
@@ -93,7 +98,7 @@ class ServerTest: SerDeTest<Server>() {
                             MQTTServerBinding.builder()
                                     .clientId("guest")
                                     .cleanSession(true)
-                                    .lastWill(MQTTServerBinding.LastWillConfiguration(
+                                    .lastWill(MQTTServerLastWillConfiguration(
                                             "/last-wills",
                                             2,
                                             "Guest gone offline.",
@@ -108,7 +113,7 @@ class ServerTest: SerDeTest<Server>() {
                                     .sessionExpiryInterval(60)
                                     .build()
                     ),
-                    Pair("nats", NATSServerBinding()),
+                    Pair("nats", NATSV0_1_0Test.serverBinding()),
                     Pair(
                             "pulsar",
                             PulsarServerBinding.builder()
@@ -117,13 +122,12 @@ class ServerTest: SerDeTest<Server>() {
                     ),
                     Pair("redis", RedisServerBinding()),
                     Pair("sns", SNSServerBinding()),
-                    Pair(
-                            "solace",
-                            SolaceServerBinding.builder()
-                                    .msgVpn("solace.private.net")
-                                    .build()
+                    Pair("solace", SolaceServerBinding.builder()
+                            .msgVpn("ProdVPN")
+                            .clientName("transactions-broker")
+                            .build()
                     ),
-                    Pair("sqs", SQSServerBinding()),
+                    Pair("sqs", SQSV0_2_0Test.serverBinding()),
                     Pair("stomp", STOMPServerBinding()),
                     Pair("ws", WebSocketsServerBinding()),
             )

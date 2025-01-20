@@ -1,0 +1,5 @@
+{
+  "clientName": "transactions-broker",
+  "msgVpn": "ProdVPN",
+  "bindingVersion" : "unknown version"
+}

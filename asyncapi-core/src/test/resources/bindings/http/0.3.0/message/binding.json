@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "type": "object",
+    "properties": {
+      "Content-Type": {
+        "type": "string",
+        "enum": [
+          "application/json"
+        ]
+      }
+    }
+  },
+  "statusCode": 200,
+  "bindingVersion": "0.3.0"
+}

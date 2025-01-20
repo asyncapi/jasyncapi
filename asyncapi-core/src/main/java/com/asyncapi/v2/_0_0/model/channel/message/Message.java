@@ -1,16 +1,16 @@
 package com.asyncapi.v2._0_0.model.channel.message;
 
-import com.asyncapi.v2.ExtendableObject;
+import com.asyncapi.schemas.asyncapi.ExtendableObject;
 import com.asyncapi.v2._0_0.jackson.model.channel.message.MessageCorrelationIdDeserializer;
 import com.asyncapi.v2._0_0.jackson.model.channel.message.MessageHeadersDeserializer;
 import com.asyncapi.v2._0_0.jackson.model.channel.message.MessagePayloadDeserializer;
 import com.asyncapi.v2._0_0.jackson.model.channel.message.MessageTraitsDeserializer;
 import com.asyncapi.v2._0_0.model.ExternalDocumentation;
-import com.asyncapi.v2._0_0.model.Reference;
+import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.v2._0_0.model.Tag;
-import com.asyncapi.v2.schema.Schema;
-import com.asyncapi.v2.binding.message.MessageBinding;
-import com.asyncapi.v2.jackson.binding.message.MessageBindingsDeserializer;
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema;
+import com.asyncapi.bindings.MessageBinding;
+import com.asyncapi.bindings.MessageBindingsDeserializer;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
@@ -40,10 +40,10 @@ public class Message extends ExtendableObject {
     /**
      * Schema definition of the application headers. Schema MUST be of type "object".
      * It MUST NOT define the protocol headers.
-     *
+     * <p>
      * MUST BE:
      * <ul>
-     *     <li>{@link Schema}</li>
+     *     <li>{@link AsyncAPISchema}</li>
      *     <li>{@link Reference}</li>
      * </ul>
      */
@@ -53,10 +53,10 @@ public class Message extends ExtendableObject {
 
     /**
      * Definition of the message payload. It can be of any type but defaults to Schema object.
-     *
+     * <p>
      * WILL BE:
      * <ul>
-     *     <li>{@link Schema}</li>
+     *     <li>{@link AsyncAPISchema}</li>
      *     <li>{@link com.fasterxml.jackson.databind.JsonNode}</li>
      * </ul>
      */
@@ -66,7 +66,7 @@ public class Message extends ExtendableObject {
 
     /**
      * Definition of the correlation ID used for message tracing or matching.
-     *
+     * <p>
      * MUST BE:
      * <ul>
      *     {@link CorrelationId}
@@ -82,7 +82,7 @@ public class Message extends ExtendableObject {
      * A string containing the name of the schema format used to define the message payload. If omitted,
      * implementations should parse the payload as a Schema object. Check out the supported schema formats
      * table for more information. Custom values are allowed but their implementation is OPTIONAL.
-     *
+     * <p>
      * A custom value MUST NOT refer to one of the schema formats listed in the table.
      */
     @Nullable
@@ -161,7 +161,7 @@ public class Message extends ExtendableObject {
     /**
      * A list of traits to apply to the message object. Traits MUST be merged into the message object using the JSON
      * Merge Patch algorithm in the same order they are defined here. The resulting object MUST be a valid Message
-     *
+     * <p>
      * MUST BE:
      * <ul>
      *     <li>{@link Reference}</li>
