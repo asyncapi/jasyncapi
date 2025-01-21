@@ -34,7 +34,7 @@ public class IBMMQChannelTopicProperties {
      * MUST NOT exceed 10240 characters in length. MAY coexist with topic.objectName
      */
     @Nullable
-    @javax.validation.constraints.Max(
+    @jakarta.validation.constraints.Max(
             value = 10240,
             message = "Maximum length of topic string must be lower or equals to 10240"
     )
@@ -51,7 +51,7 @@ public class IBMMQChannelTopicProperties {
      * MUST NOT exceed 48 characters in length. MAY coexist with topic.string
      */
     @Nullable
-    @javax.validation.constraints.Max(
+    @jakarta.validation.constraints.Max(
             value = 48,
             message = "Maximum length of topic name must be lower or equals to 48"
     )

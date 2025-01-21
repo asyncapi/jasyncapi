@@ -41,7 +41,7 @@ public class KafkaChannelBinding extends com.asyncapi.bindings.kafka.KafkaChanne
      * MUST be positive.
      */
     @Nullable
-    @javax.validation.constraints.Min(
+    @jakarta.validation.constraints.Min(
             value = 1,
             message = "Number of partitions must be greater or equals to 1"
     )
@@ -55,7 +55,7 @@ public class KafkaChannelBinding extends com.asyncapi.bindings.kafka.KafkaChanne
      * MUST be positive.
      */
     @Nullable
-    @javax.validation.constraints.Min(
+    @jakarta.validation.constraints.Min(
             value = 1,
             message = "Number of replicas must be greater or equals to 1"
     )

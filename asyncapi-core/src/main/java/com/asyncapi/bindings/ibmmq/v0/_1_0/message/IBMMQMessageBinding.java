@@ -74,7 +74,7 @@ public class IBMMQMessageBinding extends com.asyncapi.bindings.ibmmq.IBMMQMessag
      */
     @Nullable
     @Builder.Default
-    @javax.validation.constraints.Min(
+    @jakarta.validation.constraints.Min(
             value = 0,
             message = "Expiry must be greater or equals to 0"
     )

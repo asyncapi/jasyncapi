@@ -37,7 +37,7 @@ public class AMQPChannelBinding extends com.asyncapi.bindings.amqp.AMQPChannelBi
      */
     @NotNull
     @Builder.Default
-    @javax.validation.constraints.NotNull
+    @jakarta.validation.constraints.NotNull
     @JsonProperty(value = "is", required = true, defaultValue = "routingKey")
     @JsonPropertyDescription("Defines what type of channel is it. Can be either queue or routingKey (default).")
     private AMQPChannelType is = AMQPChannelType.ROUTING_KEY;

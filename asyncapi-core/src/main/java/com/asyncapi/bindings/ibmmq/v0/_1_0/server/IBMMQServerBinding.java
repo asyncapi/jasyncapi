@@ -84,11 +84,11 @@ public class IBMMQServerBinding extends com.asyncapi.bindings.ibmmq.IBMMQServerB
      * MUST be 0-999999
      */
     @Builder.Default
-    @javax.validation.constraints.Min(
+    @jakarta.validation.constraints.Min(
             value = 0,
             message = "Heart beat interval must be greater or equals to 0"
     )
-    @javax.validation.constraints.Max(
+    @jakarta.validation.constraints.Max(
             value = 999999,
             message = "Heart beat interval must be less or equals to 999999"
     )

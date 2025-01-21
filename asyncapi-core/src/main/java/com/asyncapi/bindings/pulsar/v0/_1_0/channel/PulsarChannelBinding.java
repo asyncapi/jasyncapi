@@ -35,7 +35,7 @@ public class PulsarChannelBinding extends com.asyncapi.bindings.pulsar.PulsarCha
      */
     @NotNull
     @Builder.Default
-    @javax.validation.constraints.NotNull
+    @jakarta.validation.constraints.NotNull
     @JsonProperty("namespace")
     @JsonPropertyDescription("The namespace the channel is associated with.")
     private String namespace = "";
@@ -45,7 +45,7 @@ public class PulsarChannelBinding extends com.asyncapi.bindings.pulsar.PulsarCha
      */
     @NotNull
     @Builder.Default
-    @javax.validation.constraints.NotNull
+    @jakarta.validation.constraints.NotNull
     @JsonProperty(value = "persistence", defaultValue = "persistent")
     @JsonPropertyDescription("Persistence of the topic in Pulsar. It MUST be either persistent or non-persistent.")
     private PulsarChannelPersistence persistence = PulsarChannelPersistence.PERSISTENT;
@@ -54,7 +54,7 @@ public class PulsarChannelBinding extends com.asyncapi.bindings.pulsar.PulsarCha
      * Topic compaction threshold given in Megabytes.
      */
     @Nullable
-    @javax.validation.constraints.Min(
+    @jakarta.validation.constraints.Min(
             value = 0,
             message = "Topic compaction threshold must be greater or equals to 0."
     )

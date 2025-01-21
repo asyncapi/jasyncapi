@@ -36,7 +36,7 @@ public class KafkaChannelTopicConfiguration {
      * The <a href="https://kafka.apache.org/documentation/#topicconfigs_retention.ms">retention.ms</a> configuration option.
      */
     @Nullable
-    @javax.validation.constraints.Min(
+    @jakarta.validation.constraints.Min(
             value = -1,
             message = "retention.ms must be greater or equals to -1"
     )
@@ -48,7 +48,7 @@ public class KafkaChannelTopicConfiguration {
      * The <a href="https://kafka.apache.org/documentation/#topicconfigs_retention.bytes">retention.bytes</a> configuration option.
      */
     @Nullable
-    @javax.validation.constraints.Min(
+    @jakarta.validation.constraints.Min(
             value = -1,
             message = "retention.bytes must be greater or equals to -1"
     )
@@ -60,7 +60,7 @@ public class KafkaChannelTopicConfiguration {
      * The <a href="https://kafka.apache.org/documentation/#topicconfigs_delete.retention.ms">delete.retention.ms</a> configuration option.
      */
     @Nullable
-    @javax.validation.constraints.Min(
+    @jakarta.validation.constraints.Min(
             value = 0,
             message = "delete.retention.ms must be greater or equals to 0"
     )
@@ -72,7 +72,7 @@ public class KafkaChannelTopicConfiguration {
      * The <a href="https://kafka.apache.org/documentation/#topicconfigs_max.message.bytes">max.message.bytes</a> configuration option.
      */
     @Nullable
-    @javax.validation.constraints.Min(
+    @jakarta.validation.constraints.Min(
             value = 0,
             message = "max.message.bytes must be greater or equals to 0"
     )
