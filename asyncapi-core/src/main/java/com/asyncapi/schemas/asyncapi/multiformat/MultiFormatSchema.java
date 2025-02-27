@@ -97,6 +97,9 @@ import org.jetbrains.annotations.NotNull;
                 "application/vnd.apache.avro;version=1.11.1",
                 "application/vnd.apache.avro+json;version=1.11.1",
                 "application/vnd.apache.avro+yaml;version=1.11.1"
+        }),
+        @JsonSubTypes.Type(value = XMLFormatSchema.class, names = {
+                "application/xml"
         })
 })
 @EqualsAndHashCode(callSuper = true)

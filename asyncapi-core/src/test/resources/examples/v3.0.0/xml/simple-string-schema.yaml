@@ -1,0 +1,44 @@
+asyncapi: 3.0.0
+info:
+  title: Account Service
+  version: 1.0.0
+  description: This service is in charge of processing user signups
+channels:
+  userSignedup:
+    address: user/signedup
+    messages:
+      UserSignedUp:
+        $ref: '#/components/messages/UserSignedUp'
+operations:
+  sendUserSignedup:
+    action: send
+    channel:
+      $ref: '#/channels/userSignedup'
+    messages:
+      - $ref: '#/channels/userSignedup/messages/UserSignedUp'
+components:
+  messages:
+    UserSignedUp:
+      payload:
+        schemaFormat: application/xml
+        schema: |
+          <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+            <xs:element name="User">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="displayName" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Name of the user</xs:documentation>
+                      </xs:annotation>
+                  </xs:element>
+                  <xs:element name="email" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Email of the user</xs:documentation>
+                      </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:schema>
+
+
