@@ -6,7 +6,7 @@
 
     <groupId>com.asyncapi</groupId>
     <artifactId>asyncapi</artifactId>
-    <version>1.0.0-RC3</version>
+    <version>1.0.0-RC4</version>
 
     <!-- Project Information -->
     <name>AsyncAPI</name>
