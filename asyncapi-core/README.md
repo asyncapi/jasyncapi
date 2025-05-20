@@ -10,7 +10,7 @@ which allows to use it in null-safety languages like `kotlin` without extra head
 <dependency>
   <groupId>com.asyncapi</groupId>
   <artifactId>asyncapi-core</artifactId>
-  <version>1.0.0-RC3</version>
+  <version>1.0.0-RC4</version>
 </dependency>
 ```
 
