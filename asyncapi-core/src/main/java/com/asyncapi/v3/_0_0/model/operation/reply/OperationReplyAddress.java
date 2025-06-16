@@ -1,5 +1,6 @@
 package com.asyncapi.v3._0_0.model.operation.reply;
 
+import com.asyncapi.lsp.TextDocumentCompletion;
 import com.asyncapi.schemas.asyncapi.ExtendableObject;
 import lombok.*;
 import org.jetbrains.annotations.Nullable;
@@ -25,6 +26,11 @@ public class OperationReplyAddress extends ExtendableObject {
      * An optional description of the address. <a href="https://spec.commonmark.org/">CommonMark syntax</a> can be used for rich text representation.
      */
     @Nullable
+    @TextDocumentCompletion(
+            detail = "String",
+            documentation = "Description of the reply address\n\n" +
+                    "An optional description of the address. CommonMark syntax can be used for rich text representation."
+    )
     private String description;
 
     /**
@@ -35,6 +41,11 @@ public class OperationReplyAddress extends ExtendableObject {
      * @see <a href="https://www.asyncapi.com/docs/reference/specification/v3.0.0#runtimeExpression">Runtime Expression</a>
      */
     @Nullable
+    @TextDocumentCompletion(
+            detail = "String",
+            documentation = "Location of the reply address\n\n" +
+                    "A runtime expression that specifies the location of the reply address."
+    )
     private String location;
 
 }

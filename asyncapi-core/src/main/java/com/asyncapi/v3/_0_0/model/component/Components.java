@@ -1,5 +1,6 @@
 package com.asyncapi.v3._0_0.model.component;
 
+import com.asyncapi.lsp.TextDocumentCompletion;
 import com.asyncapi.v3._0_0.jackson.model.component.*;
 import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.v3._0_0.model.ExternalDocumentation;
@@ -64,6 +65,12 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ComponentsSchemasDeserializer.class)
+    @TextDocumentCompletion(
+            detail = "Map<String, AsyncAPISchema | MultiFormatSchema | Reference>",
+            documentation = "Reusable Schema Objects\n\n" +
+                    "An object to hold reusable Schema Objects.",
+            variants = {AsyncAPISchema.class, MultiFormatSchema.class, Reference.class}
+    )
     private Map<String, Object> schemas;
 
     /**
@@ -77,6 +84,12 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ComponentsServersDeserializer.class)
+    @TextDocumentCompletion(
+            detail = "Map<String, Server | Reference>",
+            documentation = "Reusable Server Objects\n\n" +
+                    "An object to hold reusable Server Objects.",
+            variants = {Server.class, Reference.class}
+    )
     private Map<String, Object> servers;
 
     /**
@@ -90,6 +103,12 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ComponentsServerVariablesDeserializer.class)
+    @TextDocumentCompletion(
+            detail = "Map<String, ServerVariable | Reference>",
+            documentation = "Reusable ServerVariable Objects\n\n" +
+                    "An object to hold reusable ServerVariable Objects.",
+            variants = {ServerVariable.class, Reference.class}
+    )
     private Map<String, Object> serverVariables;
 
     /**
@@ -103,6 +122,12 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ComponentsChannelsDeserializer.class)
+    @TextDocumentCompletion(
+            detail = "Map<String, Channel | Reference>",
+            documentation = "Reusable Channel Objects\n\n" +
+                    "An object to hold reusable Channel Objects.",
+            variants = {Channel.class, Reference.class}
+    )
     private Map<String, Object> channels;
 
     /**
@@ -116,6 +141,12 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ComponentsOperationsDeserializer.class)
+    @TextDocumentCompletion(
+            detail = "Map<String, Operation | Reference>",
+            documentation = "Reusable Operation Objects\n\n" +
+                    "An object to hold reusable Operation Objects.",
+            variants = {Operation.class, Reference.class}
+    )
     private Map<String, Object> operations;
 
     /**
@@ -129,6 +160,12 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ComponentsRepliesDeserializer.class)
+    @TextDocumentCompletion(
+            detail = "Map<String, OperationReply | Reference>",
+            documentation = "Reusable OperationReply Objects\n\n" +
+                    "An object to hold reusable OperationReply Objects.",
+            variants = {OperationReply.class, Reference.class}
+    )
     private Map<String, Object> replies;
 
     /**
@@ -142,6 +179,12 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ComponentsReplyAddressesDeserializer.class)
+    @TextDocumentCompletion(
+            detail = "Map<String, OperationReplyAddress | Reference>",
+            documentation = "Reusable OperationReplyAddress Objects\n\n" +
+                    "An object to hold reusable OperationReplyAddress Objects.",
+            variants = {OperationReplyAddress.class, Reference.class}
+    )
     private Map<String, Object> replyAddresses;
 
     /**
@@ -155,6 +198,12 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ComponentsMessagesDeserializer.class)
+    @TextDocumentCompletion(
+            detail = "Map<String, Message | Reference>",
+            documentation = "Reusable Message Objects\n\n" +
+                    "An object to hold reusable Message Objects.",
+            variants = {Message.class, Reference.class}
+    )
     private Map<String, Object> messages;
 
     /**
@@ -168,6 +217,12 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ComponentsSecuritySchemesDeserializer.class)
+    @TextDocumentCompletion(
+            detail = "Map<String, SecurityScheme | Reference>",
+            documentation = "Reusable SecurityScheme Objects\n\n" +
+                    "An object to hold reusable SecurityScheme Objects.",
+            variants = {SecurityScheme.class, Reference.class}
+    )
     private Map<String, Object> securitySchemes;
 
     /**
@@ -181,6 +236,12 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ComponentsParametersDeserializer.class)
+    @TextDocumentCompletion(
+            detail = "Map<String, Parameter | Reference>",
+            documentation = "Reusable Parameter Objects\n\n" +
+                    "An object to hold reusable Parameter Objects.",
+            variants = {Parameter.class, Reference.class}
+    )
     private Map<String, Object> parameters;
 
     /**
@@ -194,6 +255,12 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ComponentsCorrelationIdsDeserializer.class)
+    @TextDocumentCompletion(
+            detail = "Map<String, CorrelationId | Reference>",
+            documentation = "Reusable CorrelationId Objects\n\n" +
+                    "An object to hold reusable CorrelationId Objects.",
+            variants = {CorrelationId.class, Reference.class}
+    )
     private Map<String, Object> correlationIds;
 
     /**
@@ -207,6 +274,12 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ComponentsOperationTraitsDeserializer.class)
+    @TextDocumentCompletion(
+            detail = "Map<String, OperationTrait | Reference>",
+            documentation = "Reusable OperationTrait Objects\n\n" +
+                    "An object to hold reusable OperationTrait Objects.",
+            variants = {OperationTrait.class, Reference.class}
+    )
     private Map<String, Object> operationTraits;
 
     /**
@@ -220,6 +293,12 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ComponentsMessageTraitsDeserializer.class)
+    @TextDocumentCompletion(
+            detail = "Map<String, MessageTrait | Reference>",
+            documentation = "Reusable MessageTrait Objects\n\n" +
+                    "An object to hold reusable MessageTrait Objects.",
+            variants = {MessageTrait.class, Reference.class}
+    )
     private Map<String, Object> messageTraits;
 
     /**
@@ -232,6 +311,12 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ServerBindingsDeserializer.class)
+    @TextDocumentCompletion(
+            detail = "Map<String, ServerBinding | Reference>",
+            documentation = "Reusable ServerBinding Objects\n\n" +
+                    "An object to hold reusable ServerBinding Objects.",
+            variants = {ServerBinding.class, Reference.class}
+    )
     private Map<String, Object> serverBindings;
 
     /**
@@ -244,6 +329,12 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ChannelBindingsDeserializer.class)
+    @TextDocumentCompletion(
+            detail = "Map<String, ChannelBinding | Reference>",
+            documentation = "Reusable ChannelBinding Objects\n\n" +
+                    "An object to hold reusable ChannelBinding Objects.",
+            variants = {ChannelBinding.class, Reference.class}
+    )
     private Map<String, Object> channelBindings;
 
     /**
@@ -256,6 +347,12 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = OperationBindingsDeserializer.class)
+    @TextDocumentCompletion(
+            detail = "Map<String, OperationBinding | Reference>",
+            documentation = "Reusable OperationBinding Objects\n\n" +
+                    "An object to hold reusable OperationBinding Objects.",
+            variants = {OperationBinding.class, Reference.class}
+    )
     private Map<String, Object> operationBindings;
 
     /**
@@ -268,6 +365,12 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = MessageBindingsDeserializer.class)
+    @TextDocumentCompletion(
+            detail = "Map<String, MessageBinding | Reference>",
+            documentation = "Reusable MessageBinding Objects\n\n" +
+                    "An object to hold reusable MessageBinding Objects.",
+            variants = {MessageBinding.class, Reference.class}
+    )
     private Map<String, Object> messageBindings;
 
     /**
@@ -280,6 +383,12 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ComponentsExternalDocsDeserializer.class)
+    @TextDocumentCompletion(
+            detail = "Map<String, ExternalDocumentation | Reference>",
+            documentation = "Reusable ExternalDocumentation Objects\n\n" +
+                    "An object to hold reusable ExternalDocumentation Objects.",
+            variants = {ExternalDocumentation.class, Reference.class}
+    )
     private Map<String, Object> externalDocs;
 
     /**
@@ -292,6 +401,12 @@ public class Components extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ComponentsTagsDeserializer.class)
+    @TextDocumentCompletion(
+            detail = "Map<String, ExternalDocumentation | Reference>",
+            documentation = "Reusable Tag Objects\n\n" +
+                    "An object to hold reusable Tag Objects.",
+            variants = {Tag.class, Reference.class}
+    )
     private Map<String, Object> tags;
 
 }

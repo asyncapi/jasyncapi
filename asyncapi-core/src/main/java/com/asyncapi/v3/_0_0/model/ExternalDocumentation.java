@@ -1,5 +1,6 @@
 package com.asyncapi.v3._0_0.model;
 
+import com.asyncapi.lsp.TextDocumentCompletion;
 import com.asyncapi.schemas.asyncapi.ExtendableObject;
 import lombok.*;
 import org.jetbrains.annotations.NotNull;
@@ -23,6 +24,11 @@ public class ExternalDocumentation extends ExtendableObject {
      * A short description of the target documentation. <a href="https://spec.commonmark.org/">CommonMark syntax</a> can be used for rich text representation.
      */
     @Nullable
+    @TextDocumentCompletion(
+            detail = "String",
+            documentation = "Description of the external documentation\n\n" +
+                    "A short description of the target documentation. CommonMark syntax can be used for rich text representation."
+    )
     private String description;
 
     /**
@@ -32,6 +38,11 @@ public class ExternalDocumentation extends ExtendableObject {
      */
     @NotNull
     @Builder.Default
+    @TextDocumentCompletion(
+            detail = "String",
+            documentation = "URL for the target documentation\n\n" +
+                    "The URL for the target documentation. Value MUST be in the format of a URL."
+    )
     private String url = "";
 
 }

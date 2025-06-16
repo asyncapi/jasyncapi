@@ -1,5 +1,6 @@
 package com.asyncapi.v3._0_0.model.channel.message;
 
+import com.asyncapi.lsp.TextDocumentCompletion;
 import com.asyncapi.schemas.asyncapi.ExtendableObject;
 import lombok.*;
 import org.jetbrains.annotations.NotNull;
@@ -26,6 +27,11 @@ public class CorrelationId extends ExtendableObject {
      * An optional description of the identifier. <a href="https://spec.commonmark.org/">CommonMark syntax</a> can be used for rich text representation.
      */
     @Nullable
+    @TextDocumentCompletion(
+            detail = "String",
+            documentation = "Description of the correlation ID\n\n" +
+                    "An optional description of the identifier. CommonMark syntax can be used for rich text representation."
+    )
     private String description;
 
     /**
@@ -35,6 +41,11 @@ public class CorrelationId extends ExtendableObject {
      */
     @NotNull
     @Builder.Default
+    @TextDocumentCompletion(
+            detail = "String",
+            documentation = "Location of the correlation ID\n\n" +
+                    "A runtime expression that specifies the location of the correlation ID."
+    )
     private String location = "";
 
 }

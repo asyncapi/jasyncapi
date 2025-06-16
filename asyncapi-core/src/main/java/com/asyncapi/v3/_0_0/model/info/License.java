@@ -1,5 +1,6 @@
 package com.asyncapi.v3._0_0.model.info;
 
+import com.asyncapi.lsp.TextDocumentCompletion;
 import com.asyncapi.schemas.asyncapi.ExtendableObject;
 import lombok.*;
 import org.jetbrains.annotations.NotNull;
@@ -26,12 +27,22 @@ public class License extends ExtendableObject {
      */
     @NotNull
     @Builder.Default
+    @TextDocumentCompletion(
+            detail = "String",
+            documentation = "The license name used for the API."
+    )
     private String name = "";
 
     /**
      * A URL to the license used for the API. This MUST be in the form of an absolute URL.
      */
     @Nullable
+    @TextDocumentCompletion(
+            detail = "",
+            documentation = "URL to the license\n\n" +
+                    "A URL to the license used for the API.\n\n" +
+                    "This MUST be in the form of an absolute URL."
+    )
     private String url;
 
 }

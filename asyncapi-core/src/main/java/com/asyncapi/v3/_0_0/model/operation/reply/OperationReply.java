@@ -1,5 +1,6 @@
 package com.asyncapi.v3._0_0.model.operation.reply;
 
+import com.asyncapi.lsp.TextDocumentCompletion;
 import com.asyncapi.schemas.asyncapi.ExtendableObject;
 import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.v3._0_0.jackson.model.operation.reply.OperationReplyAddressDeserializer;
@@ -37,6 +38,12 @@ public class OperationReply extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = OperationReplyAddressDeserializer.class)
+    @TextDocumentCompletion(
+            detail = "OperationReplyAddress | Reference",
+            documentation = "Address for the reply\n\n" +
+                    "Definition of the address that implementations MUST use for the reply.",
+            variants = {OperationReplyAddress.class, Reference.class}
+    )
     private Object address;
 
     /**
@@ -56,6 +63,13 @@ public class OperationReply extends ExtendableObject {
      * However, it is RECOMMENDED that parsers (or other software) dereference this property for a better development experience.
      */
     @Nullable
+    @TextDocumentCompletion(
+            detail = "Reference",
+            documentation = "Channel for the reply\n\n" +
+                    "A $ref pointer to the definition of the channel in which this operation is performed.\n\n" +
+                    "When address is specified, the address property of the channel referenced by this property MUST be either null or not defined.",
+            variants = {Reference.class}
+    )
     private Reference channel;
 
     /**
@@ -71,6 +85,13 @@ public class OperationReply extends ExtendableObject {
      * However, it is RECOMMENDED that parsers (or other software) dereference this property for a better development experience.
      */
     @Nullable
+    @TextDocumentCompletion(
+            detail = "List<Reference>",
+            documentation = "Messages that can be processed as reply\n\n" +
+                    "A list of $ref pointers pointing to the supported Message that can be processed by this operation as reply.\n\n" +
+                    "Every message processed by this operation MUST be valid against one, and only one, of the message objects referenced in this list.",
+            variants = {Reference.class}
+    )
     private List<Reference> messages;
 
 }

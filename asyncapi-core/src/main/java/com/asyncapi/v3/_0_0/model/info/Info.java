@@ -1,5 +1,6 @@
 package com.asyncapi.v3._0_0.model.info;
 
+import com.asyncapi.lsp.TextDocumentCompletion;
 import com.asyncapi.schemas.asyncapi.Reference;
 import com.asyncapi.v3._0_0.jackson.model.ExternalDocumentationDeserializer;
 import com.asyncapi.v3._0_0.jackson.model.TagsDeserializer;
@@ -36,6 +37,10 @@ public class Info extends ExtendableObject {
     @NotNull
     @JsonProperty
     @Builder.Default
+    @TextDocumentCompletion(
+            detail = "String",
+            documentation = "The title of the application."
+    )
     private String title = "";
 
     /**
@@ -46,6 +51,11 @@ public class Info extends ExtendableObject {
     @NotNull
     @JsonProperty
     @Builder.Default
+    @TextDocumentCompletion(
+            detail = "String",
+            documentation = "Version of the application API\n\n" +
+                    "Provides the version of the application API (not to be confused with the specification version)."
+    )
     private String version = "";
 
     /**
@@ -54,6 +64,11 @@ public class Info extends ExtendableObject {
      */
     @Nullable
     @JsonProperty
+    @TextDocumentCompletion(
+            detail = "String",
+            documentation = "Description of the application\n\n" +
+                    "A short description of the application. CommonMark syntax can be used for rich text representation."
+    )
     private String description;
 
     /**
@@ -61,6 +76,11 @@ public class Info extends ExtendableObject {
      */
     @Nullable
     @JsonProperty
+    @TextDocumentCompletion(
+            detail = "String",
+            documentation = "URL to the Terms of Service\n\n" +
+                    "A URL to the Terms of Service for the API. This MUST be in the form of an absolute URL."
+    )
     private String termsOfService;
 
     /**
@@ -68,6 +88,12 @@ public class Info extends ExtendableObject {
      */
     @Nullable
     @JsonProperty
+    @TextDocumentCompletion(
+            detail = "Contact",
+            documentation = "Contact information for the API\n\n" +
+                    "The contact information for the exposed API.",
+            variants = {Contact.class}
+    )
     private Contact contact;
 
     /**
@@ -75,6 +101,12 @@ public class Info extends ExtendableObject {
      */
     @Nullable
     @JsonProperty
+    @TextDocumentCompletion(
+            detail = "License",
+            documentation = "License information for the API\n\n" +
+                    "The license information for the exposed API.",
+            variants = {License.class}
+    )
     private License license;
 
     /**
@@ -89,6 +121,13 @@ public class Info extends ExtendableObject {
     @Nullable
     @JsonProperty
     @JsonDeserialize(using = TagsDeserializer.class)
+    @TextDocumentCompletion(
+            detail = "List<Tag | Reference>",
+            documentation = "Tags for API documentation control\n\n" +
+                    "A list of tags for application API documentation control.\n\n" +
+                    "Tags can be used for logical grouping of applications.",
+            variants = {Tag.class, Reference.class}
+    )
     private List<Object> tags;
 
     /**
@@ -103,6 +142,12 @@ public class Info extends ExtendableObject {
     @Nullable
     @JsonProperty
     @JsonDeserialize(using = ExternalDocumentationDeserializer.class)
+    @TextDocumentCompletion(
+            detail = "ExternalDocumentation | Reference",
+            documentation = "External documentation of the API\n\n" +
+                    "Additional external documentation of the exposed API.",
+            variants = {ExternalDocumentation.class, Reference.class}
+    )
     private Object externalDocs;
 
 }

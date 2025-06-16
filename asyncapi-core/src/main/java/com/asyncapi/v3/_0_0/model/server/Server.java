@@ -1,5 +1,6 @@
 package com.asyncapi.v3._0_0.model.server;
 
+import com.asyncapi.lsp.TextDocumentCompletion;
 import com.asyncapi.bindings.ServerBindingsDeserializer;
 import com.asyncapi.v3._0_0.jackson.model.server.ServerVariablesDeserializer;
 import com.asyncapi.bindings.ServerBinding;
@@ -50,6 +51,13 @@ public class Server extends ExtendableObject {
     @NotNull
     @JsonProperty
     @Builder.Default
+    @TextDocumentCompletion(
+            detail = "String",
+            documentation = "Server host name\n\n" +
+                    "The server host name. It MAY include the port.\n\n" +
+                    "This field supports ServerVariable.\n\n" +
+                    "Variable substitutions will be made when a variable is named in {braces}."
+    )
     private String host = "";
 
     /**
@@ -61,6 +69,13 @@ public class Server extends ExtendableObject {
     @NotNull
     @JsonProperty
     @Builder.Default
+    @TextDocumentCompletion(
+            detail = "String",
+            documentation = "Protocol for connection\n\n" +
+                    "The protocol this URL supports for connection.\n\n" +
+                    "Supported protocol include, but are not limited to: \n" +
+                    "amqp, amqps, http, https, jms, kafka, kafka-secure, mqtt, secure-mqtt, stomp, stomps, ws, wss."
+    )
     private String protocol = "";
 
     /**
@@ -68,6 +83,12 @@ public class Server extends ExtendableObject {
      */
     @Nullable
     @JsonProperty
+    @TextDocumentCompletion(
+            detail = "String",
+            documentation = "Version of the protocol\n\n" +
+                    "The version of the protocol used for connection.\n\n" +
+                    "For instance: AMQP 0.9.1, HTTP 2.0, Kafka 1.0.0, etc."
+    )
     private String protocolVersion;
 
     /**
@@ -77,6 +98,12 @@ public class Server extends ExtendableObject {
      */
     @Nullable
     @JsonProperty
+    @TextDocumentCompletion(
+            detail = "String",
+            documentation = "Path to a resource in the host\n\n" +
+                    "The path to a resource in the host. This field supports ServerVariable.\n\n" +
+                    "Variable substitutions will be made when a variable is named in {braces}."
+    )
     private String pathname;
 
     /**
@@ -84,6 +111,11 @@ public class Server extends ExtendableObject {
      */
     @Nullable
     @JsonProperty
+    @TextDocumentCompletion(
+            detail = "String",
+            documentation = "Description of the server\n\n" +
+                    "An optional string describing the server. CommonMark syntax MAY be used for rich text representation."
+    )
     private String description;
 
     /**
@@ -91,6 +123,11 @@ public class Server extends ExtendableObject {
      */
     @Nullable
     @JsonProperty
+    @TextDocumentCompletion(
+            detail = "String",
+            documentation = "Title for the server\n\n" +
+                    "A human-friendly title for the server."
+    )
     private String title;
 
     /**
@@ -98,6 +135,10 @@ public class Server extends ExtendableObject {
      */
     @Nullable
     @JsonProperty
+    @TextDocumentCompletion(
+            detail = "String",
+            documentation = "A short summary of the server."
+    )
     private String summary;
 
     /**
@@ -114,6 +155,13 @@ public class Server extends ExtendableObject {
     @Nullable
     @JsonProperty
     @JsonDeserialize(using = ServerVariablesDeserializer.class)
+    @TextDocumentCompletion(
+            detail = "Map<String, ServerVariable | Reference>",
+            documentation = "Variables for substitution in server templates\n\n" +
+                    "A map between a variable name and its value.\n\n" +
+                    "The value is used for substitution in the server's host and pathname template.",
+            variants = {ServerVariable.class, Reference.class}
+    )
     private Map<String, Object> variables;
 
     /**
@@ -131,6 +179,13 @@ public class Server extends ExtendableObject {
     @Nullable
     @JsonProperty
     @JsonDeserialize(using = SecuritySchemesDeserializer.class)
+    @TextDocumentCompletion(
+            detail = "List<SecurityScheme | Reference>",
+            documentation = "Security schemes for this server\n\n" +
+                    "A declaration of which security schemes can be used with this server.\n\n" +
+                    "Only one of the security scheme objects need to be satisfied to authorize a connection or operation.",
+            variants = {SecurityScheme.class, Reference.class}
+    )
     private List<Object> security;
 
     /**
@@ -145,6 +200,12 @@ public class Server extends ExtendableObject {
     @Nullable
     @JsonProperty
     @JsonDeserialize(using = TagsDeserializer.class)
+    @TextDocumentCompletion(
+            detail = "List<Tag | Reference>",
+            documentation = "Tags for categorization of servers\n\n" +
+                    "A list of tags for logical grouping and categorization of servers.",
+            variants = {Tag.class, Reference.class}
+    )
     private List<Object> tags;
 
     /**
@@ -159,6 +220,11 @@ public class Server extends ExtendableObject {
     @Nullable
     @JsonProperty
     @JsonDeserialize(using = ExternalDocumentationDeserializer.class)
+    @TextDocumentCompletion(
+            detail = "ExternalDocumentation | Reference",
+            documentation = "Additional external documentation of the exposed API.",
+            variants = {ExternalDocumentation.class, Reference.class}
+    )
     private Object externalDocs;
 
     /**
@@ -173,6 +239,12 @@ public class Server extends ExtendableObject {
      */
     @Nullable
     @JsonDeserialize(using = ServerBindingsDeserializer.class)
+    @TextDocumentCompletion(
+            detail = "Map<String, ServerBinding | Reference>",
+            documentation = "Protocol-specific definitions for the server\n\n" +
+                    "A map where the keys describe the name of the protocol and the values describe protocol-specific definitions for the server.",
+            variants = {ServerBinding.class, Reference.class}
+    )
     private Map<String, Object> bindings;
 
 }
