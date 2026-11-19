@@ -1,0 +1,77 @@
+package com.asyncapi.bindings.kafka.v0._6_0.message;
+
+import com.asyncapi.schemas.asyncapi.AsyncAPISchema;
+import com.fasterxml.jackson.annotation.JsonClassDescription;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyDescription;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.Nullable;
+
+/**
+ * Describes Kafka message binding.
+ * <p>
+ * The same fields as 0.5.0; a class of its own so that <code>bindingVersion: 0.6.0</code> round-trips.
+ *
+ * @see <a href="https://github.com/asyncapi/bindings/tree/master/kafka#message-binding-object">Kafka message binding</a>
+ * @see <a href="https://kafka.apache.org">Kafka</a>
+ * @author Pavel Bodiachevskii
+ * @version 0.6.0
+ * @since 1.0.0-RC6
+ */
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
+@JsonClassDescription("Describes Kafka message binding.")
+public class KafkaMessageBinding extends com.asyncapi.bindings.kafka.KafkaMessageBinding {
+
+    /**
+     * The message key. A <code>$ref</code> to an external schema (for example an Avro record) is kept in
+     * {@link AsyncAPISchema#getRef()}.
+     */
+    @Nullable
+    @JsonProperty("key")
+    @JsonPropertyDescription("The message key.")
+    private AsyncAPISchema key;
+
+    /**
+     * If a Schema Registry is used when performing this operation, tells where the id of schema is stored.
+     */
+    @Nullable
+    @JsonProperty("schemaIdLocation")
+    @JsonPropertyDescription("If a Schema Registry is used when performing this operation, tells where the id of schema is stored (e.g. header or payload).")
+    private KafkaMessageSchemaIdLocation schemaIdLocation;
+
+    /**
+     * Number of bytes or vendor specific values when schema id is encoded in payload.
+     */
+    @Nullable
+    @JsonProperty("schemaIdPayloadEncoding")
+    @JsonPropertyDescription("Number of bytes or vendor specific values when schema id is encoded in payload (e.g confluent/ apicurio-legacy / apicurio-new).")
+    private String schemaIdPayloadEncoding;
+
+    /**
+     * Freeform string for any naming strategy class to use. Clients should default to the vendor default if not
+     * supplied.
+     */
+    @Nullable
+    @JsonProperty("schemaLookupStrategy")
+    @JsonPropertyDescription("Freeform string for any naming strategy class to use. Clients should default to the vendor default if not supplied.")
+    private String schemaLookupStrategy;
+
+    @Override
+    public String getBindingVersion() {
+        return "0.6.0";
+    }
+
+    @Override
+    public void setBindingVersion(@Nullable String bindingVersion) {
+        super.setBindingVersion("0.6.0");
+    }
+
+}

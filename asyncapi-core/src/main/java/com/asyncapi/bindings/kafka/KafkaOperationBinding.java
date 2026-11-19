@@ -28,6 +28,7 @@ import lombok.EqualsAndHashCode;
                 "0.5.0",
                 "latest"
         }),
+        @JsonSubTypes.Type(value = com.asyncapi.bindings.kafka.v0._6_0.operation.KafkaOperationBinding.class, name = "0.6.0"),
 })
 @EqualsAndHashCode(callSuper = true)
 public abstract class KafkaOperationBinding extends OperationBinding {}

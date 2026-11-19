@@ -1,0 +1,21 @@
+{
+  "bindingVersion" : "0.6.0",
+  "clientId" : {
+    "type" : "string",
+    "pattern" : "^payments-api-"
+  },
+  "groupId" : {
+    "type" : "string",
+    "const" : "payments-ledger"
+  },
+  "groupType" : "consumer",
+  "isolationLevel" : "read_committed",
+  "principal" : {
+    "type" : "string",
+    "const" : "User:payments-service"
+  },
+  "transactionalId" : {
+    "type" : "string",
+    "pattern" : "^payments-tx-"
+  }
+}
