@@ -16,7 +16,7 @@ import lombok.EqualsAndHashCode;
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
         include = JsonTypeInfo.As.EXISTING_PROPERTY,
-        defaultImpl = com.asyncapi.bindings.kafka.v0._5_0.channel.KafkaChannelBinding.class,
+        defaultImpl = com.asyncapi.bindings.kafka.v0._6_0.channel.KafkaChannelBinding.class,
         property = "bindingVersion",
         visible = true
 )
@@ -24,11 +24,11 @@ import lombok.EqualsAndHashCode;
         @JsonSubTypes.Type(value = com.asyncapi.bindings.kafka.v0._1_0.channel.KafkaChannelBinding.class, name = "0.1.0"),
         @JsonSubTypes.Type(value = com.asyncapi.bindings.kafka.v0._3_0.channel.KafkaChannelBinding.class, name = "0.3.0"),
         @JsonSubTypes.Type(value = com.asyncapi.bindings.kafka.v0._4_0.channel.KafkaChannelBinding.class, name = "0.4.0"),
-        @JsonSubTypes.Type(value = com.asyncapi.bindings.kafka.v0._5_0.channel.KafkaChannelBinding.class, names = {
-                "0.5.0",
+        @JsonSubTypes.Type(value = com.asyncapi.bindings.kafka.v0._5_0.channel.KafkaChannelBinding.class, name = "0.5.0"),
+        @JsonSubTypes.Type(value = com.asyncapi.bindings.kafka.v0._6_0.channel.KafkaChannelBinding.class, names = {
+                "0.6.0",
                 "latest"
         }),
-        @JsonSubTypes.Type(value = com.asyncapi.bindings.kafka.v0._6_0.channel.KafkaChannelBinding.class, name = "0.6.0"),
 })
 @EqualsAndHashCode(callSuper = true)
 public abstract class KafkaChannelBinding extends ChannelBinding {}

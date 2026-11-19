@@ -1,12 +1,22 @@
 {
-  "bindingVersion" : "0.5.0",
-  "groupId" : {
-    "type" : "string",
-    "enum" : [ "myGroupId" ]
-  },
+  "bindingVersion" : "0.6.0",
   "clientId" : {
     "type" : "string",
-    "enum" : [ "myClientId" ]
+    "pattern" : "^payments-api-"
+  },
+  "groupId" : {
+    "type" : "string",
+    "const" : "payments-ledger"
+  },
+  "groupType" : "consumer",
+  "isolationLevel" : "read_committed",
+  "principal" : {
+    "type" : "string",
+    "const" : "User:payments-service"
+  },
+  "transactionalId" : {
+    "type" : "string",
+    "pattern" : "^payments-tx-"
   },
   "x-number" : 0,
   "x-string" : "",

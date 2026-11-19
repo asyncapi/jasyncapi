@@ -1,15 +1,21 @@
 {
-  "groupId": {
-    "type": "string",
-    "enum": [
-      "myGroupId"
-    ]
+  "bindingVersion" : "unknown version",
+  "clientId" : {
+    "type" : "string",
+    "pattern" : "^payments-api-"
   },
-  "clientId": {
-    "type": "string",
-    "enum": [
-      "myClientId"
-    ]
+  "groupId" : {
+    "type" : "string",
+    "const" : "payments-ledger"
   },
-  "bindingVersion": "unknown version"
+  "groupType" : "consumer",
+  "isolationLevel" : "read_committed",
+  "principal" : {
+    "type" : "string",
+    "const" : "User:payments-service"
+  },
+  "transactionalId" : {
+    "type" : "string",
+    "pattern" : "^payments-tx-"
+  }
 }

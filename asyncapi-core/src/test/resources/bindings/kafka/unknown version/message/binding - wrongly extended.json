@@ -1,18 +1,16 @@
 {
-  "key": {
-    "type": "string",
-    "enum": [
-      "myKey"
-    ]
+  "bindingVersion" : "unknown version",
+  "key" : {
+    "type" : "string",
+    "enum" : [ "myKey" ]
   },
-  "schemaIdLocation": "payload",
-  "schemaIdPayloadEncoding": "apicurio-new",
-  "schemaLookupStrategy": "TopicIdStrategy",
-  "bindingVersion": "unknown version",
-  "x-number": 0,
-  "x-string": "",
-  "x-object": {
-    "property": {}
+  "schemaIdLocation" : "payload",
+  "schemaIdPayloadEncoding" : "apicurio-new",
+  "schemaLookupStrategy" : "TopicIdStrategy",
+  "x-number" : 0,
+  "x-string" : "",
+  "x-object" : {
+    "property" : { }
   },
-  "ext-number": 1
+  "ext-number" : 1
 }

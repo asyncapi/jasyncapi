@@ -1,14 +1,20 @@
 {
-  "groupId": {
-    "type": "string",
-    "enum": [
-      "myGroupId"
-    ]
+  "clientId" : {
+    "type" : "string",
+    "pattern" : "^payments-api-"
   },
-  "clientId": {
-    "type": "string",
-    "enum": [
-      "myClientId"
-    ]
+  "groupId" : {
+    "type" : "string",
+    "const" : "payments-ledger"
+  },
+  "groupType" : "consumer",
+  "isolationLevel" : "read_committed",
+  "principal" : {
+    "type" : "string",
+    "const" : "User:payments-service"
+  },
+  "transactionalId" : {
+    "type" : "string",
+    "pattern" : "^payments-tx-"
   }
 }

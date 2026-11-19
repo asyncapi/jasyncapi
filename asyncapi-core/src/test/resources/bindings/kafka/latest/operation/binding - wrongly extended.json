@@ -1,21 +1,27 @@
 {
-  "groupId": {
-    "type": "string",
-    "enum": [
-      "myGroupId"
-    ]
+  "bindingVersion" : "latest",
+  "clientId" : {
+    "type" : "string",
+    "pattern" : "^payments-api-"
   },
-  "clientId": {
-    "type": "string",
-    "enum": [
-      "myClientId"
-    ]
+  "groupId" : {
+    "type" : "string",
+    "const" : "payments-ledger"
   },
-  "bindingVersion": "latest",
-  "x-number": 0,
-  "x-string": "",
-  "x-object": {
-    "property": {}
+  "groupType" : "consumer",
+  "isolationLevel" : "read_committed",
+  "principal" : {
+    "type" : "string",
+    "const" : "User:payments-service"
   },
-  "ext-number": 1
+  "transactionalId" : {
+    "type" : "string",
+    "pattern" : "^payments-tx-"
+  },
+  "x-number" : 0,
+  "x-string" : "",
+  "x-object" : {
+    "property" : { }
+  },
+  "ext-number" : 1
 }

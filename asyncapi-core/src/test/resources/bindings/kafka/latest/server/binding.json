@@ -1,5 +1,5 @@
 {
-  "schemaRegistryUrl": "https://my-schema-registry.com",
-  "schemaRegistryVendor": "confluent",
-  "bindingVersion": "latest"
+  "bindingVersion" : "latest",
+  "schemaRegistryUrl" : "https://my-schema-registry.com",
+  "schemaRegistryVendor" : "confluent"
 }

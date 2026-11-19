@@ -1,11 +1,9 @@
 {
-  "key": {
-    "type": "string",
-    "enum": [
-      "myKey"
-    ]
+  "key" : {
+    "type" : "string",
+    "enum" : [ "myKey" ]
   },
-  "schemaIdLocation": "payload",
-  "schemaIdPayloadEncoding": "apicurio-new",
-  "schemaLookupStrategy": "TopicIdStrategy"
+  "schemaIdLocation" : "payload",
+  "schemaIdPayloadEncoding" : "apicurio-new",
+  "schemaLookupStrategy" : "TopicIdStrategy"
 }

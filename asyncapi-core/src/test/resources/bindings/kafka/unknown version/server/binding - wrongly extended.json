@@ -1,11 +1,11 @@
 {
-  "schemaRegistryUrl": "https://my-schema-registry.com",
-  "schemaRegistryVendor": "confluent",
-  "bindingVersion": "unknown version",
-  "x-number": 0,
-  "x-string": "",
-  "x-object": {
-    "property": {}
+  "bindingVersion" : "unknown version",
+  "schemaRegistryUrl" : "https://my-schema-registry.com",
+  "schemaRegistryVendor" : "confluent",
+  "x-number" : 0,
+  "x-string" : "",
+  "x-object" : {
+    "property" : { }
   },
-  "ext-number": 1
+  "ext-number" : 1
 }
