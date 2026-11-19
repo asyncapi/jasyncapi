@@ -44,7 +44,7 @@ public class KafkaChannelTopicConfiguration {
     )
     @JsonProperty("retention.ms")
     @JsonPropertyDescription("The [`retention.ms`](https://kafka.apache.org/documentation/#topicconfigs_retention.ms) configuration option.")
-    private Integer retentionMs;
+    private Long retentionMs;
 
     /**
      * The <a href="https://kafka.apache.org/documentation/#topicconfigs_retention.bytes">retention.bytes</a> configuration option.
@@ -68,7 +68,7 @@ public class KafkaChannelTopicConfiguration {
     )
     @JsonProperty("delete.retention.ms")
     @JsonPropertyDescription("The [`delete.retention.ms`](https://kafka.apache.org/documentation/#topicconfigs_delete.retention.ms) configuration option.")
-    private Integer deleteRetentionMs;
+    private Long deleteRetentionMs;
 
     /**
      * The <a href="https://kafka.apache.org/documentation/#topicconfigs_max.message.bytes">max.message.bytes</a> configuration option.

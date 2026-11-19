@@ -5,8 +5,7 @@ import com.asyncapi.schemas.serde.asyncapi.AsyncAPISchemaAdditionalPropertiesDes
 import com.asyncapi.schemas.serde.asyncapi.AsyncAPISchemaAnyValueDeserializer;
 import com.asyncapi.schemas.serde.asyncapi.AsyncAPISchemaItemsDeserializer;
 import com.asyncapi.v3._0_0.jackson.model.ExternalDocumentationDeserializer;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyDescription;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,8 +16,10 @@ import org.jetbrains.annotations.Nullable;
 
 import jakarta.validation.constraints.Min;
 import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 /**
  * The Schema Object allows the definition of input and output data types.
@@ -46,8 +47,9 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = true)
-public class AsyncAPISchema extends ExtendableObject {
+@EqualsAndHashCode
+@JsonIgnoreProperties({"extensionFields"})
+public class AsyncAPISchema {
 
     /**
      * JSON Schema ID.
@@ -869,5 +871,25 @@ public class AsyncAPISchema extends ExtendableObject {
     @Nullable
     @JsonProperty("deprecated")
     private Boolean deprecated;
+
+    public static final Pattern extensionPropertyNamePattern = Pattern.compile("^x-[\\w.\\x2d_]+$");
+
+    /**
+     * Extension fields in the form x-extension-field-name for the exposed API
+     */
+    @Nullable
+    @JsonAnyGetter
+    protected Map<String, Object> extensionFields;
+
+    @JsonAnySetter
+    protected final void readExtensionProperty(String name, Object value) {
+        if (extensionPropertyNamePattern.matcher(name).matches()) {
+            if (extensionFields == null) {
+                extensionFields = new HashMap<>();
+            }
+
+            extensionFields.put(name, value);
+        }
+    }
 
 }

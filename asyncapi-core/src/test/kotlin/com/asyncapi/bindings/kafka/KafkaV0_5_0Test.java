@@ -28,9 +28,9 @@ public class KafkaV0_5_0Test {
                                 KafkaChannelTopicCleanupPolicy.DELETE,
                                 KafkaChannelTopicCleanupPolicy.COMPACT
                         ))
-                        .retentionMs(604_800_000)
+                        .retentionMs(604_800_000L)
                         .retentionBytes(1_000_000_000)
-                        .deleteRetentionMs(86_400_000)
+                        .deleteRetentionMs(86_400_000L)
                         .maxMessageBytes(1_048_588)
                         .build()
                 )
