@@ -1,0 +1,12 @@
+{
+  "bindingVersion": "0.6.0",
+  "principal": {
+    "type": "string",
+    "const": "User:payments-service"
+  },
+  "groupId": {
+    "type": "string",
+    "const": "payments-refund-workers"
+  },
+  "groupType": "share"
+}

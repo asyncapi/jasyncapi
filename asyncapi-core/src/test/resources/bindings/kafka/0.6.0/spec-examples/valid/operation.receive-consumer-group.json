@@ -1,0 +1,13 @@
+{
+  "bindingVersion": "0.6.0",
+  "principal": {
+    "type": "string",
+    "const": "User:payments-service"
+  },
+  "groupId": {
+    "type": "string",
+    "const": "payments-ledger"
+  },
+  "groupType": "consumer",
+  "isolationLevel": "read_committed"
+}

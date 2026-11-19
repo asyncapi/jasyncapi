@@ -1,0 +1,7 @@
+{
+  "bindingVersion": "0.5.0",
+  "principal": {
+    "type": "string",
+    "const": "User:payments-service"
+  }
+}

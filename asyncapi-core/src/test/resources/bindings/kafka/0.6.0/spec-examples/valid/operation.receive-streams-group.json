@@ -1,0 +1,12 @@
+{
+  "bindingVersion": "0.6.0",
+  "principal": {
+    "type": "string",
+    "const": "User:fraud-scoring"
+  },
+  "groupId": {
+    "type": "string",
+    "const": "fraud-scoring"
+  },
+  "groupType": "streams"
+}

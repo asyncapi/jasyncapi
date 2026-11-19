@@ -1,0 +1,8 @@
+{
+  "bindingVersion": "0.6.0",
+  "key": {
+    "type": "string"
+  },
+  "schemaIdLocation": "header",
+  "schemaLookupStrategy": "TopicIdStrategy"
+}

@@ -1,0 +1,7 @@
+{
+  "bindingVersion": "0.6.0",
+  "partitions": 1,
+  "topicConfiguration": {
+    "errors.deadletterqueue.group.enable": true
+  }
+}

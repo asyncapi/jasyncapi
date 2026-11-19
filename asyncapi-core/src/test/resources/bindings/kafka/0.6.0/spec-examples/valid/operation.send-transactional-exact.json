@@ -1,0 +1,11 @@
+{
+  "bindingVersion": "0.6.0",
+  "principal": {
+    "type": "string",
+    "const": "User:payments-service"
+  },
+  "transactionalId": {
+    "type": "string",
+    "const": "payments-tx-ledger-0"
+  }
+}

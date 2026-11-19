@@ -1,0 +1,16 @@
+{
+  "bindingVersion": "0.6.0",
+  "partitions": 12,
+  "replicas": 3,
+  "topicConfiguration": {
+    "cleanup.policy": [
+      "delete"
+    ],
+    "compression.type": "zstd",
+    "compression.zstd.level": 6,
+    "min.insync.replicas": 2,
+    "retention.ms": 604800000,
+    "remote.storage.enable": true,
+    "local.retention.ms": 86400000
+  }
+}

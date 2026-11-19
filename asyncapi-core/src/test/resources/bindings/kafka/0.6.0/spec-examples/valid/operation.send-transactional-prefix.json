@@ -1,0 +1,15 @@
+{
+  "bindingVersion": "0.6.0",
+  "principal": {
+    "type": "string",
+    "const": "User:payments-service"
+  },
+  "clientId": {
+    "type": "string",
+    "pattern": "^payments-api-"
+  },
+  "transactionalId": {
+    "type": "string",
+    "pattern": "^payments-tx-"
+  }
+}

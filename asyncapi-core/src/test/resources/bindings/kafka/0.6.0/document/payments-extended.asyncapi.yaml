@@ -1,0 +1,369 @@
+# kurkik's worked example (docs/kafka/examples/payments/payments.asyncapi.yaml), plus an x-* extension at every
+# level that allows one, an untyped topicConfiguration key, and an MSK IAM, an OAuth and a Kerberos scheme.
+# Round-tripped by KafkaV0_6_0DocumentRoundTripTest: nothing may be lost.
+#
+# The base Contract of the worked example (docs/kafka/examples/README.md).
+#
+# What the payments service does and how it connects, in every Environment. What differs per Environment
+# (partitions, replicas, retention, which servers exist) is in the Overlays under overlays/.
+asyncapi: 3.0.0
+id: urn:example:payments
+info:
+  title: Payments
+  version: 1.0.0
+  x-kurkik-owner: payments-team
+  description: |
+    Records card transactions, keeps the ledger they build, and works through refunds.
+    Every operation runs as the Principal User:payments-service (the operation trait `payments-service`).
+defaultContentType: application/json
+
+# What this Contract owns on a cluster, and the Explicit Grants on it (decision S2-3).
+# Derived Grants (each send's Write, each receive's Read, the TransactionalId grants) are not listed.
+x-kurkik-kafka-access:
+  owns:
+    topics: [payments.]
+    groups: [payments-]
+    transactionalIds: [payments-tx-]
+  grants:
+    - principal: User:analytics
+      operation: READ
+      resourceType: TOPIC
+      patternType: PREFIXED
+      name: payments.
+      description: The analytics team reads every payments topic, in its own groups.
+    - principal: User:analytics
+      operation: READ
+      resourceType: GROUP
+      patternType: PREFIXED
+      name: payments-analytics-
+      description: The groups analytics reads payments topics with.
+
+# One server per advertised Listener (decision S2-4). The Estate file says which Cluster each belongs to.
+servers:
+  dev:
+    host: localhost:9092
+    protocol: kafka
+    description: The dev Cluster's PLAINTEXT listener.
+    tags:
+      - name: env:dev
+    # No security requirement, so the connection details sit on the server (decision S2-7).
+    x-kurkik-kafka:
+      security: PLAINTEXT
+    bindings:
+      kafka:
+        bindingVersion: 0.6.0
+        schemaRegistryUrl: http://localhost:8081
+        schemaRegistryVendor: confluent
+  prod-scram:
+    host: kafka.prod.example.com:9096
+    protocol: kafka-secure
+    description: The prod Cluster's SASL_SSL listener, SCRAM-SHA-512.
+    tags:
+      - name: env:prod
+    security:
+      - $ref: '#/components/securitySchemes/scram'
+    bindings:
+      kafka:
+        bindingVersion: 0.6.0
+        schemaRegistryUrl: https://registry.prod.example.com
+        schemaRegistryVendor: confluent
+  prod-iam:
+    host: b-1.payments.kafka.eu-west-1.amazonaws.com:9098
+    protocol: kafka-secure
+    description: The MSK Cluster's IAM listener, and its OAuth and Kerberos alternatives.
+    tags:
+      - name: env:prod
+    security:
+      - $ref: '#/components/securitySchemes/msk-iam'
+      - $ref: '#/components/securitySchemes/oauth'
+      - $ref: '#/components/securitySchemes/kerberos'
+    x-kurkik-listener: IAM
+    bindings:
+      kafka:
+        bindingVersion: 0.6.0
+        schemaRegistryUrl: https://registry.prod.example.com
+        x-kurkik-registry-auth: none
+  prod-mtls:
+    host: kafka.prod.example.com:9094
+    protocol: kafka-secure
+    description: The prod Cluster's SSL listener, with client certificates.
+    tags:
+      - name: env:prod
+    security:
+      - $ref: '#/components/securitySchemes/mtls'
+    bindings:
+      kafka:
+        bindingVersion: 0.6.0
+        schemaRegistryUrl: https://registry.prod.example.com
+        schemaRegistryVendor: confluent
+
+channels:
+  transactions:
+    address: payments.transactions
+    description: Every card transaction, once, in the order the card network sent it.
+    x-kurkik-retention-reason: Card network disputes are raised within 7 days.
+    messages:
+      transaction:
+        $ref: '#/components/messages/transaction'
+    bindings:
+      kafka:
+        bindingVersion: 0.6.0
+        x-kurkik-inferred: false
+        partitions: 6
+        replicas: 3
+        topicConfiguration:
+          cleanup.policy: [delete]
+          retention.ms: 604800000
+          min.insync.replicas: 2
+          compression.type: zstd
+          message.timestamp.type: CreateTime
+          future.topic.setting: kept as read
+          confluent.placement.constraints: '{"version":1}'
+  ledger:
+    address: payments.ledger
+    description: The balance of every account, the latest value per account id.
+    messages:
+      ledgerEntry:
+        $ref: '#/components/messages/ledgerEntry'
+    bindings:
+      kafka:
+        bindingVersion: 0.6.0
+        partitions: 6
+        replicas: 3
+        topicConfiguration:
+          cleanup.policy: [compact]
+          min.compaction.lag.ms: 3600000
+          min.insync.replicas: 2
+  refunds:
+    address: payments.refunds
+    description: Refund requests, worked through by a share group.
+    messages:
+      refund:
+        $ref: '#/components/messages/refund'
+    bindings:
+      kafka:
+        bindingVersion: 0.6.0
+        partitions: 3
+        replicas: 3
+        topicConfiguration:
+          retention.ms: 1209600000
+          min.insync.replicas: 2
+  refundsDeadLetters:
+    address: payments.refunds.dlq
+    description: Refunds the share group gave up on after its delivery count limit.
+    messages:
+      refund:
+        $ref: '#/components/messages/refund'
+    bindings:
+      kafka:
+        bindingVersion: 0.6.0
+        partitions: 1
+        replicas: 3
+        topicConfiguration:
+          errors.deadletterqueue.group.enable: true
+          retention.ms: 2592000000
+
+operations:
+  recordTransaction:
+    action: send
+    channel:
+      $ref: '#/channels/transactions'
+    summary: The API records each transaction, exactly once.
+    x-kurkik-inferred: false
+    traits:
+      - $ref: '#/components/operationTraits/payments-service'
+    bindings:
+      kafka:
+        bindingVersion: 0.6.0
+        x-kurkik-source: declared
+        clientId:
+          type: string
+          pattern: '^payments-api-'
+        transactionalId:
+          type: string
+          pattern: '^payments-tx-'
+  buildLedger:
+    action: receive
+    channel:
+      $ref: '#/channels/transactions'
+    summary: The ledger builder reads committed transactions only.
+    traits:
+      - $ref: '#/components/operationTraits/payments-service'
+    bindings:
+      kafka:
+        bindingVersion: 0.6.0
+        groupId:
+          type: string
+          const: payments-ledger
+        groupType: consumer
+        isolationLevel: read_committed
+  writeLedger:
+    action: send
+    channel:
+      $ref: '#/channels/ledger'
+    summary: The ledger builder writes balances in the same transaction as its offsets.
+    traits:
+      - $ref: '#/components/operationTraits/payments-service'
+    bindings:
+      kafka:
+        bindingVersion: 0.6.0
+        clientId:
+          type: string
+          const: payments-ledger
+        transactionalId:
+          type: string
+          pattern: '^payments-tx-ledger-'
+  processRefunds:
+    action: receive
+    channel:
+      $ref: '#/channels/refunds'
+    summary: Refund workers share the partitions; each record is locked while one works on it.
+    traits:
+      - $ref: '#/components/operationTraits/payments-service'
+    bindings:
+      kafka:
+        bindingVersion: 0.6.0
+        groupId:
+          type: string
+          const: payments-refund-workers
+        groupType: share
+
+components:
+  x-kurkik-components-note: shared parts
+  operationTraits:
+    payments-service:
+      description: The Principal every payments operation runs as (decision S2-1).
+      x-kurkik-default-principal: true
+      bindings:
+        kafka:
+          bindingVersion: 0.6.0
+          x-kurkik-source: declared
+          principal:
+            type: string
+            const: User:payments-service
+
+  securitySchemes:
+    msk-iam:
+      type: apiKey
+      in: user
+      description: Amazon MSK IAM. AsyncAPI has no type for it, so it is an apiKey in the user (decision H-1).
+      x-kurkik-kafka:
+        security: SASL_AWS_MSK_IAM
+        securityProtocol: SASL_SSL
+        saslMechanism: AWS_MSK_IAM
+        awsIam:
+          profile: payments
+    oauth:
+      type: oauth2
+      description: SASL/OAUTHBEARER with client credentials.
+      flows:
+        clientCredentials:
+          tokenUrl: https://idp.example.com/oauth2/token
+          availableScopes:
+            kafka: Connect to Kafka
+      scopes: [kafka]
+      x-kurkik-kafka:
+        security: SASL_OAUTHBEARER
+        login:
+          clientId: env:PAYMENTS_OAUTH_CLIENT_ID
+          clientSecret: env:PAYMENTS_OAUTH_CLIENT_SECRET
+    kerberos:
+      type: gssapi
+      description: SASL/GSSAPI over TLS.
+      x-kurkik-kafka:
+        security: SASL_GSSAPI_OVER_SSL
+        kerberos:
+          serviceName: kafka
+          principal: payments-service@EXAMPLE.COM
+          keytab: /etc/security/payments-service.keytab
+    scram:
+      type: scramSha512
+      description: SASL/SCRAM-SHA-512 over TLS. Each client brings its own login.
+      x-kurkik-kafka:
+        security: SASL_SCRAM_SHA_512
+        securityProtocol: SASL_SSL
+        saslMechanism: SCRAM-SHA-512
+        tls:
+          trustStore:
+            path: certs/prod-ca.p12
+            type: PKCS12
+            password: env:PAYMENTS_TRUSTSTORE_PASSWORD
+        login:
+          username: env:PAYMENTS_SCRAM_USERNAME
+          password: env:PAYMENTS_SCRAM_PASSWORD
+    mtls:
+      type: X509
+      description: TLS with a client certificate. The broker maps CN=payments-service to User:payments-service.
+      x-kurkik-kafka:
+        security: MUTUAL_TLS
+        securityProtocol: SSL
+        tls:
+          trustStore:
+            path: certs/prod-ca.pem
+            type: PEM
+          keyStore:
+            path: certs/payments-service.crt
+            type: PEM
+          key:
+            path: certs/payments-service.key
+            password: file:/run/secrets/payments-service-key-password
+
+  messages:
+    transaction:
+      name: Transaction
+      x-kurkik-pii: false
+      payload:
+        $ref: '#/components/schemas/transaction'
+      bindings:
+        kafka:
+          bindingVersion: 0.6.0
+          x-kurkik-key-format: string
+          key:
+            type: string
+            description: The card id, so one card's transactions stay in order.
+          schemaIdLocation: header
+    ledgerEntry:
+      name: LedgerEntry
+      payload:
+        $ref: '#/components/schemas/ledgerEntry'
+      bindings:
+        kafka:
+          bindingVersion: 0.6.0
+          key:
+            type: string
+            description: The account id.
+    refund:
+      name: Refund
+      payload:
+        $ref: '#/components/schemas/refund'
+      bindings:
+        kafka:
+          bindingVersion: 0.6.0
+          key:
+            type: string
+            description: The transaction id being refunded.
+
+  schemas:
+    transaction:
+      type: object
+      x-kurkik-classification: internal
+      required: [id, cardId, amount, currency]
+      properties:
+        id: {type: string, format: uuid}
+        cardId: {type: string}
+        amount: {type: integer, description: In minor units.}
+        currency: {type: string, pattern: '^[A-Z]{3}$'}
+    ledgerEntry:
+      type: object
+      required: [accountId, balance, currency]
+      properties:
+        accountId: {type: string}
+        balance: {type: integer}
+        currency: {type: string, pattern: '^[A-Z]{3}$'}
+    refund:
+      type: object
+      required: [transactionId, amount]
+      properties:
+        transactionId: {type: string, format: uuid}
+        amount: {type: integer}
+        reason: {type: string}

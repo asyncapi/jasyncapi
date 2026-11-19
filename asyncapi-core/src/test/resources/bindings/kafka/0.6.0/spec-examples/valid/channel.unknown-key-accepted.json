@@ -1,0 +1,7 @@
+{
+  "bindingVersion": "0.6.0",
+  "topicConfiguration": {
+    "confluent.placement.constraints": "{}",
+    "my.vendor.setting": "x"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "groupId": {
+    "type": "string",
+    "enum": [
+      "legacy-group"
+    ]
+  },
+  "groupType": "classic"
+}

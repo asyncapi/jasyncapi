@@ -1,0 +1,6 @@
+{
+  "bindingVersion": "0.6.0",
+  "topicConfiguration": {
+    "min.insync.replicas": 0
+  }
+}
