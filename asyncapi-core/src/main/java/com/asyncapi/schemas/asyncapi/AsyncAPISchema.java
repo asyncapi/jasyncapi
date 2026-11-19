@@ -16,7 +16,7 @@ import org.jetbrains.annotations.Nullable;
 
 import jakarta.validation.constraints.Min;
 import java.math.BigDecimal;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -875,7 +875,10 @@ public class AsyncAPISchema {
     public static final Pattern extensionPropertyNamePattern = Pattern.compile("^x-[\\w.\\x2d_]+$");
 
     /**
-     * Extension fields in the form x-extension-field-name for the exposed API
+     * Every key this class does not model, in the order read: extension fields in the form
+     * x-extension-field-name, and any other key a schema may carry (an Avro record's <code>fields</code> in an
+     * inline key schema, a newer JSON Schema keyword). They are written back as they were read, after the modelled
+     * keys, so a document survives being read and written.
      */
     @Nullable
     @JsonAnyGetter
@@ -883,13 +886,11 @@ public class AsyncAPISchema {
 
     @JsonAnySetter
     protected final void readExtensionProperty(String name, Object value) {
-        if (extensionPropertyNamePattern.matcher(name).matches()) {
-            if (extensionFields == null) {
-                extensionFields = new HashMap<>();
-            }
-
-            extensionFields.put(name, value);
+        if (extensionFields == null) {
+            extensionFields = new LinkedHashMap<>();
         }
+
+        extensionFields.put(name, value);
     }
 
 }

@@ -63,12 +63,6 @@ public class KafkaV0_6_0DocumentRoundTripTest {
         AsyncAPI asyncAPI = yaml.treeToValue(original, AsyncAPI.class);
         JsonNode writtenBack = yaml.valueToTree(asyncAPI);
 
-        // Not Kafka's: OAuthFlow defaults refreshUrl to "", so a flow read without one is written with an empty one.
-        JsonNode clientCredentials = writtenBack.at("/components/securitySchemes/oauth/flows/clientCredentials");
-        if (clientCredentials instanceof ObjectNode flow && original.at("/components/securitySchemes/oauth/flows/clientCredentials/refreshUrl").isMissingNode()) {
-            Assertions.assertEquals("", flow.remove("refreshUrl").asText());
-        }
-
         assertSame(original, writtenBack);
     }
 

@@ -33,8 +33,7 @@ public class OAuthFlow extends ExtendableObject {
      * The URL to be used for obtaining refresh tokens. This MUST be in the form of an absolute URL.
      */
     @Nullable
-    @Builder.Default
-    private String refreshUrl = "";
+    private String refreshUrl;
 
     /**
      * <b>REQUIRED</b>.
